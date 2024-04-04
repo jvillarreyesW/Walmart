@@ -1952,7 +1952,7 @@ MantenedoresFCST As screen:
                 Cmb_InputDataNuevo As combobox:
                     Default: =LookUp(Col_BD_Fcst_Responsable, IDInputData = ThisItem.Usuario)
                     DefaultSelectedItems: =LookUp(Col_BD_Fcst_Responsable, IDInputData = ThisItem.Usuario)
-                    DisplayFields: =["InputData","IDInputData"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |-
                         =If(
                             ThisItem.Editando,
@@ -1963,8 +1963,8 @@ MantenedoresFCST As screen:
                     Items: =Lst_Fcst_Responsable
                     OnSelect: =Select(Parent)
                     Reset: =_VarResetCtrlSer
-                    SearchFields: =["InputData"]
-                    SearchItems: =Search(Lst_Fcst_Responsable,Cmb_InputDataNuevo.SearchText,"InputData")
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Lst_Fcst_Responsable,Cmb_InputDataNuevo.SearchText,"ComplianceAssetId")
                     SelectMultiple: =false
                     Size: =11
                     Template: =ListItemTemplate.Double

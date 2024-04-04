@@ -2001,7 +2001,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["NombreObjetivo"]
-        SearchItems: =[]
+        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID)),Dpd_Pry_ObjeEstr.SearchText,"NombreObjetivo")
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2015,7 +2015,7 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Lst_Plan_Prioridad,ID=Value(First(ProyectoSeleccionado).Prioridad_Estrategica))
-        DisplayFields: =["NombrePrioridad"]
+        DisplayFields: =["AnnoPrioridad"]
         Height: =Txt_FondoSubViaje_10.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
@@ -2024,8 +2024,8 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["NombrePrioridad"]
-        SearchItems: =[]
+        SearchFields: =["AnnoPrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"AnnoPrioridad")
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2049,7 +2049,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["ComplianceAssetId"]
-        SearchItems: =[]
+        SearchItems: =Search(Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje","IDDominio"),Title,SortOrder.Ascending),Dpd_Pry_Dominio_1.SearchText,"ComplianceAssetId")
         SelectMultiple: =false
         Width: =Txt_FondoNegocio_3.Width - 27
         X: =134

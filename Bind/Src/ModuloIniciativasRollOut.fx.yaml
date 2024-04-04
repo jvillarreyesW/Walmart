@@ -676,7 +676,7 @@ ModuloIniciativasRollOut As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
             SearchFields: =["Value"]
-            SearchItems: =[]
+            SearchItems: =Choices('Dominio - Proyecto/Producto'.Tipo_Rollout,Dpd_Pry_ProductoProyecto_2.SearchText)
             SelectMultiple: =false
             Width: =Txt_FondoTipoProyecto_6.Width - 27
             X: =54

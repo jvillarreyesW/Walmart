@@ -379,7 +379,10 @@ ModuloData As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Title"]
-            SearchItems: =[]
+            SearchItems: |-
+                =Search(Sort(Filter(Col_BD_Dominios,IDDominio="Via-F5536E52-70B9-88B7-A57E-458F2FD63267"||IDDominio="Via-04AC3A31-5248-667D-97F8-35D2A0D306B3"||
+                IDDominio="Via-961CECE9-3D2F-41E2-0F6C-2D35A99F49C5"||
+                IDDominio="Via-DC044ED3-50C7-899B-1FF8-9A066CF495B5"),Title,SortOrder.Ascending),Dpd_Dominio_1.SearchText,"Title")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

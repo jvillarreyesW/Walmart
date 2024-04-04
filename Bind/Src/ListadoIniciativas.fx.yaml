@@ -672,7 +672,7 @@ ListadoIniciativas As screen:
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: |-
             =Table({DisplayName:_Perfil.displayName})
-        DisplayFields: =["NombrePrioridad"]
+        DisplayFields: =["AnnoPrioridad"]
         DisplayMode: |-
             =If(
                 _VarVerPopUpPortafolio,
@@ -693,8 +693,8 @@ ListadoIniciativas As screen:
             )
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
-        SearchFields: =["NombrePrioridad"]
-        SearchItems: =[]
+        SearchFields: =["AnnoPrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_FiltroProyeProd_2.SearchText,"AnnoPrioridad")
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
         Tooltip: =

@@ -743,10 +743,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 11,
+                  "charLength": 19,
                   "charOffset": 58,
                   "snippet": {
-                    "text": "\"InputData\""
+                    "text": "\"ComplianceAssetId\""
                   }
                 }
               },
@@ -3811,6 +3811,86 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModuloProyectosIniciativas.Dpd_Pry_PrioriEstrate.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloProyectosIniciativas.Dpd_Pry_PrioriEstrate.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 15,
+                  "charOffset": 59,
+                  "snippet": {
+                    "text": "\"AnnoPrioridad\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "ModuloProyectosIniciativas",
+                "type": "ModuloProyectosIniciativas.Dpd_Pry_PrioriEstrate"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloProyectosIniciativas.Dpd_Pry_ObjeEstr.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloProyectosIniciativas.Dpd_Pry_ObjeEstr.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 16,
+                  "charOffset": 114,
+                  "snippet": {
+                    "text": "\"NombreObjetivo\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "ModuloProyectosIniciativas",
+                "type": "ModuloProyectosIniciativas.Dpd_Pry_ObjeEstr"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ModuloProyectosIniciativas.Icn_Pry_Guardar_9.Visible"
                 }
               ],
@@ -3851,6 +3931,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.'NOMBRE CECO_DataCard2_1'.DataCardValue52_3.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.'NOMBRE CECO_DataCard2_1'.DataCardValue52_3.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 6,
+                  "charOffset": 60,
+                  "snippet": {
+                    "text": "\"Ceco\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "EdicionFcst",
+                "type": "EdicionFcst.Form_Servicio_1.'NOMBRE CECO_DataCard2_1'.DataCardValue52_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.'NOMBRE CUENTA_DataCard2_1'.DataCardValue53_2.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.'NOMBRE CUENTA_DataCard2_1'.DataCardValue53_2.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 19,
+                  "charOffset": 62,
+                  "snippet": {
+                    "text": "\"ComplianceAssetId\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "EdicionFcst",
+                "type": "EdicionFcst.Form_Servicio_1.'NOMBRE CUENTA_DataCard2_1'.DataCardValue53_2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.PAQUETE_DataCard2_1.DataCardValue51_3.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.PAQUETE_DataCard2_1.DataCardValue51_3.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 19,
+                  "charOffset": 62,
+                  "snippet": {
+                    "text": "\"ComplianceAssetId\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "EdicionFcst",
+                "type": "EdicionFcst.Form_Servicio_1.PAQUETE_DataCard2_1.DataCardValue51_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "EdicionFcst.Form_Servicio_1.PROVEEDOR_DataCard2_1.DataCardValue54_1.SearchItems"
                 }
               ],
@@ -3860,10 +4060,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
+                  "charLength": 19,
                   "charOffset": 78,
                   "snippet": {
-                    "text": "\"Empresa0\""
+                    "text": "\"ComplianceAssetId\""
                   }
                 }
               },
@@ -4632,6 +4832,46 @@
                 "member": "SearchItems",
                 "module": "Iniciativas",
                 "type": "Iniciativas.Cmb_Filtro_Soluciones_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListadoIniciativas.Dpd_FiltroProyeProd_2.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListadoIniciativas.Dpd_FiltroProyeProd_2.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 15,
+                  "charOffset": 59,
+                  "snippet": {
+                    "text": "\"AnnoPrioridad\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "ListadoIniciativas",
+                "type": "ListadoIniciativas.Dpd_FiltroProyeProd_2"
               }
             }
           ],
@@ -29192,6 +29432,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModuloPersona.Rd_PersonasEquipos.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Rd_PersonasEquipos.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Rd_PersonasEquipos"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ModuloPersona.Frm_EditarPersona.'Interno/Externo_DataCard2'.Txt_FondoForm1_2.AccessibleLabel"
                 }
               ],
@@ -29925,36 +30195,6 @@
                 "member": "AccessibleLabel",
                 "module": "ModuloPersona",
                 "type": "ModuloPersona.Frm_EditarPersona.Genero_DataCard2.Dpd_Genero"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Rd_PersonasEquipos.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Rd_PersonasEquipos.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Rd_PersonasEquipos"
               }
             }
           ],
@@ -50522,36 +50762,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Portada.ButtonCanvas1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Portada.ButtonCanvas1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Portada",
-                "type": "Portada.ButtonCanvas1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Portada.Icon1_3.AccessibleLabel"
                 }
               ],
@@ -50606,6 +50816,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Portada.ButtonCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Portada.ButtonCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Portada",
+                "type": "Portada.ButtonCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Portada.ButtonCanvas1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Portada.ButtonCanvas1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Portada",
+                "type": "Portada.ButtonCanvas1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
         },
         {
           "locations": [
@@ -82255,36 +82525,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 11
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Portada.ButtonCanvas1_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Portada.ButtonCanvas1_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Portada",
-                "type": "Portada.ButtonCanvas1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 10
         },
         {
           "locations": [
