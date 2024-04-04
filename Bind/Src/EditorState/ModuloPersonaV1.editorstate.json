@@ -3341,7 +3341,7 @@
       "MetaDataIDKey": "",
       "Name": "BuscarJefeDirecto_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4620,7 +4620,7 @@
       "MetaDataIDKey": "",
       "Name": "Categoria_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7571,7 +7571,7 @@
       "MetaDataIDKey": "",
       "Name": "Considera Head Count_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7934,7 +7934,7 @@
       "MetaDataIDKey": "",
       "Name": "Correo Electrónico_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22258,7 +22258,7 @@
       "MetaDataIDKey": "",
       "Name": "Fecha de Ingreso_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22956,7 +22956,7 @@
       "MetaDataIDKey": "",
       "Name": "Genero_DataCard2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23946,7 +23946,7 @@
       "MetaDataIDKey": "",
       "Name": "IDPersona_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25603,7 +25603,7 @@
       "MetaDataIDKey": "",
       "Name": "Jefe_Directo_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28410,7 +28410,7 @@
       "MetaDataIDKey": "",
       "Name": "Rol_DataCard2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -43458,7 +43458,7 @@
       "MetaDataIDKey": "",
       "Name": "Usuario_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

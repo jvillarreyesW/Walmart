@@ -2486,7 +2486,7 @@ EdicionFcst As screen:
                                 )
                             )
                         )
-                    DisplayFields: =["Empresa0"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |-
                         =If(
                             Chk_AplicaPO.Checked,
@@ -2500,8 +2500,8 @@ EdicionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["Empresa0"]
-                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54_1.SearchText,"Empresa0")
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54_1.SearchText,"ComplianceAssetId")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
