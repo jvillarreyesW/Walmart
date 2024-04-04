@@ -494,7 +494,7 @@ ModuloEquipoV1 As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
+            DisplayFields: =["Dominio"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -514,8 +514,8 @@ ModuloEquipoV1 As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_11.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+            SearchFields: =["Dominio"]
+            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_11.SearchText,"Dominio")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -567,10 +567,17 @@ ModuloEquipoV1 As screen:
             Height: =Txt_FondoForm1_203.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: |-
-                =Sort(
-                    Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"),
-                    'Equipo/Squad',SortOrder.Ascending
+                =If(
+                    _VarEquipo="MiEquipo",
+                    Col_TempMisEquipos,
+                    Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" )
                 )
+                /*
+                Sort(
+                    Filter(Col_BD_Equipos; IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3");
+                    'Equipo/Squad';SortOrder.Ascending
+                )
+                */
             OnChange: |
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
                 If(
@@ -583,10 +590,17 @@ ModuloEquipoV1 As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Equipo_x002f_Squad"]
             SearchItems: |-
-                =Search(Sort(
-                    Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"),
-                    'Equipo/Squad',SortOrder.Ascending
-                ),Cmb_FiltroNombre_12.SearchText,"Equipo_x002f_Squad")
+                =Search(If(
+                    _VarEquipo="MiEquipo",
+                    Col_TempMisEquipos,
+                    Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" )
+                )
+                /*
+                Sort(
+                    Filter(Col_BD_Equipos; IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3");
+                    'Equipo/Squad';SortOrder.Ascending
+                )
+                */,Cmb_FiltroNombre_12.SearchText,"Equipo_x002f_Squad")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

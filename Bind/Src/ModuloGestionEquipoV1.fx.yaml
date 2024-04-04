@@ -638,11 +638,12 @@ ModuloGestionEquipoV1 As screen:
         ZIndex: =7
 
         Cmb_AgegarPersonaEquipo As combobox:
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             InputTextPlaceholder: ="Buscar persona"
             Items: =Choices([@Lst_Persona].BuscarNombrePersona)
-            SearchFields: =["Claims"]
+            SearchFields: =["DisplayName"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_AgegarPersonaEquipo.SearchText)
+            SelectMultiple: =false
             Template: =ListItemTemplate.Person
             Visible: =!_VarCambiardeEquipo
             Width: =368
@@ -688,12 +689,14 @@ ModuloGestionEquipoV1 As screen:
                         Defaults(Ingresos_Ceses_Personas),
                         {
                             IDEquipo: _VarEquipoSeleccionado,
-                            Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+                            Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
+                            AsignadoPor: _Perfil.displayName,
+                            FechaAsignacion: Today()
                         }
                     );
                 
                     If(
-                        IsEmpty(Errors(Ingresos_Ceses_Personas));
+                        IsEmpty(Errors(Ingresos_Ceses_Personas)),
                         Refresh(Ingresos_Ceses_Personas);
                         ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
                         UpdateContext({_VarPopUpAgregarColaborador:false});
@@ -706,12 +709,14 @@ ModuloGestionEquipoV1 As screen:
                         Defaults(Ingresos_Ceses_Personas),
                         {
                             IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
-                            Usuario: _VarusuarioCambiar
+                            Usuario: _VarusuarioCambiar,
+                            AsignadoPor: _Perfil.displayName,
+                            FechaAsignacion: Today()
                         }
                     );
                 
                     If(
-                        IsEmpty(Errors(Ingresos_Ceses_Personas));
+                        IsEmpty(Errors(Ingresos_Ceses_Personas)),
                         Patch(Ingresos_Ceses_Personas,LookUp(Ingresos_Ceses_Personas , Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"),{Estado: "Inactivo"});
                         Refresh(Ingresos_Ceses_Personas);
                         ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
