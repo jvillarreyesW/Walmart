@@ -8923,14 +8923,7 @@
           "NameMapSourceSchema": "?"
         },
         "MoreItemsButtonColor",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "[\"ComplianceAssetId\"]",
-          "InvariantPropertyName": "DisplayFields",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "DisplayFields",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

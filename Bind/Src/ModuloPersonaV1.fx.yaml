@@ -117,14 +117,17 @@ ModuloPersonaV1 As screen:
             DelayItemLoading: =true
             Height: =473
             Items: |-
-                =SortByColumns(
-                    Filter(
-                        Col_MiEquipoWalmart,
-                        IsBlank(Txt_BuscadorPersona.Text) || StartsWith(Nombre_Persona,Txt_BuscadorPersona.Text) || StartsWith(Rol,Txt_BuscadorPersona.Text) || StartsWith('Interno/Externo',Txt_BuscadorPersona.Text)
-                    ),
-                    "Nombre_Persona",
-                    SortOrder.Ascending
-                    )
+                =Search(
+                        SortByColumns(
+                                Col_MiEquipoWalmart,
+                            "Nombre_Persona",
+                            SortOrder.Ascending
+                            ),
+                            Txt_BuscadorPersona.Text,
+                            "Nombre_Persona",
+                            "Rol",
+                            "Interno_x002f_Externo"
+                )
             LoadingSpinner: =LoadingSpinner.Data
             NavigationStep: =3
             ShowNavigation: =true

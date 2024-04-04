@@ -1662,7 +1662,7 @@ GestionFcst As screen:
                                 )
                             )
                         )
-                    DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
+                    DisplayFields: =["AreadeImpacto"]
                     DisplayMode: |-
                         =If(
                             Chk_AplicaPO.Checked,
@@ -1676,8 +1676,8 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-                    SearchItems: =Search(Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending),DataCardValue55_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+                    SearchFields: =["AreadeImpacto"]
+                    SearchItems: =Search(Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending),DataCardValue55_3.SearchText,"AreadeImpacto")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2998,7 +2998,7 @@ GestionFcst As screen:
                                 )
                             )
                         )
-                    DisplayFields: =["Equipo_x002f_Squad"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |-
                         =If(
                             Chk_AplicaPO.Checked,
@@ -3012,8 +3012,8 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["Equipo_x002f_Squad"]
-                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46_4.SearchText,"Equipo_x002f_Squad")
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46_4.SearchText,"ComplianceAssetId")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
