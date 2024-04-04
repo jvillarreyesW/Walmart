@@ -201,6 +201,14 @@ Portada As screen:
         Visible: =_VarMostrarCargando
         ZIndex: =16
 
+    ButtonCanvas1 As Botón:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =96
+        X: =98
+        Y: =105
+        ZIndex: =17
+
     Comunicado_1 As group:
         Height: =5
         Width: =5
