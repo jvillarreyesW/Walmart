@@ -2039,7 +2039,7 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Col_BD_Dominios , IDDominio = First(ProyectoSeleccionado).IDViaje)
-        DisplayFields: =["Title"]
+        DisplayFields: =["ComplianceAssetId"]
         Height: =Txt_FondoNegocio_3.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: ="Buscar responsable"
@@ -2220,7 +2220,7 @@ ModuloProyectosIniciativas As screen:
             =If(Dpd_Pry_TipoPry_1.Selected.Value="Llave en mano" || Rd_Pry_Discovery.Selected.Value="SI"||!(First(ProyectoSeleccionado).'Categoría Iniciativa'.Value="Producto Tecnológico"),[],
                 Filter(Col_BD_Equipos, IDEquipo =First(ProyectoSeleccionado).IDEquipo))
         DisabledColor: =RGBA(77, 77, 77, 1)
-        DisplayFields: =["Equipo_x002f_Squad"]
+        DisplayFields: =["ComplianceAssetId"]
         DisplayMode: =If(Dpd_Pry_TipoPry_1.Selected.Value="Llave en mano" || Rd_Pry_Discovery.Selected.Value="SI" || !(First(ProyectoSeleccionado).'Categoría Iniciativa'.Value="Producto Tecnológico"),DisplayMode.Disabled,DisplayMode.Edit)
         Height: =Txt_FondoEquipo_14.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -2240,7 +2240,7 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["Equipo_x002f_Squad"]
+        SearchFields: =["ComplianceAssetId"]
         SearchItems: |-
             =Search(SortByColumns( Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63",Estado="Activo"),"Equipo_x002f_Squad",SortOrder.Ascending)
             /*If(
@@ -2252,7 +2252,7 @@ ModuloProyectosIniciativas As screen:
                 );
                 Blank()
             )*/
-            ,Cmb_Gl_Equipo_1.SearchText,"Equipo_x002f_Squad")
+            ,Cmb_Gl_Equipo_1.SearchText,"ComplianceAssetId")
         SelectMultiple: =false
         Width: =Txt_FondoEquipo_14.Width - 27
         X: =1220
