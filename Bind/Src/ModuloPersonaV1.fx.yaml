@@ -688,7 +688,7 @@ ModuloPersonaV1 As screen:
                     DefaultSelectedItems: |-
                         =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
                     DisabledColor: =RGBA(102, 102, 102, 1)
-                    DisplayFields: =["Claims"]
+                    DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_74.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -703,7 +703,7 @@ ModuloPersonaV1 As screen:
                         );
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["Claims"]
+                    SearchFields: =["DisplayName"]
                     SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_2.SearchText)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
@@ -1631,7 +1631,7 @@ ModuloPersonaV1 As screen:
                             ),
                             Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text), Jefe_Directo), Nombre_Persona)})
                         )
-                    DisplayFields: =["Claims"]
+                    DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode.Disabled
                     Height: =Txt_FondoForm1_194.Height - 10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -1639,7 +1639,7 @@ ModuloPersonaV1 As screen:
                     Items: =Choices([@Lst_Persona].BuscarJefeDirecto)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["Claims"]
+                    SearchFields: =["DisplayName"]
                     SearchItems: =Choices(Lst_Persona.BuscarJefeDirecto,Cmb_BuscarJefe_1.SearchText)
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
@@ -2795,11 +2795,13 @@ ModuloPersonaV1 As screen:
                         }
                     );
                 
+                    ClearCollect(Col_EquipodelUsuario,Filter(Ingresos_Ceses_Personas, Usuario = Txt_Usuario_1.Text && Estado = "Activo"));
+                
                 ForAll(
-                    Gl_MultiEquipos.AllItems As EquiposAsignados,
+                    Col_EquipodelUsuario As EquiposAsignados,
                     Patch(
                         Ingresos_Ceses_Personas,
-                        LookUp(Ingresos_Ceses_Personas, IDEquipo = EquiposAsignados.IDEquipo && Usuario = Txt_Usuario_1.Text && Estado = "Activo"),
+                        LookUp(Ingresos_Ceses_Personas, ID = EquiposAsignados.ID),
                         {
                             Estado: "Inactivo",
                             FechaCese: Dtp_FechaBaja_2.SelectedDate,
@@ -2808,6 +2810,7 @@ ModuloPersonaV1 As screen:
                         }
                     )
                 );
+                
                 
                 UpdateContext({_VarMostrarBarraBloqueo:false});
                 Clear(Col_EquiposPersonas);
