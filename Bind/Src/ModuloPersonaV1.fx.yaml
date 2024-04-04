@@ -476,7 +476,7 @@ ModuloPersonaV1 As screen:
                 Height: =50
                 Required: =false
                 Update: =Dpd_InternoExterno_1.Selected.Value
-                Width: =581
+                Width: =582
                 X: =0
                 Y: =0
                 ZIndex: =1
@@ -631,7 +631,7 @@ ModuloPersonaV1 As screen:
                 Height: =99
                 Required: =false
                 Update: =Cmb_BuscarPersona_2.Selected
-                Width: =581
+                Width: =582
                 X: =1
                 Y: =0
                 ZIndex: =1
@@ -703,7 +703,7 @@ ModuloPersonaV1 As screen:
                         );
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["DisplayName"]
+                    SearchFields: =["Claims"]
                     SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_2.SearchText)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
@@ -760,7 +760,7 @@ ModuloPersonaV1 As screen:
                 MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "GerenciaOrigen")
                 Required: =false
                 Update: =Cmb_GerenciaOrigen_1.Selected.NombreGerencia
-                Width: =581
+                Width: =582
                 X: =2
                 Y: =0
                 ZIndex: =1
@@ -836,12 +836,16 @@ ModuloPersonaV1 As screen:
                     ChevronFill: =RGBA(0, 121, 187, 1)
                     ChevronHoverBackground: =RGBA(0, 121, 187, 1)
                     Default: |-
-                        ={NombreGerencia: ThisItem.GerenciaOrigen}
+                        =If(
+                            !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text))),
+                            {NombreGerencia: LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text), GerenciaOrigen)},
+                            {NombreGerencia: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen)}
+                        )
                     DefaultSelectedItems: |-
                         =If(
                             !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text))),
                             Table({NombreGerencia: LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text), GerenciaOrigen)}),
-                            Table({NombreGerencia: LookUp(Col_BD_Persona, Usuario = Txt_JefeDirecto_1.Text, GerenciaOrigen)})
+                            Table({NombreGerencia: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen)})
                         )
                         
                         //Col_BD_Gerencia
@@ -884,7 +888,7 @@ ModuloPersonaV1 As screen:
                 Height: =50
                 Required: =false
                 Update: =Dpd_UbicacionLaboral_1.Selected
-                Width: =581
+                Width: =582
                 X: =0
                 Y: =1
                 ZIndex: =1
@@ -995,7 +999,7 @@ ModuloPersonaV1 As screen:
                 MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "RUT")
                 Required: =false
                 Update: =Txt_Rut_1.Text
-                Width: =581
+                Width: =582
                 X: =1
                 Y: =1
                 ZIndex: =1
@@ -1102,7 +1106,7 @@ ModuloPersonaV1 As screen:
                 Height: =50
                 Required: =false
                 Update: =Dpd_Empresa_2.Selected.Result
-                Width: =581
+                Width: =582
                 X: =2
                 Y: =1
                 ZIndex: =1
@@ -1194,110 +1198,6 @@ ModuloPersonaV1 As screen:
                     Y: =DataCardKey13_1.Y
                     ZIndex: =5
 
-            "'Fecha de Ingreso_DataCard1_1' As typedDataCard.dateEditCard":
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Fecha_x0020_de_x0020_Ingreso"
-                Default: =ThisItem.'Fecha de Ingreso'
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_1.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Fecha_x0020_de_x0020_Ingreso")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Dtp_FechaIngreso_1.SelectedDate
-                Width: =581
-                X: =0
-                Y: =2
-                ZIndex: =1
-
-                Txt_FondoForm1_80 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_1.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey6_1 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Dtp_FechaIngreso_1 As datepicker:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    DefaultDate: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
-                        )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    EndYear: =Year(Today())+100
-                    Height: =Txt_FondoForm1_80.Height - 10
-                    IconBackground: =RGBA(244, 244, 244, 1)
-                    IconFill: =RGBA(0, 121, 187, 1)
-                    IsEditable: =true
-                    PaddingBottom: =0
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    StartYear: =1899
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_80.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage6_1 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Dtp_FechaIngreso_1.Y + Dtp_FechaIngreso_1.Height
-                    ZIndex: =4
-
-                StarVisible6_1 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey6_1.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey6_1.Y
-                    ZIndex: =5
-
             Usuario_DataCard1_1 As typedDataCard.textualEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Usuario"
@@ -1309,7 +1209,7 @@ ModuloPersonaV1 As screen:
                 MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Usuario")
                 Required: =false
                 Update: =Txt_Usuario_1.Text
-                Width: =581
+                Width: =582
                 X: =1
                 Y: =2
                 ZIndex: =1
@@ -1385,7 +1285,7 @@ ModuloPersonaV1 As screen:
                 MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Nuevo_x0020_Correo")
                 Required: =false
                 Update: =Txt_CorreoElectronico_1.Text
-                Width: =581
+                Width: =582
                 X: =2
                 Y: =2
                 ZIndex: =1
@@ -1452,105 +1352,6 @@ ModuloPersonaV1 As screen:
                     Y: =DataCardKey8_1.Y
                     ZIndex: =4
 
-            Rol_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Rol")
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Rol"
-                Default: =ThisItem.Rol
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_1.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Rol")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Cmb_Rol_1.Selected.Roles
-                Width: =581
-                X: =0
-                Y: =3
-                ZIndex: =1
-
-                Txt_FondoForm1_193 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey18_1 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Cmb_Rol_1 As dropdown:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(149, 149, 149, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
-                        )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_193.Height - 10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: =Sort(Rol,Roles,SortOrder.Ascending)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_193.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage18_1 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Cmb_Rol_1.Y + Cmb_Rol_1.Height
-                    ZIndex: =4
-
-                StarVisible18_1 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey18_1.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey18_1.Y
-                    ZIndex: =5
-
             BuscarJefeDirecto_DataCard1_1 As typedDataCard.comboBoxEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="BuscarJefeDirecto"
@@ -1566,7 +1367,7 @@ ModuloPersonaV1 As screen:
                 Height: =50
                 Required: =false
                 Update: =Cmb_BuscarJefe_1.Selected
-                Width: =581
+                Width: =582
                 X: =1
                 Y: =3
                 ZIndex: =1
@@ -1686,7 +1487,7 @@ ModuloPersonaV1 As screen:
                 Height: =106
                 Required: =false
                 Update: =Dpd_Genero_1.Selected.Value
-                Width: =581
+                Width: =582
                 X: =2
                 Y: =3
                 ZIndex: =1
@@ -1771,7 +1572,7 @@ ModuloPersonaV1 As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Search(["M","F"],Dpd_Genero_1.SearchText,"Value")
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Txt_FondoForm1_196.Width -27
@@ -1895,7 +1696,7 @@ ModuloPersonaV1 As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Search(["Subcontratación Outsourcing","Subcontratación Servicios"],DataCardValue162.SearchText,"Value")
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Txt_FondoForm1_197.Width - 27
@@ -2007,24 +1808,24 @@ ModuloPersonaV1 As screen:
                     Y: =DataCardKey199.Y
                     ZIndex: =4
 
-            Nombre_Persona_DataCard1_1 As typedDataCard.textualEditCard:
+            IDPersona_DataCard1_1 As typedDataCard.textualEditCard:
                 BorderStyle: =BorderStyle.Solid
-                DataField: ="Nombre_Persona"
-                Default: =ThisItem.Nombre_Persona
+                DataField: ="IDPersona"
+                Default: =ThisItem.IDPersona
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Nombre_Persona")
+                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"IDPersona")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Nombre_Persona")
+                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "IDPersona")
                 Required: =false
-                Update: =Txt_NombrePersona_1.Text
+                Update: =DataCardValue1_1.Text
                 Visible: =false
-                Width: =581
+                Width: =582
                 X: =2
                 Y: =4
                 ZIndex: =1
 
-                DataCardKey9_1 As label:
+                DataCardKey1_1 As label:
                     AutoHeight: =true
                     Height: =34
                     Text: =Parent.DisplayName
@@ -2034,9 +1835,14 @@ ModuloPersonaV1 As screen:
                     Y: =10
                     ZIndex: =1
 
-                Txt_NombrePersona_1 As text:
+                DataCardValue1_1 As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: =Cmb_BuscarPersona_2.Selected.DisplayName
+                    Default: |-
+                        =If(
+                            IsBlank(ThisItem.IDPersona),
+                            _VarNuevoIDPErsona,
+                            ThisItem.IDPersona
+                        )
                     DelayOutput: =true
                     DisplayMode: =Parent.DisplayMode
                     MaxLength: =Parent.MaxLength
@@ -2048,10 +1854,10 @@ ModuloPersonaV1 As screen:
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 5
+                    Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 5
                     ZIndex: =2
 
-                ErrorMessage9_1 As label:
+                ErrorMessage1_1 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -2063,17 +1869,17 @@ ModuloPersonaV1 As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =Txt_NombrePersona_1.Y + Txt_NombrePersona_1.Height
+                    Y: =DataCardValue1_1.Y + DataCardValue1_1.Height
                     ZIndex: =3
 
-                StarVisible9_1 As label:
+                StarVisible1_1 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey9_1.Height
+                    Height: =DataCardKey1_1.Height
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey9_1.Y
+                    Y: =DataCardKey1_1.Y
                     ZIndex: =4
 
             Jefe_Directo_DataCard1_1 As typedDataCard.textualEditCard:
@@ -2088,7 +1894,7 @@ ModuloPersonaV1 As screen:
                 Required: =false
                 Update: =Txt_JefeDirecto_1.Text
                 Visible: =false
-                Width: =581
+                Width: =582
                 X: =0
                 Y: =5
                 ZIndex: =1
@@ -2157,24 +1963,24 @@ ModuloPersonaV1 As screen:
                     Y: =DataCardKey10_1.Y
                     ZIndex: =4
 
-            IDPersona_DataCard1_1 As typedDataCard.textualEditCard:
+            Nombre_Persona_DataCard1_1 As typedDataCard.textualEditCard:
                 BorderStyle: =BorderStyle.Solid
-                DataField: ="IDPersona"
-                Default: =ThisItem.IDPersona
+                DataField: ="Nombre_Persona"
+                Default: =ThisItem.Nombre_Persona
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"IDPersona")
+                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Nombre_Persona")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "IDPersona")
+                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Nombre_Persona")
                 Required: =false
-                Update: =DataCardValue1_1.Text
+                Update: =Txt_NombrePersona_1.Text
                 Visible: =false
-                Width: =581
+                Width: =582
                 X: =1
                 Y: =5
                 ZIndex: =1
 
-                DataCardKey1_1 As label:
+                DataCardKey9_1 As label:
                     AutoHeight: =true
                     Height: =34
                     Text: =Parent.DisplayName
@@ -2184,14 +1990,9 @@ ModuloPersonaV1 As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue1_1 As text:
+                Txt_NombrePersona_1 As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: |-
-                        =If(
-                            IsBlank(ThisItem.IDPersona),
-                            _VarNuevoIDPErsona,
-                            ThisItem.IDPersona
-                        )
+                    Default: =Cmb_BuscarPersona_2.Selected.DisplayName
                     DelayOutput: =true
                     DisplayMode: =Parent.DisplayMode
                     MaxLength: =Parent.MaxLength
@@ -2203,10 +2004,10 @@ ModuloPersonaV1 As screen:
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 5
+                    Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 5
                     ZIndex: =2
 
-                ErrorMessage1_1 As label:
+                ErrorMessage9_1 As label:
                     AutoHeight: =true
                     Height: =10
                     Live: =Live.Assertive
@@ -2218,18 +2019,221 @@ ModuloPersonaV1 As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue1_1.Y + DataCardValue1_1.Height
+                    Y: =Txt_NombrePersona_1.Y + Txt_NombrePersona_1.Height
                     ZIndex: =3
 
-                StarVisible1_1 As label:
+                StarVisible9_1 As label:
                     Align: =Align.Center
-                    Height: =DataCardKey1_1.Height
+                    Height: =DataCardKey9_1.Height
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey1_1.Y
+                    Y: =DataCardKey9_1.Y
                     ZIndex: =4
+
+            "'Fecha de Ingreso_DataCard1_1' As typedDataCard.dateEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Fecha_x0020_de_x0020_Ingreso"
+                Default: =ThisItem.'Fecha de Ingreso'
+                DisplayMode: |-
+                    =If(
+                        Dpd_InternoExterno_1.Selected.Value = "Interno",
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Fecha_x0020_de_x0020_Ingreso")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Dtp_FechaIngreso_1.SelectedDate
+                Width: =582
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                Txt_FondoForm1_80 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |-
+                        =If(
+                            Dpd_InternoExterno_1.Selected.Value = "Externo",
+                            RGBA(255, 255, 255, 1),
+                            RGBA(244, 244, 244, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =527
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey6_1 As label:
+                    AutoHeight: =true
+                    DisabledColor: =RGBA(102, 102, 102, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                Dtp_FechaIngreso_1 As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    DefaultDate: |-
+                        =If(
+                            IsBlank(_VarNuevoIDPErsona),
+                            Parent.Default,
+                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
+                        )
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    Height: =Txt_FondoForm1_80.Height - 10
+                    IconBackground: =RGBA(244, 244, 244, 1)
+                    IconFill: =RGBA(0, 121, 187, 1)
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    StartYear: =1899
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_80.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage6_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Dtp_FechaIngreso_1.Y + Dtp_FechaIngreso_1.Height
+                    ZIndex: =4
+
+                StarVisible6_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey6_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey6_1.Y
+                    ZIndex: =5
+
+            Rol_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Rol")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Rol"
+                Default: =ThisItem.Rol
+                DisplayMode: |-
+                    =If(
+                        Dpd_InternoExterno_1.Selected.Value = "Interno",
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Rol")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Cmb_Rol_1.Selected.Roles
+                Width: =582
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                Txt_FondoForm1_193 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =527
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey18_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                Cmb_Rol_1 As dropdown:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(149, 149, 149, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        =If(
+                            IsBlank(_VarNuevoIDPErsona),
+                            Parent.Default,
+                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
+                        )
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_193.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Sort(Rol,Roles,SortOrder.Ascending)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_193.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage18_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Cmb_Rol_1.Y + Cmb_Rol_1.Height
+                    ZIndex: =4
+
+                StarVisible18_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey18_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey18_1.Y
+                    ZIndex: =5
 
         "'Debes completar info_2' As label":
             Fill: =RGBA(255, 255, 255, 1)
