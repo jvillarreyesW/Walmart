@@ -1,0 +1,1134 @@
+ModuloFinanciadoNegocio As screen:
+
+    Rectangle2_8 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =784
+        Visible: =_VarVerPopUpPortafolio
+        Width: =1920
+        Y: =266
+        ZIndex: =4
+
+    GL_ProductoProyecto_4 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =782
+        Items: =Filter(Col_DominiosGestion, IDProducto = Var_IDProducto)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =782
+        Width: =1914
+        X: =6
+        Y: =268
+        ZIndex: =5
+
+        Label11_18 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            OnSelect: =Select(Parent)
+            Size: =25
+            Text: ="Costos Financiados por el Negocio "  & "- " & ThisItem.'Nombre Producto/Proyecto'
+            Width: =1700
+            X: =170
+            Y: =18
+            ZIndex: =1
+
+        Gl_FinanciamientoProducto_3 As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(179, 179, 179, 1)
+            BorderStyle: =BorderStyle.Dotted
+            BorderThickness: =2
+            DelayItemLoading: =true
+            Height: =495
+            Items: =Sort(Col_NoFinanciadoProducto,Fecha_Registro,SortOrder.Descending)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =120
+            Width: =1802
+            X: =102
+            Y: =140
+            ZIndex: =2
+
+            Txt_FondoForm1_165 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisabledFill: |-
+                    =If(
+                        ThisItem.Editando,
+                        RGBA(255, 255, 255, 1),
+                        RGBA(244, 244, 244, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =300
+                X: =895
+                Y: =52
+                ZIndex: =1
+
+            Txt_NumeroOI_3 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =ThisItem.Monto+0
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Format: =TextFormat.Number
+                Height: =50
+                HintText: =""
+                PaddingLeft: =10
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Tooltip: =
+                Width: =178
+                X: =261
+                Y: =52
+                ZIndex: =2
+
+            Label6_140 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Monto MM (CLP):"
+                Width: =190
+                X: =261
+                Y: =12
+                ZIndex: =3
+
+            Txt_FondoForm1_163 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisabledFill: |-
+                    =If(
+                        ThisItem.Editando,
+                        RGBA(255, 255, 255, 1),
+                        RGBA(244, 244, 244, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =235
+                X: =15
+                Y: =52
+                ZIndex: =4
+
+            Dpd_EstadoFinanciamiento_3 As dropdown:
+                BorderColor: =Parent.BorderColor
+                BorderStyle: =BorderStyle.None
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                ChevronDisabledFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                Default: =ThisItem.Concepto
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =Txt_FondoForm1_163.Height -10
+                HoverBorderColor: =RGBA(0, 121, 187, 1)
+                Items: =["Costo inicial","Control de cambios","Costo Extraordinario"]
+                PressedFill: =RGBA(0, 121, 187, 1)
+                Tooltip: =
+                Width: =Txt_FondoForm1_163.Width -27
+                X: =32
+                Y: =57
+                ZIndex: =5
+
+            Label6_139 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Concepto:"
+                Width: =138
+                X: =32
+                Y: =12
+                ZIndex: =6
+
+            Label6_142 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha Registro:"
+                Width: =185
+                X: =667
+                Y: =12
+                ZIndex: =7
+
+            Txt_FondoForm1_164 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: |
+                    =If(
+                        !ThisItem.Editando,
+                        RGBA(244, 244, 244, 1),
+                        RGBA(255, 255, 255, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =220
+                X: =657
+                Y: =52
+                ZIndex: =8
+
+            Dtp_FechaInicioFinanciamiento_3 As datepicker:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DefaultDate: =If(IsBlank(ThisItem.Fecha_Registro),Today(),ThisItem.Fecha_Registro)
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                EndYear: =Year(Today())+100
+                Height: =Txt_FondoForm1_164.Height - 10
+                IconBackground: =Color.White
+                IconFill: =RGBA(0, 121, 187, 1)
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =
+                Width: =200
+                X: =668
+                Y: =57
+                ZIndex: =9
+
+            Txt_ComentarioFinanciamiento_3 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =ThisItem.Comentarios
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =50
+                Mode: =TextMode.MultiLine
+                PaddingTop: =8
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Tooltip: =
+                Width: =484
+                X: =1207
+                Y: =52
+                ZIndex: =10
+
+            Label6_144 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Comentario:"
+                Width: =190
+                X: =1210
+                Y: =12
+                ZIndex: =11
+
+            Icon9_6 As icon.Edit:
+                Color: |
+                    =If(
+                        ThisItem.Editando,
+                        Color.Green,
+                        RGBA(39, 67, 125, 1)
+                    )
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisplayMode: |
+                    =If(ThisItem.Editando,
+                    If(
+                        IsBlank(Dtp_FechaInicioFinanciamiento_3.SelectedDate)||
+                        IsBlank(Txt_NumeroOI_3.Text)||
+                        IsBlank(Dpd_Empresa_1.Selected.Razon_Social_Proveedor)||
+                        IsBlank(Dpd_EstadoFinanciamiento_3.Selected.Value),
+                        //!IsMatch(Cmb_Gl_CECO_1.Text; ".\d{7}") || IsNumeric(Left(Cmb_Gl_CECO_1.Text;1));
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                       ),
+                       DisplayMode.Edit
+                    )
+                Height: =50
+                Icon: |-
+                    =If(
+                        ThisItem.Editando,
+                        Icon.CheckBadge,
+                        Icon.Edit
+                    )
+                OnSelect: |-
+                    =If(
+                        IsBlank(Txt_NumeroOI_3.Text) && ThisItem.Editando,
+                        Notify("No puedes guardar si no registras el monto.",NotificationType.Warning,5000),
+                        /*Mostrar Spinner Cargando*/
+                        Set(_VarMostrarCargando,true);
+                        If(
+                            ThisItem.Editando,
+                            Patch(
+                                Lst_FinanciamientoNegocio,
+                                ThisItem,
+                                {
+                                IDProducto:Var_IDProducto,
+                                Fecha_Registro:Dtp_FechaInicioFinanciamiento_3.SelectedDate,
+                                Monto:Value(Txt_NumeroOI_3.Text),
+                                Proveedor:Dpd_Empresa_1.Selected.Razon_Social_Proveedor,
+                                Concepto:Dpd_EstadoFinanciamiento_3.Selected.Value,
+                                Comentarios:Txt_ComentarioFinanciamiento_3.Text,
+                                Editando:false,
+                                CECO:Cmb_Gl_CECO_1.Text}
+                            );
+                            ClearCollect(Col_NoFinanciadoProducto,Filter(Lst_FinanciamientoNegocio, IDProducto = First(ProyectoSeleccionado).IDProducto)),
+                            Patch(Col_NoFinanciadoProducto,ThisItem,{Editando: true})
+                        );
+                        /*Ocultar Spinner Cargando*/
+                        Set(_VarMostrarCargando,false)
+                    )
+                Width: =37
+                X: =1698
+                Y: =52
+                ZIndex: =12
+
+            Icon9_8 As icon.Edit:
+                Color: |-
+                    =If(
+                        ThisItem.Editando,
+                        Color.Red,
+                        Color.Black
+                    )
+                Height: =50
+                Icon: |-
+                    =Icon.CancelBadge
+                    /*
+                    If(
+                        ThisItem.Editando;
+                        Icon.CancelBadge;
+                        Icon.Trash
+                    )
+                    */
+                OnSelect: |
+                    =If(
+                        ThisItem.Editando,
+                        Reset(Dpd_EstadoFinanciamiento_3);
+                        Reset(Txt_NumeroOI_3);
+                        Reset(Dpd_Empresa_1);
+                        Reset(Dtp_FechaInicioFinanciamiento_3);
+                        Reset(Txt_ComentarioFinanciamiento_3);
+                        Reset(Txt_ComentarioFinanciamiento_3);
+                    
+                        Patch(Col_NoFinanciadoProducto,ThisItem,{Editando: false})
+                        //Remove(Col_FinanciamientoProducto;ThisItem);;
+                        //Remove(Portafolio;ThisItem)
+                    )
+                Visible: =ThisItem.Editando
+                Width: =37
+                X: =1743
+                Y: =52
+                ZIndex: =13
+
+            Label6_145 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Proveedor:"
+                Width: =190
+                X: =913
+                Y: =12
+                ZIndex: =15
+
+            Dpd_Empresa_1 As dropdown:
+                BorderColor: = Parent.BorderColor
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                Default: =ThisItem.Proveedor
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =Txt_FondoForm1_3.Height -10
+                HoverBorderColor: =RGBA(0, 121, 187, 1)
+                Items: |-
+                    =Sort(Lst_Proveedores, Razon_Social_Proveedor,SortOrder.Ascending)
+                    /*
+                    SortByColumns(["Zebra";
+                    "NCR";
+                    "Orbis Data ";
+                    "Vigatec";
+                    "Clai";
+                    "SAP / Seidor";
+                    "Nakisa";
+                    "SAP /Thomson Reuters / Finistech";
+                    "Thoughtworks";
+                    "Shift SPA ";
+                    "Onestream / Accenture";
+                    "Evertec";
+                    "Girboy";
+                    "AILET / retailLatam"];"Value")
+                    */
+                PressedFill: =RGBA(0, 121, 187, 1)
+                Tooltip: =ThisItem.Proveedor
+                Width: |
+                    =270
+                X: =908
+                Y: =57
+                ZIndex: =16
+
+            Cmb_Gl_CECO_1 As text:
+                BorderColor: |-
+                    =//If(    IsMatch(Cmb_Gl_CECO_1.Text; ".\d{7}") && !IsNumeric(Left(Cmb_Gl_CECO_1.Text;1)) ;RGBA(128; 128; 128; 1);Color.Red)
+                    
+                    RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =ThisItem.CECO
+                DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisabledFill: |-
+                    =If(
+                        ThisItem.Editando,
+                        RGBA(255, 255, 255, 1),
+                        RGBA(244, 244, 244, 1)
+                    )
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =193
+                X: =451
+                Y: =52
+                ZIndex: =17
+
+            Label6_146 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Centro de Costo:"
+                Width: =175
+                X: =460
+                Y: =12
+                ZIndex: =18
+
+        Label10_75 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    CountIf(Col_FinanciamientoProducto,'Estado OI/OE'.Value = "Abierta")>0 || CountIf(Gl_FinanciamientoProducto_3.AllItems, Editando = true)>0,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            OnSelect: |-
+                =//Set(_VarIDKPI; "KPI-" & GUID());;
+                
+                Patch(
+                    Col_FinanciamientoProducto,
+                    Defaults(Col_FinanciamientoProducto),
+                    {
+                        IDProducto: ThisItem.IDProducto,
+                        OI: "",
+                        OE: "",
+                        'Estado OI/OE': {Value:"Abierta"},
+                        'Fecha Inicio de desarrollo': Today(),
+                        'Fecha Termino Estimada': Today(),
+                        Descripción: "",
+                        Creado: Now(),
+                        Editando: true
+                    }
+                );
+            Text: ="Agregar Costo"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =262
+            X: =145
+            Y: =96
+            ZIndex: =3
+
+        Image8_26 As image:
+            Height: =56
+            Image: =sp06
+            OnSelect: =Select(Parent)
+            Width: =82
+            X: =104
+            Y: =11
+            ZIndex: =4
+
+        Image24_4 As image:
+            DisplayMode: |-
+                =If(
+                    CountIf(Col_FinanciamientoProducto,'Estado OI/OE'.Value = "Abierta")>0 || CountIf(Gl_FinanciamientoProducto_3.AllItems, Editando = true)>0,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =40
+            Image: ='nuevo agregar '
+            OnSelect: |-
+                =//Set(_VarIDKPI; "KPI-" & GUID());;
+                
+                Patch(
+                    Col_FinanciamientoProducto,
+                    Defaults(Col_FinanciamientoProducto),
+                    {
+                        IDProducto: ThisItem.IDProducto,
+                        OI: "",
+                        OE: "",
+                        'Estado OI/OE': {Value:"Abierta"},
+                        'Fecha Inicio de desarrollo': Today(),
+                        'Fecha Termino Estimada': Today(),
+                        Descripción: "",
+                        Creado: Now(),
+                        Editando: true
+                    }
+                );
+            Tooltip: ="Agregar nuevo financiamiento"
+            Width: =40
+            X: =105
+            Y: =89
+            ZIndex: =6
+
+        Btn_SeleccionarLimpiarFiltro_20 As button:
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =If(
+                     CountIf(Gl_FinanciamientoProducto_3.AllItems, Editando)>0,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =//Set(_VarIDKPI; "KPI-" & GUID());;
+                
+                Patch(
+                    Col_NoFinanciadoProducto,
+                    Defaults(Col_NoFinanciadoProducto),
+                    {
+                        IDProducto: ThisItem.IDProducto,
+                        Editando: true
+                    }
+                );
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Tooltip: =If( Self.DisplayMode = DisplayMode.Disabled, "Para poder agregar una nueva orden de financiamiento, debe cerrar la que esta abierta.","Agregar nueva orden de financiamiento")
+            Width: =260
+            X: =104
+            Y: =83
+            ZIndex: =7
+
+        Icn_Abrir_Cerrar_Registro_12 As icon.ChevronDown:
+            Height: =42
+            Icon: =Icon.ChevronUp
+            OnSelect: |-
+                = /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                
+                Set(_VarVerPopUpPortafolio,false);
+                If(Valor1 = "Proyecto",
+                Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
+                Navigate(ListadoIniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"})
+                );
+                 
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,false)
+            Width: =44
+            X: =23
+            Y: =18
+            ZIndex: =14
+
+        Rectangle3_9 As rectangle:
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =350
+            Width: =2
+            X: =80
+            Y: =72
+            ZIndex: =15
+
+        Gp_Menu_4 As group:
+            Height: =5
+            Width: =5
+            X: =-6
+            Y: =-18
+            ZIndex: =15
+
+            Img_Finanza_10 As image:
+                Height: =50
+                Image: =Icn_finanzas01
+                OnSelect: =Select(Parent)
+                Width: =50
+                X: =11
+                Y: =303
+                ZIndex: =8
+
+            Img_KPI_4 As image:
+                Height: =50
+                Image: =Icn_kpi2
+                OnSelect: =Select(Parent)
+                Width: =50
+                X: =11
+                Y: =221
+                ZIndex: =9
+
+            Img_Portafolio_4 As image:
+                Height: =50
+                Image: ='Icn_gestionar 01'
+                OnSelect: =Select(Parent)
+                Width: =50
+                X: =11
+                Y: =132
+                ZIndex: =10
+
+            Btn_KPIs_4 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                HoverColor: =RGBA(255, 255, 0, 0.13)
+                HoverFill: =RGBA(255, 255, 0, 0.13)
+                OnSelect: |-
+                    =/*
+                    UpdateContext({_VarVerProductoProyecto:false});;
+                    //UpdateContext({_VarVerDependencia:false});;
+                    UpdateContext({_VarVerKpi:true});;
+                    //UpdateContext({_VarVerDetalleKPI:false});;
+                    UpdateContext({_VarVerFinanciamiento:false});; 
+                    UpdateContext({_VarVerDBloqueoI:false});;
+                    ClearCollect(Col_KPIProducto;Sort(Filter(Col_BD_KPIs; IDProducto = ThisItem.IDProducto);Creado;SortOrder.Descending));;
+                    Clear(Col_RegistrosPorKPI);;
+                    */
+                    
+                    
+                    //Set(Var_IDProducto;ThisItem.IDProducto);;
+                    Navigate(ModuloKPI,ScreenTransition.None)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                Size: =25
+                Text: =""
+                Tooltip: ="Gestionar KPIs"
+                Width: =60
+                X: =6
+                Y: =214
+                ZIndex: =11
+
+            Btn_Financiamiento_10 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: |+
+                    =If(
+                        ThisItem.'Nombre Producto/Proyecto' = "NUEVO PRODUCTO / PROYECTO" && ThisItem.Editando,
+                        DisplayMode.Disabled,
+                        If(
+                            ThisItem.Editando && ThisItem.RequiereFinanciamiento = "NO",
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    )
+                    
+                Fill: =RGBA(153, 207, 236, 0.24)
+                Height: =60
+                HoverFill: =RGBA(153, 207, 236, 0.24)
+                OnSelect: |-
+                    =/*
+                    UpdateContext({_VarVerProductoProyecto:false});;
+                    //UpdateContext({_VarVerDependencia:false});;
+                    UpdateContext({_VarVerKpi:false});;
+                    //UpdateContext({_VarVerDetalleKPI:false});;
+                    UpdateContext({_VarVerFinanciamiento:true});;
+                    ClearCollect(Col_FinanciamientoProducto;Filter(Col_BD_Financiamiento; IDProducto = ThisItem.IDProducto))
+                    */
+                PressedColor: =RGBA(153, 207, 236, 0.24)
+                Size: =25
+                Text: =""
+                Tooltip: ="Gestionar Financiamiento"
+                Width: =60
+                X: =6
+                Y: =298
+                ZIndex: =12
+
+            Btn_Portafolio_4 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                HoverColor: =RGBA(222, 154, 237, 0.22)
+                HoverFill: =
+                OnSelect: |-
+                    =//Set(_VarModulos;true);;
+                    
+                    
+                        Navigate(ModuloProyectosIniciativas,ScreenTransition.Fade)
+                       
+                        //Set(_VarVerPopUpPortafolio;true)
+                    
+                    
+                    /*
+                    UpdateContext({_VarVerProductoProyecto:true});;
+                    //UpdateContext({_VarVerDependencia:false});;
+                    UpdateContext({_VarVerKpi:false});;
+                    //UpdateContext({_VarVerDetalleKPI:false});;
+                    UpdateContext({_VarVerFinanciamiento:false});;
+                    */
+                PressedFill: =RGBA(222, 154, 237, 0.22)
+                Size: =25
+                Text: =""
+                Tooltip: ="Gestionar Producto / Proyecto"
+                Width: =60
+                X: =6
+                Y: =126
+                ZIndex: =13
+
+        Rct_Separador_10 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =1750
+            X: =120
+            Y: =72
+            ZIndex: =16
+
+        Txt_NumeroOI_4 As text:
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Sum(Gl_FinanciamientoProducto_3.AllItems,Monto)
+            DelayOutput: =true
+            DisplayMode: |-
+                =If(
+                    ThisItem.Editando,
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Height: =50
+            HintText: =""
+            PaddingLeft: =10
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Tooltip: =
+            Width: =205
+            X: =360
+            Y: =649
+            ZIndex: =17
+
+        Label6_141 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Total:"
+            Width: =190
+            X: =146
+            Y: =659
+            ZIndex: =18
+
+    Gp_CabeceraPortafolio_18 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =27
+
+        Rct_FondoCabecera_Persona_25 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =1
+
+        Img_UsuarioPantallaPersona_30 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1774
+            Y: =5
+            ZIndex: =2
+
+        Btn_Back_24 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: |-
+                =Reset(Rd_InternoExterno);
+                Reset(Cmb_BuscarMiEquipo);
+                //UpdateContext({_VarMostrarEdicionEquipo:false});;
+                Clear(Col_UsuarioenEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Reset(Rd_PersonasEquipos);
+                Navigate(Portada,ScreenTransition.Fade)
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =3
+
+    Gp_Filtros_10 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        Html_FondoNuevoEquipo_29 As htmlViewer:
+            Height: =145
+            HtmlText: |-
+                ="
+                <div style='
+                    width: 1450px;
+                    height: 105px;
+                    background: #C4D5E3;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 10px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            PaddingLeft: =10
+            Width: =1500
+            X: =245
+            Y: =99
+            ZIndex: =6
+
+        Txt_FondoForm1_161 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Dpd_FiltroProyeProd.Selected.Value
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =460
+            Y: =147
+            ZIndex: =7
+
+        Label6_137 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Tipo:"
+            Width: =287
+            X: =466
+            Y: =107
+            ZIndex: =8
+
+        Label6_138 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Nombre del proyecto:" 
+            Width: =287
+            X: =803
+            Y: =107
+            ZIndex: =9
+
+        Txt_FondoForm1_162 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroJefePO.Selected.DisplayName
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =1125
+            Y: =147
+            ZIndex: =10
+
+        DataCardKey15_21 As label:
+            AutoHeight: =true
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="PO / JP:"
+            Width: =239
+            Wrap: =false
+            X: =1135
+            Y: =107
+            ZIndex: =11
+
+        Txt_FondoForm1_166 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =796
+            Y: =147
+            ZIndex: =12
+
+        Txt_FondoForm1_167 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Dpd_FiltroEstado.Selected.Value
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =192
+            X: =1470
+            Y: =147
+            ZIndex: =13
+
+        Label6_143 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Estado:"
+            Width: =182
+            X: =1470
+            Y: =107
+            ZIndex: =14
+
+        Label10_76 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filtra por"
+            Width: =122
+            X: =334
+            Y: =112
+            ZIndex: =15
+
+        Label10_77 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            Text: ="Agregar"
+            Tooltip: ="Agregar nuevo Producto / Proyecto"
+            Width: =98
+            X: =1772
+            Y: =161
+            ZIndex: =16
+
+        Label13_10 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Size: =25
+            Text: ="PROYECTO TECNOLOGICO"
+            Visible: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    false,
+                    true
+                )
+            Width: =611
+            X: =689
+            Y: =2
+            ZIndex: =17
+
+        Image5_20 As image:
+            Height: =35
+            Image: ='filtrar (1)'
+            Width: =40
+            X: =285
+            Y: =112
+            ZIndex: =18
+
+        Img_AgregarPrdPry_19 As image:
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =40
+            Image: ='nuevo agregar '
+            Tooltip: ="Agregar nuevo Producto / Proyecto"
+            Width: =40
+            X: =1734
+            Y: =161
+            ZIndex: =19
+
+        Image20_20 As image:
+            Height: =35
+            Image: =borrarnose
+            Tooltip: ="Limpiar Filtros"
+            Width: =40
+            X: =290
+            Y: =161
+            ZIndex: =20
+
+        Label10_78 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Text: ="Limpiar"
+            Width: =122
+            X: =334
+            Y: =163
+            ZIndex: =21
+
+        Label10_79 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Text: ="Actualizar"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =98
+            X: =1772
+            Y: =112
+            ZIndex: =22
+
+        Image23_11 As image:
+            Height: =40
+            Image: ='nuevo actualizar '
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Tooltip: ="Actualizar datos"
+            Width: =35
+            X: =1734
+            Y: =112
+            ZIndex: =23
+
+        Btn_Pry_LimpiarFiltros_16 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =285
+            Y: =158
+            ZIndex: =24
+
+        Btn_Pry_AgregarProyecto_5 As button:
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =1732
+            Y: =159
+            ZIndex: =25
+
+        Btn_Pry_ActualizarDatos_5 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =1732
+            Y: =109
+            ZIndex: =26
+

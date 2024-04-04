@@ -1,0 +1,44 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="HerramientaPortafolio_Notificacion_BTV" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="HerramientaPortafolio_Notificacion_BTV" />
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ManualTriggerInput_TipoRegistro_Valor_def" />
+      <string name="ManualTriggerInput_Dominio_Valor_def" />
+      <string name="ManualTriggerInput_NombreProducto_Valor_def" />
+      <string name="ManualTriggerInput_RegistradoPor_Valor_def" />
+      <object name="ManualTriggerInput">
+        <property name="TipoRegistro_Valor" type="string" />
+        <property name="Dominio_Valor" type="string" />
+        <property name="NombreProducto_Valor" type="string" />
+        <property name="RegistradoPor_Valor" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/logicflows">
+    <resource path="/{connectionId}/triggers/manual/run">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Run">
+        <doc title="Runs a logic flow trigger." />
+        <request>
+          <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
+            <doc title="The api version" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="TipoRegistro_Valor" path="/TipoRegistro_Valor" type="xs:string" required="true" />
+            <param style="plain" name="Dominio_Valor" path="/Dominio_Valor" type="xs:string" required="true" />
+            <param style="plain" name="NombreProducto_Valor" path="/NombreProducto_Valor" type="xs:string" required="true" />
+            <param style="plain" name="RegistradoPor_Valor" path="/RegistradoPor_Valor" type="xs:string" required="true" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="logicflows" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

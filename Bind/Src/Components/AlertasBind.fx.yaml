@@ -1,0 +1,129 @@
+AlertasBind As CanvasComponent:
+    AltoNotificacion: |-
+        =If(
+            _VarAlertasInicio,
+            1050,
+            38
+        )
+    AnchoNotificacion: |-
+        =If(
+            _VarAlertasInicio,
+            1920,
+            424
+        )
+    ChildTabPriority: =true
+    EstadoAlerta: =_VarAlertasInicio
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: |-
+        =If(
+            AlertasBind.EstadoAlerta,
+            1050,
+            38 + 15
+        )
+    Width: |-
+        =If(
+            AlertasBind.EstadoAlerta,
+            1920,
+            424 + 15
+        )
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle4 As rectangle:
+        Fill: =RGBA(102, 102, 102, 0.16)
+        Height: =989
+        OnSelect: =Set(_VarAlertasInicio,false)
+        Visible: =_VarAlertasInicio
+        Width: =1920
+        Y: =61
+        ZIndex: =1
+
+    Html_Alertas As htmlViewer:
+        AutoHeight: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =415
+        HtmlText: =htmlAlerta
+        Size: =10
+        Visible: =_VarAlertasInicio
+        Width: =1920
+        Y: =63
+        ZIndex: =2
+
+    Icon2_2 As icon.CancelBadge:
+        Color: =RGBA(116, 116, 116, 1)
+        Height: =28
+        Icon: =Icon.CancelBadge
+        OnSelect: =Set(_VarAlertasInicio,false)
+        Visible: =_VarAlertasInicio
+        Width: =45
+        X: =1868
+        Y: =79
+        ZIndex: =3
+
+    Image6 As image:
+        BorderStyle: =BorderStyle.None
+        Height: =38
+        Image: |-
+            ="https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/PerritoTriste.gif?csf=1&web=1&e=YB7K4n"
+        ImagePosition: =ImagePosition.Stretch
+        Visible: |
+            =If(
+                _VarUsuarioJefe = "E0S00E7" || _VarUsuarioJefe = "D0L0BPU" || _VarUsuarioJefe = "SQUIJAD" || _VarUsuarioJefe = "D0P0G5W" || _VarUsuarioJefe = "FNICOLE" || _VarUsuarioJefe = "FECKER1" || _VarUsuarioJefe = "K0R07N4" || _VarUsuarioJefe = "M0C0WK9" || _VarUsuarioJefe = "C0M0N9T" || _VarUsuarioJefe = "C0L03H3" || _VarUsuarioJefe = "J0M04FX" || _VarUsuarioJefe = "V0SALAZ" || _VarUsuarioJefe = "R0G01A5" || _VarUsuarioJefe = "M0A00Y0",
+                false,
+                If( IsBlank(htmlAlerta),false,true)
+            )
+        Width: =51
+        X: =388
+        Y: =9
+        ZIndex: =4
+
+    BtnAlerta As button:
+        Align: =Align.Left
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        Color: |+
+            =If(
+                IsMatch(htmlAlerta,"Felicidades",MatchOptions.Contains),
+                Color.White,
+                RGBA(255, 0, 0, 1)
+            )
+            
+        Fill: |-
+            =If(
+                IsMatch(htmlAlerta,"Felicidades",MatchOptions.Contains),
+                Color.Green,
+                Color.GhostWhite
+            )
+            //RGBA(255; 0; 0; 1)
+        Height: =38
+        HoverFill: |-
+            =If(
+                IsMatch(htmlAlerta,"Felicidades",MatchOptions.Contains),
+                Color.Green,
+                Color.GhostWhite
+            )
+            //RGBA(255; 0; 0; 1)
+        OnSelect: =Set(_VarAlertasInicio,!_VarAlertasInicio)
+        PaddingLeft: =20
+        RadiusBottomRight: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: |
+            =If(
+                IsMatch(htmlAlerta,"Felicidades",MatchOptions.Contains),
+                "🎖️" & " NO tienes info para actualizar",
+                "🚨" & "Tienes info pendiente por actualizar"
+            )
+        Tooltip: ="Revisar Alerta"
+        Visible: |
+            =If(
+                _VarUsuarioJefe = "E0S00E7" || _VarUsuarioJefe = "D0L0BPU" || _VarUsuarioJefe = "SQUIJAD" || _VarUsuarioJefe = "D0P0G5W" || _VarUsuarioJefe = "FNICOLE" || _VarUsuarioJefe = "FECKER1" || _VarUsuarioJefe = "K0R07N4" || _VarUsuarioJefe = "M0C0WK9" || _VarUsuarioJefe = "C0M0N9T" || _VarUsuarioJefe = "C0L03H3" || _VarUsuarioJefe = "J0M04FX" || _VarUsuarioJefe = "V0SALAZ" || _VarUsuarioJefe = "R0G01A5" || _VarUsuarioJefe = "M0A00Y0",
+                false,
+                If( IsBlank(htmlAlerta),false,true)
+            )
+        Width: =373
+        X: =18
+        Y: =9
+        ZIndex: =5
+

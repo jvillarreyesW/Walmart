@@ -1,0 +1,3319 @@
+RepositorioProveedor As screen:
+    OnVisible: =ClearCollect(ColContratoProveedor,Lst_ContratosProveedores);ClearCollect(ColProveedor,Lst_Proveedores)
+
+    Ctn_Filtros_6 As groupContainer.manualLayoutContainer:
+        Height: =253
+        Width: =1287
+        X: =353
+        ZIndex: =5
+
+        Html_FondoNuevoEquipo_42 As htmlViewer:
+            Height: =145
+            HtmlText: |-
+                ="
+                <div style='
+                    width: 1250px;
+                    height: 105px;
+                    background: #C4D5E3;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 10px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            PaddingLeft: =10
+            Width: =1287
+            Y: =97
+            ZIndex: =1
+
+        Txt_FondoForm1_156 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            Height: =54
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =391
+            X: =215
+            Y: =145
+            ZIndex: =2
+
+        Label6_125 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Buscar:"
+            Width: =287
+            X: =221
+            Y: =105
+            ZIndex: =3
+
+        Txt_FondoForm1_158 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroJefePO.Selected.DisplayName
+            DisabledBorderColor: =RGBA(149, 149, 149, 1)
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =54
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =375
+            X: =617
+            Y: =145
+            ZIndex: =5
+
+        DataCardKey15_28 As label:
+            AutoHeight: =true
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Tipo documento:"
+            Width: =239
+            Wrap: =false
+            X: =617
+            Y: =105
+            ZIndex: =6
+
+        Label10_55 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filtra por"
+            Width: =122
+            X: =89
+            Y: =110
+            ZIndex: =10
+
+        Label13_17 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Size: =25
+            Text: ="LISTADO DE CONTRATOS"
+            Visible: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    false,
+                    true
+                )
+            Width: =611
+            X: =260
+            ZIndex: =12
+
+        Image5_18 As image:
+            Height: =35
+            Image: ='filtrar (1)'
+            Width: =40
+            X: =40
+            Y: =110
+            ZIndex: =13
+
+        Image20_18 As image:
+            Height: =35
+            Image: =borrarnose
+            Tooltip: ="Limpiar Filtros"
+            Width: =40
+            X: =45
+            Y: =159
+            ZIndex: =15
+
+        Label10_73 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Text: ="Limpiar"
+            Width: =122
+            X: =89
+            Y: =161
+            ZIndex: =16
+
+        Btn_Pry_LimpiarFiltros_12 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =40
+            Y: =156
+            ZIndex: =19
+
+        Cmb_FiltroNombre_9 As combobox:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: =
+            DisplayFields: =["Value"]
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            IsSearchable: =false
+            Items: =Choices(Lst_ContratosProveedores.Formulario_Solicitud)
+            OnChange: |
+                =UpdateContext({_VarMostrarCuadroBloqueo:false});
+                If(
+                    CountIf( Col_DominiosGestion, Editando = true)>0,
+                    ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                    UpdateContext({_VarMostrarCuadroBloqueo:false})
+                    //Reset(GL_ProductoProyecto)
+                )
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionFill: =RGBA(0, 121, 187, 1)
+            SelectMultiple: =false
+            Tooltip: =
+            Width: =350
+            X: =631
+            Y: =150
+            ZIndex: =21
+
+        Txt_FondoForm1_192 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroJefePO.Selected.DisplayName
+            DisabledBorderColor: =RGBA(149, 149, 149, 1)
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =54
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =215
+            X: =1012
+            Y: =143
+            ZIndex: =22
+
+        DataCardKey15_31 As label:
+            AutoHeight: =true
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Estado:"
+            Width: =195
+            Wrap: =false
+            X: =1018
+            Y: =105
+            ZIndex: =23
+
+        Cmb_FiltroNombre_10 As dropdown:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: =
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =Txt_FondoForm1_38.Height -10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            Items: =["Activo","Inactivo","Todos"]
+            OnChange: |
+                =UpdateContext({_VarMostrarCuadroBloqueo:false});
+                If(
+                    CountIf( Col_DominiosGestion, Editando = true)>0,
+                    ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                    UpdateContext({_VarMostrarCuadroBloqueo:false})
+                    //Reset(GL_ProductoProyecto)
+                );
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Tooltip: =
+            Width: |
+                =180
+            X: =1026
+            Y: =150
+            ZIndex: =25
+
+    Gallery16 As gallery.variableTemplateHeightGallery:
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =760
+        Items: |-
+            =//Filter(Lst_ContratosProveedores;Proveedor=ThisItem.Razon_Social_Proveedor)
+            SortByColumns(
+                 Distinct(Filter(
+                    Search(
+                       
+                       Switch(
+                            Cmb_FiltroNombre_10.Selected.Value,
+                            "Activo",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Documento archivado"),
+                            "Inactivo",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Contrato Inactivo"),
+                            "Todos",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Documento archivado" ||Estado_Solicitud.Value="Contrato Inactivo"))
+            ,
+                            
+                            Txt_FondoForm1_156.Text,
+                            "Descripcion_Solicitud","Solicitante","Proveedor","Nombre_Solicitud","Razon_Social_Proveedor"),
+                        (IsBlank(Cmb_FiltroNombre_9.Selected.Value)||Formulario_Solicitud.Value=Cmb_FiltroNombre_9.Selected.Value)),Razon_Social_Proveedor),
+            "Value",SortOrder.Ascending)
+            
+            
+                
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: |
+            =280
+        Width: =1884
+        X: =23
+        Y: =273
+        ZIndex: =9
+
+        Label52 As label:
+            Fill: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =45
+            Size: =18
+            Text: =If(IsBlank(LookUp(Lst_Proveedores,RUT=ThisItem.Value,Razon_Social_Proveedor)),ThisItem.Value,LookUp(Lst_Proveedores,RUT=ThisItem.Value,Razon_Social_Proveedor))
+            Width: =1231
+            X: =63
+            ZIndex: =1
+
+        GalListaContratos_1 As gallery.galleryVertical:
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: |-
+                =/*CountRows(Filter( 
+                    Filter(
+                        Search(
+                           Filter(Lst_ContratosProveedores;Estado_Solicitud.Value="Documento Archivado";Proveedor=ThisItem.Value);
+                                Txt_FondoForm1_156.Text;
+                                "Descripcion_Solicitud";"Solicitante";"Proveedor");
+                        IsBlank(Cmb_FiltroNombre_2.Selected.Value)||Estado_Solicitud.Value=Cmb_FiltroNombre_2.Selected.Value);
+                    IsBlank(Cmb_FiltroNombre_3.Selected.Value)||Tipo_Documento.Value=Cmb_FiltroNombre_3.Selected.Value))*230*/
+                CountRows([@GalListaContratos_1].AllItems)*230
+            Items: |-
+                =//Filter(Lst_ContratosProveedores;Proveedor=ThisItem.Razon_Social_Proveedor)
+                Filter(
+                SortByColumns(AddColumns(
+                      Filter(
+                        Search(
+                           
+                               
+                               Switch(
+                                Cmb_FiltroNombre_10.Selected.Value,
+                                "Activo",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Documento archivado"),
+                                "Inactivo",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Contrato Inactivo"),
+                                "Todos",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Documento archivado" ||Estado_Solicitud.Value="Contrato Inactivo"))
+                               ,
+                                Txt_FondoForm1_156.Text,
+                                "Descripcion_Solicitud","Solicitante","Proveedor","Razon_Social_Proveedor"),
+                  
+                    (IsBlank(Cmb_FiltroNombre_9.Selected.Value)||Formulario_Solicitud.Value=Cmb_FiltroNombre_9.Selected.Value)
+                    ),
+                    "ID orden",If(IsBlank(ID_Contrato_Padre),Text(ID),(ID_Contrato_Padre)&"-1")),"ID orden",SortOrder.Ascending)
+                    ,Razon_Social_Proveedor=Label52.Text)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =215
+            Visible: =ver_detalleContratos=ThisItem.Value
+            Width: =1851
+            X: =10
+            Y: =50
+            ZIndex: =2
+
+            Rectangle23_2 As rectangle:
+                Fill: =_VarColoresApp.AzulparaCabeceras
+                Height: =32
+                OnSelect: =Select(Parent)
+                Width: =1841
+                ZIndex: =1
+
+            Label15_20 As label:
+                Height: =25
+                Text: =ThisItem.Solicitante
+                Width: =254
+                X: =307
+                Y: =65
+                ZIndex: =2
+
+            Label15_19 As label:
+                Align: =Align.Right
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Text: =If(ThisItem.Proveedor_Extranjero=true,"Extranjero", ThisItem.Proveedor)&"-"&If(ThisItem.Proveedor_Extranjero=true,ThisItem.Proveedor,LookUp(Lst_Proveedores,RUT=ThisItem.Proveedor).Razon_Social_Proveedor)
+                Width: =596
+                X: =1230
+                Y: =2
+                ZIndex: =4
+
+            Label15_18 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                Text: =ThisItem.Nombre_Solicitud
+                Width: =1182
+                Y: =2
+                ZIndex: =5
+
+            Separador_Registros_9 As rectangle:
+                Fill: =RGBA(179, 179, 179, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =1840
+                X: =1
+                Y: =214
+                ZIndex: =6
+
+            Label15_100 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Solicitante:"
+                Width: =254
+                X: =307
+                Y: =40
+                ZIndex: =7
+
+            Label15_102 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Inicio_Vigencia
+                Width: =243
+                X: =16
+                Y: =64
+                ZIndex: =9
+
+            Label15_99 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Inicio Vigencia:"
+                Width: =208
+                X: =14
+                Y: =39
+                ZIndex: =10
+
+            Label15_107 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Contrato
+                Width: =243
+                X: =16
+                Y: =123
+                ZIndex: =11
+
+            Label15_105 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Contrato:"
+                Width: =152
+                X: =14
+                Y: =98
+                ZIndex: =12
+
+            Label15_111 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Termino_Contrato
+                Width: =243
+                X: =14
+                Y: =181
+                ZIndex: =13
+
+            Label15_109 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Termino Contrato:"
+                Width: =245
+                X: =14
+                Y: =158
+                ZIndex: =14
+
+            Label15_110 As label:
+                Height: =25
+                Text: =LookUp(Col_BD_Persona,Usuario=ThisItem.Contacto_Walmart_notificaciones).Nombre_Persona
+                Width: =375
+                X: =309
+                Y: =123
+                ZIndex: =17
+
+            Label15_108 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Contacto Walmart para notificaciones:"
+                Width: =377
+                X: =307
+                Y: =98
+                ZIndex: =18
+
+            Label15_103 As label:
+                Height: =26
+                Text: =ThisItem.Descripcion_del_Servicio
+                VerticalAlign: =VerticalAlign.Top
+                Width: =1111
+                X: =715
+                Y: =123
+                ZIndex: =19
+
+            Label15_101 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Descripción del servicio:"
+                Width: =377
+                X: =715
+                Y: =99
+                ZIndex: =20
+
+            Image21_3 As image:
+                Height: =50
+                Image: ='file-pdf'
+                OnSelect: |-
+                    =UpdateContext({_VerContrato:ThisItem});UpdateContext({ID_PDF:First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value}); UpdateContext({_VarVerPDF:true})
+                Visible: |-
+                    =If(
+                        (ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor|| PermisoUsuario.Proveedores_Vista) &&
+                        !IsBlank(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value)
+                    ,true,false)
+                Width: =63
+                X: =1759
+                Y: =153
+                ZIndex: =21
+
+            Label15_112 As label:
+                Height: =25
+                Text: =ThisItem.ID_Contrato_WebDox
+                Visible: =If(ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor,true,false)
+                Width: =200
+                X: =717
+                Y: =181
+                ZIndex: =22
+
+            Label15_113 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="ID Webdox:"
+                Visible: =If(ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor,true,false)
+                Width: =200
+                X: =715
+                Y: =160
+                ZIndex: =23
+
+            Label15_114 As label:
+                Height: =25
+                Text: =ThisItem.Valor_del_Contrato
+                Visible: =If(ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor,true,false)
+                Width: =200
+                X: =1127
+                Y: =181
+                ZIndex: =24
+
+            Label15_115 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Valor de Contrato:"
+                Visible: =If(ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor,true,false)
+                Width: =200
+                X: =1123
+                Y: =160
+                ZIndex: =25
+
+            Icon34 As icon.Edit:
+                Color: =_VarColoresApp.AzulparaCabeceras
+                Height: =57
+                Icon: =Icon.Edit
+                OnSelect: |-
+                    =UpdateContext({_Var_IDContratoPadre:ThisItem.ID_Contrato_Padre});Reset(Toggle3);
+                    ResetForm(Form6);ResetForm(Form6_1); Set(_VarCargaManual,true);UpdateContext({_varGuidCargaManual:ThisItem.ID_Sol_Proveedor});ClearCollect(Col_UsuariosContrato,Split(ThisItem.Usuarios_relacionados,"|"));Reset(Gallery8)
+                Visible: =PermisoUsuario.Mantenedor
+                Width: =37
+                X: =1715
+                Y: =149
+                ZIndex: =26
+
+            Label15_122 As label:
+                Height: =25
+                Text: =ThisItem.ID&If(IsBlank(ThisItem.ID_Contrato_Padre),""," ("&ThisItem.ID_Contrato_Padre&")")
+                Width: =127
+                X: =1473
+                Y: =181
+                ZIndex: =27
+
+            Label15_123 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =23
+                Text: |-
+                    ="ID CONTRATO"&If(IsBlank(ThisItem.ID_Contrato_Padre),":","(ID PADRE):")
+                Visible: =If(ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor,true,false)
+                Width: =241
+                X: =1473
+                Y: =160
+                ZIndex: =28
+
+            Label15_23 As label:
+                Height: =25
+                Text: =If(ThisItem.Estado_Solicitud.Value="Documento archivado","Activo","Inactivo")
+                Width: =254
+                X: =1473
+                Y: =66
+                ZIndex: =29
+
+            Label15_124 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Estado:"
+                Width: =254
+                X: =1473
+                Y: =41
+                ZIndex: =30
+
+            Label15_125 As label:
+                Height: =25
+                Text: =LookUp(Col_BD_Persona,Usuario=ThisItem.Manager).Nombre_Persona
+                Width: =375
+                X: =309
+                Y: =181
+                ZIndex: =31
+
+            Label15_126 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Manager:"
+                Width: =245
+                X: =307
+                Y: =160
+                ZIndex: =32
+
+            Label15_24 As label:
+                Height: =23
+                Text: =ThisItem.Nombre_del_Servicio
+                Width: =733
+                X: =715
+                Y: =66
+                ZIndex: =33
+
+            Label15_127 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Nombre Servicio:"
+                Width: =254
+                X: =715
+                Y: =41
+                ZIndex: =34
+
+        Image18_2 As image:
+            Height: =45
+            Image: =sp16
+            OnSelect: |-
+                =If(ver_detalleContratos=ThisItem.Value,
+                    Set(ver_detalleContratos,Blank()),
+                    Set(ver_detalleContratos,ThisItem.Value)
+                )
+            Tooltip: ="Ver los detalles de la persona"
+            Width: =33
+            X: =22
+            ZIndex: =3
+
+        Rectangle23 As rectangle:
+            BorderColor: =RGBA(139, 154, 159, 1)
+            BorderThickness: =1
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =1870
+            Y: =50
+            ZIndex: =4
+
+    Group6 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        Image24_3 As image:
+            Height: =40
+            Image: ='cloud-download-alt (1)'
+            OnSelect: |-
+                =Launch("https://teams.wal-mart.com/:x:/s/AgilePMOMalayita/EVM6fkFJTKJBqzeSFnyr1-EBFJTvQJGlImjfLwGxn-26Vg?e=j689lD"&"&download=1")
+            Width: =40
+            X: =1727
+            Y: =212
+            ZIndex: =6
+
+        Label15_98 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: |-
+                =Launch("https://teams.wal-mart.com/:x:/s/AgilePMOMalayita/EVM6fkFJTKJBqzeSFnyr1-EBFJTvQJGlImjfLwGxn-26Vg?e=j689lD"&"&download=1")
+            Text: ="Descargar"
+            Width: =122
+            X: =1766
+            Y: =220
+            ZIndex: =7
+
+        Btn_Pry_AgregarRiesgo_6 As button:
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Launch("https://teams.wal-mart.com/:x:/s/AgilePMOMalayita/EVM6fkFJTKJBqzeSFnyr1-EBFJTvQJGlImjfLwGxn-26Vg?e=j689lD"&"&download=1")
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =161
+            X: =1720
+            Y: =213
+            ZIndex: =8
+
+    Button15_19 As button:
+        Fill: =_VarColoresApp.AzulFondo
+        Height: =38
+        HoverFill: =_VarColoresApp.AzulparaCabeceras
+        OnSelect: |
+            =UpdateContext({_Var_IDContratoPadre:Blank()});NewForm(Form6);NewForm(Form6_1); Set(_VarCargaManual,true);UpdateContext({_varGuidCargaManual:"Prov-"&GUID()});Clear(Col_UsuariosContrato);ClearCollect(Col_UsuariosYaAsignados,Split(Concat(Lst_ContratosProveedores,Usuarios_relacionados,""),"|"))
+        Text: ="Cargar Manual"
+        Visible: =PermisoUsuario.Mantenedor
+        Width: =172
+        X: =1640
+        Y: =116
+        ZIndex: =16
+
+    Gp_CabeceraPortafolio_16 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        Rct_FondoCabecera_Persona_22 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =1
+
+        Img_UsuarioPantallaPersona_25 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1764
+            Y: =5
+            ZIndex: =2
+
+        Btn_Back_20 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: |-
+                =If(_VarVerPDF,UpdateContext({_VarVerPDF:false}),Back())
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =3
+
+    Container17 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(214, 221, 224, 0.69)
+        Height: =1050
+        Visible: =_VarCargaManual
+        Width: =1920
+        ZIndex: =17
+
+        Rectangle22 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =920
+            Width: =1591
+            X: =136
+            Y: =88
+            ZIndex: =1
+
+        Form6 As form:
+            DataSource: =Lst_Proveedores_Adjuntos
+            Height: =220
+            Item: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_varGuidCargaManual &&Campo="Documento Final")
+            NumberOfColumns: =1
+            Width: =728
+            X: =172
+            Y: =752
+            ZIndex: =2
+
+            ID_Sol_Proveedor_DataCard5 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ID_Sol_Proveedor"
+                Default: =ThisItem.ID_Sol_Proveedor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =165
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                Required: =false
+                Update: =DataCardValue132.Text
+                Visible: =false
+                Width: =728
+                X: =0
+                Y: =0
+                ZIndex: =21
+
+                DataCardKey157 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue132 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =_varGuidCargaManual
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey157.Y + DataCardKey157.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage157 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue132.Y + DataCardValue132.Height
+                    ZIndex: =3
+
+                StarVisible157 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey157.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey157.Y
+                    ZIndex: =4
+
+            Campo_DataCard3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Campo"
+                Default: =ThisItem.Campo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =151
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                Required: =false
+                Update: =DataCardValue133.Text
+                Visible: =false
+                Width: =728
+                X: =0
+                Y: =1
+                ZIndex: =21
+
+                DataCardKey158 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue133 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: ="Documento Final"
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey158.Y + DataCardKey158.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage158 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue133.Y + DataCardValue133.Height
+                    ZIndex: =3
+
+                StarVisible158 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey158.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey158.Y
+                    ZIndex: =4
+
+            "'Datos adjuntos_DataCard3' As typedDataCard.attachmentsEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="{Attachments}"
+                Default: =ThisItem.'Datos adjuntos'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =135
+                Required: =false
+                Update: =DataCardValue134.Attachments
+                Width: =728
+                X: =0
+                Y: =2
+                ZIndex: =21
+
+                DataCardKey159 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue134 As attachments:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =120
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =15
+                    MaxAttachmentSize: =20
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey159.Y + DataCardKey159.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage159 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue134.Y + DataCardValue134.Height
+                    ZIndex: =3
+
+                StarVisible159 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey159.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey159.Y
+                    ZIndex: =4
+
+        Form6_1 As form:
+            DataSource: =Lst_ContratosProveedores
+            Height: =633
+            Item: =LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=_varGuidCargaManual)
+            Width: =1010
+            X: =172
+            Y: =124
+            ZIndex: =3
+
+            Formulario_Solicitud_DataCard2 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Formulario_Solicitud"
+                Default: =ThisItem.Formulario_Solicitud
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Formulario_Solicitud")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue139.Selected
+                Width: =1008
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey164 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue139 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@Lst_ContratosProveedores].Formulario_Solicitud)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(Lst_ContratosProveedores.Formulario_Solicitud,DataCardValue139.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =740
+                    X: =30
+                    Y: =DataCardKey164.Y + DataCardKey164.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage164 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue139.Y + DataCardValue139.Height
+                    ZIndex: =3
+
+                StarVisible164 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey164.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey164.Y
+                    ZIndex: =4
+
+            Area_solicitante_DataCard3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Area_solicitante"
+                Default: =ThisItem.Area_solicitante
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Area_solicitante")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Area_solicitante")
+                Required: =false
+                Update: =DataCardValue144.Text
+                Visible: =false
+                Width: =336
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey169 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue144 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =If(IsBlank(Parent.Default), "Walmart Tech",Parent.Default)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey169.Y + DataCardKey169.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage169 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue144.Y + DataCardValue144.Height
+                    ZIndex: =3
+
+                StarVisible169 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey169.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey169.Y
+                    ZIndex: =4
+
+            Proveedor_Extranjero_DataCard3 As typedDataCard.toggleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Proveedor_Extranjero"
+                Default: =ThisItem.Proveedor_Extranjero
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor_Extranjero")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue136.Value
+                Visible: =false
+                Width: =336
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey161 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue136 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =If(ComboBox6.Selected.RUT="Extranjero",true,false)
+                    DisplayMode: =Parent.DisplayMode
+                    ShowLabel: =false
+                    Tooltip: =Parent.DisplayName
+                    X: =30
+                    Y: =DataCardKey161.Y + DataCardKey161.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage161 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue136.Y + DataCardValue136.Height
+                    ZIndex: =3
+
+                StarVisible161 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey161.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey161.Y
+                    ZIndex: =4
+
+            Proveedor_DataCard3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Proveedor"
+                Default: =ThisItem.Proveedor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Proveedor")
+                Required: =false
+                Update: =DataCardValue135.Text
+                Width: =672
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey160 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue135 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =If(ComboBox6.Selected.RUT="Extranjero",ComboBox6.Selected.Razon_Social_Proveedor,ComboBox6.Selected.RUT)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Visible: =false
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey160.Y + DataCardKey160.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage160 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue135.Y + DataCardValue135.Height
+                    ZIndex: =3
+
+                StarVisible160 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey160.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey160.Y
+                    ZIndex: =4
+
+                ComboBox6 As combobox:
+                    DefaultSelectedItems: =If(ThisItem.Proveedor_Extranjero,LookUp(Lst_Proveedores,Razon_Social_Proveedor=ThisItem.Proveedor),LookUp(Lst_Proveedores,RUT=ThisItem.Proveedor))
+                    DisplayFields: =["Razon_Social"]
+                    Items: =Lst_Proveedores
+                    SearchFields: =["Razon_Social"]
+                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,"Razon_Social")
+                    SelectMultiple: =false
+                    Width: =508
+                    X: =31
+                    Y: =44
+                    ZIndex: =5
+
+            Fecha_Inicio_Vigencia_DataCard2 As typedDataCard.dateEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Fecha_Inicio_Vigencia"
+                Default: =ThisItem.Fecha_Inicio_Vigencia
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Inicio_Vigencia")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue140.SelectedDate
+                Width: =336
+                X: =2
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey165 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Fecha Inicio Vigencia"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue140 As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultDate: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    StartYear: =1899
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey165.Y + DataCardKey165.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage165 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue140.Y + DataCardValue140.Height
+                    ZIndex: =3
+
+                StarVisible165 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey165.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey165.Y
+                    ZIndex: =4
+
+            Fecha_Contrato_DataCard2 As typedDataCard.dateEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Fecha_Contrato"
+                Default: =ThisItem.Fecha_Contrato
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Contrato")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue142.SelectedDate
+                Width: =336
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey167 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Fecha Contrato"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue142 As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultDate: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    StartYear: =1899
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey167.Y + DataCardKey167.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage167 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue142.Y + DataCardValue142.Height
+                    ZIndex: =3
+
+                StarVisible167 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey167.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey167.Y
+                    ZIndex: =4
+
+            Fecha_Termino_Contrato_DataCard2 As typedDataCard.dateEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Fecha_Termino_Contrato"
+                Default: =ThisItem.Fecha_Termino_Contrato
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Termino_Contrato")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue141.SelectedDate
+                Width: =336
+                X: =1
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey166 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Fecha Termino Contrato"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue141 As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultDate: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    StartYear: =1899
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey166.Y + DataCardKey166.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage166 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue141.Y + DataCardValue141.Height
+                    ZIndex: =3
+
+                StarVisible166 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey166.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey166.Y
+                    ZIndex: =4
+
+            ID_Contrato_WebDox_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ID_Contrato_WebDox"
+                Default: =ThisItem.ID_Contrato_WebDox
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Contrato_WebDox")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_Contrato_WebDox")
+                Required: =false
+                Update: =DataCardValue131.Text
+                Width: =336
+                X: =2
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey156 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="ID Contrato WEBDOX"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue131 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey156.Y + DataCardKey156.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage156 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue131.Y + DataCardValue131.Height
+                    ZIndex: =3
+
+                StarVisible156 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey156.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey156.Y
+                    ZIndex: =4
+
+            ID_Sol_Proveedor_DataCard6 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ID_Sol_Proveedor"
+                Default: =ThisItem.ID_Sol_Proveedor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                Required: =false
+                Update: =DataCardValue137.Text
+                Visible: =false
+                Width: =336
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey162 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue137 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =If(IsBlank(Parent.Default),_varGuidCargaManual,Parent.Default)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey162.Y + DataCardKey162.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage162 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue137.Y + DataCardValue137.Height
+                    ZIndex: =3
+
+                StarVisible162 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey162.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey162.Y
+                    ZIndex: =4
+
+            Nombre_Solicitud_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Nombre_Solicitud"
+                Default: =ThisItem.Nombre_Solicitud
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Solicitud")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Solicitud")
+                Required: =false
+                Update: =DataCardValue143.Text
+                Visible: =false
+                Width: =1008
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                DataCardKey168 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue143 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: |-
+                        =If(IsBlank(ThisItem.Nombre_Solicitud),DataCardValue139.Selected.Value&" - Walmart Tech - "&ComboBox6.Selected.Razon_Social_Proveedor&
+                        " ("&CountIf(Lst_ContratosProveedores,
+                            Formulario_Solicitud.Value=DataCardValue139.Selected.Value &&
+                            Proveedor=DataCardValue135.Text)+1&")",
+                            ThisItem.Nombre_Solicitud)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey168.Y + DataCardKey168.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage168 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue143.Y + DataCardValue143.Height
+                    ZIndex: =3
+
+                StarVisible168 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey168.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey168.Y
+                    ZIndex: =4
+
+            Solicitante_DataCard3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Solicitante"
+                Default: =ThisItem.Solicitante
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Solicitante")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Solicitante")
+                Required: =false
+                Update: =DataCardValue145.Text
+                Visible: =false
+                Width: =336
+                X: =0
+                Y: =6
+                ZIndex: =1
+
+                DataCardKey170 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue145 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: ="Carga Manual"
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey170.Y + DataCardKey170.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage170 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue145.Y + DataCardValue145.Height
+                    ZIndex: =3
+
+                StarVisible170 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey170.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey170.Y
+                    ZIndex: =4
+
+            Estado_Solicitud_DataCard3 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Estado_Solicitud"
+                Default: =ThisItem.Estado_Solicitud
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Estado_Solicitud")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue146.Selected
+                Visible: =false
+                Width: =336
+                X: =1
+                Y: =6
+                ZIndex: =1
+
+                DataCardKey171 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue146 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: |-
+                        =[{Value:"Documento archivado"}]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@Lst_ContratosProveedores].Estado_Solicitud)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(Lst_ContratosProveedores.Estado_Solicitud,DataCardValue146.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey171.Y + DataCardKey171.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage171 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue146.Y + DataCardValue146.Height
+                    ZIndex: =3
+
+                StarVisible171 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey171.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey171.Y
+                    ZIndex: =4
+
+            Descripcion_del_Servicio_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Descripcion"
+                Default: =ThisItem.Descripcion_del_Servicio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Descripcion")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =122
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Descripcion")
+                Required: =false
+                Update: =DataCardValue148.Text
+                Width: =1008
+                X: =0
+                Y: =7
+                ZIndex: =1
+
+                DataCardKey173 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Descripción del servicio"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue148 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =70
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey173.Y + DataCardKey173.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage173 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue148.Y + DataCardValue148.Height
+                    ZIndex: =3
+
+                StarVisible173 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey173.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey173.Y
+                    ZIndex: =4
+
+            Valor_del_Contrato_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Valor_del_Contrato"
+                Default: =ThisItem.Valor_del_Contrato
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Valor_del_Contrato")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Valor_del_Contrato")
+                Required: =false
+                Update: =DataCardValue149.Text
+                Width: =336
+                X: =0
+                Y: =8
+                ZIndex: =1
+
+                DataCardKey174 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Valor del Contrato"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue149 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey174.Y + DataCardKey174.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage174 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue149.Y + DataCardValue149.Height
+                    ZIndex: =3
+
+                StarVisible174 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey174.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey174.Y
+                    ZIndex: =4
+
+            Contacto_Walmart_notificaciones_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Contacto_Walmart_notificacione"
+                Default: =ThisItem.Contacto_Walmart_notificaciones
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Contacto_Walmart_notificacione")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Contacto_Walmart_notificacione")
+                Required: =false
+                Update: =DataCardValue150.Text
+                Width: =336
+                X: =1
+                Y: =8
+                ZIndex: =1
+
+                DataCardKey175 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Contacto Walmart"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue150 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =ComboBox2_5.Selected.Usuario
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Visible: =false
+                    Width: =280
+                    X: =30
+                    Y: =DataCardKey175.Y + DataCardKey175.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage175 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue150.Y + DataCardValue150.Height
+                    ZIndex: =3
+
+                StarVisible175 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey175.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey175.Y
+                    ZIndex: =4
+
+                ComboBox2_5 As combobox:
+                    DefaultSelectedItems: =Filter(Lst_Persona,Usuario = Parent.Default)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayFields: =["Nombre_Persona"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Col_BD_Persona
+                    SearchFields: =["Nombre_Persona"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_5.SearchText,"Nombre_Persona")
+                    SelectMultiple: =false
+                    Width: =282
+                    X: =28
+                    Y: =49
+                    ZIndex: =5
+
+            Manager_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Manager"
+                Default: =ThisItem.Manager
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Manager")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Manager")
+                Required: =false
+                Update: =DataCardValue33.Text
+                Width: =336
+                X: =2
+                Y: =8
+                ZIndex: =1
+
+                DataCardKey61 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue33 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =ComboBox2_7.Selected.Usuario
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Visible: =false
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey61.Y + DataCardKey61.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage59 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue33.Y + DataCardValue33.Height
+                    ZIndex: =3
+
+                StarVisible59 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey61.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey61.Y
+                    ZIndex: =4
+
+                ComboBox2_7 As combobox:
+                    DefaultSelectedItems: =Filter(Lst_Persona,Usuario = Parent.Default)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayFields: =["Nombre_Persona"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Col_BD_Persona
+                    SearchFields: =["Nombre_Persona"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_7.SearchText,"Nombre_Persona")
+                    SelectMultiple: =false
+                    Width: =282
+                    X: =30
+                    Y: =48
+                    ZIndex: =5
+
+            Usuarios_relacionados_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Usuarios_relacionados"
+                Default: =ThisItem.Usuarios_relacionados
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Usuarios_relacionados")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Usuarios_relacionados")
+                Required: =false
+                Update: =DataCardValue147.Text
+                Visible: =false
+                Width: =336
+                X: =0
+                Y: =9
+                ZIndex: =1
+
+                DataCardKey172 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue147 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Concat(Col_UsuariosContrato,Value,"|")
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey172.Y + DataCardKey172.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage172 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue147.Y + DataCardValue147.Height
+                    ZIndex: =3
+
+                StarVisible172 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey172.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey172.Y
+                    ZIndex: =4
+
+            ID_Contrato_Padre_DataCard1 As typedDataCard.numberEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="ID_Contrato_Padre"
+                Default: =ThisItem.ID_Contrato_Padre
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Contrato_Padre")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Value(DataCardValue154.Text)
+                Visible: =false
+                Width: =336
+                X: =1
+                Y: =9
+                ZIndex: =1
+
+                DataCardKey179 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue154 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =_Var_IDContratoPadre
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Format: =TextFormat.Number
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey179.Y + DataCardKey179.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage179 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue154.Y + DataCardValue154.Height
+                    ZIndex: =3
+
+                StarVisible179 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey179.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey179.Y
+                    ZIndex: =4
+
+            Nombre_del_Servicio_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Nombre_del_Servicio"
+                Default: =ThisItem.Nombre_del_Servicio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_del_Servicio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_del_Servicio")
+                Required: =false
+                Update: =DataCardValue163.Text
+                Width: =672
+                X: =0
+                Y: =10
+                ZIndex: =1
+
+                DataCardKey188 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Nombre de los Servicios (Seprarar por "";"")" 
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue163 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey188.Y + DataCardKey188.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage184 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue163.Y + DataCardValue163.Height
+                    ZIndex: =3
+
+                StarVisible184 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey188.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey188.Y
+                    ZIndex: =4
+
+            Comité_DataCard1 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Comit_x00e9_"
+                Default: =ThisItem.Comité
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Comit_x00e9_")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue164.Selected
+                Width: =336
+                X: =1
+                Y: =10
+                ZIndex: =1
+
+                DataCardKey189 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue164 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@Lst_ContratosProveedores].Comité)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(Lst_ContratosProveedores.Comité,DataCardValue164.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey189.Y + DataCardKey189.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage187 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue164.Y + DataCardValue164.Height
+                    ZIndex: =3
+
+                StarVisible187 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey189.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey189.Y
+                    ZIndex: =4
+
+            Razon_Social_Proveedor_DataCard2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Razon_Social_Proveedor"
+                Default: =ThisItem.Razon_Social_Proveedor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Razon_Social_Proveedor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Razon_Social_Proveedor")
+                Required: =false
+                Update: =DataCardValue165.Text
+                Visible: =false
+                Width: =336
+                X: =2
+                Y: =10
+                ZIndex: =1
+
+                DataCardKey190 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue165 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =ComboBox6.Selected.Razon_Social_Proveedor
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey190.Y + DataCardKey190.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage189 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue165.Y + DataCardValue165.Height
+                    ZIndex: =3
+
+                StarVisible189 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey190.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey190.Y
+                    ZIndex: =4
+
+        Button15_20 As button:
+            Fill: =_VarColoresApp.AzulFondo
+            Height: =38
+            HoverFill: =_VarColoresApp.AzulparaCabeceras
+            OnSelect: =SubmitForm(Form6);SubmitForm(Form6_1); Set(_VarCargaManual,false)
+            Text: ="Guardar"
+            Width: =211
+            X: =935
+            Y: =798
+            ZIndex: =4
+
+        Rectangle23_3 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =36
+            OnSelect: =
+            Width: =1591
+            X: =136
+            Y: =88
+            ZIndex: =5
+
+        Icon28 As icon.CancelBadge:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =39
+            Icon: =Icon.CancelBadge
+            OnSelect: =Set(_VarCargaManual,false)
+            Width: =35
+            X: =1692
+            Y: =88
+            ZIndex: =6
+
+        Label6 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            Size: =15
+            Text: ="Carga Manual de Contrato"
+            Width: =661
+            X: =348
+            Y: =88
+            ZIndex: =7
+
+        Gallery8 As gallery.galleryVertical:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =681
+            Items: |-
+                =SortByColumns(Search(Filter(Col_BD_Persona,'Interno/Externo'="Externo" && Estado="Activo",
+                If(Toggle1_1.Value, Usuario in Col_UsuariosContrato,(!(Usuario in Col_UsuariosContrato) && !(Usuario in Col_UsuariosYaAsignados)))
+                ),Txt_FondoForm1_188.Text,"Nombre_Persona","Usuario"),"Nombre_Persona",SortOrder.Ascending)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =56
+            Width: =492
+            X: =1207
+            Y: =266
+            ZIndex: =8
+
+            Label56 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Nombre_Persona
+                Width: =342
+                X: =100
+                Y: =4
+                ZIndex: =1
+
+            Toggle1 As toggleSwitch:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Default: =
+                Height: =30
+                OnCheck: |-
+                    =Collect(Col_UsuariosContrato,{Value:ThisItem.Usuario})
+                OnSelect: =Select(Parent)
+                OnUncheck: |-
+                    =Remove(Col_UsuariosContrato,{Value:ThisItem.Usuario})
+                Reset: =true
+                ShowLabel: =false
+                Visible: =!(ThisItem.Usuario in Col_UsuariosContrato)
+                Width: =64
+                X: =16
+                Y: =10
+                ZIndex: =2
+
+            Icon38 As icon.Blocked:
+                Height: =35
+                Icon: =Icon.Blocked
+                OnSelect: |-
+                    =Remove(Col_UsuariosContrato,{Value:ThisItem.Usuario})
+                Visible: =(ThisItem.Usuario in Col_UsuariosContrato)
+                Width: =40
+                X: =24
+                Y: =8
+                ZIndex: =3
+
+            Label56_1 As label:
+                Height: =17
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: =ThisItem.'Correo Electrónico'
+                Width: =342
+                X: =100
+                Y: =26
+                ZIndex: =4
+
+        Rectangle30 As rectangle:
+            Fill: =RGBA(122, 138, 143, 1)
+            Height: =790
+            Width: =2
+            X: =1182
+            Y: =143
+            ZIndex: =9
+
+        Txt_FondoForm1_188 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            Height: =46
+            HintText: ="Buscar Externo"
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =380
+            X: =1308
+            Y: =201
+            ZIndex: =10
+
+        Toggle1_1 As toggleSwitch:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Default: =
+            Height: =30
+            OnCheck: =
+            OnSelect: =
+            OnUncheck: =
+            Reset: =true
+            ShowLabel: =false
+            Width: =64
+            X: =1226
+            Y: =209
+            ZIndex: =11
+
+        Label30 As label:
+            Text: |-
+                ="Externos relacionados :"&CountRows(Col_UsuariosContrato)
+            Width: =450
+            X: =1226
+            Y: =148
+            ZIndex: =12
+
+        Button15_22 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =38
+            HoverFill: =_VarColoresApp.AzulparaCabeceras
+            OnSelect: |-
+                =UpdateContext({_VarBuscarTercero:true})
+            Text: ="Asociar"
+            Visible: =!IsBlank(ComboBox6.Selected.ID)&&DataCardValue139.Selected.Value<>"Contrato de Prestación de Servicio"
+            Width: =143
+            X: =719
+            Y: =268
+            ZIndex: =13
+
+        Toggle3 As toggleSwitch:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            ShowLabel: =false
+            Width: =61
+            X: =404
+            Y: =958
+            ZIndex: =14
+
+        Label6_2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =36
+            Size: =15
+            Text: ="Inactivar Contrato"
+            Width: =200
+            X: =204
+            Y: =954
+            ZIndex: =15
+
+        Button15_27 As button:
+            Fill: =RGBA(215, 58, 60, 1)
+            Height: =38
+            HoverFill: =_VarColoresApp.AzulparaCabeceras
+            OnSelect: |-
+                =Patch(Lst_ContratosProveedores,LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=_varGuidCargaManual),{Estado_Solicitud:{Value:"Contrato Inactivo"}});
+                Set(_VarCargaManual,false)
+            Text: ="Confirmar Inactivar"
+            Visible: =Toggle3.Value
+            Width: =211
+            X: =465
+            Y: =954
+            ZIndex: =16
+
+    Group12_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        Image15_4 As image:
+            Height: =30
+            Image: =confluence
+            Width: =30
+            X: =157
+            Y: =167
+            ZIndex: =10
+
+        Label_vercontra_3 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Text: ="Ver Confluence"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =145
+            X: =187
+            Y: =168
+            ZIndex: =11
+
+        Btn_Pry_LimpiarFiltros_20 As button:
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Launch("https://confluence.walmart.com/pages/viewpage.action?pageId=1714942364")
+            PaddingLeft: =30
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =189
+            X: =143
+            Y: =161
+            ZIndex: =12
+
+    Container13 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(214, 221, 224, 1)
+        Height: =990
+        Visible: =_VarVerPDF
+        Width: =1920
+        Y: =60
+        ZIndex: =18
+
+        Rectangle27 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =950
+            Width: =1856
+            X: =32
+            Y: =19
+            ZIndex: =1
+
+        Button23 As button:
+            Height: =38
+            OnSelect: |-
+                =UpdateContext({_VarVerPDF:false})
+            Text: ="Regresar"
+            Width: =280
+            X: =217
+            Y: =894
+            ZIndex: =2
+
+        Label15_17 As label:
+            Height: =25
+            Text: =_VerContrato.Solicitante
+            Width: =254
+            X: =65
+            Y: =383
+            ZIndex: =3
+
+        Label15_58 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Solicitante:"
+            Width: =254
+            X: =65
+            Y: =358
+            ZIndex: =4
+
+        Label15_83 As label:
+            Height: =25
+            Text: |-
+                =
+                _VerContrato.Fecha_Inicio_Vigencia
+            Width: =243
+            X: =65
+            Y: =245
+            ZIndex: =5
+
+        Label15_84 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Fecha Inicio Vigencia:"
+            Width: =208
+            X: =65
+            Y: =220
+            ZIndex: =6
+
+        Label15_85 As label:
+            Height: =25
+            Text: =_VerContrato.Fecha_Contrato
+            Width: =243
+            X: =65
+            Y: =315
+            ZIndex: =7
+
+        Label15_86 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Fecha Contrato:"
+            Width: =152
+            X: =65
+            Y: =290
+            ZIndex: =8
+
+        Label15_87 As label:
+            Height: =25
+            Text: =_VerContrato.Fecha_Termino_Contrato
+            Width: =243
+            X: =357
+            Y: =245
+            ZIndex: =9
+
+        Label15_88 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Fecha Termino Contrato:"
+            Width: =245
+            X: =355
+            Y: =220
+            ZIndex: =10
+
+        Label15_89 As label:
+            Height: =25
+            Text: =_VerContrato.Valor_del_Contrato
+            Width: =228
+            X: =357
+            Y: =312
+            ZIndex: =11
+
+        Label15_90 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Valor del contrato:"
+            Width: =208
+            X: =355
+            Y: =287
+            ZIndex: =12
+
+        Label15_91 As label:
+            Height: =25
+            Text: =LookUp(Col_BD_Persona,Usuario=_VerContrato.Contacto_Walmart_notificaciones).Nombre_Persona
+            Width: =375
+            X: =357
+            Y: =383
+            ZIndex: =13
+
+        Label15_92 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Contacto Walmart para notificaciones:"
+            Width: =377
+            X: =355
+            Y: =358
+            ZIndex: =14
+
+        Label15_93 As label:
+            Height: =134
+            Text: =_VerContrato.Descripcion_del_Servicio
+            VerticalAlign: =VerticalAlign.Top
+            Width: =607
+            X: =65
+            Y: =449
+            ZIndex: =15
+
+        Label15_94 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Descripción del servicio:"
+            Width: =377
+            X: =65
+            Y: =424
+            ZIndex: =16
+
+        Image18_3 As image:
+            Height: =40
+            Image: =sp16
+            OnSelect: |
+                =Clear(Col_EquiposPersonas);
+                Set(_VarUsuarioSelect,Gl_MiEquipoGestion.Selected.Usuario);
+                UpdateContext({_VarMostrarBarraBloqueo:true});
+                EditForm(Frm_EditarPersona);
+                If(
+                    !IsBlank(_VarUsuarioSelect),
+                    Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = _VarUsuarioSelect, Estado = "Activo")),
+                    Clear(Col_EquiposPersonas)
+                );
+            Tooltip: ="Ver los detalles de la persona"
+            Width: =40
+            X: =68
+            Y: =49
+            ZIndex: =17
+
+        Lbl_Pry_Titulo_11 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =34
+            OnSelect: =
+            Size: =25
+            Text: ="Detalle  Contrato"
+            Width: =528
+            X: =104
+            Y: =49
+            ZIndex: =18
+
+        Pry_LineaSeparadora_6 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =
+            Width: =600
+            X: =74
+            Y: =110
+            ZIndex: =19
+
+        Lbl_Pry_Titulo_12 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =34
+            OnSelect: =
+            Size: =25
+            Text: ="Visor de Contrato"
+            Width: =528
+            X: =785
+            Y: =48
+            ZIndex: =20
+
+        Pry_LineaSeparadora_8 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =
+            Width: =1100
+            X: =749
+            Y: =109
+            ZIndex: =21
+
+        Image18_4 As image:
+            Height: =40
+            Image: =sp16
+            OnSelect: |
+                =Clear(Col_EquiposPersonas);
+                Set(_VarUsuarioSelect,Gl_MiEquipoGestion.Selected.Usuario);
+                UpdateContext({_VarMostrarBarraBloqueo:true});
+                EditForm(Frm_EditarPersona);
+                If(
+                    !IsBlank(_VarUsuarioSelect),
+                    Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = _VarUsuarioSelect, Estado = "Activo")),
+                    Clear(Col_EquiposPersonas)
+                );
+            Tooltip: ="Ver los detalles de la persona"
+            Width: =40
+            X: =745
+            Y: =48
+            ZIndex: =22
+
+        Label15_95 As label:
+            Height: =64
+            Text: =_VerContrato.Nombre_Solicitud
+            VerticalAlign: =VerticalAlign.Top
+            Width: =596
+            X: =65
+            Y: =156
+            ZIndex: =23
+
+        Label15_96 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Text: |-
+                ="Fecha Inicio Vigencia:"
+            Width: =208
+            X: =65
+            Y: =131
+            ZIndex: =24
+
+        Image24 As image:
+            Height: =40
+            Image: ='cloud-download-alt (1)'
+            Width: =40
+            X: =1662
+            Y: =55
+            ZIndex: =25
+
+        Label15_97 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Text: ="Descargar"
+            Width: =122
+            X: =1701
+            Y: =63
+            ZIndex: =26
+
+        Btn_Pry_AgregarRiesgo_3 As button:
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Launch(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_VerContrato.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').AbsoluteUri)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =161
+            X: =1655
+            Y: =56
+            ZIndex: =27
+
+    PdfViewer1 As pdfViewer:
+        BorderColor: =RGBA(214, 221, 224, 1)
+        BorderThickness: =1
+        Document: =ID_PDF
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =816
+        Visible: =_VarVerPDF && !IsBlank(ID_PDF)
+        Width: =1109
+        X: =746
+        Y: =192
+        ZIndex: =19
+
+    Group12_3 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =19
+
+        Image15_5 As image:
+            Height: =30
+            Image: =LogoBI
+            ImagePosition: =ImagePosition.Fill
+            Width: =40
+            X: =149
+            Y: =113
+            ZIndex: =13
+
+        Label_vercontra_4 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Text: ="Ver Dashboard"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =145
+            X: =187
+            Y: =114
+            ZIndex: =14
+
+        Btn_Pry_LimpiarFiltros_21 As button:
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/f2987c64-c2fb-45b0-ace0-2bec387704a5/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+            PaddingLeft: =30
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =189
+            X: =143
+            Y: =107
+            ZIndex: =15
+
+    Cargando_15 As Cargando:
+        Visible: =_VarMostrarCargando
+        ZIndex: =20
+
+    Container11_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(79, 90, 94, 0.51)
+        Height: =1050
+        Visible: =_VarBuscarTercero
+        Width: =1920
+        ZIndex: =21
+
+        Rectangle24_5 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =969
+            Width: =1881
+            X: =20
+            Y: =67
+            ZIndex: =1
+
+        Icon29_5 As icon.CancelBadge:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =42
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_VarBuscarTercero:false})
+            Width: =40
+            X: =Rectangle24_5.X+Rectangle24_5.Width-Self.Width
+            Y: =Rectangle24_5.Y
+            ZIndex: =2
+
+        Gallery2_6 As gallery.galleryVertical:
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =875
+            Items: |-
+                =Filter(Lst_ContratosProveedores,Formulario_Solicitud.Value="Contrato de Prestación de Servicio" && Estado_Solicitud.Value="Documento archivado",
+                    If(ComboBox6.Selected.RUT="Extranjero",
+                    Proveedor=ComboBox6.Selected.Razon_Social_Proveedor,
+                    Proveedor=ComboBox6.Selected.RUT)
+                    ,ID<> LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=_varGuidCargaManual).ID
+                )
+                           
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =215
+            Width: =1851
+            X: =35
+            Y: =144
+            ZIndex: =3
+
+            Rectangle23_5 As rectangle:
+                Fill: =_VarColoresApp.AzulparaCabeceras
+                Height: =32
+                OnSelect: =Select(Parent)
+                Width: =1841
+                ZIndex: =1
+
+            Label15_11 As label:
+                Height: =25
+                Text: =ThisItem.Solicitante
+                Width: =254
+                X: =307
+                Y: =65
+                ZIndex: =2
+
+            Label15_22 As label:
+                Align: =Align.Right
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                Text: =If(ThisItem.Proveedor_Extranjero=true,"Extranjero", ThisItem.Proveedor)&"-"&If(ThisItem.Proveedor_Extranjero=true,ThisItem.Proveedor,LookUp(Lst_Proveedores,RUT=ThisItem.Proveedor).Razon_Social_Proveedor)
+                Width: =659
+                X: =1168
+                Y: =2
+                ZIndex: =4
+
+            Label15_21 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                Text: =ThisItem.Nombre_Solicitud
+                Width: =1182
+                Y: =2
+                ZIndex: =5
+
+            Separador_Registros_10 As rectangle:
+                Fill: =RGBA(179, 179, 179, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =1840
+                X: =1
+                Y: =214
+                ZIndex: =6
+
+            Label15_59 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Solicitante:"
+                Width: =254
+                X: =307
+                Y: =40
+                ZIndex: =7
+
+            Label15_77 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Inicio_Vigencia
+                Width: =243
+                X: =16
+                Y: =64
+                ZIndex: =9
+
+            Label15_68 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Inicio Vigencia:"
+                Width: =208
+                X: =14
+                Y: =39
+                ZIndex: =10
+
+            Label15_118 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Contrato
+                Width: =243
+                X: =16
+                Y: =123
+                ZIndex: =11
+
+            Label15_116 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Contrato:"
+                Width: =152
+                X: =14
+                Y: =98
+                ZIndex: =12
+
+            Label15_120 As label:
+                Height: =25
+                Text: =ThisItem.Fecha_Contrato
+                Width: =243
+                X: =16
+                Y: =183
+                ZIndex: =13
+
+            Label15_119 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Fecha Termino Contrato:"
+                Width: =245
+                X: =14
+                Y: =158
+                ZIndex: =14
+
+            Label15_117 As label:
+                Height: =25
+                Text: =LookUp(Col_BD_Persona,Usuario=ThisItem.Contacto_Walmart_notificaciones).Nombre_Persona
+                Width: =375
+                X: =309
+                Y: =120
+                ZIndex: =17
+
+            Label15_106 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Contacto Walmart para notificaciones:"
+                Width: =377
+                X: =307
+                Y: =95
+                ZIndex: =18
+
+            Label15_104 As label:
+                Height: =82
+                Text: =ThisItem.Descripcion_del_Servicio
+                VerticalAlign: =VerticalAlign.Top
+                Width: =1126
+                X: =715
+                Y: =66
+                ZIndex: =19
+
+            Label15_75 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                Text: |-
+                    ="Descripción del servicio:"
+                Width: =377
+                X: =720
+                Y: =41
+                ZIndex: =20
+
+            Button15_23 As button:
+                Fill: =_VarColoresApp.VerdeParaBotones
+                Height: =38
+                HoverFill: =_VarColoresApp.AzulparaCabeceras
+                OnSelect: |-
+                    =UpdateContext({_Var_IDContratoPadre:ThisItem.ID}); UpdateContext({_VarBuscarTercero:false})
+                Text: ="Seleccionar"
+                Width: =254
+                X: =1468
+                Y: =166
+                ZIndex: =21
+
+        Image25 As image:
+            Height: =292
+            Image: =Picture13
+            Visible: =IsEmpty(Gallery2_6.AllItems)
+            Width: =288
+            X: =705
+            Y: =435
+            ZIndex: =4
+
+        Label15_121 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =16
+            Text: ="Ups... No se encontraron contratos para asociar"
+            Visible: =IsEmpty(Gallery2_6.AllItems)
+            Width: =460
+            X: =672
+            Y: =420
+            ZIndex: =5
+
+    MenuLateral_15 As MenuLateral:
+        Height: =MenuLateral_15.AltoApp
+        Width: =MenuLateral_15.AnchoApp
+        X: =11
+        Y: =5
+        ZIndex: =22
+

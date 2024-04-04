@@ -1,0 +1,2159 @@
+ModuloEquipos As screen:
+
+    "Gallery2_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(179, 179, 179, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =133
+        Items: |
+            =If(
+                IsEmpty(Col_UsuariosporEquipo),
+                Sort(Col_MiEquipoWalmart,Nombre_Persona,SortOrder.Ascending),
+                Sort(Col_UsuarioenEquipo,Nombre_Persona,SortOrder.Ascending)
+            )
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =129
+        Width: =700
+        X: =1215
+        Y: =156
+        ZIndex: =1
+
+        Image7_1 As image:
+            Height: =69
+            Image: |-
+                =If(
+                    CountRows(Col_MiEquipoWalmart) > 0,
+                    If(
+                        Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                        If(
+                            IsBlank(UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico')) || false ,
+                            'no-fotos-1',
+                            UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico')
+                        )
+                    )
+                )
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =82
+            X: =23
+            Y: =15
+            ZIndex: =1
+
+        Title4_1 As label:
+            Align: =Align.Center
+            Height: =35
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: =ThisItem.Nombre_Persona
+            VerticalAlign: =VerticalAlign.Top
+            Width: =128
+            Y: =96
+            ZIndex: =2
+
+    "Gl_ListadoEquiposporResponsabe_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =2
+        Height: =663
+        Items: =Col_MiEquiposJefe
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =114
+        Width: =1191
+        X: =4
+        Y: =289
+        ZIndex: =2
+
+        Image2_2 As image:
+            Height: =103
+            Image: |-
+                =If(
+                    IsBlank(ThisItem.LogoEquipo),
+                    'no-fotos-1',
+                    ThisItem.LogoEquipo
+                )
+            OnSelect: =Select(Parent)
+            Width: =96
+            X: =13
+            Y: =5
+            ZIndex: =1
+
+        Title2_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Height: =109
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =ThisItem.'Equipo/Squad'
+            Width: =295
+            X: =126
+            Y: =5
+            ZIndex: =2
+
+        NextArrow2_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(0, 121, 187, 1)
+            Height: =60
+            Icon: =Icon.Person
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Personal a cargo asignados en el equipo"
+            Width: =60
+            X: =1064
+            Y: =11
+            ZIndex: =4
+
+        Separator2_2 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Title2_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Height: =109
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =LookUp( Col_BD_Dominios, IDDominio = ThisItem.IDDominio, Title)
+            Width: =447
+            X: =421
+            Y: =5
+            ZIndex: =6
+
+        Title2_6 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Height: =109
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =ThisItem.'Equipo de Producto ¿SI/NO?'.Value
+            Width: =196
+            X: =868
+            Y: =5
+            ZIndex: =7
+
+        Label1_1 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            Color: =RGBA(128, 128, 128, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =CountIf(Col_IDEquiposAsignados, IDEquipo=ThisItem.IDEquipo)
+            Width: =60
+            X: =1064
+            Y: =63
+            ZIndex: =8
+
+        Icon2_1 As icon.Edit:
+            Color: =RGBA(0, 121, 187, 1)
+            Height: =60
+            Icon: =Icon.Settings
+            OnSelect: |-
+                =UpdateContext({_VarMostrarEdicionEquipo:true});
+                UpdateContext({_VarIDEquipoEditar: Gl_ListadoEquiposporResponsabe_1.Selected.IDEquipo});
+                ClearCollect(Col_UsuariosporEquipo,Filter(Col_BD_AsignacionEquipos, IDEquipo = ThisItem.IDEquipo).Usuario);
+                ClearCollect(Col_UsuarioenEquipo, ForAll(
+                        Col_UsuariosporEquipo As CUA,
+                        LookUp( 
+                            Col_MiEquipoWalmart,
+                            Trim(Usuario) = Trim(CUA.Usuario)
+                        )
+                    ));
+                EditForm(Frm_EditarEquipo)
+            Tooltip: ="Configuración del Equipo"
+            Width: =43
+            X: =1132
+            Y: =19
+            ZIndex: =9
+
+    CompositeColumnChart3_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =2
+
+        Title6_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =33
+            Text: ="Miembros por Equipo"
+            Visible: |-
+                =If(
+                    Rd_PersonasEquipos.Selected.Value = "Mis Equipos" && !_VarMostrarEdicionEquipo,
+                    true,
+                    false
+                )
+            Width: =411
+            X: =1349
+            Y: =322
+            ZIndex: =6
+
+        ColumnChart3_1 As barChart:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Height: =579
+            ItemColorSet: |-
+                =[
+                RGBA(2385,59,42,1),
+                RGBA(25,118,189,1),
+                RGBA(255,194,32,1),
+                RGBA(120,185,231,1),
+                RGBA(244,117,33,1),
+                RGBA(203,25,138,1)]
+                /*
+                [RGBA(49; 130; 93; 1);RGBA(48;166;103; 1); RGBA(94;193;108;1); RGBA(246;199;144;1); RGBA(247;199;114;1); RGBA(247;180;91;1); RGBA(246;143;100;1); RGBA(212;96;104;1); RGBA(148; 110; 176; 1); RGBA(118; 154; 204; 1); RGBA(96; 197; 234; 1)]
+                */
+            Items: =Col_TempMisEquipos
+            Size: =12
+            Visible: |-
+                =If(
+                    Rd_PersonasEquipos.Selected.Value = "Mis Equipos" && !_VarMostrarEdicionEquipo,
+                    true,
+                    false
+                )
+            Width: =629
+            X: =1256
+            XLabelAngle: =0
+            Y: =315
+            ZIndex: =7
+
+        Legend4_1 As legend:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Height: =58
+            ItemColorSet: =ColumnChart3_1.ItemColorSet
+            Items: =ColumnChart3_1.SeriesLabels
+            Size: =15
+            Visible: |-
+                =false
+                /*
+                If(
+                    Rd_PersonasEquipos.Selected.Value = "Mis Equipos" && !_VarMostrarEdicionEquipo;
+                    true;
+                    false
+                )
+                */
+            Width: =684
+            X: =1228
+            Y: =894
+            ZIndex: =8
+
+    Gp_CabeceradeEquipos_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =7
+
+        TextInput1_3 As text:
+            Align: =Align.Center
+            Default: ="Nombre de Equipo"
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(25,118,189,1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =42
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            PressedBorderColor: =RGBA(0, 121, 187, 1)
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =297
+            X: =127
+            Y: =240
+            ZIndex: =3
+
+        TextInput1_4 As text:
+            Align: =Align.Center
+            Default: ="Viaje"
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(25,118,189,1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =42
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =451
+            X: =424
+            Y: =240
+            ZIndex: =4
+
+        TextInput1_5 As text:
+            Align: =Align.Center
+            Default: ="Tipo de Equipo"
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(25,118,189,1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =42
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =192
+            X: =875
+            Y: =240
+            ZIndex: =5
+
+    Btn_AgregarUsuario_1 As button:
+        Color: =RGBA(255, 191, 0, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =50
+        HoverFill: =RGBA(255, 255, 255, 0.63)
+        OnSelect: |-
+            =Set(_VarIDEquipo,"Equi-"&GUID());
+            NewForm(Frm_CrearNuevoEquipo);
+            UpdateContext({_VarPopUpVerCrearEquipo:true})
+        PaddingTop: =2.5
+        PressedFill: =RGBA(255, 255, 255, 0.68)
+        Size: =25
+        Text: =""
+        Tooltip: |
+            =If(
+                Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                "Agregar Nuevo Equipo",
+                "Agregar Nueva Persona"
+            )
+        Width: =50
+        X: =1103
+        Y: =235
+        ZIndex: =9
+
+    Label3_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(199, 16, 178, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =38
+        Size: =12
+        Text: ="Crear equipos"
+        Width: =117
+        X: =1070
+        Y: =190
+        ZIndex: =10
+
+    Html_CabeceraInfoPersonal_3 As htmlViewer:
+        Height: =83
+        HtmlText: |-
+            ="
+            <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: 695px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
+              <h1 style='text-indent: 50px; text-align: center;'> Información del equipo</h1>
+            </div>
+            "
+            /*
+            "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
+             <p style='text-align: center;' data-mce-style='text-align: center;'>
+             <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
+             <strong>Información Personal</strong></span></p>
+             </div>
+            "
+            */
+        Width: =705
+        X: =1215
+        Y: =73
+        ZIndex: =11
+
+    Label22_1 As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        Color: =RGBA(128, 128, 128, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        Text: |-
+            ="Consideración: Una vez que crees el equipo, debes asignar personas a ese equipo para que salga reflejado aquí."
+        Visible: |-
+            =If(
+                Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                true,
+                false
+            )
+        Width: =1191
+        X: =4
+        Y: =956
+        ZIndex: =14
+
+    Button2_2 As button:
+        Fill: =_VarColoresApp.VerdeParaBotones
+        Height: =60
+        HoverFill: =_VarColoresApp.AzulFondo
+        OnSelect: |
+            =If(
+                !true,
+                Reset(Rd_InternoExterno);
+                Reset(Cmb_BuscarMiEquipo);
+                UpdateContext({_VarMostrarEdicionEquipo:false});
+                Clear(Col_UsuariosporEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Reset(Rd_PersonasEquipos);
+                Navigate(Portada,ScreenTransition.Fade),
+                Notify("No puedes regresar a la pantalla anterior mientras se esta editando a un usuario",NotificationType.Warning,5000)
+            )
+        PaddingTop: =2.5
+        PressedFill: =_VarColoresApp.VerdeParaBotones
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =35
+        Text: ="⬅"
+        Tooltip: ="Regresar"
+        Width: =83
+        X: =1837
+        ZIndex: =17
+
+    Gp_CabeceraPersona_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        Rct_FondoCabecera_Persona_11 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =15
+
+        Img_UsuarioPantallaPersona_11 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1774
+            Y: =5
+            ZIndex: =16
+
+    Gp_BotonesparaVista_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        Btn_Vista_MisPersonas_1 As button:
+            Fill: |-
+                =RGBA(0, 100, 176, 0.4)
+                /*
+                If(
+                    _VarVistaPersona && !_VarVistaEquipo;
+                    _VarColoresApp.AzulparaCabeceras;
+                    RGBA(0; 100; 176; 0,4)
+                )
+                */
+            HoverFill: =ColorFade(RGBA(0, 121, 187, 1), -20%)
+            OnSelect: |-
+                =UpdateContext({_VarVistaSeleccionada:Btn_Vista_MisPersonas_1.Text});
+                UpdateContext({_VarVistaPersona:true});
+                UpdateContext({_VarVistaEquipo:false});
+                UpdateContext({_VarMostrarEdicionEquipo:false}); 
+                Clear(Col_UsuariosporEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Navigate(ModuloPersona,ScreenTransition.Fade)
+            Text: ="Mis Personas"
+            X: =48
+            Y: =76
+            ZIndex: =12
+
+        Btn_Vista_MisEquipos_1 As button:
+            Fill: |-
+                =_VarColoresApp.AzulparaCabeceras
+                /*
+                If(
+                    !_VarVistaPersona && _VarVistaEquipo;
+                    _VarColoresApp.AzulparaCabeceras;
+                    RGBA(0; 100; 176; 0,4) // 150 215
+                )
+                */
+            FontWeight: =FontWeight.Bold
+            OnSelect: |-
+                =UpdateContext({_VarVistaSeleccionada:Btn_Vista_MisEquipos_1.Text});
+                UpdateContext({_VarVistaPersona:false});
+                UpdateContext({_VarVistaEquipo:true});
+                ForAll(Col_MiEquiposJefe As CMJ ,Patch(Col_TempMisEquipos,CMJ,{Miembros: CountIf(Col_IDEquiposAsignados, IDEquipo = CMJ.IDEquipo)}));
+            Text: ="Mis Equipos"
+            X: =235
+            Y: =76
+            ZIndex: =13
+
+    Image14_1 As image:
+        Height: =45
+        Image: =NuevoImg_Equipo
+        Width: =45
+        X: |
+            =1103
+        Y: =235
+        ZIndex: =23
+
+    Button3 As button:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =43
+        HoverFill: =RGBA(255, 255, 255, 0.34)
+        OnSelect: |
+            =Set(_VarAbrirCrearEquipo,true);
+            Set(_VarIDEquipo,"Equi-"&GUID());
+            //Set(_esBlanco;true);;
+            Set(_VarTempValidacion,false);
+        Text: =""
+        Width: =92
+        X: =1081
+        Y: =237
+        ZIndex: =24
+
+    Gp_EditarEquipo As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =33
+
+        Html_FondoEditarEquipo As htmlViewer:
+            Height: =581
+            HtmlText: |-
+                =/*
+                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
+                 <p style='text-align: center;' data-mce-style='text-align: center;'>
+                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
+                 <strong>Información Personal</strong></span></p>
+                 </div>
+                "
+                */
+                "
+                <div style='
+                    width: 685px;
+                    height: 550px;
+                    background: #FFFFFF;
+                    border-radius: 20px;
+                    box-shadow: 3px 3px 15px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            Visible: =_VarMostrarEdicionEquipo
+            Width: =705
+            X: =1215
+            Y: =391
+            ZIndex: =18
+
+        Html_EditarEquipo As htmlViewer:
+            Height: =79
+            HtmlText: |-
+                =/*
+                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
+                 <p style='text-align: center;' data-mce-style='text-align: center;'>
+                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
+                 <strong>Información Personal</strong></span></p>
+                 </div>
+                "
+                */
+                "
+                <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: 665px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
+                  <h1 style='text-indent: 50px; text-align: center;'> Datos Equipo</h1>
+                </div>
+                "
+            Visible: =_VarMostrarEdicionEquipo
+            Width: =673
+            X: =1227
+            Y: =309
+            ZIndex: =19
+
+        Frm_EditarEquipo As form:
+            AcceptsFocus: =false
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderStyle: =BorderStyle.None
+            DataSource: =DominioEquipoSquad
+            Height: =533
+            Item: =LookUp(DominioEquipoSquad, IDEquipo = _VarIDEquipoEditar)
+            NumberOfColumns: =2
+            OnSuccess: |-
+                =Refresh(DominioEquipoSquad);
+                ClearCollect(Col_BD_Equipos,DominioEquipoSquad);
+                //Set(_VarNuevoIDPErsona;"");;
+                /*Ocultar Spinner Cargando*/
+                Set(_VarMostrarCargando,false);
+            Visible: =_VarMostrarEdicionEquipo
+            Width: =681
+            X: =1223
+            Y: =419
+            ZIndex: =20
+
+            IDSubdominio_DataCard3 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDSubdominio")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDSubdominio"
+                Default: =ThisItem.IDSubdominio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDSubdominio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue5.Selected.IDSubDominio
+                Width: =340
+                X: =1
+                Y: =2
+                ZIndex: =1
+
+                Txt_FondoForm1_21 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey19 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Sub Viaje"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue5 As dropdown:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+                    Default: =Parent.Default
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =Txt_FondoForm1_21.Height - 10
+                    Items: =Filter(Col_BD_SubDominios, IDDominio = DataCardValue19_1.Selected.IDDominio)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_21.Width - 27
+                    X: =30
+                    Y: =DataCardKey19.Y + DataCardKey19.Height + 7
+                    ZIndex: =3
+
+                ErrorMessage19 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5.Y + DataCardValue5.Height
+                    ZIndex: =4
+
+                StarVisible19 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey19.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey19.Y
+                    ZIndex: =5
+
+            IDDominio_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDDominio")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDDominio"
+                Default: =ThisItem.IDDominio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDDominio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue19_1.Selected.IDDominio
+                Width: =340
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                Txt_FondoForm1_20 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey35_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Viaje"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue19_1 As dropdown:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =3
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =LookUp(Col_BD_Dominios, IDDominio = ThisItem.IDDominio,Nombre)
+                    DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =Parent.DisplayMode.Disabled
+                    Height: =Txt_FondoForm1_20.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Filter(Col_BD_Dominios,IDGerencias = DataCardValue18_1.Selected.IDGerencias)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_20.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage35_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue19_1.Y + DataCardValue19_1.Height
+                    ZIndex: =4
+
+                StarVisible35_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey35_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey35_1.Y
+                    ZIndex: =5
+
+            IDGerencia_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDGerencia")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDGerencia"
+                Default: =ThisItem.IDGerencia
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDGerencia")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =109
+                Required: =false
+                Update: =DataCardValue18_1.Selected.IDGerencias
+                Width: =340
+                X: =1
+                Y: =3
+                ZIndex: =1
+
+                Txt_FondoForm1_19 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey34_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Gerencia"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue18_1 As dropdown:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =LookUp(Col_BD_Gerencia, IDGerencias = ThisItem.IDGerencia,NombreGerencia)
+                    DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =Parent.DisplayMode.Disabled
+                    Height: =Txt_FondoForm1_19.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Col_BD_Gerencia
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_19.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage34_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue18_1.Y + DataCardValue18_1.Height
+                    ZIndex: =4
+
+                StarVisible34_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey34_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey34_1.Y
+                    ZIndex: =5
+
+            Estado_DataCard1_1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Estado"
+                Default: =ThisItem.Estado
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Estado")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Estado")
+                Required: =false
+                Update: =DataCardValue15_1.Text
+                Visible: =false
+                Width: =340
+                X: =0
+                Y: =0
+                ZIndex: =34
+
+                DataCardKey31_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue15_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: ="Activo"
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey31_1.Y + DataCardKey31_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage31_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue15_1.Y + DataCardValue15_1.Height
+                    ZIndex: =3
+
+                StarVisible31_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey31_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey31_1.Y
+                    ZIndex: =4
+
+            IDEquipo_DataCard1_1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDEquipo"
+                Default: =ThisItem.IDEquipo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDEquipo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "IDEquipo")
+                Required: =false
+                Update: =DataCardValue9_1.Text
+                Visible: =false
+                Width: =340
+                X: =1
+                Y: =0
+                ZIndex: =34
+
+                DataCardKey25_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue9_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: |
+                        =ThisItem.IDEquipo
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage25_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue9_1.Y + DataCardValue9_1.Height
+                    ZIndex: =3
+
+                StarVisible25_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey25_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey25_1.Y
+                    ZIndex: =4
+
+            LogoEquipo_DataCard1_1 As typedDataCard.addLargePictureCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="LogoEquipo"
+                Default: =ThisItem.LogoEquipo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Image3_1.Image
+                Width: =340
+                X: =0
+                Y: =1
+                ZIndex: =34
+
+                DataCardKey24_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Logo del Equipo"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                Image3_1 As image:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =AddPicture1_1.Height
+                    Image: =If(IsBlank(AddPicture1_1.Media), Parent.Default, AddPicture1_1.Media)
+                    Tooltip: =Parent.DisplayName
+                    Width: =AddPicture1_1.Width
+                    X: =AddPicture1_1.X
+                    Y: =AddPicture1_1.Y
+                    ZIndex: =2
+
+                AddPicture1_1 As addMedia:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =1
+                    Height: =129
+                    Text: ="Agregar/Actualizar imagen de equipo"
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
+                    ZIndex: =3
+
+                ErrorMessage24_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Image3_1.Y + Image3_1.Height
+                    ZIndex: =4
+
+                StarVisible24_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey24_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey24_1.Y
+                    ZIndex: =5
+
+            "'Equipo de Producto ¿SI/NO?_DataCard1_1' As typedDataCard.comboBoxEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Equipo_x0020_de_x0020_Producto_x"
+                Default: =ThisItem.'Equipo de Producto ¿SI/NO?'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x0020_de_x0020_Producto_x")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue8_1.Selected
+                Width: =340
+                X: =1
+                Y: =1
+                ZIndex: =34
+
+                Txt_FondoForm1_23 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey23_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Tipo de Equipo"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue8_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_23.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Choices([@DominioEquipoSquad].'Equipo de Producto ¿SI/NO?')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(DominioEquipoSquad.'Equipo de Producto ¿SI/NO?',DataCardValue8_1.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_23.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage23_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue8_1.Y + DataCardValue8_1.Height
+                    ZIndex: =4
+
+                StarVisible23_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey23_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey23_1.Y
+                    ZIndex: =5
+
+            "'Equipo/Squad_DataCard1_1' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Equipo_x002f_Squad"
+                Default: =ThisItem.'Equipo/Squad'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =109
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
+                Required: =true
+                Update: =DataCardValue3_1.Text
+                Width: =340
+                X: =0
+                Y: =2
+                ZIndex: =34
+
+                DataCardKey5_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Nombre Equipo"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =22
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue3_1 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =15
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Tooltip: =Parent.DisplayName
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =2
+
+                ErrorMessage5_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue3_1.Y + DataCardValue3_1.Height
+                    ZIndex: =3
+
+                StarVisible5_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_1.Height
+                    Text: ="*"
+                    Visible: |-
+                        =false
+                        //And(Parent.Required; Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_1.Y
+                    ZIndex: =4
+
+        Icn_CancelarDatosEquipo As icon.CancelBadge:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =35
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_VarMostrarEdicionEquipo:false}); 
+                Clear(Col_UsuariosporEquipo);
+                ResetForm(Frm_EditarEquipo)
+            Tooltip: ="Cancelar Actualización"
+            Visible: =_VarMostrarEdicionEquipo
+            Width: =35
+            X: =1850
+            Y: =408
+            ZIndex: =21
+
+        Icn_ActualizarDatosEquipo As icon.CancelBadge:
+            Color: =RGBA(54, 176, 75, 1)
+            Height: =35
+            Icon: =Icon.CheckBadge
+            OnSelect: |-
+                =SubmitForm(Frm_EditarEquipo);
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+            Tooltip: ="Actualizar Equipo"
+            Visible: =_VarMostrarEdicionEquipo
+            Width: =35
+            X: =1800
+            Y: =408
+            ZIndex: =22
+
+    html_MsjAdvertenciaCrearEquipo As htmlViewer:
+        Height: =317
+        HtmlText: |-
+            ="<p>&nbsp;El equipo , ya existe en nuestra BD, te solicitamos que utilices un nombre diferente.</p>
+            <p>--------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+            <p><br />Datos del equipo:</p>
+            <table  border='1' style='border-collapse: collapse; width: 100%;'>
+            <tbody>
+            <tr style='background-color: #0d2d81;'>
+            <td style='width: 33.3333%; text-align: center;'><span style='color: #ffffff;'>Viaje</span></td>
+            <td style='width: 33.3333%; text-align: center;'><span style='color: #ffffff;'>SubViaje</span></td>
+            <td style='width: 33.3333%; text-align: center;'><span style='color: #ffffff;'>Creado</span></td>
+            </tr>
+            <tr>
+            <td style='width: 33.3333%; text-align: center'>" & LookUp( Col_BD_Dominios, IDDominio = _VarValidarNombre.IDDominio,Title) & "</td>
+            <td style='width: 33.3333%; text-align: center'>" & LookUp( Col_BD_SubDominios, IDDominio = _VarValidarNombre.IDDominio,NombreSubDominio) & "</td>
+            <td style='width: 33.3333%; text-align: center'>" & LookUp( Col_BD_SubDominios, IDDominio = _VarValidarNombre.IDDominio,Creado) & "</td>
+            </tr>
+            </tbody>
+            </table>"
+        Size: =15
+        Visible: |
+            =If(
+                _VarAbrirCrearEquipo,
+                If(
+                    IsBlank(_VarValidarNombre),
+                    false,
+                    true
+                ),
+                false
+            )
+        Width: =1066
+        X: =477
+        Y: =442
+        ZIndex: =36
+
+    PopUp_CrearEquipo As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =36
+
+        Rectangle1 As rectangle:
+            Fill: =_VarColoresApp.GrisFondo
+            Height: =1050
+            Visible: =_VarAbrirCrearEquipo
+            Width: =1920
+            ZIndex: =25
+
+        Html_FondoNuevoEquipo As htmlViewer:
+            Height: =549
+            HtmlText: |-
+                =/*
+                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
+                 <p style='text-align: center;' data-mce-style='text-align: center;'>
+                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
+                 <strong>Información Personal</strong></span></p>
+                 </div>
+                "
+                */
+                "
+                <div style='background: #FFFFFF; color: white; width: 1115px; height: 508px; display: flex; align-items: center; justify-content: center; border-radius: 25px;'>
+                </div>
+                "
+            Visible: =_VarAbrirCrearEquipo
+            Width: =1122
+            X: =449
+            Y: =322
+            ZIndex: =26
+
+        Frm_CrearNuevoEquipo As form:
+            AcceptsFocus: =false
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderStyle: =BorderStyle.None
+            DataSource: =DominioEquipoSquad
+            Height: =387
+            OnFailure: =Notify("No se creo correctamente el equipo.",NotificationType.Error,4000)
+            OnSuccess: |-
+                =Refresh(DominioEquipoSquad);
+                ClearCollect(Col_BD_Equipos,DominioEquipoSquad);
+                UpdateContext({_VarPopUpVerCrearEquipo:false});
+                Notify("Se creo correctamente el equipo",NotificationType.Success,4000);
+                Set(_VarAbrirCrearEquipo,false);
+                /*Ocultar Spinner Cargando*/
+                Set(_VarMostrarCargando,false);
+            Visible: |-
+                =If(
+                    _VarAbrirCrearEquipo,
+                    If(
+                        Icn_ValidarNombreEquipo.Visible,
+                        true,
+                        false
+                    ),
+                    false
+                )
+            Width: =1103
+            X: =459
+            Y: =442
+            ZIndex: =27
+
+            IDGerencia_DataCard2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDGerencia")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDGerencia"
+                Default: =ThisItem.IDGerencia
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDGerencia")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =109
+                Required: =false
+                Update: =DataCardValue18.Selected.IDGerencias
+                Width: =367
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                Txt_FondoForm1_11 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey34 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Gerencia"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue18 As dropdown:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_11.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Filter(Col_BD_Gerencia, Nivel = "2")
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_11.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage34 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue18.Y + DataCardValue18.Height
+                    ZIndex: =4
+
+                StarVisible34 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey34.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey34.Y
+                    ZIndex: =5
+
+            IDDominio_DataCard2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDDominio")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDDominio"
+                Default: =ThisItem.IDDominio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDDominio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue19.Selected.IDDominio
+                Width: =367
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                Txt_FondoForm1_12 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey35 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Viaje"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue19 As dropdown:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =3
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_12.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Filter(Col_BD_Dominios,IDGerencias = DataCardValue18.Selected.IDGerencias)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_12.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage35 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue19.Y + DataCardValue19.Height
+                    ZIndex: =4
+
+                StarVisible35 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey35.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey35.Y
+                    ZIndex: =5
+
+            IDSubdominio_DataCard2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDSubdominio")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDSubdominio"
+                Default: =ThisItem.IDSubdominio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDSubdominio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue4.Selected.IDSubDominio
+                Width: =367
+                X: =2
+                Y: =0
+                ZIndex: =1
+
+                Txt_FondoForm1_13 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey17 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Sub Viaje"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue4 As dropdown:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_13.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Filter(Col_BD_SubDominios, IDDominio = DataCardValue19.Selected.IDDominio)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_13.Width - 27
+                    X: =30
+                    Y: =DataCardKey17.Y + DataCardKey17.Height + 7
+                    ZIndex: =3
+
+                ErrorMessage17 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue4.Y + DataCardValue4.Height
+                    ZIndex: =4
+
+                StarVisible17 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey17.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey17.Y
+                    ZIndex: =5
+
+            "'Equipo/Squad_DataCard1' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Equipo_x002f_Squad"
+                Default: =ThisItem.'Equipo/Squad'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =109
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
+                Required: =true
+                Update: =DataCardValue3.Text
+                Width: =367
+                X: =0
+                Y: =1
+                ZIndex: =34
+
+                DataCardKey5 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Nombre Equipo"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =22
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue3 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =TrimEnds(_VarTempNombre)
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(116, 116, 116, 1)
+                    DisplayMode: =Parent.DisplayMode.Disabled
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =15
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Tooltip: =Parent.DisplayName
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =2
+
+                ErrorMessage5 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue3.Y + DataCardValue3.Height
+                    ZIndex: =3
+
+                StarVisible5 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5.Height
+                    Text: ="*"
+                    Visible: |-
+                        =false
+                        //And(Parent.Required; Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5.Y
+                    ZIndex: =4
+
+            "'Equipo de Producto ¿SI/NO?_DataCard1' As typedDataCard.comboBoxEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Equipo_x0020_de_x0020_Producto_x"
+                Default: =ThisItem.'Equipo de Producto ¿SI/NO?'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x0020_de_x0020_Producto_x")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue8.Selected
+                Width: =367
+                X: =1
+                Y: =1
+                ZIndex: =34
+
+                Txt_FondoForm1_15 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =314
+                    X: =13
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardKey23 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Tipo de Producto"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+                DataCardValue8 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =Txt_FondoForm1_15.Height - 10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =Choices([@DominioEquipoSquad].'Equipo de Producto ¿SI/NO?')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(DominioEquipoSquad.'Equipo de Producto ¿SI/NO?',DataCardValue8.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Txt_FondoForm1_15.Width - 27
+                    X: =30
+                    Y: =51
+                    ZIndex: =3
+
+                ErrorMessage23 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue8.Y + DataCardValue8.Height
+                    ZIndex: =4
+
+                StarVisible23 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey23.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey23.Y
+                    ZIndex: =5
+
+            LogoEquipo_DataCard1 As typedDataCard.addLargePictureCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="LogoEquipo"
+                Default: =ThisItem.LogoEquipo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Image3.Image
+                Width: =367
+                X: =2
+                Y: =1
+                ZIndex: =34
+
+                DataCardKey24 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Logo del Equipo"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                Image3 As image:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =AddPicture1.Height
+                    Image: =If(IsBlank(AddPicture1.Media), Parent.Default, AddPicture1.Media)
+                    Tooltip: =Parent.DisplayName
+                    Width: =AddPicture1.Width
+                    X: =AddPicture1.X
+                    Y: =AddPicture1.Y
+                    ZIndex: =2
+
+                AddPicture1 As addMedia:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =1
+                    Height: =129
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey24.Y + DataCardKey24.Height + 5
+                    ZIndex: =3
+
+                ErrorMessage24 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Image3.Y + Image3.Height
+                    ZIndex: =4
+
+                StarVisible24 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey24.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey24.Y
+                    ZIndex: =5
+
+            IDEquipo_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDEquipo"
+                Default: =ThisItem.IDEquipo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDEquipo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "IDEquipo")
+                Required: =false
+                Update: =DataCardValue9.Text
+                Visible: =false
+                Width: =367
+                X: =0
+                Y: =2
+                ZIndex: =34
+
+                DataCardKey25 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue9 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =_VarIDEquipo
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey25.Y + DataCardKey25.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage25 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue9.Y + DataCardValue9.Height
+                    ZIndex: =3
+
+                StarVisible25 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey25.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey25.Y
+                    ZIndex: =4
+
+            Estado_DataCard1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Estado"
+                Default: =ThisItem.Estado
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Estado")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Estado")
+                Required: =false
+                Update: =DataCardValue15.Text
+                Visible: =false
+                Width: =367
+                X: =1
+                Y: =2
+                ZIndex: =34
+
+                DataCardKey31 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue15 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: ="Activo"
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey31.Y + DataCardKey31.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage31 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue15.Y + DataCardValue15.Height
+                    ZIndex: =3
+
+                StarVisible31 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey31.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey31.Y
+                    ZIndex: =4
+
+        Btn_CrearEquipo As button:
+            Fill: =RGBA(0, 121, 187, 1)
+            OnSelect: |-
+                =SubmitForm(Frm_CrearNuevoEquipo);
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+            Text: ="Crear"
+            Visible: |-
+                =If(
+                    _VarAbrirCrearEquipo,
+                    If(
+                        Icn_ValidarNombreEquipo.Visible,
+                        true,
+                        false
+                    ),
+                    false
+                )
+            X: =831
+            Y: =759
+            ZIndex: =28
+
+        Btn_CancelarCrearEquipo As button:
+            Fill: =RGBA(217, 7, 7, 1)
+            HoverFill: =Color.Red
+            OnSelect: |-
+                =If(
+                    VarCamino = "persona",
+                    Set(_VarAbrirCrearEquipo,false);
+                    Set(_VarValidarNombre,Blank());
+                    Reset(Txt_ValidarNombreEquipo);
+                    ResetForm(Frm_CrearNuevoEquipo);
+                    Navigate(ModuloPersona,ScreenTransition.Fade)
+                    ,
+                    If(
+                        html_MsjAdvertenciaCrearEquipo.Visible,
+                        Set(_VarValidarNombre,Blank());
+                        Set(_VarTempValidacion,false);
+                        Reset(Txt_ValidarNombreEquipo);
+                        ResetForm(Frm_CrearNuevoEquipo),
+                        Set(_VarAbrirCrearEquipo,false);
+                        Set(_VarValidarNombre,Blank());
+                        Reset(Txt_ValidarNombreEquipo);
+                        ResetForm(Frm_CrearNuevoEquipo)
+                    )
+                )
+            Text: |-
+                =If(
+                    html_MsjAdvertenciaCrearEquipo.Visible,
+                    "Limpiar",
+                    "Cancelar"
+                )
+            Visible: =_VarAbrirCrearEquipo
+            X: =1013
+            Y: =759
+            ZIndex: =29
+
+        Html_CabeceraNuevaEquipo As htmlViewer:
+            Height: =83
+            HtmlText: |-
+                =/*
+                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
+                 <p style='text-align: center;' data-mce-style='text-align: center;'>
+                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
+                 <strong>Información Personal</strong></span></p>
+                 </div>
+                "
+                */
+                "
+                <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: 1115px; height: 70px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
+                  <h1 style='text-indent: 50px; text-align: center;'> Crear nuevo Equipo</h1>
+                </div>
+                "
+            Visible: =_VarAbrirCrearEquipo
+            Width: =1122
+            X: =447
+            Y: =244
+            ZIndex: =30
+
+        DataCardKey5_2 As label:
+            AutoHeight: =true
+            Height: =34
+            Text: |-
+                ="Validar nombre de equipo nuevo: "
+            Visible: =_VarAbrirCrearEquipo
+            Width: =300
+            Wrap: =false
+            X: =477
+            Y: =364
+            ZIndex: =31
+
+        Txt_ValidarNombreEquipo As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Clear: =true
+            Default: =
+            DelayOutput: =true
+            Height: =50
+            HintText: ="Validar nombre de equipo"
+            MaxLength: =255
+            PaddingLeft: =15
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Tooltip: ="Validar Nombre de Equipo"
+            Visible: =_VarAbrirCrearEquipo
+            Width: =314
+            X: =780
+            Y: =355
+            ZIndex: =32
+
+        Icn_ValidarNombreEquipo As icon.CheckBadge:
+            Color: =RGBA(54, 176, 75, 1)
+            Height: =40
+            Icon: =Icon.CheckBadge
+            Tooltip: ="Nombre de equipo valido, favor completar los campos."
+            Visible: |-
+                =If(
+                    _VarAbrirCrearEquipo,
+                    If(
+                        _VarTempValidacion,
+                        If(
+                            IsBlank(_VarValidarNombre),
+                            true,
+                            false
+                        )
+                    ),
+                    false
+                )
+            Width: =40
+            X: =1224
+            Y: =360
+            ZIndex: =33
+
+        Button9 As button:
+            Height: =50
+            OnSelect: |
+                =If(
+                    IsBlank(Txt_ValidarNombreEquipo.Text),
+                    Notify("Debe ingresar un nombre para validar",NotificationType.Information,5000),
+                    UpdateContext({_VarTempNombre:Txt_ValidarNombreEquipo.Text});
+                    Set(_VarTempValidacion,true);
+                    Set(_VarValidarNombre,LookUp(DominioEquipoSquad, 'Equipo/Squad' = Txt_ValidarNombreEquipo.Text));
+                    NewForm(Frm_CrearNuevoEquipo)
+                )
+            Text: ="Validar"
+            Visible: =_VarAbrirCrearEquipo
+            Width: =112
+            X: =1103
+            Y: =355
+            ZIndex: =35
+

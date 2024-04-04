@@ -1,0 +1,1639 @@
+ModuloRiesgosServTech As screen:
+
+    TextInput4_4 As text:
+        BorderColor: =RGBA(102, 102, 102, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(202, 202, 202, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.Disabled
+        Height: =781
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =1910
+        X: =10
+        Y: =269
+        ZIndex: =1
+
+    Icn_Pry_Guardar_4 As icon.CheckBadge:
+        Color: =RGBA(54, 176, 75, 1)
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |
+            =    If(
+                                    IsBlank(Txt_Ris_NombreRiesgo_1.Text)||
+                                    IsBlank(Dpd_Ris_Impacto_2.Selected.ID)||
+                                    IsBlank(DataCardValue107.SelectedDate)||
+                                    IsBlank(DataCardValue107_1.SelectedDate)||
+                                    IsBlank( Dpd_Ris_Impacto_3.Selected)||
+                                    IsEmpty(Cmb_Ris_Responsable_1.SelectedItems),
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                )
+                
+        Height: =45
+        Icon: =Icon.CheckBadge
+        OnSelect: |-
+            =/*Mostrar Spinner Cargando*/
+            Set(_VarMostrarCargando,true);
+                Patch(
+                    Lst_Riesgos_Proyectos,
+                        If(
+                            IsBlank(Label_ID_Risk.Text),
+                            Defaults(Lst_Riesgos_Proyectos),
+                            LookUp(Lst_Riesgos_Proyectos, ID = Dt_ListaRiesgos_1.Selected.ID)
+                        ),
+                    {
+                        IDProyecto: _VarGUIDServTech,
+                        NombreRiesgo: Txt_Ris_NombreRiesgo_1.Text,
+                        PlandeAccion: DataCardValue17.Text,
+                        //Impacto: Dpd_Ris_Impacto_2.Selected.ID;
+                        Criticidad:Dpd_Ris_Impacto_2.Selected.ID,
+                        FechaRegistroRiesgo:DataCardValue107.SelectedDate,
+                        FechaUmbralRiesgo: DataCardValue107_1.SelectedDate,
+                        Estado: Dpd_Ris_Impacto_3.Selected.Value,
+                        Responsable: 
+                                If(
+                                    IsBlank(Cmb_Ris_Responsable_1.Selected.Claims),
+                                    Dt_ListaRiesgos_1.Selected.Responsable,
+                                    Last(ForAll(Split(First(ForAll(Split(Cmb_Ris_Responsable_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result
+                                )
+                    }
+                );
+            Refresh(Lst_Historico_Riesgos_Proyectos);
+            ResetForm(Form_Riesgo_1);
+            
+            /*Ocultar Spinner Cargando*/
+            Set(_VarMostrarCargando,false);
+            Notify("Se ha guardado la información exitosamente",NotificationType.Success)
+        Tooltip: ="Guardar Datos de los Riesgos"
+        Width: =50
+        X: =1801
+        Y: =985
+        ZIndex: =5
+
+    Icn_Pry_Cancelar_4 As icon.CancelBadge:
+        Color: =RGBA(255, 0, 0, 1)
+        Height: =45
+        Icon: =Icon.CancelBadge
+        OnSelect: =ResetForm(Form_Riesgo_1)
+        Tooltip: ="Limpiar Controles"
+        Width: =50
+        X: =1850
+        Y: =985
+        ZIndex: =6
+
+    Lbl_Pry_Titulo_7 As label:
+        Color: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Semibold
+        Height: =42
+        OnSelect: =
+        Size: =25
+        Text: |-
+            ="Nombre del Proyecto:"
+        Width: =450
+        X: =193
+        Y: =319
+        ZIndex: =7
+
+    Image8_16 As image:
+        Height: =56
+        Image: ='SP Gestión productos'
+        OnSelect: =
+        Width: =82
+        X: =128
+        Y: =310
+        ZIndex: =8
+
+    Pry_Msj_Validacion_5 As label:
+        Align: =Align.Right
+        Color: |-
+            =If(
+                Rd_Pry_RequiereFinanciamiento.Selected.Value = "SI",
+                If(
+                    Txt_Pry_NombreProyectoProducto.Text = "NUEVO PROYECTO" Or
+                    IsBlank(Txt_Pry_NombreProyectoProducto.Text)Or
+                    IsBlank(Dpd_Pry_Dominio.Selected.IDDominio)Or
+                    IsBlank(Dpd_Pry_SubDominio.Selected.IDSubDominio)Or
+                    IsBlank(Cmb_Gl_Equipo.Selected.IDEquipo)Or
+                    IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName),
+                    Color.Red,
+                    RGBA(102, 102, 102, 1)
+                ),
+                If(
+                    Txt_Pry_NombreProyectoProducto.Text = "NUEVO PROYECTO" Or
+                    IsBlank(Txt_Pry_NombreProyectoProducto.Text)Or
+                    IsBlank(Dpd_Pry_Dominio.Selected.IDDominio)Or
+                    IsBlank(Dpd_Pry_SubDominio.Selected.IDSubDominio)Or
+                    IsBlank(Cmb_Gl_Equipo.Selected.IDEquipo)Or
+                    IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName)Or
+                    IsBlank(Dpd_Pry_DetalleMotivo.Selected.Value) Or
+                    Dpd_Pry_DetalleMotivo.Selected.Value = "Seleccionar Motivo",
+                    Color.Red,
+                    RGBA(102, 102, 102, 1)
+                )
+            )
+            /*
+            If(
+                Rd_Pry_RequiereFinanciamiento.Selected.Value = "SI";
+                If(
+                    IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                    Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                    IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                    IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                    IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                    IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                    IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                    IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                    IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                    Color.Red;
+                    RGBA(102; 102; 102; 1)
+                );
+                If(
+                    IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                    Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                    IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                    IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                    IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                    IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                    IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                    IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                    (Dpd_Pry_DetalleMotivo.Selected.Value = "Seleccionar Motivo") Or
+                    IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                    Color.Red;
+                    RGBA(102; 102; 102; 1)
+                )
+            )
+            */
+        OnSelect: =
+        Text: |
+            ="Recuerda guardar los datos de los riesgos dando click aqui."
+        Width: =523
+        X: =1281
+        Y: =990
+        ZIndex: =9
+
+    Icn_Abrir_Cerrar_Registro_Pry_4 As icon.ChevronDown:
+        Height: =42
+        Icon: |
+            =Icon.ChevronUp
+        OnSelect: =Navigate(ServiciosTech,ScreenTransition.Fade);
+        Width: =44
+        X: =43
+        Y: =317
+        ZIndex: =10
+
+    Pry_LineaSeparadora_5 As rectangle:
+        Fill: =RGBA(179, 179, 179, 1)
+        Height: =1
+        OnSelect: =
+        Width: =1780
+        X: =120
+        Y: =392
+        ZIndex: =11
+
+    Pry_Separador0_3 As rectangle:
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =580
+        Width: =2
+        X: =109
+        Y: =389
+        ZIndex: =12
+
+    Dt_ListaRiesgos_1 As dataTable.datatable:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =_VarColoresApp.AzulparaCabeceras
+        Height: =538
+        Items: =SortByColumns(Filter(Lst_Riesgos_Proyectos,IDProyecto = _VarGUIDServTech),"Estado",SortOrder.Descending,"Criticidad",SortOrder.Descending,"FechaRegistroRiesgo",SortOrder.Descending)
+        Width: =817
+        X: =136
+        Y: =442
+        ZIndex: =13
+
+        NombreRiesgo_Columna1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nombre Riesgo"
+            FieldName: ="NombreRiesgo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.NombreRiesgo
+            Width: =204
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        FechaRegistroRiesgo_Columna1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fecha de Registro"
+            FieldName: ="FechaRegistroRiesgo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.FechaRegistroRiesgo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        Estado_Columna1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Estado"
+            FieldName: ="Estado"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.Estado
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        Criticidad_Columna2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Criticidad"
+            FieldName: ="Criticidad"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: |-
+                =Switch(ThisItem.Criticidad,
+                "1","Muy Bajo",
+                "2","Bajo",
+                "3","Medio",
+                "4","Alto",
+                "Muy Alto")
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =23
+
+    Lbl_AgregarRiesgo_5 As label:
+        Align: =Align.Right
+        AutoHeight: =true
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =43
+        Text: ="Agregar nuevo riesgo"
+        Tooltip: ="Agregar nuevo Producto / Proyecto"
+        Width: =209
+        X: =706
+        Y: =406
+        ZIndex: =14
+
+    Img_Pry_AgregarRiesgo_4 As image:
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =40
+        Image: ='nuevo agregar '
+        Tooltip: ="Agregar nuevo Producto / Proyecto"
+        Width: =30
+        X: =920
+        Y: =402
+        ZIndex: =15
+
+    Btn_Pry_AgregarRiesgo_5 As button:
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledFill: =RGBA(244, 244, 244, 0.4)
+        DisplayMode: =    DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(255, 255, 255, 0.5)
+        OnSelect: |-
+            =Set(_VarNuevoRiesgo,"Ris-" & GUID());
+            NewForm(Form_Riesgo_1)
+        PressedFill: =RGBA(255, 255, 255, 0.7)
+        Text: =""
+        Width: =243
+        X: =710
+        Y: =401
+        ZIndex: =16
+
+    Form_Riesgo_1 As form:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderStyle: =BorderStyle.Dotted
+        DataSource: =Lst_Riesgos_Proyectos
+        Height: =577
+        Item: =LookUp(Lst_Riesgos_Proyectos, ID = Dt_ListaRiesgos_1.Selected.ID)
+        NumberOfColumns: =2
+        Width: =950
+        X: =950
+        Y: =400
+        ZIndex: =17
+
+        NombreRiesgo_DataCard1_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="NombreRiesgo"
+            Default: =ThisItem.NombreRiesgo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"NombreRiesgo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =221
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "NombreRiesgo")
+            Required: =false
+            Update: =Txt_Ris_NombreRiesgo_1.Text
+            Width: =475
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey33_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Nombre de Riesgo"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            Txt_Ris_NombreRiesgo_1 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =147
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =10
+                PaddingTop: =10
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Tooltip: =Parent.DisplayName
+                Width: =427
+                X: =30
+                Y: =DataCardKey33_1.Y + DataCardKey33_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage33_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Txt_Ris_NombreRiesgo_1.Y + Txt_Ris_NombreRiesgo_1.Height
+                ZIndex: =3
+
+            StarVisible33_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey33_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey33_1.Y
+                ZIndex: =4
+
+        FechaRegistroRiesgo_DataCard2 As typedDataCard.dateEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="FechaRegistroRiesgo"
+            Default: =ThisItem.FechaRegistroRiesgo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaRegistroRiesgo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue107.SelectedDate
+            Width: =475
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey134 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Fecha del riesgo"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage134 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue107.Y + DataCardValue107.Height
+                ZIndex: =3
+
+            StarVisible134 As label:
+                Align: =Align.Center
+                Height: =DataCardKey134.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey134.Y
+                ZIndex: =4
+
+            Txt_FondoRegistro_2 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =29
+                Y: =44
+                ZIndex: =8
+
+            DataCardValue107 As datepicker:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                DefaultDate: =ThisItem.FechaRegistroRiesgo
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Height: =Txt_FondoRegistro_2.Height - 10
+                IconBackground: =
+                IconFill: =_VarColoresApp.AzulparaCabeceras
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Txt_FondoRegistro_2.Width - 27
+                X: =42
+                Y: =49
+                ZIndex: =9
+
+            DataCardKey134_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Fecha Estimada Mitigación"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =31
+                Y: =112
+                ZIndex: =10
+
+            Txt_FondoRegistro_3 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =146
+                ZIndex: =11
+
+            DataCardValue107_1 As datepicker:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                DefaultDate: =ThisItem.FechaUmbralRiesgo
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Height: =Txt_FondoRegistro_3.Height - 10
+                IconBackground: =
+                IconFill: =_VarColoresApp.AzulparaCabeceras
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Txt_FondoRegistro_3.Width - 27
+                X: =43
+                Y: =151
+                ZIndex: =12
+
+        PlandeAccion_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PlandeAccion"
+            Default: =ThisItem.PlandeAccion
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"PlandeAccion")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =220
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "PlandeAccion")
+            Required: =false
+            Update: =DataCardValue17.Text
+            Width: =475
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey50 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Plan de mitigación"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage48 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible48 As label:
+                Align: =Align.Center
+                Height: =DataCardKey50.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey50.Y
+                ZIndex: =4
+
+            DataCardValue17 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =158
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =10
+                PaddingTop: =10
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Tooltip: =Parent.DisplayName
+                Width: =430
+                X: =30
+                Y: =DataCardKey33_1.Y + DataCardKey33_1.Height + 5
+                ZIndex: =5
+
+            Label_ID_Risk As label:
+                Text: =ThisItem.ID
+                Visible: =false
+                X: =252
+                ZIndex: =6
+
+        Criticidad_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Criticidad"
+            Default: =ThisItem.Criticidad
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Criticidad")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =90
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "Criticidad")
+            Required: =false
+            Update: =Dpd_Ris_Impacto_2.Selected.Value
+            Width: =475
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            ErrorMessage128 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Dpd_Ris_Impacto_2.Y + Dpd_Ris_Impacto_2.Height
+                ZIndex: =3
+
+            StarVisible128 As label:
+                Align: =Align.Center
+                Height: =
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =
+                ZIndex: =4
+
+            Txt_FondoImpacto_2 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =47
+                ZIndex: =8
+
+            DataCardKey45_2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Criticidad"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =29
+                Y: =7
+                ZIndex: =9
+
+            Dpd_Ris_Impacto_2 As dropdown:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                ChevronBackground: =RGBA(0, 0, 0, 0)
+                ChevronFill: =_VarColoresApp.AzulparaCabeceras
+                Default: |-
+                    =Switch(ThisItem.Criticidad,
+                    "1","Muy Bajo",
+                    "2","Bajo",
+                    "3","Medio",
+                    "4","Alto",
+                    "Muy Alto")
+                DisplayMode: =Parent.DisplayMode
+                Height: =Txt_FondoImpacto_2.Height - 10
+                Items: |-
+                    =Table({ID:1,Value:"Muy Bajo"},
+                    {ID:2,Value:"Bajo"},
+                    {ID:3,Value:"Medio"},
+                    {ID:4,Value:"Alto"},
+                    {ID:5,Value:"Muy Alto"})
+                Tooltip: =Parent.DisplayName
+                Width: =Txt_FondoImpacto_2.Width - 27
+                X: =43
+                Y: =52
+                ZIndex: =10
+
+        Responsable_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Responsable")
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Responsable"
+            Default: =ThisItem.Responsable
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Responsable")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =110
+            Required: =false
+            Update: =Cmb_Ris_Responsable_1.Selected.DisplayName
+            Width: =475
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey43_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =5
+                ZIndex: =1
+
+            ErrorMessage43_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Cmb_Ris_Responsable_1.Y + Cmb_Ris_Responsable_1.Height
+                ZIndex: =3
+
+            StarVisible43_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey43_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey43_1.Y
+                ZIndex: =4
+
+            Txt_FondoResponsable_1 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =43
+                ZIndex: =5
+
+            Cmb_Ris_Responsable_1 As combobox:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                Default: |-
+                    ={
+                            DisplayName: LookUp(
+                                Lst_Persona,
+                                Usuario = ThisItem.Responsable,
+                                Nombre_Persona
+                            )
+                        }
+                DefaultSelectedItems: |-
+                    =Table(
+                        {
+                            DisplayName: LookUp(
+                                Lst_Persona,
+                                Usuario = ThisItem.Responsable,
+                                Nombre_Persona
+                            )
+                        }
+                    )
+                DisplayFields: =["DisplayName","Email","Picture"]
+                Height: =Txt_FondoResponsable_1.Height - 10
+                HoverBorderColor: =RGBA(0, 121, 187, 1)
+                InputTextPlaceholder: ="Buscar responsable"
+                Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+                OnSelect: =
+                PressedFill: =RGBA(0, 121, 187, 1)
+                Reset: =ResetearControlPry
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Ris_Responsable_1.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Width: =Txt_FondoResponsable_1.Width - 27
+                X: =43
+                Y: =48
+                ZIndex: =6
+
+        Estado_DataCard2 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Estado"
+            Default: =ThisItem.Estado
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Estado")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "Estado")
+            Required: =false
+            Update: =DataCardValue106.Text
+            Visible: =true
+            Width: =475
+            X: =1
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey133 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Visible: =false
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue106 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Dpd_Ris_Impacto_3.Selected.Value
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Visible: =false
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey133.Y + DataCardKey133.Height + 5
+                ZIndex: =2
+
+            ErrorMessage133 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue106.Y + DataCardValue106.Height
+                ZIndex: =3
+
+            StarVisible133 As label:
+                Align: =Align.Center
+                Height: =DataCardKey133.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey133.Y
+                ZIndex: =4
+
+            Txt_FondoImpacto_4 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =40
+                ZIndex: =5
+
+            DataCardKey45_4 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Resolución"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =29
+                ZIndex: =6
+
+            Dpd_Ris_Impacto_3 As dropdown:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                ChevronBackground: =RGBA(0, 0, 0, 0)
+                ChevronFill: =_VarColoresApp.AzulparaCabeceras
+                Default: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                Height: =Txt_FondoImpacto_4.Height - 10
+                Items: =["Abierto","Cerrado"]
+                Reset: =true
+                Tooltip: =Parent.DisplayName
+                Width: =Txt_FondoImpacto_4.Width - 27
+                X: =43
+                Y: =45
+                ZIndex: =7
+
+        IDProyecto_DataCard1_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="IDProyecto"
+            Default: =ThisItem.IDProyecto
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"IDProyecto")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "IDProyecto")
+            Required: =false
+            Update: =Txt_Ris_IDProyecto_1.Text
+            Visible: =false
+            Width: =475
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey29_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            Txt_Ris_IDProyecto_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =_VarGUIDServTech
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey29_1.Y + DataCardKey29_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage29_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Txt_Ris_IDProyecto_1.Y + Txt_Ris_IDProyecto_1.Height
+                ZIndex: =3
+
+            StarVisible29_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey29_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey29_1.Y
+                ZIndex: =4
+
+        ID_DataCard1_1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ID"
+            Default: =ThisItem.ID
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"ID")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Visible: =false
+            Width: =475
+            X: =1
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey47_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue31_1 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey47_1.Y + DataCardKey47_1.Height + 5
+                ZIndex: =2
+
+        FechaUmbralRiesgo_DataCard2 As typedDataCard.dateEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="FechaUmbralRiesgo"
+            Default: =ThisItem.FechaUmbralRiesgo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaUmbralRiesgo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue108.SelectedDate
+            Visible: =false
+            Width: =475
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey135 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue108 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =DataCardValue107_1.SelectedDate
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey135.Y + DataCardKey135.Height + 5
+                ZIndex: =2
+
+            ErrorMessage135 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue108.Y + DataCardValue108.Height
+                ZIndex: =3
+
+            StarVisible135 As label:
+                Align: =Align.Center
+                Height: =DataCardKey135.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey135.Y
+                ZIndex: =4
+
+    Label6_6 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =42
+        Size: =20
+        Text: =_VarVerServTech.'Nombre Producto/Proyecto'
+        Width: =650
+        X: =551
+        Y: =320
+        ZIndex: =18
+
+    Container3_2 As groupContainer.manualLayoutContainer:
+        Height: =53
+        Width: =689
+        X: =1206
+        Y: =349
+        ZIndex: =19
+
+        Btn_InfoProyecto_4 As button:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Color: =RGBA(26, 26, 26, 1)
+            Fill: |-
+                =If(
+                    App.ActiveScreen = ModuloServiciosTech,
+                    Color.Beige,
+                    RGBA(255, 255, 255, 1)
+                )
+            OnSelect: =Navigate(ModuloServiciosTech,ScreenTransition.Fade)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            Text: ="Información Proyecto"
+            Width: =250
+            X: =17
+            Y: =2
+            ZIndex: =1
+
+        Btn_EstatusProyecto_3 As button:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Color: =RGBA(26, 26, 26, 1)
+            Fill: =Color.Beige
+            OnSelect: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            Text: ="Riesgos del Proyecto"
+            Width: =240
+            X: =267
+            Y: =2
+            ZIndex: =2
+
+        Btn_EstatusProyecto_5 As button:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Color: =RGBA(26, 26, 26, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            OnSelect: |+
+                =/*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                
+                ClearCollect(Col_KPIProducto,Sort(Filter(Col_BD_KPIs, IDProducto =  _VarGUIDServTech),Creado,SortOrder.Descending));
+                Clear(Col_RegistrosPorKPI);
+                Set(Var_IDProducto, _VarGUIDServTech);
+                Navigate(ModuloKPIServTech,ScreenTransition.Fade,{ServTech:true});
+                
+                 /*Ocultar Spinner Cargando*/
+                Set(_VarMostrarCargando,false);
+                
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            Text: ="KPI"
+            Width: =182
+            X: =507
+            Y: =2
+            ZIndex: =3
+
+    Ctn_Filtros_2 As groupContainer.manualLayoutContainer:
+        Height: =246
+        Width: =1634
+        X: =203
+        ZIndex: =20
+
+        Html_FondoNuevoEquipo_32 As htmlViewer:
+            Height: =145
+            HtmlText: |-
+                ="
+                <div style='
+                    width: 1450px;
+                    height: 105px;
+                    background: #C4D5E3;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 10px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            PaddingLeft: =10
+            Width: =1500
+            Y: =97
+            ZIndex: =1
+
+        Txt_FondoForm1_132 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =215
+            Y: =145
+            ZIndex: =2
+
+        Label6_106 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Gerencia:"
+            Width: =287
+            X: =221
+            Y: =105
+            ZIndex: =3
+
+        Label6_107 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Categoría:"
+            Width: =287
+            X: =558
+            Y: =105
+            ZIndex: =4
+
+        Txt_FondoForm1_134 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroJefePO.Selected.DisplayName
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =880
+            Y: =145
+            ZIndex: =5
+
+        DataCardKey15_24 As label:
+            AutoHeight: =true
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Nombre Proyecto:"
+            Width: =239
+            Wrap: =false
+            X: =890
+            Y: =105
+            ZIndex: =6
+
+        Txt_FondoForm1_133 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =551
+            Y: =145
+            ZIndex: =7
+
+        Txt_FondoForm1_135 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Dpd_FiltroEstado.Selected.Value
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =192
+            X: =1225
+            Y: =145
+            ZIndex: =8
+
+        Label6_108 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Responsable:"
+            Width: =182
+            X: =1234
+            Y: =105
+            ZIndex: =9
+
+        Label10_56 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filtra por"
+            Width: =122
+            X: =89
+            Y: =110
+            ZIndex: =10
+
+        Label10_59 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            Text: ="Agregar"
+            Tooltip: ="Agregar nuevo Producto / Proyecto"
+            Width: =98
+            X: =1527
+            Y: =159
+            ZIndex: =11
+
+        Label13_13 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Size: =25
+            Text: ="SERVICIOS TECNOLOGÍA"
+            Visible: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    false,
+                    true
+                )
+            Width: =611
+            X: =444
+            ZIndex: =12
+
+        Image5_14 As image:
+            Height: =35
+            Image: ='filtrar (1)'
+            Width: =40
+            X: =40
+            Y: =110
+            ZIndex: =13
+
+        Img_AgregarPrdPry_14 As image:
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =40
+            Image: ='nuevo agregar '
+            Tooltip: ="Agregar nuevo Producto / Proyecto"
+            Width: =40
+            X: =1489
+            Y: =159
+            ZIndex: =14
+
+        Image20_14 As image:
+            Height: =35
+            Image: =borrarnose
+            Tooltip: ="Limpiar Filtros"
+            Width: =40
+            X: =45
+            Y: =159
+            ZIndex: =15
+
+        Label10_60 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Text: ="Limpiar"
+            Width: =122
+            X: =89
+            Y: =161
+            ZIndex: =16
+
+        Label10_58 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            FontWeight: =FontWeight.Bold
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Text: ="Actualizar"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =98
+            X: =1527
+            Y: =110
+            ZIndex: =17
+
+        Image23_14 As image:
+            Height: =40
+            Image: ='nuevo actualizar '
+            OnSelect: |-
+                =Concurrent(
+                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                ClearCollect(Col_BD_Financiamiento,Portafolio),
+                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+                );
+                
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            Tooltip: ="Actualizar datos"
+            Width: =35
+            X: =1489
+            Y: =110
+            ZIndex: =18
+
+        Btn_Pry_LimpiarFiltros_8 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =40
+            Y: =156
+            ZIndex: =19
+
+        Btn_Pry_AgregarProyecto_7 As button:
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Set(_VarVerServTech,Defaults('Dominio - Proyecto/Producto'));
+                Set(_VarGUIDServTech,"PTech-"&GUID());
+                Navigate(ModuloServiciosTech,ScreenTransition.Fade)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =1487
+            Y: =157
+            ZIndex: =20
+
+        Btn_Pry_ActualizarDatos_8 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =1487
+            Y: =107
+            ZIndex: =21
+
+        Rectangle10_3 As rectangle:
+            Fill: =RGBA(237, 237, 237, 0.17)
+            Height: =137
+            Width: =1634
+            Y: =97
+            ZIndex: =22
+
+    Container4_2 As groupContainer.manualLayoutContainer:
+        Height: =149
+        Width: =68
+        X: =14
+        Y: =400
+        ZIndex: =21
+
+        Gp_Pry_Menu_3 As group:
+            Height: =5
+            Width: =5
+            X: =25
+            Y: =-383
+            ZIndex: =3
+
+            Img_Pry_Portafolio_3 As image:
+                Height: =50
+                Image: ='Icn_gestionar 01'
+                OnSelect: =
+                Width: =50
+                X: =9
+                Y: =8
+                ZIndex: =1
+
+            Btn_Pry_Portafolio_3 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                Fill: |
+                    =RGBA(222, 154, 237, 0.22)
+                Height: =60
+                HoverColor: =RGBA(222, 154, 237, 0.22)
+                HoverFill: =
+                OnSelect: =Navigate(ModuloServiciosTech,ScreenTransition.Fade)
+                PressedFill: =RGBA(222, 154, 237, 0.22)
+                Size: =25
+                Text: =""
+                Tooltip: ="Gestionar Producto / Proyecto"
+                Width: =60
+                X: =4
+                Y: =2
+                ZIndex: =2
+
+        Img_Finanza_7 As image:
+            Height: =50
+            Image: =Icn_finanzas01
+            OnSelect: =
+            Visible: =_VarVerServTech.RequiereFinanciamiento="SI"&&!IsBlank(_VarVerServTech.IDProducto)
+            Width: =50
+            X: =9
+            Y: =85
+            ZIndex: =4
+
+        Btn_Financiamiento_7 As button:
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =
+            Fill: =RGBA(153, 207, 236, 0.24)
+            Height: =60
+            HoverFill: =RGBA(153, 207, 236, 0.24)
+            OnSelect: |-
+                =ClearCollect(Col_FinanciamientoProducto,Filter(Col_BD_Financiamiento, IDProducto = _VarGUIDServTech));
+                Set(Var_IDProducto,_VarGUIDServTech);
+                Navigate(ModuloFinanzasTech,ScreenTransition.Fade)
+            PressedColor: =RGBA(153, 207, 236, 0.24)
+            Size: =25
+            Text: =""
+            Tooltip: ="Gestionar Financiamiento"
+            Visible: =_VarVerServTech.RequiereFinanciamiento="SI"&&!IsBlank(_VarVerServTech.IDProducto)
+            Width: =60
+            X: =4
+            Y: =80
+            ZIndex: =5
+
+    MenuLateral_22 As MenuLateral:
+        Height: =MenuLateral_22.AltoApp
+        Width: =MenuLateral_22.AnchoApp
+        X: =14
+        Y: =5
+        ZIndex: =22
+
+    Guardando_6 As Guardando_4:
+        Visible: =_VarMostrarCargando
+        ZIndex: =23
+
+    Gp_CabeceraPortafolio_13 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        Rct_FondoCabecera_Persona_19 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =2
+
+        Img_UsuarioPantallaPersona_22 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1777
+            Y: =5
+            ZIndex: =3
+
+        Btn_Back_17 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: |-
+                =Reset(Rd_InternoExterno);
+                Reset(Cmb_BuscarMiEquipo);
+                //UpdateContext({_VarMostrarEdicionEquipo:false});;
+                Clear(Col_UsuarioenEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Reset(Rd_PersonasEquipos);
+                Navigate(Portada,ScreenTransition.Fade)
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =4
+

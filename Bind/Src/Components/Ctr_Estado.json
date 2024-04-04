@@ -1,0 +1,63 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "Ctr_Estado",
+    "TemplateGuid": "30ee6d26c1f14ad49d0eaea477a69706"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "ListaEstados",
+      "Hidden": false,
+      "Name": "ListaEstados",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Grupo\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Value\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "EstadoGuardado",
+      "Hidden": false,
+      "Name": "EstadoGuardado",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "EstadoSeleccionado",
+      "Hidden": true,
+      "Name": "EstadoSeleccionado",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Desplegar",
+      "Hidden": true,
+      "Name": "Desplegar",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638478260043678738",
+  "Name": "30ee6d26c1f14ad49d0eaea477a69706",
+  "OverridableProperties": {},
+  "Version": "638205511539845673"
+}

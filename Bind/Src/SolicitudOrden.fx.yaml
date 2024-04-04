@@ -1,0 +1,1957 @@
+SolicitudOrden As screen:
+    Fill: =
+    OnVisible: =Set(_VarVerOrdenesEquipos,false)
+
+    TextInput4_2 As text:
+        BorderColor: =RGBA(102, 102, 102, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(202, 202, 202, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.Disabled
+        Height: =722
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =1175
+        X: =701
+        Y: =227
+        ZIndex: =1
+
+    Form2 As form:
+        DataSource: =Lst_SolicitudOrdenes
+        Height: =655
+        Item: =Gallery3_3.Selected
+        Width: =1174
+        X: =701
+        Y: =234
+        ZIndex: =5
+
+        TipoSolicitud_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="TipoSolicitud"
+            Default: =ThisItem.TipoSolicitud
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"TipoSolicitud")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "TipoSolicitud")
+            Required: =false
+            Update: =DataCardValue90.Text
+            Visible: =false
+            Width: =391
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey63_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue90 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Cmb_TipoSol.Selected.Value
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey63_1.Y + DataCardKey63_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage116 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue90.Y + DataCardValue90.Height
+                ZIndex: =3
+
+            StarVisible116 As label:
+                Align: =Align.Center
+                Height: =DataCardKey63_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey63_1.Y
+                ZIndex: =4
+
+        DataCard30 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =114
+            Width: =391
+            X: =2
+            Y: =2
+            ZIndex: =1
+
+            Label38 As label:
+                Text: =If(ThisItem.ID>0,"SI","")
+                Visible: =false
+                X: =18
+                Y: =3
+                ZIndex: =1
+
+        DataCard31 As typedDataCard.blankCard:
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =76
+            Width: =1173
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            Label24_3 As label:
+                Height: =55
+                LineHeight: =1.5
+                Text: ="Se debe adjuntar excel con el detalle de los equipos, orden y detalle de los montos asociados a cada producto, puedes descargar la plantilla para esta solicitud aquí."
+                Width: =985
+                X: =30
+                Y: =4
+                ZIndex: =1
+
+            Group3_2 As group:
+                Height: =5
+                Width: =5
+                X: =-1067
+                Y: =-527
+                ZIndex: =5
+
+                Lbl_AgregarRiesgo_4 As label:
+                    Align: =Align.Center
+                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarVerPopUpPortafolio,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    Text: ="Descargar Plantilla"
+                    Tooltip: ="Solicitar financiamiento"
+                    Width: =192
+                    X: =439
+                    Y: =38
+                    ZIndex: =2
+
+                Image8_15 As image:
+                    Height: =35
+                    Image: ='SP Gestión productos'
+                    OnSelect: =
+                    Width: =39
+                    X: =413
+                    Y: =34
+                    ZIndex: =3
+
+                Btn_Pry_AgregarRiesgo_4 As button:
+                    DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 0.4)
+                    DisplayMode: |-
+                        =If(
+                            _VarVerPopUpPortafolio,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =31
+                    HoverFill: =RGBA(255, 255, 255, 0.5)
+                    OnSelect: |-
+                        =If(Cmb_TipoSol.Selected.Value="Extender Orden",Launch("https://teams.wal-mart.com/:x:/s/AgilePMOMalayita/EcWLSdlrxtJKjTywfJghB64BfmFOiz4oBPurZrdTxve5xg?e=ehbBDA"&"&download=1"),Launch("https://teams.wal-mart.com/:x:/s/AgilePMOMalayita/EWXbpTLZkvhCkuKe96qv88sBie9j0LwxUyRAh5RL6Axamw?e=EVDPRb"&"&download=1"))
+                    PressedFill: =RGBA(255, 255, 255, 0.7)
+                    Text: =""
+                    Width: =218
+                    X: =414
+                    Y: =38
+                    ZIndex: =4
+
+        Responsable_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Responsable"
+            Default: =ThisItem.Responsable
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Responsable")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Responsable")
+            Required: =false
+            Update: |-
+                =Upper(Last(ForAll(Split(First(ForAll(Split(User().Email,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+            Width: =391
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+            DataCardKey40_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =User().FullName
+                DelayOutput: =true
+                DisplayMode: =DisplayMode.Disabled
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey40_1.Y + DataCardKey40_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage40_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue13_1.Y + DataCardValue13_1.Height
+                ZIndex: =3
+
+            StarVisible40_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey40_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey40_1.Y
+                ZIndex: =4
+
+        Gerencia_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Gerencia"
+            Default: =ThisItem.Gerencia
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Gerencia")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =100
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Gerencia")
+            Required: =false
+            Update: =DataCardValue14_1.Text
+            Width: =782
+            X: =1
+            Y: =0
+            ZIndex: =6
+
+            DataCardKey41_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: |-
+                    =LookUp(Lst_Persona,Usuario=Upper(Last(ForAll(Split(First(ForAll(Split(User().Email,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),GerenciaOrigen)
+                DelayOutput: =true
+                DisplayMode: =DisplayMode.Disabled
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey41_1.Y + DataCardKey41_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage41_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue14_1.Y + DataCardValue14_1.Height
+                ZIndex: =3
+
+            StarVisible41_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey41_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey41_1.Y
+                ZIndex: =4
+
+        Accion_DataCard1 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Accion"
+            Default: =ThisItem.Accion
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Accion")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =88
+            Required: =false
+            Update: =DataCardValue21_1.Selected
+            Width: =391
+            X: =0
+            Y: =1
+            ZIndex: =6
+
+            DataCardKey52_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Tipo de Solicitud"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =8
+                ZIndex: =1
+
+            DataCardValue21_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =17
+                IsSearchable: =false
+                Items: =Choices([@Lst_SolicitudOrdenes].Accion)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =163
+                X: =81
+                Y: =44
+                ZIndex: =2
+
+            ErrorMessage51_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue21_1.Y + DataCardValue21_1.Height
+                ZIndex: =3
+
+            StarVisible51_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey52_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey52_1.Y
+                ZIndex: =4
+
+            Txt_FondoEquipo_3 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: =RGBA(237, 237, 237, 1)
+                DisplayMode: |
+                    =If(ThisItem.ID>0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                        )
+                Height: =45
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =Parent.Width - 60
+                X: =28
+                Y: =40
+                ZIndex: =5
+
+            Cmb_TipoSol As combobox:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                ChevronDisabledFill: =RGBA(102, 102, 102, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                Default: |-
+                    =If( 
+                        Dpd_Pry_SubDominio.Selected.NombreSubDominio = "Proyectos Digitales", 
+                        If(
+                            Dpd_Pry_Dominio.Selected.Title = "Colaboradores",
+                             {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo = "Equi-6263326C-44A3-8817-5DE2-1DE3F2620ADF")},
+                            If(
+                                Dpd_Pry_Dominio.Selected.Title = "Canal de Venta",
+                                 {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-DC1FA82C-5CD2-79A5-0A64-FBAEBA66A3A5")},
+                                If(
+                                    Dpd_Pry_Dominio.Selected.Title = "Engagement",
+                                     {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-91AFF917-2202-1E8A-49BD-C85432371953")},
+                                    If(
+                                        Dpd_Pry_Dominio.Selected.Title = "B2B",
+                                        {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-7B450A88-10CE-0941-0305-CF803A4D03D7")},
+                                        {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo =First(ProyectoSeleccionado).IDEquipo)}
+                                    )
+                                )
+                            )
+                        ),
+                        {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo =First(ProyectoSeleccionado).IDEquipo)}
+                    )
+                DefaultSelectedItems: =[ThisItem.TipoSolicitud]
+                DisabledBorderColor: =RGBA(219, 219, 219, 1)
+                DisabledColor: =RGBA(77, 77, 77, 1)
+                DisabledFill: =RGBA(237, 237, 237, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: |
+                    =If(ThisItem.ID>0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                        )
+                Height: =35
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                InputTextPlaceholder: ="Buscar Tipo de Solicitud"
+                IsSearchable: =false
+                Items: |
+                    =["Extender Orden","Abrir Orden"]
+                NoSelectionText: ="Seleccionar"
+                OnSelect: =
+                PressedFill: =RGBA(0, 121, 187, 1)
+                Reset: =ResetearControlPry
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Width: =Parent.Width - 90
+                X: =43
+                Y: =45
+                ZIndex: =6
+
+        Ceco_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ceco"
+            Default: =ThisItem.Ceco
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Ceco")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Ceco")
+            Required: =false
+            Update: |-
+                =Cmb_CECO.Selected.Ceco &"
+                " & Cmb_CECO.Selected.NombreCeco
+            Width: =391
+            X: =2
+            Y: =1
+            ZIndex: =6
+
+            DataCardKey53 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Centro de Costos"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =8
+                ZIndex: =1
+
+            DataCardValue22 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =202
+                X: =96
+                Y: =DataCardKey53.Y + DataCardKey53.Height + 5
+                ZIndex: =2
+
+            ErrorMessage52 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue22.Y + DataCardValue22.Height
+                ZIndex: =3
+
+            StarVisible52 As label:
+                Align: =Align.Center
+                Height: =DataCardKey53.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey53.Y
+                ZIndex: =4
+
+            Group3_1 As group:
+                Height: =5
+                Width: =5
+                X: =8
+                Y: =-8
+                ZIndex: =7
+
+                Txt_FondoEquipo_4 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: =RGBA(237, 237, 237, 1)
+                    DisplayMode: |
+                        =If(ThisItem.ID>0,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                            )
+                    Height: =45
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =38
+                    ZIndex: =5
+
+                Cmb_CECO As combobox:
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(102, 102, 102, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        =If( 
+                            Dpd_Pry_SubDominio.Selected.NombreSubDominio = "Proyectos Digitales", 
+                            If(
+                                Dpd_Pry_Dominio.Selected.Title = "Colaboradores",
+                                 {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo = "Equi-6263326C-44A3-8817-5DE2-1DE3F2620ADF")},
+                                If(
+                                    Dpd_Pry_Dominio.Selected.Title = "Canal de Venta",
+                                     {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-DC1FA82C-5CD2-79A5-0A64-FBAEBA66A3A5")},
+                                    If(
+                                        Dpd_Pry_Dominio.Selected.Title = "Engagement",
+                                         {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-91AFF917-2202-1E8A-49BD-C85432371953")},
+                                        If(
+                                            Dpd_Pry_Dominio.Selected.Title = "B2B",
+                                            {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo ="Equi-7B450A88-10CE-0941-0305-CF803A4D03D7")},
+                                            {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo =First(ProyectoSeleccionado).IDEquipo)}
+                                        )
+                                    )
+                                )
+                            ),
+                            {Equipo_x002f_Squad: Filter(Col_BD_Equipos, IDEquipo =First(ProyectoSeleccionado).IDEquipo)}
+                        )
+                    DefaultSelectedItems: |-
+                        =Filter([{cod:"D1011262",name:"Productos Ventas"},
+                        {cod:"D1011279",name:"Productos Engagement"},
+                        {cod:"D1011237",name:"Productos Colaborador"},
+                        {cod:"D1011789",name:"Productos MKP y WFS"},
+                        {cod:"D1011382",name:"Productos Connect"},
+                        {cod:"D1011282",name:"Productos UX"},
+                        {cod:"D1011315",name:"Productos Digitales"},
+                        {cod:"D1011383",name:"Productos Phronesis"},
+                        {cod:"D1011384",name:"Productos Ads"},
+                        {cod:"D1011312",name:"Productos Marketplace"},
+                        {cod:"D1011305",name:"Dev Software Engineer"},
+                        {cod:"D1011311",name:"Software Engineer"},
+                        {cod:"D1011385",name:"Dev Phronesis"},
+                        {cod:"D1011386",name:"Dev Ads"},
+                        {cod:"D1011313",name:"Dev Marketplace"}],cod=Left(ThisItem.Ceco,8))
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisabledFill: =RGBA(237, 237, 237, 1)
+                    DisplayFields: =["Ceco","NombreCeco"]
+                    DisplayMode: |
+                        =If(ThisItem.ID>0,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                            )
+                    Height: =35
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar CECO"
+                    IsSearchable: =false
+                    Items: |-
+                        =Lst_Fcst_MantenedorCeco
+                        /*[{cod:"D1011262";name:"Productos Ventas"};
+                        {cod:"D1011279";name:"Productos Engagement"};
+                        {cod:"D1011237";name:"Productos Colaborador"};
+                        {cod:"D1011789";name:"Productos MKP y WFS"};
+                        {cod:"D1011382";name:"Productos Connect"};
+                        {cod:"D1011282";name:"Productos UX"};
+                        {cod:"D1011315";name:"Productos Digitales"};
+                        {cod:"D1011383";name:"Productos Phronesis"};
+                        {cod:"D1011384";name:"Productos Ads"};
+                        {cod:"D1011312";name:"Productos Marketplace"};
+                        {cod:"D1011305";name:"Dev Software Engineer"};
+                        {cod:"D1011311";name:"Software Engineer"};
+                        {cod:"D1011385";name:"Dev Phronesis"};
+                        {cod:"D1011386";name:"Dev Ads"};
+                        {cod:"D1011313";name:"Dev Marketplace"}]*/
+                    NoSelectionText: ="Seleccionar CECO"
+                    OnSelect: =
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["Ceco"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Double
+                    Width: =Parent.Width - 90
+                    X: =49
+                    Y: =43
+                    ZIndex: =6
+
+        Capex_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Capex"
+            Default: =ThisItem.Capex
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Capex")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Capex")
+            Required: =false
+            Update: =DataCardValue23.Text
+            Width: =391
+            X: =0
+            Y: =2
+            ZIndex: =6
+
+            DataCardKey54 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Monto Total de Capex"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue23 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(ThisItem.ID>0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                        )
+                Format: =TextFormat.Number
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey54.Y + DataCardKey54.Height + 5
+                ZIndex: =2
+
+            ErrorMessage53 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue23.Y + DataCardValue23.Height
+                ZIndex: =3
+
+            StarVisible53 As label:
+                Align: =Align.Center
+                Height: =DataCardKey54.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey54.Y
+                ZIndex: =4
+
+        Opex_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Opex"
+            Default: =ThisItem.Opex
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Opex")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =114
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Opex")
+            Required: =false
+            Update: =DataCardValue24_1.Text
+            Width: =391
+            X: =1
+            Y: =2
+            ZIndex: =6
+
+            DataCardKey55_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Monto Total de Opex"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue24_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(ThisItem.ID>0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                        )
+                Format: =TextFormat.Number
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =49
+                ZIndex: =2
+
+            ErrorMessage54_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue24_1.Y + DataCardValue24_1.Height
+                ZIndex: =3
+
+            StarVisible54_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey55_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey55_1.Y
+                ZIndex: =4
+
+        Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.'Datos adjuntos'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"{Attachments}")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =264
+            Required: =false
+            Update: =DataCardValue25_1.Attachments
+            Width: =391
+            X: =0
+            Y: =4
+            ZIndex: =6
+
+            DataCardKey56_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Adjunta el detalle de servicios"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue25_1 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: |-
+                    =If(ThisItem.ID>0,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                        )
+                Height: =191
+                IsInDataCard: =true
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey56_1.Y + DataCardKey56_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage55_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue25_1.Y + DataCardValue25_1.Height
+                ZIndex: =3
+
+            StarVisible55_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey56_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey56_1.Y
+                ZIndex: =4
+
+    Lbl_AgregarRiesgo_2 As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        Height: =32
+        Text: ="Nueva Solicitud"
+        Tooltip: ="Solicitar financiamiento"
+        Width: =159
+        X: =1671
+        Y: =182
+        ZIndex: =6
+
+    Gp_CabeceraPortafolio_9 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Rct_FondoCabecera_Persona_14 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =2
+
+        Img_UsuarioPantallaPersona_14 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1772
+            Y: =5
+            ZIndex: =3
+
+        Btn_Back_10 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: =Back()
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =4
+
+    Img_Pry_AgregarRiesgo_2 As image:
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =40
+        Image: ='nuevo agregar '
+        Tooltip: ="Agregar nuevo Producto / Proyecto"
+        Width: =30
+        X: =1835
+        Y: =178
+        ZIndex: =7
+
+    Btn_Pry_AgregarRiesgo_2 As button:
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledFill: =RGBA(244, 244, 244, 0.4)
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =36
+        HoverFill: =RGBA(255, 255, 255, 0.5)
+        OnSelect: =NewForm(Form2)
+        PressedFill: =RGBA(255, 255, 255, 0.7)
+        Text: =""
+        Width: =194
+        X: =1671
+        Y: =178
+        ZIndex: =8
+
+    Icn_guardarPortafolio_3 As icon.CheckBadge:
+        Color: =RGBA(54, 176, 75, 1)
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If (
+                IsEmpty(Cmb_TipoSol.SelectedItems) ||
+                IsEmpty(Cmb_CECO.SelectedItems) ||
+                IsBlank(DataCardValue23.Text) ||
+                IsBlank(DataCardValue24_1.Text)||
+                IsEmpty(DataCardValue25_1.Attachments)||!(Label38.Text=""),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =45
+        Icon: =Icon.CheckBadge
+        OnSelect: =SubmitForm(Form2);Set(_VarMostrarComunicado,true)
+        Tooltip: ="Guardar Datos"
+        Width: =50
+        X: =1772
+        Y: =976
+        ZIndex: =9
+
+    Icn_resetearportafolio_3 As icon.CancelBadge:
+        Color: =RGBA(255, 0, 0, 1)
+        Height: =45
+        Icon: =Icon.CancelBadge
+        OnSelect: =ResetForm(Form2)
+        Tooltip: ="Limpiar Controles"
+        Width: =50
+        X: =1833
+        Y: =976
+        ZIndex: =10
+
+    Label12_7 As label:
+        Align: =Align.Right
+        Color: |
+            =RGBA(102, 102, 102, 1)
+        Height: =32
+        OnSelect: =
+        Text: |
+            =If (
+                IsEmpty(Cmb_TipoSol.SelectedItems) ||
+                IsEmpty(Cmb_CECO.SelectedItems) ||
+                IsBlank(DataCardValue23.Text) ||
+                IsBlank(DataCardValue24_1.Text)||
+                IsEmpty(DataCardValue25_1.Attachments),
+                "Recuerda que para registrar una nueva solicitud debes registrar todos los campos.",
+                "Recuerda guardar los datos registrados dando click aqui."
+            
+            )
+        Width: =707
+        X: =1053
+        Y: =982
+        ZIndex: =11
+
+    Label11_11 As label:
+        Color: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Semibold
+        Height: =42
+        OnSelect: =
+        Size: =25
+        Text: ="Solicitud de Financiamiento"
+        Width: =485
+        X: =110
+        Y: =83
+        ZIndex: =12
+
+    Image8_12 As image:
+        Height: =56
+        Image: ='SP Gestión productos'
+        OnSelect: =
+        Width: =82
+        X: =44
+        Y: =76
+        ZIndex: =13
+
+    Gallery3_3 As gallery.galleryVertical:
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =682
+        Items: =Filter(Lst_SolicitudOrdenes,Responsable = _VarUsuarioJefe) //Upper(_Perfil.MailNickname)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =63
+        X: =44
+        Y: =267
+        ZIndex: =14
+
+        Label28_2 As label:
+            Fill: =If (ThisItem.IsSelected,RGBA(227, 234, 243, 0.4),RGBA(227, 234, 243,0))
+            Height: =63
+            OnSelect: =Select(Parent);ResetForm(Form2)
+            Text: =
+            Width: =630
+            ZIndex: =1
+
+        Label17_1 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent);ResetForm(Form2)
+            Text: =Mid(ThisItem.Creado,1,10)
+            Width: =147
+            Y: =8
+            ZIndex: =2
+
+        Rectangle9 As rectangle:
+            Fill: =RGBA(202, 202, 202, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =630
+            Y: =62
+            ZIndex: =5
+
+        Label17_7 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent);ResetForm(Form2)
+            Text: =ThisItem.TipoSolicitud
+            Width: =191
+            X: =161
+            Y: =8
+            ZIndex: =6
+
+        Label17_8 As label:
+            Align: =Align.Center
+            Height: =55
+            OnSelect: =Select(Parent);ResetForm(Form2)
+            Text: =ThisItem.Ceco
+            Width: =278
+            X: =352
+            ZIndex: =7
+
+    Label23_1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Bold
+        Text: ="Fecha"
+        Width: =161
+        X: =44
+        Y: =227
+        ZIndex: =15
+
+    Label23_2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Bold
+        Text: ="Tipo de Solicitud"
+        Width: =198
+        X: =205
+        Y: =227
+        ZIndex: =16
+
+    Label23_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Bold
+        Text: ="Centro de Costos"
+        Width: =281
+        X: =403
+        Y: =227
+        ZIndex: =17
+
+    Label11_14 As label:
+        Color: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Semibold
+        Height: =42
+        OnSelect: =
+        Size: =18
+        Text: |-
+            ="Historial de Solicitudes:"
+        Width: =485
+        X: =44
+        Y: =185
+        ZIndex: =21
+
+    Label11_16 As label:
+        Color: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Semibold
+        Height: =60
+        OnSelect: =
+        Size: =15
+        Text: |-
+            ="Recuerda que este es solo el primer paso para realizar una solicitud de financiamiento! Si tienes dudas, puedes consultar el proceso completo aquí:"
+        Width: =1038
+        X: =797
+        Y: =880
+        ZIndex: =23
+
+    Image8 As image:
+        Height: =63
+        Image: ='sign-question-icon_34359 (1)'
+        Width: =76
+        X: =723
+        Y: =879
+        ZIndex: =24
+
+    Image8_1 As image:
+        Height: =35
+        Image: =confluence
+        OnSelect: |-
+            =Launch("https://confluence.walmart.com/pages/viewpage.action?pageId=546474904")
+        Width: =35
+        X: =1234
+        Y: =907
+        ZIndex: =25
+
+    Btn_Vista_MisEquipos_2 As button:
+        Fill: |-
+            =_VarColoresApp.AzulparaCabeceras
+            /*
+            If(
+                !_VarVistaPersona && _VarVistaEquipo;
+                _VarColoresApp.AzulparaCabeceras;
+                RGBA(0; 100; 176; 0,4) // 150 215
+            )
+            */
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        OnSelect: |-
+            =Launch("https://confluence.walmart.com/pages/viewpage.action?pageId=546474904")
+        Text: ="Ver Confluece"
+        Width: =154
+        X: =1276
+        Y: =910
+        ZIndex: =26
+
+    MenuLateral_13 As MenuLateral:
+        Height: =MenuLateral_13.AltoApp
+        PermisoData: =PermisoUsuario.servicioData
+        PermisoPersona: =PermisosPersonas
+        Width: =MenuLateral_13.AnchoApp
+        X: =9
+        Y: =8
+        ZIndex: =27
+
+    PupUpOrden As groupContainer.manualLayoutContainer:
+        Height: =1050
+        Visible: =_VarMostrarComunicado
+        Width: =1920
+        ZIndex: =28
+
+        Rectangle5_3 As rectangle:
+            Fill: =RGBA(116, 116, 116, 0.36)
+            Height: =1050
+            Width: =1920
+            ZIndex: =1
+
+        Rectangle6_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =347
+            Width: =744
+            X: =573
+            Y: =340
+            ZIndex: =2
+
+        HtmlText1_1 As htmlViewer:
+            Height: =336
+            HtmlText: |-
+                ="<div class='divTable'>
+                <div class='divTableBody'>
+                <div class='divTableRow'>
+                <h3 class='divTableCell' style='background: linear-gradient(90deg, #152238, #152238); color: white; width: 100%; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>&nbsp;¡Solicitud enviada!</h3>
+                </div>
+                <div class='divTableRow'>
+                <div class='divTableCell'>
+                <p>Se ha enviado un correo al equipo Control de Gestión (chapter-CG@walmart.onmicrosoft.com) con tu solicitud.</p><p> Mantente atento a tu bandeja de entrada, tu solcitud será respondida en un plazo de 3 días.
+                </div>
+                </div>"
+            Size: =16
+            Width: =693
+            X: =602
+            Y: =340
+            ZIndex: =3
+
+        Icon5_1 As icon.CancelBadge:
+            Color: =RGBA(0, 13, 75, 1)
+            Height: =40
+            Icon: =Icon.CancelBadge
+            OnSelect: =Set(_VarMostrarComunicado,false)
+            Tooltip: ="Cerrar Comunicado"
+            Width: =40
+            X: =1279
+            Y: =336
+            ZIndex: =4
+
+        Image2_1 As image:
+            Height: =142
+            Image: |-
+                ="https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/PerritoTriste.gif?csf=1&web=1&e=qGh6eu"
+            Width: =112
+            X: =1206
+            Y: =543
+            ZIndex: =5
+
+    Rct_Separador_16 As rectangle:
+        Fill: =RGBA(179, 179, 179, 1)
+        Height: =1
+        OnSelect: =
+        Width: =1850
+        X: =44
+        Y: =169
+        ZIndex: =29
+
+    Btn_RiesgoProyecto_4 As button:
+        BorderColor: =RGBA(202, 202, 202, 1)
+        Color: =RGBA(26, 26, 26, 1)
+        Fill: =If(!_VarVerOrdenesEquipos,  Color.Beige,RGBA(255, 255, 255, 1))
+        OnSelect: =Set(_VarVerOrdenesEquipos,false)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Text: |-
+            ="Paso 1: Enviar solicitud a Control de Gestión"
+        Width: =500
+        X: =769
+        Y: =129
+        ZIndex: =30
+
+    Btn_RiesgoProyecto_13 As button:
+        BorderColor: =RGBA(202, 202, 202, 1)
+        Color: =RGBA(26, 26, 26, 1)
+        Fill: =If(_VarVerOrdenesEquipos,Color.Beige,RGBA(255, 255, 255, 1))
+        OnSelect: =Set(_VarVerOrdenesEquipos,true)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        Text: |-
+            ="Paso 2: Registro de Ordenes"
+        Width: =500
+        X: =1276
+        Y: =129
+        ZIndex: =31
+
+    Container25_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =872
+        Visible: =_VarVerOrdenesEquipos
+        Width: =1920
+        Y: =178
+        ZIndex: =32
+
+        Gl_FinanciamientoProducto_6 As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(179, 179, 179, 1)
+            BorderStyle: =BorderStyle.Dotted
+            BorderThickness: =2
+            DelayItemLoading: =true
+            Height: =681
+            Items: =Sort(Col_FinanciamientoEquipo,'Fecha Termino Estimada',SortOrder.Descending)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =123
+            Width: =1147
+            X: =732
+            Y: =91
+            ZIndex: =1
+
+            Txt_NumeroOI_7 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =ThisItem.OI
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =50
+                HintText: ="N° - 200000XXXX"
+                PaddingLeft: =10
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Tooltip: =
+                Width: =180
+                X: =188
+                Y: =52
+                ZIndex: =1
+
+            Label6_173 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Número OI:"
+                Width: =190
+                X: =205
+                Y: =12
+                ZIndex: =2
+
+            Txt_NumeroOE_5 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =ThisItem.OE
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =50
+                HintText: ="N° - 10000000XXXX"
+                PaddingLeft: =10
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Tooltip: =
+                Width: =180
+                X: =379
+                Y: =52
+                ZIndex: =3
+
+            Label6_174 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Número OE:"
+                Width: =122
+                X: =396
+                Y: =12
+                ZIndex: =4
+
+            Txt_FondoForm1_211 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisabledFill: |-
+                    =If(
+                        ThisItem.Editando,
+                        RGBA(255, 255, 255, 1),
+                        RGBA(244, 244, 244, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =165
+                X: =15
+                Y: =52
+                ZIndex: =5
+
+            Dpd_EstadoFinanciamiento_6 As dropdown:
+                BorderColor: =Parent.BorderColor
+                BorderStyle: =BorderStyle.None
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                ChevronDisabledFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                Default: =ThisItem.'Estado OI/OE'.Value
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =Txt_FondoForm1_211.Height -10
+                HoverBorderColor: =RGBA(0, 121, 187, 1)
+                Items: =["Abierta", "En proceso de cierre" ,"Cerrada"]
+                PressedFill: =RGBA(0, 121, 187, 1)
+                Tooltip: =ThisItem.'Estado OI/OE'.Value
+                Width: =Txt_FondoForm1_211.Width -27
+                X: =32
+                Y: =57
+                ZIndex: =6
+
+            Label6_172 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Estado:"
+                Width: =287
+                X: =32
+                Y: =12
+                ZIndex: =7
+
+            Label6_177 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha Inicio:"
+                X: =579
+                Y: =12
+                ZIndex: =8
+
+            Txt_FondoForm1_212 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: |
+                    =If(
+                        !ThisItem.Editando,
+                        RGBA(244, 244, 244, 1),
+                        RGBA(255, 255, 255, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =210
+                X: =570
+                Y: =52
+                ZIndex: =9
+
+            Dtp_FechaInicioFinanciamiento_6 As datepicker:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DefaultDate: =ThisItem.'Fecha Inicio de desarrollo'
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                EndYear: =Year(Today())+100
+                Height: =Txt_FondoForm1_212.Height - 10
+                IconBackground: =Color.White
+                IconFill: =RGBA(0, 121, 187, 1)
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =
+                Width: =Txt_FondoForm1_212.Width - 27
+                X: =587
+                Y: =57
+                ZIndex: =10
+
+            Label6_179 As label:
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha Fin:"
+                X: =796
+                Y: =12
+                ZIndex: =11
+
+            Txt_FondoForm1_213 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledFill: |-
+                    =If(
+                        !ThisItem.Editando,
+                        RGBA(244, 244, 244, 1),
+                        RGBA(255, 255, 255, 1)
+                    )
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =210
+                X: =794
+                Y: =52
+                ZIndex: =12
+
+            Dtp_FechaFinFinanciamiento_5 As datepicker:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DefaultDate: =ThisItem.'Fecha Termino Estimada'
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Editando,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                EndYear: =Year(Today())+100
+                Height: =Txt_FondoForm1_213.Height - 10
+                IconBackground: =Color.White
+                IconFill: =RGBA(0, 121, 187, 1)
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =
+                Width: =Txt_FondoForm1_213.Width - 27
+                X: =811
+                Y: =57
+                ZIndex: =13
+
+            Icon9_16 As icon.Edit:
+                Color: |
+                    =If(
+                        ThisItem.Editando,
+                        Color.Green,
+                        RGBA(39, 67, 125, 1)
+                    )
+                DisabledColor: =RGBA(128, 128, 128, 1)
+                DisplayMode: |-
+                    =If(
+                        ThisItem.'Estado OI/OE'.Value = "Cerrada" || IsBlank(Dtp_FechaInicioFinanciamiento_6.SelectedDate) || IsBlank(Dtp_FechaFinFinanciamiento_5.SelectedDate),
+                        DisplayMode.Disabled,
+                        If(
+                            ThisItem.Editando,
+                            If(
+                                IsBlank(Txt_NumeroOI_7.Text) && IsBlank(Txt_NumeroOE_5.Text),
+                                DisplayMode.Disabled,
+                                If(
+                                    !IsBlank(Txt_NumeroOI_7.Text) && IsBlank(Txt_NumeroOE_5.Text) && IsMatch(Txt_NumeroOI_7.Text, "(?!^0*$)(?!^0*\.0*$)^\d{10}?$") && Left(Txt_NumeroOI_7.Text,1) = "2",
+                                    DisplayMode.Edit,
+                                    If(
+                                        IsBlank(Txt_NumeroOI_7.Text) && !IsBlank(Txt_NumeroOE_5.Text) && IsMatch(Txt_NumeroOE_5.Text, "(?!^0*$)(?!^0*\.0*$)^\d{12}?$") && Left(Txt_NumeroOE_5.Text,1) = "1",
+                                        DisplayMode.Edit,
+                                        If(
+                                            !IsBlank(Txt_NumeroOI_7.Text) && !IsBlank(Txt_NumeroOE_5.Text) ,
+                                            DisplayMode.Edit,
+                                            DisplayMode.Disabled
+                                        )
+                                    )
+                                )
+                            ),
+                            DisplayMode.Edit
+                        )
+                    )
+                Height: =50
+                Icon: |-
+                    =If(
+                        ThisItem.Editando,
+                        Icon.CheckBadge,
+                        Icon.Edit
+                    )
+                OnSelect: |-
+                    =If(
+                        IsBlank(Txt_NumeroOI_7.Text) &&  IsBlank(Txt_NumeroOE_5.Text) && ThisItem.Editando, 
+                        Notify("No puedes guardar la orden de financiamiento si tienes el campo OI/OE en blanco",NotificationType.Warning,5000),
+                        /*Mostrar Spinner Cargando*/
+                        Set(_VarMostrarCargando,true);
+                        If(
+                            ThisItem.Editando,
+                            Patch(
+                                Lst_OrdenesEquipos,
+                                If(
+                                    IsBlank(LookUp(Lst_OrdenesEquipos,IDEquipo = ThisItem.IDEquipo && ID = ThisItem.ID)),
+                                    Defaults(Lst_OrdenesEquipos),
+                                    LookUp(Lst_OrdenesEquipos,IDEquipo = ThisItem.IDEquipo && ID = ThisItem.ID )
+                                ),
+                                {
+                                    IDEquipo: ThisItem.IDEquipo,
+                                    OI: Txt_NumeroOI_7.Text,
+                                    OE: Txt_NumeroOE_5.Text,
+                                    'Estado OI/OE':Dpd_EstadoFinanciamiento_6.Selected,
+                                    'Fecha Inicio de desarrollo': Dtp_FechaInicioFinanciamiento_6.SelectedDate,
+                                    'Fecha Termino Estimada': Dtp_FechaFinFinanciamiento_5.SelectedDate
+                                    //Descripción: Txt_ComentarioFinanciamiento_5.Text
+                                    //Editando: false
+                                }
+                            );
+                                
+                            /* Gestion de Errores */
+                            ClearCollect(Col_ErroresGuardarFinanciamiento, Errors(Lst_OrdenesEquipos,ThisItem));
+                            If(
+                                IsEmpty(Col_ErroresGuardarFinanciamiento),
+                    
+                                Refresh(Lst_OrdenesEquipos);
+                                           
+                                Patch(
+                                    Col_FinanciamientoEquipo,
+                                    ThisItem,
+                                    {
+                                        IDEquipo: ThisItem.IDEquipo,
+                                        OI: Txt_NumeroOI_7.Text,
+                                        OE: Txt_NumeroOE_5.Text,
+                                        'Estado OI/OE':Dpd_EstadoFinanciamiento_6.Selected,
+                                        'Fecha Inicio de desarrollo': Dtp_FechaInicioFinanciamiento_6.SelectedDate,
+                                        'Fecha Termino Estimada': Dtp_FechaFinFinanciamiento_5.SelectedDate,
+                                       // Descripción: Txt_ComentarioFinanciamiento_5.Text;
+                                        Editando: false
+                                    }
+                                );
+                                ClearCollect(Col_FinanciamientoEquipo,Filter(Lst_OrdenesEquipos, IDEquipo = ThisItem.IDEquipo));
+                                Notify("Se guardo correctamente el financiamiento",NotificationType.Success,4000),
+                    
+                                Patch(Lst_GestionErrores,
+                                Defaults(Lst_GestionErrores),
+                                    {
+                                        Modulo: "FINANCIAMIENTO EQUIPOS", 
+                                        Usuario: _Perfil.displayName, 
+                                        FechaError: Today(), 
+                                        MensajeError:First(Col_ErroresGuardarKPI).Message, 
+                                        IDError: First(Col_ErroresGuardarKPI).Error, 
+                                        HoraError: Hour(Now()) & ":" & Minute(Now()), 
+                                        CampoError: First(Col_ErroresGuardarKPI).Column
+                                    }
+                                );
+                                Notify(First(Col_ErroresGuardarKPI).Message,NotificationType.Error,4000)
+                            ),
+                            /* ------------------ */
+                                Patch(Col_FinanciamientoEquipo,ThisItem,{Editando: true})
+                        );
+                        /*Ocultar Spinner Cargando*/
+                        Set(_VarMostrarCargando,false)
+                    )
+                Width: =37
+                X: =1027
+                Y: =44
+                ZIndex: =16
+
+            Icon9_17 As icon.Edit:
+                Color: |-
+                    =If(
+                        ThisItem.Editando,
+                        Color.Red,
+                        Color.Black
+                    )
+                Height: =50
+                Icon: |-
+                    =Icon.CancelBadge
+                    /*
+                    If(
+                        ThisItem.Editando;
+                        Icon.CancelBadge;
+                        Icon.Trash
+                    )
+                    */
+                OnSelect: |
+                    =If(
+                        ThisItem.Editando,
+                        Reset(Dpd_EstadoFinanciamiento_6);
+                        Reset(Txt_NumeroOI_7);
+                        Reset(Txt_NumeroOE_5);
+                        Reset(Dtp_FechaInicioFinanciamiento_6);
+                        Reset(Dtp_FechaFinFinanciamiento_5);
+                        //Reset(Txt_ComentarioFinanciamiento_6);;
+                    
+                        Patch(Col_FinanciamientoEquipo,ThisItem,{Editando: false})
+                        //Remove(Col_FinanciamientoProducto;ThisItem);;
+                        //Remove(Portafolio;ThisItem)
+                    )
+                Visible: =ThisItem.Editando
+                Width: =37
+                X: =1072
+                Y: =44
+                ZIndex: =17
+
+            Icn_CampanaOF_5 As icon.Bell:
+                Color: =RGBA(255, 0, 0, 1)
+                Height: =32
+                Icon: =Icon.Bell
+                OnSelect: =Select(Parent)
+                Tooltip: ="Orden de financiamiento vencida"
+                Visible: |-
+                    =If(
+                        ThisItem.'Estado OI/OE'.Value = "Abierta",
+                        If(
+                            DateDiff(ThisItem.'Fecha Termino Estimada',Today(),TimeUnit.Days)>0,
+                            true,
+                            false
+                        )
+                    )
+                Width: =40
+                X: =1741
+                ZIndex: =20
+
+            Rct_Separador_17 As rectangle:
+                Fill: =RGBA(179, 179, 179, 1)
+                Height: =1
+                OnSelect: =
+                Width: =1100
+                X: =9
+                Y: =120
+                ZIndex: =21
+
+        Label10_97 As label:
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            OnSelect: =
+            Text: ="Agregar Financiamiento"
+            Tooltip: ="Agregar Producto / Proyecto"
+            Width: =220
+            X: =1672
+            Y: =25
+            ZIndex: =2
+
+        Image24_7 As image:
+            DisplayMode: |-
+                =
+                    DisplayMode.Edit
+            Height: =40
+            Image: ='nuevo agregar '
+            OnSelect: =
+            Tooltip: ="Agregar nuevo financiamiento"
+            Width: =40
+            X: =1632
+            Y: =14
+            ZIndex: =3
+
+        Btn_SeleccionarLimpiarFiltro_33 As button:
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(244, 244, 244, 0.4)
+            DisplayMode: |-
+                =
+                    DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Patch(
+                    Col_FinanciamientoEquipo,
+                    Defaults(Col_FinanciamientoEquipo),
+                    {
+                        IDEquipo: _VarIDEquipoSele,
+                        OI: "",
+                        OE: "",
+                        'Estado OI/OE': {Value:"Abierta"},
+                        'Fecha Inicio de desarrollo': Today(),
+                        'Fecha Termino Estimada': Today(),
+                        Descripción: "",
+                        Creado: Now(),
+                        Editando: true
+                    }
+                );
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Tooltip: =If( Self.DisplayMode = DisplayMode.Disabled, "Para poder agregar una nueva orden de financiamiento, debe cerrar la que esta abierta.","Agregar nueva orden de financiamiento")
+            Width: =260
+            X: =1631
+            Y: =8
+            ZIndex: =4
+
+        Label23_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Text: ="Nombre Equipo"
+            Width: =581
+            X: =48
+            Y: =50
+            ZIndex: =5
+
+        Label11_15 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            OnSelect: =
+            Size: =18
+            Text: |-
+                ="Listado de Equipos:"
+            Width: =485
+            X: =48
+            Y: =8
+            ZIndex: =7
+
+        Label23_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Text: =""
+            Width: =59
+            X: =629
+            Y: =50
+            ZIndex: =8
+
+        Gallery3_6 As gallery.galleryVertical:
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =682
+            Items: =SortByColumns(Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63",Estado="Activo"),"Equipo_x002f_Squad",SortOrder.Ascending)//||  IDGerencia = "Ger-18966BBF-08EA-20B4-00EB-23DDA3F67F5F"
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =63
+            X: =48
+            Y: =90
+            ZIndex: =9
+
+            Label28_5 As label:
+                Fill: =If (ThisItem.IDEquipo=_VarIDEquipoSele,RGBA(227, 234, 243, 0.4),RGBA(227, 234, 243,0))
+                Height: =63
+                OnSelect: =Select(Parent);ResetForm(Form2)
+                Text: =
+                Width: =630
+                ZIndex: =1
+
+            Label17_5 As label:
+                FontWeight: =If(ThisItem.IDEquipo=_VarIDEquipoSele,FontWeight.Semibold, FontWeight.Normal)
+                Height: =60
+                OnSelect: =Select(Parent);ResetForm(Form2)
+                PaddingLeft: =10
+                Size: =15
+                Text: =ThisItem.'Equipo/Squad'
+                Width: =580
+                ZIndex: =2
+
+            Rectangle9_1 As rectangle:
+                Fill: =RGBA(202, 202, 202, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =630
+                Y: =59
+                ZIndex: =5
+
+            Icon5 As icon.ChevronRight:
+                Height: =48
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    = /*Mostrar Spinner Cargando*/
+                    Set(_VarMostrarCargando,true);
+                    
+                            Set(_VarIDEquipoSele,ThisItem.IDEquipo);
+                            ClearCollect(Col_FinanciamientoEquipo,Filter(Lst_OrdenesEquipos,IDEquipo=ThisItem.IDEquipo));
+                            Set(_VarVerOrdenesEquipos,true);
+                    
+                    /*Ocultar Spinner Cargando*/
+                    Set(_VarMostrarCargando,false)
+                Width: =34
+                X: =580
+                Y: =4
+                ZIndex: =6
+
+        Image27 As image:
+            Height: =285
+            Image: =Perrito2
+            Visible: =CountRows(Col_FinanciamientoEquipo)=0
+            Width: =370
+            X: =1120
+            Y: =175
+            ZIndex: =11
+
+        Label11_22 As label:
+            Align: =Align.Center
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =80
+            OnSelect: =
+            Size: =18
+            Text: ="Este equipo aún no tiene Ordenes asociadas. Puedes agregar una haciendo clic en el +"
+            Visible: =CountRows(Col_FinanciamientoEquipo)=0
+            Width: =485
+            X: =1075
+            Y: =460
+            ZIndex: =12
+
+        Label11_24 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            OnSelect: =
+            Size: =20
+            Text: |-
+                ="Ordenes del Equipo: "&LookUp(Col_BD_Equipos,IDEquipo=_VarIDEquipoSele).'Equipo/Squad'
+            Width: =544
+            X: =799
+            Y: =37
+            ZIndex: =13
+
+        Image8_32 As image:
+            Height: =47
+            Image: =sp06
+            OnSelect: =
+            Width: =82
+            X: =732
+            Y: =31
+            ZIndex: =14
+
+    Cargando_1 As Cargando:
+        Visible: =_VarMostrarCargando
+        ZIndex: =33
+

@@ -1,0 +1,29 @@
+Guardando As CanvasComponent:
+    Fill: =RGBA(255, 255, 255, 0.8)
+    Height: =1050
+    Width: =1920
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Image9_18 As image:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =397
+        Image: =inicio
+        ImagePosition: =ImagePosition.Stretch
+        Width: =402
+        X: =738
+        Y: =255
+        ZIndex: =1
+
+    Label20_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =76
+        Size: =25
+        Text: ="Guardando..."
+        Width: =402
+        X: =810
+        Y: =676
+        ZIndex: =2
+

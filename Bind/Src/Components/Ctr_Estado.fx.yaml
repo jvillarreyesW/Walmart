@@ -1,0 +1,135 @@
+Ctr_Estado As CanvasComponent:
+    Desplegar: =DesplegarMenu
+    EstadoGuardado: ="Ejecucción"
+    EstadoSeleccionado: =EstadoSelecc
+    Fill: =RGBA(255, 255, 255, 1)
+    Height: |-
+        =If(
+            Ctr_Estado.Desplegar,
+            56,
+            32 *  CountRows(Ctr_Estado.ListaEstados) + 50
+        )
+    ListaEstados: |-
+        =Table(
+            {Grupo: "No iniciado", Value: "no iniciado", Label:"No iniciado"},
+            {Grupo: "Evaluación", Value: "evaluación", Label:"Evaluación"},
+            {Grupo: " Ejecucion", Value: " ejecucion", Label:"Ejecucción"},
+            {Grupo: " Ejecucion", Value: " ejecucion - por iniciar", Label:"Por iniciar"},
+            {Grupo: " Ejecucion", Value: " ejecucion - discovery", Label:"Discovery"},
+            {Grupo: " Ejecucion", Value: " ejecucion - requerimientos detallados", Label:"Requerimientos detallados"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - desarrollo", Label:"Desarrollo"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - desarrollo", Label:"Ontime"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - desarrollo", Label:"Replanificado"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - desarrollo", Label:"Riesgo de retraso"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - desarrollo", Label:"Retrasado"},
+            {Grupo: " Ejecucion", Value: " ejecucion - pruebas", Label:"Pruebas"},
+            {Grupo: " Ejecucion", Value: " ejecucion - puesta en marcha", Label:"Puesta en marcha"},
+            {Grupo: " Ejecucion - Desarrollo", Value: " ejecucion - roll out", Label:"Roll out"},
+            {Grupo: " Ejecucion", Value: " ejecucion - hypercare", Label:"Hypercare"},
+            {Grupo: " Ejecucion", Value: " ejecucion - pausado", Label:"Pausado"},
+            {Grupo: "On Hold", Value: "on Hold", Label:"On Hold"},
+            {Grupo: "Finalizado", Value: "finalizado", Label:"Finalizado"}  
+        )
+    Width: =306
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    TextInput3 As text:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =3
+        Default: |-
+            =If(
+                IsBlank(EstadoSelecc),
+                Ctr_Estado.EstadoGuardado,
+                Ctr_Estado.EstadoSeleccionado
+            )
+        DisabledColor: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Disabled
+        Height: =50
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =300
+        X: =3
+        Y: =3
+        ZIndex: =1
+
+    Principal As gallery.variableTemplateHeightGallery:
+        DelayItemLoading: =true
+        Fill: |
+            =
+            RGBA(0, 0, 0, 0)
+        Height: =32 *  CountRows(Ctr_Estado.ListaEstados)
+        Items: =GroupBy(Ctr_Estado.ListaEstados,"Grupo","Grup")
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If( CountRows(Filter(Ctr_Estado.ListaEstados, Grupo = Self.Selected.Label9.Text)) = 1, 32,70)
+        Visible: =!DesplegarMenu
+        Width: =306
+        Y: =50
+        ZIndex: =2
+
+        Label9 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Grupo
+            Visible: =If( CountRows(Filter(Ctr_Estado.ListaEstados, Grupo =ThisItem.Grupo)) = 1, false,true)
+            Width: =300
+            ZIndex: =1
+
+        Secundario As gallery.variableTemplateHeightGallery:
+            DelayItemLoading: =true
+            Height: =39 *  CountRows(Filter(Ctr_Estado.ListaEstados, Grupo =ThisItem.Grupo))
+            Items: =Filter(Ctr_Estado.ListaEstados,Grupo = ThisItem.Grupo)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =32*  CountRows(Filter(Ctr_Estado.ListaEstados, Grupo =ThisItem.Grupo))
+            Visible: =!DesplegarMenu
+            Width: =300
+            Y: =If( CountRows(Filter(Ctr_Estado.ListaEstados, Grupo =ThisItem.Grupo)) = 1, 0,32)
+            ZIndex: =2
+
+            Button8 As button:
+                Color: =RGBA(26, 26, 26, 1)
+                Fill: |-
+                    =If(
+                        ThisItem.Label = EstadoSelecc,
+                        RGBA(0, 100, 176, 0.4),
+                        If(
+                            Ctr_Estado.EstadoGuardado = ThisItem.Label && IsBlank(EstadoSelecc),
+                            RGBA(0, 100, 176, 0.4),
+                            RGBA(255, 255, 255, 0.37)
+                        )
+                    )
+                FontWeight: =FontWeight.Normal
+                Height: =32
+                OnSelect: |-
+                    =Set(EstadoSelecc,ThisItem.Label);
+                    Set(DesplegarMenu,!DesplegarMenu)
+                Size: =13
+                Text: =ThisItem.Label
+                Width: =290
+                X: =2
+                ZIndex: =2
+
+    Icon4 As icon.ChevronDown:
+        Color: =RGBA(0, 121, 187, 1)
+        Height: =40
+        Icon: |-
+            =If(
+                DesplegarMenu,
+                Icon.ChevronDown,
+                Icon.ChevronUp
+            )
+        OnSelect: |-
+            =Set(EstadoSelecc,"");
+            Set(DesplegarMenu,!DesplegarMenu)
+        Width: =30
+        X: =265
+        Y: =9
+        ZIndex: =3
+

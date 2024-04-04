@@ -1,0 +1,1898 @@
+Mantenedores As screen:
+    OnVisible: |-
+        =UpdateContext({var_CubrirJefe:false})
+
+    Txt_BuscarPersona_1 As text:
+        Clear: =true
+        Default: =
+        Height: =50
+        HintText: ="Buscar Persona"
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =364
+        X: =54
+        Y: =75
+        ZIndex: =1
+
+    Gp_CabeceraPersona_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        Rct_FondoCabecera_Persona_3 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =6
+
+        Img_UsuarioPantallaPersona_3 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1774
+            Y: =5
+            ZIndex: =7
+
+    Icon17_2 As icon.AddUser:
+        Height: =50
+        Icon: =Icon.AddUser
+        OnSelect: |-
+            =NewForm(Form1_1);
+            UpdateContext({_AgregarNuevoPerfil:true})
+        Width: =49
+        X: =444
+        Y: =75
+        ZIndex: =2
+
+    Icon19_2 As icon.Sync:
+        Height: =50
+        Icon: =Icon.Sync
+        OnSelect: =Refresh(Perfilamiento)
+        Width: =42
+        X: =519
+        Y: =75
+        ZIndex: =3
+
+    "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =2
+        Height: =896
+        Items: |-
+            =If(
+                IsBlank(Txt_BuscarPersona_1.Text),
+                Perfilamiento,
+                Filter(Perfilamiento, StartsWith(Nombre.DisplayName,Txt_BuscarPersona_1.Text))
+            )
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =428
+        Width: =1897
+        X: =11
+        Y: =142
+        ZIndex: =5
+
+        Image3_4 As image:
+            Height: =106
+            Image: =ThisItem.Nombre.Picture
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            X: =120
+            Y: =119
+            ZIndex: =1
+
+        Title1_2 As label:
+            Height: =66
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =182
+            X: =1099
+            Y: =94
+            ZIndex: =2
+
+        Txt_NombreUsuario_2 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            Size: =15
+            Text: =ThisItem.Nombre.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =312
+            X: =14
+            Y: =225
+            ZIndex: =3
+
+        Separator2_4 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Txt_area_2 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            Height: =55
+            OnSelect: =Select(Parent)
+            PaddingTop: =0
+            Text: |-
+                =If(
+                   IsBlank(LookUp(Lst_Persona, Usuario = Label24_5.Text,Rol)),
+                   "No se registro un Rol",
+                   Upper(LookUp(Lst_Persona, Usuario = Label24_5.Text,Rol))
+                )
+            Width: =312
+            X: =14
+            Y: =262
+            ZIndex: =6
+
+        Cmb_Dominios_1 As combobox:
+            DefaultSelectedItems: =ThisItem.Dominio
+            DisplayFields: =["Value"]
+            Height: =42
+            Items: |
+                =Choices([@Perfilamiento].Dominio)
+            SearchFields: =["Value"]
+            SearchItems: =Choices(Perfilamiento.Dominio,Cmb_Dominios_1.SearchText)
+            Width: =661
+            X: =326
+            Y: =14
+            ZIndex: =7
+
+        Button4_9 As button:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: |-
+                =/* Permisos nuevos o actualizados */
+                Concurrent(
+                    ClearCollect(Col_PermisoAdministrar,Filter(Gl_Administrar.AllItems,CheckboxCanvas1.Checked= true )),
+                    ClearCollect(Col_PermisoDashboard,Filter(Gl_Dashboard.AllItems,CheckboxCanvas1_1.Checked= true )),
+                    ClearCollect(Col_PermisoAyuda,Filter(Gl_Ayuda.AllItems,CheckboxCanvas1_2.Checked= true ))
+                    );
+                    ClearCollect(Col_PermisosBind,Col_PermisoAdministrar,Col_PermisoDashboard,Col_PermisoAyuda);
+                
+                    /* Permisos que cuenta el usuario */
+                    UpdateContext({_Var1: Concat(Col_PermisosBind, ID, ",")});
+                
+                    /* Guardado en la lista de perfilamiento */
+                    
+                    Patch(
+                        Perfilamiento,
+                        ThisItem,
+                        {
+                            Dominio:Cmb_Dominios_1.SelectedItems,
+                            //Mantenedor:Chk_GestionarMantenedor.Value;
+                            //servicioData:Chk_GestionarData.Value;
+                            //'Acceso Outcome': Chk_AccesoOutcome.Value;
+                            //Auditoria:Chk_GestionarAuditoria.Value;
+                            AdminProyectos:Chk_AdminProyecto_1.Value,
+                            Proveedores_Vista: Chk_ProveedoresVista.Value,
+                            PermisosMenu: _Var1
+                        }
+                    );
+                        
+                Notify("Se actualizaron los permisos del usuario",NotificationType.Success,4000)
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =13
+            Text: ="Actualizar"
+            Width: =179
+            X: =1712
+            Y: =263
+            ZIndex: =8
+
+        Label24_5 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =31
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: |
+                = Upper(Last(ForAll(Split(First(ForAll(Split(ThisItem.Nombre.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+            Width: =90
+            ZIndex: =9
+
+        Icon9_11 As icon.Copy:
+            Height: =28
+            Icon: =Icon.Copy
+            OnSelect: |-
+                =UpdateContext({_VarUsuarioSeleccionado:Label24_5.Text});
+                Set(_VarUsuarioCorreo,ThisItem.Nombre)
+            Tooltip: ="Copiar codigo de usuario"
+            Width: =30
+            X: =90
+            Y: =3
+            ZIndex: =19
+
+        Group2_1 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =19
+
+            Chk_EdicionOutcome_1 As checkbox:
+                Default: =ThisItem.'Edición Outcome'
+                OnSelect: =Select(Parent)
+                Text: ="Edición Outcome"
+                Visible: =false
+                X: =540
+                Y: =143
+                ZIndex: =15
+
+            Chk_BorrarOutcome_1 As checkbox:
+                Default: =ThisItem.'Borrar Outcome'
+                OnSelect: =Select(Parent)
+                Text: ="Borrar Outcome"
+                Visible: =false
+                X: =840
+                Y: =143
+                ZIndex: =16
+
+            Chk_GestionarEstrategia_1 As checkbox:
+                Default: =ThisItem.'Administracion Estrategia'
+                OnSelect: =Select(Parent)
+                Text: ="Gestionar Estrategía"
+                Visible: =false
+                X: =690
+                Y: =143
+                ZIndex: =17
+
+        Chk_AdminProyecto_1 As checkbox:
+            Default: =ThisItem.AdminProyectos
+            Height: =42
+            OnSelect: =Select(Parent)
+            Text: ="Admin. Proyecto"
+            Width: =207
+            X: =1004
+            Y: =14
+            ZIndex: =20
+
+        Button4_11 As button:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: |-
+                =UpdateContext({var_CubrirJefe:true})
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =13
+            Text: ="Cubrir Jefatura"
+            Width: =179
+            X: =1712
+            Y: =375
+            ZIndex: =21
+
+        Lbl_Administrar As label:
+            Align: =Align.Center
+            Color: =RGBA(79, 90, 94, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: ="Administrar"
+            Width: =399
+            X: =307
+            Y: =95
+            ZIndex: =22
+
+        Gl_Administrar As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =295
+            Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar.Text)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplateSize: =42
+            Width: =399
+            WrapCount: =2
+            X: =307
+            Y: =122
+            ZIndex: =23
+
+            CheckboxCanvas1 As Casilla:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Chk_Administrar.Checked,
+                        true,
+                        If(
+                            ThisItem.ID in Split(Label41_5.Text,","),
+                            true,
+                            false
+                        )
+                    )
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =30
+                Label: =ThisItem.SubMenu
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =170
+                X: =12
+                Y: =8
+                ZIndex: =1
+
+        Lbl_Administrar_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(79, 90, 94, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: ="Dashboard"
+            Width: =622
+            X: =764
+            Y: =95
+            ZIndex: =24
+
+        Gl_Dashboard As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =295
+            Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar_1.Text)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplateSize: =42
+            Width: =622
+            WrapCount: =3
+            X: =764
+            Y: =122
+            ZIndex: =25
+
+            CheckboxCanvas1_1 As Casilla:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Chk_Dashboard.Checked,
+                        true,
+                        If(
+                            ThisItem.ID in Split(Label41_5.Text,","),
+                            true,
+                            false
+                        )
+                    )
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =31
+                Label: =ThisItem.SubMenu
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =183
+                X: =12
+                Y: =8
+                ZIndex: =1
+
+        Lbl_Administrar_2 As label:
+            Align: =Align.Center
+            Color: =RGBA(79, 90, 94, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: ="Ayuda"
+            Width: =256
+            X: =1444
+            Y: =92
+            ZIndex: =26
+
+        Gl_Ayuda As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =295
+            Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar_2.Text)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplateSize: =42
+            Width: =256
+            X: =1444
+            Y: =119
+            ZIndex: =27
+
+            CheckboxCanvas1_2 As Casilla:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        ThisItem.ID in Split(Label41_5.Text,","),
+                        true,
+                        false
+                    )
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =34
+                Label: =ThisItem.SubMenu
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =234
+                X: =12
+                Y: =8
+                ZIndex: =1
+
+        Rectangle23_6 As rectangle:
+            Fill: =RGBA(79, 90, 94, 1)
+            Height: =318
+            Width: =2
+            X: =726
+            Y: =95
+            ZIndex: =28
+
+        Rectangle23_7 As rectangle:
+            Fill: =RGBA(79, 90, 94, 1)
+            Height: =318
+            Width: =2
+            X: =1414
+            Y: =99
+            ZIndex: =29
+
+        Chk_Administrar As Casilla:
+            BasePaletteColor: =
+            Checked: =false
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontSize: =0
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =32
+            Label: =""
+            OnCheck: =false
+            OnSelect: =Select(Parent)
+            OnUncheck: =false
+            Width: =160
+            X: =412
+            Y: =90
+            ZIndex: =30
+
+        Chk_Dashboard As Casilla:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontSize: =0
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =32
+            Label: =""
+            OnCheck: =false
+            OnSelect: =Select(Parent)
+            OnUncheck: =false
+            Width: =160
+            X: =990
+            Y: =90
+            ZIndex: =31
+
+        Chk_Ayuda As Casilla:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontSize: =0
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =32
+            Label: =""
+            OnCheck: =false
+            OnSelect: =Select(Parent)
+            OnUncheck: =false
+            Width: =160
+            X: =1510
+            Y: =90
+            ZIndex: =32
+
+        Button4_12 As button:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: |+
+                =/*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                
+                /*Param DeepLink Proveedores*/
+                
+                If(!IsBlank(Param("SolicitudProv")),
+                Set(Guid_Proveedor,Param("SolicitudProv"));
+                If(LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor).Proveedor_Extranjero,
+                Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor)),
+                false);    
+                Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor));
+                Set(_VarFormEstado,true);
+                 Set(var_Prov_Rut,
+                            If(_VarContratocopia.Proveedor_Extranjero,
+                            LookUp(Lst_Proveedores,Razon_Social_Proveedor = _VarContratocopia.Proveedor),
+                            LookUp(Lst_Proveedores,RUT = _VarContratocopia.Proveedor)
+                            )));
+                
+                /*Colores para la App*/
+                Set(_VarColoresApp,
+                    {
+                        AzulparaCabeceras: RGBA(4, 31, 65, 1),
+                        VerdeParaBotones: RGBA(6, 242, 123, 1), 
+                        Amarrillo: RGBA(250, 185, 7, 1), 
+                        Blanco:RGBA(255,255,255,1), 
+                        AzulFondo:RGBA(0,113, 206,0.7), 
+                        GrisFondo:RGBA(128, 128, 128, 0.8), 
+                        BlancoFondo:RGBA(255,255,255,0.5)
+                        }
+                    );
+                
+                /*Pestaña Menu App*/
+                Set(_VarMenuSeleccionado,"Noticias");
+                
+                /* Carga de Perfil por Usuario */
+                Set(_Perfil, UsuariosdeOffice365.UserProfileV2(ThisItem.Nombre.Email));
+                Set(PermisoUsuario,LookUp(Perfilamiento, Nombre.DisplayName = _Perfil.displayName ));
+                Set(_VarRolUsuario, LookUp(Lst_Persona,'Correo Electrónico' = _Perfil.mail,Rol));
+                ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName = _Perfil.displayName ,Dominio));  //trae los dominios asignados al usuario 
+                /*------------------------------------------------------*/
+                //Set(_Perfil; UsuariosdeOffice365.MyProfileV2());;
+                Set(_UserFoto, IfError(UsuariosdeOffice365.UserPhotoV2(_Perfil.mail),'no-fotos-1'));
+                //Set(PermisoUsuario;LookUp(Perfilamiento;Nombre.DisplayName=_Perfil.displayName));;
+                
+                
+                /*Modulo de Persona*/
+                Set(_VarUsuarioJefe, Label24_5.Text); // || m0a00y0 || c0r076x || L0M02OW
+                //Last(Split(First(Split(_Perfil.userPrincipalName,"@")).Value,"|")).Value)
+                //_Perfil.userPrincipalName,"@")
+                
+                Concurrent(
+                    ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo")),
+                    ClearCollect(Col_BD_Gerencia, Filter(Lst_Gerencias, Estado = "Activo")),
+                    ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
+                    ClearCollect(Col_BD_Equipos, DominioEquipoSquad),
+                    ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo")), //_Perfil.mail "Carlos.Reichmann0@walmart.com"
+                    ClearCollect(Col_BD_Dominios,Filter(Lst_Dominio, Estado_Lst_Dominio = "Activo")),
+                    ClearCollect(Col_BD_SubDominios,Filter(Lst_SubDominio, Estado_LstSubDominio = "Activo")),
+                    ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+                    ClearCollect(Col_BD_Financiamiento,Portafolio),
+                    ClearCollect(Col_BD_FinanciamientoEquipo,Lst_OrdenesEquipos),
+                    ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                    ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+                    ClearCollect(Col_BD_DetalleKPIs,OUTCOME),
+                    ClearCollect(Col_BD_Fcst_Responsable, Lst_Fcst_Responsable),
+                    ClearCollect(Col_BD_Fcst_Servicios, Lst_Fcst_Servicios),
+                    ClearCollect(Col_BD_Fcst_ServAsignados, Lst_Fcst_ServiciosAsignados),
+                    ClearCollect(Col_BD_Fcst_Datos, Lst_Fcst_Datos),
+                    ClearCollect(Col_BD_Fcst_Cuenta, Lst_Fcst_MantenedorCuenta),
+                    ClearCollect(Col_BD_Fcst_Ceco, Lst_Fcst_MantenedorCeco),
+                    ClearCollect(Col_BD_Fcst_Semanas, LST_Fcst_MantenedorSemanas),
+                    ClearCollect(Col_BD_Fcst_TCSemanas, Lst_Fcst_TipoCambioSemana),
+                    ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco),
+                    ClearCollect(Col_MenuBind,Lst_MenuBind),
+                    /* PERMISO MODULO EQUIPO VIRTUALES */
+                    ClearCollect(Col_RolVirtual,{Rol:"Digital Product Manager"},{Rol:"PRODUCT OWNER SENIOR"},{Rol:"PRODUCT OWNER EXPERTO"},{Rol:"Product Owner"},{Rol:"ENGINEERING MANAGER II"},{Rol:"ENGINEERING MANAGER I"})
+                    /*===========================================*/ 
+                    
+                );
+                
+                //Set(_VarRolUsuario; LookUp(Lst_Persona;'Correo Electrónico' = _Perfil.mail;Rol));;
+                ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName,Dominio));  //trae los dominios asignados al usuario
+                /*------------------------------------------------------*/
+                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+                
+                ClearCollect(Col_DominiosGestion, Col_BD_Portafolio);
+                //ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+                
+                Clear(Col_IDEquiposAsignados);
+                Clear(Col_MiEquiposJefe);
+                Clear(Col_DatosparaGrafico);
+                
+                // Recuperando los ID de los Equipos asignados
+                ForAll(Col_MiEquipoWalmart As CME,Collect(Col_IDEquiposAsignados, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario)).IDEquipo));
+                //ForAll(Col_MiEquipoWalmart As CME;Collect(Col_DatosparaGrafico; Filter(Col_BD_AsignacionEquipos; Trim(Usuario) = Trim(CME.Usuario))));;
+                // Recuperando los equipos asignados en los dominios
+                //ForAll(ForAll(Distinct(Col_IDEquiposAsignados;Value); {Result: ThisRecord.Value}) As CIEA;Collect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; IDEquipo= CIEA.Result)));;
+                ForAll(ForAll(Distinct(Col_IDEquiposAsignados,IDEquipo), {Result: ThisRecord.Value}) As CIEA,Collect(Col_MiEquiposJefe,Filter(Col_BD_Equipos, IDEquipo = CIEA.Result)));
+                ClearCollect(Col_TempMisEquipos,Col_MiEquiposJefe);
+                
+                Set(_VarCantPersonasaCargo,CountRows(Col_MiEquipoWalmart));
+                Set(PermisosPersonas, If(_VarCantPersonasaCargo>0,true,false));
+                
+                
+                 ClearCollect(Col_ValoresCriticidad,
+                      {ID:1, Value: "Bajo"},
+                      {ID:2, Value: "Medio"},
+                      {ID:3, Value: "Alto"}
+                    );
+                
+                /* Validar si el usuario es Manager */
+                If(
+                    _VarCantPersonasaCargo >= 1, // VN53SOS -- B0N01DV --_VarUsuarioJefe -- G0T01KR
+                    Set(_VarEsManager,1),
+                    Set(_VarEsManager,0)
+                );
+                
+                /* Avisar si tiene alertas el usuario */
+                //Set(htmlAlerta; AlertasdesdeBind.Run(_Perfil.mail;_VarEsManager).alertahtml);; //Belen.Neira@walmart.com --livia.ramdey@walmart.com  --  _Perfil.mail --Gonzalo.Toledo@walmart.com
+                
+                /*Registrar ingreso User*/
+                Patch(Lst_log_usage,Defaults(Lst_log_usage),{Nombre_Usuario:_Perfil.displayName, Usuario:_Perfil.mailNickname,Accion:"Ingreso App"});
+                
+                /*==================== Menu del usuario ===============================*/
+                If(
+                    !IsBlank(PermisoUsuario),
+                    Clear(Col_MenudelUsuario);
+                    ClearCollect(Col_PermisoUsuarioMenu, Split(PermisoUsuario.PermisosMenu,","));
+                    ForAll(
+                        Col_PermisoUsuarioMenu As ObtenerMenu,
+                        Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
+                    ),
+                    Clear(Col_MenudelUsuario);
+                    ClearCollect(Col_PermisoUsuarioMenu, Split("72,73,76,77,82,86,88,89,90,91,92",",")); // 62,63,64,67,94,72,73,76,77,82,86,88,89,90,91,92,66
+                    ForAll(
+                        Col_PermisoUsuarioMenu As ObtenerMenu,
+                        Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
+                    )   
+                );
+                
+                /*==================================================================*/
+                
+                /*Ocultar Spinner Cargando*/
+                Set(_VarMostrarCargando,false);
+                
+                // Mostrar Comunicado Bind
+                //Set(_VarMostrarComunicado,true)
+                
+                // Recuperando Dominios Asignados
+                //ClearCollect(Col_DominiosAsignados; LookUp(Perfilamiento; Nombre.DisplayName = "Carlos Reichmann (Chile)"; Dominio)) // _Perfil.displayName
+                //ClearCollect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; ResponsableEquipo = _VarUsuarioJefe));;
+                //ForAll(BuscarEquipos;Collect(RelacionEquiposPorUsuario;{Id:ThisRecord.IDBusqueda.Id}))
+                
+                /*------------------------------------------------------*/
+                
+                
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =13
+            Text: ="Test Perfil Usuario"
+            Width: =179
+            X: =1712
+            Y: =320
+            ZIndex: =33
+
+        Button4_13 As button:
+            DisplayMode: |-
+                =If(
+                    IsBlank( ThisItem.PermisosMenu),
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(40, 112, 134, 1)
+            Height: =42
+            OnSelect: |-
+                =UpdateContext({_VarCopiaPerfil: ThisItem.PermisosMenu});
+                UpdateContext({_VarverCopiaPerfil_:true})
+            RadiusBottomRight: =0
+            RadiusTopRight: =0
+            Size: =13
+            Text: ="Copiar Perfil"
+            Width: =179
+            X: =1712
+            Y: =208
+            ZIndex: =34
+
+        Label41_5 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.PermisosMenu
+            Visible: =false
+            X: =14
+            Y: =362
+            ZIndex: =35
+
+        Chk_ProveedoresVista As checkbox:
+            Default: =ThisItem.Proveedores_Vista
+            Height: =42
+            OnSelect: =Select(Parent)
+            Text: ="Proveedor Vista"
+            Width: =207
+            X: =1224
+            Y: =14
+            ZIndex: =36
+
+    Button2_1 As button:
+        Fill: =_VarColoresApp.VerdeParaBotones
+        Height: =60
+        HoverFill: =_VarColoresApp.AzulFondo
+        OnSelect: |
+            =Navigate(Portada,ScreenTransition.None)
+        PaddingTop: =2.5
+        PressedFill: =_VarColoresApp.VerdeParaBotones
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =35
+        Text: ="⬅"
+        Tooltip: ="Regresar"
+        Width: =83
+        X: =1837
+        ZIndex: =8
+
+    "'Propuesta 1' As button":
+        Height: =45
+        OnSelect: |-
+            =UpdateContext({_VarVerTicket:true})
+        Text: ="Registrar Ticket"
+        Width: =200
+        X: =588
+        Y: =80
+        ZIndex: =11
+
+    Gp_Perfilamiento_Nuevo As group:
+        Height: =5
+        Width: =5
+        X: =-474
+        Y: =-302
+        ZIndex: =13
+
+        Form1_1 As form:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =4
+            DataSource: =Perfilamiento
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =520
+            NumberOfColumns: =2
+            OnSuccess: =Notify("Se creo el perfil del usuario de manera correcta",NotificationType.Success,4000)
+            Visible: |
+                =_AgregarNuevoPerfil
+            Width: =1228
+            X: =300
+            Y: =295
+            ZIndex: =18
+
+            Mantenedor_DataCard1 As typedDataCard.toggleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Mantenedor"
+                Default: =ThisItem.Mantenedor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Mantenedor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue2.Value
+                Width: =612
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey11 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue2 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Tooltip: =Parent.DisplayName
+                    Width: =163
+                    X: =30
+                    Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage11 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue2.Y + DataCardValue2.Height
+                    ZIndex: =3
+
+                StarVisible11 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey11.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey11.Y
+                    ZIndex: =4
+
+            servicioData_DataCard1 As typedDataCard.toggleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="servicioData"
+                Default: =ThisItem.servicioData
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"servicioData")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue6.Value
+                Width: =612
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey20 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue6 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Tooltip: =Parent.DisplayName
+                    Width: =163
+                    X: =30
+                    Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage20 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue6.Y + DataCardValue6.Height
+                    ZIndex: =3
+
+                StarVisible20 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey20.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey20.Y
+                    ZIndex: =4
+
+            Auditoria_DataCard1 As typedDataCard.toggleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Auditoria"
+                Default: =ThisItem.Auditoria
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Auditoria")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue7.Value
+                Width: =612
+                X: =1
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey21 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue7 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Tooltip: =Parent.DisplayName
+                    Width: =163
+                    X: =30
+                    Y: =DataCardKey21.Y + DataCardKey21.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage21 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue7.Y + DataCardValue7.Height
+                    ZIndex: =3
+
+                StarVisible21 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey21.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey21.Y
+                    ZIndex: =4
+
+            Nombre_DataCard1 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Nombre"
+                Default: =ThisItem.Nombre
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Nombre")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue28.Selected
+                Width: =612
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+                DataCardKey38 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue28 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@Perfilamiento].Nombre)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices(Perfilamiento.Nombre,DataCardValue28.SearchText)
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Person
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage38 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue28.Y + DataCardValue28.Height
+                    ZIndex: =3
+
+                StarVisible38 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey38.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey38.Y
+                    ZIndex: =4
+
+            Dominio_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Dominio"
+                Default: =ThisItem.Dominio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Dominio")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue29.SelectedItems
+                Width: =612
+                X: =1
+                Y: =0
+                ZIndex: =8
+
+                DataCardKey39 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue29 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@Perfilamiento].Dominio)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(Perfilamiento.Dominio,DataCardValue29.SearchText)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage39 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue29.Y + DataCardValue29.Height
+                    ZIndex: =3
+
+                StarVisible39 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey39.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey39.Y
+                    ZIndex: =4
+
+            "'Acceso Outcome_DataCard1' As typedDataCard.toggleEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Acceso_x0020_Outcome"
+                Default: =ThisItem.'Acceso Outcome'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Acceso_x0020_Outcome")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue39.Value
+                Width: =612
+                X: =0
+                Y: =2
+                ZIndex: =8
+
+                DataCardKey49 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue39 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Tooltip: =Parent.DisplayName
+                    Width: =163
+                    X: =30
+                    Y: =DataCardKey49.Y + DataCardKey49.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage49 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue39.Y + DataCardValue39.Height
+                    ZIndex: =3
+
+                StarVisible49 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey49.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey49.Y
+                    ZIndex: =4
+
+        Button6 As button:
+            OnSelect: |-
+                =SubmitForm(Form1_1);
+                UpdateContext({_AgregarNuevoPerfil:false})
+            Text: ="Crear"
+            Visible: |
+                =_AgregarNuevoPerfil
+            X: =1098
+            Y: =745
+            ZIndex: =19
+
+        Button6_2 As button:
+            OnSelect: |-
+                =UpdateContext({_AgregarNuevoPerfil:false})
+            Text: ="Cancelar"
+            Visible: |
+                =_AgregarNuevoPerfil
+            X: =1278
+            Y: =745
+            ZIndex: =20
+
+    Cont_CubrirJefe As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(15, 84, 140, 0.34)
+        Height: =990
+        Visible: =var_CubrirJefe
+        Width: =1920
+        Y: =60
+        ZIndex: =16
+
+        Rectangle8 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =278
+            Width: =847
+            X: =566
+            Y: =250
+            ZIndex: =1
+
+        Button4_3 As button:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: |-
+                =UpdateContext({var_CubrirJefe:false})
+            Text: ="Cancelar"
+            Width: =200
+            X: =1160
+            Y: =422
+            ZIndex: =2
+
+        Label1_3 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =47
+            Size: =15
+            Text: ="Asignar permisos de jefatura temporal"
+            Width: =847
+            X: =566
+            Y: =250
+            ZIndex: =3
+
+        Button4_4 As button:
+            DisplayMode: =If(DatePicker1.SelectedDate>DatePicker1_1.SelectedDate||IsBlank(DatePicker1.SelectedDate)||IsBlank(DatePicker1_1.SelectedDate)||IsBlank(ComboBox1.Selected),DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: |-
+                =Patch(Perfilamiento,Gallery1_1.Selected,{Acceso_Lider_Temporal:ComboBox1_1.Selected.Usuario&"|"&
+                 Mid(DatePicker1_1.SelectedDate,1,10)&"|"& Mid(DatePicker1_1.SelectedDate,1,10)});
+                UpdateContext({var_CubrirJefe:false})
+            Text: ="Asignar Permisos"
+            Width: =200
+            X: =1160
+            Y: =338
+            ZIndex: =5
+
+        Label3_2 As label:
+            Height: =35
+            Text: ="Seleccione el permiso que se asignará a "& Gallery1_1.Selected.Nombre.DisplayName
+            Width: =488
+            X: =590
+            Y: =378
+            ZIndex: =6
+
+        Label8 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =62
+            Text: |-
+                ="Último permiso asignado:"&If(IsBlank(PermisoUsuario.Acceso_Lider_Temporal)," Ninguno",
+                LookUp(Col_BD_Persona,Usuario=First(Split(Gallery1_1.Selected.Acceso_Lider_Temporal,"|")).Value).Nombre_Persona&
+                "
+                Detalle: "&Substitute(Gallery1_1.Selected.Acceso_Lider_Temporal,"|"," - "))
+            Width: =488
+            X: =590
+            Y: =318
+            ZIndex: =7
+
+        ComboBox1 As combobox:
+            DisplayFields: =["Nombre_Persona","Usuario"]
+            Height: =32
+            Items: =Col_BD_Persona
+            SearchFields: =["Nombre_Persona"]
+            SearchItems: =Search(Col_BD_Persona,ComboBox1.SearchText,"Nombre_Persona")
+            SelectMultiple: =false
+            Template: =ListItemTemplate.Double
+            Width: =369
+            X: =683
+            Y: =413
+            ZIndex: =8
+
+        Label3_3 As label:
+            Height: =19
+            Text: |-
+                ="Desde: "
+            Width: =93
+            X: =590
+            Y: =464
+            ZIndex: =9
+
+        Label3_4 As label:
+            Height: =20
+            Text: |-
+                ="Hasta: "
+            Width: =73
+            X: =837
+            Y: =463
+            ZIndex: =11
+
+        DatePicker1 As datepicker:
+            Height: =30
+            PaddingBottom: =0
+            Width: =151
+            X: =683
+            Y: =455
+            ZIndex: =12
+
+        DatePicker1_1 As datepicker:
+            Height: =30
+            PaddingBottom: =0
+            Width: =151
+            X: =901
+            Y: =458
+            ZIndex: =13
+
+        Label3_5 As label:
+            Height: =19
+            Text: |-
+                ="Usuario:"
+            Width: =93
+            X: =590
+            Y: =421
+            ZIndex: =14
+
+    Rectangle3_1 As rectangle:
+        Fill: =RGBA(128, 128, 128, 0.52)
+        Height: =990
+        Visible: |
+            =_AgregarNuevoPerfil
+        Width: =1920
+        Y: =60
+        ZIndex: =17
+
+    Button4_8 As button:
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        Height: =42
+        OnSelect: |-
+            =UpdateContext({_VarVerTicket:false})
+        Text: ="Cancelar"
+        Visible: =_VarVerTicket
+        Width: =179
+        X: =884
+        Y: =787
+        ZIndex: =21
+
+    MenuLateral_1 As MenuLateral:
+        Height: =MenuLateral_1.AltoApp
+        Width: =MenuLateral_1.AnchoApp
+        X: =11
+        Y: =5
+        ZIndex: =22
+
+    Gp_PopUpTicket As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        Rectangle34 As rectangle:
+            Fill: =RGBA(15, 84, 140, 0.35)
+            Height: =1050
+            Visible: =_VarVerTicket
+            Width: =1920
+            ZIndex: =12
+
+        Form3 As form:
+            BorderThickness: =1
+            DataSource: ='Soporte / Requerimientos Slack'
+            DefaultMode: =FormMode.New
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =453
+            NumberOfColumns: =2
+            Visible: =_VarVerTicket
+            Width: =527
+            X: =731
+            Y: =320
+            ZIndex: =13
+
+            "'Usuario Solicitante_DataCard1' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="UsuarioSolicitante"
+                Default: =ThisItem.'Usuario Solicitante'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"UsuarioSolicitante")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =96
+                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, "UsuarioSolicitante")
+                Required: =false
+                Update: =DataCardValue102.Text
+                Width: =526
+                X: =0
+                Y: =0
+                ZIndex: =20
+
+                DataCardKey129 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue102 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =ComboBox1_1.Selected.Usuario
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Visible: =false
+                    Width: =306
+                    X: =44
+                    Y: =DataCardKey129.Y + DataCardKey129.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage129 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue102.Y + DataCardValue102.Height
+                    ZIndex: =3
+
+                StarVisible129 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey129.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey129.Y
+                    ZIndex: =4
+
+                ComboBox1_1 As combobox:
+                    DisplayFields: =["Nombre_Persona","Usuario"]
+                    Items: =Col_BD_Persona
+                    SearchFields: =["Nombre_Persona"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,"Nombre_Persona")
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Double
+                    Width: =374
+                    X: =30
+                    Y: =49
+                    ZIndex: =5
+
+            "'Descripción Requerimiento_DataCard1' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Descripci_x00f3_nRequerimiento"
+                Default: =ThisItem.'Descripción Requerimiento'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"Descripci_x00f3_nRequerimiento")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =246
+                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, "Descripci_x00f3_nRequerimiento")
+                Required: =false
+                Update: =DataCardValue103.Text
+                Width: =526
+                X: =0
+                Y: =1
+                ZIndex: =20
+
+                DataCardKey130 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue103 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =179
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey130.Y + DataCardKey130.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage130 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue103.Y + DataCardValue103.Height
+                    ZIndex: =3
+
+                StarVisible130 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey130.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey130.Y
+                    ZIndex: =4
+
+            "'TIempo de trabajo_DataCard1' As typedDataCard.numberEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="TIempodetrabajo"
+                Default: =ThisItem.'TIempo de trabajo'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"TIempodetrabajo")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =Value(DataCardValue105.Text)
+                Width: =263
+                X: =0
+                Y: =2
+                ZIndex: =20
+
+                DataCardKey132 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Tiempo de Trabajo (Min)"
+                    Width: =220
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue105 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Format: =TextFormat.Number
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey132.Y + DataCardKey132.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage132 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue105.Y + DataCardValue105.Height
+                    ZIndex: =3
+
+                StarVisible132 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey132.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey132.Y
+                    ZIndex: =4
+
+            "'Fecha Requerimiento_DataCard1' As typedDataCard.dateEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="FechaRequerimiento"
+                Default: =ThisItem.'Fecha Requerimiento'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"FechaRequerimiento")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue104.SelectedDate
+                Width: =263
+                X: =1
+                Y: =2
+                ZIndex: =20
+
+                DataCardKey131 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue104 As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    StartYear: =1899
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey131.Y + DataCardKey131.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage131 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue104.Y + DataCardValue104.Height
+                    ZIndex: =3
+
+                StarVisible131 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey131.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey131.Y
+                    ZIndex: =4
+
+        Button4_7 As button:
+            DisplayMode: |-
+                =If(IsBlank(DataCardValue103.Text)||IsBlank(DataCardValue105.Text),DisplayMode.Disabled,
+                DisplayMode.Edit)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =42
+            OnSelect: =SubmitForm(Form3);Notify("Caso registrado correctamente",NotificationType.Success);NewForm(Form3)
+            Text: ="Guardar"
+            Visible: =_VarVerTicket
+            Width: =179
+            X: =1079
+            Y: =787
+            ZIndex: =14
+
+        Label35 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Text: ="Registro de Casos  / Slack"
+            Visible: =_VarVerTicket
+            Width: =527
+            X: =731
+            Y: =280
+            ZIndex: =15
+
+    Button4 As button:
+        Height: =45
+        OnSelect: =Navigate(ModuloPersonaV1)
+        Text: ="Nuevo Modulo Persona"
+        Width: =264
+        X: =834
+        Y: =80
+        ZIndex: =26
+
+    Gp_CopiarPerfil As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =26
+
+        Rectangle24_6 As rectangle:
+            Fill: =RGBA(15, 84, 140, 0.33)
+            Height: =1050
+            Visible: =_VarverCopiaPerfil_
+            Width: =1920
+            ZIndex: =23
+
+        Container7_1 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(53, 61, 63, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =477
+            Visible: =_VarverCopiaPerfil_
+            Width: =1073
+            X: =444
+            Y: =284
+            ZIndex: =24
+
+            Txt_FondoForm1_189 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: =""
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =314
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            Gallery12_2 As gallery.galleryVertical:
+                BorderColor: =RGBA(53, 61, 63, 1)
+                BorderThickness: =2
+                DelayItemLoading: =true
+                Height: =299
+                Items: =Col_PermisosparaPersonas
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =58
+                Width: =660
+                X: =394
+                Y: =102
+                ZIndex: =1
+
+                Label40_5 As label:
+                    Height: =41
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.DisplayName
+                    Width: =251
+                    X: =6
+                    Y: =4
+                    ZIndex: =1
+
+                Label40_6 As label:
+                    Height: =41
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Email
+                    Width: =328
+                    X: =257
+                    Y: =4
+                    ZIndex: =2
+
+                Icon1_2 As icon.Trash:
+                    Height: =30
+                    Icon: =Icon.Trash
+                    OnSelect: =Remove(Col_PermisosparaPersonas,ThisItem)
+                    Width: =30
+                    X: =607
+                    Y: =15
+                    ZIndex: =3
+
+            Cmb_BuscarPersona_1 As combobox:
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                ChevronFill: =RGBA(0, 121, 187, 1)
+                ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                DefaultSelectedItems: =
+                DisabledColor: =RGBA(102, 102, 102, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =Txt_FondoForm1_189.Height -10
+                HoverBorderColor: =RGBA(0, 121, 187, 1)
+                Items: =Choices(Perfilamiento.Nombre)
+                OnChange: |
+                    =
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedFill: =RGBA(0, 121, 187, 1)
+                SearchFields: =["Claims"]
+                SearchItems: =Choices(Perfilamiento.Nombre,Cmb_BuscarPersona_1.SearchText)
+                SelectionFill: =RGBA(0, 121, 187, 1)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Tooltip: =
+                Width: |
+                    =Txt_FondoForm1_189.Width - 27
+                X: =57
+                Y: =45
+                ZIndex: =2
+
+            Button19_1 As button:
+                Height: =35
+                OnSelect: |-
+                    =Collect(Col_PermisosparaPersonas, Cmb_BuscarPersona_1.Selected);
+                    Reset(Cmb_BuscarPersona_1)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Text: ="Agregar Persona"
+                Width: =287
+                X: =57
+                Y: =102
+                ZIndex: =3
+
+            Button19_2 As button:
+                DisplayMode: |-
+                    =If(
+                        CountRows(Col_PermisosparaPersonas)>0,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =35
+                OnSelect: |-
+                    =UpdateContext({_VarverSpinner:true});
+                    
+                    ForAll(
+                        Col_PermisosparaPersonas As BDPermiso,
+                        //UpdateContext({_VarClaims:Upper(Last(Split(First(Split(BDPermiso.Claims;"@")).Value;"|")).Value)});
+                        Patch(
+                            Perfilamiento,
+                            LookUp(Perfilamiento, Nombre.DisplayName = BDPermiso.DisplayName),
+                            {
+                                PermisosMenu: _VarCopiaPerfil
+                            }
+                        )
+                    );
+                    Clear(Col_PermisosparaPersonas);
+                    UpdateContext({_VarverSpinner:false});
+                    UpdateContext({_VarverCopiaPerfil_:false})
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Text: ="Actualizar"
+                Width: =287
+                X: =767
+                Y: =416
+                ZIndex: =4
+
+            Txt_FondoForm1_190 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: ="Nombre Usuario"
+                DisabledColor: =RGBA(53, 61, 63, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =279
+                X: =394
+                Y: =40
+                ZIndex: =5
+
+            Txt_FondoForm1_191 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: ="Correo Usuario"
+                DisabledColor: =RGBA(53, 61, 63, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =307
+                X: =655
+                Y: =40
+                ZIndex: =6
+
+        Icon24_7 As icon.CancelBadge:
+            Color: =RGBA(53, 61, 63, 1)
+            Height: =32
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_VarverCopiaPerfil_:false})
+            Visible: =_VarverCopiaPerfil_
+            Width: =30
+            X: =1487
+            Y: =249
+            ZIndex: =25
+

@@ -1,0 +1,280 @@
+Portada As screen:
+    BackgroundImage: ='NuevoFondoHome.001'
+    ImagePosition: =ImagePosition.Fill
+    OnVisible: |-
+        =Set(_VarAbrirMenu,false);
+        UpdateContext({_VarMostrarAlertasInicio:false});
+        Set(_VarMenuSeleccionado,"Noticias")
+
+    Image10_12 As image:
+        Height: =233
+        Image: =BindBlanco
+        Width: =358
+        X: =757
+        Y: =119
+        ZIndex: =4
+
+    Label19_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 0.22)
+        Size: =10
+        Text: ="PRD.V3.0.0"
+        X: =1770
+        Y: =1010
+        ZIndex: =5
+
+    Gp_CabeceraPortada_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Rct_FondoCabecera_6 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =1
+
+        Img_UsuarioLogin_1 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =50
+            X: =1860
+            Y: =5
+            ZIndex: =2
+
+        Lbl_TextoBienvenida_1 As label:
+            Align: =Align.Right
+            Color: =_VarColoresApp.Blanco 
+            Font: ="trebuchet ms"
+            FontWeight: =FontWeight.Bold
+            Size: =16
+            Text: ="¡ Bienvenid@ " & User().FullName & " !"
+            Width: =700
+            X: =1151
+            Y: =15
+            ZIndex: =3
+
+    Btn_CambioDeUser_1 As button:
+        Align: =Align.Right
+        Color: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        HoverFill: =_VarColoresApp.AzulparaCabeceras
+        OnSelect: |+
+            =/*Mostrar Spinner Cargando*/
+            Set(_VarMostrarCargando,true);
+            
+            /*Modulo de Persona*/
+            If(_VarUsuarioJefe= Upper(_Perfil.mailNickname),
+            Set(_VarUsuarioJefe, Upper(First(Split(PermisoUsuario.Acceso_Lider_Temporal,"|")).Value)),
+            Set(_VarUsuarioJefe, Upper(_Perfil.mailNickname))
+            );
+            
+             //  Upper(Last(Split(First(Split(_Perfil.userPrincipalName;"@")).Value;"|")).Value) || m0a00y0 || c0r076x || L0M02OW
+            //Last(Split(First(Split(_Perfil.userPrincipalName,"@")).Value,"|")).Value)
+            //_Perfil.userPrincipalName,"@")
+            Concurrent(
+                ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo")),
+                ClearCollect(Col_BD_Gerencia, Filter(Lst_Gerencias, Estado = "Activo")),
+                ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
+                ClearCollect(Col_BD_Equipos, DominioEquipoSquad),
+                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo")) //_Perfil.mail "Carlos.Reichmann0@walmart.com"
+                
+            );
+            
+            Clear(Col_IDEquiposAsignados);
+            Clear(Col_MiEquiposJefe);
+            Clear(Col_DatosparaGrafico);
+            // Recuperando los ID de los Equipos asignados
+            ForAll(Col_MiEquipoWalmart As CME,Collect(Col_IDEquiposAsignados, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario)).IDEquipo));
+            ForAll(ForAll(Distinct(Col_IDEquiposAsignados,IDEquipo), {Result: ThisRecord.Value}) As CIEA,Collect(Col_MiEquiposJefe,Filter(Col_BD_Equipos, IDEquipo = CIEA.Result)));
+            ClearCollect(Col_TempMisEquipos,Col_MiEquiposJefe);
+            
+            Set(_VarCantPersonasaCargo,CountRows(Col_MiEquipoWalmart));
+            Set(PermisosPersonas, If(_VarCantPersonasaCargo>0,true,false));
+            
+            Concurrent(
+                ClearCollect(M_Principal,Table(
+                {ID:0, Titulo: "Administrar", SubTitulo: "Gestiona Información", Visual:false},
+                {ID:1, Titulo: "Dashboard", SubTitulo: "Visualiza Información", Visual:false},
+                {ID:2, Titulo: "Ayuda", SubTitulo: "Guia de ayuda y onboarding", Visual:false}
+                )),
+                ClearCollect(M_Secundario,Table(
+                If(
+                    PermisoUsuario.servicioData,
+                    {ID:0,Orden:1, SubMenu: "Servicio", Permiso:true},
+                     If(
+                        PermisoUsuario.Auditoria,
+                            {ID:0,Orden:1, SubMenu: "Auditoria", Permiso:true},
+                            {ID:0,Orden:1, SubMenu: "Lista de Productos", Permiso:true}
+                     )
+                ),
+                {ID:0, Orden:2, SubMenu: "Lista de Proyectos", Permiso:true},
+                {ID:0, Orden:3, SubMenu:"Personas", Permiso: PermisosPersonas}, 
+                {ID:0, Orden:4, SubMenu:"Opportunity Assessment", Permiso: true},
+                {ID:0, Orden:5, SubMenu:"Estrategia", Permiso: true},
+            
+                {ID:1, Orden:1, SubMenu:"Roadmap Walmart Tech", Permiso: true},
+                {ID:1, Orden:2, SubMenu:"Completitud", Permiso: true},
+                {ID:1, Orden:3, SubMenu:"KPI", Permiso: true},
+                {ID:1, Orden:4, SubMenu:"Personas", Permiso: true},
+                {ID:1, Orden:5, SubMenu:"Plan Tech 2023", Permiso: true},
+                {ID:1, Orden:6, SubMenu:"Opportunity Assessment", Permiso: true},
+                {ID:1, Orden:7, SubMenu:"Estrategia", Permiso: true},
+                {ID:1, Orden:8, SubMenu:"International Monthly Report", Permiso: true},
+                {ID:1, Orden:9, SubMenu:"Capitalización", Permiso: true},
+                {ID:1, Orden:10, SubMenu:"Code Yellow", Permiso: true},
+                //{ID:1, Orden:10, SubMenu:"Programas", Permiso: true},
+                {ID:1, Orden:11, SubMenu:"Seguimiento OI/OE", Permiso: PermisoUsuario.SeguimientoOI},
+                {ID:1, Orden:12, SubMenu:"HeadCount", Permiso: PermisoUsuario.HeadCount},
+                {ID:1, Orden:13, SubMenu:"Infosec", Permiso: true},
+                {ID:1, Orden:14, SubMenu:"Auditoria", Permiso: true},
+                {ID:1, Orden:15, SubMenu:"Seguimiento de proyectos", Permiso: true},
+                {ID:1, Orden:16, SubMenu:"Seguimiento Datos", Permiso: true},
+            
+                {ID:2, Orden:1, SubMenu:"Onboarding", Permiso: true},
+                {ID:2, Orden:2, SubMenu:"Contáctate con nosotros", Permiso: true},
+                {ID:2, Orden:3, SubMenu:"Déjanos tu feedback", Permiso: true}
+            
+                )),
+                ClearCollect(Col_ValoresCriticidad,
+                  {ID:1, Value: "Bajo"},
+                  {ID:2, Value: "Medio"},
+                  {ID:3, Value: "Alto"}
+                )
+            );
+            /*Ocultar Spinner Cargando*/
+            Set(_VarMostrarCargando,false);
+            
+        PressedFill: =_VarColoresApp.AzulparaCabeceras
+        Size: =16
+        Text: |-
+            =If(_VarUsuarioJefe=Upper(_Perfil.mailNickname),"Ver Personas de: "&LookUp(Col_BD_Persona,Usuario=First(Split(PermisoUsuario.Acceso_Lider_Temporal,"|")).Value).Nombre_Persona,"Ver mis Personas"/*: &_Perfil.displayName*/)
+        Visible: |
+            =If(IsBlank(PermisoUsuario.Acceso_Lider_Temporal),false,
+            DateTimeValue(Index(Split(PermisoUsuario.Acceso_Lider_Temporal,"|"),2).Value)<=Today() && 
+            DateTimeValue(Index(Split(PermisoUsuario.Acceso_Lider_Temporal,"|"),3).Value)>=Today())
+        Width: =580
+        X: =1271
+        Y: =15
+        ZIndex: =12
+
+    AlertasBind_6 As AlertasBind:
+        Height: |-
+            =If(
+                AlertasBind_6.EstadoAlerta,
+                1050,
+                38 + 15
+            )
+        Width: |-
+            =If(
+                AlertasBind_6.EstadoAlerta,
+                1920,
+                424 + 15
+            )
+        ZIndex: =13
+
+    Component1_1 As Component1:
+        X: =114
+        Y: =362
+        ZIndex: =14
+
+    Icon1_3 As icon.Settings:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Icon: =Icon.Settings
+        OnSelect: =Navigate(Mantenedores,ScreenTransition.CoverRight)
+        Tooltip: ="Mantenedores"
+        Visible: =PermisoUsuario.Mantenedor
+        Width: =40
+        X: =9
+        Y: =10
+        ZIndex: =15
+
+    Cargando_16 As Cargando:
+        Visible: =_VarMostrarCargando
+        ZIndex: =16
+
+    Comunicado_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Rectangle5_4 As rectangle:
+            Fill: =RGBA(116, 116, 116, 0.24)
+            Height: =1050
+            Visible: =//_VarMostrarComunicado
+            Width: =1920
+            ZIndex: =7
+
+        Rectangle6_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =677
+            Visible: =//_VarMostrarComunicado
+            Width: =1432
+            X: =244
+            Y: =315
+            ZIndex: =8
+
+        HtmlText1_2 As htmlViewer:
+            Height: =677
+            HtmlText: |-
+                ="<div class='divTable'>
+                <div class='divTableBody'>
+                <div class='divTableRow'>
+                <h3 class='divTableCell' style='background: linear-gradient(90deg, #152238, #152238); color: white; width: 100%; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>&nbsp;Comunicado N&deg; 001 - Cambio de Estructura</h3>
+                </div>
+                <div class='divTableRow'>
+                <div class='divTableCell'>
+                <p>La Gerencia Tech est&aacute; cambiando, y por eso estaremos realizando una <strong> mantenci&oacute;n al m&oacute;dulo de Personas de Bind y a algunos reportes. Desde el dia viernes 07 hasta el dia Miercoles 12.</strong></p>
+                <br />
+                <ul>
+                <li><strong>&iquest;Qu&eacute; es lo que NO podr&aacute;s hacer?</strong> <br />Ingresar personas externas, modificar informaci&oacute;n de personas, asignar y editar equipos, ingresar informaci&oacute;n del Portafolio de Data.</li>
+                <li><br /><strong>&iquest;Cu&aacute;les Dashboards NO tendr&aacute;n informaci&oacute;n actualizada?</strong> <br />Roadmap WM Tech, Dashboards de Personas, Dashboard de Completitud.</li>
+                </ul>
+                <br />
+                <p>Si por alg&uacute;n motivo necesitas realizar alguna actualizaci&oacute;n de personas, cont&aacute;ctate con nosotros y lo resolvemos juntos!</p>
+                <strong>&iexcl;&iexcl;Muchas gracias!!</strong></div>
+                </div>
+                </div>
+                <div class='divTableRow'>
+                <div class='divTableCell'><br><p style='text-align: center;'><span style='font-size: 20px;'><strong><span style='color: #041F41;'> escr&iacute;benos por slack a <a href='https://wmt-chile.slack.com/archives/C03319W30GJ'>#agile-performance_portfolio</a> o s&uacute;mate a nuestra zoom <a href='https://walmart.zoom.us/j/7408573254?_x_zm_rtaid=lD4a32jbQBK0-1MHVE2ToQ.1681128155084.26749b310b6eccb81b772cf7aef62a74&amp;_x_zm_rhtaid=212#success' target='_blank'>/AgilePortfolio</a></span></strong></span></p></div>
+                </div>
+                </div>"
+            Size: =16
+            Visible: =//_VarMostrarComunicado
+            Width: =1400
+            X: =260
+            Y: =315
+            ZIndex: =9
+
+        Icon5_8 As icon.CancelBadge:
+            Color: =RGBA(0, 13, 75, 1)
+            Height: =40
+            Icon: =Icon.CancelBadge
+            OnSelect: =Set(_VarMostrarComunicado,false)
+            Tooltip: ="Cerrar Comunicado"
+            Visible: =//_VarMostrarComunicado
+            Width: =40
+            X: =1636
+            Y: =275
+            ZIndex: =10
+
+        Image2_3 As image:
+            Height: =221
+            Image: |-
+                ="https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/PerritoTriste.gif?csf=1&web=1&e=qGh6eu"
+            Visible: =//_VarMostrarComunicado
+            Width: =151
+            X: =1525
+            Y: =639
+            ZIndex: =11
+

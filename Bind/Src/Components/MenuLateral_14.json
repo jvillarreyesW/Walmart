@@ -1,0 +1,82 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "MenuLateral_14",
+    "TemplateGuid": "96fbf8f17723440b8399638f7df51954"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "AnchoApp",
+      "Hidden": false,
+      "Name": "AnchoApp",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "AltoApp",
+      "Hidden": false,
+      "Name": "AltoApp",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "DatosMenu",
+      "Hidden": false,
+      "Name": "DatosMenu",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Propiedad personalizada 1",
+      "Hidden": false,
+      "Name": "DatosMenuSec",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "PermisoPersona",
+      "Hidden": false,
+      "Name": "PermisoPersona",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "PermisoData",
+      "Hidden": false,
+      "Name": "PermisoData",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638478260043685634",
+  "Name": "96fbf8f17723440b8399638f7df51954",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "e0a86252c6e14979891f4ea966eb0b2b",
+  "Version": "638138012209706999"
+}

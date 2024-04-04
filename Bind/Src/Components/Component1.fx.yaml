@@ -1,0 +1,383 @@
+Component1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =600
+    Width: =1680
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText5_4 As htmlViewer:
+        BorderThickness: =2
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: |-
+            =If(
+                _VarMenuSeleccionado = "Noticias",
+                470,
+                379
+            )
+        HtmlText: |-
+            =/*
+            "<div style =' width: " & Self.Width & "px; height: " & Self.Height-1 & "px; 
+            backdrop-filter: blur(10px); 
+            background-color: (255, 255, 255, 1); 
+            border-radius: 45px; 
+            box-shadow:inset -10px -10px 16px 0px rgba(255, 255, 255, 0.3),  inset 0px 11px 28px 0px rgba(255, 255, 255); '> 
+            </div>"
+            */
+            
+            "
+            <div style='
+                width: " & Self.Width & "px; 
+                height: " & Self.Height-1 & "px;
+                background: #FFFFFF;
+                border-radius: 20px;
+                box-shadow: 1px 1px 10px #888888;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+            '>
+            </div>
+            "
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =1579
+        X: =40
+        Y: =103
+        ZIndex: =1
+
+    Gallery13_1 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =83
+        Items: =Distinct(Col_MenuBind,Menu)
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =381
+        Width: =1579
+        X: =40
+        Y: =20
+        ZIndex: =2
+
+        Button20_4 As button:
+            Color: =RGBA(15, 28, 44, 1)
+            Fill: =RGBA(225, 237, 249, 1)
+            Font: ="trebuchet ms"
+            OnSelect: =Set(_VarMenuSeleccionado,ThisItem.Value)
+            RadiusBottomLeft: =50
+            RadiusTopRight: =50
+            Text: =ThisItem.Value
+            Width: =269
+            X: =45
+            Y: =10
+            ZIndex: =1
+
+        Rectangle26_2 As rectangle:
+            DisabledFill: =RGBA(53, 61, 63, 1)
+            DisplayMode: |-
+                =If(
+                    _VarMenuSeleccionado = ThisItem.Value,
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =RGBA(71, 158, 245, 1)
+            Height: =4
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =If(
+                    _VarMenuSeleccionado = ThisItem.Value,
+                    true, 
+                    false
+                )
+            Width: =269
+            X: =45
+            Y: =59
+            ZIndex: =3
+
+    Gl_OpcionesMenu As gallery.galleryVertical:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DelayItemLoading: =true
+        Height: =319
+        Items: =Sort(Filter(Col_MenudelUsuario, Menu = _VarMenuSeleccionado ), SubMenu,SortOrder.Ascending)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =50
+        Transition: =Transition.Pop
+        Visible: |-
+            =If(
+                _VarMenuSeleccionado = "Noticias",
+                false,
+                true
+            )
+        Width: =1559
+        WrapCount: |-
+            =If(
+                _VarMenuSeleccionado = "Administrar",
+                3,
+                _VarMenuSeleccionado = "Dashboard",
+                4,
+                _VarMenuSeleccionado = "Ayuda",
+                3
+            )
+        X: =60
+        Y: =130
+        ZIndex: =3
+
+        Button21_4 As button:
+            Align: =Align.Left
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(71, 158, 245, 1)
+            DisplayMode: |-
+                =If(
+                    ThisItem.SubMenu = "Equipos",
+                    If(
+                        _VarRolUsuario in Col_RolVirtual.Rol,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    ),
+                    DisplayMode.Edit
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            OnSelect: |-
+                =If(
+                    ThisItem.Menu = "Administrar",
+                    If(
+                        ThisItem.SubMenu = "Auditoria",
+                        Navigate(ModuloAuditoria,ScreenTransition.Fade),
+                        ThisItem.SubMenu = "Forecast",
+                        Navigate(GestionFcst,ScreenTransition.Fade),
+                        ThisItem.SubMenu = "Lista Producto",
+                        Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Producto"}),
+                        ThisItem.SubMenu = "Lista Proyecto",
+                    Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
+                    ThisItem.SubMenu = "Opportunity Assessment",
+                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal"),
+                    ThisItem.SubMenu = "Personas",
+                    Navigate(ModuloPersona,ScreenTransition.Fade),
+                    ThisItem.SubMenu = "PPP",
+                    Navigate(Iniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"}),
+                    ThisItem.SubMenu = "Servicio",
+                    Navigate(ModuloData,ScreenTransition.Fade),
+                    ThisItem.SubMenu = "Servicios Tecnología",
+                    Navigate(ServiciosTech,ScreenTransition.Fade),
+                    ThisItem.SubMenu = "Gestión de Proveedores",
+                    Navigate(SolicitudesProveedor,ScreenTransition.Fade),
+                    ThisItem.SubMenu = "Plan Tech 2024",
+                    Navigate(ListadoIniciativas,ScreenTransition.Fade),
+                    ThisItem.SubMenu = "Revisión Soportes Proveedores",
+                    Navigate(ModuloRevisionFormatos,ScreenTransition.Fade)
+                    ),
+                    /* FIn de opciones administrar */
+                
+                    If(
+                    ThisItem.Menu = "Dashboard",
+                        If(
+                            ThisItem.SubMenu ="Organigrama",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/c5e45737-1799-4739-892c-e7148426185e/ReportSectionbc39861d7117b0551200?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu ="Roadmap Walmart Tech",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/90a4329c-7687-4aa7-9732-042eb267d454/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu ="KPI",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/f9d5fa53-7d93-48b9-a1e6-495819ed9a77/ReportSectionabb163607decac0771e9?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Personas",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSectionde126829460e0b57911b?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Opportunity Assessment",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/48e6ded5-6162-48f3-9762-ab0af5baa5f2/ReportSectiond75284fbe6005e84b29e?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Estrategia",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2c586354-e6f5-42a9-b76c-12094b80219f/ReportSectionad5efd82f030a454aeaa?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="International Monthly Report",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/49eb77e0-9b4b-4ed1-96f1-863611b903bf/ReportSection4155f03508ecd0cd330d?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Capitalización",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/7da42a5a-cb3a-4650-8131-d9828134f725/ReportSection8c764697e730f7446c9b?experience=power-bi"),
+                            ThisItem.SubMenu ="Code Yellow",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/17a0a2fb-7810-4705-ad13-51260bc586d0/ReportSection3fc7ad15af466f6842b8?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Programas",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/a6df0060-15a5-43b8-b297-cc2d3796310b/ReportSection10abdf753679c60477dc?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu ="Seguimiento OI/OE",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/794c6b79-2ef3-4d5d-a93e-b41842780aef/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Completitud",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9f03d9ce-3674-478e-996c-3b7ab77ecd32/ReportSection6919644c4212a78e8341?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                            ThisItem.SubMenu = "HeadCount",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/8c3c82df-5242-4c55-9ba7-6abac2a56b24?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Infosec",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2779ce08-b506-4e37-955d-8d8bf28406d4/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Auditoria",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/11e3b0ad-5b07-4a83-a37e-9988a52aeeb0/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Seguimiento de proyectos",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9e06fb09-d313-42fb-ba00-5be4f3dd6236/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Seguimiento Datos",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/39ec915b-f306-460b-852c-d6db63b6f15d/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Plan Tech 2024",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/55fdd714-6599-4623-9040-2768a8248184/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-b"),
+                            ThisItem.SubMenu = "Seguimiento servicios tecnologicos",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Seguimiento Forecast",
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/fdb68645-644f-4ad4-9afc-4262e0c08526/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                        )
+                    /* Fin de Opciondes Dashboard */
+                    ,
+                        If(
+                            ThisItem.Menu = "Ayuda",
+                                If(
+                                ThisItem.SubMenu = "Onboarding",
+                                    Launch("https://confluence.walmart.com/display/CLAPMO/Onboarding+Tech+Portfolio"),
+                                ThisItem.SubMenu = "Contáctate con nosotros",
+                                    Launch("https://wmt-chile.slack.com/archives/C02UUPQM7QR"),
+                                ThisItem.SubMenu = "Déjanos tu feedback",
+                                    Launch("https://feedbackally.walmart.com/survey/z7iE9PpIcMXNNbd")
+                                )
+                        )
+                    )
+                
+                )
+            PaddingLeft: =50
+            Text: =ThisItem.SubMenu
+            Width: =366
+            X: |-
+                =If(
+                    _VarMenuSeleccionado = "Administrar",
+                    40,
+                    _VarMenuSeleccionado = "Dashboard",
+                    10,
+                    40
+                )
+            Y: =15
+            ZIndex: =1
+
+        Image9_23 As image:
+            Height: =34
+            Image: =sp16
+            Width: =30
+            X: |-
+                =If(
+                    _VarMenuSeleccionado = "Administrar",
+                    50,
+                    _VarMenuSeleccionado = "Dashboard",
+                    20,
+                    50
+                )
+            Y: =18
+            ZIndex: =2
+
+    Gallery14_2 As gallery.galleryHorizontal:
+        BorderStyle: =BorderStyle.None
+        DelayItemLoading: =true
+        Height: =443
+        Items: =Sort(Filter(Lst_NoticiasBind, FechaInicioPublicacion >= Today() || Today()<= FechaFinPublicacion),OrdenPublicacion,SortOrder.Ascending)
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplateSize: =757
+        Visible: |-
+            =If(
+                !(_VarMenuSeleccionado = "Noticias"),
+                false,
+                true
+            )
+        Width: =1553
+        X: =66
+        Y: =115
+        ZIndex: =4
+
+        Image8_21 As image:
+            Height: |-
+                =If(
+                    ThisItem.Título = "Tech News",
+                    300,
+                    150
+                )
+            Image: |-
+                =If(
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    ImagenMarzo,
+                    '02'
+                )
+            ImagePosition: |-
+                =If(
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    ImagePosition.Fit,
+                    ImagePosition.Fit
+                )
+            OnSelect: =Launch(ThisItem.MasDetalleUrl)
+            Width: =724
+            X: =15
+            Y: |-
+                =If(
+                    ThisItem.Título = "Tech News",
+                    10,
+                    10
+                )
+            ZIndex: =2
+
+        HtmlText10 As htmlViewer:
+            Height: =221
+            HtmlText: |-
+                =
+                ThisItem.Descripcion
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =If(
+                    ThisItem.Título = "Tech News",
+                    false,
+                    true
+                )
+            Width: =724
+            X: =15
+            Y: =176
+            ZIndex: =3
+
+        Label57 As label:
+            Align: =Align.Right
+            Color: =RGBA(15, 108, 189, 1)
+            OnSelect: =Launch(ThisItem.MasDetalleUrl)
+            Text: =""
+            Underline: =true
+            Visible: |-
+                =If(
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    true,
+                    false
+                )
+            Width: =448
+            X: =185
+            Y: =215
+            ZIndex: =4
+
+        Rectangle35 As rectangle:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(106, 122, 127, 1)
+            Height: =365
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =If(
+                    ThisItem.Título = "Tech News",
+                    true,
+                    false
+                )
+            Width: =1
+            X: =744
+            Y: =32
+            ZIndex: =5
+
+    Label58 As label:
+        Align: =Align.Center
+        Font: =Font.'Lato Hairline'
+        FontWeight: =FontWeight.Semibold
+        Height: =53
+        Size: =15
+        Text: ="No cuenta con opciones disponibles."
+        Visible: |-
+            =If(
+                 _VarMenuSeleccionado = "Noticias",
+                 false,
+                 If(
+                     CountRows(Gl_OpcionesMenu.AllItems) = 0,
+                     true,
+                     false
+                 )
+            )
+        Width: =502
+        X: =588
+        Y: =244
+        ZIndex: =5
+

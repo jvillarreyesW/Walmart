@@ -1,0 +1,3516 @@
+GestionFcst As screen:
+    BackgroundImage: ='propuestas de fondo.001'
+    ImagePosition: =ImagePosition.Fill
+    OnVisible: |-
+        =ClearCollect(
+            Col_ValUsu,
+            { Usuario: "F0T01QE"},
+            { Usuario: "F0M0677"}, 
+            { Usuario: "R0A06NW"}, 
+            { Usuario: "P0O01JF"},
+            { Usuario: "VN54CEU"}, 
+            { Usuario: Upper("j0e03yj")}
+        );
+        If(
+            _VarUsuarioJefe in Col_ValUsu.Usuario, 
+            Set(_VarValAdmin, true),
+            Set(_VarValAdmin, false)
+        );
+        
+        //Set(_VarDiaenCurso;DateValue("07/02/2024"));;
+        Set(_VarDiaenCurso,Today());
+        
+        ClearCollect(Col_SemanaEnCurso,Filter(Col_BD_Fcst_Semanas,  _VarDiaenCurso >= Inicio &&  _VarDiaenCurso <= Fin && Anno = "2024")); //Text(Year(Today()))
+        
+        ClearCollect(Col_ServAsignados,  Filter(Col_BD_Fcst_ServAsignados, Usuario = Upper(_Perfil.mailNickname)));
+        
+        
+        UpdateContext({_VarIniciarConteo:false});
+        UpdateContext({_VarEstadoCarga:"0"});
+
+    Label32_1 As label:
+        AutoHeight: =true
+        PaddingLeft: =8
+        PaddingRight: =0
+        Size: =11
+        Text: |-
+            =If(
+                DateDiff(_VarDiaenCurso,First(Col_SemanaEnCurso).Fin,TimeUnit.Days) <= -1,
+                "Ya vencio el plazo para editar el Fcst de la " & First(Col_SemanaEnCurso).Semana,
+                "Quedan " & DateDiff(_VarDiaenCurso,First(Col_SemanaEnCurso).Fin,TimeUnit.Days) & " días para editar el Fcst de la " & First(Col_SemanaEnCurso).Semana
+            )
+        Visible: |-
+            =If(
+                DateDiff(_VarDiaenCurso,First(Col_SemanaEnCurso).Fin,TimeUnit.Days) <= -1,
+                false,
+                true
+            )
+        Width: =317
+        X: =1007
+        Y: =731
+        ZIndex: =1
+
+    Image21 As image:
+        Height: =42
+        Image: |-
+            ="https://teams.wal-mart.com/:i:/r/sites/AgilePMOMalayita/Shared%20Documents/General/alerta.png?csf=1&web=1&e=tFXqKc"
+        Visible: |-
+            =If(
+                DateDiff(_VarDiaenCurso,First(Col_SemanaEnCurso).Fin,TimeUnit.Days) <= -1,
+                false,
+                true
+            )
+        Width: =57
+        X: =1137
+        Y: =687
+        ZIndex: =2
+
+    Rct_FondoCabecera_4 As rectangle:
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        Height: =60
+        Width: =1920
+        ZIndex: =3
+
+    Img_UsuarioPantallaPersona_17 As image:
+        Height: =50
+        Image: =_UserFoto
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: |
+            =50
+        RadiusTopRight: =50
+        Width: =54
+        X: =1772
+        Y: =5
+        ZIndex: =4
+
+    Btn_Back_12 As button:
+        Fill: =_VarColoresApp.VerdeParaBotones
+        Height: =60
+        HoverFill: =_VarColoresApp.AzulFondo
+        OnSelect: |-
+            =Reset(Rd_InternoExterno);
+            Reset(Cmb_BuscarMiEquipo);
+            //UpdateContext({_VarMostrarEdicionEquipo:false});;
+            Clear(Col_UsuarioenEquipo);
+            ResetForm(Frm_EditarEquipo);
+            Reset(Rd_PersonasEquipos);
+            Navigate(Portada,ScreenTransition.Fade)
+        PaddingTop: =2.5
+        PressedFill: =_VarColoresApp.VerdeParaBotones
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =35
+        Text: ="⬅"
+        Tooltip: ="Regresar"
+        Width: =83
+        X: =1837
+        ZIndex: =5
+
+    Label30_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =55
+        Size: =20
+        Text: ="En este módulo puedes hacer la proyección de los servicios que se pagarán desde el mes en curso hasta fin de año."
+        Width: =1596
+        X: =207
+        Y: =963
+        ZIndex: =6
+
+    TextInput9_5 As text:
+        Default: =""
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        DisabledFill: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Disabled
+        Height: =408
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Width: =1579
+        X: =215
+        Y: =426
+        ZIndex: =7
+
+    HtmlText8 As htmlViewer:
+        Height: =202
+        HtmlText: |-
+            ="<img src ='https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/Forecast.png?csf=1&web=1&e=6tqBC1' Style= 'width:800px;height:180px'>"
+        Width: =836
+        X: =572
+        Y: =158
+        ZIndex: =8
+
+    "Spinner3 As 'Indicador giratorio'":
+        Appearance: ='Spinner.Appearance'.Primary
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        Font: =""
+        FontColor: =
+        FontItalic: =false
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =110
+        Label: ="Cargando Servicios"
+        LabelPosition: ='Spinner.LabelPosition'.Below
+        SpinnerSize: ='Spinner.SpinnerSize'.Huge
+        Visible: =_VarMostrarSpinner
+        Width: =275
+        X: =382
+        Y: =681
+        ZIndex: =9
+
+    Button12 As button:
+        DisabledColor: =RGBA(53, 61, 63, 1)
+        DisplayMode: |-
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                DisplayMode.Edit,
+                If(
+                    First(Col_SemanaEnCurso).Inicio >= Today() || Today() <= First(Col_SemanaEnCurso).Fin,
+                    If(
+                        IsBlank(LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana)),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    ),
+                    DisplayMode.Disabled
+                )
+            )
+            
+            
+            /*
+            If(
+                IsBlank(First(Col_SemanaEnCurso).Semana);
+                DisplayMode.Disabled;
+                If(
+                    First(Col_SemanaEnCurso).Inicio >= Today() || Today() <= First(Col_SemanaEnCurso).Fin;
+                    If(
+                        IsBlank(LookUp(Lst_Fcst_RegistrodeCargas; CorreoResponsableUsuario = _PerfilFcst.Mail && SemanaCarga = First(Col_SemanaEnCurso).Semana));
+                        DisplayMode.Edit;
+                        DisplayMode.Disabled
+                    );
+                    DisplayMode.Disabled
+                )
+            )
+            */
+        Fill: =RGBA(4, 31, 65, 1)
+        Height: =50
+        OnSelect: |-
+            =UpdateContext({_VarMostrarSpinner:true});
+            UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas, ID = First(Col_SemanaEnCurso).ID - 1, Semana)});
+            /*
+            If(
+                LookUp(Col_BD_Fcst_Semanas; ID = First(Col_SemanaEnCurso).ID; Semana) = "W 2";
+                UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas; ID = First(Col_SemanaEnCurso).ID; Semana)});
+                UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas; ID = First(Col_SemanaEnCurso).ID - 1; Semana)})
+            );;
+            */
+            //Col_ServAsignados
+            ClearCollect(Col_FcstDetalle, Filter(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior));
+            
+            Clear(FcstDetalle1); 
+            
+            ForAll(
+                Col_ServAsignados As SerAs,
+                Collect(
+                FcstDetalle1,
+                    {
+                        SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                        IDResponsable: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Usuario),
+                        ResponsableServicio: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Responsable),
+                        IdServicio: SerAs.IDServicio,
+                        Servicio: SerAs.Servicio,
+                        Paquete: LookUp(Col_BD_Fcst_Cuenta,Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),Paquete),
+                        Cuenta: LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),
+                        NombreCuenta: LookUp(Col_BD_Fcst_Cuenta,Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),NombreCuenta),
+                        Ceco: LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco),
+                        NombreCeco: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), NombreCeco),
+                        DuennoCeco: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), DuennoCeco),
+                        NuevaClasificacion: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), NuevaClasificacion),
+                        TipoCeco: "TECNOLOGIA",
+                        IDInputData: SerAs.Usuario,
+                        InputData: SerAs.InputData,
+                        Proveedor: "",
+                        UsuarioServicio: "",
+                        Equipo: "",
+                        Producto:"",
+                        Obs: "",
+                        TipoMoneda: SerAs.TipoMoneda,
+                        TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas, IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = SerAs.TipoMoneda, TCdelMes)),
+                        Enero: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Enero)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Enero)),
+                        Febrero: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Febrero)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Febrero)),
+                        Marzo: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Marzo)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Marzo)),
+                        Abril: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Abril)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Abril)),
+                        Mayo: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Mayo)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Mayo)),
+                        Junio: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Junio)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Junio)),
+                        Julio: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Julio)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Julio)),
+                        Agosto: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Agosto)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Agosto)),
+                        Septiembre: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Septiembre)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Septiembre)),
+                        Octubre: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Octubre)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Octubre)),
+                        Noviembre: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Noviembre)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Noviembre)),
+                        Diciembre: If(IsBlank(LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Diciembre)),0,LookUp(Col_FcstDetalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Diciembre)),
+                        Editando:false
+                    }
+                )
+            );
+            
+            /*
+            Clear(Col_ServiciosAsignados);; 
+            
+            ForAll(
+                Col_ServAsignados As SerAs;
+                Collect(
+                Col_ServiciosAsignados;
+                Filter(Col_FcstDetalle; IDInputData = _VarUsuarioJefe && SemanaFCST = _VarSemanaAnterior && IDServicio = SerAs.IDServicio)
+                )
+            );;
+            
+            Clear(FcstDetalle1);;
+            
+            ForAll(
+                Col_ServiciosAsignados As Serv;
+                Collect(
+                    FcstDetalle1;
+                    {
+                        SemanaFCST: First(Col_SemanaEnCurso).Semana;
+                        IDResponsable: Serv.IDResponsable;
+                        ResponsableServicio: Serv.ResponsableServicio;
+                        IdServicio: Serv.IDServicio;
+                        Servicio: Serv.Servicio;
+                        Paquete: Serv.Paquete;
+                        Cuenta: Serv.Cuenta;
+                        NombreCuenta: Serv.NombreCuenta;
+                        Ceco: Serv.Ceco;
+                        NombreCeco: Serv.NombreCeco;
+                        DuennoCeco: Serv.DuennoCeco;
+                        NuevaClasificacion: Serv.NuevaClasificacion;
+                        TipoCecp: Serv.TipoCeco;
+                        IDInputData: Serv.IDInputData;
+                        InputData: Serv.InputData;
+                        Proveedor: Serv.Proveedor;
+                        UsuarioServicio: Serv.UsuarioServicio;
+                        Equipo: Serv.Equipo;
+                        Producto: Serv.Producto;
+                        Obs: Serv.Obs;
+                        TipoMoneda: Serv.TipoMoneda;
+                        TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas; IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = Serv.TipoMoneda; TCdelMes));
+                        Enero: Serv.Enero;
+                        Febrero: Serv.Febrero;
+                        Marzo:Serv.Marzo;
+                        Abril: Serv.Abril;
+                        Mayo: Serv.Mayo;
+                        Junio: Serv.Junio;
+                        Julio: Serv.Julio;
+                        Agosto: Serv.Agosto;
+                        Septiembre: Serv.Septiembre;
+                        Octubre: Serv.Octubre;
+                        Noviembre: Serv.Noviembre;
+                        Diciembre: Serv.Diciembre;
+                        Editando:false
+                    }
+                )
+            );;
+            */
+            
+            UpdateContext({_VarMostrarSpinner:false});
+            Navigate(GenerarFcst,ScreenTransition.Fade)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Registro manual "
+        Width: =275
+        X: =382
+        Y: =566
+        ZIndex: =10
+
+    Button12_1 As button:
+        Fill: =RGBA(4, 31, 65, 1)
+        Height: =50
+        OnSelect: |
+            =If( _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU",
+                Clear(FcstDetalle1);
+                Navigate(EdicionFcst,ScreenTransition.Fade),
+                Refresh(Lst_Fcst_RegistrodeCargas);
+                ClearCollect(Col_FcstGenerados, Filter(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail));
+                Navigate(ListadoFcst,ScreenTransition.Fade)
+            )
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Ver Fcst Generados"
+        Width: =275
+        X: =1028
+        Y: =566
+        ZIndex: =11
+
+    Button12_2 As button:
+        Fill: =RGBA(4, 31, 65, 1)
+        Height: =50
+        OnSelect: |-
+            =ClearCollect(
+                Col_ValUsu,
+                { Usuario: "F0T01QE"},
+                { Usuario: "F0M0677"}, 
+                { Usuario: "R0A06NW"}, 
+                { Usuario: "P0O01JF"},
+                { Usuario: "VN54CEU"}, 
+                { Usuario: Upper("j0e03yj")}
+            );
+            If(
+                _VarUsuarioJefe in Col_ValUsu.Usuario, 
+                Set(_VarValAdmin, true),
+                Set(_VarValAdmin, false)
+            );
+            
+            Reset(Cmb_FiltroInputData_Mantenedor);
+            
+            Set(_VarMostrarSeccion,"MantenedorServicios");
+            Navigate(MantenedoresFCST,ScreenTransition.Fade)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Mantenedor"
+        Width: =275
+        X: =1351
+        Y: =566
+        ZIndex: =12
+
+    Label30_5 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =55
+        Size: =40
+        Text: =Year(Today())
+        Width: =866
+        X: =572
+        Y: =278
+        ZIndex: =13
+
+    Button12_3 As button:
+        DisabledColor: =RGBA(53, 61, 63, 1)
+        DisplayMode: |-
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                DisplayMode.Edit,
+                If(
+                    First(Col_SemanaEnCurso).Inicio >= Today() || Today() <= First(Col_SemanaEnCurso).Fin,
+                    If(
+                        IsBlank(LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana)),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    ),
+                    DisplayMode.Disabled
+                )
+            )
+            
+            /*
+            If(
+                IsBlank(First(Col_SemanaEnCurso).Semana);
+                DisplayMode.Disabled;
+                If(
+                    First(Col_SemanaEnCurso).Inicio >= Today() || Today() <= First(Col_SemanaEnCurso).Fin;
+                    If(
+                        IsBlank(LookUp(Lst_Fcst_RegistrodeCargas; CorreoResponsableUsuario = _PerfilFcst.Mail && SemanaCarga = First(Col_SemanaEnCurso).Semana));
+                        DisplayMode.Edit;
+                        DisplayMode.Disabled
+                    );
+                    DisplayMode.Disabled
+                )
+            )
+            */
+        Fill: =RGBA(4, 31, 65, 1)
+        Height: =50
+        OnSelect: |-
+            =UpdateContext({_VarPopUpMasivo:true});
+            UpdateContext({_VarEstadoCarga:"0"});
+            Set(_VarMsjFlujo,"");
+            
+             Reset(Adjuntar_CargaMasiva)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Carga Masiva "
+        Width: =275
+        X: =705
+        Y: =566
+        ZIndex: =14
+
+    Label42_1 As label:
+        Align: =Align.Center
+        Height: =59
+        Text: ="Para gestionar desde Bind"
+        Width: =275
+        X: =382
+        Y: =622
+        ZIndex: =15
+
+    Label42_2 As label:
+        Align: =Align.Center
+        Height: =59
+        Text: ="Para generar una carga desde excel"
+        Width: =275
+        X: =705
+        Y: =622
+        ZIndex: =16
+
+    Label42_3 As label:
+        Align: =Align.Center
+        Height: =59
+        Text: ="Revisa tus Forecast"
+        Width: =275
+        X: =1028
+        Y: =622
+        ZIndex: =17
+
+    Group4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        Rectangle12 As rectangle:
+            Fill: =RGBA(122, 138, 143, 0.55)
+            Height: =990
+            Visible: =_VarPopUpMasivo
+            Width: =1920
+            Y: =60
+            ZIndex: =30
+
+        Container6 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =805
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Visible: =_VarPopUpMasivo
+            Width: =483
+            X: =723
+            Y: =158
+            ZIndex: =31
+
+            Btn_DescargarArchivo As button:
+                OnSelect: |
+                    =UpdateContext({_VarMostrarSpinner2:true});
+                    
+                    UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas, ID = First(Col_SemanaEnCurso).ID - 1, Semana)});
+                    
+                    Clear(FcstDetalleDes);
+                    
+                    ForAll(
+                        Col_ServAsignados As SerAs,
+                        Collect(
+                        FcstDetalleDes,
+                            {
+                                SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                                IDResponsable: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Usuario),
+                                ResponsableServicio: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Responsable),
+                                IdServicio: SerAs.IDServicio,
+                                Servicio: SerAs.Servicio,
+                                Paquete: LookUp(Col_BD_Fcst_Cuenta,Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),Paquete),
+                                Cuenta: LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),
+                                NombreCuenta: LookUp(Col_BD_Fcst_Cuenta,Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Cuenta),NombreCuenta),
+                                Ceco: LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco),
+                                NombreCeco: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), NombreCeco),
+                                DuennoCeco: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), DuennoCeco),
+                                NuevaClasificacion: LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = SerAs.IDServicio,Ceco), NuevaClasificacion),
+                                TipoCeco: "TECNOLOGIA",
+                                IDInputData: SerAs.Usuario,
+                                InputData: SerAs.InputData,
+                                Proveedor: "",
+                                UsuarioServicio: "",
+                                Equipo: "",
+                                Producto:"",
+                                Obs: "",
+                                TipoMoneda: SerAs.TipoMoneda,
+                                TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas, IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = SerAs.TipoMoneda, TCdelMes)),
+                                Enero: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Enero)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Enero)),
+                                Febrero: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Febrero)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Febrero)),
+                                Marzo: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Marzo)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Marzo)),
+                                Abril: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Abril)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Abril)),
+                                Mayo: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Mayo)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Mayo)),
+                                Junio: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Junio)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Junio)),
+                                Julio: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Julio)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Julio)),
+                                Agosto: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Agosto)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Agosto)),
+                                Septiembre: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Septiembre)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Septiembre)),
+                                Octubre: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Octubre)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Octubre)),
+                                Noviembre: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Noviembre)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Noviembre)),
+                                Diciembre: If(IsBlank(LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Diciembre)),0,LookUp(Lst_Fcst_Detalle, SemanaFCST = _VarSemanaAnterior && IDInputData = SerAs.Usuario && IDServicio = SerAs.IDServicio, Diciembre)),
+                                Editando:false
+                            }
+                        )
+                    );
+                    
+                    /*
+                    Clear(FcstDetalleDes);;
+                    
+                    ForAll(
+                        Col_ServiciosAsignados As Serv;
+                        Collect(
+                            FcstDetalleDes;
+                            {
+                                SemanaFCST: First(Col_SemanaEnCurso).Semana;
+                                IDResponsable: Serv.IDResponsable;
+                                ResponsableServicio: Serv.ResponsableServicio;
+                                IdServicio: Serv.IDServicio;
+                                Servicio: Serv.Servicio;
+                                Paquete: Serv.Paquete;
+                                Cuenta: Serv.Cuenta;
+                                NombreCuenta: Serv.NombreCuenta;
+                                Ceco: Serv.Ceco;
+                                NombreCeco: If(IsBlank(Serv.NombreCeco); LookUp(Lst_Fcst_MantenedorCeco; Ceco = Serv.Ceco; NombreCeco);Serv.NombreCeco);
+                                DuennoCeco: If(!IsBlank(Serv.DuennoCeco);Serv.DuennoCeco; If( IsBlank(LookUp(Lst_Fcst_MantenedorCeco; Ceco = Serv.Ceco; DuennoCeco));"S/D";LookUp(Lst_Fcst_MantenedorCeco; Ceco = Serv.Ceco; DuennoCeco)));
+                                NuevaClasificacion: If(IsBlank(Serv.NuevaClasificacion); LookUp(Lst_Fcst_MantenedorCeco; Ceco = Serv.Ceco; NuevaClasificacion);Serv.NuevaClasificacion);
+                                TipoCeco: Serv.TipoCeco;
+                                IDInputData: Serv.IDInputData;
+                                InputData: Serv.InputData;
+                                Proveedor: If(IsBlank(Serv.Proveedor);"";Serv.Proveedor);
+                                UsuarioServicio: If(IsBlank(Serv.UsuarioServicio);"";Serv.UsuarioServicio);
+                                Equipo: If(IsBlank(Serv.Equipo);"";Serv.Equipo);
+                                Producto: If(IsBlank(Serv.Producto);"";Serv.Producto);
+                                Obs: If(IsBlank(Serv.Obs);"";Serv.Obs);
+                                TipoMoneda: Serv.TipoMoneda;
+                                TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas; IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = Serv.TipoMoneda; TCdelMes));
+                                Enero: If( Month(First(Col_SemanaEnCurso).Inicio) > 1;0;Serv.Enero);
+                                Febrero: If( Month(First(Col_SemanaEnCurso).Inicio) > 2;0;Serv.Febrero);
+                                Marzo: If( Month(First(Col_SemanaEnCurso).Inicio) > 3;0;Serv.Marzo);
+                                Abril: If( Month(First(Col_SemanaEnCurso).Inicio) > 4;0;Serv.Abril);
+                                Mayo: If( Month(First(Col_SemanaEnCurso).Inicio) > 5;0;Serv.Mayo);
+                                Junio: If( Month(First(Col_SemanaEnCurso).Inicio) > 6;0;Serv.Junio);
+                                Julio: If( Month(First(Col_SemanaEnCurso).Inicio) > 7;0;Serv.Julio);
+                                Agosto: If( Month(First(Col_SemanaEnCurso).Inicio) > 8;0;Serv.Agosto);
+                                Septiembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 9;0;Serv.Septiembre);
+                                Octubre: If( Month(First(Col_SemanaEnCurso).Inicio) > 10;0;Serv.Octubre);
+                                Noviembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 11;0;Serv.Noviembre);
+                                Diciembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 12;0;Serv.Diciembre);
+                                Editando:false
+                            }
+                        )
+                    );;
+                    */
+                    Set(Var_DescargarPlantilla,BindDescargarPlantillaFcst.Run(JSON(FcstDetalleDes)).url);
+                    
+                    UpdateContext({_VarMostrarSpinner2:false});
+                    
+                    Launch(Var_DescargarPlantilla&"?&download=1")
+                Text: ="Descargar Plantilla"
+                Width: =205
+                X: =39
+                Y: =104
+                ZIndex: =1
+
+            Btn_CargarArchivo As button:
+                DisabledColor: =RGBA(77, 77, 77, 1)
+                DisplayMode: |-
+                    =If(
+                        IsBlank(Adjuntar_CargaMasiva.Attachments) || IsEmpty(Adjuntar_CargaMasiva.Attachments),
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Height: =37
+                OnSelect: |-
+                    =UpdateContext({_VarIniciarConteo:true});
+                    UpdateContext({_VarGerencia: LookUp(Lst_Persona, Nombre_Persona =  _Perfil.displayName, GerenciaOrigen)});
+                    
+                    Set(
+                        _VarMsjFlujo,
+                        CargaMasivaFcst.Run(
+                            First(Adjuntar_CargaMasiva.Attachments).Name,
+                            User().Email,
+                            User().FullName,
+                            First(Col_SemanaEnCurso).Semana,
+                            _Perfil.mail,
+                            _Perfil.displayName,
+                            _VarGerencia,
+                           {
+                               file: {
+                                name: First(Adjuntar_CargaMasiva.Attachments).Name,
+                                contentBytes: First(Adjuntar_CargaMasiva.Attachments).Value
+                                } 
+                           }
+                           
+                        ).respuesta
+                    );
+                    
+                    
+                    If(
+                        !IsBlank(_VarMsjFlujo),
+                        Reset(Adjuntar_CargaMasiva)
+                    );
+                    
+                    Refresh(Lst_Fcst_Detalle);
+                    Refresh(Lst_Fcst_RegistrodeCargas)
+                Text: ="Cargar Archivo"
+                Width: =400
+                X: =39
+                Y: =265
+                ZIndex: =2
+
+            Adjuntar_CargaMasiva As attachments:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                Height: =96
+                IsInDataCard: =true
+                Items: =
+                MaxAttachments: =1
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =
+                Width: =400
+                X: =39
+                Y: =154
+                ZIndex: =3
+
+            Label39 As label:
+                Align: =Align.Justify
+                Color: =RGBA(128, 128, 128, 1)
+                Height: =53
+                Text: ="En caso de no contar con tu plantilla de servicios, puedes descargarla aquí."
+                Width: =400
+                X: =39
+                Y: =41
+                ZIndex: =4
+
+            Icon23 As icon.CancelBadge:
+                Height: =30
+                Icon: =Icon.CancelBadge
+                OnSelect: |-
+                    =UpdateContext({_VarPopUpMasivo:false});
+                    UpdateContext({_VarEstadoCarga:"0"});
+                    UpdateContext({_VarIniciarConteo:false});
+                    Set(_VarMsjFlujo,"");
+                    
+                     Reset(Adjuntar_CargaMasiva)
+                Visible: =_VarPopUpMasivo
+                Width: =30
+                X: =439
+                Y: =6
+                ZIndex: =5
+
+            Image12 As image:
+                Height: =218
+                Image: |
+                    =If(
+                        _VarEstadoCarga = "0",
+                        "https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Folly/Picture15.gif?csf=1&web=1&e=H7KGJ4",
+                        _VarEstadoCarga = "1",
+                        "https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Folly/Picture11.gif?csf=1&web=1&e=AAGSff",
+                        _VarEstadoCarga = "2",
+                        "https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Folly/Picture14.gif?csf=1&web=1&e=ZNnCpX",
+                        _VarEstadoCarga = "3",
+                        "https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Folly/Picture18.gif?csf=1&web=1&e=9aGrzA"
+                    )
+                Width: =400
+                X: =39
+                Y: =314
+                ZIndex: =6
+
+            Label30_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(116, 116, 116, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =64
+                Size: =20
+                Text: |-
+                    =If(
+                        _VarEstadoCarga = "0",
+                        "Esperando archivo",
+                        _VarEstadoCarga = "1",
+                        "Procesando Documento",
+                        _VarEstadoCarga = "2",
+                        "Cargando Registros",
+                        _VarEstadoCarga = "3",
+                         _VarMsjFlujo
+                    )
+                Width: =400
+                X: =38
+                Y: =551
+                ZIndex: =7
+
+            Label30_12 As label:
+                Align: =Align.Center
+                Color: =RGBA(116, 116, 116, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =106
+                Size: =11
+                Text: ="Esto puede tardar Varios minutos, puede seguir con sus actividades, se le notificara por correo y teams cuando se termine la carga."
+                Visible: =_VarIniciarConteo
+                Width: =400
+                X: =39
+                Y: =667
+                ZIndex: =8
+
+            Button17 As button:
+                OnSelect: |-
+                    =/*
+                    UpdateContext({_VarMostrarPopup:true});;
+                    NewForm(Form_Servicio_2)
+                    */
+                    
+                    Navigate(MantenedoresFCST,ScreenTransition.Fade)
+                Text: ="Agregar Servicio"
+                Width: =180
+                X: =255
+                Y: =104
+                ZIndex: =9
+
+            "Spinner4 As 'Indicador giratorio'":
+                Appearance: ='Spinner.Appearance'.Primary
+                BasePaletteColor: =RGBA(5, 102, 178, 1)
+                DisplayMode: =DisplayMode.Edit
+                Font: =Font.'Lato Hairline'
+                FontColor: =
+                FontWeight: =FontWeight.Bold
+                Height: =161
+                Label: ="Preparando Plantilla"
+                LabelPosition: ='Spinner.LabelPosition'.Below
+                SpinnerSize: ='Spinner.SpinnerSize'.Huge
+                Visible: =_VarMostrarSpinner2
+                Width: =400
+                X: =39
+                Y: =633
+                ZIndex: =10
+
+        Timer1 As timer:
+            AutoStart: =_VarIniciarConteo
+            Duration: =500
+            OnTimerEnd: |-
+                =Refresh(Lst_Fcst_RegistrodeCargas);
+                Refresh(Lst_Fcst_Detalle);
+                UpdateContext({_VarEstadoCarga: LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana,EstadoCarga)});
+                UpdateContext({_VarEstadoID: LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana,ID)});
+            OnTimerStart: =
+            Repeat: =Value(_VarEstadoCarga) <> 3 && _VarIniciarConteo
+            Visible: =false
+            X: =879
+            Y: =91
+            ZIndex: =32
+
+    Label42_4 As label:
+        Align: =Align.Center
+        Height: =59
+        Text: ="Asignar un nuevo servicio"
+        Width: =275
+        X: =1351
+        Y: =622
+        ZIndex: =18
+
+    Label53 As label:
+        Align: =Align.Center
+        Color: =RGBA(79, 90, 94, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =90
+        Size: =18
+        Text: |-
+            ="Semana: " & First(Col_SemanaEnCurso).Semana & Char(13)
+            & "Inicio: " & First(Col_SemanaEnCurso).Inicio & " - " & "Fin: " & First(Col_SemanaEnCurso).Fin
+        Width: =652
+        X: =664
+        Y: =426
+        ZIndex: =19
+
+    "InfoButtonCanvas1_1 As 'Botón de información'":
+        BasePaletteColor: =
+        Content: |-
+            ="Ya cuenta con los registros de Fcst cargados para la semana: " &  First(Col_SemanaEnCurso).Semana &", Si desea ver sus Fcsst cargados los encontrará en el boton: Ver Fcst Generados"
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Lato Black'
+        FontColor: =
+        FontItalic: =false
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =40
+        IconSize: ='InfoButtonCanvas.IconSize'.Large
+        OnSelect: =false
+        Visible: |-
+            =If(
+                IsBlank(First(Col_SemanaEnCurso).Semana),
+                true,
+                If(
+                    IsBlank(LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana)),
+                    false,
+                    true
+                )
+            )
+        Width: =43
+        X: =710
+        Y: =571
+        ZIndex: =22
+
+    Btn_CargarArchivo_1 As button:
+        DisabledColor: =RGBA(77, 77, 77, 1)
+        DisplayMode: |-
+            =If(
+                IsBlank(Adjuntar_CargaMasiva_1.Attachments) || IsEmpty(Adjuntar_CargaMasiva_1.Attachments),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =37
+        OnSelect: |-
+            =UpdateContext({_VarIniciarConteo:true});
+            UpdateContext({_VarGerencia: LookUp(Lst_Persona, Nombre_Persona =  _Perfil.displayName, GerenciaOrigen)});
+            
+            Set(
+                _VarMsjFlujo,
+                CargaMasivaFcst_Real.Run(
+                    First(Adjuntar_CargaMasiva_1.Attachments).Name,
+                    User().Email,
+                    User().FullName,
+                    First(Col_SemanaEnCurso).Semana,
+                    _Perfil.mail, //_Perfil.Mail
+                    _Perfil.displayName, //_Perfil.displayName;
+                    "GERENCIA DE FINANZAS",
+                   {
+                       file: {
+                        name: First(Adjuntar_CargaMasiva_1.Attachments).Name,
+                        contentBytes: First(Adjuntar_CargaMasiva_1.Attachments).Value
+                        } 
+                   }
+                   
+                ).respuesta
+            );
+            
+            
+            If(
+                !IsBlank(_VarMsjFlujo),
+                Reset(Adjuntar_CargaMasiva_1)
+            );
+            
+            Refresh(Lst_Fcst_Detalle);
+            Refresh(Lst_Fcst_RegistrodeCargas)
+        Text: ="Cargar Archivo Real"
+        Visible: =_VarMostrarCarga
+        Width: =275
+        X: =1485
+        Y: =366
+        ZIndex: =28
+
+    Group1_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        Rectangle18_2 As rectangle:
+            Fill: =RGBA(122, 138, 143, 0.55)
+            Height: =1049
+            Visible: =_VarMostrarPopup
+            Width: =1920
+            Y: =1
+            ZIndex: =33
+
+        Form_Servicio_2 As form:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =2
+            DataSource: =Lst_Fcst_Datos
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =988
+            Visible: =_VarMostrarPopup
+            Width: =1774
+            X: =72
+            Y: =38
+            ZIndex: =34
+
+            DataCard39_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Width: =1773
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                TextInput12_20 As text:
+                    Align: =Align.Center
+                    Default: ="Datos Generales"
+                    DisabledColor: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(9, 33, 98, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =45
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Size: =20
+                    Width: =1747
+                    X: =6
+                    Y: =14
+                    ZIndex: =1
+
+            DataCard40_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =104
+                Width: =591
+                X: =2
+                Y: =1
+                ZIndex: =1
+
+                DataCardValue20_6 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: |-
+                        =LookUp(Col_NuevaCla,Gerencia = DataCardValue34_4.Text,Codigo) & Right(First(Split(DataCardValue51_4.Selected.Paquete, " - ")).Value,2) & "0" & With({BDCant:Filter(Lst_Fcst_MantenedorCuenta, Paquete = LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,Paquete))},CountRows(BDCant))+1
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayMode: =Parent.DisplayMode.Disabled
+                    Height: =50
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =49
+                    ZIndex: =1
+
+                DataCardKey51_6 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: ="IDSERVICIO"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =2
+
+            DataCard34_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Width: =1773
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                TextInput12_21 As text:
+                    Align: =Align.Center
+                    Default: ="Datos del Ceco"
+                    DisabledColor: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(9, 33, 98, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =45
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Size: =20
+                    Width: =1747
+                    X: =6
+                    Y: =14
+                    ZIndex: =1
+
+            "'NOMBRE CECO_DataCard2_2' As typedDataCard.allowedValuesStringEditCard":
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "NOMBRE_x0020_CECO")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="NOMBRE_x0020_CECO"
+                Default: =ThisItem.'NOMBRE CECO'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NOMBRE_x0020_CECO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue52_4.Selected.NombreCeco
+                Width: =590
+                X: =1
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey79_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage78_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue52_4.Y + DataCardValue52_4.Height
+                    ZIndex: =3
+
+                StarVisible78_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey79_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey79_4.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_20 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey79_4.Y + DataCardKey79_4.Height + 5
+                    ZIndex: =5
+
+                DataCardValue52_4 As combobox:
+                    BorderColor: =RGBA(237, 237, 237, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0.1
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={NombreCeco:LookUp( Lst_Fcst_MantenedorCeco, Ceco = DataCardValue42_3.Text,NombreCeco)}
+                    DefaultSelectedItems: |-
+                        =Table({NombreCeco:LookUp( Lst_Fcst_MantenedorCeco, Ceco = DataCardValue42_3.Text,NombreCeco)})
+                    DisabledColor: =RGBA(26, 26, 26, 1)
+                    DisplayFields: =["NombreCeco"]
+                    DisplayMode: |
+                        =DisplayMode.Disabled
+                    Height: =Txt_FondoPOJP_20.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Nombre de ceco"
+                    IsSearchable: =false
+                    Items: =Lst_Fcst_MantenedorCeco
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["NombreCeco"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_20.Width - 27
+                    X: =43
+                    Y: =54
+                    ZIndex: =6
+
+            DataCard41_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =100
+                Width: =591
+                X: =1
+                Y: =4
+                ZIndex: =1
+
+            DataCard42_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =100
+                Width: =591
+                X: =2
+                Y: =4
+                ZIndex: =1
+
+            DataCard38_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Width: =1773
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                TextInput12_22 As text:
+                    Align: =Align.Center
+                    Default: ="Datos de la Cuenta"
+                    DisabledColor: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(9, 33, 98, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =45
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Size: =20
+                    Width: =1747
+                    X: =6
+                    Y: =14
+                    ZIndex: =1
+
+            "'NOMBRE CUENTA_DataCard2_2' As typedDataCard.allowedValuesStringEditCard":
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "NOMBRE_x0020_CUENTA")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="NOMBRE_x0020_CUENTA"
+                Default: =ThisItem.'NOMBRE CUENTA'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NOMBRE_x0020_CUENTA")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =110
+                Required: =false
+                Update: =DataCardValue53_3.Selected.NombreCuenta
+                Width: =590
+                X: =1
+                Y: =6
+                ZIndex: =1
+
+                DataCardKey80_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage79_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue53_3.Y + DataCardValue53_3.Height
+                    ZIndex: =3
+
+                StarVisible79_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey80_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey80_3.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_21 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey80_3.Y + DataCardKey80_3.Height + 5
+                    ZIndex: =5
+
+                DataCardValue53_3 As combobox:
+                    BorderColor: =RGBA(237, 237, 237, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0.1
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={NombreCuenta:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,NombreCuenta)}
+                    DefaultSelectedItems: |-
+                        =Table({NombreCuenta:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,NombreCuenta)})
+                    DisabledColor: =RGBA(26, 26, 26, 1)
+                    DisplayFields: =["NombreCuenta"]
+                    DisplayMode: |
+                        =DisplayMode.Disabled
+                    Height: =Txt_FondoPOJP_21.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Nombre de cuenta"
+                    IsSearchable: =false
+                    Items: =Lst_Fcst_MantenedorCuenta
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["NombreCuenta"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_21.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            PAQUETE_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PAQUETE")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="PAQUETE"
+                Default: =ThisItem.PAQUETE
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PAQUETE")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue51_4.Selected.Paquete
+                Width: =590
+                X: =2
+                Y: =6
+                ZIndex: =1
+
+                DataCardKey78_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage77_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue51_4.Y + DataCardValue51_4.Height
+                    ZIndex: =3
+
+                StarVisible77_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey78_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey78_4.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_22 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey78_4.Y + DataCardKey78_4.Height + 5
+                    ZIndex: =5
+
+                DataCardValue51_4 As combobox:
+                    BorderColor: =RGBA(237, 237, 237, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0.1
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={Paquete:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,Paquete)}
+                    DefaultSelectedItems: |-
+                        =Table({Paquete:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,Paquete)})
+                    DisabledColor: =RGBA(26, 26, 26, 1)
+                    DisplayFields: =["Paquete"]
+                    DisplayMode: |
+                        =DisplayMode.Disabled
+                    Height: =Txt_FondoPOJP_22.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Nombre de cuenta"
+                    IsSearchable: =false
+                    Items: =Lst_Fcst_MantenedorCuenta
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["Paquete"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_22.Width - 27
+                    X: =43
+                    Y: =54
+                    ZIndex: =6
+
+            DataCard43_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Width: =1773
+                X: =0
+                Y: =7
+                ZIndex: =1
+
+                TextInput12_23 As text:
+                    Align: =Align.Center
+                    Default: ="Datos Complementarios"
+                    DisabledColor: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(9, 33, 98, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =45
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Size: =20
+                    Width: =1747
+                    X: =6
+                    Y: =14
+                    ZIndex: =1
+
+            PROVEEDOR_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PROVEEDOR")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="PROVEEDOR"
+                Default: =ThisItem.PROVEEDOR
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PROVEEDOR")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =110
+                Required: =false
+                Update: =DataCardValue54_2.Selected.Empresa
+                Width: =590
+                X: =2
+                Y: =8
+                ZIndex: =1
+
+                DataCardKey81_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage80_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue54_2.Y + DataCardValue54_2.Height
+                    ZIndex: =3
+
+                StarVisible80_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey81_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey81_3.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_25 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            RGBA(244, 244, 244, 1),
+                            Color.White
+                            )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =(Parent.Width - 60)
+                    X: |
+                        =30
+                    Y: =DataCardKey81_3.Y + DataCardKey81_3.Height + 5
+                    ZIndex: =5
+
+                DataCardValue54_2 As combobox:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                    Nombre_Persona
+                                )
+                            }
+                    DefaultSelectedItems: |-
+                        =If(
+                            IsBlank( First(ProyectoSeleccionado).ID_Jefe_Poyecto),
+                            Blank(),
+                            If(
+                                !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto)),
+                                Table(
+                                {
+                                    DisplayName: LookUp(
+                                        Lst_Persona,
+                                        Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Nombre_Persona
+                                    )
+                                }
+                            ),
+                                Table(
+                                    {
+                                        DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Jefe_Poyecto})).DisplayName
+                                    }
+                                )
+                            )
+                        )
+                    DisplayFields: =["Empresa0"]
+                    DisplayMode: |-
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =Txt_FondoPOJP_25.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Proveedor"
+                    Items: =Sort(Empresa,Empresa,SortOrder.Ascending)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["Empresa0"]
+                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54_2.SearchText,"Empresa0")
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_25.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            PRODUCTO_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PRODUCTO")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="PRODUCTO"
+                Default: =ThisItem.PRODUCTO
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PRODUCTO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue55_3.Selected.'Nombre Producto/Proyecto'
+                Width: =590
+                X: =0
+                Y: =9
+                ZIndex: =1
+
+                DataCardKey82_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage81_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue55_3.Y + DataCardValue55_3.Height
+                    ZIndex: =3
+
+                StarVisible81_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey82_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey82_3.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_26 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            RGBA(244, 244, 244, 1),
+                            Color.White
+                            )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =(Parent.Width - 60)
+                    X: =30
+                    Y: =DataCardKey73_4.Y + DataCardKey73_4.Height + 5
+                    ZIndex: =5
+
+                DataCardValue55_3 As combobox:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                    Nombre_Persona
+                                )
+                            }
+                    DefaultSelectedItems: |-
+                        =If(
+                            IsBlank( First(ProyectoSeleccionado).ID_Jefe_Poyecto),
+                            Blank(),
+                            If(
+                                !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto)),
+                                Table(
+                                {
+                                    DisplayName: LookUp(
+                                        Lst_Persona,
+                                        Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Nombre_Persona
+                                    )
+                                }
+                            ),
+                                Table(
+                                    {
+                                        DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Jefe_Poyecto})).DisplayName
+                                    }
+                                )
+                            )
+                        )
+                    DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
+                    DisplayMode: |-
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =Txt_FondoPOJP_26.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Produto"
+                    Items: =Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
+                    SearchItems: =Search(Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending),DataCardValue55_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_26.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            MONEDA_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "MONEDA")
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="MONEDA"
+                Default: =ThisItem.MONEDA
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"MONEDA")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =104
+                Required: =false
+                Update: =DataCardValue56_4.Selected.Value
+                Width: =590
+                X: =1
+                Y: =9
+                ZIndex: =1
+
+                DataCardKey83_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue56_4 As dropdown:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =["CLP","USD","UF"]
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey83_3.Y + DataCardKey83_3.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage82_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue56_4.Y + DataCardValue56_4.Height
+                    ZIndex: =3
+
+                StarVisible82_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey83_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey83_3.Y
+                    ZIndex: =4
+
+            DataCard44_2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =104
+                Width: =591
+                X: =2
+                Y: =9
+                ZIndex: =1
+
+                Button21_2 As button:
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(DataCardValue20_3.Text) Or
+                            IsBlank(DataCardValue42_3.Text) Or
+                            IsBlank(DataCardValue34_4.Text) Or
+                            IsBlank(DataCardValue52_4.SelectedItems) Or
+                            IsBlank(DataCardValue41_4.Text) Or
+                            IsBlank(DataCardValue53_3.SelectedItems),
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =55
+                    OnSelect: |-
+                        =UpdateContext({_VarUsuarioResponsable:Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue13_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)});
+                        
+                        Set(
+                            _VarIdNuevoServicio,
+                            Patch(
+                                Lst_Fcst_Servicios,
+                                Defaults(Lst_Fcst_Servicios),
+                                {
+                                    SERVICIO: DataCardValue20_3.Text,
+                                    CODSERVICIO: DataCardValue20_6.Text
+                                }
+                            ).ID
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(Lst_Fcst_Servicios)),
+                                Patch(
+                                    Lst_Fcst_ServiciosAsignados,
+                                    Defaults(Lst_Fcst_ServiciosAsignados),
+                                    {
+                                        Usuario: _VarUsuarioResponsable,
+                                        IDServicio: DataCardValue20_6.Text
+                                    }
+                                ),
+                                
+                        /*
+                                Patch(
+                                    Lst_Fcst_Datos;
+                                    Defaults(Lst_Fcst_Datos);
+                                    {
+                                        IDRESPONSABLE: _VarUsuarioResponsable;
+                                        RESPONSABLE: DataCardValue13.Selected.DisplayName;
+                                        IDSERVICIO: _VarIdNuevoServicio;
+                                        SERVICIO: DataCardValue20.Text;
+                                        CECO: DataCardValue42.Text;
+                                        'NOMBRE CECO':DataCardValue52.Selected.NombreCeco;
+                                        'NUEVA CLASIFICACION': DataCardValue34.Text;
+                                        'DUEÑO CECO': DataCardValue43.Text;
+                                        CUENTA: DataCardValue41.Text;
+                                        'NOMBRE CUENTA': DataCardValue53.Selected.NombreCuenta;
+                                        PAQUETE: DataCardValue51.Selected.Paquete;
+                                        USUARIO: DataCardValue45.Selected.DisplayName;
+                                        EQUIPO: DataCardValue46.Selected.'Equipo/Squad';
+                                        PROVEEDOR:  DataCardValue54.Selected.Empresa;
+                                        PRODUCTO: DataCardValue55.Selected.'Nombre Producto/Proyecto';
+                                        MONEDA: DataCardValue56.Selected.Value
+                                    }
+                                )
+                            );;
+                        */
+                            If(
+                                IsEmpty(Errors(Lst_Fcst_Servicios)),
+                        
+                                UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas, ID = First(Col_SemanaEnCurso).ID - 1, Semana)});
+                        
+                            ClearCollect(
+                                Col_ServiciosAsignados,
+                                Filter(Lst_Fcst_Detalle, IDInputData = _VarUsuarioJefe && SemanaFCST = _VarSemanaAnterior)
+                            );
+                        
+                            Clear(FcstDetalleDes);
+                        
+                            ForAll(
+                                Col_ServiciosAsignados As Serv,
+                                Collect(
+                                    FcstDetalleDes,
+                                    {
+                                        SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                                        IDResponsable: Serv.IDResponsable,
+                                        ResponsableServicio: Serv.ResponsableServicio,
+                                        IdServicio: Serv.IDServicio,
+                                        Servicio: Serv.Servicio,
+                                        Paquete: Serv.Paquete,
+                                        Cuenta: Serv.Cuenta,
+                                        NombreCuenta: Serv.NombreCuenta,
+                                        Ceco: Serv.Ceco,
+                                        NombreCeco: If(IsBlank(Serv.NombreCeco), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, NombreCeco),Serv.NombreCeco),
+                                        DuennoCeco: If(IsBlank(Serv.DuennoCeco), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, DuennoCeco),Serv.DuennoCeco),
+                                        NuevaClasificacion: If(IsBlank(Serv.NuevaClasificacion), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, NuevaClasificacion),Serv.NuevaClasificacion),
+                                        TipoCeco: Serv.TipoCeco,
+                                        IDInputData: Serv.IDInputData,
+                                        InputData: Serv.InputData,
+                                        Proveedor: If(IsBlank(Serv.Proveedor),"",Serv.Proveedor),
+                                        UsuarioServicio: If(IsBlank(Serv.UsuarioServicio),"",Serv.UsuarioServicio),
+                                        Equipo: If(IsBlank(Serv.Equipo),"",Serv.Equipo),
+                                        Producto: If(IsBlank(Serv.Producto),"",Serv.Producto),
+                                        Obs: If(IsBlank(Serv.Obs),"",Serv.Obs),
+                                        TipoMoneda: Serv.TipoMoneda,
+                                        TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas, IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = Serv.TipoMoneda, TCdelMes)),
+                                        Enero: If( Month(First(Col_SemanaEnCurso).Inicio) > 1,0,Serv.Enero),
+                                        Febrero: If( Month(First(Col_SemanaEnCurso).Inicio) > 2,0,Serv.Febrero),
+                                        Marzo: If( Month(First(Col_SemanaEnCurso).Inicio) > 3,0,Serv.Marzo),
+                                        Abril: If( Month(First(Col_SemanaEnCurso).Inicio) > 4,0,Serv.Abril),
+                                        Mayo: If( Month(First(Col_SemanaEnCurso).Inicio) > 5,0,Serv.Mayo),
+                                        Junio: If( Month(First(Col_SemanaEnCurso).Inicio) > 6,0,Serv.Junio),
+                                        Julio: If( Month(First(Col_SemanaEnCurso).Inicio) > 7,0,Serv.Julio),
+                                        Agosto: If( Month(First(Col_SemanaEnCurso).Inicio) > 8,0,Serv.Agosto),
+                                        Septiembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 9,0,Serv.Septiembre),
+                                        Octubre: If( Month(First(Col_SemanaEnCurso).Inicio) > 10,0,Serv.Octubre),
+                                        Noviembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 11,0,Serv.Noviembre),
+                                        Diciembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 12,0,Serv.Diciembre),
+                                        Editando:false
+                                    }
+                                )
+                            );
+                        
+                                Patch(
+                                    FcstDetalleDes,
+                                    Defaults(FcstDetalleDes),
+                                        {
+                                            SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                                            ResponsableServicio: DataCardValue13.Selected.DisplayName,
+                                            IdServicio: DataCardValue20_6.Text,
+                                            Servicio: DataCardValue20.Text,
+                                            Paquete: DataCardValue51.Selected.Paquete,
+                                            Cuenta:  DataCardValue41.Text,
+                                            NombreCuenta: DataCardValue53.Selected.NombreCuenta,
+                                            Ceco: DataCardValue42.Text,
+                                            NombreCeco: DataCardValue52.Selected.NombreCeco,
+                                            DuennoCeco: DataCardValue43.Text,
+                                            NuevaClasificacion: DataCardValue34.Text,
+                                            //TipoCeco: "Tecnologia";
+                                            IDInputData: DataCardValue123.Text,
+                                            InputData: DataCardValue124.Text,
+                                            Proveedor: DataCardValue54.Selected.Empresa,
+                                            UsuarioServicio: DataCardValue45.Selected.DisplayName,
+                                            Equipo: DataCardValue46.Selected.'Equipo/Squad',
+                                            Producto: DataCardValue55.Selected.'Nombre Producto/Proyecto',
+                                            Obs: "",
+                                            TipoMoneda: DataCardValue56.Selected.Value,
+                                            TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas, IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = DataCardValue56.Selected.Value, TCdelMes)),
+                                            Enero: 0,
+                                            Febrero:0,
+                                            Marzo: 0,
+                                            Abril: 0,
+                                            Mayo: 0,
+                                            Junio: 0,
+                                            Julio: 0,
+                                            Agosto: 0,
+                                            Septiembre: 0,
+                                            Octubre: 0,
+                                            Noviembre: 0,
+                                            Diciembre: 0,
+                                            Editando:false
+                                        }
+                                );   
+                        
+                            Set(Var_DescargarPlantilla,BindDescargarPlantillaFcst.Run(JSON(FcstDetalleDes)).url);
+                        
+                            Notify("Se agrego correctamente el nuevo servicio, en breve se descargara el archivo.",NotificationType.Success,6000);
+                        
+                            Launch(Var_DescargarPlantilla&"?&download=1");
+                            
+                            )
+                        );
+                        UpdateContext({_VarMostrarPopup:false});
+                    Text: ="Guardar y Descargar"
+                    Visible: =_VarMostrarPopup
+                    Width: =232
+                    X: =37
+                    Y: =25
+                    ZIndex: =1
+
+                Button21_3 As button:
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(DataCardValue20_3.Text) Or
+                            IsBlank(DataCardValue42_3.Text) Or
+                            IsBlank(DataCardValue34_4.Text) Or
+                            IsBlank(DataCardValue52_4.SelectedItems) Or
+                            IsBlank(DataCardValue41_4.Text) Or
+                            IsBlank(DataCardValue53_3.SelectedItems),
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =55
+                    OnSelect: |-
+                        =UpdateContext({_VarUsuarioResponsable:Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue13_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)});
+                        
+                        Set(
+                            _VarIdNuevoServicio,
+                            Patch(
+                                Lst_Fcst_Servicios,
+                                Defaults(Lst_Fcst_Servicios),
+                                {
+                                    SERVICIO: DataCardValue20_3.Text,
+                                    CODSERVICIO: DataCardValue20_6.Text
+                                }
+                            ).ID
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(Lst_Fcst_Servicios)),
+                                Patch(
+                                    Lst_Fcst_ServiciosAsignados,
+                                    Defaults(Lst_Fcst_ServiciosAsignados),
+                                    {
+                                        Usuario: _VarUsuarioResponsable,
+                                        IDServicio: DataCardValue20_6.Text
+                                    }
+                                ),
+                        
+                        /*
+                                Patch(
+                                    Lst_Fcst_Datos;
+                                    Defaults(Lst_Fcst_Datos);
+                                    {
+                                        IDRESPONSABLE: _VarUsuarioResponsable;
+                                        RESPONSABLE: DataCardValue13.Selected.DisplayName;
+                                        IDSERVICIO: _VarIdNuevoServicio;
+                                        SERVICIO: DataCardValue20.Text;
+                                        CECO: DataCardValue42.Text;
+                                        'NOMBRE CECO':DataCardValue52.Selected.NombreCeco;
+                                        'NUEVA CLASIFICACION': DataCardValue34.Text;
+                                        'DUEÑO CECO': DataCardValue43.Text;
+                                        CUENTA: DataCardValue41.Text;
+                                        'NOMBRE CUENTA': DataCardValue53.Selected.NombreCuenta;
+                                        PAQUETE: DataCardValue51.Selected.Paquete;
+                                        USUARIO: DataCardValue45.Selected.DisplayName;
+                                        EQUIPO: DataCardValue46.Selected.'Equipo/Squad';
+                                        PROVEEDOR:  DataCardValue54.Selected.Empresa;
+                                        PRODUCTO: DataCardValue55.Selected.'Nombre Producto/Proyecto';
+                                        MONEDA: DataCardValue56.Selected.Value
+                                    }
+                                )
+                            );;
+                        */
+                            If(
+                                IsEmpty(Errors(Lst_Fcst_Servicios)),
+                        
+                                UpdateContext({_VarSemanaAnterior: LookUp(Col_BD_Fcst_Semanas, ID = First(Col_SemanaEnCurso).ID - 1, Semana)});
+                        
+                            ClearCollect(
+                                Col_ServiciosAsignados,
+                                Filter(Lst_Fcst_Detalle, IDInputData = _VarUsuarioJefe && SemanaFCST = _VarSemanaAnterior)
+                            );
+                        
+                            Clear(FcstDetalleDes);
+                        
+                            ForAll(
+                                Col_ServiciosAsignados As Serv,
+                                Collect(
+                                    FcstDetalleDes,
+                                    {
+                                        SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                                        IDResponsable: Serv.IDResponsable,
+                                        ResponsableServicio: Serv.ResponsableServicio,
+                                        IdServicio: Serv.IDServicio,
+                                        Servicio: Serv.Servicio,
+                                        Paquete: Serv.Paquete,
+                                        Cuenta: Serv.Cuenta,
+                                        NombreCuenta: Serv.NombreCuenta,
+                                        Ceco: Serv.Ceco,
+                                        NombreCeco: If(IsBlank(Serv.NombreCeco), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, NombreCeco),Serv.NombreCeco),
+                                        DuennoCeco: If(IsBlank(Serv.DuennoCeco), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, DuennoCeco),Serv.DuennoCeco),
+                                        NuevaClasificacion: If(IsBlank(Serv.NuevaClasificacion), LookUp(Lst_Fcst_MantenedorCeco, Ceco = Serv.Ceco, NuevaClasificacion),Serv.NuevaClasificacion),
+                                        TipoCeco: Serv.TipoCeco,
+                                        IDInputData: Serv.IDInputData,
+                                        InputData: Serv.InputData,
+                                        Proveedor: If(IsBlank(Serv.Proveedor),"",Serv.Proveedor),
+                                        UsuarioServicio: If(IsBlank(Serv.UsuarioServicio),"",Serv.UsuarioServicio),
+                                        Equipo: If(IsBlank(Serv.Equipo),"",Serv.Equipo),
+                                        Producto: If(IsBlank(Serv.Producto),"",Serv.Producto),
+                                        Obs: If(IsBlank(Serv.Obs),"",Serv.Obs),
+                                        TipoMoneda: Serv.TipoMoneda,
+                                        TipoCambio: "",
+                                        Enero: If( Month(First(Col_SemanaEnCurso).Inicio) > 1,0,Serv.Enero),
+                                        Febrero: If( Month(First(Col_SemanaEnCurso).Inicio) > 2,0,Serv.Febrero),
+                                        Marzo: If( Month(First(Col_SemanaEnCurso).Inicio) > 3,0,Serv.Marzo),
+                                        Abril: If( Month(First(Col_SemanaEnCurso).Inicio) > 4,0,Serv.Abril),
+                                        Mayo: If( Month(First(Col_SemanaEnCurso).Inicio) > 5,0,Serv.Mayo),
+                                        Junio: If( Month(First(Col_SemanaEnCurso).Inicio) > 6,0,Serv.Junio),
+                                        Julio: If( Month(First(Col_SemanaEnCurso).Inicio) > 7,0,Serv.Julio),
+                                        Agosto: If( Month(First(Col_SemanaEnCurso).Inicio) > 8,0,Serv.Agosto),
+                                        Septiembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 9,0,Serv.Septiembre),
+                                        Octubre: If( Month(First(Col_SemanaEnCurso).Inicio) > 10,0,Serv.Octubre),
+                                        Noviembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 11,0,Serv.Noviembre),
+                                        Diciembre: If( Month(First(Col_SemanaEnCurso).Inicio) > 12,0,Serv.Diciembre),
+                                        Editando:false
+                                    }
+                                )
+                            );
+                        
+                                Patch(
+                                    FcstDetalleDes,
+                                    Defaults(FcstDetalleDes),
+                                        {
+                                            SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                                            ResponsableServicio: DataCardValue13.Selected.DisplayName,
+                                            IdServicio: DataCardValue20_6.Text,
+                                            Servicio: DataCardValue20.Text,
+                                            Paquete: DataCardValue51.Selected.Paquete,
+                                            Cuenta:  DataCardValue41.Text,
+                                            NombreCuenta: DataCardValue53.Selected.NombreCuenta,
+                                            Ceco: DataCardValue42.Text,
+                                            NombreCeco: DataCardValue52.Selected.NombreCeco,
+                                            DuennoCeco: DataCardValue43.Text,
+                                            NuevaClasificacion: DataCardValue34.Text,
+                                            //TipoCeco: "Tecnologia";
+                                            IDInputData: DataCardValue123.Text,
+                                            InputData: DataCardValue124.Text,
+                                            Proveedor: DataCardValue54.Selected.Empresa,
+                                            UsuarioServicio: DataCardValue45.Selected.DisplayName,
+                                            Equipo: DataCardValue46.Selected.'Equipo/Squad',
+                                            Producto: DataCardValue55.Selected.'Nombre Producto/Proyecto',
+                                            Obs: "",
+                                            TipoMoneda: DataCardValue56.Selected.Value,
+                                            TipoCambio: Text(LookUp(Col_BD_Fcst_TCSemanas, IDSemana = First(Col_SemanaEnCurso).Semana && TipoMoneda = DataCardValue56.Selected.Value, TCdelMes)),
+                                            Enero: 0,
+                                            Febrero:0,
+                                            Marzo: 0,
+                                            Abril: 0,
+                                            Mayo: 0,
+                                            Junio: 0,
+                                            Julio: 0,
+                                            Agosto: 0,
+                                            Septiembre: 0,
+                                            Octubre: 0,
+                                            Noviembre: 0,
+                                            Diciembre: 0,
+                                            Editando:false
+                                        }
+                                );   
+                        
+                            //Set(Var_DescargarPlantilla;BindDescargarPlantillaFcst.Run(JSON(FcstDetalleDes)).url);;
+                        
+                            Notify("Se agrego correctamente el nuevo servicio.",NotificationType.Success,6000);
+                            ResetForm(Form_Servicio_2)
+                        
+                            //Launch(Var_DescargarPlantilla&"?&download=1");;
+                            
+                            )
+                        );
+                        //UpdateContext({_VarMostrarPopup:false});;
+                    Text: ="Guardar y agregar nuevo servicio"
+                    Visible: =_VarMostrarPopup
+                    Width: =279
+                    X: =287
+                    Y: =25
+                    ZIndex: =2
+
+            IDImputData_DataCard2_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDImputData"
+                Default: =ThisItem.IDInputData
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"IDImputData")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "IDImputData")
+                Required: =false
+                Update: =DataCardValue123_2.Text
+                Visible: =false
+                Width: =590
+                X: =1
+                Y: =10
+                ZIndex: =1
+
+                DataCardKey149_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue123_2 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =LookUp(Lst_Fcst_Detalle, IDInputData = _VarUsuarioJefe, InputData)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey149_2.Y + DataCardKey149_2.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage150_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue123_2.Y + DataCardValue123_2.Height
+                    ZIndex: =3
+
+                StarVisible150_2 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey149_2.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey149_2.Y
+                    ZIndex: =4
+
+            InputData_DataCard2_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="InputData"
+                Default: =ThisItem.InputData
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"InputData")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "InputData")
+                Required: =false
+                Update: =DataCardValue124_2.Text
+                Visible: =false
+                Width: =590
+                X: =2
+                Y: =10
+                ZIndex: =1
+
+                DataCardKey150_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue124_2 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =_VarUsuarioJefe
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey150_2.Y + DataCardKey150_2.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage151_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue124_2.Y + DataCardValue124_2.Height
+                    ZIndex: =3
+
+                StarVisible151_2 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey150_2.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey150_2.Y
+                    ZIndex: =4
+
+            RESPONSABLE_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="RESPONSABLE"
+                Default: =ThisItem.RESPONSABLE
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"RESPONSABLE")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =100
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "RESPONSABLE")
+                Required: =false
+                Update: =DataCardValue13_3.Selected.DisplayName
+                Width: =591
+                X: =0
+                Y: =1
+                ZIndex: =32
+
+                DataCardKey40_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage40_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue13_3.Y + DataCardValue13_3.Height
+                    ZIndex: =3
+
+                StarVisible40_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey40_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey40_3.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_19 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey40_3.Y + DataCardKey40_3.Height + 5
+                    ZIndex: =5
+
+                DataCardValue13_3 As combobox:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = _VarUsuarioJefe,
+                                    Nombre_Persona
+                                )
+                            }
+                    DefaultSelectedItems: |-
+                        =If(
+                            IsBlank( _VarUsuarioJefe),
+                            Blank(),
+                            If(
+                                !IsBlank(LookUp(Lst_Persona,Usuario = _VarUsuarioJefe)),
+                                Table(
+                                {
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = _VarUsuarioJefe,
+                                    Nombre_Persona
+                                )
+                            }
+                            ),
+                                Table(
+                                    {
+                                        DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: _VarUsuarioJefe})).DisplayName
+                                    }
+                                )
+                            )
+                        )
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =Txt_FondoPOJP_19.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Responsable"
+                    Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,DataCardValue13_3.SearchText)
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Template: =ListItemTemplate.Person
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_19.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            SERVICIO_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="SERVICIO"
+                Default: =ThisItem.SERVICIO
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"SERVICIO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =104
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "SERVICIO")
+                Required: =false
+                Update: =DataCardValue20_3.Text
+                Width: =590
+                X: =1
+                Y: =1
+                ZIndex: =32
+
+                DataCardKey51_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue20_3 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey51_3.Y + DataCardKey51_3.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage50_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue20_3.Y + DataCardValue20_3.Height
+                    ZIndex: =3
+
+                StarVisible50_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey51_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey51_3.Y
+                    ZIndex: =4
+
+            CECO_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="CECO"
+                Default: =ThisItem.CECO
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"CECO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "CECO")
+                Required: =false
+                Update: =DataCardValue42_3.Text
+                Width: =590
+                X: =0
+                Y: =3
+                ZIndex: =32
+
+                DataCardKey69_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue42_3 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey69_3.Y + DataCardKey69_3.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage68_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue42_3.Y + DataCardValue42_3.Height
+                    ZIndex: =3
+
+                StarVisible68_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey69_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey69_3.Y
+                    ZIndex: =4
+
+            "'NUEVA CLASIFICACION_DataCard1_2' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="NUEVA_x0020_CLASIFICACION"
+                Default: =ThisItem.'NUEVA CLASIFICACION'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NUEVA_x0020_CLASIFICACION")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "NUEVA_x0020_CLASIFICACION")
+                Required: =false
+                Update: =DataCardValue34_4.Text
+                Width: =590
+                X: =2
+                Y: =3
+                ZIndex: =32
+
+                DataCardKey62_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue34_4 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =LookUp(Lst_Fcst_MantenedorCeco, Ceco = DataCardValue42_3.Text,NuevaClasificacion)
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(26, 26, 26, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey62_4.Y + DataCardKey62_4.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage61_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue34_4.Y + DataCardValue34_4.Height
+                    ZIndex: =3
+
+                StarVisible61_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey62_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey62_4.Y
+                    ZIndex: =4
+
+            "'DUEÑO CECO_DataCard1_2' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="DUE_x00d1_O_x0020_CECO"
+                Default: =ThisItem.'DUEÑO CECO'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"DUE_x00d1_O_x0020_CECO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =104
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "DUE_x00d1_O_x0020_CECO")
+                Required: =false
+                Update: =DataCardValue43_4.Text
+                Width: =590
+                X: =0
+                Y: =4
+                ZIndex: =32
+
+                DataCardKey70_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue43_4 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =LookUp(Lst_Fcst_MantenedorCeco, Ceco = DataCardValue42_3.Text,DuennoCeco)
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(26, 26, 26, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey70_4.Y + DataCardKey70_4.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage69_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue43_4.Y + DataCardValue43_4.Height
+                    ZIndex: =3
+
+                StarVisible69_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey70_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey70_4.Y
+                    ZIndex: =4
+
+            CUENTA_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="CUENTA"
+                Default: =ThisItem.CUENTA
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"CUENTA")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "CUENTA")
+                Required: =false
+                Update: =DataCardValue41_4.Text
+                Visible: =true
+                Width: =590
+                X: =0
+                Y: =6
+                ZIndex: =32
+
+                DataCardKey68_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue41_4 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =50
+                    MaxLength: =Parent.MaxLength
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey68_4.Y + DataCardKey68_4.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage67_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue41_4.Y + DataCardValue41_4.Height
+                    ZIndex: =3
+
+                StarVisible67_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey68_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey68_4.Y
+                    ZIndex: =4
+
+            USUARIO_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="USUARIO"
+                Default: =ThisItem.USUARIO
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"USUARIO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =110
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "USUARIO")
+                Required: =false
+                Update: =DataCardValue45_3.Selected.DisplayName
+                Width: =590
+                X: =0
+                Y: =8
+                ZIndex: =32
+
+                DataCardKey72_3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage71_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue45_3.Y + DataCardValue45_3.Height
+                    ZIndex: =3
+
+                StarVisible71_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey72_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey72_3.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_23 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            RGBA(244, 244, 244, 1),
+                            Color.White
+                            )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: |
+                        =(Parent.Width - 60)
+                    X: =30
+                    Y: =DataCardKey72_3.Y + DataCardKey72_3.Height + 5
+                    ZIndex: =5
+
+                DataCardValue45_3 As combobox:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                    Nombre_Persona
+                                )
+                            }
+                    DefaultSelectedItems: |-
+                        =If(
+                            IsBlank( First(ProyectoSeleccionado).ID_Jefe_Poyecto),
+                            Blank(),
+                            If(
+                                !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto)),
+                                Table(
+                                {
+                                    DisplayName: LookUp(
+                                        Lst_Persona,
+                                        Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Nombre_Persona
+                                    )
+                                }
+                            ),
+                                Table(
+                                    {
+                                        DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Jefe_Poyecto})).DisplayName
+                                    }
+                                )
+                            )
+                        )
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: |-
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =Txt_FondoPOJP_23.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Usuario"
+                    Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,DataCardValue45_3.SearchText)
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Template: =ListItemTemplate.Person
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_23.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            EQUIPO_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="EQUIPO"
+                Default: =ThisItem.EQUIPO
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"EQUIPO")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "EQUIPO")
+                Required: =false
+                Update: =DataCardValue46_4.Selected.'Equipo/Squad'
+                Width: =590
+                X: =1
+                Y: =8
+                ZIndex: =32
+
+                DataCardKey73_4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(12, 59, 94, 1)
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                ErrorMessage72_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue46_4.Y + DataCardValue46_4.Height
+                    ZIndex: =3
+
+                StarVisible72_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey73_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey73_4.Y
+                    ZIndex: =4
+
+                Txt_FondoPOJP_24 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            RGBA(244, 244, 244, 1),
+                            Color.White
+                            )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =Parent.Width - 60
+                    X: |
+                        =30
+                    Y: =DataCardKey73_4.Y + DataCardKey73_4.Height + 5
+                    ZIndex: =5
+
+                DataCardValue46_4 As combobox:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: |-
+                        ={
+                                DisplayName: LookUp(
+                                    Lst_Persona,
+                                    Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                    Nombre_Persona
+                                )
+                            }
+                    DefaultSelectedItems: |-
+                        =If(
+                            IsBlank( First(ProyectoSeleccionado).ID_Jefe_Poyecto),
+                            Blank(),
+                            If(
+                                !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto)),
+                                Table(
+                                {
+                                    DisplayName: LookUp(
+                                        Lst_Persona,
+                                        Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Nombre_Persona
+                                    )
+                                }
+                            ),
+                                Table(
+                                    {
+                                        DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Jefe_Poyecto})).DisplayName
+                                    }
+                                )
+                            )
+                        )
+                    DisplayFields: =["Equipo_x002f_Squad"]
+                    DisplayMode: |-
+                        =If(
+                            Chk_AplicaPO.Checked,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =Txt_FondoPOJP_24.Height -10
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    InputTextPlaceholder: ="Buscar Equipo"
+                    Items: =Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    SearchFields: =["Equipo_x002f_Squad"]
+                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46_4.SearchText,"Equipo_x002f_Squad")
+                    SelectionFill: =RGBA(0, 121, 187, 1)
+                    SelectMultiple: =false
+                    TabIndex: =6
+                    Tooltip: =
+                    Width: |
+                        =Txt_FondoPOJP_24.Width - 27
+                    X: =45
+                    Y: =54
+                    ZIndex: =6
+
+            IDRESPONSABLE_DataCard1_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Title"
+                Default: =ThisItem.IDRESPONSABLE
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"Title")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "Title")
+                Required: =false
+                Update: =DataCardValue12_3.Text
+                Visible: =false
+                Width: =590
+                X: =0
+                Y: =10
+                ZIndex: =32
+
+                DataCardKey36_5 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue12_3 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: |
+                        =Upper(Last(Split(First(Split(DataCardValue13_3.Selected.Claims,"@")).Value,"|")).Value)
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey36_5.Y + DataCardKey36_5.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage36_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue12_3.Y + DataCardValue12_3.Height
+                    ZIndex: =3
+
+                StarVisible36_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey36_5.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey36_5.Y
+                    ZIndex: =4
+
+        Icon15_2 As icon.CancelBadge:
+            Color: |-
+                =RGBA(255, 255, 255, 1)
+                //_VarColoresApp.AzulparaCabeceras
+            Height: =35
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_VarMostrarPopup:false});
+                ResetForm(Form_Servicio_2)
+            Visible: =_VarMostrarPopup
+            Width: =40
+            X: =1772
+            Y: =58
+            ZIndex: =35
+
+    Adjuntar_CargaMasiva_1 As attachments:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Height: =96
+        IsInDataCard: =true
+        Items: =
+        MaxAttachments: =1
+        PaddingBottom: =5
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        PaddingRight: =5
+        PaddingTop: =5
+        Tooltip: =
+        Visible: =_VarMostrarCarga
+        Width: =275
+        X: =1485
+        Y: =255
+        ZIndex: =29
+
+    Gp_DescargarFcst As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        Image26 As image:
+            DisplayMode: |-
+                =If( 
+                    _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Height: =54
+            Image: |-
+                ="https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/icons8-export-excel-96.png?csf=1&web=1&e=6Ydgyy"
+            OnSelect: |-
+                =UpdateContext({_VarCerrarPopupSemana:true})
+            Tooltip: ="Descargar Fcst"
+            Width: =67
+            X: =1555
+            Y: =430
+            ZIndex: =20
+
+        Button22 As button:
+            DisabledFill: =RGBA(214, 221, 224, 0.43)
+            DisplayMode: |-
+                =If( 
+                    _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =54
+            HoverFill: =RGBA(255, 255, 255, 0.7)
+            OnSelect: |-
+                =UpdateContext({_VarCerrarPopupSemana:true})
+            Text: =""
+            Tooltip: ="Descargar Fcst"
+            Width: =67
+            X: =1555
+            Y: =430
+            ZIndex: =21
+
+    Gp_CargaREalFcst As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =35
+
+        Image26_1 As image:
+            DisplayMode: |-
+                =If( 
+                    _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Height: =54
+            Image: |-
+                ="https://teams.wal-mart.com/:i:/r/sites/NecesidadesWalmartTech/Documentos%20compartidos/Imagenes%20Bind/Herramienta%20nueva/icons8-xls-96.png?csf=1&web=1&e=WNn6Rv"
+            OnSelect: |-
+                =UpdateContext({_VarCerrarPopupSemana:true})
+            Tooltip: ="Descargar Fcst"
+            Width: =67
+            X: =1628
+            Y: =430
+            ZIndex: =23
+
+        Button22_1 As button:
+            DisabledFill: =RGBA(214, 221, 224, 0.43)
+            DisplayMode: |-
+                =If( 
+                    _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =54
+            HoverFill: =RGBA(255, 255, 255, 0.7)
+            OnSelect: |-
+                =UpdateContext({_VarMostrarCarga:true})
+            Text: =""
+            Tooltip: ="Cargar Fcst Real"
+            Width: =67
+            X: =1628
+            Y: =430
+            ZIndex: =24
+
+    Rectangle31 As rectangle:
+        Fill: =RGBA(122, 138, 143, 0.55)
+        Height: =1050
+        Visible: =_VarCerrarPopupSemana
+        Width: =1920
+        ZIndex: =36
+
+    Container20 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(79, 90, 94, 1)
+        BorderThickness: =2
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =282
+        Visible: =_VarCerrarPopupSemana
+        Width: =580
+        X: =723
+        Y: =381
+        ZIndex: =37
+
+        Label12 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            Size: =16
+            Text: ="Seleccionar la Semana de Fcst que desea descargar"
+            Width: =580
+            Y: =40
+            ZIndex: =1
+
+        Dpd_SemanaDescargar As dropdown:
+            Items: |-
+                =["W2","W6","W8","W12"]
+                //GroupBy(Lst_Fcst_Detalle;"SemanaFCST";"FcstSemana")
+            X: =126
+            Y: =120
+            ZIndex: =2
+
+        Button24 As button:
+            OnSelect: =Launch(DescargarFcst_CDG.Run(Dpd_SemanaDescargar.Selected.Value).url&"?&download=1")
+            Text: ="Descargar"
+            X: =210
+            Y: =184
+            ZIndex: =3
+
+    Icon37 As icon.CancelBadge:
+        Height: =30
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =UpdateContext({_VarCerrarPopupSemana:false})
+        Visible: =_VarCerrarPopupSemana
+        Width: =30
+        X: =1273
+        Y: =347
+        ZIndex: =38
+
+    Icon40 As icon.CancelBadge:
+        Color: =RGBA(53, 61, 63, 1)
+        Height: =30
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =UpdateContext({_VarMostrarCarga:false})
+        Visible: =_VarMostrarCarga
+        Width: =30
+        X: =1730
+        Y: =222
+        ZIndex: =39
+
+    "InfoButtonCanvas1_2 As 'Botón de información'":
+        BasePaletteColor: =
+        Content: |-
+            ="Ya cuenta con los registros de Fcst cargados para la semana: " &  First(Col_SemanaEnCurso).Semana &", Si desea ver sus Fcsst cargados los encontrará en el boton: Ver Fcst Generados"
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Lato Black'
+        FontColor: =
+        FontItalic: =false
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =40
+        IconSize: ='InfoButtonCanvas.IconSize'.Large
+        OnSelect: =false
+        Visible: |-
+            =If(
+                IsBlank(First(Col_SemanaEnCurso).Semana),
+                true,
+                If(
+                    IsBlank(LookUp(Lst_Fcst_RegistrodeCargas, CorreoResponsableUsuario = _Perfil.mail && SemanaCarga = First(Col_SemanaEnCurso).Semana)),
+                    false,
+                    true
+                )
+            )
+        Width: =43
+        X: =388
+        Y: =571
+        ZIndex: =40
+
+    Gp_CalendarioFcst As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =42
+
+        Image31 As image:
+            Height: =68
+            Image: ='calendar-icon_34471'
+            Width: =94
+            X: =306
+            Y: =423
+            ZIndex: =25
+
+        Label63 As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Hairline'
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            Size: =12
+            Text: ="Fechas Fcst"
+            Width: =94
+            X: =306
+            Y: =484
+            ZIndex: =26
+
+        Button28 As button:
+            Fill: =RGBA(255, 255, 255, 0)
+            Height: =87
+            HoverFill: =RGBA(255, 255, 255, 0.26)
+            OnSelect: |-
+                =UpdateContext({_VarVerCalendario:true})
+            PressedFill: =RGBA(255, 255, 255, 0.55)
+            Text: =""
+            Width: =94
+            X: =306
+            Y: =426
+            ZIndex: =27
+
+    Gp_Calendario As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =45
+
+        Rectangle37 As rectangle:
+            Fill: =RGBA(15, 84, 140, 0.45)
+            Height: =1050
+            Visible: =_VarVerCalendario
+            Width: =1920
+            ZIndex: =41
+
+        Container27 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =607
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Visible: =_VarVerCalendario
+            Width: =1466
+            X: =264
+            Y: =278
+            ZIndex: =42
+
+            Gallery17 As gallery.variableTemplateHeightGallery:
+                BorderColor: =RGBA(106, 122, 127, 1)
+                BorderThickness: =2
+                DelayItemLoading: =true
+                Height: =483
+                Items: =Lst_Fcst_Calendario
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =2
+                TemplateSize: =71
+                Transition: =Transition.Pop
+                Width: =1101
+                X: =205
+                Y: =105
+                ZIndex: =1
+
+                Rectangle40 As rectangle:
+                    Fill: |-
+                        =If(
+                            ThisItem.Semana = First(Col_SemanaEnCurso).Semana,
+                            Color.Beige,
+                            Color.White
+                        )
+                    Height: =71
+                    OnSelect: =Select(Parent)
+                    Width: =1091
+                    ZIndex: =1
+
+                Label64 As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.DescMesFcst
+                    X: =10
+                    Y: =11
+                    ZIndex: =2
+
+                Label64_1 As label:
+                    Align: =Align.Center
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.FechaInicio
+                    X: =166
+                    Y: =11
+                    ZIndex: =3
+
+                Label64_2 As label:
+                    Align: =Align.Center
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.FechaFin
+                    X: =348
+                    Y: =11
+                    ZIndex: =4
+
+                Label64_3 As label:
+                    Align: =Align.Center
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Hito
+                    Width: =551
+                    X: =530
+                    Y: =11
+                    ZIndex: =5
+
+            TextInput17 As text:
+                Align: =Align.Center
+                Default: ="Mes"
+                DisabledBorderColor: =RGBA(15, 108, 189, 1)
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                FontWeight: =FontWeight.Bold
+                RadiusTopLeft: =20
+                Width: =151
+                X: =205
+                Y: =65
+                ZIndex: =2
+
+            TextInput17_1 As text:
+                Align: =Align.Center
+                Default: ="Fecha Inicio"
+                DisabledBorderColor: =RGBA(15, 108, 189, 1)
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                FontWeight: =FontWeight.Bold
+                Width: =187
+                X: =350
+                Y: =65
+                ZIndex: =3
+
+            TextInput17_2 As text:
+                Align: =Align.Center
+                Default: ="Fecha Fin"
+                DisabledBorderColor: =RGBA(15, 108, 189, 1)
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                FontWeight: =FontWeight.Bold
+                Width: =187
+                X: =531
+                Y: =65
+                ZIndex: =4
+
+            TextInput17_3 As text:
+                Align: =Align.Center
+                Default: ="Hito"
+                DisabledBorderColor: =RGBA(15, 108, 189, 1)
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                FontWeight: =FontWeight.Bold
+                RadiusTopRight: =20
+                Width: =594
+                X: =712
+                Y: =65
+                ZIndex: =5
+
+            Label65 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Size: =20
+                Text: ="CALENDARIO 2024"
+                Width: =300
+                X: =605
+                Y: =12
+                ZIndex: =6
+
+        Icon19 As icon.CancelBadge:
+            Color: =RGBA(79, 90, 94, 1)
+            Height: =35
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_VarVerCalendario:false})
+            Visible: =_VarVerCalendario
+            Width: =35
+            X: =1679
+            Y: =285
+            ZIndex: =44
+

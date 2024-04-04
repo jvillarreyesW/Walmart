@@ -1,0 +1,770 @@
+ModuloRevisionFormatos As screen:
+
+    Ctn_Filtros_7 As groupContainer.manualLayoutContainer:
+        Height: =220
+        Width: =1287
+        X: =379
+        Y: =8
+        ZIndex: =1
+
+        Html_FondoNuevoEquipo_47 As htmlViewer:
+            Height: =145
+            HtmlText: |-
+                ="
+                <div style='
+                    width: 1240px;
+                    height: 95px;
+                    background: #C4D5E3;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 10px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            PaddingLeft: =10
+            Width: =1287
+            Y: =61
+            ZIndex: =1
+
+        Txt_FondoForm1_204 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =225
+            Y: =104
+            ZIndex: =2
+
+        Label6_157 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Buscar:"
+            Width: =287
+            X: =231
+            Y: =64
+            ZIndex: =3
+
+        Label6_158 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: ="Mes"
+            Width: =109
+            X: =584
+            Y: =64
+            ZIndex: =4
+
+        Txt_FondoForm1_206 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledBorderColor: =RGBA(149, 149, 149, 1)
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =135
+            X: =715
+            Y: =104
+            ZIndex: =5
+
+        DataCardKey15_32 As label:
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Año"
+            Width: =77
+            Wrap: =false
+            X: =734
+            Y: =69
+            ZIndex: =6
+
+        Txt_FondoForm1_205 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =
+            DisabledBorderColor: =RGBA(149, 149, 149, 1)
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =49
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =116
+            X: =577
+            Y: =104
+            ZIndex: =7
+
+        Label10_82 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filtra por"
+            Width: =122
+            X: =99
+            Y: =80
+            ZIndex: =10
+
+        Label13_23 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Size: =25
+            Text: ="SOLICITUD DE PROVEEDORES"
+            Visible: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    false,
+                    true
+                )
+            Width: =611
+            X: =309
+            ZIndex: =12
+
+        Image5_23 As image:
+            Height: =35
+            Image: ='filtrar (1)'
+            Width: =40
+            X: =50
+            Y: =80
+            ZIndex: =13
+
+        Image20_23 As image:
+            Height: =35
+            Image: =borrarnose
+            Tooltip: ="Limpiar Filtros"
+            Width: =40
+            X: =50
+            Y: =123
+            ZIndex: =15
+
+        Label10_92 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Text: ="Limpiar"
+            Width: =122
+            X: =94
+            Y: =125
+            ZIndex: =16
+
+        Btn_Pry_LimpiarFiltros_23 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =50
+            Y: =115
+            ZIndex: =19
+
+        Cmb_FiltroNombre_13 As combobox:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: =["01"]
+            DisplayFields: =["Value"]
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            IsSearchable: =false
+            Items: |-
+                =[
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+                ]
+            OnChange: |
+                =UpdateContext({_VarMostrarCuadroBloqueo:false});
+                If(
+                    CountIf( Col_DominiosGestion, Editando = true)>0,
+                    ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                    UpdateContext({_VarMostrarCuadroBloqueo:false})
+                    //Reset(GL_ProductoProyecto)
+                )
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionFill: =RGBA(0, 121, 187, 1)
+            SelectMultiple: =false
+            Tooltip: =
+            Width: =79
+            X: =596
+            Y: =109
+            ZIndex: =20
+
+        Cmb_FiltroNombre_14 As combobox:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: =["2024"]
+            DisplayFields: =["Value"]
+            DisplayMode: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            IsSearchable: =false
+            Items: =["2024","2025"]
+            OnChange: |
+                =UpdateContext({_VarMostrarCuadroBloqueo:false});
+                If(
+                    CountIf( Col_DominiosGestion, Editando = true)>0,
+                    ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+                    UpdateContext({_VarMostrarCuadroBloqueo:false})
+                    //Reset(GL_ProductoProyecto)
+                )
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionFill: =RGBA(0, 121, 187, 1)
+            SelectMultiple: =false
+            Tooltip: =
+            Width: =95
+            X: =734
+            Y: =109
+            ZIndex: =21
+
+    Image18_6 As image:
+        Height: =60
+        Image: =sp16
+        OnSelect: |
+            =Clear(Col_EquiposPersonas);
+            Set(_VarUsuarioSelect,Gl_MiEquipoGestion.Selected.Usuario);
+            UpdateContext({_VarMostrarBarraBloqueo:true});
+            EditForm(Frm_EditarPersona);
+            If(
+                !IsBlank(_VarUsuarioSelect),
+                Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = _VarUsuarioSelect, Estado = "Activo")),
+                Clear(Col_EquiposPersonas)
+            );
+        Tooltip: ="Ver los detalles de la persona"
+        Width: =50
+        X: =55
+        Y: =196
+        ZIndex: =2
+
+    Lbl_Pry_Titulo_20 As label:
+        Color: =_VarColoresApp.AzulparaCabeceras
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        OnSelect: =
+        Size: =25
+        Text: ="Mis Solicitudes"//If(PermisoUsuario.Mantenedor,"Todas las solicitudes","Mis Solicitudes")
+        Width: =431
+        X: =105
+        Y: =205
+        ZIndex: =3
+
+    Container10_2 As groupContainer:
+        Height: =822
+        Width: =1920
+        Y: =228
+        ZIndex: =6
+
+        Gallery2_7 As gallery.galleryVertical:
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =698
+            Items: |-
+                =Search(
+                    Col_BD_Proveedores
+                    //Lst_Proveedores
+                ,Txt_FondoForm1_204.Text,"Razon_Social")
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =57
+            Width: =1850
+            X: =42
+            Y: =84
+            ZIndex: =1
+
+            Label15_130 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =45
+                Text: =ThisItem.RUT
+                Width: =111
+                X: =14
+                Y: =5
+                ZIndex: =1
+
+            Label15_131 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =42
+                Text: =Upper(ThisItem.Razon_Social_Proveedor)
+                Width: =603
+                X: =136
+                Y: =5
+                ZIndex: =2
+
+            Label15_132 As label:
+                Align: =Align.Center
+                Fill: |-
+                    =Switch(Self.Text,
+                    "Pendiente",RGBA(253, 207, 180, 1),
+                    "Cargado",RGBA(214, 221, 224, 1),
+                    "Correcto",RGBA(166, 215, 153, 1),
+                    "Rechazado",RGBA(189, 49, 51, 1),
+                    "No Aplica",RGBA(255, 255, 255, 1)
+                    )
+                Text: |-
+                    =If(Label15_137.Text="0","No Aplica",
+                    If(
+                    IsBlank(Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value),
+                    "Pendiente",
+                    Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value
+                    ))
+                Width: =145
+                X: =985
+                Y: =5
+                ZIndex: =3
+
+            Rectangle7_5 As rectangle:
+                Height: =0
+                OnSelect: =Select(Parent)
+                Width: =1839
+                Y: =57
+                ZIndex: =4
+
+            Icon9_12 As icon.ArrowRight:
+                Height: =50
+                Icon: =Icon.NextArrow
+                OnSelect: |-
+                    =Select(Parent);Navigate(ModuloRevisionFormatosDetalle,ScreenTransition.None,{_Var_SelecProveedor:ThisItem.RUT})
+                Width: =42
+                X: =1781
+                ZIndex: =5
+
+            Label15_133 As label:
+                Align: =Align.Center
+                Fill: |-
+                    =Switch(Self.Text,
+                    "Pendiente",RGBA(253, 207, 180, 1),
+                    "Cargado",RGBA(214, 221, 224, 1),
+                    "Correcto",RGBA(166, 215, 153, 1),
+                    "Inconforme",RGBA(189, 49, 51, 1),
+                    "No Aplica",RGBA(255, 255, 255, 1)
+                    )
+                Text: |-
+                    =If(Label15_137.Text="0","No Aplica",
+                    If(
+                    IsBlank(Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value),
+                    "Pendiente",
+                    Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value
+                    ))
+                Width: =149
+                X: =1137
+                Y: =5
+                ZIndex: =6
+
+            Separador_Registros_11 As rectangle:
+                Fill: =RGBA(179, 179, 179, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =1840
+                Y: =55
+                ZIndex: =8
+
+            Label15_134 As label:
+                Align: =Align.Center
+                Fill: |-
+                    =Switch(Self.Text,
+                    "Pendiente",RGBA(253, 207, 180, 1),
+                    "Cargado",RGBA(214, 221, 224, 1),
+                    "Correcto",RGBA(166, 215, 153, 1),
+                    "Rechazado",RGBA(189, 49, 51, 1),
+                    "No Aplica",RGBA(255, 255, 255, 1)
+                    )
+                Text: |-
+                    =If(Label15_129.Text="0 Personas","No Aplica",
+                    If(IsBlank(LookUp(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Certificado="Consentimiento Extranjeros",Estado).Value),"Pendiente",
+                    LookUp(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Certificado="Consentimiento Extranjeros",Estado).Value))
+                Width: =170
+                X: =1433
+                Y: =7
+                ZIndex: =9
+
+            Label15_135 As label:
+                Align: =Align.Center
+                Height: =47
+                Text: |-
+                    =If(Label15_133.Text="Pendiente" || Label15_133.Text="No Aplica",0,LookUp(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1").PersonasEncontradas) & " / "
+                    //CountRows(Filter(Lst_UsuariosCargadosF30;ID_Documento=LookUp(Col_CargueCertificadosF30;RUT=Label15_75.Text&& Mes=Cmb_FiltroNombre_10.Selected.Value && Anio=Cmb_FiltroNombre_11.Selected.Value && Certificado="F30-1").ID)))
+                Width: =44
+                X: =1337
+                Y: =10
+                ZIndex: =10
+
+            Label15_129 As label:
+                Align: =Align.Center
+                Height: =45
+                Text: =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo" && 'Ubicación Laboral'.Value="Extranjero" && GerenciaOrigen_0="GERENCIA TECNOLOGIA")) &" Personas"
+                Width: =129
+                X: =1632
+                Y: =3
+                ZIndex: =11
+
+            Label15_136 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Lighter
+                Height: =42
+                Text: =LookUp(Lst_Proveedores,RUT=Label15_130.Text,'Nombre_Contacto_ 1')
+                Width: =213
+                X: =755
+                Y: =5
+                ZIndex: =12
+
+            Label15_137 As label:
+                Align: =Align.Center
+                Height: =47
+                Text: |-
+                    =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo"&& 'Ubicación Laboral'.Value="Chile" && GerenciaOrigen_0="GERENCIA TECNOLOGIA"))
+                    
+                    //CountRows(Filter(Lst_UsuariosCargadosF30;ID_Documento=LookUp(Col_CargueCertificadosF30;RUT=Label15_75.Text&& Mes=Cmb_FiltroNombre_10.Selected.Value && Anio=Cmb_FiltroNombre_11.Selected.Value && Certificado="F30-1").ID)))
+                Width: =44
+                X: =1357
+                Y: =10
+                ZIndex: =13
+
+        Label15_60 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="RUT"
+            Width: =131
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        Label15_61 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="Razón Social"
+            Width: =616
+            X: =171
+            Y: =40
+            ZIndex: =3
+
+        Label15_69 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="F30"
+            Width: =152
+            X: =1028
+            Y: =40
+            ZIndex: =4
+
+        Label15_138 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="Constancia Ext."
+            Width: =164
+            X: =1483
+            Y: =40
+            ZIndex: =5
+
+        Label15_139 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: =""
+            Width: =61
+            X: =1831
+            Y: =40
+            ZIndex: =6
+
+        Label15_128 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="F30-1"
+            Width: =155
+            X: =1180
+            Y: =40
+            ZIndex: =7
+
+        Label15_142 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="Personas"
+            Width: =148
+            X: =1335
+            Y: =40
+            ZIndex: =8
+
+        Label15_141 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="Constancia Ext."
+            Width: =183
+            X: =1648
+            Y: =40
+            ZIndex: =9
+
+        Label15_140 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            Size: =14
+            Text: ="Manager"
+            Width: =241
+            X: =787
+            Y: =40
+            ZIndex: =10
+
+    MenuLateral_17 As MenuLateral:
+        Height: =MenuLateral_17.AltoApp
+        Width: =MenuLateral_17.AnchoApp
+        X: =16
+        Y: =5
+        ZIndex: =10
+
+    Gp_CabeceraPortafolio_23 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =10
+
+        Rct_FondoCabecera_Persona_32 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =7
+
+        Img_UsuarioPantallaPersona_37 As image:
+            Height: =50
+            Image: =User().Image
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1769
+            Y: =5
+            ZIndex: =8
+
+        Btn_Back_29 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: |-
+                =Reset(Rd_InternoExterno);
+                Reset(Cmb_BuscarMiEquipo);
+                //UpdateContext({_VarMostrarEdicionEquipo:false});;
+                Clear(Col_UsuarioenEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Reset(Rd_PersonasEquipos);
+                Navigate(Portada,ScreenTransition.Fade)
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =9
+
+    Label10_95 As label:
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If(
+                _VarVerPopUpPortafolio,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        OnSelect: |-
+            =Concurrent(
+            ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+            ClearCollect(Col_BD_Financiamiento,Portafolio),
+            ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+            ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+            ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+            //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
+            );
+            
+            ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+            ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+            UpdateContext({_VarMostrarCuadroBloqueo:false})
+        Text: ="Actualizar"
+        Tooltip: ="Agregar Producto / Proyecto"
+        Width: =98
+        X: =1722
+        Y: =99
+        ZIndex: =11
+
+    Image23_21 As image:
+        Height: =40
+        Image: ='nuevo actualizar '
+        OnSelect: |-
+            =Concurrent(
+            ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+            ClearCollect(Col_BD_Financiamiento,Portafolio),
+            ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+            ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+            ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
+            );
+            
+            ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+            ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
+            UpdateContext({_VarMostrarCuadroBloqueo:false})
+        Tooltip: ="Actualizar datos"
+        Width: =35
+        X: =1684
+        Y: =99
+        ZIndex: =12
+
+    Btn_SeleccionarLimpiarFiltro_25 As button:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =43
+        HoverFill: =RGBA(255, 255, 255, 0.5)
+        OnSelect: |-
+            =Refresh(Lst_Proveedores);Refresh(CargueCertificadosF30);Refresh(Lst_UsuariosCargadosF30);
+            ClearCollect(Col_CargueCertificadosF30,Filter(CargueCertificadosF30,Estado.Value<>"Reemplazado"))
+        PressedFill: =RGBA(255, 255, 255, 0.7)
+        Text: =""
+        Width: =136
+        X: =1682
+        Y: =96
+        ZIndex: =13
+
+    Cargando_18 As Cargando:
+        Visible: =_VarMostrarCargando
+        ZIndex: =18
+
+    Group13 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Button15_32 As button:
+            Fill: =RGBA(24,114,70,1)
+            Height: =44
+            HoverFill: =_VarColoresApp.AzulparaCabeceras
+            OnSelect: =
+            PaddingLeft: =10
+            RadiusBottomLeft: =45
+            RadiusBottomRight: =45
+            RadiusTopLeft: =45
+            RadiusTopRight: =45
+            Text: ="Exportar Info."
+            Width: =221
+            X: =1660
+            Y: =205
+            ZIndex: =15
+
+        Image27_4 As image:
+            Height: =34
+            Image: ='Microsoft-Excel'
+            Width: =39
+            X: =1669
+            Y: =210
+            ZIndex: =16
+
+        Btn_SeleccionarLimpiarFiltro_29 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Bold
+            Height: =44
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: |-
+                =Set(_VarMostrarCargando,true);
+                Launch(DescargarDetSoportesProveedores.Run("["&Concat(Gallery2_7.AllItems,
+                "{""RUT"":"""&Label15_130.Text&
+                """,""proveedor"":"""&Label15_131.Text&
+                """,""F30"":"""&Label15_132.Text&
+                """,""F30-1"":"""&Label15_133.Text&
+                """,""Personas"":"" "&Label15_135.Text&Label15_137.Text&
+                """,""Constancia Extranjeros"":"""&Label15_134.Text&
+                """,""Personas Extranjeras"":"""&Label15_129.Text&
+                """,""Nombre Contacto"":"""&'Nombre_Contacto_ 1'&
+                """,""Correo Contacto"":"""&Correo_Contacto_1&
+                """}"
+                ,",")&"]").response&"?download=1");
+                Set(_VarMostrarCargando,false);
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =221
+            X: =1660
+            Y: =205
+            ZIndex: =17
+

@@ -1,0 +1,81 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "MenuPrincipal",
+    "TemplateGuid": "765f200078b24412915fe49f76ed5644"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "TablaPrincipal",
+      "Hidden": false,
+      "Name": "TablaPrincipal",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "NombreSubMenu",
+      "Hidden": false,
+      "Name": "NombreSubMenu",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "SubTabla",
+      "Hidden": false,
+      "Name": "SubTabla",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "PermisoPersona",
+      "Hidden": false,
+      "Name": "PermisoPersona",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "PermisoData",
+      "Hidden": false,
+      "Name": "PermisoData",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "SubTablaN2",
+      "Hidden": false,
+      "Name": "SubTablaN2",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propiedad personalizada",
+      "Type": "{\"Version\":\"1.338\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Relacionado\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SubMenu\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638478260043574948",
+  "Name": "765f200078b24412915fe49f76ed5644",
+  "OverridableProperties": {},
+  "Version": "638200096670681519"
+}

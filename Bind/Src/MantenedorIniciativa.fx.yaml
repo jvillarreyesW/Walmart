@@ -1,0 +1,800 @@
+MantenedorIniciativa As screen:
+
+    Gp_CabeceraPersona_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =1
+
+        Rct_FondoCabecera_Persona_23 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =2
+
+        Img_UsuarioPantallaPersona_26 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1774
+            Y: =5
+            ZIndex: =3
+
+    Button2_5 As button:
+        Fill: =_VarColoresApp.VerdeParaBotones
+        Height: =60
+        HoverFill: =_VarColoresApp.AzulFondo
+        OnSelect: =Navigate(Iniciativas,ScreenTransition.Fade)
+        PaddingTop: =2.5
+        PressedFill: =_VarColoresApp.VerdeParaBotones
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =35
+        Text: ="⬅"
+        Tooltip: ="Regresar"
+        Width: =83
+        X: =1837
+        ZIndex: =4
+
+    Container9 As groupContainer.manualLayoutContainer:
+        Height: =927
+        Width: =1920
+        Y: =122
+        ZIndex: =5
+
+        Gallery12 As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =927
+            Items: |-
+                =Filter(
+                    Lst_Plan_Perfilamiento,
+                    IsBlank(Cmb_Plan_Usuario.SelectedItems) || IsEmpty(Cmb_Plan_Usuario.SelectedItems) || Usuario.DisplayName = Cmb_Plan_Usuario.Selected.DisplayName
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =268
+            Width: =1920
+            ZIndex: =1
+
+            Image3_3 As image:
+                Height: =106
+                Image: =ThisItem.Usuario.Picture
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                X: =120
+                Y: =42
+                ZIndex: =1
+
+            Txt_NombreUsuario_1 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =31
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                Size: =15
+                Text: =ThisItem.Usuario.DisplayName
+                VerticalAlign: =VerticalAlign.Top
+                Width: =312
+                X: =14
+                Y: =148
+                ZIndex: =2
+
+            Txt_area_1 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =55
+                OnSelect: =Select(Parent)
+                PaddingTop: =0
+                Text: |-
+                    =If(
+                       IsBlank(ThisItem.Usuario.Department),
+                       "No se registro un área",
+                       ThisItem.Usuario.Department
+                    )
+                Width: =312
+                X: =14
+                Y: =185
+                ZIndex: =3
+
+            Label24_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =_VarColoresApp.AzulparaCabeceras
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: |
+                    = Upper(Last(ForAll(Split(First(ForAll(Split(ThisItem.Usuario.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+                Width: =90
+                ZIndex: =4
+
+            Label41 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Text: ="OBJETIVO"
+                Width: =234
+                X: =555
+                Y: =14
+                ZIndex: =5
+
+            Tg_Obj_Crear As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Obj_Crear
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Crear"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =564
+                Y: =65
+                ZIndex: =6
+
+            Tg_Obj_Eliminar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Obj_Eliminar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Eliminar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =564
+                Y: =164
+                ZIndex: =7
+
+            Tg_Obj_Editar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Obj_Editar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Editar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =564
+                Y: =114
+                ZIndex: =8
+
+            Rectangle25 As rectangle:
+                Fill: =RGBA(116, 116, 116, 1)
+                Height: =245
+                OnSelect: =Select(Parent)
+                Width: =2
+                X: =787
+                Y: =14
+                ZIndex: =9
+
+            Label41_1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =42
+                OnSelect: =Select(Parent)
+                Text: ="KPI"
+                Width: =253
+                X: =789
+                Y: =12
+                ZIndex: =10
+
+            Tg_Kpi_Crear As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Kpi_Crear
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Crear"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =796
+                Y: =65
+                ZIndex: =11
+
+            Tg_Kpi_Eliminar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Kpi_Eliminar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Eliminar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =796
+                Y: =164
+                ZIndex: =12
+
+            Tg_Kpi_Editar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Kpi_Editar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Editar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =796
+                Y: =114
+                ZIndex: =13
+
+            Rectangle25_1 As rectangle:
+                Fill: =RGBA(116, 116, 116, 1)
+                Height: =245
+                OnSelect: =Select(Parent)
+                Width: =2
+                X: =1040
+                Y: =12
+                ZIndex: =14
+
+            Label41_2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Text: ="OPORTUNIDAD"
+                Width: =232
+                X: =1042
+                Y: =14
+                ZIndex: =15
+
+            Tg_Op_Crear As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Op_Crear
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Crear"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1049
+                Y: =65
+                ZIndex: =16
+
+            Tg_Op_Eliminar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.OP_Eliminar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Eliminar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1049
+                Y: =164
+                ZIndex: =17
+
+            Tg_Op_Editar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Op_Editar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Editar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1049
+                Y: =114
+                ZIndex: =18
+
+            Rectangle25_2 As rectangle:
+                Fill: =RGBA(116, 116, 116, 1)
+                Height: =245
+                OnSelect: =Select(Parent)
+                Width: =2
+                X: =1272
+                Y: =14
+                ZIndex: =19
+
+            Tg_Kpi_Avances As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Kpi_AgregarAvance
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Agregar Avances"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =796
+                Y: =213
+                ZIndex: =20
+
+            Tg_Op_Priorizar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.Op_Priorizar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Priorizar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1049
+                Y: =213
+                ZIndex: =21
+
+            Label41_3 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Text: ="SOLUCIONES"
+                Width: =225
+                X: =1274
+                Y: =14
+                ZIndex: =22
+
+            Tg_So_Crear As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.So_Crear
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Crear"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1281
+                Y: =65
+                ZIndex: =23
+
+            Tg_So_Eliminar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.So_Eliminar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Eliminar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1281
+                Y: =164
+                ZIndex: =24
+
+            Tg_So_Editar As Alternancia:
+                BasePaletteColor: =
+                Checked: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        true,
+                        ThisItem.So_Editar
+                    )
+                DisplayMode: |-
+                    =If(
+                        Tg_Administrador.Checked,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Editar"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =1281
+                Y: =114
+                ZIndex: =25
+
+            Tg_Administrador As Alternancia:
+                BasePaletteColor: =
+                Checked: =ThisItem.Administrador
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =35
+                Label: ="Administrador"
+                OnCheck: =false
+                OnSelect: =Select(Parent)
+                OnUncheck: =false
+                Width: =190
+                X: =332
+                Y: =65
+                ZIndex: =26
+
+            Label41_4 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Text: ="ADMINISTRADOR"
+                Width: =225
+                X: =332
+                Y: =14
+                ZIndex: =27
+
+            Rectangle25_3 As rectangle:
+                Fill: =RGBA(116, 116, 116, 1)
+                Height: =245
+                OnSelect: =Select(Parent)
+                Width: =2
+                X: =555
+                Y: =14
+                ZIndex: =28
+
+            Button20 As button:
+                OnSelect: |-
+                    =Patch(
+                        Lst_Plan_Perfilamiento,
+                        ThisItem,
+                        {
+                            Administrador: Tg_Administrador.Checked,
+                            Obj_Crear: Tg_Obj_Crear.Checked,
+                            Obj_Editar: Tg_Obj_Editar.Checked,
+                            Obj_Eliminar: Tg_Obj_Eliminar.Checked,
+                            Kpi_Crear: Tg_Kpi_Crear.Checked,
+                            Kpi_Editar: Tg_Kpi_Editar.Checked,
+                            Kpi_Eliminar: Tg_Kpi_Eliminar.Checked,
+                            Kpi_AgregarAvance: Tg_Kpi_Avances.Checked,
+                            Op_Crear: Tg_Op_Crear.Checked,
+                            Op_Editar: Tg_Op_Editar.Checked,
+                            OP_Eliminar: Tg_Op_Eliminar.Checked,
+                            Op_Priorizar: Tg_Op_Priorizar.Checked,
+                            So_Crear: Tg_So_Crear.Checked,
+                            So_Editar: Tg_So_Editar.Checked,
+                            So_Eliminar: Tg_So_Eliminar.Checked        
+                        }
+                    );
+                    If(
+                        IsEmpty(Errors(Lst_Plan_Perfilamiento)),
+                        Notify("Se actualizo de manera correcta el perfil del usuario",NotificationType.Success,5000),
+                        Notify("Algo salio mal, vuelve a interntarlo o ponte en contacto con el equipo de agile portfolio, error: " &  First(Errors(Lst_Plan_Perfilamiento)).Message, NotificationType.Error,5000)
+                    )
+                Text: ="Actualizar"
+                X: =1715
+                Y: =211
+                ZIndex: =29
+
+    Icon17_1 As icon.AddUser:
+        DisabledColor: =RGBA(77, 77, 77, 1)
+        DisplayMode: |-
+            =If(
+                IsBlank(LookUp(Lst_Plan_Perfilamiento, Usuario.DisplayName = Cmb_Plan_Usuario.Selected.DisplayName)),
+                DisplayMode.Edit,
+                DisplayMode.Disabled
+            )
+        Height: =40
+        Icon: =Icon.AddUser
+        OnSelect: |-
+            =Patch(Lst_Plan_Perfilamiento, Defaults(Lst_Plan_Perfilamiento),{Usuario: Cmb_Plan_Usuario.Selected, CorreoUsuario: Cmb_Plan_Usuario.Selected.Email});
+            Refresh(Lst_Plan_Perfilamiento)
+        Tooltip: ="Agregar Usuario"
+        Width: =49
+        X: =332
+        Y: =71
+        ZIndex: =7
+
+    Icon19_1 As icon.Sync:
+        Height: =40
+        Icon: =Icon.Sync
+        OnSelect: =Refresh(Lst_Plan_Perfilamiento)
+        Width: =42
+        X: =395
+        Y: =71
+        ZIndex: =8
+
+    Txt_FondoResponsableTecnologia_2 As text:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =3
+        Default: =""
+        DisabledFill: |-
+            =If(
+                Chk_AplicaEM.Checked,
+                RGBA(244, 244, 244, 1),
+                Color.White
+                )
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =50
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Width: =300
+        X: =16
+        Y: =67
+        ZIndex: =9
+
+    Cmb_Plan_Usuario As combobox:
+        BorderColor: =
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+        ChevronFill: =RGBA(0, 121, 187, 1)
+        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+        Default: |-
+            ={
+                    DisplayName: LookUp(
+                        Lst_Persona,
+                        Usuario = First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                        Nombre_Persona
+                    )
+                }
+        DefaultSelectedItems: |-
+            =If(
+                IsBlank( First(ProyectoSeleccionado).ID_Responsable_Tecnologia),
+                Blank(),
+                If(
+                    !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Responsable_Tecnologia)),
+                    Table(
+                    {
+                        DisplayName: LookUp(
+                            Lst_Persona,
+                            Usuario = First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                            Nombre_Persona
+                        )
+                    }
+                ),
+                    Table(
+                        {
+                            DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Responsable_Tecnologia})).DisplayName
+                        }
+                    )
+                )
+            )
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayMode: |-
+            =If(
+                Chk_AplicaEM.Checked,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =Txt_FondoResponsableTecnologia_2.Height -10
+        HoverBorderColor: =RGBA(0, 121, 187, 1)
+        InputTextPlaceholder: ="Buscar responsable"
+        Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        PressedFill: =RGBA(0, 121, 187, 1)
+        Reset: =ResetearControlPry
+        SearchFields: =["DisplayName"]
+        SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Plan_Usuario.SearchText)
+        SelectionFill: =RGBA(0, 121, 187, 1)
+        SelectMultiple: =false
+        TabIndex: =6
+        Template: =ListItemTemplate.Person
+        Tooltip: =
+        Width: |
+            =Txt_FondoResponsableTecnologia_2.Width - 27
+        X: =29
+        Y: =72
+        ZIndex: =10
+

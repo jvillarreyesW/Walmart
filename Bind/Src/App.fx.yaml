@@ -1,0 +1,243 @@
+App As appinfo:
+    BackEnabled: =false
+    OnError: =
+    OnStart: |+
+        =/*Mostrar Spinner Cargando*/
+        Set(_VarMostrarCargando,true);
+        
+        /*Param DeepLink Proveedores*/
+        
+        If(!IsBlank(Param("SolicitudProv")),
+        Set(Guid_Proveedor,Param("SolicitudProv"));
+        If(LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor).Proveedor_Extranjero,
+        Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor)),
+        false);    
+        Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor));
+        Set(_VarFormEstado,true);
+         Set(var_Prov_Rut,
+                    If(_VarContratocopia.Proveedor_Extranjero,
+                    LookUp(Lst_Proveedores,Razon_Social_Proveedor = _VarContratocopia.Proveedor),
+                    LookUp(Lst_Proveedores,RUT = _VarContratocopia.Proveedor)
+                    )));
+        
+        /*Colores para la App*/
+        Set(_VarColoresApp,
+            {
+                AzulparaCabeceras: RGBA(4, 31, 65, 1),
+                VerdeParaBotones: RGBA(6, 242, 123, 1), 
+                Amarrillo: RGBA(250, 185, 7, 1), 
+                Blanco:RGBA(255,255,255,1), 
+                AzulFondo:RGBA(0,113, 206,0.7), 
+                GrisFondo:RGBA(128, 128, 128, 0.8), 
+                BlancoFondo:RGBA(255,255,255,0.5)
+                }
+            );
+        
+        /*Pestaña Menu App*/
+        Set(_VarMenuSeleccionado,"Noticias");
+        
+        /* Carga de Perfil por Usuario */
+        Set(_Perfil, UsuariosdeOffice365.MyProfileV2());
+        Set(_UserFoto, IfError(UsuariosdeOffice365.UserPhotoV2(_Perfil.mail),'no-fotos-1'));
+        Set(PermisoUsuario,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName));
+        
+        
+        /*Modulo de Persona*/
+        Set(_VarUsuarioJefe, Upper(Last(Split(First(Split(_Perfil.userPrincipalName,"@")).Value,"|")).Value)) ; //  Upper(Last(Split(First(Split(_Perfil.userPrincipalName;"@")).Value;"|")).Value) || m0a00y0 || c0r076x || L0M02OW
+        Set(_VarRolUsuario, LookUp(Lst_Persona,'Correo Electrónico' = _Perfil.mail,Rol));
+        //Last(Split(First(Split(_Perfil.userPrincipalName,"@")).Value,"|")).Value)
+        //_Perfil.userPrincipalName,"@")
+        
+        Concurrent(
+            ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo")),
+            ClearCollect(Col_BD_Gerencia, Filter(Lst_Gerencias, Estado = "Activo")),
+            ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
+            ClearCollect(Col_BD_Equipos, DominioEquipoSquad),
+            ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo")), //_Perfil.mail "Carlos.Reichmann0@walmart.com"
+            ClearCollect(Col_BD_Dominios,Filter(Lst_Dominio, Estado_Lst_Dominio = "Activo")),
+            ClearCollect(Col_BD_SubDominios,Filter(Lst_SubDominio, Estado_LstSubDominio = "Activo")),
+            ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
+            ClearCollect(Col_BD_Financiamiento,Portafolio),
+            ClearCollect(Col_BD_FinanciamientoEquipo,Lst_OrdenesEquipos),
+            ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+            ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
+            ClearCollect(Col_BD_DetalleKPIs,OUTCOME),
+            ClearCollect(Col_BD_Fcst_Responsable, Lst_Fcst_Responsable),
+            ClearCollect(Col_BD_Fcst_Servicios, Lst_Fcst_Servicios),
+            ClearCollect(Col_BD_Fcst_ServAsignados, Lst_Fcst_ServiciosAsignados),
+            ClearCollect(Col_BD_Fcst_Datos, Lst_Fcst_Datos),
+            ClearCollect(Col_BD_Fcst_Cuenta, Lst_Fcst_MantenedorCuenta),
+            ClearCollect(Col_BD_Fcst_Ceco, Lst_Fcst_MantenedorCeco),
+            ClearCollect(Col_BD_Fcst_Semanas, LST_Fcst_MantenedorSemanas),
+            ClearCollect(Col_BD_Fcst_TCSemanas, Lst_Fcst_TipoCambioSemana),
+            ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco), 
+            ClearCollect(Col_MenuBind,Lst_MenuBind),
+            ClearCollect(Col_CargueCertificadosF30,Filter(CargueCertificadosF30,Estado.Value="Reemplazado" || Estado.Value="Cargado" || Estado.Value="Correcto" || Estado.Value="Inconforme" || Estado.Value="Pendiente")) ,
+            /* PERMISO MODULO EQUIPO VIRTUALES */
+            ClearCollect(Col_RolVirtual,{Rol:"Digital Product Manager"},{Rol:"PRODUCT OWNER SENIOR"},{Rol:"PRODUCT OWNER EXPERTO"},{Rol:"Product Owner"},{Rol:"ENGINEERING MANAGER II"},{Rol:"ENGINEERING MANAGER I"})
+            /*===========================================*/ 
+        );
+        ClearCollect(Col_BD_Proveedores,AddColumns(Lst_Proveedores,"Personas",CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisRecord.ID), GerenciaOrigen_0="GERENCIA TECNOLOGIA"))));
+        
+        ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName,Dominio));  //trae los dominios asignados al usuario
+        /*------------------------------------------------------*/
+        ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+        
+        ClearCollect(Col_DominiosGestion, Col_BD_Portafolio);
+        //ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+        
+        Clear(Col_IDEquiposAsignados);
+        Clear(Col_MiEquiposJefe);
+        Clear(Col_DatosparaGrafico);
+        
+        // Recuperando los ID de los Equipos asignados
+        ForAll(Col_MiEquipoWalmart As CME,Collect(Col_IDEquiposAsignados, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario)).IDEquipo));
+        //ForAll(Col_MiEquipoWalmart As CME;Collect(Col_DatosparaGrafico; Filter(Col_BD_AsignacionEquipos; Trim(Usuario) = Trim(CME.Usuario))));;
+        // Recuperando los equipos asignados en los dominios
+        //ForAll(ForAll(Distinct(Col_IDEquiposAsignados;Value); {Result: ThisRecord.Value}) As CIEA;Collect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; IDEquipo= CIEA.Result)));;
+        ForAll(ForAll(Distinct(Col_IDEquiposAsignados,IDEquipo), {Result: ThisRecord.Value}) As CIEA,Collect(Col_MiEquiposJefe,Filter(Col_BD_Equipos, IDEquipo = CIEA.Result)));
+        ClearCollect(Col_TempMisEquipos,Col_MiEquiposJefe);
+        
+        Set(_VarCantPersonasaCargo,CountRows(Col_MiEquipoWalmart));
+        Set(PermisosPersonas, If(_VarCantPersonasaCargo>0,true,false));
+        
+        /*
+        Concurrent(
+            ClearCollect(M_Principal;Table(
+            {ID:0; Titulo: "Administrar"; SubTitulo: "Gestiona Información"; Visual:false};
+            {ID:1; Titulo: "Dashboard"; SubTitulo: "Visualiza Información"; Visual:false};
+            {ID:2; Titulo: "Ayuda"; SubTitulo: "Guia de ayuda y onboarding"; Visual:false}
+            ));
+            ClearCollect(M_Secundario;Table(
+            If(
+                PermisoUsuario.servicioData;
+                {ID:0;Orden:1; SubMenu: "Servicio"; Permiso:true};
+                 If(
+                    PermisoUsuario.Auditoria;
+                        {ID:0;Orden:1; SubMenu: "Auditoria"; Permiso:true};
+                        {ID:0;Orden:1; SubMenu: "Lista de Productos"; Permiso:true}
+                 )
+            );
+            //{ID:0, Orden:2, SubMenu: "Lista de Proyectos", Permiso:true}, Navigate(GestionFcst;ScreenTransition.Fade)
+            If(
+                PermisoUsuario.ServicioTecnologia;
+                {ID:0; Orden:2; SubMenu: "Servicios Tecnología";Permiso:true};
+                {ID:0; Orden:2; SubMenu: "Lista de Proyectos"; Permiso:true}
+            );
+            {ID:0; Orden:3; SubMenu:"Personas"; Permiso: PermisosPersonas}; 
+            //{ID:0; Orden:4; SubMenu:"Opportunity Assessment"; Permiso: true};
+            {ID:0; Orden:4; SubMenu:"Solicitud Contrato Proveedores"; Permiso: PermisoUsuario.Proveedores};
+            {ID:0; Orden:5; SubMenu:"Fcst"; Permiso: PermisoUsuario.Fcst};
+            {ID:0; Orden:6; SubMenu:"PPP"; Permiso: PermisoUsuario.PPP};
+            //{ID:0; Orden:6; SubMenu:"ForeCast"; Permiso: PermisoUsuario.Fcst};
+        
+            {ID:1; Orden:0; SubMenu:"Organigrama"; Permiso: true};
+            {ID:1; Orden:1; SubMenu:"Roadmap Walmart Tech"; Permiso: true};
+            {ID:1; Orden:2; SubMenu:"Completitud"; Permiso: true};
+            {ID:1; Orden:3; SubMenu:"KPI"; Permiso: true};
+            {ID:1; Orden:4; SubMenu:"Personas"; Permiso: true};
+            {ID:1; Orden:5; SubMenu:"Plan Tech 2023"; Permiso: true};
+            {ID:1; Orden:6; SubMenu:"Opportunity Assessment"; Permiso: true};
+            {ID:1; Orden:7; SubMenu:"Estrategia"; Permiso: true};
+            {ID:1; Orden:8; SubMenu:"International Monthly Report"; Permiso: true};
+            {ID:1; Orden:9; SubMenu:"Capitalización"; Permiso: true};
+            {ID:1; Orden:10; SubMenu:"Code Yellow"; Permiso: true};
+            //{ID:1, Orden:10, SubMenu:"Programas", Permiso: true},
+            {ID:1; Orden:11; SubMenu:"Seguimiento OI/OE"; Permiso: PermisoUsuario.SeguimientoOI};
+            {ID:1; Orden:12; SubMenu:"HeadCount"; Permiso: PermisoUsuario.HeadCount};
+            {ID:1; Orden:13; SubMenu:"Infosec"; Permiso: true};
+            {ID:1; Orden:14; SubMenu:"Auditoria"; Permiso: true};
+            {ID:1; Orden:15; SubMenu:"Seguimiento de proyectos"; Permiso: true};
+            {ID:1; Orden:16; SubMenu:"Seguimiento Datos"; Permiso: true};
+            {ID:1; Orden:17; SubMenu:"Seguimiento servicios tecnologicos"; Permiso: true};
+        
+            {ID:2; Orden:1; SubMenu:"Onboarding"; Permiso: true};
+            {ID:2; Orden:2; SubMenu:"Contáctate con nosotros"; Permiso: true};
+            {ID:2; Orden:3; SubMenu:"Déjanos tu feedback"; Permiso: true}
+        
+            ));
+            ClearCollect(Col_ValoresCriticidad;
+              {ID:1; Value: "Bajo"};
+              {ID:2; Value: "Medio"};
+              {ID:3; Value: "Alto"}
+            )
+        );;
+        */
+        
+         ClearCollect(Col_ValoresCriticidad,
+              {ID:1, Value: "Bajo"},
+              {ID:2, Value: "Medio"},
+              {ID:3, Value: "Alto"}
+            );
+        
+        /* Validar si el usuario es Manager */
+        If(
+            _VarCantPersonasaCargo >= 1, // VN53SOS -- B0N01DV --_VarUsuarioJefe -- G0T01KR
+            Set(_VarEsManager,1),
+            Set(_VarEsManager,0)
+        );
+        
+        /* Avisar si tiene alertas el usuario */
+        //Set(htmlAlerta; AlertasdesdeBind.Run(_Perfil.mail;_VarEsManager).alertahtml);; //Belen.Neira@walmart.com --livia.ramdey@walmart.com  --  _Perfil.mail --Gonzalo.Toledo@walmart.com
+        
+        /*Registrar ingreso User*/
+        Patch(Lst_log_usage,Defaults(Lst_log_usage),{Nombre_Usuario:_Perfil.displayName, Usuario:_Perfil.mailNickname,Accion:"Ingreso App"});
+        
+        /*==================== Menu del usuario ===============================*/
+        If(
+            !IsBlank(PermisoUsuario),
+            Clear(Col_MenudelUsuario);
+            ClearCollect(Col_PermisoUsuarioMenu, Split(PermisoUsuario.PermisosMenu,","));
+            ForAll(
+                Col_PermisoUsuarioMenu As ObtenerMenu,
+                Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
+            ),
+            Clear(Col_MenudelUsuario);
+            ClearCollect(Col_PermisoUsuarioMenu, Split("72,73,76,77,82,86,88,89,90,91,92",",")); // 62,63,64,67,94,72,73,76,77,82,86,88,89,90,91,92,66
+            ForAll(
+                Col_PermisoUsuarioMenu As ObtenerMenu,
+                Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
+            )   
+        );
+        
+        /*==================================================================*/
+        
+        /*Ocultar Spinner Cargando*/
+        Set(_VarMostrarCargando,false);
+        
+        // Mostrar Comunicado Bind
+        //Set(_VarMostrarComunicado,true)
+        
+        // Recuperando Dominios Asignados
+        //ClearCollect(Col_DominiosAsignados; LookUp(Perfilamiento; Nombre.DisplayName = "Carlos Reichmann (Chile)"; Dominio)) // _Perfil.displayName
+        //ClearCollect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; ResponsableEquipo = _VarUsuarioJefe));;
+        //ForAll(BuscarEquipos;Collect(RelacionEquiposPorUsuario;{Id:ThisRecord.IDBusqueda.Id}))
+        
+        /*------------------------------------------------------*/
+        
+    StartScreen: |-
+        =/*Param DeepLink Proveedores*/
+        If(
+            !IsBlank(Param("SolicitudProv")),
+            If(
+                LookUp(
+                    Lst_ContratosProveedores,
+                    Param("SolicitudProv") = ID_Sol_Proveedor
+                ).Formulario_Solicitud.Value = "Contrato de Prestación de Servicio" || LookUp(
+                    Lst_ContratosProveedores,
+                    Param("SolicitudProv") = ID_Sol_Proveedor
+                ).Formulario_Solicitud.Value = "Anexo Contrato de Servicio",
+                Proveedor,
+                ProveedorSolicitudAjuste
+            ),
+            Portada
+        )
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

@@ -1,0 +1,63 @@
+InfoAplica As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =110
+    Width: |-
+        =If(
+            _VarMostrarMensaje,
+            345,
+            30
+        )
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Icon6 As icon.Error:
+        Height: =32
+        Icon: =Icon.Error
+        OnSelect: =Set(_VarMostrarMensaje,!_VarMostrarMensaje)
+        Tooltip: ="Presionar para tener mas información"
+        Width: =30
+        Y: =75
+        ZIndex: =1
+
+    TextInput1 As text:
+        Align: =Align.Center
+        Color: =RGBA(0, 16, 96, 1)
+        Default: ="Marcar solo aquellos que NO APLIQUEN para este proyecto."
+        DisabledColor: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =60
+        Mode: =TextMode.MultiLine
+        PaddingLeft: =15
+        PaddingTop: =10
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Visible: |-
+            =If(
+                _VarMostrarMensaje,
+                true,
+                false
+            )
+        X: =20
+        Y: =2
+        ZIndex: =2
+
+    Icon7 As icon.ChevronDown:
+        Height: =20
+        Icon: =Icon.ChevronDown
+        Rotation: =32
+        Visible: |-
+            =If(
+                _VarMostrarMensaje,
+                true,
+                false
+            )
+        Width: =28
+        X: =12
+        Y: =55
+        ZIndex: =3
+

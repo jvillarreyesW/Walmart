@@ -1,0 +1,2281 @@
+MantenedoresFCST As screen:
+    OnVisible: |-
+        =Reset(Cmb_FiltroInputData_Mantenedor);
+        
+        /*
+        If(
+            _VarMostrarEdicionCeco;
+            UpdateContext({_VarMostrarSeccion:"MantenedorCeco"});
+            UpdateContext({_VarMostrarSeccion:"MantenedorServicios"})
+         ) ;;
+         */
+        
+        //UpdateContext({_VarMostrarEdicionCeco:false});;
+        
+        ClearCollect( Col_NuevaCla,
+        {Gerencia:"Baby Tuto", Codigo:	"B"},
+        {Gerencia:"Gerencia Arquitectura y Core Engineering", Codigo:	"A"},
+        {Gerencia:"Gerencia de Datos", Codigo:	"D"},
+        {Gerencia:"Gerencia de Performance y Estrategia", Codigo:	"P"},
+        {Gerencia:"Gerencia de Producto y UX", Codigo:	"U"},
+        {Gerencia:"Gerencia de Producto y UX Ads", Codigo:	"X"},
+        {Gerencia:"Gerencia de Producto y UX Marketplace", Codigo:	"K"},
+        {Gerencia:"Gerencia de Producto y UX Phronesis", Codigo:	"S"},
+        {Gerencia:"Gerencia de Servicio Core Tech", Codigo:	"C"},
+        {Gerencia:"Gerencia Ecommerce", Codigo:	"E"},
+        {Gerencia:"Gerencia Ingenieria de Software", Codigo:	"Q"},
+        {Gerencia:"Gerencia Ingenieria de Software Ads", Codigo:	"F"},
+        {Gerencia:"Gerencia Ingenieria de Software Marketplace", Codigo:	"C"},
+        {Gerencia:"Gerencia Ingenieria de Software Phronesis", Codigo:	"Y"},
+        {Gerencia:"Gerencia Innovación", Codigo:	"I"},
+        {Gerencia:"Gerencia International Leverage", Codigo:	"L"},
+        {Gerencia:"Gerencia Marketplace", Codigo:	"M"},
+        {Gerencia:"Gerencia New Revenue Streams", Codigo:	"V"},
+        {Gerencia:"NO Vigentes Tech", Codigo:	"N"},
+        {Gerencia:"Staff Dig WTech", Codigo:	"W"},
+        {Gerencia:"Staff WTech", Codigo:	"	T"},
+        {Gerencia:"ALIMENTOS Y SERVICIOS", Codigo:	"H"},
+        {Gerencia:"HOME OFFICE", Codigo:	"H"},
+        {Gerencia:"LOGISTICA", Codigo:	"H"},
+        {Gerencia:"NUEVOS NEGOCIOS", Codigo:	"H"},
+        {Gerencia:"RCO", Codigo:	"H"},
+        {Gerencia:"RETAIL", Codigo:	"R"},
+        {Gerencia:"WMCL SSFF", Codigo:	"H"}
+        );
+        
+        UpdateContext({Fcst_Reset:false});
+        Clear(Col_MesesActual);
+        ClearCollect(Col_MesesAnno,
+         {ID:1, Mes: "Enero"},
+         {ID:2, Mes: "Febrero"},
+         {ID:3, Mes: "Marzo"},
+         {ID:4, Mes: "Abril"},
+         {ID:5, Mes: "Mayo"},
+         {ID:6, Mes: "Junio"},
+         {ID:7, Mes: "Julio"},
+         {ID:8, Mes: "Agosto"},
+         {ID:9, Mes: "Septiembre"},
+         {ID:10, Mes: "Octubre"},
+         {ID:11, Mes: "Noviembre"},
+         {ID:12, Mes: "Diciembre"}
+         );
+        
+        ForAll(
+            Sequence(13-Month(Today()),Month(Today())) As MesActual,
+            Collect(Col_MesesActual,Filter(Col_MesesAnno, ID = MesActual.Value))   
+        )
+
+    Rct_FondoCabecera_3 As rectangle:
+        Fill: =_VarColoresApp.AzulparaCabeceras
+        Height: =60
+        Width: =1920
+        ZIndex: =1
+
+    Img_UsuarioPantallaPersona_16 As image:
+        Height: =50
+        Image: =_UserFoto
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: |
+            =50
+        RadiusTopRight: =50
+        Width: =54
+        X: =1772
+        Y: =5
+        ZIndex: =22
+
+    Btn_Back_11 As button:
+        Fill: =_VarColoresApp.VerdeParaBotones
+        Height: =60
+        HoverFill: =_VarColoresApp.AzulFondo
+        OnSelect: |-
+            =
+            Navigate(GestionFcst,ScreenTransition.Fade)
+        PaddingTop: =2.5
+        PressedFill: =_VarColoresApp.VerdeParaBotones
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =35
+        Text: ="⬅"
+        Tooltip: ="Regresar"
+        Width: =83
+        X: =1837
+        ZIndex: =23
+
+    Canvas2_1 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =893
+        Width: =Parent.Width
+        Y: =155
+        ZIndex: =27
+
+        DataCard_Ceco As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =788
+            Visible: =_VarMostrarSeccion = "MantenedorCeco"
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Dt_ListadoCeco As dataTable.datatable:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =775
+                Items: |-
+                    =Filter(
+                        Col_BD_Fcst_Ceco,
+                        StartsWith(Ceco,Txt_BuscarenTabla.Text) || StartsWith(NombreCeco,Txt_BuscarenTabla.Text) || StartsWith(NuevaClasificacion,Txt_BuscarenTabla.Text) || StartsWith(DuennoCeco,Txt_BuscarenTabla.Text),
+                        IsBlank(Rd_Estado.Selected.Value) || Estado = Rd_Estado.Selected.Value
+                    )
+                Width: =1062
+                X: =12
+                Y: =12
+                ZIndex: =1
+
+                Ceco_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Ceco"
+                    FieldName: ="Ceco"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    IsHyperlink: =true
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |
+                        =ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected);
+                    Order: =1
+                    Text: =ThisItem.Ceco
+                    Width: =100
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+                NombreCeco_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="NombreCeco"
+                    FieldName: ="NombreCeco"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Order: =2
+                    Text: =ThisItem.NombreCeco
+                    Width: =313
+                    X: =0
+                    Y: =0
+                    ZIndex: =5
+
+                NuevaClasificacion_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="NuevaClasificacion"
+                    FieldName: ="NuevaClasificacion"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Order: =3
+                    Text: =ThisItem.NuevaClasificacion
+                    Width: =314
+                    X: =0
+                    Y: =0
+                    ZIndex: =6
+
+                DuennoCeco_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="DuennoCeco"
+                    FieldName: ="DuennoCeco"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Order: =4
+                    Text: =ThisItem.DuennoCeco
+                    Width: =209
+                    X: =0
+                    Y: =0
+                    ZIndex: =7
+
+                Estado_Columna2 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Estado"
+                    FieldName: ="Estado"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Order: =5
+                    Text: |-
+                        =If(
+                            ThisItem.Estado = "Activo",
+                            "🟢",
+                            "🔴"
+                        )
+                    Width: =89
+                    X: =0
+                    Y: =0
+                    ZIndex: =8
+
+            Container5 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Height: =430
+                Width: =781
+                X: =1104
+                Y: =137
+                ZIndex: =3
+
+                Label34 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Ceco:"
+                    Width: =188
+                    X: =44
+                    Y: =40
+                    ZIndex: =1
+
+                Txt_Fcst_Ceco As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).Ceco
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =40
+                    ZIndex: =2
+
+                Label34_1 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Nombre de Ceco:"
+                    Width: =188
+                    X: =44
+                    Y: =108
+                    ZIndex: =3
+
+                Txt_Fcst_NombreCeco As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).NombreCeco
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =232
+                    Y: =108
+                    ZIndex: =4
+
+                Label34_2 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Nueva Clasificación:"
+                    Width: =188
+                    X: =44
+                    Y: =171
+                    ZIndex: =5
+
+                Txt_Fcst_NuevaClasificacion As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).NuevaClasificacion
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =171
+                    ZIndex: =6
+
+                Label34_3 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Dueño del Ceco:"
+                    Width: =188
+                    X: =44
+                    Y: =239
+                    ZIndex: =7
+
+                Txt_Fcst_DuenoCeco As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).DuennoCeco
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =239
+                    ZIndex: =8
+
+                Txt_FondoViaje_4 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =
+                    DisabledFill: |-
+                        =If(
+                            !_VarMostrarEdicionCeco,
+                            RGBA(244, 244, 244, 1),
+                            RGBA(255, 255, 255, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =482
+                    X: =233
+                    Y: =310
+                    ZIndex: =9
+
+                Dpd_Fcst_Estado As dropdown:
+                    BorderColor: =
+                    BorderStyle: |
+                        =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =First(Col_CecoSeleccionado).Estado
+                    DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =38
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =["Activo","Inactivo"]
+                    OnChange: |-
+                        =If(
+                            IsBlank(First(ProyectoSeleccionado).IDDominio),
+                            Reset(Cmb_Gl_Equipo)
+                        )
+                    OnSelect: =Set(_VarMostrarBorde,!_VarMostrarBorde)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =441
+                    X: =255
+                    Y: =315
+                    ZIndex: =10
+
+                Label34_4 As label:
+                    Align: =Align.Right
+                    Height: =50
+                    PaddingRight: =12
+                    Text: |-
+                        ="Estado:"
+                    Width: =188
+                    X: =44
+                    Y: =310
+                    ZIndex: =11
+
+                Icon21 As icon.CancelBadge:
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CancelBadge
+                    OnSelect: |
+                        =Set(_VarMostrarEdicionCeco,false);
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =674
+                    Y: =376
+                    ZIndex: =12
+
+                Icon22 As icon.CheckBadge:
+                    Color: =RGBA(54, 176, 75, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CheckBadge
+                    OnSelect: |-
+                        =Set(
+                            _VarIDCecoNuevo,
+                            Patch(
+                                Lst_Fcst_MantenedorCeco,
+                                If(
+                                    IsBlank(LookUp(Lst_Fcst_MantenedorCeco, ID = First(Col_CecoSeleccionado).ID)),
+                                    Defaults(Lst_Fcst_MantenedorCeco),
+                                    LookUp(Lst_Fcst_MantenedorCeco, ID = First(Col_CecoSeleccionado).ID)
+                                ),
+                                {
+                                    Ceco: Txt_Fcst_Ceco.Text,
+                                    NombreCeco: Txt_Fcst_NombreCeco.Text,
+                                    NuevaClasificacion: Txt_Fcst_NuevaClasificacion.Text,
+                                    DuennoCeco: Txt_Fcst_DuenoCeco.Text,
+                                    Estado: Dpd_Fcst_Estado.Selected.Value
+                                }
+                            ).ID
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(Lst_Fcst_MantenedorCeco)),
+                            ClearCollect(
+                            Col_CecoSeleccionado,
+                                {
+                                    ID: _VarIDCecoNuevo,
+                                    Ceco: Txt_Fcst_Ceco.Text,
+                                    NombreCeco: Txt_Fcst_NombreCeco.Text,
+                                    NuevaClasificacion: Txt_Fcst_NuevaClasificacion.Text,
+                                    DuennoCeco: Txt_Fcst_DuenoCeco.Text,
+                                    Estado: Dpd_Fcst_Estado.Selected.Value
+                                }
+                            )
+                        )
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =620
+                    Y: =376
+                    ZIndex: =13
+
+                Icon20 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Edit
+                    OnSelect: =Set(_VarMostrarEdicionCeco,true);
+                    Visible: =!_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =613
+                    Y: =376
+                    ZIndex: =14
+
+                Icon20_2 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =Set(_VarMostrarEdicionCeco,true);
+                        ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Visible: =!_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =664
+                    Y: =376
+                    ZIndex: =15
+
+            Label34_5 As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =48
+                PaddingRight: =12
+                Text: ="Detalle Ceco"
+                Width: =158
+                X: =1125
+                Y: =112
+                ZIndex: =4
+
+            Icon20_1 As icon.Edit:
+                Height: =40
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =ClearCollect(
+                        Col_CecoSeleccionado,
+                        {
+                            Ceco:"",
+                            NombreCeco:"",
+                            NuevaClasificacion:"",
+                            DuennoCeco:"",
+                            Estado:"Activo"
+                        }
+                    );
+                    
+                    Set(_VarMostrarEdicionCeco,true);
+                Visible: |-
+                    =//_VarMostrarEdicionCeco
+                    true
+                Width: =51
+                X: =1074
+                Y: =12
+                ZIndex: =5
+
+        DataCard_Cuenta As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =810
+            Visible: =_VarMostrarSeccion = "MantenedorCuenta"
+            Width: =1920
+            X: =0
+            Y: =1
+            ZIndex: =2
+
+            Dt_ListadoCuenta As dataTable.datatable:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =775
+                Items: |-
+                    =Filter(
+                        Col_BD_Fcst_Cuenta,
+                        StartsWith(Cuenta,Txt_BuscarenTabla.Text) || Txt_BuscarenTabla.Text in NombreCuenta || Txt_BuscarenTabla.Text in Paquete,
+                        IsBlank(Rd_Estado.Selected.Value) || Estado = Rd_Estado.Selected.Value
+                    )
+                Width: =1062
+                X: =16
+                Y: =12
+                ZIndex: =1
+
+                Cuenta_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Cuenta"
+                    FieldName: ="Cuenta"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    IsHyperlink: =true
+                    LayoutHeight: =Parent.Height
+                    OnSelect: |-
+                        =ClearCollect(Col_CuentaSeleccionado,Dt_ListadoCuenta.Selected);
+                        //UpdateContext({_VarMostrarEdicionCeco:true});;
+                    Order: =1
+                    Text: =ThisItem.Cuenta
+                    Width: =151
+                    X: =0
+                    Y: =0
+                    ZIndex: =16
+
+                NombreCuenta_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="NombreCuenta"
+                    FieldName: ="NombreCuenta"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CuentaSeleccionado,Dt_ListadoCuenta.Selected)
+                    Order: =2
+                    Text: =ThisItem.NombreCuenta
+                    Width: =634
+                    X: =0
+                    Y: =0
+                    ZIndex: =17
+
+                Paquete_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Paquete"
+                    FieldName: ="Paquete"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CuentaSeleccionado,Dt_ListadoCuenta.Selected)
+                    Order: =3
+                    Text: =ThisItem.Paquete
+                    Width: =184
+                    X: =0
+                    Y: =0
+                    ZIndex: =18
+
+                Estado_Columna3 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Estado"
+                    FieldName: ="Estado"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_CuentaSeleccionado,Dt_ListadoCuenta.Selected)
+                    Order: =4
+                    Text: |-
+                        =If(
+                            ThisItem.Estado = "Activo",
+                            "🟢",
+                            "🔴"
+                        )
+                    Width: =71
+                    X: =886
+                    Y: =0
+                    ZIndex: =19
+
+            Container5_1 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Height: =355
+                Width: =781
+                X: =1108
+                Y: =137
+                ZIndex: =2
+
+                Label34_6 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Cuenta:"
+                    Width: =188
+                    X: =44
+                    Y: =40
+                    ZIndex: =1
+
+                Txt_Fcst_Cuenta As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CuentaSeleccionado).Cuenta
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =40
+                    ZIndex: =2
+
+                Label34_7 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Nombre de Cuenta:"
+                    Width: =188
+                    X: =44
+                    Y: =108
+                    ZIndex: =3
+
+                Txt_Fcst_NombreCuenta As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CuentaSeleccionado).NombreCuenta
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =232
+                    Y: =108
+                    ZIndex: =4
+
+                Label34_8 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Paquete:"
+                    Width: =188
+                    X: =44
+                    Y: =171
+                    ZIndex: =5
+
+                Txt_Fcst_Paquete As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CuentaSeleccionado).Paquete
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =171
+                    ZIndex: =6
+
+                Txt_FondoViaje_5 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =
+                    DisabledFill: |-
+                        =If(
+                            !_VarMostrarEdicionCeco,
+                            RGBA(244, 244, 244, 1),
+                            RGBA(255, 255, 255, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =482
+                    X: =233
+                    Y: =234
+                    ZIndex: =9
+
+                Dpd_Fcst_Estado_cuenta As dropdown:
+                    BorderColor: =
+                    BorderStyle: |
+                        =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =First(Col_CuentaSeleccionado).Estado
+                    DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =38
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =["Activo","Inactivo"]
+                    OnChange: |-
+                        =If(
+                            IsBlank(First(ProyectoSeleccionado).IDDominio),
+                            Reset(Cmb_Gl_Equipo)
+                        )
+                    OnSelect: =Set(_VarMostrarBorde,!_VarMostrarBorde)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =441
+                    X: =255
+                    Y: =239
+                    ZIndex: =10
+
+                Label34_10 As label:
+                    Align: =Align.Right
+                    Height: =50
+                    PaddingRight: =12
+                    Text: |-
+                        ="Estado:"
+                    Width: =188
+                    X: =44
+                    Y: =234
+                    ZIndex: =11
+
+                Icon21_1 As icon.CancelBadge:
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CancelBadge
+                    OnSelect: |
+                        =Set(_VarMostrarEdicionCeco,false);
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =674
+                    Y: =300
+                    ZIndex: =12
+
+                Icon22_1 As icon.CheckBadge:
+                    Color: =RGBA(54, 176, 75, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CheckBadge
+                    OnSelect: |-
+                        =Set(
+                            _VarIDCuentaNuevo,
+                            Patch(
+                                Lst_Fcst_MantenedorCuenta,
+                                If(
+                                    IsBlank(LookUp(Lst_Fcst_MantenedorCuenta, ID = First(Col_CuentaSeleccionado).ID)),
+                                    Defaults(Lst_Fcst_MantenedorCuenta),
+                                    LookUp(Lst_Fcst_MantenedorCuenta, ID = First(Col_CuentaSeleccionado).ID)
+                                ),
+                                {
+                                    Cuenta: Txt_Fcst_Cuenta.Text,
+                                    NombreCuenta: Txt_Fcst_NombreCuenta.Text,
+                                    Paquete: Txt_Fcst_Paquete.Text,
+                                    Estado: Dpd_Fcst_Estado_cuenta.Selected.Value
+                                }
+                            ).ID
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(Lst_Fcst_MantenedorCuenta)),
+                            ClearCollect(
+                            Col_CuentaSeleccionado,
+                                {
+                                    ID: _VarIDCuentaNuevo,
+                                    Cuenta: Txt_Fcst_Cuenta.Text,
+                                    NombreCuenta: Txt_Fcst_NombreCuenta.Text,
+                                    Paquete: Txt_Fcst_Paquete.Text,
+                                    Estado: Dpd_Fcst_Estado_cuenta.Selected.Value
+                                }
+                            )
+                        )
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =620
+                    Y: =300
+                    ZIndex: =13
+
+                Icon20_3 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Edit
+                    OnSelect: |-
+                        =UpdateContext({_VarMostrarEdicionCeco:true});
+                    Visible: =!_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =613
+                    Y: =300
+                    ZIndex: =14
+
+                Icon20_4 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =Set(_VarMostrarEdicionCeco,true);
+                        ClearCollect(Col_CecoSeleccionado,Dt_ListadoCuenta.Selected)
+                    Visible: =!_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =664
+                    Y: =300
+                    ZIndex: =15
+
+            Label34_11 As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =48
+                PaddingRight: =12
+                Text: ="Detalle Cuenta"
+                Width: =158
+                X: =1129
+                Y: =112
+                ZIndex: =3
+
+            Icon20_5 As icon.Edit:
+                Height: =40
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =ClearCollect(
+                        Col_CuentaSeleccionado,
+                        {
+                            Cuenta:"",
+                            NombreCuenta:"",
+                            Paquete:"",
+                            Estado:"Activo"
+                        }
+                    );
+                    
+                    Set(_VarMostrarEdicionCeco,true);
+                Visible: =!_VarMostrarEdicionCeco
+                Width: =51
+                X: =1078
+                Y: =12
+                ZIndex: =4
+
+        DataCard_Semana As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =806
+            Visible: =_VarMostrarSeccion = "MantenedorSemana"
+            Width: =1920
+            X: =0
+            Y: =2
+            ZIndex: =3
+
+            Dtb_Semana As dataTable.datatable:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =644
+                Items: =Col_BD_Fcst_Semanas
+                Width: =770
+                X: =16
+                Y: =12
+                ZIndex: =1
+
+                Semana_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Semana"
+                    FieldName: ="Semana"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    IsHyperlink: =true
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_SemanaSeleccionado,Dtb_Semana.Selected)
+                    Order: =1
+                    Text: =ThisItem.Semana
+                    Width: =121
+                    X: =0
+                    Y: =0
+                    ZIndex: =20
+
+                Inicio_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Inicio"
+                    FieldName: ="Inicio"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_SemanaSeleccionado,Dtb_Semana.Selected)
+                    Order: =2
+                    Text: =ThisItem.Inicio
+                    Width: =217
+                    X: =131
+                    Y: =0
+                    ZIndex: =21
+
+                Fin_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Fin"
+                    FieldName: ="Fin"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_SemanaSeleccionado,Dtb_Semana.Selected)
+                    Order: =3
+                    Text: =ThisItem.Fin
+                    Width: =194
+                    X: =567
+                    Y: =0
+                    ZIndex: =22
+
+                Anno_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="Anno"
+                    FieldName: ="Anno"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_SemanaSeleccionado,Dtb_Semana.Selected)
+                    Order: =4
+                    Text: =ThisItem.Anno
+                    Width: =85
+                    X: =1004
+                    Y: =0
+                    ZIndex: =23
+
+                TipoMoneda_Columna1 As dataTableColumn.textualColumn:
+                    AutoWidth: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FieldDisplayName: ="TipoMoneda"
+                    FieldName: ="TipoMoneda"
+                    FieldVariantName: ="textualColumn"
+                    Height: =Parent.Height
+                    LayoutHeight: =Parent.Height
+                    OnSelect: =ClearCollect(Col_SemanaSeleccionado,Dtb_Semana.Selected)
+                    Order: =5
+                    Text: =ThisItem.TipoMoneda
+                    Width: =137
+                    X: =1439
+                    Y: =0
+                    ZIndex: =24
+
+            Gl_Fcst_TipoCambio As gallery.galleryHorizontal:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DelayItemLoading: =true
+                Height: =120
+                Items: |-
+                    =If(
+                        !IsBlank(Col_SemanaSeleccionado),
+                        Filter(Col_BD_Fcst_TipoCambioSemanas, IDSemana = Text(First(Col_SemanaSeleccionado).ID) && TipoMoneda = First(Col_SemanaSeleccionado).TipoMoneda)
+                    )
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =154
+                Width: =1913
+                X: =7
+                Y: =685
+                ZIndex: =2
+
+                Label36 As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.MesdelValor
+                    Width: =157
+                    ZIndex: =1
+
+                TextInput8 As text:
+                    Default: =ThisItem.TCdelMes
+                    DisplayMode: |-
+                        =If(
+                            Txt_Fcst_Semana.DisplayMode = DisplayMode.Edit,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =41
+                    OnSelect: =Select(Parent)
+                    Width: =138
+                    Y: =40
+                    ZIndex: =2
+
+            Container5_2 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =2
+                Height: =430
+                Width: =781
+                X: =992
+                Y: =93
+                ZIndex: =3
+
+                Label34_9 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Week:"
+                    Width: =188
+                    X: =44
+                    Y: =40
+                    ZIndex: =1
+
+                Txt_Fcst_Semana As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).Ceco
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =40
+                    ZIndex: =2
+
+                Label34_12 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Fecha Inicio:"
+                    Width: =188
+                    X: =44
+                    Y: =108
+                    ZIndex: =3
+
+                Label34_13 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Fecha Fin:"
+                    Width: =188
+                    X: =44
+                    Y: =171
+                    ZIndex: =5
+
+                Label34_14 As label:
+                    Align: =Align.Right
+                    Height: =48
+                    PaddingRight: =12
+                    Text: |-
+                        ="Año:"
+                    Width: =188
+                    X: =44
+                    Y: =239
+                    ZIndex: =7
+
+                Txt_Fcst_Año As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Clear: =true
+                    Default: =First(Col_CecoSeleccionado).DuennoCeco
+                    DelayOutput: =true
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =48
+                    HoverFill: =Self.Fill
+                    PaddingLeft: =40
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =482
+                    X: =233
+                    Y: =239
+                    ZIndex: =8
+
+                Txt_FondoViaje_6 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =
+                    DisabledFill: |-
+                        =If(
+                            !_VarMostrarEdicionCeco,
+                            RGBA(244, 244, 244, 1),
+                            RGBA(255, 255, 255, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =482
+                    X: =233
+                    Y: =310
+                    ZIndex: =9
+
+                Dpd_Fcst_Moneda As dropdown:
+                    BorderColor: =
+                    BorderStyle: |
+                        =BorderStyle.None
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(0, 121, 187, 1)
+                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+                    Default: =First(Col_CecoSeleccionado).Estado
+                    DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =38
+                    HoverBorderColor: =RGBA(0, 121, 187, 1)
+                    Items: =["Activo","Inactivo"]
+                    OnChange: |-
+                        =If(
+                            IsBlank(First(ProyectoSeleccionado).IDDominio),
+                            Reset(Cmb_Gl_Equipo)
+                        )
+                    OnSelect: =Set(_VarMostrarBorde,!_VarMostrarBorde)
+                    PressedFill: =RGBA(0, 121, 187, 1)
+                    Reset: =ResetearControlPry
+                    Tooltip: =
+                    Width: =441
+                    X: =255
+                    Y: =315
+                    ZIndex: =10
+
+                Label34_15 As label:
+                    Align: =Align.Right
+                    Height: =50
+                    PaddingRight: =12
+                    Text: |-
+                        ="Tipo de Moneda:"
+                    Width: =188
+                    X: =44
+                    Y: =310
+                    ZIndex: =11
+
+                Icon21_2 As icon.CancelBadge:
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CancelBadge
+                    OnSelect: |
+                        =Set(_VarMostrarEdicionCeco,false);
+                        Clear(Col_SemanaSeleccionado);
+                        ClearCollect(Col_BD_Fcst_TipoCambioSemanas, Lst_Fcst_TipoCambioSemana)
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =674
+                    Y: =376
+                    ZIndex: =12
+
+                Icon22_2 As icon.CheckBadge:
+                    Color: =RGBA(54, 176, 75, 1)
+                    DisabledColor: =RGBA(77, 77, 77, 1)
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    Height: =40
+                    Icon: =Icon.CheckBadge
+                    OnSelect: |-
+                        =Set(
+                            _VarIDSemanaNuevo,
+                            Patch(
+                                LST_Fcst_MantenedorSemanas,
+                                If(
+                                    IsBlank(LookUp(LST_Fcst_MantenedorSemanas, ID = First(Col_SemanaSeleccionado).ID)),
+                                    Defaults(LST_Fcst_MantenedorSemanas),
+                                    LookUp(LST_Fcst_MantenedorSemanas, ID = First(Col_SemanaSeleccionado).ID)
+                                ),
+                                {
+                                    Semana: Txt_Fcst_Semana.Text,
+                                    Inicio: Dtp_Gl_FechaInicio.SelectedDate,
+                                    Fin: Dtp_Gl_FechaFin.SelectedDate,
+                                    Anno: Txt_Fcst_Año.Text,
+                                    TipoMoneda: Dpd_Fcst_Moneda.Selected.Value
+                                }
+                            ).ID
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(LST_Fcst_MantenedorSemanas)),
+                            ClearCollect(
+                            Col_SemanaSeleccionado,
+                                {
+                                    ID: _VarIDSemanaNuevo,
+                                    Semana: Txt_Fcst_Semana.Text,
+                                    Inicio: Dtp_Gl_FechaInicio.SelectedDate,
+                                    Fin: Dtp_Gl_FechaFin.SelectedDate,
+                                    Anno: Txt_Fcst_Año.Text,
+                                    TipoMoneda: Dpd_Fcst_Moneda.Selected.Value
+                                }
+                            );
+                        
+                            ForAll(
+                                Gl_Fcst_TipoCambio.AllItems As MesAct,
+                                Collect(
+                                    Lst_Fcst_TipoCambioSemana,
+                                    {
+                                        IDSemana: Text(_VarIDSemanaNuevo),
+                                        TipoMoneda:  Dpd_Fcst_Moneda.Selected.Value,
+                                        Anno:Txt_Fcst_Año.Text,
+                                        MesdelValor: MesAct.MesdelValor,
+                                        TCdelMes: MesAct.TCdelMes
+                                    }
+                                )
+                            );
+                            
+                            Notify("Se guardo la nueva semana para forecst",NotificationType.Success,6000)
+                        )
+                    Visible: |
+                        =_VarMostrarEdicionCeco
+                    Width: =40
+                    X: =620
+                    Y: =376
+                    ZIndex: =13
+
+                Icon20_6 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Edit
+                    OnSelect: =Set(_VarMostrarEdicionCeco,true);
+                    Visible: =_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =613
+                    Y: =376
+                    ZIndex: =14
+
+                Icon20_7 As icon.Edit:
+                    Height: =40
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =Set(_VarMostrarEdicionCeco,true);
+                        ClearCollect(Col_CecoSeleccionado,Dt_ListadoCeco.Selected)
+                    Visible: =_VarMostrarEdicionCeco
+                    Width: =51
+                    X: =664
+                    Y: =376
+                    ZIndex: =15
+
+                Txt_Gl_FondoFecha_2 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |-
+                        =If(
+                            !_VarMostrarEdicionCeco,
+                            RGBA(244, 244, 244, 1),
+                            RGBA(255, 255, 255, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =482
+                    X: =233
+                    Y: =108
+                    ZIndex: =16
+
+                Dtp_Gl_FechaInicio As datepicker:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    DefaultDate: =First(ProyectoSeleccionado).FechaGolive
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    EndYear: =Year(Today())+100
+                    Format: ="dd/mm/y"
+                    Height: =Txt_Gl_FondoFecha_2.Height - 10
+                    IconBackground: =Color.White
+                    IconFill: =RGBA(0, 121, 187, 1)
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    Reset: =ResetearControlPry
+                    StartYear: =1899
+                    Tooltip: =
+                    Width: =Txt_Gl_FondoFecha_2.Width - 27
+                    X: =250
+                    Y: =113
+                    ZIndex: =17
+
+                Txt_Gl_FondoFecha_3 As text:
+                    BorderColor: =RGBA(128, 128, 128, 1)
+                    BorderThickness: =3
+                    Default: =""
+                    DisabledFill: |-
+                        =If(
+                            !_VarMostrarEdicionCeco,
+                            RGBA(244, 244, 244, 1),
+                            RGBA(255, 255, 255, 1)
+                        )
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =482
+                    X: =232
+                    Y: =169
+                    ZIndex: =18
+
+                Dtp_Gl_FechaFin As datepicker:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    DefaultDate: =First(ProyectoSeleccionado).FechaGolive
+                    DisplayMode: |-
+                        =If(
+                            _VarMostrarEdicionCeco,
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    EndYear: =Year(Today())+100
+                    Format: ="dd/mm/y"
+                    Height: =Txt_Gl_FondoFecha_3.Height - 10
+                    IconBackground: =Color.White
+                    IconFill: =RGBA(0, 121, 187, 1)
+                    IsEditable: =true
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    Reset: =ResetearControlPry
+                    StartYear: =1899
+                    Tooltip: =
+                    Width: =Txt_Gl_FondoFecha_3.Width - 27
+                    X: =249
+                    Y: =174
+                    ZIndex: =19
+
+            Label34_16 As label:
+                Align: =Align.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =48
+                PaddingRight: =12
+                Text: ="Detalle "
+                Width: =158
+                X: =1013
+                Y: =68
+                ZIndex: =4
+
+            Icon20_8 As icon.Edit:
+                Height: =40
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =ClearCollect(
+                        Col_SemanaSeleccionado,
+                        {
+                            ID:9999999,
+                            Semana:"",
+                            Inicio:Today(),
+                            Fin: Today(),
+                            Anno:"",
+                            TipoMoneda:""
+                        }
+                    );
+                    
+                    ClearCollect(
+                        Col_MesesAutomatico,
+                        {Mes: "Enero"},
+                        {Mes: "Febrero"},
+                        {Mes: "Marzo"},
+                        {Mes: "Abril"},
+                        {Mes: "Mayo"},
+                        {Mes: "Junio"},
+                        {Mes: "Julio"},
+                        {Mes: "Agosto"},
+                        {Mes: "Setiembre"},
+                        {Mes: "Octubre"},
+                        {Mes: "Noviembre"},
+                        {Mes: "Diciembre"}
+                    )
+                    ;
+                    Clear(Col_BD_Fcst_TipoCambioSemanas);
+                    /*
+                    ForAll(
+                        Col_MesesAutomatico As MesAuto;
+                        Collect(
+                            Col_BD_Fcst_TipoCambioSemanas;
+                            {
+                                IDSemana:"9999999";
+                                TipoMoneda: "";
+                                Anno:"";
+                                MesdelValor: MesAuto.Mes;
+                                TCdelMes:""
+                            }
+                        )
+                    );;
+                    */
+                    
+                    Set(_VarMostrarEdicionCeco,true);
+                Visible: =_VarMostrarEdicionCeco
+                Width: =51
+                X: =786
+                Y: =12
+                ZIndex: =5
+
+        DataCard_Servicios As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =867
+            Visible: =_VarMostrarSeccion = "MantenedorServicios"
+            Width: =1920
+            X: =0
+            Y: =3
+            ZIndex: =4
+
+            Gallery15 As gallery.galleryVertical:
+                BorderColor: =RGBA(53, 61, 63, 1)
+                BorderThickness: =2
+                DelayItemLoading: =true
+                Height: =740
+                Items: |
+                    =If(
+                        _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                        Sort(Filter(Col_BD_Fcst_ServAsignados, StartsWith(InputData,Txt_BuscarenTabla.Text) || StartsWith(IDServicio,Txt_BuscarenTabla.Text), IsBlank(Cmb_FiltroInputData_Mantenedor.Selected.ImputData) || InputData = Cmb_FiltroInputData_Mantenedor.Selected.ImputData),Creado,SortOrder.Descending),
+                        Sort(Filter(Col_ServAsignados, StartsWith(Servicio,Txt_BuscarenTabla.Text)),Creado,SortOrder.Descending)
+                     )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =77
+                Width: =1860
+                X: =25
+                Y: =104
+                ZIndex: =1
+
+                Txt_NombreServicioNuevo As text:
+                    Default: =ThisItem.Servicio
+                    DisplayMode: |-
+                        =If(
+                            ThisItem.Editando,
+                            DisplayMode.Edit,
+                            DisplayMode.View
+                        )
+                    Height: =62
+                    Mode: =TextMode.MultiLine
+                    OnSelect: =Select(Parent)
+                    Reset: =_VarResetCtrlSer
+                    Size: =11
+                    Width: =493
+                    X: =110
+                    ZIndex: =2
+
+                Cmb_CecoNuevo As combobox:
+                    Default: =LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))
+                    DefaultSelectedItems: =LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayFields: =["NombreCeco","Ceco"]
+                    DisplayMode: |
+                        =If(
+                            ThisItem.Editando && IsBlank(LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))),
+                            DisplayMode.Edit,
+                            If(
+                                !IsBlank(LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))) && ThisItem.Editando,
+                                DisplayMode.Disabled,
+                                DisplayMode.View
+                            )
+                        )
+                    Height: =62
+                    InputTextPlaceholder: ="Buscar Ceco"
+                    Items: =Col_BD_Fcst_Ceco
+                    OnSelect: =Select(Parent)
+                    Reset: =_VarResetCtrlSer
+                    SearchFields: =["Ceco"]
+                    SearchItems: =Search(Col_BD_Fcst_Ceco,Cmb_CecoNuevo.SearchText,"Ceco")
+                    SelectMultiple: =false
+                    Size: =11
+                    Template: =ListItemTemplate.Double
+                    Tooltip: =LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco)).Ceco
+                    Width: =300
+                    X: =868
+                    ZIndex: =3
+
+                Cmb_CuentaNuevo As combobox:
+                    Default: =LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))
+                    DefaultSelectedItems: =LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayFields: =["NombreCuenta","Paquete"]
+                    DisplayMode: |
+                        =If(
+                            ThisItem.Editando && IsBlank(LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))),
+                            DisplayMode.Edit,
+                            If(
+                                !IsBlank(LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))) && ThisItem.Editando,
+                                DisplayMode.Disabled,
+                                DisplayMode.View
+                            )
+                        )
+                    Height: =62
+                    InputTextPlaceholder: ="Buscar Cuenta"
+                    Items: =Col_BD_Fcst_Cuenta
+                    OnSelect: =Select(Parent)
+                    Reset: =_VarResetCtrlSer
+                    SearchFields: =["Cuenta"]
+                    SearchItems: =Search(Col_BD_Fcst_Cuenta,Cmb_CuentaNuevo.SearchText,"Cuenta")
+                    SelectMultiple: =false
+                    Size: =11
+                    Template: =ListItemTemplate.Double
+                    Tooltip: =LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta)).Paquete
+                    Width: =396
+                    X: =1180
+                    ZIndex: =4
+
+                Dpd_TipoMonedaNuevo As dropdown:
+                    Default: =ThisItem.TipoMoneda
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayMode: |
+                        =If(
+                            ThisItem.Editando && IsBlank(ThisItem.TipoMoneda),
+                            DisplayMode.Edit,
+                            If(
+                                !IsBlank(ThisItem.TipoMoneda) && ThisItem.Editando,
+                                DisplayMode.Disabled,
+                                DisplayMode.View
+                            )
+                        )
+                    Height: =62
+                    Items: =["CLP","UF","USD"]
+                    OnSelect: =Select(Parent)
+                    Reset: =_VarResetCtrlSer
+                    Size: =11
+                    Width: =79
+                    X: =1590
+                    ZIndex: =5
+
+                Icon17 As icon.CancelBadge:
+                    Height: =35
+                    Icon: =Icon.CancelBadge
+                    OnSelect: |-
+                        =If(
+                            _VarValAdmin,
+                            Patch(Col_BD_Fcst_ServAsignados,ThisItem,{Editando: false}),
+                            Patch(Col_ServAsignados,ThisItem,{Editando: false})
+                         );
+                        
+                         UpdateContext({_VarResetCtrlSer:true})
+                    Width: =35
+                    X: =1792
+                    Y: =17
+                    ZIndex: =6
+
+                Icon17_3 As icon.CancelBadge:
+                    DisabledColor: =RGBA(53, 61, 63, 1)
+                    DisplayMode: |-
+                        =If(
+                            !ThisItem.Editando,
+                            DisplayMode.Edit,
+                            If(
+                                IsBlank(Txt_NombreServicioNuevo.Text) Or
+                                IsBlank(Cmb_InputDataNuevo.Selected.InputData) Or
+                                IsEmpty(Cmb_InputDataNuevo.SelectedItems) Or
+                                IsBlank(Cmb_CecoNuevo.Selected.Ceco) Or
+                                IsEmpty(Cmb_CecoNuevo.SelectedItems) Or
+                                IsBlank(Cmb_CuentaNuevo.Selected.Cuenta) Or
+                                IsEmpty(Cmb_CuentaNuevo.SelectedItems) Or
+                                IsBlank(Dpd_TipoMonedaNuevo.Selected.Value),
+                                DisplayMode.Disabled,
+                                DisplayMode.Edit
+                            )
+                        )
+                    Height: =35
+                    Icon: |-
+                        =If(
+                            ThisItem.Editando,
+                            Icon.Save,
+                            Icon.Edit
+                        )
+                    OnSelect: |
+                        = UpdateContext({_VarResetCtrlSer:false});
+                         Refresh(Lst_Fcst_Correlativo);
+                        
+                        If(
+                            _VarValAdmin,
+                            If(
+                                !ThisItem.Editando,
+                                Patch(Col_BD_Fcst_ServAsignados,ThisItem,{Editando: true}),
+                                //Notify("Entro AQUI";NotificationType.Success);;
+                                Set(_VarCodServ,
+                                    Patch(
+                                        Lst_Fcst_Servicios,
+                                        If(
+                                            IsBlank(LookUp(Lst_Fcst_Servicios, CODSERVICIO = ThisItem.IDServicio)),
+                                            Defaults(Lst_Fcst_Servicios),
+                                            LookUp(Lst_Fcst_Servicios, CODSERVICIO = ThisItem.IDServicio)
+                                        ),
+                                        {
+                                            CODSERVICIO: If(IsBlank(ThisItem.IDServicio),"CN-0"& First(Lst_Fcst_Correlativo).ServicioNuevo + 1,ThisItem.IDServicio),
+                                            SERVICIO: Txt_NombreServicioNuevo.Text
+                                        }
+                                    ).CODSERVICIO
+                                );
+                        
+                                If(
+                                    IsEmpty(Errors(Lst_Fcst_Servicios)),
+                                    Set( IDServAsig,
+                                        Patch(
+                                            Lst_Fcst_ServiciosAsignados,
+                                            If(
+                                                IsBlank(LookUp(Col_BD_Fcst_ServAsignados, IDServicio = _VarCodServ)),
+                                                Defaults(Lst_Fcst_ServiciosAsignados),
+                                                LookUp(Col_BD_Fcst_ServAsignados, IDServicio = _VarCodServ)
+                                            ),
+                                            {
+                                                Usuario: Cmb_InputDataNuevo.Selected.IDInputData,
+                                                InputData: Cmb_InputDataNuevo.Selected.InputData,
+                                                IDServicio: _VarCodServ,
+                                                Servicio: Txt_NombreServicioNuevo.Text,
+                                                TipoMoneda: Dpd_TipoMonedaNuevo.Selected.Value
+                                            }
+                                        ).ID
+                                    );
+                        
+                                    Patch(
+                                        Lst_ServicioCuentaCeco,
+                                        If(
+                                            IsBlank(LookUp(Lst_ServicioCuentaCeco, IDServicio = _VarCodServ)),
+                                            Defaults(Lst_ServicioCuentaCeco),
+                                            LookUp(Lst_ServicioCuentaCeco, IDServicio = _VarCodServ)
+                                        ),
+                                        {
+                                            IDServicio: _VarCodServ,
+                                            Cuenta: Cmb_CuentaNuevo.Selected.Cuenta,
+                                            Ceco: Cmb_CecoNuevo.Selected.Ceco
+                                        }
+                                    );
+                        
+                                    Refresh(Lst_Fcst_ServiciosAsignados);
+                                    ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco);
+                                    
+                                    Patch(
+                                        Col_BD_Fcst_ServAsignados,
+                                        ThisItem,
+                                        {
+                                            ID: IDServAsig,
+                                            Usuario: Cmb_InputDataNuevo.Selected.IDInputData,
+                                            InputData: Cmb_InputDataNuevo.Selected.InputData,
+                                            IDServicio: _VarCodServ,
+                                            Servicio: Txt_NombreServicioNuevo.Text,
+                                            TipoMoneda: Dpd_TipoMonedaNuevo.Selected.Value,
+                                            Editando: false
+                                        }
+                                    );
+                        
+                                    If(
+                                        _VarNuevoServicio,
+                                        Patch(
+                                            Lst_Fcst_Correlativo,
+                                            {ID: 1},
+                                            {
+                                                ServicioNuevo: First(Lst_Fcst_Correlativo).ServicioNuevo + 1
+                                            }  
+                                        )
+                                    );
+                                    UpdateContext({_VarNuevoServicio:false})  
+                                )     
+                            ),
+                            If(
+                                !ThisItem.Editando,
+                                Patch(Col_ServAsignados,ThisItem,{Editando: true}),
+                                Set(_VarCodServ,
+                                    Patch(
+                                        Lst_Fcst_Servicios,
+                                        If(
+                                            IsBlank(LookUp(Lst_Fcst_Servicios, CODSERVICIO = ThisItem.IDServicio)),
+                                            Defaults(Lst_Fcst_Servicios),
+                                            LookUp(Lst_Fcst_Servicios, CODSERVICIO = ThisItem.IDServicio)
+                                        ),
+                                        {
+                                            CODSERVICIO: If(IsBlank(ThisItem.IDServicio),"CN-0"& First(Lst_Fcst_Correlativo).ServicioNuevo + 1,ThisItem.IDServicio),
+                                            SERVICIO: Txt_NombreServicioNuevo.Text
+                                        }
+                                    ).CODSERVICIO
+                                );
+                        
+                                If(
+                                    IsEmpty(Errors(Lst_Fcst_Servicios)),
+                                    Set( IDServAsig,
+                                        Patch(
+                                            Lst_Fcst_ServiciosAsignados,
+                                            If(
+                                                IsBlank(LookUp(Col_ServAsignados, IDServicio = _VarCodServ)),
+                                                Defaults(Lst_Fcst_ServiciosAsignados),
+                                                LookUp(Col_ServAsignados, IDServicio = _VarCodServ)
+                                            ),
+                                            {
+                                                Usuario: Cmb_InputDataNuevo.Selected.IDInputData,
+                                                InputData: Cmb_InputDataNuevo.Selected.InputData,
+                                                IDServicio: _VarCodServ,
+                                                Servicio: Txt_NombreServicioNuevo.Text,
+                                                TipoMoneda: Dpd_TipoMonedaNuevo.Selected.Value
+                                            }
+                                        ).ID
+                                    );
+                                    
+                                    Patch(
+                                        Lst_ServicioCuentaCeco,
+                                        If(
+                                            IsBlank(LookUp(Lst_ServicioCuentaCeco, IDServicio = _VarCodServ)),
+                                            Defaults(Lst_ServicioCuentaCeco),
+                                            LookUp(Lst_ServicioCuentaCeco, IDServicio = _VarCodServ)
+                                        ),
+                                        {
+                                            IDServicio: _VarCodServ,
+                                            Cuenta: Cmb_CuentaNuevo.Selected.Cuenta,
+                                            Ceco: Cmb_CecoNuevo.Selected.Ceco
+                                        }
+                                    );
+                        
+                                    Refresh(Lst_Fcst_ServiciosAsignados);
+                                    ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco);
+                        
+                                    Patch(
+                                        Col_ServAsignados,
+                                        ThisItem,
+                                        {
+                                            ID: IDServAsig,
+                                            Usuario: Cmb_InputDataNuevo.Selected.IDInputData,
+                                            InputData: Cmb_InputDataNuevo.Selected.InputData,
+                                            IDServicio: _VarCodServ,
+                                            Servicio: Txt_NombreServicioNuevo.Text,
+                                            TipoMoneda: Dpd_TipoMonedaNuevo.Selected.Value,
+                                            Editando: false
+                                        }
+                                    );
+                        
+                                    If(
+                                        _VarNuevoServicio,
+                                        Patch(
+                                            Lst_Fcst_Correlativo,
+                                            {ID: 1},
+                                            {
+                                                ServicioNuevo: First(Lst_Fcst_Correlativo).ServicioNuevo + 1
+                                            }  
+                                        )
+                                    );
+                                    UpdateContext({_VarNuevoServicio:false})
+                                )
+                            )
+                         );
+                        
+                         Refresh(Lst_Fcst_Correlativo)
+                    Width: =35
+                    X: =1749
+                    Y: =17
+                    ZIndex: =7
+
+                Cmb_InputDataNuevo As combobox:
+                    Default: =LookUp(Col_BD_Fcst_Responsable, IDInputData = ThisItem.Usuario)
+                    DefaultSelectedItems: =LookUp(Col_BD_Fcst_Responsable, IDInputData = ThisItem.Usuario)
+                    DisplayFields: =["InputData","IDInputData"]
+                    DisplayMode: |-
+                        =If(
+                            ThisItem.Editando,
+                            DisplayMode.Edit,
+                            DisplayMode.View
+                        )
+                    Height: =62
+                    Items: =Lst_Fcst_Responsable
+                    OnSelect: =Select(Parent)
+                    Reset: =_VarResetCtrlSer
+                    SearchFields: =["InputData"]
+                    SearchItems: =Search(Lst_Fcst_Responsable,Cmb_InputDataNuevo.SearchText,"InputData")
+                    SelectMultiple: =false
+                    Size: =11
+                    Template: =ListItemTemplate.Double
+                    Width: =239
+                    X: =617
+                    ZIndex: =8
+
+                Rectangle36 As rectangle:
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =2
+                    OnSelect: =Select(Parent)
+                    Width: =1830
+                    X: =12
+                    Y: =69
+                    ZIndex: =9
+
+                Lbl_CodigoServicioNuevo As text:
+                    Default: =ThisItem.IDServicio
+                    DisplayMode: |-
+                        =If(
+                            ThisItem.Editando && !IsBlank(ThisItem.IDServicio) && (_VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = Upper("j0e03yj")), //|| _VarUsuarioJefe = "VN54CEU" || 
+                            DisplayMode.Edit,
+                            DisplayMode.View
+                        )
+                    Height: =62
+                    Mode: =TextMode.MultiLine
+                    OnChange: |+
+                        =UpdateContext({_VarIDServicioOld:ThisItem.IDServicio});
+                        
+                        Patch(
+                            Lst_Fcst_Servicios,
+                            LookUp(Lst_Fcst_Servicios,CODSERVICIO = _VarIDServicioOld),
+                            {
+                                CODSERVICIO: Lbl_CodigoServicioNuevo.Text
+                            }
+                        );
+                        
+                        If(
+                            IsEmpty(Errors(Lst_Fcst_Servicios)),
+                            Patch(
+                                Lst_Fcst_ServiciosAsignados,
+                                LookUp(Lst_Fcst_ServiciosAsignados,IDServicio = _VarIDServicioOld),
+                                {
+                                    IDServicio: Lbl_CodigoServicioNuevo.Text
+                                }
+                            );
+                        
+                            Patch(
+                                Lst_ServicioCuentaCeco,
+                                LookUp(Lst_ServicioCuentaCeco,IDServicio = _VarIDServicioOld),
+                                {
+                                    IDServicio: Lbl_CodigoServicioNuevo.Text
+                                }
+                            );
+                            Refresh(Lst_ServicioCuentaCeco);
+                            ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco);
+                        
+                             Patch(
+                                Col_BD_Fcst_ServAsignados,
+                                ThisItem,
+                                {
+                                    IDServicio: Lbl_CodigoServicioNuevo.Text
+                                }
+                             );
+                        
+                             Notify("Se actualizo el código de manera correcta", NotificationType.Success,6000),
+                             Notify("No se actualizo el código, favor de volver a intentar.", NotificationType.Error,6000)
+                        
+                        )
+                        
+                    OnSelect: =Select(Parent)
+                    Size: =11
+                    Width: =97
+                    X: =4
+                    ZIndex: =10
+
+            TextInput16 As text:
+                Align: =Align.Center
+                BorderThickness: =0
+                Default: ="Cod."
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                RadiusTopLeft: =20
+                Size: =12
+                Width: =96
+                X: =25
+                Y: =59
+                ZIndex: =2
+
+            TextInput16_1 As text:
+                BorderThickness: =0
+                Default: ="         Nombre Servicio"
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Size: =12
+                Width: =500
+                X: =116
+                Y: =59
+                ZIndex: =3
+
+            TextInput16_3 As text:
+                BorderThickness: =0
+                Default: ="                 Ceco"
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Size: =12
+                Width: =319
+                X: =888
+                Y: =59
+                ZIndex: =6
+
+            TextInput16_4 As text:
+                BorderThickness: =0
+                Default: ="             Cuenta"
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Size: =12
+                Width: =399
+                X: =1201
+                Y: =59
+                ZIndex: =7
+
+            TextInput16_5 As text:
+                BorderThickness: =0
+                Default: =" Tipo Moneda"
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Size: =12
+                Width: =150
+                X: =1594
+                Y: =59
+                ZIndex: =8
+
+            TextInput16_6 As text:
+                BorderThickness: =0
+                Default: ="                     Inputdata"
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(15, 108, 189, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Size: =12
+                Width: =284
+                X: =610
+                Y: =59
+                ZIndex: =9
+
+            Button30 As button:
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(15, 108, 189, 1)
+                HoverFill: =RGBA(15, 108, 189, 1)
+                OnSelect: |-
+                    =If(
+                        _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = Upper("j0e03yj") || _VarUsuarioJefe = "VN54CEU",
+                        Patch(
+                            Col_BD_Fcst_ServAsignados,
+                            Defaults(Col_BD_Fcst_ServAsignados),
+                            {
+                                Usuario: "",
+                                InputData: "",
+                                IDServicio: "",
+                                Servicio: "",
+                                TipoMoneda: "",
+                                Creado: Now(),
+                                Editando: true
+                            }
+                        ),
+                        Patch(
+                            Col_ServAsignados,
+                            Defaults(Col_ServAsignados),
+                            {
+                                Usuario: "",
+                                InputData: "",
+                                IDServicio: "",
+                                Servicio: "",
+                                TipoMoneda: "",
+                                Creado: Now(),
+                                Editando: true
+                            }
+                        )
+                    );
+                    
+                    UpdateContext({_VarNuevoServicio:true});
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =20
+                Size: =12
+                Text: ="+ agregar Serv."
+                Width: =147
+                X: =1738
+                Y: =59
+                ZIndex: =10
+
+    Gallery11 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =49
+        Items: |
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+               [
+            {Nombre: "Servicios", Seccion: "MantenedorServicios", Permiso: true},
+            {Nombre: "Ceco", Seccion: "MantenedorCeco", Permiso: true},
+            {Nombre: "Cuenta", Seccion: "MantenedorCuenta", Permiso: true},
+            {Nombre: "Semana", Seccion: "MantenedorSemana", Permiso: true}
+            ],
+            [
+            {Nombre: "Servicios", Seccion: "MantenedorServicios", Permiso: true}
+            ]
+            )
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =163
+        Width: |-
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                687,
+                200
+            )
+        X: |-
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                1228,
+                1700
+            )
+        Y: =104
+        ZIndex: =28
+
+        Button13 As button:
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisplayMode: |-
+                =If(
+                    ThisItem.Permiso,
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            OnSelect: |+
+                =UpdateContext({_VarMostrarSeccion:ThisItem.Seccion})
+                
+            RadiusBottomLeft: =
+            RadiusBottomRight: =0
+            Text: =ThisItem.Nombre
+            ZIndex: =1
+
+    Txt_BuscarenTabla As text:
+        Clear: =true
+        Default: =""
+        HintText: ="Buscar"
+        Width: |-
+            =If(
+                _VarMostrarSeccion = "MantenedorServicios",
+                740,
+                320
+            )
+        X: =18
+        Y: =102
+        ZIndex: =29
+
+    Rd_Estado As radio:
+        BorderStyle: =BorderStyle.None
+        Default: ="Activo"
+        Height: =60
+        Items: =["Activo","Inactivo"]
+        Layout: =Layout.Horizontal
+        LineHeight: =1
+        RadioSize: =30
+        Visible: =!(_VarMostrarSeccion = "MantenedorServicios")
+        Width: =257
+        X: =338
+        Y: =95
+        ZIndex: =30
+
+    Label33 As label:
+        Text: |-
+            ="Buscar:"
+        Width: =100
+        X: =18
+        Y: =64
+        ZIndex: =31
+
+    Label33_1 As label:
+        Text: |-
+            ="Estado:"
+        Visible: =!(_VarMostrarSeccion = "MantenedorServicios")
+        Width: =100
+        X: =352
+        Y: =62
+        ZIndex: =32
+
+    Cmb_FiltroInputData_Mantenedor As combobox:
+        Default: |-
+            ={ImputData: "Felipe Tagle"}
+        DefaultSelectedItems: |-
+            =Table({ImputData: "Felipe Tagle"})
+        DisplayFields: =["ImputData","IDInputData"]
+        InputTextPlaceholder: ="Buscar InputData"
+        Items: =GroupBy(Lst_Fcst_Detalle,"ImputData","IPData")
+        SearchFields: =["ImputData"]
+        SearchItems: =Search(GroupBy(Lst_Fcst_Detalle,"ImputData","IPData"),Cmb_FiltroInputData_Mantenedor.SearchText,"ImputData")
+        SelectMultiple: =false
+        Template: =ListItemTemplate.Double
+        Visible: |-
+            =If( 
+                _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
+                true,
+                false
+            )
+        X: =781
+        Y: =102
+        ZIndex: =34
+

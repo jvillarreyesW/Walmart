@@ -1,0 +1,451 @@
+MenuPrincipal As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =670
+    NombreSubMenu: =
+    PermisoData: =true
+    PermisoPersona: =true
+    SubTabla: =M_Secundario
+    SubTablaN2: |-
+        =Table({Relacionado: "PPP", SubMenu:"Gestionar"},{Relacionado: "PPP", SubMenu:"Dashboard"})
+    TablaPrincipal: =M_Principal
+    Width: =1400
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Menu As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =669
+        Items: =MenuPrincipal.TablaPrincipal
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: |-
+            =Reset(SubMenu);
+            Set(BotonSeleccionado, ThisItem.Titulo);
+            Set(IDSeleccionado,ThisItem.ID);
+            
+            If(
+                BotonSeleccionado = "Administrar",
+                If(startTimer3,
+                    Set(startTimer3, false) ;
+                    Set(startTimer4, false) ; 
+                    Set(startTimer5, false);
+                    Reset(Timer1_1);
+                    Reset(Timer2_1);
+                    Reset(Timer3_1)
+                    ,
+                    Set(startTimer3, true);
+                    Set(startTimer4, false) ; 
+                    Set(startTimer5, false) ; 
+                    Reset(Timer3_1);
+                    Reset(Timer2_1)
+                ),
+                If(
+                    BotonSeleccionado = "Dashboard",
+                    If(startTimer4,
+                        Set(startTimer4, false) ; 
+                        Set(startTimer3, false) ; 
+                        Set(startTimer5, false) ;
+                        Reset(Timer1_1);
+                        Reset(Timer2_1); 
+                        Reset(Timer3_1)
+                        ,
+                        Set(startTimer4, true);
+                        Set(startTimer3, false) ; 
+                        Set(startTimer5, false) ; 
+                        Reset(Timer3_1);
+                        Reset(Timer1_1);
+                    ),
+                        If(
+                        BotonSeleccionado = "Ayuda",
+                        If(startTimer5,
+                            Set(startTimer5, false) ; 
+                            Set(startTimer4, false) ; 
+                            Set(startTimer3, false) ; 
+                            Reset(Timer1_1);
+                            Reset(Timer2_1);
+                            Reset(Timer3_1)
+                            ,
+                            Set(startTimer5, true);
+                            Set(startTimer4, false);
+                            Set(startTimer3, false) ; 
+                            Reset(Timer2_1);
+                            Reset(Timer1_1);
+                        )
+                    )
+                )
+            )
+        TemplateSize: =446
+        Width: =1398
+        ZIndex: =1
+
+        Button1 As button:
+            Fill: =RGBA(4, 31, 65, 1)
+            Font: =Font
+            Height: =59
+            OnSelect: |-
+                =Reset(SubMenu);
+                Set(BotonSeleccionado, ThisItem.Titulo);
+                Set(IDSeleccionado,ThisItem.ID);
+                Set(_VarMenuSelec,ThisItem.Titulo);
+                
+                If(
+                    BotonSeleccionado = "Administrar",
+                    If(startTimer3,
+                        Set(startTimer3, false) ;
+                        Set(startTimer4, false) ; 
+                        Set(startTimer5, false);
+                        Reset(Timer1_1);
+                        Reset(Timer2_1);
+                        Reset(Timer3_1)
+                        ,
+                        Set(startTimer3, true);
+                        Set(startTimer4, false) ; 
+                        Set(startTimer5, false) ; 
+                        Reset(Timer3_1);
+                        Reset(Timer2_1)
+                    ),
+                    If(
+                        BotonSeleccionado = "Dashboard",
+                        If(startTimer4,
+                            Set(startTimer4, false) ; 
+                            Set(startTimer3, false) ; 
+                            Set(startTimer5, false) ;
+                            Reset(Timer1_1);
+                            Reset(Timer2_1); 
+                            Reset(Timer3_1)
+                            ,
+                            Set(startTimer4, true);
+                            Set(startTimer3, false) ; 
+                            Set(startTimer5, false) ; 
+                            Reset(Timer3_1);
+                            Reset(Timer1_1);
+                        ),
+                            If(
+                            BotonSeleccionado = "Ayuda",
+                            If(startTimer5,
+                                Set(startTimer5, false) ; 
+                                Set(startTimer4, false) ; 
+                                Set(startTimer3, false) ; 
+                                Reset(Timer1_1);
+                                Reset(Timer2_1);
+                                Reset(Timer3_1)
+                                ,
+                                Set(startTimer5, true);
+                                Set(startTimer4, false);
+                                Set(startTimer3, false) ; 
+                                Reset(Timer2_1);
+                                Reset(Timer1_1);
+                            )
+                        )
+                    )
+                )
+            Text: =ThisItem.Titulo
+            Width: =250
+            X: =86
+            Y: =22
+            ZIndex: =1
+
+        ManageLabel_3 As label:
+            Align: =Align.Center
+            Color: =RGBA(4, 31, 65, 1)
+            FontWeight: =FontWeight.Semibold
+            Size: =16
+            Text: =ThisItem.SubTitulo
+            Width: =347
+            X: =37
+            Y: =91
+            ZIndex: =2
+
+        SubMenu As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DelayItemLoading: =true
+            Height: =481
+            Items: =Filter(MenuPrincipal.SubTabla, ID = IDSeleccionado)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplateSize: =57
+            Transition: =Transition.Pop
+            Visible: =ThisItem.IsSelected
+            Width: =446
+            Y: =156
+            ZIndex: =3
+
+            Btn_ProductoProyecto_1 As button:
+                Align: =Align.Left
+                Color: =RGBA(4, 31, 65, 1)
+                DisplayMode: |-
+                    =If(
+                        ThisItem.Permiso,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Fill: =ColorFade(RGBA(255, 255, 255, 0), 0%)
+                Font: ="Bogle"
+                FontWeight: =FontWeight.Normal
+                Height: =35
+                OnSelect: |-
+                    =If(
+                        IDSeleccionado = 0,
+                        If(
+                            ThisItem.SubMenu = "Lista de Productos" || ThisItem.SubMenu = "Auditoria" || ThisItem.SubMenu = "Servicio" ,
+                            If(
+                                PermisoUsuario.servicioData,
+                                Set(_VarMenuSelec,ThisItem.SubMenu);
+                                Navigate(ModuloData,ScreenTransition.CoverRight),
+                                    If(
+                                    PermisoUsuario.Auditoria,
+                                    Set(_VarMenuSelec,ThisItem.SubMenu);
+                                    Navigate(ModuloAuditoria,ScreenTransition.CoverRight),
+                                    Set(_VarMenuSelec,ThisItem.SubMenu);
+                                    Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:"Producto"})
+                                )
+                            ),
+                    
+                            If(
+                                ThisItem.SubMenu = "Solicitud Contrato Proveedores",
+                                Set(_VarMenuSelec,ThisItem.SubMenu);
+                                Navigate(SolicitudesProveedor,ScreenTransition.CoverRight,{Valor:"Proyecto"}),
+                                If(
+                                    ThisItem.SubMenu = "Lista de Proyectos",
+                                    Set(_VarMenuSelec,ThisItem.SubMenu);
+                                    Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:"Proyecto"}),
+                                    If(
+                                        ThisItem.SubMenu = "Servicios Tecnología",
+                                        Set(_VarMenuSelec,ThisItem.SubMenu);
+                                        Navigate(ServiciosTech,ScreenTransition.CoverRight),
+                                    
+                                        If(
+                                            ThisItem.SubMenu = "Personas",
+                                            Set(_VarMenuSelec,ThisItem.SubMenu);
+                                            Navigate(ModuloPersona,ScreenTransition.CoverRight),
+                                            If(
+                                                ThisItem.SubMenu = "Opportunity Assessment",
+                                                Set(_VarMenuSelec,ThisItem.SubMenu);
+                                                Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal"),
+                                                If(
+                                                    ThisItem.SubMenu = "Fcst",
+                                                    Set(_VarMenuSelec,ThisItem.SubMenu);
+                                                    Navigate(GestionFcst,ScreenTransition.Fade),
+                                                    If(
+                                                        ThisItem.SubMenu = "PPP",
+                                                        Set(_VarMenuSelec,ThisItem.SubMenu)
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        If(
+                            IDSeleccionado = 1,
+                                    If(
+                                ThisItem.SubMenu ="Organigrama",
+                                Launch("https://app.powerbi.com/Redirect?action=OpenReport&appId=e1290d0b-33c6-4038-bb60-8293995f520d&reportObjectId=c5e45737-1799-4739-892c-e7148426185e&ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&reportPage=ReportSection11e2fb1f6c5bd727fe2b&pbi_source=appShareLink&portalSessionId=a7e0655a-d170-40bf-a00b-9286baf5f94a"),
+                                        If(
+                                        ThisItem.SubMenu ="Roadmap Walmart Tech",
+                                        Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/90a4329c-7687-4aa7-9732-042eb267d454/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                        If(
+                                            ThisItem.SubMenu ="KPI",
+                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/f9d5fa53-7d93-48b9-a1e6-495819ed9a77/ReportSectionabb163607decac0771e9?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                            If(
+                                                ThisItem.SubMenu ="Personas",
+                                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSectionde126829460e0b57911b?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                If(
+                                                    ThisItem.SubMenu ="Opportunity Assessment",
+                                                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/48e6ded5-6162-48f3-9762-ab0af5baa5f2/ReportSectiond75284fbe6005e84b29e?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                    If(
+                                                        ThisItem.SubMenu ="Estrategia",
+                                                        Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2c586354-e6f5-42a9-b76c-12094b80219f/ReportSectionad5efd82f030a454aeaa?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                        If(
+                                                            ThisItem.SubMenu ="International Monthly Report",
+                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/49eb77e0-9b4b-4ed1-96f1-863611b903bf/ReportSection4155f03508ecd0cd330d?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                            If(
+                                                                ThisItem.SubMenu ="Capitalización",
+                                                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/7da42a5a-cb3a-4650-8131-d9828134f725/ReportSection8c764697e730f7446c9b?experience=power-bi
+                            "),
+                                                                If(
+                                                                    ThisItem.SubMenu ="Code Yellow",
+                                                                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/17a0a2fb-7810-4705-ad13-51260bc586d0/ReportSection3fc7ad15af466f6842b8?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                                    If(
+                                                                        ThisItem.SubMenu ="Programas",
+                                                                        Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/a6df0060-15a5-43b8-b297-cc2d3796310b/ReportSection10abdf753679c60477dc?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                                        If(
+                                                                            ThisItem.SubMenu ="Seguimiento OI/OE",
+                                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/794c6b79-2ef3-4d5d-a93e-b41842780aef/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                            If(
+                                                                                ThisItem.SubMenu = "Completitud",
+                                                                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9f03d9ce-3674-478e-996c-3b7ab77ecd32/ReportSection6919644c4212a78e8341?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d"),
+                                                                                If(
+                                                                                    ThisItem.SubMenu = "HeadCount",
+                                                                                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/8c3c82df-5242-4c55-9ba7-6abac2a56b24?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                    If(
+                                                                                        ThisItem.SubMenu = "Infosec",
+                                                                                        Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2779ce08-b506-4e37-955d-8d8bf28406d4/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                        If(
+                                                                                            ThisItem.SubMenu = "Auditoria",
+                                                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/11e3b0ad-5b07-4a83-a37e-9988a52aeeb0/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                            If(
+                                                                                                ThisItem.SubMenu = "Seguimiento de proyectos",
+                                                                                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9e06fb09-d313-42fb-ba00-5be4f3dd6236/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                                If(
+                                                                                                    ThisItem.SubMenu = "Seguimiento Datos",
+                                                                                                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/39ec915b-f306-460b-852c-d6db63b6f15d/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                                    If(
+                                                                                                        ThisItem.SubMenu = "Plan Tech 2023",
+                                                                                                        Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/74ec20d0-364e-4fda-8a6c-b8d7563fcf4d/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                                        If(
+                                                                                                            ThisItem.SubMenu = "Seguimiento servicios tecnologicos",
+                                                                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                                                                                                        )
+                                                                                                    )
+                                                                                        )
+                                                                                    )
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                            If(
+                                IDSeleccionado = 2,
+                                    If(
+                                    ThisItem.SubMenu = "Onboarding",
+                                    Launch("https://confluence.walmart.com/display/CLAPMO/Onboarding+Tech+Portfolio"),
+                                    If(
+                                        ThisItem.SubMenu = "Contáctate con nosotros",
+                                        Launch("https://wmt-chile.slack.com/archives/C02UUPQM7QR"),
+                                        If(
+                                            ThisItem.SubMenu = "Déjanos tu feedback",
+                                            Launch("https://feedbackally.walmart.com/survey/z7iE9PpIcMXNNbd")
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                PaddingLeft: =10
+                Size: =13
+                Text: =ThisItem.SubMenu
+                Visible: =startTimer3 || startTimer4 || startTimer5
+                Width: |-
+                    = If(startTimer3,300 + - 300*Cos(Timer1_1.Value/Timer1_1.Duration *(Pi()/2)) ,
+                     If(startTimer4,300 + - 300*Cos(Timer2_1.Value/Timer2_1.Duration *(Pi()/2)) , 
+                     If(startTimer5,300 + - 300*Cos(Timer3_1.Value/Timer3_1.Duration *(Pi()/2)) , 0)))
+                     
+                X: =75
+                Y: =11
+                ZIndex: =1
+
+            Image9_19 As image:
+                Height: =25
+                Image: =sp16
+                Width: |-
+                    = If(startTimer3,25 + - 25*Cos(Timer1_1.Value/Timer1_1.Duration *(Pi()/2)) ,
+                     If(startTimer4,25 + - 25*Cos(Timer2_1.Value/Timer2_1.Duration *(Pi()/2)) , 
+                     If(startTimer5,25 + - 25*Cos(Timer3_1.Value/Timer3_1.Duration *(Pi()/2)) , 0)))
+                     
+                     
+                X: =40
+                Y: =16
+                ZIndex: =2
+
+    Timer1_1 As timer:
+        AutoPause: =false
+        Duration: =550
+        Font: =
+        Reset: =true
+        Start: =startTimer3
+        Text: =Timer1_1.Value
+        Visible: =false
+        X: =294
+        Y: =20
+        ZIndex: =4
+
+    Timer2_1 As timer:
+        AutoPause: =false
+        Duration: =550
+        Reset: =true
+        Start: =startTimer4
+        Text: =Timer2_1.Value
+        Visible: =false
+        X: =513
+        Y: =20
+        ZIndex: =6
+
+    Timer3_1 As timer:
+        AutoPause: =false
+        Duration: =550
+        Reset: =true
+        Start: =startTimer5
+        Text: =Timer3_1.Value
+        Visible: =false
+        X: =732
+        Y: =20
+        ZIndex: =7
+
+    "Gallery9 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =123
+        Items: =MenuPrincipal.SubTablaN2
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =60
+        Visible: =_VarMenuSelec = "PPP" && startTimer3
+        Width: =244
+        X: =385
+        Y: =CountRows(Filter(MenuPrincipal.SubTabla, ID = 0))*57 +130
+        ZIndex: =8
+
+        Image9_21 As image:
+            Height: =25
+            Image: =sp16
+            Width: |-
+                =/*
+                 If(startTimer3;25 + - 25*Cos(Timer1_1.Value/Timer1_1.Duration *(Pi()/2)) ;
+                 If(startTimer4;25 + - 25*Cos(Timer2_1.Value/Timer2_1.Duration *(Pi()/2)) ; 
+                 If(startTimer5;25 + - 25*Cos(Timer3_1.Value/Timer3_1.Duration *(Pi()/2)) ; 0)))
+                 */
+                 25
+            X: =5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Btn_ProductoProyecto_2 As button:
+            Align: =Align.Left
+            Color: =RGBA(4, 31, 65, 1)
+            Fill: =ColorFade(RGBA(255, 255, 255, 0), 0%)
+            Font: ="Bogle"
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            OnSelect: |-
+                =If(
+                    ThisItem.SubMenu = "Gestionar",
+                    Set(_VarMenuSelec,ThisItem.SubMenu);
+                    Navigate(Iniciativas,ScreenTransition.Fade),
+                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/3ecf92a8-5a80-432d-a20f-3199e059ab8c/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                )
+            PaddingLeft: =10
+            Size: =11
+            Text: =ThisItem.SubMenu
+            Visible: |-
+                =//startTimer3 || startTimer4 || startTimer5
+                true
+            Width: =Parent.TemplateWidth -86
+            X: =30
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =5
+
