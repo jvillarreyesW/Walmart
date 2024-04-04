@@ -814,12 +814,9 @@ GestionFcst As screen:
         FontWeight: =FontWeight.Semibold
         Height: =90
         Size: =18
-        Text: |-
-            ="Semana: W8"
-            /*
-            "Semana: " & First(Col_SemanaEnCurso).Semana & Char(13)
+        Text: |
+            ="Semana: " & First(Col_SemanaEnCurso).Semana & Char(13)
             & "Inicio: " & First(Col_SemanaEnCurso).Inicio & " - " & "Fin: " & First(Col_SemanaEnCurso).Fin
-            */
         Width: =652
         X: =664
         Y: =426
@@ -873,7 +870,7 @@ GestionFcst As screen:
                     First(Adjuntar_CargaMasiva_1.Attachments).Name,
                     User().Email,
                     User().FullName,
-                    "W8",//First(Col_SemanaEnCurso).Semana
+                    "W12",//First(Col_SemanaEnCurso).Semana
                     _Perfil.mail, //_Perfil.Mail
                     _Perfil.displayName, //_Perfil.displayName;
                     "GERENCIA DE FINANZAS",

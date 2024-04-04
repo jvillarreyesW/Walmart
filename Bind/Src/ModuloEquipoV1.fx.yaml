@@ -344,7 +344,9 @@ ModuloEquipoV1 As screen:
                 HoverFill: =RGBA(255, 255, 255, 0.63)
                 OnSelect: |
                     =Set(_VarEquipoSeleccionado,ThisItem.IDEquipo);
-                    Navigate(ModuloGestionEquipoV1,ScreenTransition.Fade)
+                    Set(_VarGeOri, LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe,GerenciaOrigen));
+                    ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                    Navigate(ModuloGestionEquipoV1,ScreenTransition.Fade);
                 Text: =""
                 Width: =54
                 X: |
