@@ -815,8 +815,11 @@ GestionFcst As screen:
         Height: =90
         Size: =18
         Text: |-
-            ="Semana: " & First(Col_SemanaEnCurso).Semana & Char(13)
+            ="Semana: W8"
+            /*
+            "Semana: " & First(Col_SemanaEnCurso).Semana & Char(13)
             & "Inicio: " & First(Col_SemanaEnCurso).Inicio & " - " & "Fin: " & First(Col_SemanaEnCurso).Fin
+            */
         Width: =652
         X: =664
         Y: =426
