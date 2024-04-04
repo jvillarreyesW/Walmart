@@ -849,7 +849,7 @@ ModuloPersonaV1 As screen:
                         //Table({NombreGerencia: ThisItem.GerenciaOrigen})
                         //!IsBlank(_VarNuevoIDPErsona
                         //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
-                    DisplayFields: =["NombreGerencia"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_76.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -858,8 +858,8 @@ ModuloPersonaV1 As screen:
                     OnChange: =
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["NombreGerencia"]
-                    SearchItems: =[]
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen_1.SearchText,"ComplianceAssetId")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
@@ -2386,7 +2386,7 @@ ModuloPersonaV1 As screen:
                                 RUT: Txt_Rut_1.Text,
                                 'Interno/Externo': Dpd_InternoExterno_1.Selected.Value,
                                 Jefe_Directo: _VarUsuarioJefe,
-                                'Considera Head Count': Dpd_HeadCount.Selected,
+                                //'Considera Head Count': Dpd_HeadCount.Selected;
                                 //Dominio: GaleriaDatos.Dominio;
                                 Empresa: Dpd_Empresa_2.Selected.Result,
                                 Usuario: Upper(Txt_Usuario_1.Text),
@@ -3022,13 +3022,13 @@ ModuloPersonaV1 As screen:
             ChevronBackground: =RGBA(255, 255, 255, 1)
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DisplayFields: =["Title"]
+            DisplayFields: =["ComplianceAssetId"]
             Height: =Txt_FondoForm1_198.Height - 10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: =Col_BD_Dominios
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Title"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio_1.SearchText,"Title")
+            SearchFields: =["ComplianceAssetId"]
+            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio_1.SearchText,"ComplianceAssetId")
             SelectMultiple: =false
             Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_2.Selected.Value = "Movilidad interna"
             Width: =Txt_FondoForm1_198.Width - 27

@@ -1650,7 +1650,7 @@ MantenedoresFCST As screen:
                     Default: =LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))
                     DefaultSelectedItems: =LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))
                     DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["NombreCeco","Ceco"]
+                    DisplayFields: =["Ceco"]
                     DisplayMode: |
                         =If(
                             ThisItem.Editando && IsBlank(LookUp(Col_BD_Fcst_Ceco, Ceco = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Ceco))),
@@ -1680,7 +1680,7 @@ MantenedoresFCST As screen:
                     Default: =LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))
                     DefaultSelectedItems: =LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))
                     DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["NombreCuenta","Paquete"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |
                         =If(
                             ThisItem.Editando && IsBlank(LookUp(Col_BD_Fcst_Cuenta, Cuenta = LookUp(Col_BD_FCST_ServicioCuentaCeco, IDServicio = ThisItem.IDServicio, Cuenta))),
@@ -1696,8 +1696,8 @@ MantenedoresFCST As screen:
                     Items: =Col_BD_Fcst_Cuenta
                     OnSelect: =Select(Parent)
                     Reset: =_VarResetCtrlSer
-                    SearchFields: =["Cuenta"]
-                    SearchItems: =Search(Col_BD_Fcst_Cuenta,Cmb_CuentaNuevo.SearchText,"Cuenta")
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Col_BD_Fcst_Cuenta,Cmb_CuentaNuevo.SearchText,"ComplianceAssetId")
                     SelectMultiple: =false
                     Size: =11
                     Template: =ListItemTemplate.Double

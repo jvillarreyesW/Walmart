@@ -557,7 +557,7 @@ ModuloEquipoV1 As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Equipo_x002f_Squad"]
+            DisplayFields: =["ComplianceAssetId"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -581,12 +581,12 @@ ModuloEquipoV1 As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Equipo_x002f_Squad"]
+            SearchFields: =["ComplianceAssetId"]
             SearchItems: |-
                 =Search(Sort(
                     Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"),
                     'Equipo/Squad',SortOrder.Ascending
-                ),Cmb_FiltroNombre_12.SearchText,"Equipo_x002f_Squad")
+                ),Cmb_FiltroNombre_12.SearchText,"ComplianceAssetId")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

@@ -14834,14 +14834,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "[\"ComplianceAssetId\"]",
-          "InvariantPropertyName": "SearchFields",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "SearchFields",
         "SelectionColor",
         {
           "AFDDataSourceName": "",
@@ -15984,14 +15977,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "[\"ComplianceAssetId\"]",
-          "InvariantPropertyName": "SearchFields",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "SearchFields",
         "SelectionColor",
         {
           "AFDDataSourceName": "",

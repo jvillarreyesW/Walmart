@@ -201,16 +201,6 @@ Portada As screen:
         Visible: =_VarMostrarCargando
         ZIndex: =16
 
-    ButtonCanvas1 As Botón:
-        BasePaletteColor: =
-        DisplayMode: =DisplayMode.Edit
-        FontColor: =
-        Height: =32
-        Width: =96
-        X: =98
-        Y: =105
-        ZIndex: =17
-
     Comunicado_1 As group:
         Height: =5
         Width: =5
@@ -287,14 +277,4 @@ Portada As screen:
             X: =1525
             Y: =639
             ZIndex: =11
-
-    ButtonCanvas1_1 As Botón:
-        BasePaletteColor: =
-        DisplayMode: =DisplayMode.Edit
-        FontColor: =
-        Height: =32
-        Width: =96
-        X: =550
-        Y: =105
-        ZIndex: =18
 

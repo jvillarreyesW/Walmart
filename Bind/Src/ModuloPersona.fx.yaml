@@ -840,7 +840,7 @@ ModuloPersona As screen:
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 SearchFields: =["NombreGerencia"]
-                SearchItems: =[]
+                SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen.SearchText,"NombreGerencia")
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
@@ -2101,7 +2101,7 @@ ModuloPersona As screen:
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 SearchFields: =["Value"]
-                SearchItems: =[]
+                SearchItems: =Search(["M","F"],Dpd_Genero.SearchText,"Value")
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Txt_FondoForm1_14.Width -27
@@ -2297,7 +2297,11 @@ ModuloPersona As screen:
             OnSelect: =Select(Parent)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Title"]
-            SearchItems: =[]
+            SearchItems: |-
+                =Search(Sort(
+                    Filter(Col_BD_Dominios, !(Title = "Dominio de Prueba" ) && !(Title = "Historico Portafolio")),
+                    Title, SortOrder.Ascending
+                ),Cmb_IC_Dominios.SearchText,"Title")
             SelectMultiple: =false
             Width: =Txt_FondoForm1_9.Width - 27
             X: =220
@@ -3980,13 +3984,13 @@ ModuloPersona As screen:
             ChevronBackground: =RGBA(255, 255, 255, 1)
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DisplayFields: =["Title"]
+            DisplayFields: =["ComplianceAssetId"]
             Height: =Txt_FondoForm1_17.Height - 10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: =Col_BD_Dominios
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Title"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio.SearchText,"Title")
+            SearchFields: =["ComplianceAssetId"]
+            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio.SearchText,"ComplianceAssetId")
             SelectMultiple: =false
             Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_1.Selected.Value = "Movilidad interna"
             Width: =Txt_FondoForm1_17.Width - 27

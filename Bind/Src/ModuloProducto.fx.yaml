@@ -1310,7 +1310,7 @@ ModuloProducto As screen:
                         ),
                         Blank()
                     )
-                DisplayFields: =["Equipo_x002f_Squad"]
+                DisplayFields: =["ComplianceAssetId"]
                 Height: =Txt_FondoForm1_114.Height - 10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 InputTextPlaceholder: ="Buscar Equipo"
@@ -1327,7 +1327,7 @@ ModuloProducto As screen:
                     )*/
                 OnSelect: =Select(Parent)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["Equipo_x002f_Squad"]
+                SearchFields: =["ComplianceAssetId"]
                 SearchItems: |-
                     =Search(Filter(Col_BD_Equipos, IDDominio = Dpd_Dominio_4.Selected.IDDominio)
                     /*If(
@@ -1339,7 +1339,7 @@ ModuloProducto As screen:
                         );
                         Blank()
                     )*/
-                    ,Cmb_Equipo_5.SearchText,"Equipo_x002f_Squad")
+                    ,Cmb_Equipo_5.SearchText,"ComplianceAssetId")
                 SelectMultiple: =false
                 Width: =Txt_FondoForm1_114.Width - 27
                 X: =1576
@@ -2275,7 +2275,7 @@ ModuloProducto As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
+            DisplayFields: =["AreadeImpacto"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -2295,8 +2295,8 @@ ModuloProducto As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_5.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+            SearchFields: =["AreadeImpacto"]
+            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_5.SearchText,"AreadeImpacto")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

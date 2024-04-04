@@ -672,7 +672,7 @@ ListadoIniciativas As screen:
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: |-
             =Table({DisplayName:_Perfil.displayName})
-        DisplayFields: =["NombrePrioridad"]
+        DisplayFields: =["AnnoPrioridad"]
         DisplayMode: |-
             =If(
                 _VarVerPopUpPortafolio,
@@ -693,8 +693,8 @@ ListadoIniciativas As screen:
             )
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
-        SearchFields: =["NombrePrioridad"]
-        SearchItems: =[]
+        SearchFields: =["AnnoPrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_FiltroProyeProd_2.SearchText,"AnnoPrioridad")
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
         Tooltip: =
@@ -907,7 +907,7 @@ ListadoIniciativas As screen:
                         Table({DisplayName:_Perfil.displayName, Claims:_Perfil.userPrincipalName})
                     )
                 )
-            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
+            DisplayFields: =["AreadeImpacto"]
             DisplayMode: |
                 =
                         DisplayMode.Edit
@@ -934,8 +934,8 @@ ListadoIniciativas As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: |
                 =Valor = "Producto" || Valor = "Proyecto"
-            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+            SearchFields: =["AreadeImpacto"]
+            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"AreadeImpacto")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

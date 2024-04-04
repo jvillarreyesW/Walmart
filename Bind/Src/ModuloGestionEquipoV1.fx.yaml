@@ -488,10 +488,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Usuario)}
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Usuario)})
-                DisplayFields: =["Nombre_Persona","Usuario"]
+                DisplayFields: =["Categoria"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Nombre_Persona")
+                SearchFields: =["Categoria"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Categoria")
                 Width: =320
                 X: =199
                 Y: |+
@@ -509,10 +509,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) })
-                DisplayFields: =["Nombre_Persona","Usuario"]
+                DisplayFields: =["Categoria"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,"Nombre_Persona")
+                SearchFields: =["Categoria"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,"Categoria")
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -530,10 +530,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) })
-                DisplayFields: =["Nombre_Persona","Usuario"]
+                DisplayFields: =["Categoria"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,"Nombre_Persona")
+                SearchFields: =["Categoria"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,"Categoria")
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",

@@ -84,21 +84,6 @@
     "OverridableProperties": {},
     "Version": "2.3.0"
   },
-  "Botón": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_ButtonCanvas",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_ButtonCanvas",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Botón",
-    "Version": "0.0.29"
-  },
   "Botón de información": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,

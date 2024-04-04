@@ -1253,11 +1253,11 @@ Mantenedores As screen:
             ZIndex: =7
 
         ComboBox1 As combobox:
-            DisplayFields: =["Nombre_Persona","Usuario"]
+            DisplayFields: =["Categoria"]
             Height: =32
             Items: =Col_BD_Persona
-            SearchFields: =["Nombre_Persona"]
-            SearchItems: =Search(Col_BD_Persona,ComboBox1.SearchText,"Nombre_Persona")
+            SearchFields: =["Categoria"]
+            SearchItems: =Search(Col_BD_Persona,ComboBox1.SearchText,"Categoria")
             SelectMultiple: =false
             Template: =ListItemTemplate.Double
             Width: =369
@@ -1433,10 +1433,10 @@ Mantenedores As screen:
                     ZIndex: =4
 
                 ComboBox1_1 As combobox:
-                    DisplayFields: =["Nombre_Persona","Usuario"]
+                    DisplayFields: =["Categoria"]
                     Items: =Col_BD_Persona
-                    SearchFields: =["Nombre_Persona"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,"Nombre_Persona")
+                    SearchFields: =["Categoria"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,"Categoria")
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Double
                     Width: =374
