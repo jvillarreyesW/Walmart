@@ -2380,45 +2380,47 @@ ModuloPersonaV1 As screen:
                             ),
                             {
                                 GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = Txt_JefeDirecto_1.Text, GerenciaOrigen_0),
-                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = Txt_JefeDirecto.Text, GerenciaOrigen_1),
-                                GerenciaOrigen: Cmb_GerenciaOrigen.Selected.NombreGerencia, 
-                                Nombre_Persona: Txt_NombrePersona.Text,
-                                RUT: Txt_Rut.Text,
-                                'Interno/Externo': Dpd_InternoExterno.Selected.Value,
+                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = Txt_JefeDirecto_1.Text, GerenciaOrigen_1),
+                                GerenciaOrigen: Cmb_GerenciaOrigen_1.Selected.NombreGerencia, 
+                                Nombre_Persona: Txt_NombrePersona_1.Text,
+                                RUT: Txt_Rut_1.Text,
+                                'Interno/Externo': Dpd_InternoExterno_1.Selected.Value,
                                 Jefe_Directo: _VarUsuarioJefe,
                                 'Considera Head Count': Dpd_HeadCount.Selected,
                                 //Dominio: GaleriaDatos.Dominio;
-                                Empresa: Dpd_Empresa.Selected.Result,
-                                Usuario: Upper(Txt_Usuario.Text),
-                                Rol: Cmb_Rol.Selected.Roles,
-                                'Correo Electrónico': Txt_CorreoElectronico.Text,
-                                'Ubicación Laboral': Dpd_UbicacionLaboral.Selected,
-                                'Fecha de Ingreso': Dtp_FechaIngreso.SelectedDate,
-                                Genero: Dpd_Genero.Selected.Value,
+                                Empresa: Dpd_Empresa_2.Selected.Result,
+                                Usuario: Upper(Txt_Usuario_1.Text),
+                                Rol: Cmb_Rol_1.Selected.Roles,
+                                'Correo Electrónico': Txt_CorreoElectronico_1.Text,
+                                'Ubicación Laboral': Dpd_UbicacionLaboral_1.Selected,
+                                'Fecha de Ingreso': Dtp_FechaIngreso_1.SelectedDate,
+                                Genero: Dpd_Genero_1.Selected.Value,
+                                Categoria: DataCardValue162.Selected.Value,
                                 Estado: "Activo"
                             }
                     );
-                
+                /*
                     ForAll(
-                        Col_EquiposPersonas As GaleriaEquipos,
+                        Col_EquiposPersonas As GaleriaEquipos;
                         Patch(
-                            Ingresos_Ceses_Personas,
+                            Ingresos_Ceses_Personas;
                             If(
-                                IsBlank(GaleriaEquipos.ID),
-                                Defaults(Ingresos_Ceses_Personas),
-                                LookUp(Ingresos_Ceses_Personas, ID = GaleriaEquipos.ID)
-                            ),
+                                IsBlank(GaleriaEquipos.ID);
+                                Defaults(Ingresos_Ceses_Personas);
+                                LookUp(Ingresos_Ceses_Personas; ID = GaleriaEquipos.ID)
+                            );
                             {
-                            IDEquipo: GaleriaEquipos.IDEquipo,
-                            Usuario: GaleriaEquipos.Usuario,
-                            AsignadoPor: _Perfil.displayName,
-                            FechaAsignacion: Today(),
-                            EquipoPrincipal: GaleriaEquipos.EquipoPrincipal,
+                            IDEquipo: GaleriaEquipos.IDEquipo;
+                            Usuario: GaleriaEquipos.Usuario;
+                            AsignadoPor: _Perfil.displayName;
+                            FechaAsignacion: Today();
+                            EquipoPrincipal: GaleriaEquipos.EquipoPrincipal;
                             Estado: "Activo"
                             }
                         )
                         
-                    );
+                    );;
+                */
                 
                     Refresh(Lst_Persona);
                     Refresh(Ingresos_Ceses_Personas);
@@ -2776,6 +2778,7 @@ ModuloPersonaV1 As screen:
             OnSelect: |-
                 =/*Mostrar Spinner Cargando*/
                 Set(_VarMostrarCargando,true);
+                
                 Patch(
                         Lst_Persona,
                         LookUp(Lst_Persona, Usuario = Txt_Usuario_1.Text && Estado = "Activo"),
@@ -2786,6 +2789,7 @@ ModuloPersonaV1 As screen:
                             RazondeBaja: Dpd_SeleccionarAccion_2.SelectedText.Value
                         }
                     );
+                
                 ForAll(
                     Gl_MultiEquipos.AllItems As EquiposAsignados,
                     Patch(
