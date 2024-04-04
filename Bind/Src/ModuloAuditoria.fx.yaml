@@ -710,13 +710,13 @@ ModuloAuditoria As screen:
                             )
                         }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_JefeProyecto_7.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -787,13 +787,13 @@ ModuloAuditoria As screen:
                             )
                         }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_JefeProyecto_9.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -822,14 +822,14 @@ ModuloAuditoria As screen:
                         }
                 DefaultSelectedItems: |-
                     =If(IsBlank(ThisItem.AUDIT_CONTACT),Blank(),UsuariosdeOffice365.SearchUser({searchTerm:ThisItem.AUDIT_CONTACT}))
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1_73.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_JefeProyecto_8.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -858,13 +858,13 @@ ModuloAuditoria As screen:
                         }
                 DefaultSelectedItems: |-
                     =If(IsBlank(ThisItem.TESTER),Blank(),UsuariosdeOffice365.SearchUser({searchTerm:ThisItem.TESTER}))
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_JefeProyecto_10.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -1779,7 +1779,7 @@ ModuloAuditoria As screen:
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: |-
             =//Table({DisplayName:_Perfil.displayName})
-        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayFields: =["Claims"]
         DisplayMode: |-
             =If(
                 _VarVerPopUpPortafolio,
@@ -1799,7 +1799,7 @@ ModuloAuditoria As screen:
             )
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
-        SearchFields: =["DisplayName"]
+        SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_FiltroJefePO_4.SearchText)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false

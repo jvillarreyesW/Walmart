@@ -688,7 +688,7 @@ ModuloPersonaV1 As screen:
                     DefaultSelectedItems: |-
                         =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
                     DisabledColor: =RGBA(102, 102, 102, 1)
-                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayFields: =["Claims"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_74.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -853,7 +853,7 @@ ModuloPersonaV1 As screen:
                         //Table({NombreGerencia: ThisItem.GerenciaOrigen})
                         //!IsBlank(_VarNuevoIDPErsona
                         //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
-                    DisplayFields: =["ComplianceAssetId"]
+                    DisplayFields: =["NombreGerencia"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_76.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -862,7 +862,7 @@ ModuloPersonaV1 As screen:
                     OnChange: =
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["ComplianceAssetId"]
+                    SearchFields: =["NombreGerencia"]
                     SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen_1.SearchText,"NombreGerencia")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
@@ -1631,7 +1631,7 @@ ModuloPersonaV1 As screen:
                             ),
                             Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text), Jefe_Directo), Nombre_Persona)})
                         )
-                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayFields: =["Claims"]
                     DisplayMode: =Parent.DisplayMode.Disabled
                     Height: =Txt_FondoForm1_194.Height - 10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -1639,7 +1639,7 @@ ModuloPersonaV1 As screen:
                     Items: =Choices([@Lst_Persona].BuscarJefeDirecto)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["DisplayName"]
+                    SearchFields: =["Claims"]
                     SearchItems: =Choices(Lst_Persona.BuscarJefeDirecto,Cmb_BuscarJefe_1.SearchText)
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
@@ -2011,6 +2011,80 @@ ModuloPersonaV1 As screen:
                     Y: =DataCardKey199.Y
                     ZIndex: =4
 
+            IDPersona_DataCard1_1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="IDPersona"
+                Default: =ThisItem.IDPersona
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"IDPersona")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "IDPersona")
+                Required: =false
+                Update: =DataCardValue1_1.Text
+                Visible: =false
+                Width: =582
+                X: =2
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey1_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue1_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: |-
+                        =If(
+                            IsBlank(ThisItem.IDPersona),
+                            _VarNuevoIDPErsona,
+                            ThisItem.IDPersona
+                        )
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage1_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue1_1.Y + DataCardValue1_1.Height
+                    ZIndex: =3
+
+                StarVisible1_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey1_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey1_1.Y
+                    ZIndex: =4
+
             Nombre_Persona_DataCard1_1 As typedDataCard.textualEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Nombre_Persona"
@@ -2159,80 +2233,6 @@ ModuloPersonaV1 As screen:
                     Width: =30
                     Wrap: =false
                     Y: =DataCardKey10_1.Y
-                    ZIndex: =4
-
-            IDPersona_DataCard1_1 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="IDPersona"
-                Default: =ThisItem.IDPersona
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"IDPersona")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "IDPersona")
-                Required: =false
-                Update: =DataCardValue1_1.Text
-                Visible: =false
-                Width: =582
-                X: =2
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey1_1 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue1_1 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: |-
-                        =If(
-                            IsBlank(ThisItem.IDPersona),
-                            _VarNuevoIDPErsona,
-                            ThisItem.IDPersona
-                        )
-                    DelayOutput: =true
-                    DisplayMode: =Parent.DisplayMode
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage1_1 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue1_1.Y + DataCardValue1_1.Height
-                    ZIndex: =3
-
-                StarVisible1_1 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey1_1.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey1_1.Y
                     ZIndex: =4
 
         "'Debes completar info_2' As label":
@@ -2390,7 +2390,7 @@ ModuloPersonaV1 As screen:
                                 RUT: Txt_Rut_1.Text,
                                 'Interno/Externo': Dpd_InternoExterno_1.Selected.Value,
                                 Jefe_Directo: _VarUsuarioJefe,
-                                //'Considera Head Count': Dpd_HeadCount.Selected;
+                                'Considera Head Count': DataCardValue174.Selected,
                                 //Dominio: GaleriaDatos.Dominio;
                                 Empresa: Dpd_Empresa_2.Selected.Result,
                                 Usuario: Upper(Txt_Usuario_1.Text),
@@ -2431,32 +2431,33 @@ ModuloPersonaV1 As screen:
                     ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
                     ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas,Estado = "Activo"));
                     Clear(Col_EquiposPersonas);
+                    Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos,Usuario = Upper(Txt_Usuario.Text), Estado = "Activo"));
+                
+                    /*
                     If(
-                        !IsBlank(_VarUsuarioSelect),
+                        !IsBlank(_VarUsuarioSelect);
                         //UpdateContext({_VarMostrarBarraBloqueo:false});;
-                        Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos,Usuario = _VarUsuarioSelect, Estado = "Activo")),
+                        Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = _VarUsuarioSelect; Estado = "Activo"));
                         If(
-                            !IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario),
+                            !IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario);
                             //UpdateContext({_VarMostrarBarraBloqueo:false});;
-                            Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos,Usuario = Cmb_BuscarMiEquipo.Selected.Usuario, Estado = "Activo")),
-                            Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos,Usuario = Upper(Txt_Usuario.Text), Estado = "Activo"))
+                            Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = Cmb_BuscarMiEquipo.Selected.Usuario; Estado = "Activo"));
+                            Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = Upper(Txt_Usuario.Text); Estado = "Activo"))
                         )
-                    );
+                    );;
+                    */
+                    
                     //ResetForm(Frm_EditarPersona);;
                 
-                If(
-                    !IsBlank(_VarNuevoIDPErsona),
+                
                     Set(_VarUsuarioSelect,Upper(Txt_Usuario.Text));
                     EditForm(Frm_EditarPersona);
-                    Set(_VarNuevoIDPErsona,""),
+                    Set(_VarNuevoIDPErsona,"");
                     Reset(Cmb_BuscarMiEquipo);
                     Set(_VarUsuarioSelect,Blank());
                     ResetForm(Frm_EditarPersona);
                     //Set(_verPopUpNuevoUsuario;false);;
-                    UpdateContext({_VarMostrarBarraBloqueo:false})
-                );
-                //Set(IconoCargar;false);;
-                //Set(_VarMensajeExterno; true);;
+                    UpdateContext({_VarMostrarBarraBloqueo:false});
                 
                 ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
                 

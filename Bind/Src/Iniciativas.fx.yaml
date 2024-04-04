@@ -275,7 +275,7 @@
                         DisabledFill: |-
                             =/*RGBA(244; 244; 244; 1)*/
                             RGBA(225, 237, 249, 1)
-                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayFields: =["Claims"]
                         DisplayMode: |-
                             =If(
                                 ThisItem.Editando,
@@ -290,7 +290,7 @@
                         OnChange: =
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 121, 187, 1)
-                        SearchFields: =["DisplayName"]
+                        SearchFields: =["Claims"]
                         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Obj_Responsable.SearchText)
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
@@ -346,7 +346,7 @@
                         DisabledFill: |-
                             =/*RGBA(244; 244; 244; 1)*/
                             RGBA(225, 237, 249, 1)
-                        DisplayFields: =["NombrePrioridad"]
+                        DisplayFields: =["AnnoPrioridad"]
                         DisplayMode: |-
                             =If(
                                 ThisItem.Editando,
@@ -361,8 +361,8 @@
                         Items: =Lst_Plan_Prioridad
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 121, 187, 1)
-                        SearchFields: =["NombrePrioridad"]
-                        SearchItems: =[]
+                        SearchFields: =["AnnoPrioridad"]
+                        SearchItems: =Search(Lst_Plan_Prioridad,Cmb_Obj_IDPrioridad.SearchText,"AnnoPrioridad")
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
                         Tooltip: ="Prioridad"
@@ -5845,14 +5845,14 @@
                             )
                         }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 InputTextPlaceholder: ="Buscar responsable"
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 OnSelect: =
                 PressedFill: =RGBA(0, 121, 187, 1)
                 Reset: =_VarResetearControles
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_ResponsableRiesgo.SearchText)
                 SelectMultiple: =false
                 Template: =ListItemTemplate.Person
@@ -7162,14 +7162,14 @@
                         {
                             DisplayName: First(Col_SolucionSelect).NombreResonsable }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 InputTextPlaceholder: ="Buscar responsable"
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 OnSelect: =
                 PressedFill: =RGBA(0, 121, 187, 1)
                 Reset: =ResetearControlSolucion
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Plan_Responsable.SearchText)
                 SelectMultiple: =false
                 Template: =ListItemTemplate.Person
@@ -7419,10 +7419,10 @@
                     ZIndex: =4
 
                 DataCardValue68 As combobox:
-                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayFields: =["Claims"]
                     Font: ="Bogle"
                     Items: =Choices([@Lst_Persona].BuscarNombrePersona)
-                    SearchFields: =["DisplayName"]
+                    SearchFields: =["Claims"]
                     SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,DataCardValue68.SearchText)
                     Template: =ListItemTemplate.Person
                     Width: =Parent.Width - 60
@@ -8970,7 +8970,7 @@
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: =
             DisabledColor: =RGBA(26, 26, 26, 1)
-            DisplayFields: =["NombreRiesgo"]
+            DisplayFields: =["ComplianceAssetId"]
             DisplayMode: |-
                 =If(
                     _VarActivarSeccion = "Oportunidades" || _VarActivarSeccion = "Objetivos" || _VarActivarSeccion = "Prioridades" || _VarActivarSeccion = "OportunidadN2"  || _VarActivarSeccion = "KPI" || _VarActivarSeccion = "DetalleKPI" || _VarActivarSeccion = "AvanceKPI",
@@ -8987,8 +8987,8 @@
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =_VarResetFiltro
-            SearchFields: =["NombreRiesgo"]
-            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,"NombreRiesgo")
+            SearchFields: =["ComplianceAssetId"]
+            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,"ComplianceAssetId")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"

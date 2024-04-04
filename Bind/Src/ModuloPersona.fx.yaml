@@ -669,7 +669,7 @@ ModuloPersona As screen:
                 DefaultSelectedItems: |-
                     =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
                 DisabledColor: =RGBA(102, 102, 102, 1)
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -684,7 +684,7 @@ ModuloPersona As screen:
                     );
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -1609,7 +1609,7 @@ ModuloPersona As screen:
                         ),
                         Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), Jefe_Directo), Nombre_Persona)})
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode.Disabled
                 Height: =Txt_FondoForm1_6.Height - 10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -1617,7 +1617,7 @@ ModuloPersona As screen:
                 Items: =Choices([@Lst_Persona].BuscarJefeDirecto)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarJefeDirecto,Cmb_BuscarJefe.SearchText)
                 SelectMultiple: =false
                 Template: =ListItemTemplate.Person
@@ -3044,7 +3044,7 @@ ModuloPersona As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: =
             DisabledFill: =RGBA(255, 255, 255, 1)
-            DisplayFields: =["Nombre_Persona"]
+            DisplayFields: =["Categoria"]
             DisplayMode: |-
                 =If(
                     Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
@@ -3075,13 +3075,13 @@ ModuloPersona As screen:
                 )
             OnSelect: =
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Nombre_Persona"]
+            SearchFields: =["Categoria"]
             SearchItems: |-
                 =Search(If(
                     Rd_InternoExterno.Selected.Value = "Internos",
                     Sort(Filter(Col_MiEquipoWalmart, 'Interno/Externo' = "Interno"),Nombre_Persona,SortOrder.Ascending),
                     Sort(Filter(Col_MiEquipoWalmart, 'Interno/Externo' = "Externo"),Nombre_Persona,SortOrder.Ascending)
-                    ),Cmb_BuscarMiEquipo.SearchText,"Nombre_Persona")
+                    ),Cmb_BuscarMiEquipo.SearchText,"Categoria")
             SelectMultiple: =false
             Visible: |-
                 =If(

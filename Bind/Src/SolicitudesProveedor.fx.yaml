@@ -242,7 +242,7 @@ SolicitudesProveedor As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Value"]
-            SearchItems: =[]
+            SearchItems: =Choices(Lst_ContratosProveedores.Tipo_Documento,Cmb_FiltroNombre_3.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -861,7 +861,7 @@ SolicitudesProveedor As screen:
             IsSearchable: =false
             Items: =Choices([@Lst_ContratosProveedores].Formulario_Solicitud)
             SearchFields: =["Value"]
-            SearchItems: =[]
+            SearchItems: =Choices(Lst_ContratosProveedores.Formulario_Solicitud,ComboBox5.SearchText)
             SelectMultiple: =false
             Width: =461
             X: =783
@@ -1080,7 +1080,7 @@ SolicitudesProveedor As screen:
                 IsSearchable: =false
                 Items: =Choices([@Lst_ContratosProveedores].Formulario_Solicitud)
                 SearchFields: =["Value"]
-                SearchItems: =[]
+                SearchItems: =Choices(Lst_ContratosProveedores.Formulario_Solicitud,ComboBox5_1.SearchText)
                 SelectMultiple: =false
                 Width: =461
                 X: =783

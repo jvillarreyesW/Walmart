@@ -638,10 +638,10 @@ ModuloGestionEquipoV1 As screen:
         ZIndex: =7
 
         Cmb_AgegarPersonaEquipo As combobox:
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             InputTextPlaceholder: ="Buscar persona"
             Items: =Choices([@Lst_Persona].BuscarNombrePersona)
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_AgegarPersonaEquipo.SearchText)
             Template: =ListItemTemplate.Person
             Visible: =!_VarCambiardeEquipo

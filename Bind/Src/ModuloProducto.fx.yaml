@@ -1411,14 +1411,14 @@ ModuloProducto As screen:
                             )
                         }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1_115.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_JefeProyecto_5.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -1474,14 +1474,14 @@ ModuloProducto As screen:
                 DefaultSelectedItems: |-
                     =Table({DisplayName:LookUp(Lst_Persona, Usuario =  Dpd_SubDominio_4.Selected.Responsable,Nombre_Persona)})
                 DisabledColor: =RGBA(128, 128, 128, 1)
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 DisplayMode: =Parent.DisplayMode.Disabled
                 Height: =Txt_FondoForm1_118.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Responsable_Tech_5.SearchText)
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
@@ -2211,7 +2211,7 @@ ModuloProducto As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =//Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -2231,7 +2231,7 @@ ModuloProducto As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_FiltroJefePO_6.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false

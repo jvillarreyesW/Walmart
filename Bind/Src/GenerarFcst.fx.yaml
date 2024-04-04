@@ -989,7 +989,7 @@ GenerarFcst As screen:
         ZIndex: =32
 
     Cmb_FiltroInputData As combobox:
-        DisplayFields: =["ImputData","IDInputData"]
+        DisplayFields: =["ImputData"]
         InputTextPlaceholder: ="Buscar InputData"
         Items: =GroupBy(Lst_Fcst_Detalle,"ImputData","IPData")
         SearchFields: =["ImputData"]

@@ -504,7 +504,7 @@ ModuloServiciosTech As screen:
                 )
             )
         DisabledColor: =RGBA(77, 77, 77, 1)
-        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayFields: =["Claims"]
         DisplayMode: |-
             =If( 
                 Dpd_Pry_SubDominio_Tech.Selected.NombreSubDominio = "Proyectos Digitales" && (Dpd_Pry_Dominio_Tech.Selected.Title = "Colaboradores" || Dpd_Pry_Dominio_Tech.Selected.Title = "Canal de Venta" || Dpd_Pry_Dominio_Tech.Selected.Title = "Engagement" || Dpd_Pry_Dominio_Tech.Selected.Title = "B2B"),
@@ -519,7 +519,7 @@ ModuloServiciosTech As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["DisplayName"]
+        SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_lider_Tech.SearchText)
         SelectMultiple: =false
         Template: =ListItemTemplate.Person
@@ -612,7 +612,7 @@ ModuloServiciosTech As screen:
                     )
                 )
             )
-        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayFields: =["Claims"]
         DisplayMode: |-
             =
                 DisplayMode.Edit
@@ -622,7 +622,7 @@ ModuloServiciosTech As screen:
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["DisplayName"]
+        SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_ResponsableTech.SearchText)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false

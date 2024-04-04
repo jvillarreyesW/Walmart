@@ -771,7 +771,7 @@ MantenedorIniciativa As screen:
                 )
             )
         DisabledColor: =RGBA(128, 128, 128, 1)
-        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayFields: =["Claims"]
         DisplayMode: |-
             =If(
                 Chk_AplicaEM.Checked,
@@ -785,7 +785,7 @@ MantenedorIniciativa As screen:
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["DisplayName"]
+        SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Plan_Usuario.SearchText)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false

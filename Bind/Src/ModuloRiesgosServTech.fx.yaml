@@ -807,7 +807,7 @@ ModuloRiesgosServTech As screen:
                             )
                         }
                     )
-                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayFields: =["Claims"]
                 Height: =Txt_FondoResponsable_1.Height - 10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 InputTextPlaceholder: ="Buscar responsable"
@@ -815,7 +815,7 @@ ModuloRiesgosServTech As screen:
                 OnSelect: =
                 PressedFill: =RGBA(0, 121, 187, 1)
                 Reset: =ResetearControlPry
-                SearchFields: =["DisplayName"]
+                SearchFields: =["Claims"]
                 SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Ris_Responsable_1.SearchText)
                 SelectMultiple: =false
                 Template: =ListItemTemplate.Person

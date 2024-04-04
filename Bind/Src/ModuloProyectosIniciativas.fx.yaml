@@ -1321,7 +1321,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 )
             )
-        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayFields: =["Claims"]
         Height: =Txt_FondoNegocio_3.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: ="Buscar responsable"
@@ -1329,7 +1329,7 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["DisplayName"]
+        SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_Sponsor_1.SearchText)
         SelectMultiple: =false
         Template: =ListItemTemplate.Person
@@ -2543,7 +2543,7 @@ ModuloProyectosIniciativas As screen:
                         )
                     )
                 )
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaPO_1.Checked,
@@ -2557,7 +2557,7 @@ ModuloProyectosIniciativas As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_JefeProyecto_1.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
@@ -2645,7 +2645,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 )
             DisabledColor: =RGBA(128, 128, 128, 1)
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaEM_1.Checked,
@@ -2659,7 +2659,7 @@ ModuloProyectosIniciativas As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_ResponsableTecnologia_1.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
@@ -2732,7 +2732,7 @@ ModuloProyectosIniciativas As screen:
                         )
                     )
                 )
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaNegocio_1.Checked,
@@ -2746,7 +2746,7 @@ ModuloProyectosIniciativas As screen:
             OnSelect: =
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_Negocio_1.SearchText)
             SelectMultiple: =false
             Template: =ListItemTemplate.Person
@@ -2827,7 +2827,7 @@ ModuloProyectosIniciativas As screen:
                         )
                     )
                 )
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaDatos_1.Checked,
@@ -2841,7 +2841,7 @@ ModuloProyectosIniciativas As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_Datos_1.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
@@ -2929,7 +2929,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 )
             DisabledColor: =RGBA(128, 128, 128, 1)
-            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayFields: =["Claims"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaUx_1.Checked,
@@ -2943,7 +2943,7 @@ ModuloProyectosIniciativas As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
-            SearchFields: =["DisplayName"]
+            SearchFields: =["Claims"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_Ux_1.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false

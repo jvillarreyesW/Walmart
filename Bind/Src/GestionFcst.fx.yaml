@@ -1102,7 +1102,7 @@ GestionFcst As screen:
                     DefaultSelectedItems: |-
                         =Table({NombreCeco:LookUp( Lst_Fcst_MantenedorCeco, Ceco = DataCardValue42_3.Text,NombreCeco)})
                     DisabledColor: =RGBA(26, 26, 26, 1)
-                    DisplayFields: =["NombreCeco"]
+                    DisplayFields: =["Ceco"]
                     DisplayMode: |
                         =DisplayMode.Disabled
                     Height: =Txt_FondoPOJP_20.Height -10
@@ -1113,8 +1113,8 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["NombreCeco"]
-                    SearchItems: =[]
+                    SearchFields: =["Ceco"]
+                    SearchItems: =Search(Lst_Fcst_MantenedorCeco,DataCardValue52_4.SearchText,"Ceco")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -1254,7 +1254,7 @@ GestionFcst As screen:
                     DefaultSelectedItems: |-
                         =Table({NombreCuenta:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,NombreCuenta)})
                     DisabledColor: =RGBA(26, 26, 26, 1)
-                    DisplayFields: =["NombreCuenta"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |
                         =DisplayMode.Disabled
                     Height: =Txt_FondoPOJP_21.Height -10
@@ -1265,8 +1265,8 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["NombreCuenta"]
-                    SearchItems: =[]
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue53_3.SearchText,"ComplianceAssetId")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -1359,7 +1359,7 @@ GestionFcst As screen:
                     DefaultSelectedItems: |-
                         =Table({Paquete:LookUp( Lst_Fcst_MantenedorCuenta, Cuenta = DataCardValue41_4.Text,Paquete)})
                     DisabledColor: =RGBA(26, 26, 26, 1)
-                    DisplayFields: =["Paquete"]
+                    DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: |
                         =DisplayMode.Disabled
                     Height: =Txt_FondoPOJP_22.Height -10
@@ -1370,8 +1370,8 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["Paquete"]
-                    SearchItems: =[]
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue51_4.SearchText,"ComplianceAssetId")
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2365,7 +2365,7 @@ GestionFcst As screen:
                             )
                         )
                     DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayFields: =["Claims"]
                     DisplayMode: =DisplayMode.Disabled
                     Height: =Txt_FondoPOJP_19.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -2374,7 +2374,7 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["DisplayName"]
+                    SearchFields: =["Claims"]
                     SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,DataCardValue13_3.SearchText)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
@@ -2857,7 +2857,7 @@ GestionFcst As screen:
                                 )
                             )
                         )
-                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayFields: =["Claims"]
                     DisplayMode: |-
                         =If(
                             Chk_AplicaPO.Checked,
@@ -2871,7 +2871,7 @@ GestionFcst As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
-                    SearchFields: =["DisplayName"]
+                    SearchFields: =["Claims"]
                     SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,DataCardValue45_3.SearchText)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
