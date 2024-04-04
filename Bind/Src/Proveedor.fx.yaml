@@ -102,8 +102,10 @@ Proveedor As screen:
         Text: ="Guardar"
         Visible: |-
             =If(LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).Estado_Solicitud.Value="Pendiente autorización Portfolio"
-            || !IsBlank(LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).ID),false,true)||PermisoUsuario.Mantenedor
+            || !IsBlank(LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).ID),false,true)
             ||LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).Estado_Solicitud.Value="Borrador"
+            ||LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).Estado_Solicitud.Value="Ingresada a Bind"
+            ||PermisoUsuario.Mantenedor
         X: =1505
         Y: =994
         ZIndex: =4

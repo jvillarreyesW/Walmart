@@ -288,3 +288,13 @@ Portada As screen:
             Y: =639
             ZIndex: =11
 
+    ButtonCanvas1_1 As Botón:
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =32
+        Width: =96
+        X: =550
+        Y: =105
+        ZIndex: =18
+
