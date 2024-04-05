@@ -84,8 +84,18 @@ ModuloEquipoV1 As screen:
         Items: |-
             =If(
                 _VarEquipo="MiEquipo",
-                Filter(Col_TempMisEquipos, IsBlank(Cmb_FiltroNombre_12.Selected.'Equipo/Squad') || 'Equipo/Squad' = Cmb_FiltroNombre_12.Selected.'Equipo/Squad', IsBlank(Cmb_FiltroJefePO_7.Selected.Claims) || ResponsableEquipo = Last(ForAll(Split(First(ForAll(Split(Cmb_FiltroJefePO_7.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
-                Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" )
+                Filter(
+                    Col_TempMisEquipos, 
+                    IsBlank(Cmb_FiltroNombre_12.Selected.'Equipo/Squad') || 'Equipo/Squad' = Cmb_FiltroNombre_12.Selected.'Equipo/Squad', 
+                    IsBlank(Cmb_FiltroJefePO_7.Selected.Claims) || ResponsableEquipo = Last(ForAll(Split(First(ForAll(Split(Cmb_FiltroJefePO_7.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
+            
+                Filter(
+                    Col_BD_Equipos, 
+                    IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" ,
+                    IsBlank(Cmb_FiltroNombre_12.Selected.'Equipo/Squad') || 'Equipo/Squad' = Cmb_FiltroNombre_12.Selected.'Equipo/Squad', 
+                    IsBlank(Cmb_FiltroJefePO_7.Selected.Claims) || ResponsableEquipo = Last(ForAll(Split(First(ForAll(Split(Cmb_FiltroJefePO_7.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,
+                    IsBlank(Cmb_FiltroDominio.Selected.IDDominio) || IDDominio = Cmb_FiltroDominio.Selected.IDDominio
+                    )
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -346,6 +356,21 @@ ModuloEquipoV1 As screen:
                     =Set(_VarEquipoSeleccionado,ThisItem.IDEquipo);
                     Set(_VarGeOri, LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe,GerenciaOrigen));
                     ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                    Clear(Col_InegrantesEquipo);
+                    ForAll(
+                        Col_Team As EquiTeam,
+                        Collect(
+                            Col_InegrantesEquipo,
+                            {
+                                Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                Usuario: EquiTeam.Usuario
+                            }
+                        )
+                    );
+                    
                     Navigate(ModuloGestionEquipoV1,ScreenTransition.Fade);
                 Text: =""
                 Width: =54
@@ -486,7 +511,7 @@ ModuloEquipoV1 As screen:
             Y: =47
             ZIndex: =6
 
-        Cmb_FiltroNombre_11 As combobox:
+        Cmb_FiltroDominio As combobox:
             BorderColor: =
             BorderStyle: =BorderStyle.None
             BorderThickness: =0
@@ -517,7 +542,7 @@ ModuloEquipoV1 As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Dominio"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_11.SearchText,"Dominio")
+            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroDominio.SearchText,"Dominio")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
