@@ -530,7 +530,7 @@ ModuloEquipoV1 As screen:
                 )
             Height: =Txt_FondoForm1_202.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =Col_BD_Dominios
+            Items: =Sort(Filter(Col_BD_Dominios, IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"), Title,SortOrder.Ascending)
             OnChange: |
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
                 If(
@@ -542,7 +542,7 @@ ModuloEquipoV1 As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Title"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_FiltroDominio.SearchText,"Title")
+            SearchItems: =Search(Sort(Filter(Col_BD_Dominios, IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"), Title,SortOrder.Ascending),Cmb_FiltroDominio.SearchText,"Title")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
