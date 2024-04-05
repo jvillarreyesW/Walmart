@@ -22972,7 +22972,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_NombrePM",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23375,7 +23375,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_Responsable",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

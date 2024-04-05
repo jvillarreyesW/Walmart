@@ -521,7 +521,7 @@ ModuloEquipoV1 As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Dominio"]
+            DisplayFields: =["Title"]
             DisplayMode: |-
                 =If(
                     _VarEquipo="MiEquipo",
@@ -530,7 +530,7 @@ ModuloEquipoV1 As screen:
                 )
             Height: =Txt_FondoForm1_202.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value)
+            Items: =Col_BD_Dominios
             OnChange: |
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
                 If(
@@ -541,8 +541,8 @@ ModuloEquipoV1 As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Dominio"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroDominio.SearchText,"Dominio")
+            SearchFields: =["Title"]
+            SearchItems: =Search(Col_BD_Dominios,Cmb_FiltroDominio.SearchText,"Title")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
