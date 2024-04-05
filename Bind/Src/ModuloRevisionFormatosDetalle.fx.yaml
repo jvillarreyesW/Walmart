@@ -627,7 +627,7 @@ ModuloRevisionFormatosDetalle As screen:
             ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DefaultSelectedItems: =Cmb_FiltroNombre_11.SelectedItems
+            DefaultSelectedItems: =Cmb_FiltroDominio.SelectedItems
             DisplayFields: =["Value"]
             DisplayMode: |-
                 =If(

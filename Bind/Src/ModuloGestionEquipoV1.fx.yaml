@@ -94,7 +94,10 @@ ModuloGestionEquipoV1 As screen:
             BorderThickness: =2
             DelayItemLoading: =true
             Height: =772
-            Items: =Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado)
+            Items: |-
+                =Search( Col_InegrantesEquipo, Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado")
+                
+                //Filter(Col_BD_AsignacionEquipos; IDEquipo = _VarEquipoSeleccionado)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
@@ -126,7 +129,9 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Text: =LookUp(Col_BD_Persona, Usuario = ThisItem.Usuario,Nombre_Persona)
+                Text: |-
+                    =ThisItem.Nombre
+                    //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;Nombre_Persona)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =270
                 X: =101
@@ -159,7 +164,10 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Text: =LookUp(Col_BD_Persona, Usuario = ThisItem.Usuario,GerenciaOrigen)
+                Text: |-
+                    =ThisItem.Gerencia
+                    
+                    //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;GerenciaOrigen)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =270
                 X: =383
@@ -176,7 +184,10 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Text: =LookUp(Col_BD_Persona, Usuario = ThisItem.Usuario,Rol)
+                Text: |-
+                    =ThisItem.Rol
+                    
+                    //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;Rol)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =270
                 X: =665
@@ -193,7 +204,10 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Text: =LookUp(Col_BD_Persona, Usuario = ThisItem.Usuario,'Interno/Externo')
+                Text: |-
+                    =ThisItem.Estado
+                    
+                    //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;'Interno/Externo')
                 VerticalAlign: =VerticalAlign.Top
                 Width: =145
                 X: =954
