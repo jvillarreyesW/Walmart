@@ -4501,10 +4501,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 19,
+                  "charLength": 14,
                   "charOffset": 44,
                   "snippet": {
-                    "text": "\"ComplianceAssetId\""
+                    "text": "\"Razon_Social\""
                   }
                 }
               },
@@ -16793,19 +16793,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroDominio.AccessibleLabel"
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroDominio.AccessibleLabel",
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ModuloEquipoV1",
-                "type": "ModuloEquipoV1.Container23.Cmb_FiltroDominio"
+                "type": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11"
               }
             }
           ],
@@ -96372,6 +96372,66 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 18
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.SearchItems",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "ModuloEquipoV1",
+                "type": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 23
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ModuloEquipoV1",
+                "type": "ModuloEquipoV1.Container23.Cmb_FiltroNombre_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 23
         },
         {
           "locations": [
