@@ -84,7 +84,7 @@ ModuloEquipoV1 As screen:
         Items: |-
             =If(
                 _VarEquipo="MiEquipo",
-                Col_TempMisEquipos,
+                Filter(Col_TempMisEquipos, IsBlank(Cmb_FiltroNombre_12.Selected.'Equipo/Squad') || 'Equipo/Squad' = Cmb_FiltroNombre_12.Selected.'Equipo/Squad', IsBlank(Cmb_FiltroJefePO_7.Selected.Claims) || ResponsableEquipo = Last(ForAll(Split(First(ForAll(Split(Cmb_FiltroJefePO_7.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
                 Filter(Col_BD_Equipos, IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" )
             )
         Layout: =Layout.Vertical
@@ -432,7 +432,7 @@ ModuloEquipoV1 As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =//Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -452,7 +452,7 @@ ModuloEquipoV1 As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Claims"]
+            SearchFields: =["DisplayName"]
             SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_FiltroJefePO_7.SearchText)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
@@ -468,9 +468,9 @@ ModuloEquipoV1 As screen:
             BorderColor: =RGBA(128, 128, 128, 1)
             BorderThickness: =3
             Default: =""
-            DisabledFill: |-
+            DisabledFill: |
                 =If(
-                    _VarVerPopUpPortafolio,
+                    _VarEquipo="MiEquipo",
                     RGBA(244, 244, 244, 1),
                     RGBA(255, 255, 255, 1)
                 )
@@ -499,7 +499,7 @@ ModuloEquipoV1 As screen:
             DisplayFields: =["Dominio"]
             DisplayMode: |-
                 =If(
-                    _VarVerPopUpPortafolio,
+                    _VarEquipo="MiEquipo",
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
