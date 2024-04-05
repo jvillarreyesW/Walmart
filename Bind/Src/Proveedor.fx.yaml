@@ -69,6 +69,8 @@ Proveedor As screen:
             If(ComboBox2_3.Selected.Value="Documento archivado";
                 SubmitForm(Form5));;
             Back();*/
+            If(!FormContratoProveedor.Valid,
+            Notify("Existen campos obligatorios sin información",NotificationType.Warning),
             
             If(DataCardValue75.Value && IsBlank(ComboBox2_1.Selected.Nombre_Persona),
             Notify("El contrato es mayor a 50MM, por favor registra segundo firmante",NotificationType.Warning),
@@ -96,7 +98,7 @@ Proveedor As screen:
             SubmitForm(FormContratoProveedor);
             If(ComboBox2_3.Selected.Value="Documento archivado",
                 SubmitForm(Form5));
-            Back()
+            Back())
             ))//);;
             //))
         Text: ="Guardar"
@@ -105,7 +107,7 @@ Proveedor As screen:
             || !IsBlank(LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).ID),false,true)
             ||LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).Estado_Solicitud.Value="Borrador"
             ||LookUp(Lst_ContratosProveedores,ID_Sol_Proveedor=Guid_Proveedor).Estado_Solicitud.Value="Ingresada a Bind"
-            ||PermisoUsuario.Mantenedor
+            ||(PermisoUsuario.Mantenedor&&!_VarFormEstado)
         X: =1505
         Y: =994
         ZIndex: =4
@@ -4707,6 +4709,7 @@ Proveedor As screen:
 
             DataCardValue53_1 As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =ComboBox2_3.Selected
                 DefaultSelectedItems: |-
                     =If(Checkbox2.Value,{Value:"Borrador"},ComboBox2_3.Selected)
                 DisplayFields: =["Value"]
