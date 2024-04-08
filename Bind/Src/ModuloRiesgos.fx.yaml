@@ -2009,7 +2009,7 @@ ModuloRiesgos As screen:
                             )
                         }
                     )
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 Height: =Txt_FondoResponsable.Height - 10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 InputTextPlaceholder: ="Buscar responsable"
