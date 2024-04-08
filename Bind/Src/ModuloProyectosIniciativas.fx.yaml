@@ -1991,7 +1991,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 }
         DefaultSelectedItems: =Filter(Lst_Plan_Objetivos,ID=Value(First(ProyectoSeleccionado).Objetivo_Estrategico))
-        DisplayFields: =["AnnoObjetivo"]
+        DisplayFields: =["NombreObjetivo"]
         Height: =Txt_FondoSubViaje_10.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
@@ -2000,8 +2000,8 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["AnnoObjetivo"]
-        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID)),Dpd_Pry_ObjeEstr.SearchText,"AnnoObjetivo")
+        SearchFields: =["NombreObjetivo"]
+        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID)),Dpd_Pry_ObjeEstr.SearchText,"NombreObjetivo")
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513

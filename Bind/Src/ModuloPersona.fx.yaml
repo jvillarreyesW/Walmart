@@ -669,7 +669,7 @@ ModuloPersona As screen:
                 DefaultSelectedItems: |-
                     =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
                 DisabledColor: =RGBA(102, 102, 102, 1)
-                DisplayFields: =["Claims","Email"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
