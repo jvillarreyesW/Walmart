@@ -214,35 +214,6 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            Icon9 As icon.Trash:
-                Color: =RGBA(15, 108, 189, 1)
-                Height: =35
-                Icon: =Icon.Trash
-                OnSelect: |-
-                    =UpdateContext({_VarPopUpAgregarColaborador:true});
-                    UpdateContext({_VarEliminarUsuario:true});
-                Tooltip: ="Cambiar de Equipo"
-                Width: =35
-                X: =795
-                Y: =56
-                ZIndex: =10
-
-            Icon9_1 As icon.Trash:
-                Color: =RGBA(15, 108, 189, 1)
-                Height: =35
-                Icon: =Icon.Sort
-                OnSelect: |-
-                    =UpdateContext({_VarPopUpAgregarColaborador:true});
-                    UpdateContext({_VarCambiardeEquipo:true});
-                    UpdateContext({_VarusuarioCambiar:ThisItem.Usuario});
-                    UpdateContext({_VarEliminarUsuario:false});
-                Rotation: =90
-                Tooltip: ="Cambiar de Equipo"
-                Width: =35
-                X: =746
-                Y: =53
-                ZIndex: =11
-
             Image35 As image:
                 Height: =35
                 Image: ='cambiar (2)'
@@ -265,12 +236,31 @@ ModuloGestionEquipoV1 As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =35
                 HoverFill: =RGBA(255, 255, 255, 0.48)
-                OnSelect: =Select(Parent)
+                OnSelect: |-
+                    =UpdateContext({_VarPopUpAgregarColaborador:true});
+                    UpdateContext({_VarCambiardeEquipo:true});
+                    UpdateContext({_VarusuarioCambiar:ThisItem.Usuario});
+                    UpdateContext({_VarEliminarUsuario:false});
+                PressedFill: =RGBA(255, 255, 255, 0.71)
                 Text: =""
                 Width: =35
                 X: =1045
                 Y: =61
                 ZIndex: =14
+
+            Button34_1 As button:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =35
+                HoverFill: =RGBA(255, 255, 255, 0.48)
+                OnSelect: |-
+                    =UpdateContext({_VarPopUpAgregarColaborador:true});
+                    UpdateContext({_VarEliminarUsuario:true});
+                PressedFill: =RGBA(255, 255, 255, 0.71)
+                Text: =""
+                Width: =35
+                X: =1093
+                Y: =61
+                ZIndex: =15
 
         Txt_BuscadorPersona_1 As text:
             BorderColor: =RGBA(53, 61, 63, 1)
