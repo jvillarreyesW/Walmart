@@ -934,8 +934,8 @@ ListadoIniciativas As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: |
                 =Valor = "Producto" || Valor = "Proyecto"
-            SearchFields: =["AreadeImpacto"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"AreadeImpacto")
+            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
+            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
