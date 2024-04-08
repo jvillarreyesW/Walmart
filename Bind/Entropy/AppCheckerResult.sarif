@@ -21743,36 +21743,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloGestionEquipoV1",
-                "type": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Dominio.AccessibleLabel"
                 }
               ],
@@ -21803,19 +21773,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia.AccessibleLabel"
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia.AccessibleLabel",
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ModuloGestionEquipoV1",
-                "type": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia"
+                "type": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable"
               }
             }
           ],
@@ -21833,19 +21803,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable.AccessibleLabel"
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable.AccessibleLabel",
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ModuloGestionEquipoV1",
-                "type": "ModuloGestionEquipoV1.Container25.Container26.Cmb_ModEq_Responsable"
+                "type": "ModuloGestionEquipoV1.Container25.Container26.Txt_ModEq_NombreEquipo"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloGestionEquipoV1",
+                "type": "ModuloGestionEquipoV1.Container25.Container26.Dpd_ModEq_Gerencia"
               }
             }
           ],
@@ -29783,6 +29783,156 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModuloPersona.Txt_FondoBuscarPersona.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Txt_FondoBuscarPersona.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Txt_FondoBuscarPersona"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloPersona.Cmb_BuscarMiEquipo.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Cmb_BuscarMiEquipo.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Cmb_BuscarMiEquipo"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloPersona.Rd_InternoExterno.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Rd_InternoExterno.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Rd_InternoExterno"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloPersona.Image19.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Image19.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Image19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloPersona.Image19.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloPersona.Image19.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ModuloPersona",
+                "type": "ModuloPersona.Image19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 13
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ModuloPersona.Frm_EditarPersona.'Interno/Externo_DataCard2'.Txt_FondoForm1_2.AccessibleLabel"
                 }
               ],
@@ -30527,156 +30677,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Txt_FondoBuscarPersona.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Txt_FondoBuscarPersona.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Txt_FondoBuscarPersona"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Cmb_BuscarMiEquipo.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Cmb_BuscarMiEquipo.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Cmb_BuscarMiEquipo"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Rd_InternoExterno.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Rd_InternoExterno.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Rd_InternoExterno"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Image19.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Image19.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Image19"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersona.Image19.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersona.Image19.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ModuloPersona",
-                "type": "ModuloPersona.Image19"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 13
         },
         {
           "locations": [
@@ -82852,6 +82852,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App._VarGeOri"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App._VarGeOri",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "_VarGeOri",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 18
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._VarNuevoServTech"
                 }
               ],
@@ -82942,17 +82972,47 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.users-alt (1)_1"
+                  "fullyQualifiedName": "App.Actual1_fondo-portfolio-manager2"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.users-alt (1)_1",
+                  "fullyQualifiedName": "App.Actual1_fondo-portfolio-manager2",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "users-alt (1)_1",
+                "member": "Actual1_fondo-portfolio-manager2",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 19
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Actual_fondo-portfolio-manager"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Actual_fondo-portfolio-manager",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Actual_fondo-portfolio-manager",
                 "module": "App",
                 "type": "App"
               }
@@ -83073,6 +83133,66 @@
               },
               "properties": {
                 "member": "addfolderModificado",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 19
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.AGILE PORTFOLIO v2"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.AGILE PORTFOLIO v2",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AGILE PORTFOLIO v2",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 19
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.AGILE PORTFOLIO v3"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.AGILE PORTFOLIO v3",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AGILE PORTFOLIO v3",
                 "module": "App",
                 "type": "App"
               }
