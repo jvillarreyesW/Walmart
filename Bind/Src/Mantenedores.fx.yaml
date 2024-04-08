@@ -1433,7 +1433,7 @@ Mantenedores As screen:
                     ZIndex: =4
 
                 ComboBox1_1 As combobox:
-                    DisplayFields: =["Categoria"]
+                    DisplayFields: =["Nombre_Persona","Usuario"]
                     Items: =Col_BD_Persona
                     SearchFields: =["Categoria"]
                     SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,"Categoria")

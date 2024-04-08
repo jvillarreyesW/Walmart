@@ -710,7 +710,7 @@ ModuloAuditoria As screen:
                             )
                         }
                     )
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
@@ -787,7 +787,7 @@ ModuloAuditoria As screen:
                             )
                         }
                     )
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
@@ -822,7 +822,7 @@ ModuloAuditoria As screen:
                         }
                 DefaultSelectedItems: |-
                     =If(IsBlank(ThisItem.AUDIT_CONTACT),Blank(),UsuariosdeOffice365.SearchUser({searchTerm:ThisItem.AUDIT_CONTACT}))
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1_73.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -858,7 +858,7 @@ ModuloAuditoria As screen:
                         }
                 DefaultSelectedItems: |-
                     =If(IsBlank(ThisItem.TESTER),Blank(),UsuariosdeOffice365.SearchUser({searchTerm:ThisItem.TESTER}))
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
@@ -1779,7 +1779,7 @@ ModuloAuditoria As screen:
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: |-
             =//Table({DisplayName:_Perfil.displayName})
-        DisplayFields: =["Claims"]
+        DisplayFields: =["DisplayName","Email","Picture"]
         DisplayMode: |-
             =If(
                 _VarVerPopUpPortafolio,

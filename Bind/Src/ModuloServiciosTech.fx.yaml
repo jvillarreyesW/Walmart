@@ -504,7 +504,7 @@ ModuloServiciosTech As screen:
                 )
             )
         DisabledColor: =RGBA(77, 77, 77, 1)
-        DisplayFields: =["Claims"]
+        DisplayFields: =["DisplayName","Email","Picture"]
         DisplayMode: |-
             =If( 
                 Dpd_Pry_SubDominio_Tech.Selected.NombreSubDominio = "Proyectos Digitales" && (Dpd_Pry_Dominio_Tech.Selected.Title = "Colaboradores" || Dpd_Pry_Dominio_Tech.Selected.Title = "Canal de Venta" || Dpd_Pry_Dominio_Tech.Selected.Title = "Engagement" || Dpd_Pry_Dominio_Tech.Selected.Title = "B2B"),
@@ -612,7 +612,7 @@ ModuloServiciosTech As screen:
                     )
                 )
             )
-        DisplayFields: =["Claims"]
+        DisplayFields: =["DisplayName","Picture","Picture"]
         DisplayMode: |-
             =
                 DisplayMode.Edit
