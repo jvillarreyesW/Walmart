@@ -1321,7 +1321,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 )
             )
-        DisplayFields: =["Claims"]
+        DisplayFields: =["DisplayName","Email","Picture"]
         Height: =Txt_FondoNegocio_3.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: ="Buscar responsable"
@@ -2015,7 +2015,7 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Lst_Plan_Prioridad,ID=Value(First(ProyectoSeleccionado).Prioridad_Estrategica))
-        DisplayFields: =["AnnoPrioridad"]
+        DisplayFields: =["NombrePrioridad"]
         Height: =Txt_FondoSubViaje_10.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
@@ -2024,8 +2024,8 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["AnnoPrioridad"]
-        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"AnnoPrioridad")
+        SearchFields: =["NombrePrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"NombrePrioridad")
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2543,7 +2543,7 @@ ModuloProyectosIniciativas As screen:
                         )
                     )
                 )
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaPO_1.Checked,
@@ -2645,7 +2645,7 @@ ModuloProyectosIniciativas As screen:
                     )
                 )
             DisabledColor: =RGBA(128, 128, 128, 1)
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaEM_1.Checked,
@@ -2732,7 +2732,7 @@ ModuloProyectosIniciativas As screen:
                         )
                     )
                 )
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             DisplayMode: |-
                 =If(
                     Chk_AplicaNegocio_1.Checked,
