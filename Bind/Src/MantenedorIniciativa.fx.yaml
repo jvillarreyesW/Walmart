@@ -771,7 +771,7 @@ MantenedorIniciativa As screen:
                 )
             )
         DisabledColor: =RGBA(128, 128, 128, 1)
-        DisplayFields: =["Claims"]
+        DisplayFields: =["DisplayName","Email","Picture"]
         DisplayMode: |-
             =If(
                 Chk_AplicaEM.Checked,

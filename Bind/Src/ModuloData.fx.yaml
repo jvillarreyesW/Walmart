@@ -184,7 +184,7 @@ ModuloData As screen:
                     ),
                     Blank()
                 )
-            DisplayFields: =["AreadeImpacto"]
+            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
             Height: =Txt_FondoForm1_71.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: |-
@@ -201,7 +201,7 @@ ModuloData As screen:
                     )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["AreadeImpacto"]
+            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
             SearchItems: |-
                 =Search(Sort(
                     Filter(
@@ -213,7 +213,7 @@ ModuloData As screen:
                             !(IDDominio = "Via-7472DB8B-4704-22CA-6C67-FB0803F64EC3")
                         ),
                         'Nombre Producto/Proyecto',SortOrder.Ascending
-                    ),Cmb_ImpactoTech.SearchText,"AreadeImpacto")
+                    ),Cmb_ImpactoTech.SearchText,"Nombre_x0020_Producto_x002f_Proy")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -964,7 +964,7 @@ ModuloData As screen:
                         }
                     )
                 DisabledColor: =RGBA(102, 102, 102, 1)
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =If(ThisItem.DATA_Origen="BIND",DisplayMode.Edit, DisplayMode.Disabled)
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
@@ -1029,7 +1029,7 @@ ModuloData As screen:
                 DefaultSelectedItems: |-
                     =Table({DisplayName:LookUp(Lst_Persona, Usuario =  Dpd_SubDominio_1.Selected.Responsable,Nombre_Persona)})
                 DisabledColor: =RGBA(128, 128, 128, 1)
-                DisplayFields: =["Claims"]
+                DisplayFields: =["DisplayName","Email","Picture"]
                 DisplayMode: =Parent.DisplayMode.Disabled
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
                 Items: =Choices([@Lst_Persona].BuscarNombrePersona)
@@ -1812,7 +1812,7 @@ ModuloData As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =//Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["Claims"]
+            DisplayFields: =["DisplayName","Email","Picture"]
             Height: =Txt_FondoForm1_68.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: =Choices([@Lst_Persona].BuscarNombrePersona)

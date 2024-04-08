@@ -669,7 +669,7 @@ ModuloPersona As screen:
                 DefaultSelectedItems: |-
                     =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
                 DisabledColor: =RGBA(102, 102, 102, 1)
-                DisplayFields: =["Claims"]
+                DisplayFields: =["Claims","Email"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -830,7 +830,7 @@ ModuloPersona As screen:
                     //Table({NombreGerencia: ThisItem.GerenciaOrigen})
                     //!IsBlank(_VarNuevoIDPErsona
                     //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
-                DisplayFields: =["ComplianceAssetId"]
+                DisplayFields: =["NombreGerencia"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =Txt_FondoForm1_49.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -839,8 +839,8 @@ ModuloPersona As screen:
                 OnChange: =
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
-                SearchFields: =["ComplianceAssetId"]
-                SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen.SearchText,"ComplianceAssetId")
+                SearchFields: =["NombreGerente"]
+                SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen.SearchText,"NombreGerente")
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName

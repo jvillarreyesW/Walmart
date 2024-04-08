@@ -1258,10 +1258,10 @@ RepositorioProveedor As screen:
 
                 ComboBox6 As combobox:
                     DefaultSelectedItems: =If(ThisItem.Proveedor_Extranjero,LookUp(Lst_Proveedores,Razon_Social_Proveedor=ThisItem.Proveedor),LookUp(Lst_Proveedores,RUT=ThisItem.Proveedor))
-                    DisplayFields: =["ComplianceAssetId"]
+                    DisplayFields: =["Razon_Social"]
                     Items: =Lst_Proveedores
-                    SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,"ComplianceAssetId")
+                    SearchFields: =["Razon_Social"]
+                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,"Razon_Social")
                     SelectMultiple: =false
                     Width: =508
                     X: =31
