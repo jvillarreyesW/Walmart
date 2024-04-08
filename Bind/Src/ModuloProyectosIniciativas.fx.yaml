@@ -2039,7 +2039,7 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Col_BD_Dominios , IDDominio = First(ProyectoSeleccionado).IDViaje)
-        DisplayFields: =["ComplianceAssetId"]
+        DisplayFields: =["Title"]
         Height: =Txt_FondoNegocio_3.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: ="Buscar responsable"
@@ -2048,8 +2048,8 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["ComplianceAssetId"]
-        SearchItems: =Search(Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje","IDDominio"),Title,SortOrder.Ascending),Dpd_Pry_Dominio_1.SearchText,"ComplianceAssetId")
+        SearchFields: =["Title"]
+        SearchItems: =Search(Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje","IDDominio"),Title,SortOrder.Ascending),Dpd_Pry_Dominio_1.SearchText,"Title")
         SelectMultiple: =false
         Width: =Txt_FondoNegocio_3.Width - 27
         X: =134
