@@ -2015,7 +2015,7 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Lst_Plan_Prioridad,ID=Value(First(ProyectoSeleccionado).Prioridad_Estrategica))
-        DisplayFields: =["NombrePrioridad"]
+        DisplayFields: =["AnnoPrioridad"]
         Height: =Txt_FondoSubViaje_10.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
@@ -2024,8 +2024,8 @@ ModuloProyectosIniciativas As screen:
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
-        SearchFields: =["NombrePrioridad"]
-        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"NombrePrioridad")
+        SearchFields: =["AnnoPrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"AnnoPrioridad")
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
