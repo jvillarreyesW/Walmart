@@ -95,7 +95,7 @@ ModuloGestionEquipoV1 As screen:
             DelayItemLoading: =true
             Height: =772
             Items: |-
-                =Search( Col_InegrantesEquipo, Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado")
+                =Search( Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado")
                 
                 //Filter(Col_BD_AsignacionEquipos; IDEquipo = _VarEquipoSeleccionado)
             Layout: =Layout.Vertical
