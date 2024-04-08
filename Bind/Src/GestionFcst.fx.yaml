@@ -870,7 +870,7 @@ GestionFcst As screen:
                     First(Adjuntar_CargaMasiva_1.Attachments).Name,
                     User().Email,
                     User().FullName,
-                    "W12",//First(Col_SemanaEnCurso).Semana
+                    "W8",//First(Col_SemanaEnCurso).Semana
                     _Perfil.mail, //_Perfil.Mail
                     _Perfil.displayName, //_Perfil.displayName;
                     "GERENCIA DE FINANZAS",
