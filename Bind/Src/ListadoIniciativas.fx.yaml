@@ -907,7 +907,7 @@ ListadoIniciativas As screen:
                         Table({DisplayName:_Perfil.displayName, Claims:_Perfil.userPrincipalName})
                     )
                 )
-            DisplayFields: =["AreadeImpacto"]
+            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
             DisplayMode: |
                 =
                         DisplayMode.Edit
@@ -934,8 +934,8 @@ ListadoIniciativas As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: |
                 =Valor = "Producto" || Valor = "Proyecto"
-            SearchFields: =["AreadeImpacto"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"AreadeImpacto")
+            SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
+            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -977,7 +977,7 @@ ListadoIniciativas As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["AnnoObjetivo"]
+            DisplayFields: =["NombreObjetivo"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -998,8 +998,8 @@ ListadoIniciativas As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["AnnoObjetivo"]
-            SearchItems: =Search(Lst_Plan_Objetivos,Cmb_FiltroNombre_8.SearchText,"AnnoObjetivo")
+            SearchFields: =["NombreObjetivo"]
+            SearchItems: =Search(Lst_Plan_Objetivos,Cmb_FiltroNombre_8.SearchText,"NombreObjetivo")
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
