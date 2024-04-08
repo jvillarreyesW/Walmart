@@ -4766,7 +4766,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceraPortafolio_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 31,
+      "ParentIndex": 32,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4818,7 +4818,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_Filtros_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 32,
+      "ParentIndex": 31,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

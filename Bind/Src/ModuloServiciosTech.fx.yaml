@@ -612,7 +612,7 @@ ModuloServiciosTech As screen:
                     )
                 )
             )
-        DisplayFields: =["DisplayName","Picture","Picture"]
+        DisplayFields: =["DisplayName","Email","Picture"]
         DisplayMode: |-
             =
                 DisplayMode.Edit
