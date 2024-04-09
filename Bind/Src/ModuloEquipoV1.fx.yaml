@@ -715,8 +715,8 @@ ModuloEquipoV1 As screen:
             Required: =false
             Update: =DataCardValue194.Selected.IDDominio
             Width: =578
-            X: =0
-            Y: =1
+            X: =1
+            Y: =0
             ZIndex: =1
 
             DataCardKey220 As label:
@@ -777,7 +777,7 @@ ModuloEquipoV1 As screen:
             Update: =Image33.Image
             Width: =578
             X: =0
-            Y: =0
+            Y: =2
             ZIndex: =14
 
             DataCardKey208 As label:
@@ -845,7 +845,7 @@ ModuloEquipoV1 As screen:
             Required: =false
             Update: =DataCardValue184.Text
             Width: =578
-            X: =1
+            X: =0
             Y: =0
             ZIndex: =14
 
@@ -913,7 +913,7 @@ ModuloEquipoV1 As screen:
             Required: =false
             Update: =DataCardValue177.Text
             Width: =578
-            X: =1
+            X: =0
             Y: =1
             ZIndex: =14
 
@@ -982,8 +982,8 @@ ModuloEquipoV1 As screen:
             Update: |-
                 =Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue187.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
             Width: =578
-            X: =0
-            Y: =2
+            X: =1
+            Y: =1
             ZIndex: =14
 
             DataCardKey213 As label:
@@ -1317,10 +1317,16 @@ ModuloEquipoV1 As screen:
                 ZIndex: =4
 
     Button33 As button:
+        DisplayMode: |-
+            =If(
+                IsBlank(DataCardValue177.Text) Or IsBlank(DataCardValue187.Selected.DisplayName) Or IsBlank(DataCardValue194.Selected.Title),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
         OnSelect: =SubmitForm(Form1)
         Text: ="Crear"
         Visible: =_VarMostrarCrearEquipo
-        X: =1145
+        X: =1150
         Y: =570
         ZIndex: =14
 
