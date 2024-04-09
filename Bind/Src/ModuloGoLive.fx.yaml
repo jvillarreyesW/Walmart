@@ -1389,7 +1389,7 @@ ModuloGoLive As screen:
         BorderThickness: =2
         DelayItemLoading: =true
         Height: =229
-        Items: =FirstN(Sort(Filter(Lst_HistorialComoVamos,IDProducto = First(ProyectoSeleccionado).IDProducto),Creado,SortOrder.Descending),5)
+        Items: =FirstN(Sort(Filter(Lst_HistorialComoVamos,IDProducto = First(ProyectoSeleccionado).IDProducto),Created,SortOrder.Descending),5)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =Label8_5.Height + 5

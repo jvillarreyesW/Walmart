@@ -178,7 +178,7 @@ RepositorioProveedor As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Value"]
-            SearchItems: =Choices(Lst_ContratosProveedores.Formulario_Solicitud,Cmb_FiltroNombre_9.SearchText)
+            SearchItems: =[]
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -486,11 +486,11 @@ RepositorioProveedor As screen:
                 Height: =50
                 Image: ='file-pdf'
                 OnSelect: |-
-                    =UpdateContext({_VerContrato:ThisItem});UpdateContext({ID_PDF:First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value}); UpdateContext({_VarVerPDF:true})
+                    =UpdateContext({_VerContrato:ThisItem});UpdateContext({ID_PDF:First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").Attachments).Value}); UpdateContext({_VarVerPDF:true})
                 Visible: |-
                     =If(
                         (ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor|| PermisoUsuario.Proveedores_Vista) &&
-                        !IsBlank(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value)
+                        !IsBlank(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").Attachments).Value)
                     ,true,false)
                 Width: =63
                 X: =1759
@@ -917,7 +917,7 @@ RepositorioProveedor As screen:
             "'Datos adjuntos_DataCard3' As typedDataCard.attachmentsEditCard":
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
                 Fill: =RGBA(0, 0, 0, 0)
@@ -2023,11 +2023,11 @@ RepositorioProveedor As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
-                    DisplayFields: =["Categoria"]
+                    DisplayFields: =["Nombre_Persona"]
                     DisplayMode: =Parent.DisplayMode
                     Items: =Col_BD_Persona
-                    SearchFields: =["Categoria"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox2_5.SearchText,"Categoria")
+                    SearchFields: =["Nombre_Persona"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_5.SearchText,"Nombre_Persona")
                     SelectMultiple: =false
                     Width: =282
                     X: =28
@@ -2108,11 +2108,11 @@ RepositorioProveedor As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
-                    DisplayFields: =["Categoria"]
+                    DisplayFields: =["Nombre_Persona"]
                     DisplayMode: =Parent.DisplayMode
                     Items: =Col_BD_Persona
-                    SearchFields: =["Categoria"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox2_7.SearchText,"Categoria")
+                    SearchFields: =["Nombre_Persona"]
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_7.SearchText,"Nombre_Persona")
                     SelectMultiple: =false
                     Width: =282
                     X: =30
@@ -3001,7 +3001,7 @@ RepositorioProveedor As screen:
                 )
             Fill: =RGBA(0, 0, 0, 0)
             HoverFill: =RGBA(255, 255, 255, 0.5)
-            OnSelect: =Launch(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_VerContrato.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').AbsoluteUri)
+            OnSelect: =Launch(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_VerContrato.ID_Sol_Proveedor && Campo="Documento Final").Attachments).AbsoluteUri)
             PressedFill: =RGBA(255, 255, 255, 0.7)
             Text: =""
             Width: =161

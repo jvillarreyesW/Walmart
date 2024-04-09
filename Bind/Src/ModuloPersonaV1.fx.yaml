@@ -866,7 +866,7 @@ ModuloPersonaV1 As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["NombreGerencia"]
-                    SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen_1.SearchText,"NombreGerencia")
+                    SearchItems: =[]
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
@@ -1778,7 +1778,7 @@ ModuloPersonaV1 As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =Search(["M","F"],Dpd_Genero_1.SearchText,"Value")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Txt_FondoForm1_196.Width -27
@@ -1902,7 +1902,7 @@ ModuloPersonaV1 As screen:
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =Search(["Subcontratación Outsourcing","Subcontratación Servicios"],DataCardValue162.SearchText,"Value")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Txt_FondoForm1_197.Width - 27
@@ -1910,7 +1910,7 @@ ModuloPersonaV1 As screen:
                     Y: =45
                     ZIndex: =6
 
-                "InfoButtonCanvas1 As 'Botón de información'":
+                "InfoButtonCanvas1 As 'Information button'":
                     BasePaletteColor: =
                     Content: |-
                         ="Servicios: contratación de prestación de servicios cuando no se tiene expertiz. Importa el resultado independiente de quienes prestan el servicio. Temporalidad esporadica y específica, aun cuando puede ser recuerrente. No forman parte del negocio, el prestador trabaja independiente, solo solicitud inicial y entregas se tratan directo con equipo WM. Ej: encuesta a fin de mes. 

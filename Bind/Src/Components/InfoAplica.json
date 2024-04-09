@@ -176,7 +176,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5821,
+        "PublishOrderIndex": 52,
         "Rules": [
           {
             "Category": "Data",
@@ -513,7 +513,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5822,
+        "PublishOrderIndex": 53,
         "Rules": [
           {
             "Category": "Design",
@@ -761,7 +761,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5823,
+        "PublishOrderIndex": 54,
         "Rules": [
           {
             "Category": "Data",
@@ -960,7 +960,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638481913097276530",
+    "LastModifiedTimestamp": "638482700835248016",
     "Name": "InfoAplica",
     "Rules": [
       {
@@ -1019,7 +1019,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638481913097276530",
+  "LastModifiedTimestamp": "638482700835248016",
   "Name": "9cbf5b8daffc4fb6a63f632b0c8c9c4e",
   "OverridableProperties": {},
   "Version": "638235682749298151"

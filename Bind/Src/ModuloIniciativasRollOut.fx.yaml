@@ -676,7 +676,7 @@ ModuloIniciativasRollOut As screen:
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
             SearchFields: =["Value"]
-            SearchItems: =Choices('Dominio - Proyecto/Producto'.Tipo_Rollout,Dpd_Pry_ProductoProyecto_2.SearchText)
+            SearchItems: =[]
             SelectMultiple: =false
             Width: =Txt_FondoTipoProyecto_6.Width - 27
             X: =54
@@ -805,7 +805,7 @@ ModuloIniciativasRollOut As screen:
 
             Label40_1 As label:
                 Height: =25
-                Text: =Mid(ThisItem.'Nombre de archivo con extensión',12,50)
+                Text: =Mid(ThisItem.'File name with extension',12,50)
                 Width: =440
                 X: =38
                 Y: =7
@@ -814,7 +814,7 @@ ModuloIniciativasRollOut As screen:
             Label40_4 As label:
                 Align: =Align.Center
                 Height: =25
-                Text: =ThisItem.'Creado por'.DisplayName
+                Text: =ThisItem.'Created By'.DisplayName
                 Width: =219
                 X: =886
                 Y: =7
@@ -823,7 +823,7 @@ ModuloIniciativasRollOut As screen:
             Label40_2 As label:
                 Align: =Align.Center
                 Height: =25
-                Text: =Text(ThisItem.Creado,"dd/mm/yyyy")
+                Text: =Text(ThisItem.Created,"dd/mm/yyyy")
                 Width: =134
                 X: =742
                 Y: =7
@@ -883,7 +883,7 @@ ModuloIniciativasRollOut As screen:
             Icon33 As icon.Link:
                 Height: =37
                 Icon: =Icon.Link
-                OnSelect: =If(Right(ThisItem.'Nombre de archivo con extensión',3)="url",Launch(ThisItem.Link),Launch(ThisItem.'Vinculo al elemento'))
+                OnSelect: =If(Right(ThisItem.'File name with extension',3)="url",Launch(ThisItem.Link),Launch(ThisItem.'Link to item'))
                 Width: =26
                 X: =6
                 ZIndex: =7
@@ -1154,7 +1154,7 @@ ModuloIniciativasRollOut As screen:
                 "'Nombre de archivo con extensión_DataCard1' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{FilenameWithExtension}"
-                    Default: =ThisItem.'Nombre de archivo con extensión'
+                    Default: =ThisItem.'File name with extension'
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"{FilenameWithExtension}")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -1300,7 +1300,7 @@ ModuloIniciativasRollOut As screen:
                                            Value:ThisItem.Clasificación
                                         }
                                     )
-                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayFields: =["Value","Email","Picture"]
                         DisplayMode: |-
                             =If(
                                 Chk_AplicaPO_1.Checked,
@@ -1329,7 +1329,7 @@ ModuloIniciativasRollOut As screen:
                 Creado_DataCard1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Created"
-                    Default: =ThisItem.Creado
+                    Default: =ThisItem.Created
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"Created")
                     Fill: =RGBA(0, 0, 0, 0)
@@ -1374,7 +1374,7 @@ ModuloIniciativasRollOut As screen:
                     MaxLength: =DataSourceInfo([@DocumentosIniciativas], DataSourceInfo.MaxLength, "Link")
                     Required: =false
                     Update: =DataCardValue121.Text
-                    Visible: =Right(ThisItem.'Nombre de archivo con extensión',3)="url"
+                    Visible: =Right(ThisItem.'File name with extension',3)="url"
                     Width: =552
                     X: =0
                     Y: =3

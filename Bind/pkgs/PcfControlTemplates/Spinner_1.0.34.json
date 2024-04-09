@@ -420,14 +420,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Indicador giratorio",
+  "Name": "Spinner",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta del indicador giratorio",
+      "Description": "Label for Spinner",
       "DescriptionResourceString": "Spinner_Label_Desc_Key",
-      "DisplayName": "Etiqueta",
+      "DisplayName": "Label",
       "DisplayNameResourceString": "Spinner_Label_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
@@ -453,9 +453,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta de accesibilidad para el componente Indicador giratorio",
+      "Description": "Accessibility Label for Spinner component",
       "DescriptionResourceString": "Spinner_AccessibleLabel_Desc_Key",
-      "DisplayName": "Etiqueta de accesibilidad",
+      "DisplayName": "Accessibility Label",
       "DisplayNameResourceString": "Spinner_AccessibleLabel_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
@@ -481,21 +481,21 @@
     {
       "Category": "data",
       "DefaultValue": "Primary",
-      "Description": "Apariencia del indicador giratorio",
+      "Description": "Appearance of Spinner",
       "DescriptionResourceString": "Spinner_Appearance_Desc_Key",
-      "DisplayName": "Apariencia",
+      "DisplayName": "Appearance",
       "DisplayNameResourceString": "Spinner_Appearance_Display_Key",
       "EnumValues": [
         {
-          "Description": "Invertido",
-          "DisplayName": "Invertido",
+          "Description": "Inverted",
+          "DisplayName": "Inverted",
           "IsDefaultValue": false,
           "Name": "Inverted",
           "Value": "Inverted"
         },
         {
-          "Description": "Principal",
-          "DisplayName": "Principal",
+          "Description": "Primary",
+          "DisplayName": "Primary",
           "IsDefaultValue": true,
           "Name": "Primary",
           "Value": "Primary"
@@ -524,35 +524,35 @@
     {
       "Category": "data",
       "DefaultValue": "After",
-      "Description": "Defina la posición de la etiqueta alrededor del indicador giratorio",
+      "Description": "Define position for the label around the Spinner",
       "DescriptionResourceString": "Spinner_LabelPosition_Desc_Key",
-      "DisplayName": "Posición de la etiqueta",
+      "DisplayName": "Label Position",
       "DisplayNameResourceString": "Spinner_LabelPosition_Display_Key",
       "EnumValues": [
         {
-          "Description": "Antes",
-          "DisplayName": "Antes",
+          "Description": "Before",
+          "DisplayName": "Before",
           "IsDefaultValue": false,
           "Name": "Before",
           "Value": "Before"
         },
         {
-          "Description": "Después",
-          "DisplayName": "Después",
+          "Description": "After",
+          "DisplayName": "After",
           "IsDefaultValue": true,
           "Name": "After",
           "Value": "After"
         },
         {
-          "Description": "Encima",
-          "DisplayName": "Encima",
+          "Description": "Above",
+          "DisplayName": "Above",
           "IsDefaultValue": false,
           "Name": "Above",
           "Value": "Above"
         },
         {
-          "Description": "Por debajo",
-          "DisplayName": "Por debajo",
+          "Description": "Below",
+          "DisplayName": "Below",
           "IsDefaultValue": false,
           "Name": "Below",
           "Value": "Below"
@@ -581,56 +581,56 @@
     {
       "Category": "data",
       "DefaultValue": "Medium",
-      "Description": "Defina el tamaño del indicador giratorio",
+      "Description": "Define size of Spinner",
       "DescriptionResourceString": "Spinner_SpinnerSize_Desc_Key",
-      "DisplayName": "Tamaño del indicador giratorio",
+      "DisplayName": "Spinner Size",
       "DisplayNameResourceString": "Spinner_SpinnerSize_Display_Key",
       "EnumValues": [
         {
-          "Description": "Muy pequeño",
-          "DisplayName": "Muy pequeño",
+          "Description": "Tiny",
+          "DisplayName": "Tiny",
           "IsDefaultValue": false,
           "Name": "Tiny",
           "Value": "Tiny"
         },
         {
-          "Description": "Extrapequeño",
-          "DisplayName": "Extrapequeño",
+          "Description": "ExtraSmall",
+          "DisplayName": "ExtraSmall",
           "IsDefaultValue": false,
           "Name": "ExtraSmall",
           "Value": "ExtraSmall"
         },
         {
-          "Description": "Pequeño",
-          "DisplayName": "Pequeño",
+          "Description": "Small",
+          "DisplayName": "Small",
           "IsDefaultValue": false,
           "Name": "Small",
           "Value": "Small"
         },
         {
-          "Description": "Mediano",
-          "DisplayName": "Mediano",
+          "Description": "Medium",
+          "DisplayName": "Medium",
           "IsDefaultValue": true,
           "Name": "Medium",
           "Value": "Medium"
         },
         {
-          "Description": "Grande",
-          "DisplayName": "Grande",
+          "Description": "Large",
+          "DisplayName": "Large",
           "IsDefaultValue": false,
           "Name": "Large",
           "Value": "Large"
         },
         {
-          "Description": "Extragrande",
-          "DisplayName": "Extragrande",
+          "Description": "ExtraLarge",
+          "DisplayName": "ExtraLarge",
           "IsDefaultValue": false,
           "Name": "ExtraLarge",
           "Value": "ExtraLarge"
         },
         {
-          "Description": "Muy grande",
-          "DisplayName": "Muy grande",
+          "Description": "Huge",
+          "DisplayName": "Huge",
           "IsDefaultValue": false,
           "Name": "Huge",
           "Value": "Huge"
@@ -659,9 +659,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Puede proporcionar una paleta de colores diferente para el elemento seleccionado si especifica un color base de la paleta. Este color genera un conjunto de colores similares que se aplicarán después a diferentes aspectos del elemento, siendo los más habituales: relleno, borde y estados de interacción. Un valor en blanco indica que el elemento usará la paleta de colores del tema de la aplicación.",
+      "Description": "Choose a color palette that's different from the theme.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Color base de la paleta",
+      "DisplayName": "Color palette",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -715,9 +715,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
+      "Description": "Set the font size for displayed text.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -1033,7 +1033,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.31\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.34\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
@@ -1369,7 +1369,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Spinner_Display_Key\":\"Indicador giratorio\",\"Spinner_Desc_Key\":\"Permite a los usuarios visualizar el efecto de giro o carga\",\"Spinner_Label_Display_Key\":\"Etiqueta\",\"Spinner_Label_Desc_Key\":\"Etiqueta del indicador giratorio\",\"Spinner_AccessibleLabel_Display_Key\":\"Etiqueta de accesibilidad\",\"Spinner_AccessibleLabel_Desc_Key\":\"Etiqueta de accesibilidad para el componente Indicador giratorio\",\"Spinner_Appearance_Display_Key\":\"Apariencia\",\"Spinner_Appearance_Desc_Key\":\"Apariencia del indicador giratorio\",\"Spinner_LabelPosition_Display_Key\":\"Posición de la etiqueta\",\"Spinner_LabelPosition_Desc_Key\":\"Defina la posición de la etiqueta alrededor del indicador giratorio\",\"Spinner_SpinnerSize_Display_Key\":\"Tamaño del indicador giratorio\",\"Spinner_SpinnerSize_Desc_Key\":\"Defina el tamaño del indicador giratorio\",\"Spinner_LabelPosition_Before\":\"Antes\",\"Spinner_LabelPosition_After\":\"Después\",\"Spinner_LabelPosition_Above\":\"Encima\",\"Spinner_LabelPosition_Below\":\"Por debajo\",\"Spinner_SpinnerSize_Tiny\":\"Muy pequeño\",\"Spinner_SpinnerSize_ExtraSmall\":\"Extrapequeño\",\"Spinner_SpinnerSize_Small\":\"Pequeño\",\"Spinner_SpinnerSize_Medium\":\"Mediano\",\"Spinner_SpinnerSize_Large\":\"Grande\",\"Spinner_SpinnerSize_ExtraLarge\":\"Extragrande\",\"Spinner_SpinnerSize_Huge\":\"Muy grande\",\"Spinner_Appearance_Primary\":\"Principal\",\"Spinner_Appearance_Inverted\":\"Invertido\",\"Base_Palette_Color\":\"Color base de la paleta\",\"Base_Palette_Color_description\":\"Puede proporcionar una paleta de colores diferente para el elemento seleccionado si especifica un color base de la paleta. Este color genera un conjunto de colores similares que se aplicarán después a diferentes aspectos del elemento, siendo los más habituales: relleno, borde y estados de interacción. Un valor en blanco indica que el elemento usará la paleta de colores del tema de la aplicación.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Spinner_Display_Key\":\"Spinner\",\"Spinner_Desc_Key\":\"Let users visualise spinner/loading effect\",\"Spinner_Label_Display_Key\":\"Label\",\"Spinner_Label_Desc_Key\":\"Label for Spinner\",\"Spinner_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"Spinner_AccessibleLabel_Desc_Key\":\"Accessibility Label for Spinner component\",\"Spinner_Appearance_Display_Key\":\"Appearance\",\"Spinner_Appearance_Desc_Key\":\"Appearance of Spinner\",\"Spinner_LabelPosition_Display_Key\":\"Label Position\",\"Spinner_LabelPosition_Desc_Key\":\"Define position for the label around the Spinner\",\"Spinner_SpinnerSize_Display_Key\":\"Spinner Size\",\"Spinner_SpinnerSize_Desc_Key\":\"Define size of Spinner\",\"Spinner_LabelPosition_Before\":\"Before\",\"Spinner_LabelPosition_After\":\"After\",\"Spinner_LabelPosition_Above\":\"Above\",\"Spinner_LabelPosition_Below\":\"Below\",\"Spinner_SpinnerSize_Tiny\":\"Tiny\",\"Spinner_SpinnerSize_ExtraSmall\":\"ExtraSmall\",\"Spinner_SpinnerSize_Small\":\"Small\",\"Spinner_SpinnerSize_Medium\":\"Medium\",\"Spinner_SpinnerSize_Large\":\"Large\",\"Spinner_SpinnerSize_ExtraLarge\":\"ExtraLarge\",\"Spinner_SpinnerSize_Huge\":\"Huge\",\"Spinner_Appearance_Primary\":\"Primary\",\"Spinner_Appearance_Inverted\":\"Inverted\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
       "Type": 3
     },
     {
@@ -1394,5 +1394,5 @@
       "Type": 4
     }
   ],
-  "Version": "1.0.31"
+  "Version": "1.0.34"
 }

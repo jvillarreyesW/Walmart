@@ -27,7 +27,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5794,
+            "PublishOrderIndex": 25,
             "Rules": [
               {
                 "Category": "Design",
@@ -156,7 +156,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5795,
+            "PublishOrderIndex": 26,
             "Rules": [
               {
                 "Category": "Data",
@@ -462,7 +462,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5796,
+            "PublishOrderIndex": 27,
             "Rules": [
               {
                 "Category": "Design",
@@ -632,7 +632,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5793,
+        "PublishOrderIndex": 20,
         "Rules": [
           {
             "Category": "Data",
@@ -904,7 +904,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5797,
+        "PublishOrderIndex": 21,
         "Rules": [
           {
             "Category": "Data",
@@ -1072,7 +1072,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5799,
+            "PublishOrderIndex": 28,
             "Rules": [
               {
                 "Category": "Design",
@@ -1182,17 +1182,17 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5800,
+            "PublishOrderIndex": 29,
             "Rules": [
               {
                 "Category": "Data",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    ImagenMarzo,\n    '02'\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    ImagenMarzo,\n    '02'\n)",
                 "Property": "Image",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    ImagePosition.Fit,\n    ImagePosition.Fit\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    ImagePosition.Fit,\n    ImagePosition.Fit\n)",
                 "Property": "ImagePosition",
                 "RuleProviderType": "Unknown"
               },
@@ -1210,7 +1210,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    10,\n    10\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    10,\n    10\n)",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
@@ -1222,7 +1222,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    300,\n    150\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    300,\n    150\n)",
                 "Property": "Height",
                 "RuleProviderType": "Unknown"
               },
@@ -1451,7 +1451,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5801,
+            "PublishOrderIndex": 30,
             "Rules": [
               {
                 "Category": "Design",
@@ -1545,7 +1545,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    true,\n    false\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    true,\n    false\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -1623,7 +1623,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5802,
+            "PublishOrderIndex": 31,
             "Rules": [
               {
                 "Category": "Data",
@@ -1723,7 +1723,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    false,\n    true\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    false,\n    true\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -1852,7 +1852,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5803,
+            "PublishOrderIndex": 32,
             "Rules": [
               {
                 "Category": "Data",
@@ -2090,7 +2090,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    true,\n    false\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    true,\n    false\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -2211,7 +2211,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5798,
+        "PublishOrderIndex": 22,
         "Rules": [
           {
             "Category": "Data",
@@ -2421,7 +2421,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5805,
+            "PublishOrderIndex": 33,
             "Rules": [
               {
                 "Category": "Design",
@@ -2565,7 +2565,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5806,
+            "PublishOrderIndex": 34,
             "Rules": [
               {
                 "Category": "Data",
@@ -2889,7 +2889,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5807,
+            "PublishOrderIndex": 35,
             "Rules": [
               {
                 "Category": "Data",
@@ -3169,7 +3169,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5804,
+        "PublishOrderIndex": 23,
         "Rules": [
           {
             "Category": "Data",
@@ -3457,7 +3457,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5808,
+        "PublishOrderIndex": 24,
         "Rules": [
           {
             "Category": "Data",
@@ -3746,7 +3746,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638481913097273371",
+    "LastModifiedTimestamp": "638482704442952710",
     "Name": "Component1",
     "Rules": [
       {
@@ -3805,7 +3805,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638481913097273371",
+  "LastModifiedTimestamp": "638482704442952710",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"

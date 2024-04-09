@@ -360,7 +360,7 @@ SolicitudOrden As screen:
                 Items: =Choices([@Lst_SolicitudOrdenes].Accion)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices(Lst_SolicitudOrdenes.Accion,DataCardValue21_1.SearchText)
+                SearchItems: =[]
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =163
@@ -649,23 +649,7 @@ SolicitudOrden As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Ceco"]
-                    SearchItems: |-
-                        =Search(Lst_Fcst_MantenedorCeco
-                        /*[{cod:"D1011262";name:"Productos Ventas"};
-                        {cod:"D1011279";name:"Productos Engagement"};
-                        {cod:"D1011237";name:"Productos Colaborador"};
-                        {cod:"D1011789";name:"Productos MKP y WFS"};
-                        {cod:"D1011382";name:"Productos Connect"};
-                        {cod:"D1011282";name:"Productos UX"};
-                        {cod:"D1011315";name:"Productos Digitales"};
-                        {cod:"D1011383";name:"Productos Phronesis"};
-                        {cod:"D1011384";name:"Productos Ads"};
-                        {cod:"D1011312";name:"Productos Marketplace"};
-                        {cod:"D1011305";name:"Dev Software Engineer"};
-                        {cod:"D1011311";name:"Software Engineer"};
-                        {cod:"D1011385";name:"Dev Phronesis"};
-                        {cod:"D1011386";name:"Dev Ads"};
-                        {cod:"D1011313";name:"Dev Marketplace"}]*/,Cmb_CECO.SearchText,"Ceco")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Double
                     Width: =Parent.Width - 90
@@ -822,7 +806,7 @@ SolicitudOrden As screen:
         Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.'Datos adjuntos'
+            Default: =ThisItem.Attachments
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"{Attachments}")
             Fill: =RGBA(0, 0, 0, 0)
@@ -1086,7 +1070,7 @@ SolicitudOrden As screen:
         Label17_1 As label:
             Align: =Align.Center
             OnSelect: =Select(Parent);ResetForm(Form2)
-            Text: =Mid(ThisItem.Creado,1,10)
+            Text: =Mid(ThisItem.Created,1,10)
             Width: =147
             Y: =8
             ZIndex: =2
