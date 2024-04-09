@@ -178,7 +178,7 @@ RepositorioProveedor As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Value"]
-            SearchItems: =Choices(Lst_ContratosProveedores.Formulario_Solicitud,Cmb_FiltroNombre_9.SearchText)
+            SearchItems: =[]
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

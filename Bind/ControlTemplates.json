@@ -26,7 +26,7 @@
     "Name": "PowerApps_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Alternancia",
-    "Version": "1.0.26"
+    "Version": "1.0.29"
   },
   "appinfo": {
     "CustomGroupControlTemplateName": "",
@@ -380,7 +380,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Indicador giratorio",
-    "Version": "1.0.31"
+    "Version": "1.0.34"
   },
   "label": {
     "CustomGroupControlTemplateName": "",

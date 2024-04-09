@@ -360,7 +360,7 @@ SolicitudOrden As screen:
                 Items: =Choices([@Lst_SolicitudOrdenes].Accion)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices(Lst_SolicitudOrdenes.Accion,DataCardValue21_1.SearchText)
+                SearchItems: =[]
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =163
@@ -649,23 +649,7 @@ SolicitudOrden As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Ceco"]
-                    SearchItems: |-
-                        =Search(Lst_Fcst_MantenedorCeco
-                        /*[{cod:"D1011262";name:"Productos Ventas"};
-                        {cod:"D1011279";name:"Productos Engagement"};
-                        {cod:"D1011237";name:"Productos Colaborador"};
-                        {cod:"D1011789";name:"Productos MKP y WFS"};
-                        {cod:"D1011382";name:"Productos Connect"};
-                        {cod:"D1011282";name:"Productos UX"};
-                        {cod:"D1011315";name:"Productos Digitales"};
-                        {cod:"D1011383";name:"Productos Phronesis"};
-                        {cod:"D1011384";name:"Productos Ads"};
-                        {cod:"D1011312";name:"Productos Marketplace"};
-                        {cod:"D1011305";name:"Dev Software Engineer"};
-                        {cod:"D1011311";name:"Software Engineer"};
-                        {cod:"D1011385";name:"Dev Phronesis"};
-                        {cod:"D1011386";name:"Dev Ads"};
-                        {cod:"D1011313";name:"Dev Marketplace"}]*/,Cmb_CECO.SearchText,"Ceco")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Double
                     Width: =Parent.Width - 90

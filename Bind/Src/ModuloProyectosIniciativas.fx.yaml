@@ -2001,7 +2001,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["NombreObjetivo"]
-        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID)),Dpd_Pry_ObjeEstr.SearchText,"NombreObjetivo")
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2025,7 +2025,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["NombrePrioridad"]
-        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,"NombrePrioridad")
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2049,7 +2049,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["Title"]
-        SearchItems: =Search(Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje","IDDominio"),Title,SortOrder.Ascending),Dpd_Pry_Dominio_1.SearchText,"Title")
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoNegocio_3.Width - 27
         X: =134

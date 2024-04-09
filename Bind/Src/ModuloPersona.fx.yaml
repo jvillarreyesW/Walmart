@@ -840,7 +840,7 @@ ModuloPersona As screen:
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 SearchFields: =["NombreGerente"]
-                SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen.SearchText,"NombreGerente")
+                SearchItems: =[]
                 SelectionFill: =RGBA(0, 121, 187, 1)
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
@@ -2101,7 +2101,7 @@ ModuloPersona As screen:
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 SearchFields: =["Value"]
-                SearchItems: =Search(["M","F"],Dpd_Genero.SearchText,"Value")
+                SearchItems: =[]
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Txt_FondoForm1_14.Width -27
@@ -2297,11 +2297,7 @@ ModuloPersona As screen:
             OnSelect: =Select(Parent)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["ComplianceAssetId"]
-            SearchItems: |-
-                =Search(Sort(
-                    Filter(Col_BD_Dominios, !(Title = "Dominio de Prueba" ) && !(Title = "Historico Portafolio")),
-                    Title, SortOrder.Ascending
-                ),Cmb_IC_Dominios.SearchText,"ComplianceAssetId")
+            SearchItems: =[]
             SelectMultiple: =false
             Width: =Txt_FondoForm1_9.Width - 27
             X: =220

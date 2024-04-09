@@ -715,8 +715,8 @@ ModuloEquipoV1 As screen:
             Required: =false
             Update: =DataCardValue194.Selected.IDDominio
             Width: =578
-            X: =0
-            Y: =1
+            X: =1
+            Y: =0
             ZIndex: =1
 
             DataCardKey220 As label:
@@ -765,74 +765,6 @@ ModuloEquipoV1 As screen:
                 Y: =DataCardKey220.Y
                 ZIndex: =4
 
-        LogoEquipo_DataCard2 As typedDataCard.addLargePictureCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="LogoEquipo"
-            Default: =ThisItem.LogoEquipo
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =Image33.Image
-            Width: =578
-            X: =0
-            Y: =0
-            ZIndex: =14
-
-            DataCardKey208 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            Image33 As image:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DisplayMode: =Parent.DisplayMode
-                Height: =AddPicture2.Height
-                Image: =If(IsBlank(AddPicture2.Media), Parent.Default, AddPicture2.Media)
-                Tooltip: =Parent.DisplayName
-                Width: =AddPicture2.Width
-                X: =AddPicture2.X
-                Y: =AddPicture2.Y
-                ZIndex: =2
-
-            AddPicture2 As addMedia:
-                Height: =92
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey208.Y + DataCardKey208.Height + 5
-                ZIndex: =3
-
-            ErrorMessage207 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =Image33.Y + Image33.Height
-                ZIndex: =4
-
-            StarVisible207 As label:
-                Align: =Align.Center
-                Height: =DataCardKey208.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey208.Y
-                ZIndex: =5
-
         IDGerencia_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="IDGerencia"
@@ -845,7 +777,7 @@ ModuloEquipoV1 As screen:
             Required: =false
             Update: =DataCardValue184.Text
             Width: =578
-            X: =1
+            X: =0
             Y: =0
             ZIndex: =14
 
@@ -900,213 +832,6 @@ ModuloEquipoV1 As screen:
                 Wrap: =false
                 Y: =DataCardKey210.Y
                 ZIndex: =4
-
-        "'Equipo/Squad_DataCard2' As typedDataCard.textualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="Equipo_x002f_Squad"
-            Default: =ThisItem.'Equipo/Squad'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
-            Required: =false
-            Update: =DataCardValue177.Text
-            Width: =578
-            X: =1
-            Y: =1
-            ZIndex: =14
-
-            DataCardKey202 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue177 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
-                MaxLength: =Parent.MaxLength
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey202.Y + DataCardKey202.Height + 5
-                ZIndex: =2
-
-            ErrorMessage201 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue177.Y + DataCardValue177.Height
-                ZIndex: =3
-
-            StarVisible201 As label:
-                Align: =Align.Center
-                Height: =DataCardKey202.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey202.Y
-                ZIndex: =4
-
-        ResponsableEquipo_DataCard1 As typedDataCard.textualEditCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="ResponsableEquipo"
-            Default: =ThisItem.ResponsableEquipo
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"ResponsableEquipo")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "ResponsableEquipo")
-            Required: =false
-            Update: |-
-                =Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue187.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
-            Width: =578
-            X: =0
-            Y: =2
-            ZIndex: =14
-
-            DataCardKey213 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            ErrorMessage212 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue187.Y + DataCardValue187.Height
-                ZIndex: =3
-
-            StarVisible212 As label:
-                Align: =Align.Center
-                Height: =DataCardKey213.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey213.Y
-                ZIndex: =4
-
-            DataCardValue187 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultSelectedItems: =
-                DisplayFields: =["DisplayName","Email","Picture"]
-                DisplayMode: =Parent.DisplayMode
-                Items: =Choices([@DominioEquipoSquad].BuscarResponsableEquipo)
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                SearchFields: =["DisplayName"]
-                SearchItems: =Choices(DominioEquipoSquad.BuscarResponsableEquipo,DataCardValue187.SearchText)
-                SelectMultiple: =false
-                Template: =ListItemTemplate.Person
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey213.Y + DataCardKey213.Height + 5
-                ZIndex: =5
-
-        PM_DataCard1 As typedDataCard.textualEditCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="PM"
-            Default: =ThisItem.PM
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"PM")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "PM")
-            Required: =false
-            Update: |-
-                =Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue191.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
-            Visible: =false
-            Width: =578
-            X: =1
-            Y: =2
-            ZIndex: =14
-
-            DataCardKey217 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            ErrorMessage216 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue191.Y + DataCardValue191.Height
-                ZIndex: =3
-
-            StarVisible216 As label:
-                Align: =Align.Center
-                Height: =DataCardKey217.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey217.Y
-                ZIndex: =4
-
-            DataCardValue191 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultSelectedItems: =
-                DisplayFields: =["DisplayName","Email","Picture"]
-                DisplayMode: =Parent.DisplayMode
-                Items: =Choices([@DominioEquipoSquad].BuscarResponsableEquipo)
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                SearchFields: =["DisplayName"]
-                SearchItems: =Choices(DominioEquipoSquad.BuscarResponsableEquipo,DataCardValue191.SearchText)
-                SelectMultiple: =false
-                Template: =ListItemTemplate.Person
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey217.Y + DataCardKey217.Height + 5
-                ZIndex: =5
 
         EM_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
@@ -1316,11 +1041,292 @@ ModuloEquipoV1 As screen:
                 Y: =DataCardKey215.Y
                 ZIndex: =4
 
+        "'Equipo/Squad_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Equipo_x002f_Squad"
+            Default: =ThisItem.'Equipo/Squad'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
+            Required: =false
+            Update: =DataCardValue177.Text
+            Width: =578
+            X: =0
+            Y: =1
+            ZIndex: =14
+
+            DataCardKey202 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue177 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey202.Y + DataCardKey202.Height + 5
+                ZIndex: =2
+
+            ErrorMessage201 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue177.Y + DataCardValue177.Height
+                ZIndex: =3
+
+            StarVisible201 As label:
+                Align: =Align.Center
+                Height: =DataCardKey202.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey202.Y
+                ZIndex: =4
+
+        ResponsableEquipo_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ResponsableEquipo"
+            Default: =ThisItem.ResponsableEquipo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"ResponsableEquipo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "ResponsableEquipo")
+            Required: =false
+            Update: |-
+                =Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue187.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+            Width: =578
+            X: =1
+            Y: =1
+            ZIndex: =14
+
+            DataCardKey213 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage212 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue187.Y + DataCardValue187.Height
+                ZIndex: =3
+
+            StarVisible212 As label:
+                Align: =Align.Center
+                Height: =DataCardKey213.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey213.Y
+                ZIndex: =4
+
+            DataCardValue187 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@DominioEquipoSquad].BuscarResponsableEquipo)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(DominioEquipoSquad.BuscarResponsableEquipo,DataCardValue187.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey213.Y + DataCardKey213.Height + 5
+                ZIndex: =5
+
+        LogoEquipo_DataCard2 As typedDataCard.addLargePictureCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LogoEquipo"
+            Default: =ThisItem.LogoEquipo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =Image33.Image
+            Width: =578
+            X: =0
+            Y: =2
+            ZIndex: =14
+
+            DataCardKey208 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            Image33 As image:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =AddPicture2.Height
+                Image: =If(IsBlank(AddPicture2.Media), Parent.Default, AddPicture2.Media)
+                Tooltip: =Parent.DisplayName
+                Width: =AddPicture2.Width
+                X: =AddPicture2.X
+                Y: =AddPicture2.Y
+                ZIndex: =2
+
+            AddPicture2 As addMedia:
+                Height: =92
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey208.Y + DataCardKey208.Height + 5
+                ZIndex: =3
+
+            ErrorMessage207 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Image33.Y + Image33.Height
+                ZIndex: =4
+
+            StarVisible207 As label:
+                Align: =Align.Center
+                Height: =DataCardKey208.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey208.Y
+                ZIndex: =5
+
+        PM_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PM"
+            Default: =ThisItem.PM
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"PM")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "PM")
+            Required: =false
+            Update: |-
+                =Upper(Last(ForAll(Split(First(ForAll(Split(DataCardValue191.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
+            Visible: =false
+            Width: =578
+            X: =1
+            Y: =2
+            ZIndex: =14
+
+            DataCardKey217 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage216 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue191.Y + DataCardValue191.Height
+                ZIndex: =3
+
+            StarVisible216 As label:
+                Align: =Align.Center
+                Height: =DataCardKey217.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey217.Y
+                ZIndex: =4
+
+            DataCardValue191 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@DominioEquipoSquad].BuscarResponsableEquipo)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(DominioEquipoSquad.BuscarResponsableEquipo,DataCardValue191.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey217.Y + DataCardKey217.Height + 5
+                ZIndex: =5
+
     Button33 As button:
+        DisplayMode: |-
+            =If(
+                IsBlank(DataCardValue177.Text) Or IsBlank(DataCardValue187.Selected.DisplayName) Or IsBlank(DataCardValue194.Selected.Title),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
         OnSelect: =SubmitForm(Form1)
         Text: ="Crear"
         Visible: =_VarMostrarCrearEquipo
-        X: =1145
+        X: =1150
         Y: =570
         ZIndex: =14
 

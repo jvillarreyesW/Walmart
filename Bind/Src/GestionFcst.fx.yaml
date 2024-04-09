@@ -1114,7 +1114,7 @@ GestionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Ceco"]
-                    SearchItems: =Search(Lst_Fcst_MantenedorCeco,DataCardValue52_4.SearchText,"Ceco")
+                    SearchItems: =[]
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -1266,7 +1266,7 @@ GestionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue53_3.SearchText,"ComplianceAssetId")
+                    SearchItems: =[]
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -1371,7 +1371,7 @@ GestionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue51_4.SearchText,"ComplianceAssetId")
+                    SearchItems: =[]
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6

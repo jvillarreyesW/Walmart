@@ -960,7 +960,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638481913097276530",
+    "LastModifiedTimestamp": "638482613623000994",
     "Name": "InfoAplica",
     "Rules": [
       {
@@ -1019,7 +1019,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638481913097276530",
+  "LastModifiedTimestamp": "638482613623000994",
   "Name": "9cbf5b8daffc4fb6a63f632b0c8c9c4e",
   "OverridableProperties": {},
   "Version": "638235682749298151"

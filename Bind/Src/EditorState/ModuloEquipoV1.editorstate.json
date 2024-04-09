@@ -1682,7 +1682,14 @@
         "DisabledColor",
         "PressedColor",
         "HoverColor",
-        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DisplayMode.Edit",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Fill",
         "DisabledFill",
         "PressedFill",
@@ -9246,7 +9253,7 @@
       "MetaDataIDKey": "",
       "Name": "EM_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9412,7 +9419,7 @@
       "MetaDataIDKey": "",
       "Name": "Equipo/Squad_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12119,7 +12126,7 @@
       "MetaDataIDKey": "",
       "Name": "Estado_DataCard4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12785,7 +12792,7 @@
       "MetaDataIDKey": "",
       "Name": "IDDominio_DataCard3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12954,7 +12961,7 @@
       "MetaDataIDKey": "",
       "Name": "IDEquipo_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13120,7 +13127,7 @@
       "MetaDataIDKey": "",
       "Name": "IDGerencia_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13306,7 +13313,7 @@
       "MetaDataIDKey": "",
       "Name": "Image2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16741,7 +16748,7 @@
       "MetaDataIDKey": "",
       "Name": "Label59_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17296,7 +17303,7 @@
       "MetaDataIDKey": "",
       "Name": "LogoEquipo_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17529,7 +17536,7 @@
       "MetaDataIDKey": "",
       "Name": "PM_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17953,7 +17960,7 @@
       "MetaDataIDKey": "",
       "Name": "ResponsableEquipo_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22561,7 +22568,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_NombrEM",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22972,7 +22979,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_NombrePM",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23375,7 +23382,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_Responsable",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

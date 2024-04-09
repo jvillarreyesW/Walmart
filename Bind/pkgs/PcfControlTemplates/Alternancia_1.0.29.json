@@ -577,9 +577,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Puede proporcionar una paleta de colores diferente para el elemento seleccionado si especifica un color base de la paleta. Este color genera un conjunto de colores similares que se aplicarán después a diferentes aspectos del elemento, siendo los más habituales: relleno, borde y estados de interacción. Un valor en blanco indica que el elemento usará la paleta de colores del tema de la aplicación.",
+      "Description": "Elija una paleta de colores que sea diferente del tema.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Color base de la paleta",
+      "DisplayName": "Paleta de colores",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -605,9 +605,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The name of the family of fonts in which text appears",
+      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Font",
+      "DisplayName": "Fuente",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -661,9 +661,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The color of text in the control",
+      "Description": "El color del texto del control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Font color",
+      "DisplayName": "Color de fuente",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -689,9 +689,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The weight of the text in a control",
+      "Description": "El grosor del texto de un control",
       "DescriptionResourceString": "Font_Weight_description",
-      "DisplayName": "Font weight",
+      "DisplayName": "Espesor de la fuente",
       "DisplayNameResourceString": "Font_Weight",
       "EnumValues": [],
       "HelperUI": null,
@@ -717,9 +717,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Italic",
+      "Description": "Cursiva",
       "DescriptionResourceString": "Italic",
-      "DisplayName": "Italic",
+      "DisplayName": "Cursiva",
       "DisplayNameResourceString": "Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -745,9 +745,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Underline",
+      "Description": "Subrayado",
       "DescriptionResourceString": "Underline",
-      "DisplayName": "Underline",
+      "DisplayName": "Subrayado",
       "DisplayNameResourceString": "Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -773,9 +773,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Strikethrough",
+      "Description": "Tachado",
       "DescriptionResourceString": "Strikethrough",
-      "DisplayName": "Strikethrough",
+      "DisplayName": "Tachado",
       "DisplayNameResourceString": "Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -951,7 +951,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.26\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.29\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
@@ -1287,7 +1287,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Toggle_Display_Key\":\"Alternancia\",\"Toggle_Desc_Key\":\"Permite a los usuarios visualizar el control de alternancia\",\"Toggle_Label_Display_Key\":\"Etiqueta\",\"Toggle_Label_Desc_Key\":\"Etiqueta de alternancia\",\"Toggle_AccessibleLabel_Display_Key\":\"Etiqueta de accesibilidad\",\"Toggle_AccessibleLabel_Desc_Key\":\"Etiqueta de accesibilidad para el componente de alternancia\",\"Toggle_LabelPosition_Display_Key\":\"Posición de la etiqueta\",\"Toggle_LabelPosition_Desc_Key\":\"Defina la posición de la etiqueta alrededor del control de alternancia\",\"Toggle_LabelPosition_Before\":\"Delante\",\"Toggle_LabelPosition_After\":\"Detrás\",\"Toggle_LabelPosition_Above\":\"Encima\",\"Toggle_Checked_Display_Key\":\"Activado\",\"Toggle_Checked_Desc_Key\":\"Para establecer el estado de activación del control de alternancia\",\"Base_Palette_Color\":\"Color base de la paleta\",\"Base_Palette_Color_description\":\"Puede proporcionar una paleta de colores diferente para el elemento seleccionado si especifica un color base de la paleta. Este color genera un conjunto de colores similares que se aplicarán después a diferentes aspectos del elemento, siendo los más habituales: relleno, borde y estados de interacción. Un valor en blanco indica que el elemento usará la paleta de colores del tema de la aplicación.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Toggle_Display_Key\":\"Alternancia\",\"Toggle_Desc_Key\":\"Permite a los usuarios visualizar el control de alternancia\",\"Toggle_Label_Display_Key\":\"Etiqueta\",\"Toggle_Label_Desc_Key\":\"Etiqueta de alternancia\",\"Toggle_AccessibleLabel_Display_Key\":\"Etiqueta de accesibilidad\",\"Toggle_AccessibleLabel_Desc_Key\":\"Etiqueta de accesibilidad para el componente de alternancia\",\"Toggle_LabelPosition_Display_Key\":\"Posición de la etiqueta\",\"Toggle_LabelPosition_Desc_Key\":\"Defina la posición de la etiqueta alrededor del control de alternancia\",\"Toggle_LabelPosition_Before\":\"Delante\",\"Toggle_LabelPosition_After\":\"Detrás\",\"Toggle_LabelPosition_Above\":\"Encima\",\"Toggle_Checked_Display_Key\":\"Activado\",\"Toggle_Checked_Desc_Key\":\"Para establecer el estado de activación del control de alternancia\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Font_Weight\":\"Espesor de la fuente\",\"Font_Weight_description\":\"El grosor del texto de un control\",\"Italic\":\"Cursiva\",\"Underline\":\"Subrayado\",\"Strikethrough\":\"Tachado\"}}}",
       "Type": 3
     },
     {
@@ -1317,5 +1317,5 @@
     "supportResettableProperties": "true",
     "supportSetFocus": "true"
   },
-  "Version": "1.0.26"
+  "Version": "1.0.29"
 }

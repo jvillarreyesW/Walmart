@@ -694,7 +694,7 @@ ListadoIniciativas As screen:
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
         SearchFields: =["NombrePrioridad"]
-        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_FiltroProyeProd_2.SearchText,"NombrePrioridad")
+        SearchItems: =[]
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
         Tooltip: =
@@ -999,7 +999,7 @@ ListadoIniciativas As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["NombreObjetivo"]
-            SearchItems: =Search(Lst_Plan_Objetivos,Cmb_FiltroNombre_8.SearchText,"NombreObjetivo")
+            SearchItems: =[]
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

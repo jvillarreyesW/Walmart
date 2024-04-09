@@ -362,7 +362,7 @@
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 121, 187, 1)
                         SearchFields: =["AnnoPrioridad"]
-                        SearchItems: =Search(Lst_Plan_Prioridad,Cmb_Obj_IDPrioridad.SearchText,"AnnoPrioridad")
+                        SearchItems: =[]
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
                         Tooltip: ="Prioridad"
