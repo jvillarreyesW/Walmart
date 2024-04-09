@@ -765,74 +765,6 @@ ModuloEquipoV1 As screen:
                 Y: =DataCardKey220.Y
                 ZIndex: =4
 
-        LogoEquipo_DataCard2 As typedDataCard.addLargePictureCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="LogoEquipo"
-            Default: =ThisItem.LogoEquipo
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =Image33.Image
-            Width: =578
-            X: =0
-            Y: =2
-            ZIndex: =14
-
-            DataCardKey208 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            Image33 As image:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DisplayMode: =Parent.DisplayMode
-                Height: =AddPicture2.Height
-                Image: =If(IsBlank(AddPicture2.Media), Parent.Default, AddPicture2.Media)
-                Tooltip: =Parent.DisplayName
-                Width: =AddPicture2.Width
-                X: =AddPicture2.X
-                Y: =AddPicture2.Y
-                ZIndex: =2
-
-            AddPicture2 As addMedia:
-                Height: =92
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey208.Y + DataCardKey208.Height + 5
-                ZIndex: =3
-
-            ErrorMessage207 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =Image33.Y + Image33.Height
-                ZIndex: =4
-
-            StarVisible207 As label:
-                Align: =Align.Center
-                Height: =DataCardKey208.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey208.Y
-                ZIndex: =5
-
         IDGerencia_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="IDGerencia"
@@ -1036,6 +968,74 @@ ModuloEquipoV1 As screen:
                 Width: =Parent.Width - 60
                 X: =30
                 Y: =DataCardKey213.Y + DataCardKey213.Height + 5
+                ZIndex: =5
+
+        LogoEquipo_DataCard2 As typedDataCard.addLargePictureCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LogoEquipo"
+            Default: =ThisItem.LogoEquipo
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =Image33.Image
+            Width: =578
+            X: =0
+            Y: =2
+            ZIndex: =14
+
+            DataCardKey208 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            Image33 As image:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =AddPicture2.Height
+                Image: =If(IsBlank(AddPicture2.Media), Parent.Default, AddPicture2.Media)
+                Tooltip: =Parent.DisplayName
+                Width: =AddPicture2.Width
+                X: =AddPicture2.X
+                Y: =AddPicture2.Y
+                ZIndex: =2
+
+            AddPicture2 As addMedia:
+                Height: =92
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey208.Y + DataCardKey208.Height + 5
+                ZIndex: =3
+
+            ErrorMessage207 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Image33.Y + Image33.Height
+                ZIndex: =4
+
+            StarVisible207 As label:
+                Align: =Align.Center
+                Height: =DataCardKey208.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey208.Y
                 ZIndex: =5
 
         PM_DataCard1 As typedDataCard.textualEditCard:

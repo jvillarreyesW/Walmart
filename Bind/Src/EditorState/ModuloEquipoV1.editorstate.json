@@ -9412,7 +9412,7 @@
       "MetaDataIDKey": "",
       "Name": "Equipo/Squad_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12785,7 +12785,7 @@
       "MetaDataIDKey": "",
       "Name": "IDDominio_DataCard3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13120,7 +13120,7 @@
       "MetaDataIDKey": "",
       "Name": "IDGerencia_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17296,7 +17296,7 @@
       "MetaDataIDKey": "",
       "Name": "LogoEquipo_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17953,7 +17953,7 @@
       "MetaDataIDKey": "",
       "Name": "ResponsableEquipo_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
