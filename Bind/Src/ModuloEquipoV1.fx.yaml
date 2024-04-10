@@ -363,12 +363,14 @@ ModuloEquipoV1 As screen:
                         Collect(
                             Col_InegrantesEquipo,
                             {
-                                ID: "",
+                                IDe: EquiTeam.ID,
+                                Orden: "",
                                 Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
                                 Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
                                 Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
                                 Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
-                                Usuario: EquiTeam.Usuario
+                                Usuario: EquiTeam.Usuario,
+                                TipoTrabajo: EquiTeam.TipoTrabajo
                             }
                         )
                     );
@@ -381,12 +383,14 @@ ModuloEquipoV1 As screen:
                         Collect(
                             Col_EquipoOrdenados,
                             {
-                                ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                IDe: IDInc.IDe,
+                                Orden: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
                                 Nombre: IDInc.Nombre,
                                 Gerencia: IDInc.Gerencia,
                                 Rol: IDInc.Rol,
                                 Estado: IDInc.Estado,
-                                Usuario: IDInc.Usuario
+                                Usuario: IDInc.Usuario,
+                                TipoTrabajo: IDInc.TipoTrabajo
                             }
                         )
                     

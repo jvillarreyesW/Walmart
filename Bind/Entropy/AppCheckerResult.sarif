@@ -82112,19 +82112,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1.AccessibleLabel"
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.Dpd_TipoTrabajo.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1.AccessibleLabel",
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.Dpd_TipoTrabajo.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ModuloGestionEquipoV1",
-                "type": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1"
+                "type": "ModuloGestionEquipoV1.Container25.Gallery1.Dpd_TipoTrabajo"
               }
             }
           ],

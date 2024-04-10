@@ -99,8 +99,8 @@ ModuloGestionEquipoV1 As screen:
             Items: |-
                 =If(
                     _VarEquipo = "MiEquipo",
-                    Search(Filter(Col_EquipoOrdenados, Gerencia = _VarGeOri && ID <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),
-                    Sort(Search(Filter(Col_EquipoOrdenados, ID <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),Nombre,SortOrder.Ascending)
+                    Search(Filter(Col_EquipoOrdenados, Gerencia = _VarGeOri && Orden <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),
+                    Sort(Search(Filter(Col_EquipoOrdenados, Orden <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),Nombre,SortOrder.Ascending)
                 )
                 
                 //Filter(Col_BD_AsignacionEquipos; IDEquipo = _VarEquipoSeleccionado)0
@@ -221,13 +221,22 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            DropdownCanvas1 As Desplegable.pcfdataset:
+            Dpd_TipoTrabajo As Desplegable.pcfdataset:
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
-                DisplayMode: =DisplayMode.Edit
+                DefaultSelectedItems: |-
+                    =Table({Value:ThisItem.TipoTrabajo})
+                DisplayMode: |-
+                    =If(
+                        _VarEquipo = "MiEquipo",
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 FontSize: =14
                 Height: =30
                 Items: =["","SPA", "BAU"]
-                OnChange: =
+                OnChange: |-
+                    =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
+                    Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
                 Required: =false
                 Width: =160
                 X: =1089
@@ -731,7 +740,12 @@ ModuloGestionEquipoV1 As screen:
 
         TextInput15_4 As text:
             Align: =Align.Center
-            Default: ="Tipo Trabajo"
+            Default: |
+                =If(
+                    _VarEquipo = "MiEquipo",
+                    "",
+                    "Tipo Trabajo"
+                )
             DisabledBorderColor: =RGBA(15, 108, 189, 1)
             DisabledColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(15, 108, 189, 1)
