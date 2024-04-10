@@ -1,4 +1,5 @@
 ModuloGestionEquipoV1 As screen:
+    OnVisible: =Set(_VarAbrirDetalle,false)
 
     Gp_CabeceraPersona_7 As group:
         Height: =5
@@ -108,8 +109,8 @@ ModuloGestionEquipoV1 As screen:
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =110
-            Width: =1142
-            X: =35
+            Width: =1262
+            X: =15
             Y: =135
             ZIndex: =1
 
@@ -139,7 +140,7 @@ ModuloGestionEquipoV1 As screen:
                     =ThisItem.Nombre
                     //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;Nombre_Persona)
                 VerticalAlign: =VerticalAlign.Top
-                Width: =270
+                Width: =250
                 X: =101
                 Y: =16
                 ZIndex: =2
@@ -176,7 +177,7 @@ ModuloGestionEquipoV1 As screen:
                     //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;GerenciaOrigen)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =270
-                X: =383
+                X: =363
                 Y: =16
                 ZIndex: =7
 
@@ -196,7 +197,7 @@ ModuloGestionEquipoV1 As screen:
                     //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;Rol)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =270
-                X: =665
+                X: =645
                 Y: =16
                 ZIndex: =8
 
@@ -216,66 +217,77 @@ ModuloGestionEquipoV1 As screen:
                     //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;'Interno/Externo')
                 VerticalAlign: =VerticalAlign.Top
                 Width: =145
-                X: =954
+                X: =929
                 Y: =16
                 ZIndex: =9
 
-            Image35 As image:
-                Height: =35
-                Image: ='cambiar (2)'
-                OnSelect: =Select(Parent)
-                Width: =35
-                X: =1045
-                Y: =61
-                ZIndex: =12
-
-            Image36 As image:
-                Height: =35
-                Image: ='bote-de-basura'
-                OnSelect: =Select(Parent)
-                Width: =35
-                X: =1093
-                Y: =61
-                ZIndex: =13
-
-            Button34 As button:
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =35
-                HoverFill: =RGBA(255, 255, 255, 0.48)
-                OnSelect: |-
-                    =UpdateContext({_VarPopUpAgregarColaborador:true});
-                    UpdateContext({_VarCambiardeEquipo:true});
-                    UpdateContext({_VarusuarioCambiar:ThisItem.Usuario});
-                    UpdateContext({_VarEliminarUsuario:false});
-                PressedFill: =RGBA(255, 255, 255, 0.71)
-                Text: =""
-                Width: =35
-                X: =1045
-                Y: =61
-                ZIndex: =14
-
-            Button34_1 As button:
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =35
-                HoverFill: =RGBA(255, 255, 255, 0.48)
-                OnSelect: |-
-                    =UpdateContext({_VarPopUpAgregarColaborador:true});
-                    UpdateContext({_VarEliminarUsuario:true});
-                PressedFill: =RGBA(255, 255, 255, 0.71)
-                Text: =""
-                Width: =35
-                X: =1093
-                Y: =61
-                ZIndex: =15
-
-            TextCanvas2 As Texto:
+            DropdownCanvas1 As Desplegable.pcfdataset:
+                BasePaletteColor: =RGBA(30, 136, 230, 1)
                 DisplayMode: =DisplayMode.Edit
-                Height: =32
-                Text: =ThisItem.ID
-                Width: =96
-                X: =112
-                Y: =65
+                FontSize: =14
+                Height: =30
+                Items: =["","SPA", "BAU"]
+                OnChange: =
+                Required: =false
+                Width: =160
+                X: =1089
+                Y: =11
                 ZIndex: =16
+
+            Gp_Acciones As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =16
+
+                Image35 As image:
+                    Height: =35
+                    Image: ='cambiar (2)'
+                    OnSelect: =Select(Parent)
+                    Width: =35
+                    X: =1160
+                    Y: =61
+                    ZIndex: =12
+
+                Image36 As image:
+                    Height: =35
+                    Image: ='bote-de-basura'
+                    OnSelect: =Select(Parent)
+                    Width: =35
+                    X: =1208
+                    Y: =61
+                    ZIndex: =13
+
+                Button34 As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =35
+                    HoverFill: =RGBA(255, 255, 255, 0.48)
+                    OnSelect: |-
+                        =UpdateContext({_VarPopUpAgregarColaborador:true});
+                        UpdateContext({_VarCambiardeEquipo:true});
+                        UpdateContext({_VarusuarioCambiar:ThisItem.Usuario});
+                        UpdateContext({_VarEliminarUsuario:false});
+                    PressedFill: =RGBA(255, 255, 255, 0.71)
+                    Text: =""
+                    Width: =35
+                    X: =1160
+                    Y: =61
+                    ZIndex: =14
+
+                Button34_1 As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =35
+                    HoverFill: =RGBA(255, 255, 255, 0.48)
+                    OnSelect: |-
+                        =UpdateContext({_VarPopUpAgregarColaborador:true});
+                        UpdateContext({_VarEliminarUsuario:true});
+                    PressedFill: =RGBA(255, 255, 255, 0.71)
+                    Text: =""
+                    Width: =35
+                    X: =1208
+                    Y: =61
+                    ZIndex: =15
 
         Txt_BuscadorPersona_1 As text:
             BorderColor: =RGBA(53, 61, 63, 1)
@@ -343,7 +355,7 @@ ModuloGestionEquipoV1 As screen:
             RadiusTopLeft: =20
             Size: =15
             Width: =333
-            X: =35
+            X: =15
             Y: =95
             ZIndex: =5
 
@@ -358,7 +370,7 @@ ModuloGestionEquipoV1 As screen:
             FontWeight: =FontWeight.Semibold
             Size: =15
             Width: =333
-            X: =362
+            X: =342
             Y: =95
             ZIndex: =6
 
@@ -372,8 +384,8 @@ ModuloGestionEquipoV1 As screen:
             Font: =Font.'Lato Hairline'
             FontWeight: =FontWeight.Semibold
             Size: =15
-            Width: =333
-            X: =689
+            Width: =271
+            X: =669
             Y: =95
             ZIndex: =7
 
@@ -387,8 +399,8 @@ ModuloGestionEquipoV1 As screen:
             Font: =Font.'Lato Hairline'
             FontWeight: =FontWeight.Semibold
             Size: =15
-            Width: =188
-            X: =988
+            Width: =177
+            X: =935
             Y: =95
             ZIndex: =8
 
@@ -401,8 +413,8 @@ ModuloGestionEquipoV1 As screen:
                 UpdateContext({_VarCambiardeEquipo:false});
                 UpdateContext({_VarEliminarUsuario:false});
             Width: =45
-            X: =915
-            Y: =28
+            X: =1015
+            Y: =31
             ZIndex: =9
 
         Btn_AgregarExternos_1 As button:
@@ -427,40 +439,39 @@ ModuloGestionEquipoV1 As screen:
                     "Agregar Nueva Persona"
                 )
             Width: =211
-            X: =966
-            Y: =28
+            X: =1066
+            Y: =31
             ZIndex: =10
 
         Container26 As groupContainer.manualLayoutContainer:
             BorderColor: =RGBA(53, 61, 63, 1)
             BorderThickness: =2
-            Height: |+
+            Height: |-
                 =If(
-                    _VarEquipo = "MiEquipo",
-                    440,
-                    500
+                    _VarAbrirDetalle,
+                    504,
+                    40
                 )
-                
             RadiusBottomLeft: =20
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
-            Width: =548
-            X: =1280
-            Y: =165
+            Width: =505
+            X: =1325
+            Y: =95
             ZIndex: =11
 
             Label61 As label:
                 Text: ="Nombre Equipo"
-                Width: =172
-                X: =27
+                Width: =151
+                X: =18
                 Y: =155
                 ZIndex: =1
 
             Txt_ModEq_NombreEquipo As text:
                 Default: =LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,'Equipo/Squad')
                 HintText: ="Ingresar nombre de equipo"
-                X: =199
+                X: =169
                 Y: =155
                 ZIndex: =2
 
@@ -471,7 +482,7 @@ ModuloGestionEquipoV1 As screen:
                     
                     //Filter(Col_BD_Dominios;IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3" )  
                 Width: =320
-                X: =199
+                X: =169
                 Y: |+
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -483,8 +494,8 @@ ModuloGestionEquipoV1 As screen:
 
             Label61_1 As label:
                 Text: ="Dominio"
-                Width: =172
-                X: =26
+                Width: =151
+                X: =17
                 Y: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -495,8 +506,8 @@ ModuloGestionEquipoV1 As screen:
 
             Label61_2 As label:
                 Text: ="Responsable"
-                Width: =172
-                X: =27
+                Width: =151
+                X: =18
                 Y: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -513,8 +524,8 @@ ModuloGestionEquipoV1 As screen:
                         false,
                         true
                     )
-                Width: =172
-                X: =27
+                Width: =151
+                X: =18
                 Y: =385
                 ZIndex: =8
 
@@ -526,8 +537,8 @@ ModuloGestionEquipoV1 As screen:
                         false,
                         true
                     )
-                Width: =172
-                X: =27
+                Width: =151
+                X: =18
                 Y: =324
                 ZIndex: =10
 
@@ -536,12 +547,12 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Usuario)}
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,ResponsableEquipo)),Usuario)})
-                DisplayFields: =["Categoria"]
+                DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Categoria"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Categoria")
+                SearchFields: =["Nombre_Persona"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Nombre_Persona")
                 Width: =320
-                X: =199
+                X: =169
                 Y: |+
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -557,10 +568,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) })
-                DisplayFields: =["Categoria"]
+                DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Categoria"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,"Categoria")
+                SearchFields: =["Nombre_Persona"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,"Nombre_Persona")
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -568,7 +579,7 @@ ModuloGestionEquipoV1 As screen:
                         true
                     )
                 Width: =320
-                X: =199
+                X: =169
                 Y: |
                     =385
                 ZIndex: =12
@@ -578,10 +589,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) })
-                DisplayFields: =["Categoria"]
+                DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Categoria"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,"Categoria")
+                SearchFields: =["Nombre_Persona"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,"Nombre_Persona")
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -589,7 +600,7 @@ ModuloGestionEquipoV1 As screen:
                         true
                     )
                 Width: =320
-                X: =199
+                X: =169
                 Y: |
                     =324
                 ZIndex: =13
@@ -612,7 +623,7 @@ ModuloGestionEquipoV1 As screen:
                         
                     )
                 Text: ="Actualizar"
-                X: =359
+                X: =329
                 Y: |
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -630,8 +641,8 @@ ModuloGestionEquipoV1 As screen:
                         LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,LogoEquipo)
                     )
                 Width: =151
-                X: =229
-                Y: =21
+                X: =199
+                Y: =36
                 ZIndex: =15
 
             Dpd_ModEq_Gerencia As dropdown:
@@ -647,7 +658,7 @@ ModuloGestionEquipoV1 As screen:
                         false
                     )
                 Width: =320
-                X: =200
+                X: =170
                 Y: =209
                 ZIndex: =16
 
@@ -659,10 +670,41 @@ ModuloGestionEquipoV1 As screen:
                         true,
                         false
                     )
-                Width: =172
-                X: =27
+                Width: =151
+                X: =18
                 Y: =209
                 ZIndex: =17
+
+            Icon9 As icon.ChevronDown:
+                Height: =35
+                Icon: =Icon.ChevronDown
+                OnSelect: =Set(_VarAbrirDetalle,!_VarAbrirDetalle)
+                Rotation: |-
+                    =If(
+                        _VarAbrirDetalle,
+                        0,
+                        180
+                    )
+                Width: =35
+                X: =18
+                Y: =2
+                ZIndex: =18
+
+            TextCanvas3 As Texto:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =35
+                Text: ="Abrir para ver detalle del equipo"
+                Visible: |-
+                    =If(
+                        _VarAbrirDetalle,
+                        false,
+                        true
+                    )
+                Width: =259
+                X: =145
+                Y: =2
+                ZIndex: =19
 
         "Sld_BarraDesplazamiento As 'Control deslizante'":
             AccessibleLabel: =
@@ -683,9 +725,24 @@ ModuloGestionEquipoV1 As screen:
                     CountRows(Col_InegrantesEquipo)
                 )
             Width: =48
-            X: =1177
-            Y: =341
+            X: =1277
+            Y: =338
             ZIndex: =12
+
+        TextInput15_4 As text:
+            Align: =Align.Center
+            Default: ="Tipo Trabajo"
+            DisabledBorderColor: =RGBA(15, 108, 189, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(15, 108, 189, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Font: =Font.'Lato Hairline'
+            FontWeight: =FontWeight.Semibold
+            Size: =15
+            Width: =176
+            X: =1101
+            Y: =95
+            ZIndex: =13
 
     Rectangle6 As rectangle:
         Fill: =RGBA(15, 84, 140, 0.63)
@@ -741,7 +798,8 @@ ModuloGestionEquipoV1 As screen:
             Fill: =RGBA(255, 0, 0, 1)
             HoverFill: =RGBA(255, 0, 0, 0.29)
             OnSelect: |-
-                =UpdateContext({_VarPopUpAgregarColaborador:false})
+                =Reset(Cmb_AgegarPersonaEquipo);
+                UpdateContext({_VarPopUpAgregarColaborador:false})
             RadiusBottomLeft: =20
             RadiusBottomRight: =20
             RadiusTopLeft: =20
@@ -753,49 +811,263 @@ ModuloGestionEquipoV1 As screen:
 
         Button31_1 As button:
             OnSelect: |-
-                =If(
-                    !_VarCambiardeEquipo,
-                    Patch(
-                        Ingresos_Ceses_Personas,
-                        Defaults(Ingresos_Ceses_Personas),
-                        {
-                            IDEquipo: _VarEquipoSeleccionado,
-                            Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
-                            AsignadoPor: _Perfil.displayName,
-                            FechaAsignacion: Today()
-                        }
-                    );
+                =UpdateContext({_VarUsuarioVal:Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)});
                 
+                If(
+                    _VarEquipo = "MiEquipo",
                     If(
-                        IsEmpty(Errors(Ingresos_Ceses_Personas)),
-                        Refresh(Ingresos_Ceses_Personas);
-                        ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
-                        UpdateContext({_VarPopUpAgregarColaborador:false});
-                        Notify("Se agrego de manera correcta la persona al equipo.", NotificationType.Success,6000),
-                        Notify("No se agrego la persona favor de volver a intentar.", NotificationType.Error,6000)
+                        LookUp(Col_BD_Persona, Usuario = _VarUsuarioVal, GerenciaOrigen) = _VarGeOri,
+                
+                        If(
+                            !_VarCambiardeEquipo,
+                            Patch(
+                                Ingresos_Ceses_Personas,
+                                Defaults(Ingresos_Ceses_Personas),
+                                {
+                                    IDEquipo: _VarEquipoSeleccionado,
+                                    Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
+                                    AsignadoPor: _Perfil.displayName,
+                                    FechaAsignacion: Today()
+                                }
+                            );
+                
+                            If(
+                                IsEmpty(Errors(Ingresos_Ceses_Personas)),
+                                Refresh(Ingresos_Ceses_Personas);
+                                ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                UpdateContext({_VarPopUpAgregarColaborador:false});
+                
+                                /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
+                                ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                                Clear(Col_InegrantesEquipo);
+                
+                                ForAll(
+                                    Col_Team As EquiTeam,
+                                    Collect(
+                                        Col_InegrantesEquipo,
+                                        {
+                                            ID: "",
+                                            Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                            Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                            Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                            Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                            Usuario: EquiTeam.Usuario
+                                        }
+                                    )
+                                );
+                
+                                ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                                Clear(Col_EquipoOrdenados);
+                
+                                ForAll(
+                                    Col_TEMPIntegrantes As IDInc,
+                                    Collect(
+                                        Col_EquipoOrdenados,
+                                        {
+                                            ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                            Nombre: IDInc.Nombre,
+                                            Gerencia: IDInc.Gerencia,
+                                            Rol: IDInc.Rol,
+                                            Estado: IDInc.Estado,
+                                            Usuario: IDInc.Usuario
+                                        }
+                                    )
+                
+                                );
+                
+                                /*---------------------------------*/
+                                Notify("Se agrego de manera correcta la persona al equipo.", NotificationType.Success,6000),
+                                Notify("No se agrego la persona favor de volver a intentar.", NotificationType.Error,6000)
+                            ),
+                
+                            Patch(
+                                Ingresos_Ceses_Personas,
+                                Defaults(Ingresos_Ceses_Personas),
+                                {
+                                    IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
+                                    Usuario: _VarusuarioCambiar,
+                                    AsignadoPor: _Perfil.displayName,
+                                    FechaAsignacion: Today()
+                                }
+                            );
+                
+                            If(
+                                IsEmpty(Errors(Ingresos_Ceses_Personas)),
+                                Patch(Ingresos_Ceses_Personas,LookUp(Ingresos_Ceses_Personas , Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"),{Estado: "Inactivo"});
+                                Refresh(Ingresos_Ceses_Personas);
+                                ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                //Remove(Ingresos_Ceses_Personas;LookUp(Ingresos_Ceses_Personas ; Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"));;
+                                UpdateContext({_VarPopUpAgregarColaborador:false});
+                                /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
+                                ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                                Clear(Col_InegrantesEquipo);
+                
+                                ForAll(
+                                    Col_Team As EquiTeam,
+                                    Collect(
+                                        Col_InegrantesEquipo,
+                                        {
+                                            ID: "",
+                                            Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                            Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                            Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                            Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                            Usuario: EquiTeam.Usuario
+                                        }
+                                    )
+                                );
+                
+                                ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                                Clear(Col_EquipoOrdenados);
+                
+                                ForAll(
+                                    Col_TEMPIntegrantes As IDInc,
+                                    Collect(
+                                        Col_EquipoOrdenados,
+                                        {
+                                            ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                            Nombre: IDInc.Nombre,
+                                            Gerencia: IDInc.Gerencia,
+                                            Rol: IDInc.Rol,
+                                            Estado: IDInc.Estado,
+                                            Usuario: IDInc.Usuario
+                                        }
+                                    )
+                
+                                );
+                
+                                /*---------------------------------*/
+                                Notify("Se realizó el cambio de manera correcta.", NotificationType.Success,6000),
+                                Notify("No se realizó el cambio, favor de volver a intentar.", NotificationType.Error,6000)
+                            )
+                        ),
+                        Notify("No se puede agregar a esta persona, es de una gerencia distinta a la suya.", NotificationType.Information,6000)
                     ),
-                
-                    Patch(
-                        Ingresos_Ceses_Personas,
-                        Defaults(Ingresos_Ceses_Personas),
-                        {
-                            IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
-                            Usuario: _VarusuarioCambiar,
-                            AsignadoPor: _Perfil.displayName,
-                            FechaAsignacion: Today()
-                        }
-                    );
-                
+                    
+                    /*PARA EQUIPOS VIRTUALES*/
                     If(
-                        IsEmpty(Errors(Ingresos_Ceses_Personas)),
-                        Patch(Ingresos_Ceses_Personas,LookUp(Ingresos_Ceses_Personas , Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"),{Estado: "Inactivo"});
-                        Refresh(Ingresos_Ceses_Personas);
-                        ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
-                        //Remove(Ingresos_Ceses_Personas;LookUp(Ingresos_Ceses_Personas ; Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"));;
-                        UpdateContext({_VarPopUpAgregarColaborador:false});
-                        Notify("Se realizó el cambio de manera correcta.", NotificationType.Success,6000),
-                        Notify("No se realió el cambio, favor de volver a intentar.", NotificationType.Error,6000)
-                    )
+                            !_VarCambiardeEquipo,
+                            Patch(
+                                Ingresos_Ceses_Personas,
+                                Defaults(Ingresos_Ceses_Personas),
+                                {
+                                    IDEquipo: _VarEquipoSeleccionado,
+                                    Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
+                                    AsignadoPor: _Perfil.displayName,
+                                    FechaAsignacion: Today()
+                                }
+                            );
+                
+                            If(
+                                IsEmpty(Errors(Ingresos_Ceses_Personas)),
+                                Refresh(Ingresos_Ceses_Personas);
+                                ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                UpdateContext({_VarPopUpAgregarColaborador:false});
+                
+                                /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
+                                ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                                Clear(Col_InegrantesEquipo);
+                
+                                ForAll(
+                                    Col_Team As EquiTeam,
+                                    Collect(
+                                        Col_InegrantesEquipo,
+                                        {
+                                            ID: "",
+                                            Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                            Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                            Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                            Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                            Usuario: EquiTeam.Usuario
+                                        }
+                                    )
+                                );
+                
+                                ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                                Clear(Col_EquipoOrdenados);
+                
+                                ForAll(
+                                    Col_TEMPIntegrantes As IDInc,
+                                    Collect(
+                                        Col_EquipoOrdenados,
+                                        {
+                                            ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                            Nombre: IDInc.Nombre,
+                                            Gerencia: IDInc.Gerencia,
+                                            Rol: IDInc.Rol,
+                                            Estado: IDInc.Estado,
+                                            Usuario: IDInc.Usuario
+                                        }
+                                    )
+                
+                                );
+                
+                                /*---------------------------------*/
+                                Notify("Se agrego de manera correcta la persona al equipo.", NotificationType.Success,6000),
+                                Notify("No se agrego la persona favor de volver a intentar.", NotificationType.Error,6000)
+                            ),
+                
+                            Patch(
+                                Ingresos_Ceses_Personas,
+                                Defaults(Ingresos_Ceses_Personas),
+                                {
+                                    IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
+                                    Usuario: _VarusuarioCambiar,
+                                    AsignadoPor: _Perfil.displayName,
+                                    FechaAsignacion: Today()
+                                }
+                            );
+                
+                            If(
+                                IsEmpty(Errors(Ingresos_Ceses_Personas)),
+                                Patch(Ingresos_Ceses_Personas,LookUp(Ingresos_Ceses_Personas , Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"),{Estado: "Inactivo"});
+                                Refresh(Ingresos_Ceses_Personas);
+                                ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                //Remove(Ingresos_Ceses_Personas;LookUp(Ingresos_Ceses_Personas ; Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"));;
+                                UpdateContext({_VarPopUpAgregarColaborador:false});
+                                /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
+                                ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                                Clear(Col_InegrantesEquipo);
+                
+                                ForAll(
+                                    Col_Team As EquiTeam,
+                                    Collect(
+                                        Col_InegrantesEquipo,
+                                        {
+                                            ID: "",
+                                            Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                            Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                            Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                            Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                            Usuario: EquiTeam.Usuario
+                                        }
+                                    )
+                                );
+                
+                                ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                                Clear(Col_EquipoOrdenados);
+                
+                                ForAll(
+                                    Col_TEMPIntegrantes As IDInc,
+                                    Collect(
+                                        Col_EquipoOrdenados,
+                                        {
+                                            ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                            Nombre: IDInc.Nombre,
+                                            Gerencia: IDInc.Gerencia,
+                                            Rol: IDInc.Rol,
+                                            Estado: IDInc.Estado,
+                                            Usuario: IDInc.Usuario
+                                        }
+                                    )
+                
+                                );
+                
+                                /*---------------------------------*/
+                                Notify("Se realizó el cambio de manera correcta.", NotificationType.Success,6000),
+                                Notify("No se realizó el cambio, favor de volver a intentar.", NotificationType.Error,6000)
+                            )
+                        )
                 )
             RadiusBottomLeft: =20
             RadiusBottomRight: =20

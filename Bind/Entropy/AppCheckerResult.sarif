@@ -82112,6 +82112,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloGestionEquipoV1",
+                "type": "ModuloGestionEquipoV1.Container25.Gallery1.DropdownCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.TextInput15_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.TextInput15_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloGestionEquipoV1",
+                "type": "ModuloGestionEquipoV1.Container25.TextInput15_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Icon9.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Icon9.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloGestionEquipoV1",
+                "type": "ModuloGestionEquipoV1.Container25.Container26.Icon9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Icon9.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloGestionEquipoV1.Container25.Container26.Icon9.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ModuloGestionEquipoV1",
+                "type": "ModuloGestionEquipoV1.Container25.Container26.Icon9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._VarEsManager"
                 }
               ],
@@ -82232,2286 +82352,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Actual_logoportfoliomanager"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Actual_logoportfoliomanager",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Actual_logoportfoliomanager",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.addfolder"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.addfolder",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "addfolder",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.addfolder1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.addfolder1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "addfolder1",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.addfolderModificado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.addfolderModificado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "addfolderModificado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.AP v2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.AP v2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AP v2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.AP"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.AP",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AP",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.arrows"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.arrows",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "arrows",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.arrowsModificado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.arrowsModificado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "arrowsModificado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.b045af8a94343e3b1fdbf1576e9818b8"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.b045af8a94343e3b1fdbf1576e9818b8",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "b045af8a94343e3b1fdbf1576e9818b8",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.bet"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.bet",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "bet",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Bind logo completo "
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Bind logo completo ",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Bind logo completo ",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Cargando GIF"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Cargando GIF",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Cargando GIF",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.casa blanca"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.casa blanca",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "casa blanca",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.CHECK (2)"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.CHECK (2)",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "CHECK (2)",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Congrats"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Congrats",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Congrats",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Corazón"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Corazón",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Corazón",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Delayed"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Delayed",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Delayed",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Equipo 2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Equipo 2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Equipo 2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Equipo"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Equipo",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Equipo",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.equipo"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.equipo",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "equipo",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Fondo 1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Fondo 1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Fondo 1",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Fondo 3 nuevo intento 3"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Fondo 3 nuevo intento 3",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Fondo 3 nuevo intento 3",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Fondo 3 nuevo intento 4"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Fondo 3 nuevo intento 4",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Fondo 3 nuevo intento 4",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Fondo Home"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Fondo Home",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Fondo Home",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.HerramientaHechaConAmor"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.HerramientaHechaConAmor",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "HerramientaHechaConAmor",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.home"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.home",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "home",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.icons8-power-bi-48"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.icons8-power-bi-48",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "icons8-power-bi-48",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.kisspng-computer-icons-vector-graphics-clip-art-illustrati-all-travel-group-5c07f66ada4654.4528909215440257068941"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.kisspng-computer-icons-vector-graphics-clip-art-illustrati-all-travel-group-5c07f66ada4654.4528909215440257068941",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "kisspng-computer-icons-vector-graphics-clip-art-illustrati-all-travel-group-5c07f66ada4654.4528909215440257068941",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.kpi"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.kpi",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "kpi",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.left-arrow"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.left-arrow",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "left-arrow",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.lightbulb"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.lightbulb",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "lightbulb",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Loading Blanco y Shao"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Loading Blanco y Shao",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Loading Blanco y Shao",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Loading_Azul Ink_GIF"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Loading_Azul Ink_GIF",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Loading_Azul Ink_GIF",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Loading_Azul Walmart_GIF (2)"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Loading_Azul Walmart_GIF (2)",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Loading_Azul Walmart_GIF (2)",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Logo Power BI II"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Logo Power BI II",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Logo Power BI II",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.logo-S2A-blanco"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.logo-S2A-blanco",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "logo-S2A-blanco",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.logo-S2Afondo"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.logo-S2Afondo",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "logo-S2Afondo",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.logoceleste (002)"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.logoceleste (002)",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "logoceleste (002)",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.logosmallceleste"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.logosmallceleste",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "logosmallceleste",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Lupa II"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Lupa II",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Lupa II",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Lupa III"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Lupa III",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Lupa III",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Lupa"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Lupa",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Lupa",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_agregarpersona"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_agregarpersona",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_agregarpersona",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_Empresa"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_Empresa",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_Empresa",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_Gerencia"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_Gerencia",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_Gerencia",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_KPI"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_KPI",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_KPI",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_Lider"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_Lider",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_Lider",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Modulo_Perfilamiento"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Modulo_Perfilamiento",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Modulo_Perfilamiento",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.new-folder"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.new-folder",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "new-folder",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.NewSpinner"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.NewSpinner",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "NewSpinner",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.no-fotos"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.no-fotos",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "no-fotos",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Off Track"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Off Track",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Off Track",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.On track"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.On track",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "On track",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.priority"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.priority",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "priority",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.priority1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.priority1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "priority1",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.priority2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.priority2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "priority2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.priority3"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.priority3",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "priority3",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Pronto_Azul Ink"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Pronto_Azul Ink",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Pronto_Azul Ink",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Pronto_Azul"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Pronto_Azul",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Pronto_Azul",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Pronto_Pink"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Pronto_Pink",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Pronto_Pink",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Proyecto_1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Proyecto_1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Proyecto_1",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Prueba imagen home .001"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Prueba imagen home .001",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Prueba imagen home .001",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.prueba"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.prueba",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "prueba",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.santa-santa-claus"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.santa-santa-claus",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "santa-santa-claus",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.schedule"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.schedule",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "schedule",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.scheduleModificado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.scheduleModificado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "scheduleModificado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.spark loading"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.spark loading",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "spark loading",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.struggle"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.struggle",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "struggle",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.struggleModificado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.struggleModificado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "struggleModificado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.target"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.target",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "target",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.users-alt (1)_1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.users-alt (1)_1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "users-alt (1)_1",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.WALMART CHILE"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.WALMART CHILE",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "WALMART CHILE",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.workSchedule"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.workSchedule",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "workSchedule",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.workScheduleModificado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.workScheduleModificado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "workScheduleModificado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App._Newsletter._001"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App._Newsletter._001",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "_Newsletter._001",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 16
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.OnStart"
                 }
               ],
@@ -84535,7 +82375,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84565,7 +82405,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84595,7 +82435,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84625,7 +82465,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84655,7 +82495,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84685,7 +82525,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84715,7 +82555,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84745,7 +82585,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84775,7 +82615,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84805,7 +82645,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84835,7 +82675,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84865,7 +82705,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84895,7 +82735,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84925,7 +82765,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84955,7 +82795,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -84985,7 +82825,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85015,7 +82855,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85045,7 +82885,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85075,7 +82915,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85105,7 +82945,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85135,7 +82975,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85165,7 +83005,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85195,7 +83035,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85225,7 +83065,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85255,7 +83095,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85285,7 +83125,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85315,7 +83155,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85345,7 +83185,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85375,7 +83215,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85405,7 +83245,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85435,7 +83275,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85465,7 +83305,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85495,7 +83335,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85525,7 +83365,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85555,7 +83395,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85585,7 +83425,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85615,7 +83455,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85645,7 +83485,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85675,7 +83515,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85705,7 +83545,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85735,7 +83575,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85765,7 +83605,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85795,7 +83635,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85825,7 +83665,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85855,7 +83695,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85885,7 +83725,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85915,7 +83755,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85945,7 +83785,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -85975,7 +83815,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86005,7 +83845,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86035,7 +83875,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86065,7 +83905,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86095,7 +83935,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86125,7 +83965,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86155,7 +83995,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86185,7 +84025,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86215,7 +84055,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86245,7 +84085,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86275,7 +84115,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86305,7 +84145,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86335,7 +84175,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86365,7 +84205,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86395,7 +84235,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86425,7 +84265,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86455,7 +84295,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86485,7 +84325,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86515,7 +84355,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86545,7 +84385,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86575,7 +84415,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86605,7 +84445,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86635,7 +84475,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86665,7 +84505,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86695,7 +84535,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86725,7 +84565,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86755,7 +84595,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86785,7 +84625,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86815,7 +84655,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86845,7 +84685,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86875,7 +84715,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86905,7 +84745,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86935,7 +84775,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86965,7 +84805,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -86995,7 +84835,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87025,7 +84865,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87055,7 +84895,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87085,7 +84925,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87115,7 +84955,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87145,7 +84985,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87175,7 +85015,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87205,7 +85045,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87235,7 +85075,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87265,7 +85105,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87295,7 +85135,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87325,7 +85165,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87355,7 +85195,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87385,7 +85225,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87415,7 +85255,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87445,7 +85285,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87475,7 +85315,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87505,7 +85345,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87535,7 +85375,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87565,7 +85405,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87595,7 +85435,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87625,7 +85465,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87655,7 +85495,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87685,7 +85525,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87715,7 +85555,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87745,7 +85585,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87775,7 +85615,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87805,7 +85645,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87835,7 +85675,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87865,7 +85705,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87895,7 +85735,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87925,7 +85765,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87955,7 +85795,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -87985,7 +85825,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88015,7 +85855,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88045,7 +85885,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88075,7 +85915,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88105,7 +85945,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88135,7 +85975,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88165,7 +86005,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88195,7 +86035,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88225,7 +86065,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88255,7 +86095,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88285,7 +86125,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88315,7 +86155,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88345,7 +86185,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88375,7 +86215,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88405,7 +86245,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88435,7 +86275,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88465,7 +86305,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88495,7 +86335,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88525,7 +86365,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88555,7 +86395,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88585,7 +86425,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88615,7 +86455,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88645,7 +86485,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88675,7 +86515,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88705,7 +86545,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88735,7 +86575,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88765,7 +86605,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88795,7 +86635,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88825,7 +86665,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88855,7 +86695,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88885,7 +86725,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88915,7 +86755,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88945,7 +86785,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -88975,7 +86815,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89005,7 +86845,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89035,7 +86875,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89065,7 +86905,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89095,7 +86935,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89125,7 +86965,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89155,7 +86995,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89185,7 +87025,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89215,7 +87055,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89245,7 +87085,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89275,7 +87115,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89305,7 +87145,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89335,7 +87175,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89365,7 +87205,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89395,7 +87235,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89425,7 +87265,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89455,7 +87295,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89485,7 +87325,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89515,7 +87355,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89545,7 +87385,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89575,7 +87415,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89605,7 +87445,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89635,7 +87475,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89665,7 +87505,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89695,7 +87535,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89725,7 +87565,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89755,7 +87595,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89785,7 +87625,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89815,7 +87655,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89845,7 +87685,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89875,7 +87715,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89905,7 +87745,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89935,7 +87775,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89965,7 +87805,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -89995,7 +87835,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90025,7 +87865,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90055,7 +87895,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90085,7 +87925,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90115,7 +87955,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90145,7 +87985,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90175,7 +88015,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90205,7 +88045,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90235,7 +88075,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90265,7 +88105,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90295,7 +88135,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90325,7 +88165,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90355,7 +88195,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90385,7 +88225,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90415,7 +88255,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90445,7 +88285,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90475,7 +88315,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90505,7 +88345,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90535,7 +88375,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90565,7 +88405,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90595,7 +88435,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90625,7 +88465,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90655,7 +88495,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90685,7 +88525,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90715,7 +88555,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90745,7 +88585,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90775,7 +88615,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90805,7 +88645,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90835,7 +88675,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90865,7 +88705,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90895,7 +88735,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90925,7 +88765,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90955,7 +88795,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -90985,7 +88825,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91015,7 +88855,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91045,7 +88885,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91075,7 +88915,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91105,7 +88945,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91135,7 +88975,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91165,7 +89005,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91195,7 +89035,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91225,7 +89065,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91255,7 +89095,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91285,7 +89125,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91315,7 +89155,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91345,7 +89185,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91375,7 +89215,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91405,7 +89245,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91435,7 +89275,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91465,7 +89305,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91495,7 +89335,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91525,7 +89365,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91555,7 +89395,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91585,7 +89425,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91615,7 +89455,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91645,7 +89485,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91675,7 +89515,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91705,7 +89545,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91735,7 +89575,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91765,7 +89605,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91795,7 +89635,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91825,7 +89665,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91855,7 +89695,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91885,7 +89725,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91915,7 +89755,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91945,7 +89785,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -91975,7 +89815,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92005,7 +89845,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92035,7 +89875,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92065,7 +89905,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92095,7 +89935,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92125,7 +89965,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92155,7 +89995,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92185,7 +90025,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92215,7 +90055,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92245,7 +90085,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92275,7 +90115,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92305,7 +90145,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92335,7 +90175,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92365,7 +90205,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92395,7 +90235,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92425,7 +90265,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92455,7 +90295,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92485,7 +90325,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92515,7 +90355,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92545,7 +90385,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92575,7 +90415,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92605,7 +90445,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92635,7 +90475,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92665,7 +90505,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92695,7 +90535,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92725,7 +90565,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92755,7 +90595,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92785,7 +90625,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92815,7 +90655,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92845,7 +90685,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92875,7 +90715,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92905,7 +90745,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92935,7 +90775,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92965,7 +90805,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -92995,7 +90835,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93025,7 +90865,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93055,7 +90895,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93085,7 +90925,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93115,7 +90955,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93145,7 +90985,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93175,7 +91015,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93205,7 +91045,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93235,7 +91075,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93265,7 +91105,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93295,7 +91135,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93325,7 +91165,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93355,7 +91195,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93385,7 +91225,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93415,7 +91255,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93445,7 +91285,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93475,7 +91315,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93505,7 +91345,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93535,7 +91375,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93565,7 +91405,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93595,7 +91435,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93625,7 +91465,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93655,7 +91495,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93685,7 +91525,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93715,7 +91555,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93745,7 +91585,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93775,7 +91615,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93805,7 +91645,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93835,7 +91675,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93865,7 +91705,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93895,7 +91735,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93925,7 +91765,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93955,7 +91795,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -93985,7 +91825,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94015,7 +91855,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94045,7 +91885,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94075,7 +91915,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94105,7 +91945,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94135,7 +91975,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94165,7 +92005,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94195,7 +92035,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94225,7 +92065,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94255,7 +92095,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94285,7 +92125,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94315,7 +92155,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94345,7 +92185,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94375,7 +92215,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94405,7 +92245,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94435,7 +92275,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94465,7 +92305,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94495,7 +92335,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94525,7 +92365,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94555,7 +92395,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94585,7 +92425,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94615,7 +92455,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94645,7 +92485,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94675,7 +92515,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94705,7 +92545,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94735,7 +92575,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94765,7 +92605,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94795,7 +92635,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94825,7 +92665,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94855,7 +92695,7 @@
             "level": "Medium"
           },
           "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -94884,7 +92724,7 @@
             "level": "Medium"
           },
           "ruleId": "app-DataSourceDefaultMaxRowsLimit",
-          "ruleIndex": 18
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -94913,7 +92753,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -95003,7 +92843,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95063,7 +92903,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95093,7 +92933,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95123,7 +92963,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95153,7 +92993,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95183,7 +93023,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95213,7 +93053,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95243,7 +93083,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95273,7 +93113,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95303,7 +93143,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95333,7 +93173,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95423,7 +93263,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95453,7 +93293,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95483,7 +93323,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95513,7 +93353,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95543,7 +93383,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95573,7 +93413,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95603,7 +93443,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95633,7 +93473,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95663,7 +93503,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95693,7 +93533,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95723,7 +93563,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95753,7 +93593,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95783,7 +93623,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95813,7 +93653,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95842,7 +93682,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -95872,7 +93712,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95902,7 +93742,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95932,7 +93772,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95962,7 +93802,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -95991,7 +93831,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -96081,7 +93921,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96111,7 +93951,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96141,7 +93981,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96261,7 +94101,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96291,7 +94131,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96321,7 +94161,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96351,7 +94191,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96381,7 +94221,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96410,7 +94250,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -96500,7 +94340,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96530,7 +94370,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96560,7 +94400,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96590,7 +94430,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96619,7 +94459,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 21
+          "ruleIndex": 20
         },
         {
           "locations": [
@@ -96649,7 +94489,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96739,7 +94579,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96769,7 +94609,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96799,7 +94639,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96829,7 +94669,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -96859,7 +94699,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97039,7 +94879,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97069,7 +94909,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97099,7 +94939,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97129,7 +94969,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97159,7 +94999,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97189,7 +95029,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97219,7 +95059,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97249,7 +95089,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97279,7 +95119,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97309,7 +95149,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97339,7 +95179,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97369,7 +95209,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97399,7 +95239,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97429,7 +95269,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97459,7 +95299,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97489,7 +95329,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97519,7 +95359,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97699,7 +95539,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97729,7 +95569,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97759,7 +95599,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97819,7 +95659,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97849,7 +95689,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97879,7 +95719,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97909,7 +95749,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97939,7 +95779,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97969,7 +95809,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -97999,7 +95839,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98029,7 +95869,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98059,7 +95899,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98089,7 +95929,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98149,7 +95989,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98179,7 +96019,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98209,7 +96049,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98239,7 +96079,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98299,7 +96139,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98329,7 +96169,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98359,7 +96199,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98418,7 +96258,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -98448,7 +96288,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98478,7 +96318,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98508,7 +96348,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98538,7 +96378,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98568,7 +96408,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98597,7 +96437,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -98687,7 +96527,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98717,7 +96557,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98747,7 +96587,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98776,7 +96616,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -98865,7 +96705,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 21
+          "ruleIndex": 20
         },
         {
           "locations": [
@@ -98895,7 +96735,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98925,7 +96765,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -98955,7 +96795,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99015,7 +96855,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99045,7 +96885,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99075,7 +96915,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99105,7 +96945,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99135,7 +96975,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99165,7 +97005,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99345,7 +97185,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99375,7 +97215,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99405,7 +97245,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99435,7 +97275,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99465,7 +97305,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99495,7 +97335,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99525,7 +97365,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99555,7 +97395,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99585,7 +97425,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99615,7 +97455,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99645,7 +97485,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99675,7 +97515,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99705,7 +97545,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99735,7 +97575,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99765,7 +97605,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99795,7 +97635,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99915,7 +97755,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -99945,7 +97785,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100005,7 +97845,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100035,7 +97875,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100065,7 +97905,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100095,7 +97935,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100125,7 +97965,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100155,7 +97995,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100185,7 +98025,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100215,7 +98055,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100244,7 +98084,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -100304,7 +98144,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100334,7 +98174,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100364,7 +98204,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100394,7 +98234,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100424,7 +98264,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100454,7 +98294,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100484,7 +98324,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100514,7 +98354,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100544,7 +98384,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100574,7 +98414,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100604,7 +98444,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100634,7 +98474,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100664,7 +98504,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100694,7 +98534,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100724,7 +98564,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100754,7 +98594,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100784,7 +98624,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100814,7 +98654,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100843,7 +98683,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -100873,7 +98713,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100903,7 +98743,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100933,7 +98773,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100963,7 +98803,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -100993,7 +98833,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101112,7 +98952,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -101262,7 +99102,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101292,7 +99132,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101322,7 +99162,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101352,7 +99192,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101382,7 +99222,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101441,7 +99281,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -101501,7 +99341,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101531,7 +99371,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101561,7 +99401,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101591,7 +99431,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101621,7 +99461,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101650,7 +99490,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -101710,7 +99550,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101740,7 +99580,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101770,7 +99610,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101800,7 +99640,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101829,7 +99669,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -101889,7 +99729,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101919,7 +99759,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -101949,7 +99789,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 20
+          "ruleIndex": 19
         }
       ],
       "tool": {
@@ -102222,23 +100062,6 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Esta variable está declarada, pero ningún control hace referencia a ella, por lo que no es necesaria."
-              }
-            },
-            {
-              "id": "app-UnusedMediaResources",
-              "messageStrings": {
-                "issue": {
-                  "text": "Archivos multimedia sin usar"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Quite el archivo multimedia que no se use en el panel Medios."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "No hay ninguna fórmula de control que haga referencia a este archivo multimedia, por lo que no es necesario. Si se quita, mejorará el rendimiento."
               }
             },
             {

@@ -289,7 +289,7 @@ Component1 As CanvasComponent:
             Image: |-
                 =If(
                     !(ThisItem.Título = "Proyectos Finalizados !!"),
-                    ImagenMarzo,
+                    ImagenAbril,
                     '02'
                 )
             ImagePosition: |-
