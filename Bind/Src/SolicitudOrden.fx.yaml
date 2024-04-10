@@ -806,7 +806,7 @@ SolicitudOrden As screen:
         Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.Attachments
+            Default: =ThisItem.'Datos adjuntos'
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"{Attachments}")
             Fill: =RGBA(0, 0, 0, 0)
@@ -1070,7 +1070,7 @@ SolicitudOrden As screen:
         Label17_1 As label:
             Align: =Align.Center
             OnSelect: =Select(Parent);ResetForm(Form2)
-            Text: =Mid(ThisItem.Created,1,10)
+            Text: =Mid(ThisItem.Creado,1,10)
             Width: =147
             Y: =8
             ZIndex: =2

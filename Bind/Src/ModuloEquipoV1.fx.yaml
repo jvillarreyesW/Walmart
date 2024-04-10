@@ -357,11 +357,13 @@ ModuloEquipoV1 As screen:
                     Set(_VarGeOri, LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe,GerenciaOrigen));
                     ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
                     Clear(Col_InegrantesEquipo);
+                    
                     ForAll(
                         Col_Team As EquiTeam,
                         Collect(
                             Col_InegrantesEquipo,
                             {
+                                ID: "",
                                 Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
                                 Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
                                 Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
@@ -369,6 +371,25 @@ ModuloEquipoV1 As screen:
                                 Usuario: EquiTeam.Usuario
                             }
                         )
+                    );
+                    
+                    ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                    Clear(Col_EquipoOrdenados);
+                    
+                    ForAll(
+                        Col_TEMPIntegrantes As IDInc,
+                        Collect(
+                            Col_EquipoOrdenados,
+                            {
+                                ID: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                Nombre: IDInc.Nombre,
+                                Gerencia: IDInc.Gerencia,
+                                Rol: IDInc.Rol,
+                                Estado: IDInc.Estado,
+                                Usuario: IDInc.Usuario
+                            }
+                        )
+                    
                     );
                     
                     Navigate(ModuloGestionEquipoV1,ScreenTransition.Fade);

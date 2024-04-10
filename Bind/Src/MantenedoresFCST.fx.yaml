@@ -1618,8 +1618,8 @@ MantenedoresFCST As screen:
                 Items: |
                     =If(
                         _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU" || _VarUsuarioJefe = Upper("j0e03yj"),
-                        Sort(Filter(Col_BD_Fcst_ServAsignados, StartsWith(InputData,Txt_BuscarenTabla.Text) || StartsWith(IDServicio,Txt_BuscarenTabla.Text), IsBlank(Cmb_FiltroInputData_Mantenedor.Selected.ImputData) || InputData = Cmb_FiltroInputData_Mantenedor.Selected.ImputData),Created,SortOrder.Descending),
-                        Sort(Filter(Col_ServAsignados, StartsWith(Servicio,Txt_BuscarenTabla.Text)),Created,SortOrder.Descending)
+                        Sort(Filter(Col_BD_Fcst_ServAsignados, StartsWith(InputData,Txt_BuscarenTabla.Text) || StartsWith(IDServicio,Txt_BuscarenTabla.Text), IsBlank(Cmb_FiltroInputData_Mantenedor.Selected.ImputData) || InputData = Cmb_FiltroInputData_Mantenedor.Selected.ImputData),Creado,SortOrder.Descending),
+                        Sort(Filter(Col_ServAsignados, StartsWith(Servicio,Txt_BuscarenTabla.Text)),Creado,SortOrder.Descending)
                      )
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
@@ -2132,7 +2132,7 @@ MantenedoresFCST As screen:
                                 IDServicio: "",
                                 Servicio: "",
                                 TipoMoneda: "",
-                                Created: Now(),
+                                Creado: Now(),
                                 Editando: true
                             }
                         ),
@@ -2145,7 +2145,7 @@ MantenedoresFCST As screen:
                                 IDServicio: "",
                                 Servicio: "",
                                 TipoMoneda: "",
-                                Created: Now(),
+                                Creado: Now(),
                                 Editando: true
                             }
                         )
