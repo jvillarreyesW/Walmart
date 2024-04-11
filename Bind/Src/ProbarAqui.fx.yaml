@@ -64,6 +64,10 @@ ProbarAqui As screen:
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         Items: =Choices([@Lst_Persona].BuscarNombrePersona)
         PaddingLeft: =12
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
         PressedFill: =RGBA(0, 121, 187, 1)
         SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_4.SearchText)
