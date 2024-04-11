@@ -3121,7 +3121,7 @@
       "MetaDataIDKey": "",
       "Name": "CompositeColumnChart3_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 40,
+      "ParentIndex": 36,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19577,7 +19577,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_BotonesparaVista_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 37,
+      "ParentIndex": 39,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19629,7 +19629,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceradeEquipos_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 38,
+      "ParentIndex": 37,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19681,7 +19681,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceraPersona_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 35,
+      "ParentIndex": 38,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19733,7 +19733,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_EditarEquipo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 39,
+      "ParentIndex": 35,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26001,7 +26001,7 @@
       "MetaDataIDKey": "",
       "Name": "PopUp_CrearEquipo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 36,
+      "ParentIndex": 40,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
