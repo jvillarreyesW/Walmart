@@ -65,10 +65,6 @@ ProbarAqui As screen:
         Items: =Choices([@Lst_Persona].BuscarNombrePersona)
         PaddingLeft: =12
         PressedFill: =RGBA(0, 121, 187, 1)
-        RadiusBottomLeft: =25
-        RadiusBottomRight: =25
-        RadiusTopLeft: =25
-        RadiusTopRight: =25
         SearchFields: =["Claims"]
         SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_4.SearchText)
         SelectionFill: =RGBA(0, 121, 187, 1)
