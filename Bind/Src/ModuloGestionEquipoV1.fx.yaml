@@ -844,7 +844,7 @@ ModuloGestionEquipoV1 As screen:
             OnSelect: |-
                 =If(
                     _VarCambiardeEquipo,
-                    UpdateContext({_VarUsuarioVal:LookUp(Col_BD_Persona, Nombre_Persona = _VarusuarioCambiar, Usuario)});
+                    UpdateContext({_VarUsuarioVal:_VarusuarioCambiar}),
                     UpdateContext({_VarUsuarioVal:Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)})
                 );
                 
@@ -1209,6 +1209,46 @@ ModuloGestionEquipoV1 As screen:
                     IsEmpty(Errors(Ingresos_Ceses_Personas)),
                     Refresh(Ingresos_Ceses_Personas);
                     ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                    ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
+                    Clear(Col_InegrantesEquipo);
+                
+                    ForAll(
+                        Col_Team As EquiTeam,
+                        Collect(
+                            Col_InegrantesEquipo,
+                            {
+                                IDe: EquiTeam.ID,
+                                Orden: "",
+                                Nombre: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Nombre_Persona),
+                                Gerencia: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,GerenciaOrigen),
+                                Rol: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario,Rol),
+                                Estado: LookUp(Col_BD_Persona, Usuario = EquiTeam.Usuario, 'Interno/Externo'),
+                                Usuario: EquiTeam.Usuario,
+                                TipoTrabajo: EquiTeam.TipoTrabajo
+                            }
+                        )
+                    );
+                
+                    ClearCollect(Col_TEMPIntegrantes, Sort(Col_InegrantesEquipo,Nombre,SortOrder.Ascending));
+                    Clear(Col_EquipoOrdenados);
+                
+                    ForAll(
+                        Col_TEMPIntegrantes As IDInc,
+                        Collect(
+                            Col_EquipoOrdenados,
+                            {
+                                IDe: IDInc.IDe,
+                                Orden: CountRows(Col_TEMPIntegrantes) - CountRows(Col_EquipoOrdenados),
+                                Nombre: IDInc.Nombre,
+                                Gerencia: IDInc.Gerencia,
+                                Rol: IDInc.Rol,
+                                Estado: IDInc.Estado,
+                                Usuario: IDInc.Usuario,
+                                TipoTrabajo: IDInc.TipoTrabajo
+                            }
+                        )
+                
+                    );
                     Notify("Se elimino la persona del equipo",NotificationType.Success,6000),
                     Notify("No se elimino la persona del equipo",NotificationType.Error,6000)
                 )
