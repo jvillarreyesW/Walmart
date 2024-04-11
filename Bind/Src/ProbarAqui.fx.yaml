@@ -81,6 +81,10 @@ ProbarAqui As screen:
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Items: =["Item 1", "Item 2", "Item 3"]
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
         Width: =320
         X: =327
         Y: =397
@@ -90,6 +94,10 @@ ProbarAqui As screen:
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Items: =["Item 1", "Item 2", "Item 3"]
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
         Width: =320
         X: =327
         Y: =339
