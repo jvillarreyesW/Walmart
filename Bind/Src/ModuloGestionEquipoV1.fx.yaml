@@ -702,6 +702,7 @@ ModuloGestionEquipoV1 As screen:
             TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
+                FontColor: =
                 Height: =35
                 Text: ="Abrir para ver detalle del equipo"
                 Visible: |-
@@ -717,6 +718,7 @@ ModuloGestionEquipoV1 As screen:
 
         "Sld_BarraDesplazamiento As 'Control deslizante'":
             AccessibleLabel: =
+            BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             Height: =272
             Layout: ='Slider.Layout'.Vertical

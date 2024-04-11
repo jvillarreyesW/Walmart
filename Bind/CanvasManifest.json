@@ -173,6 +173,7 @@
     "ModuloEquipoV1",
     "ModuloGestionEquipoV1",
     "ModuloRevisionFormatos",
-    "ModuloRevisionFormatosDetalle"
+    "ModuloRevisionFormatosDetalle",
+    "ProbarAqui"
   ]
 }
