@@ -616,14 +616,14 @@ ModuloGestionEquipoV1 As screen:
 
             Button27 As button:
                 OnSelect: |
-                    =UpdateContext({_VarNuwvoEq:"Equi-"& GUID()});
+                    =//UpdateContext({_VarNuwvoEq:"Equi-"& GUID()});;
+                    
                     Patch(
                         DominioEquipoSquad,
                         LookUp(DominioEquipoSquad, IDEquipo = _VarEquipoSeleccionado),
                         {
                             IDGerencia: Dpd_ModEq_Gerencia.Selected.IDGerencias,
                             IDDominio: Dpd_ModEq_Dominio.Selected. IDDominio,
-                            IDEquipo: _VarNuwvoEq,
                             ResponsableEquipo: Upper(Cmb_ModEq_Responsable.Selected.Usuario),
                             'Equipo/Squad': Txt_ModEq_NombreEquipo.Text,
                             PM: If(_VarEquipo = "MiEquipo", "", Cmb_ModEq_PM.Selected.Usuario),
