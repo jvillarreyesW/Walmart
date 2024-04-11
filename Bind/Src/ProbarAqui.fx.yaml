@@ -34,14 +34,6 @@ ProbarAqui As screen:
         Height: =Txt_FondoForm1_210.Height -10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         Items: =Choices([@Lst_Persona].BuscarNombrePersona)
-        OnChange: |
-            =
-            If(
-                IsBlank(_VarUsuarioSelect) && IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario),
-                Clear(Col_EquiposPersonas);
-                //UpdateContext({_VarTempJefeDirecto:LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;Jefe_Directo)});;
-                Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result, Estado = "Activo"))
-            );
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
         SearchFields: =["Claims"]
@@ -55,4 +47,33 @@ ProbarAqui As screen:
         X: =30
         Y: =51
         ZIndex: =2
+
+    Cmb_BuscarPersona_4 As combobox:
+        BorderColor: =RGBA(79, 90, 94, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+        ChevronFill: =RGBA(0, 121, 187, 1)
+        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+        DefaultSelectedItems: =
+        DisabledColor: =RGBA(102, 102, 102, 1)
+        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayMode: =
+        Height: =Txt_FondoForm1_210.Height -10
+        HoverBorderColor: =RGBA(0, 121, 187, 1)
+        Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+        PaddingLeft: =12
+        PressedFill: =RGBA(0, 121, 187, 1)
+        SearchFields: =["Claims"]
+        SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_4.SearchText)
+        SelectionFill: =RGBA(0, 121, 187, 1)
+        SelectMultiple: =false
+        Template: =ListItemTemplate.Person
+        Tooltip: =
+        Width: |
+            =Txt_FondoForm1_210.Width - 27
+        X: =425
+        Y: =51
+        ZIndex: =3
 

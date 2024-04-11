@@ -82292,6 +82292,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ProbarAqui.Cmb_BuscarPersona_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProbarAqui.Cmb_BuscarPersona_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProbarAqui",
+                "type": "ProbarAqui.Cmb_BuscarPersona_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._VarEsManager"
                 }
               ],
