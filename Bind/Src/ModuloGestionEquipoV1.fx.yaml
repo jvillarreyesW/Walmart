@@ -843,6 +843,7 @@ ModuloGestionEquipoV1 As screen:
                                     IDEquipo: _VarEquipoSeleccionado,
                                     Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
                                     AsignadoPor: _Perfil.displayName,
+                                    Estado: "Activo",
                                     FechaAsignacion: Today()
                                 }
                             );
@@ -903,6 +904,7 @@ ModuloGestionEquipoV1 As screen:
                                     IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
                                     Usuario: _VarusuarioCambiar,
                                     AsignadoPor: _Perfil.displayName,
+                                    Estado: "Activo",
                                     FechaAsignacion: Today()
                                 }
                             );
@@ -970,6 +972,7 @@ ModuloGestionEquipoV1 As screen:
                                     IDEquipo: _VarEquipoSeleccionado,
                                     Usuario: Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),
                                     AsignadoPor: _Perfil.displayName,
+                                    Estado: "Activo",
                                     FechaAsignacion: Today()
                                 }
                             );
@@ -1030,6 +1033,7 @@ ModuloGestionEquipoV1 As screen:
                                     IDEquipo: Cmb_CambiardeEquipo.Selected.IDEquipo,
                                     Usuario: _VarusuarioCambiar,
                                     AsignadoPor: _Perfil.displayName,
+                                    Estado: "Activo",
                                     FechaAsignacion: Today()
                                 }
                             );

@@ -52,7 +52,7 @@ App As appinfo:
             ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo")),
             ClearCollect(Col_BD_Gerencia, Filter(Lst_Gerencias, Estado = "Activo")),
             ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
-            ClearCollect(Col_BD_Equipos, DominioEquipoSquad),
+            ClearCollect(Col_BD_Equipos, Filter(DominioEquipoSquad, Estado = "Activo")),
             ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo")), //_Perfil.mail "Carlos.Reichmann0@walmart.com"
             ClearCollect(Col_BD_Dominios,Filter(Lst_Dominio, Estado_Lst_Dominio = "Activo")),
             ClearCollect(Col_BD_SubDominios,Filter(Lst_SubDominio, Estado_LstSubDominio = "Activo")),

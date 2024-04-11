@@ -81,10 +81,6 @@ ProbarAqui As screen:
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Items: =["Item 1", "Item 2", "Item 3"]
-        RadiusBottomLeft: =25
-        RadiusBottomRight: =25
-        RadiusTopLeft: =25
-        RadiusTopRight: =25
         Width: =320
         X: =327
         Y: =397
@@ -94,12 +90,62 @@ ProbarAqui As screen:
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Items: =["Item 1", "Item 2", "Item 3"]
-        RadiusBottomLeft: =25
-        RadiusBottomRight: =25
-        RadiusTopLeft: =25
-        RadiusTopRight: =25
         Width: =320
         X: =327
         Y: =339
         ZIndex: =5
+
+    "TextInputCanvas1 As 'Entrada de texto'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =320
+        X: =327
+        Y: =284
+        ZIndex: =6
+
+    "Progress1 As 'Barra de progreso'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =45
+        Width: =320
+        X: =327
+        Y: =458
+        ZIndex: =7
+
+    ButtonCanvas1 As Botón:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =96
+        X: =317
+        Y: =590
+        ZIndex: =8
+
+    ButtonCanvas2 As Botón:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =96
+        X: =551
+        Y: =590
+        ZIndex: =9
+
+    "DatePickerCanvas1 As 'Selector de fecha'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =320
+        X: =327
+        Y: =228
+        ZIndex: =10
+
+    Table1 As Tabla.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =465
+        onCellValueChange: =false
+        onFilter: =false
+        onNavigate: =false
+        onRowSelect: =false
+        onSave: =false
+        OnSelect: =false
+        Width: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
+        X: =684
+        Y: =155
+        ZIndex: =11
 
