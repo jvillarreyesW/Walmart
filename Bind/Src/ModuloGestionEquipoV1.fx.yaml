@@ -221,7 +221,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            Dpd_TipoTrabajo As Dropdown.pcfdataset:
+            Dpd_TipoTrabajo As Desplegable.pcfdataset:
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
                 DefaultSelectedItems: |-
                     =Table({Value:ThisItem.TipoTrabajo})
@@ -699,7 +699,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =18
 
-            TextCanvas3 As Text:
+            TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -716,7 +716,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =19
 
-        Sld_BarraDesplazamiento As Slider:
+        "Sld_BarraDesplazamiento As 'Control deslizante'":
             AccessibleLabel: =
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit

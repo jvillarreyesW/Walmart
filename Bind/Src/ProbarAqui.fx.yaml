@@ -77,3 +77,21 @@ ProbarAqui As screen:
         Y: =51
         ZIndex: =3
 
+    "ComboboxCanvas1 As 'Cuadro combinado'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =["Item 1", "Item 2", "Item 3"]
+        Width: =320
+        X: =327
+        Y: =397
+        ZIndex: =4
+
+    DropdownCanvas1 As Desplegable.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =["Item 1", "Item 2", "Item 3"]
+        Width: =320
+        X: =327
+        Y: =339
+        ZIndex: =5
+

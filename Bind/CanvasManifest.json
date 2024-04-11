@@ -79,7 +79,7 @@
       "powerfxv1": false,
       "primaryoutputpropertycoerciondeprecated": true,
       "projectionmapping": true,
-      "reactformulabar": false,
+      "reactformulabar": true,
       "reliableconcurrent": true,
       "reservedkeywords": false,
       "reverttooldpowerautomate": false,
@@ -132,7 +132,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": false,
     "PublishTarget": "player",
-    "UserLocale": "en-US"
+    "UserLocale": "es-ES"
   },
   "ScreenOrder": [
     "Portada",
