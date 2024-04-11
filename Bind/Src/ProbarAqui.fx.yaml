@@ -81,3 +81,36 @@ ProbarAqui As screen:
         Y: =51
         ZIndex: =3
 
+        Cmb_BuscarPersona_4 As combobox:
+        BorderColor: =RGBA(79, 90, 94, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+        ChevronFill: =RGBA(0, 121, 187, 1)
+        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+        DefaultSelectedItems: =
+        DisabledColor: =RGBA(102, 102, 102, 1)
+        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayMode: =
+        Height: =Txt_FondoForm1_210.Height -10
+        HoverBorderColor: =RGBA(0, 121, 187, 1)
+        Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+        PaddingLeft: =12
+        PressedFill: =RGBA(0, 121, 187, 1)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        SearchFields: =["Claims"]
+        SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_4.SearchText)
+        SelectionFill: =RGBA(0, 121, 187, 1)
+        SelectMultiple: =false
+        Template: =ListItemTemplate.Person
+        Tooltip: =
+        Width: |
+            =Txt_FondoForm1_210.Width - 27
+        X: =425
+        Y: =200
+        ZIndex: =3
+
