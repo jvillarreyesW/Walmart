@@ -1249,6 +1249,7 @@ ModuloGestionEquipoV1 As screen:
                         )
                 
                     );
+                    UpdateContext({_VarPopUpAgregarColaborador:false});
                     Notify("Se elimino la persona del equipo",NotificationType.Success,6000),
                     Notify("No se elimino la persona del equipo",NotificationType.Error,6000)
                 )

@@ -23,7 +23,7 @@ App As appinfo:
         /*Colores para la App*/
         Set(_VarColoresApp,
             {
-                AzulparaCabeceras: RGBA(4, 31, 65, 1),
+                AzulparaCabeceras: RGBA(4, 31, 65, 1), //041F41
                 VerdeParaBotones: RGBA(6, 242, 123, 1), 
                 Amarrillo: RGBA(250, 185, 7, 1), 
                 Blanco:RGBA(255,255,255,1), 
