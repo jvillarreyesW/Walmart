@@ -831,6 +831,7 @@ ModuloGestionEquipoV1 As screen:
             HoverFill: =RGBA(255, 0, 0, 0.29)
             OnSelect: |-
                 =Reset(Cmb_AgegarPersonaEquipo);
+                Reset(Cmb_CambiardeEquipo);
                 UpdateContext({_VarPopUpAgregarColaborador:false})
             RadiusBottomLeft: =20
             RadiusBottomRight: =20
@@ -872,6 +873,7 @@ ModuloGestionEquipoV1 As screen:
                                 IsEmpty(Errors(Ingresos_Ceses_Personas)),
                                 Refresh(Ingresos_Ceses_Personas);
                                 ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                Reset(Cmb_CambiardeEquipo);
                                 UpdateContext({_VarPopUpAgregarColaborador:false});
                 
                                 /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
@@ -935,6 +937,7 @@ ModuloGestionEquipoV1 As screen:
                                 Refresh(Ingresos_Ceses_Personas);
                                 ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
                                 //Remove(Ingresos_Ceses_Personas;LookUp(Ingresos_Ceses_Personas ; Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"));;
+                                Reset(Cmb_CambiardeEquipo);
                                 UpdateContext({_VarPopUpAgregarColaborador:false});
                                 /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
                                 ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
@@ -1001,6 +1004,7 @@ ModuloGestionEquipoV1 As screen:
                                 IsEmpty(Errors(Ingresos_Ceses_Personas)),
                                 Refresh(Ingresos_Ceses_Personas);
                                 ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
+                                Reset(Cmb_CambiardeEquipo);
                                 UpdateContext({_VarPopUpAgregarColaborador:false});
                 
                                 /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
@@ -1064,6 +1068,7 @@ ModuloGestionEquipoV1 As screen:
                                 Refresh(Ingresos_Ceses_Personas);
                                 ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas, Estado = "Activo"));
                                 //Remove(Ingresos_Ceses_Personas;LookUp(Ingresos_Ceses_Personas ; Usuario =_VarusuarioCambiar && IDEquipo =_VarEquipoSeleccionado && Estado = "Activo"));;
+                                Reset(Cmb_CambiardeEquipo);
                                 UpdateContext({_VarPopUpAgregarColaborador:false});
                                 /*ACTUALIZAR LAQ COLECCION DE EQUIPOS*/
                                 ClearCollect( Col_Team, Filter(Col_BD_AsignacionEquipos, IDEquipo = _VarEquipoSeleccionado));
