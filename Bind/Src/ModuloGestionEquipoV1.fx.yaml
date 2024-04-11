@@ -290,6 +290,7 @@ ModuloGestionEquipoV1 As screen:
                     HoverFill: =RGBA(255, 255, 255, 0.48)
                     OnSelect: |-
                         =UpdateContext({_VarPopUpAgregarColaborador:true});
+                        UpdateContext({_VarusuarioCambiar:ThisItem.Usuario});
                         UpdateContext({_VarEliminarUsuario:true});
                     PressedFill: =RGBA(255, 255, 255, 0.71)
                     Text: =""
