@@ -615,7 +615,7 @@ ModuloGestionEquipoV1 As screen:
                 ZIndex: =13
 
             Button27 As button:
-                OnSelect: |-
+                OnSelect: |
                     =UpdateContext({_VarNuwvoEq:"Equi-"& GUID()});
                     Patch(
                         DominioEquipoSquad,
@@ -630,7 +630,22 @@ ModuloGestionEquipoV1 As screen:
                             EM: If(_VarEquipo = "MiEquipo", "", Cmb_ModEq_EM.Selected.Usuario)
                         }
                         
-                    )
+                    );
+                    
+                    Refresh(DominioEquipoSquad);
+                    ClearCollect(Col_BD_Equipos, Filter(DominioEquipoSquad, Estado = "Activo"));
+                    
+                    Clear(Col_IDEquiposAsignados);
+                    Clear(Col_MiEquiposJefe);
+                    
+                    
+                    // Recuperando los ID de los Equipos asignados
+                    ForAll(Col_MiEquipoWalmart As CME,Collect(Col_IDEquiposAsignados, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario)).IDEquipo));
+                    //ForAll(Col_MiEquipoWalmart As CME;Collect(Col_DatosparaGrafico; Filter(Col_BD_AsignacionEquipos; Trim(Usuario) = Trim(CME.Usuario))));;
+                    // Recuperando los equipos asignados en los dominios
+                    //ForAll(ForAll(Distinct(Col_IDEquiposAsignados;Value); {Result: ThisRecord.Value}) As CIEA;Collect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; IDEquipo= CIEA.Result)));;
+                    ForAll(ForAll(Distinct(Col_IDEquiposAsignados,IDEquipo), {Result: ThisRecord.Value}) As CIEA,Collect(Col_MiEquiposJefe,Filter(Col_BD_Equipos, IDEquipo = CIEA.Result)));
+                    ClearCollect(Col_TempMisEquipos,Col_MiEquiposJefe);
                 Text: ="Actualizar"
                 X: =329
                 Y: |
@@ -827,7 +842,11 @@ ModuloGestionEquipoV1 As screen:
 
         Button31_1 As button:
             OnSelect: |-
-                =UpdateContext({_VarUsuarioVal:Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)});
+                =If(
+                    _VarCambiardeEquipo,
+                    UpdateContext({_VarUsuarioVal:LookUp(Col_BD_Persona, Nombre_Persona = _VarusuarioCambiar, Usuario)});
+                    UpdateContext({_VarUsuarioVal:Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_AgegarPersonaEquipo.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)})
+                );
                 
                 If(
                     _VarEquipo = "MiEquipo",
