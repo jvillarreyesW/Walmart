@@ -884,7 +884,7 @@ ModuloAuditoria As screen:
                             DisplayMode.Edit
                 Height: =45
                 Icon: =Icon.CheckBadge
-                OnSelect: |-
+                OnSelect: |
                     =Set(_VarMostrarCargando,true);
                     
                         If(!IsBlank(Txt_Nuevo_Seg_1.Text),
@@ -981,6 +981,7 @@ ModuloAuditoria As screen:
                     Set(_VarMostrarCargando,false);
                     
                     Notify("Se actualizó la información de Auditoria satisfactoriamente", NotificationType.Success,5000);
+                    ClearCollect(Col_BD_Auditoria_seg,Filter(Lst_Auditoria_Seg,ID_AUDITORIA=ThisItem.ID_AUDITORIA));
                 Tooltip: ="Guardar Datos"
                 Width: =50
                 X: =1710
@@ -1050,7 +1051,7 @@ ModuloAuditoria As screen:
                 BorderColor: =RGBA(128, 128, 128, 1)
                 BorderThickness: =3
                 Clear: =true
-                Default: =Last(SortByColumns(Lst_Auditoria_Seg,"Created",SortOrder.Ascending)).Seguimiento
+                Default: =Last(SortByColumns(Filter(Lst_Auditoria_Seg,ID_AUDITORIA=ThisItem.ID_AUDITORIA),"Created",SortOrder.Ascending)).Seguimiento
                 DelayOutput: =true
                 DisabledColor: =RGBA(77, 77, 77, 1)
                 DisplayMode: =DisplayMode.Disabled
