@@ -30,6 +30,8 @@
       "AUDIT_CONTACT": "AUDIT_CONTACT",
       "Author": "Creado por",
       "Author#Claims": "Creado por Claims",
+      "BuscarNombrePersona": "BuscarNombrePersona",
+      "BuscarNombrePersona#Claims": "BuscarNombrePersona Claims",
       "BUSINESS_CONTACTS": "BUSINESS_CONTACTS",
       "CODIGO_LABEL": "CODIGO_LABEL",
       "COMMENTS": "COMMENTS",

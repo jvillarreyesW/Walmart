@@ -132,7 +132,7 @@ Component1 As CanvasComponent:
                 =If(
                     ThisItem.SubMenu = "Equipos",
                     If(
-                        _VarRolUsuario in Col_RolVirtual.Rol,
+                        _VarUsuarioJefe in Col_UserPermiso.User || _VarRolUsuario = "ENGINEERING MANAGER III" ,
                         DisplayMode.Edit,
                         DisplayMode.Disabled
                     ),

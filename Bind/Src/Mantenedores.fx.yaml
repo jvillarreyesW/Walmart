@@ -605,7 +605,7 @@ Mantenedores As screen:
                     ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco),
                     ClearCollect(Col_MenuBind,Lst_MenuBind),
                     /* PERMISO MODULO EQUIPO VIRTUALES */
-                    ClearCollect(Col_RolVirtual,{Rol:"Digital Product Manager"},{Rol:"PRODUCT OWNER SENIOR"},{Rol:"PRODUCT OWNER EXPERTO"},{Rol:"Product Owner"},{Rol:"ENGINEERING MANAGER II"},{Rol:"ENGINEERING MANAGER I"})
+                    ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"});
                     /*===========================================*/ 
                     
                 );
