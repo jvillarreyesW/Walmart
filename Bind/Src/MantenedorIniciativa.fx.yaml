@@ -131,7 +131,7 @@ MantenedorIniciativa As screen:
                 Y: =14
                 ZIndex: =5
 
-            Tg_Obj_Crear As Toggle:
+            Tg_Obj_Crear As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -161,7 +161,7 @@ MantenedorIniciativa As screen:
                 Y: =65
                 ZIndex: =6
 
-            Tg_Obj_Eliminar As Toggle:
+            Tg_Obj_Eliminar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -191,7 +191,7 @@ MantenedorIniciativa As screen:
                 Y: =164
                 ZIndex: =7
 
-            Tg_Obj_Editar As Toggle:
+            Tg_Obj_Editar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -241,7 +241,7 @@ MantenedorIniciativa As screen:
                 Y: =12
                 ZIndex: =10
 
-            Tg_Kpi_Crear As Toggle:
+            Tg_Kpi_Crear As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -271,7 +271,7 @@ MantenedorIniciativa As screen:
                 Y: =65
                 ZIndex: =11
 
-            Tg_Kpi_Eliminar As Toggle:
+            Tg_Kpi_Eliminar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -301,7 +301,7 @@ MantenedorIniciativa As screen:
                 Y: =164
                 ZIndex: =12
 
-            Tg_Kpi_Editar As Toggle:
+            Tg_Kpi_Editar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -350,7 +350,7 @@ MantenedorIniciativa As screen:
                 Y: =14
                 ZIndex: =15
 
-            Tg_Op_Crear As Toggle:
+            Tg_Op_Crear As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -380,7 +380,7 @@ MantenedorIniciativa As screen:
                 Y: =65
                 ZIndex: =16
 
-            Tg_Op_Eliminar As Toggle:
+            Tg_Op_Eliminar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -410,7 +410,7 @@ MantenedorIniciativa As screen:
                 Y: =164
                 ZIndex: =17
 
-            Tg_Op_Editar As Toggle:
+            Tg_Op_Editar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -449,7 +449,7 @@ MantenedorIniciativa As screen:
                 Y: =14
                 ZIndex: =19
 
-            Tg_Kpi_Avances As Toggle:
+            Tg_Kpi_Avances As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -479,7 +479,7 @@ MantenedorIniciativa As screen:
                 Y: =213
                 ZIndex: =20
 
-            Tg_Op_Priorizar As Toggle:
+            Tg_Op_Priorizar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -519,7 +519,7 @@ MantenedorIniciativa As screen:
                 Y: =14
                 ZIndex: =22
 
-            Tg_So_Crear As Toggle:
+            Tg_So_Crear As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -549,7 +549,7 @@ MantenedorIniciativa As screen:
                 Y: =65
                 ZIndex: =23
 
-            Tg_So_Eliminar As Toggle:
+            Tg_So_Eliminar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -579,7 +579,7 @@ MantenedorIniciativa As screen:
                 Y: =164
                 ZIndex: =24
 
-            Tg_So_Editar As Toggle:
+            Tg_So_Editar As Alternancia:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -609,7 +609,7 @@ MantenedorIniciativa As screen:
                 Y: =114
                 ZIndex: =25
 
-            Tg_Administrador As Toggle:
+            Tg_Administrador As Alternancia:
                 BasePaletteColor: =
                 Checked: =ThisItem.Administrador
                 DisplayMode: =DisplayMode.Edit

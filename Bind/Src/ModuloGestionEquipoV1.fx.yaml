@@ -221,6 +221,28 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
+            Dpd_TipoTrabajo As Desplegable.pcfdataset:
+                BasePaletteColor: =RGBA(30, 136, 230, 1)
+                DefaultSelectedItems: |-
+                    =Table({Value:ThisItem.TipoTrabajo})
+                DisplayMode: |-
+                    =If(
+                        _VarEquipo = "MiEquipo",
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                FontSize: =14
+                Height: =30
+                Items: =["","SPA", "BAU", "SPA + BAU"]
+                OnChange: |-
+                    =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
+                    Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
+                Required: =false
+                Width: =160
+                X: =1089
+                Y: =11
+                ZIndex: =16
+
             Gp_Acciones As group:
                 Height: =5
                 Width: =5
@@ -276,28 +298,6 @@ ModuloGestionEquipoV1 As screen:
                     X: =1208
                     Y: =61
                     ZIndex: =15
-
-            Dpd_TipoTrabajo As Dropdown.pcfdataset:
-                BasePaletteColor: =RGBA(30, 136, 230, 1)
-                DefaultSelectedItems: |-
-                    =Table({Value:ThisItem.TipoTrabajo})
-                DisplayMode: |-
-                    =If(
-                        _VarEquipo = "MiEquipo",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                FontSize: =14
-                Height: =30
-                Items: =["","SPA", "BAU", "SPA + BAU"]
-                OnChange: |-
-                    =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
-                    Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
-                Required: =false
-                Width: =160
-                X: =1089
-                Y: =11
-                ZIndex: =16
 
         Txt_BuscadorPersona_1 As text:
             BorderColor: =RGBA(53, 61, 63, 1)
@@ -715,7 +715,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =18
 
-            TextCanvas3 As Text:
+            TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -732,7 +732,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =19
 
-        Sld_BarraDesplazamiento As Slider:
+        "Sld_BarraDesplazamiento As 'Control deslizante'":
             AccessibleLabel: =
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit

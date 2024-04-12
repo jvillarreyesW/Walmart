@@ -667,7 +667,7 @@
                         Width: =1752
                         ZIndex: =15
 
-                    Spinner1 As Spinner:
+                    "Spinner1 As 'Indicador giratorio'":
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -1482,7 +1482,7 @@
                         Y: =8
                         ZIndex: =26
 
-                    Spinner1_1 As Spinner:
+                    "Spinner1_1 As 'Indicador giratorio'":
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -2525,7 +2525,7 @@
                         Y: =8
                         ZIndex: =23
 
-                    Spinner1_2 As Spinner:
+                    "Spinner1_2 As 'Indicador giratorio'":
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -4501,6 +4501,27 @@
                 Y: =693
                 ZIndex: =64
 
+            "Spinner2 As 'Indicador giratorio'":
+                Appearance: ='Spinner.Appearance'.Primary
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =58
+                Label: ="Guardando"
+                LabelPosition: ='Spinner.LabelPosition'.Before
+                SpinnerSize: ='Spinner.SpinnerSize'.Huge
+                Visible: =_VarMostrarSpinner
+                Width: =200
+                X: =1040
+                Y: =686
+                ZIndex: =65
+
             Group3 As group:
                 Height: =5
                 Width: =5
@@ -4559,27 +4580,6 @@
                     X: =1478
                     Y: =126
                     ZIndex: =63
-
-            Spinner2 As Spinner:
-                Appearance: ='Spinner.Appearance'.Primary
-                BasePaletteColor: =
-                DisplayMode: =DisplayMode.Edit
-                Font: =""
-                FontColor: =
-                FontItalic: =false
-                FontSize: =0
-                FontStrikethrough: =false
-                FontUnderline: =false
-                FontWeight: =""
-                Height: =58
-                Label: ="Guardando"
-                LabelPosition: ='Spinner.LabelPosition'.Before
-                SpinnerSize: ='Spinner.SpinnerSize'.Huge
-                Visible: =_VarMostrarSpinner
-                Width: =200
-                X: =1040
-                Y: =686
-                ZIndex: =65
 
             Txt_KPI_Q3Actual As text:
                 BorderColor: =RGBA(128, 128, 128, 1)
@@ -6827,7 +6827,7 @@
                 Y: =762
                 ZIndex: =62
 
-            Spinner2_1 As Spinner:
+            "Spinner2_1 As 'Indicador giratorio'":
                 Appearance: ='Spinner.Appearance'.Primary
                 BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit

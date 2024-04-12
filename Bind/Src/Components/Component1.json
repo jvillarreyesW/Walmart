@@ -1186,13 +1186,13 @@
             "Rules": [
               {
                 "Category": "Data",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    ImagenAbril,\n    '02'\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    ImagenAbril,\n    '02'\n)",
                 "Property": "Image",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    ImagePosition.Fit,\n    ImagePosition.Fit\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    ImagePosition.Fit,\n    ImagePosition.Fit\n)",
                 "Property": "ImagePosition",
                 "RuleProviderType": "Unknown"
               },
@@ -1210,7 +1210,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    10,\n    10\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    10,\n    10\n)",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
@@ -1222,7 +1222,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    300,\n    150\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    300,\n    150\n)",
                 "Property": "Height",
                 "RuleProviderType": "Unknown"
               },
@@ -1545,7 +1545,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    true,\n    false\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    true,\n    false\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -1723,7 +1723,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    false,\n    true\n)",
+                "InvariantScript": "If(\n    ThisItem.Title = \"Tech News\",\n    false,\n    true\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -2090,7 +2090,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    !(ThisItem.Título = \"Proyectos Finalizados !!\"),\n    true,\n    false\n)",
+                "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    true,\n    false\n)",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
               },
@@ -2635,7 +2635,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.SubMenu = \"Equipos\",\n    If(\n        _VarRolUsuario in Col_RolVirtual.Rol,\n        DisplayMode.Edit,\n        DisplayMode.Disabled\n    ),\n    DisplayMode.Edit\n)",
+                "InvariantScript": "If(\n    ThisItem.SubMenu = \"Equipos\",\n    If(\n        _VarUsuarioJefe in Col_UserPermiso.User || _VarRolUsuario = \"ENGINEERING MANAGER III\" ,\n        DisplayMode.Edit,\n        DisplayMode.Disabled\n    ),\n    DisplayMode.Edit\n)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -3746,7 +3746,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638484480469767744",
+    "LastModifiedTimestamp": "638485271597534678",
     "Name": "Component1",
     "Rules": [
       {
@@ -3805,7 +3805,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638484480469767744",
+  "LastModifiedTimestamp": "638485271597534678",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"
