@@ -312,17 +312,24 @@ GenerarFcst As screen:
             Default: |-
                 =If(
                     !_VarMostrarMas,
+                    Text(ThisItem.Abril, " ###,##0"),
+                    Text(ThisItem.Octubre, " ###,##0")
+                )
+                /*
+                If(
+                    !_VarMostrarMas;
                     If(
-                        Month(First(Col_SemanaEnCurso).MesFcst)>4,
-                        "0",
-                        Text(ThisItem.Abril, " ###,##0")
-                    ),
+                        Month(First(Col_SemanaEnCurso).MesFcst)>4;
+                        "0";
+                        Text(ThisItem.Abril; " ###,##0")
+                    );
                     If(
-                        Month(First(Col_SemanaEnCurso).MesFcst)>10,
-                        "0",
-                        Text(ThisItem.Octubre, " ###,##0")
+                        Month(First(Col_SemanaEnCurso).MesFcst)>10;
+                        "0";
+                        Text(ThisItem.Octubre; " ###,##0")
                     )
                 )
+                */
             DisabledColor: =RGBA(26, 26, 26, 1)
             DisplayMode: |-
                 =If(
@@ -355,17 +362,24 @@ GenerarFcst As screen:
             Default: |-
                 =If(
                     !_VarMostrarMas,
+                    Text(ThisItem.Mayo, " ###,##0"),
+                    Text(ThisItem.Noviembre, " ###,##0")
+                )
+                /*
+                If(
+                    !_VarMostrarMas;
                     If(
-                        Month(First(Col_SemanaEnCurso).MesFcst) > 5,
-                        "0",
-                        Text(ThisItem.Mayo, " ###,##0")
-                    ),
+                        Month(First(Col_SemanaEnCurso).MesFcst) > 5;
+                        "0";
+                        Text(ThisItem.Mayo; " ###,##0")
+                    );
                     If(
-                        Month(First(Col_SemanaEnCurso).MesFcst)>11,
-                        "0",
-                        Text(ThisItem.Noviembre, " ###,##0")
+                        Month(First(Col_SemanaEnCurso).MesFcst)>11;
+                        "0";
+                        Text(ThisItem.Noviembre; " ###,##0")
                     )
                 )
+                */
             DisabledColor: =RGBA(26, 26, 26, 1)
             DisplayMode: |-
                 =If(
@@ -398,13 +412,20 @@ GenerarFcst As screen:
             Default: |-
                 =If(
                     !_VarMostrarMas,
-                    If(
-                        Month(First(Col_SemanaEnCurso).MesFcst) > 6,
-                        "0",
-                        Text(ThisItem.Junio, " ###,##0")
-                    ),
+                    Text(ThisItem.Junio, " ###,##0"),
                     Text(ThisItem.Diciembre, " ###,##0")
                 )
+                /*
+                If(
+                    !_VarMostrarMas;
+                    If(
+                        Month(First(Col_SemanaEnCurso).MesFcst) > 6;
+                        "0";
+                        Text(ThisItem.Junio; " ###,##0")
+                    );
+                    Text(ThisItem.Diciembre; " ###,##0")
+                )
+                */
             DisabledColor: =RGBA(26, 26, 26, 1)
             DisplayMode: |-
                 =If(
