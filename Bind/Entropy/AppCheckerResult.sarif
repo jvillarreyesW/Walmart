@@ -86892,36 +86892,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Mantenedores",
-                "type": "Mantenedores.Gallery1_1.Button4_12"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 19
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Portada.Btn_CambioDeUser_1.OnSelect"
                 }
               ],
