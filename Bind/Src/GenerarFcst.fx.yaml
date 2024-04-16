@@ -1179,7 +1179,8 @@ GenerarFcst As screen:
             Height: =272
             HtmlText: |-
                 ="<p><strong>Se guardará la información registrada .</strong></p><p><strong>Tener en cuenta:</strong></p><ul>
-                <li>Después de cargar esta versión podrás hacer modificaciones, para hacerlas debes ir a ""Ver Forecast Generados"" y buscar la semana que cargaste para editar.</li>"
+                <li>Después de cargar esta versión podrás hacer modificaciones, para hacerlas debes ir a ""Ver Forecast Generados"" y buscar la semana que cargaste para editar.</li>.
+                <li>En caso de no necesitar hacer cambios esta sera tu versión final.</li>"
                 
                 /*
                 If(
@@ -1219,7 +1220,7 @@ GenerarFcst As screen:
                 =If(
                     _Var_BorradorFcst,
                     "Guardar Forecast Parcial",
-                    "Guardar Forecast completado"
+                    "Guardar cambios"
                 )
             Width: =738
             X: =554
@@ -1350,7 +1351,7 @@ GenerarFcst As screen:
                 );UpdateContext({_Var_EnviarFcst:false})
                 
                 )
-            Text: ="Finalizar"
+            Text: ="Guardar"
             Width: =254
             X: =851
             Y: =661
