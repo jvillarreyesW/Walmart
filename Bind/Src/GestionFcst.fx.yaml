@@ -3246,7 +3246,7 @@ GestionFcst As screen:
 
         Dpd_SemanaDescargar As dropdown:
             Items: |-
-                =["W2","W6","W8","W12"]
+                =["W2","W6","W8","W12","W16"]
                 //GroupBy(Lst_Fcst_Detalle;"SemanaFCST";"FcstSemana")
             X: =126
             Y: =120

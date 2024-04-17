@@ -1422,7 +1422,7 @@ EdicionFcst As screen:
 
     Dpd_SemanaDescargar_1 As dropdown:
         Items: |-
-            =["W2","W6","W8","W12"]
+            =["W2","W6","W8","W12","W16"]
             //Last(Sort(Lst_Fcst_Detalle;Creado;SortOrder.Descending))
         Visible: |-
             =If( _VarUsuarioJefe = "F0T01QE" || _VarUsuarioJefe = "F0M0677" || _VarUsuarioJefe = "R0A06NW" || _VarUsuarioJefe = "P0O01JF" || _VarUsuarioJefe = "VN54CEU",
