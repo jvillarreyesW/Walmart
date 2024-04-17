@@ -351,9 +351,9 @@ ModuloRevisionFormatos As screen:
                 Text: |-
                     =If(Label15_137.Text="0","No Aplica",
                     If(
-                    IsBlank(Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value),
+                    IsBlank(Last(Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(ThisItem.ID)&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value),
                     "Pendiente",
-                    Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value
+                    Last(Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(ThisItem.ID)&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30")).Estado.Value
                     ))
                 Width: =145
                 X: =985
@@ -371,7 +371,7 @@ ModuloRevisionFormatos As screen:
                 Height: =50
                 Icon: =Icon.NextArrow
                 OnSelect: |-
-                    =Select(Parent);Navigate(ModuloRevisionFormatosDetalle,ScreenTransition.None,{_Var_SelecProveedor:ThisItem.RUT})
+                    =Select(Parent);Navigate(ModuloRevisionFormatosDetalle,ScreenTransition.None,{_Var_SelecProveedor:ThisItem.ID})
                 Width: =42
                 X: =1781
                 ZIndex: =5
@@ -389,9 +389,9 @@ ModuloRevisionFormatos As screen:
                 Text: |-
                     =If(Label15_137.Text="0","No Aplica",
                     If(
-                    IsBlank(Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value),
+                    IsBlank(Last(Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(ThisItem.ID)&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value),
                     "Pendiente",
-                    Last(Filter(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value
+                    Last(Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(ThisItem.ID)&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1")).Estado.Value
                     ))
                 Width: =149
                 X: =1137
@@ -429,7 +429,7 @@ ModuloRevisionFormatos As screen:
                 Align: =Align.Center
                 Height: =47
                 Text: |-
-                    =If(Label15_133.Text="Pendiente" || Label15_133.Text="No Aplica",0,LookUp(Col_CargueCertificadosF30,RUT=Label15_130.Text&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1").PersonasEncontradas) & " / "
+                    =If(Label15_133.Text="Pendiente" || Label15_133.Text="No Aplica",0,LookUp(Col_CargueCertificadosF30,ID_Proveedor=Text(ThisItem.ID)&& Mes=Cmb_FiltroNombre_13.Selected.Value && Anio=Cmb_FiltroNombre_14.Selected.Value && Certificado="F30-1").PersonasEncontradas) & " / "
                     //CountRows(Filter(Lst_UsuariosCargadosF30;ID_Documento=LookUp(Col_CargueCertificadosF30;RUT=Label15_75.Text&& Mes=Cmb_FiltroNombre_10.Selected.Value && Anio=Cmb_FiltroNombre_11.Selected.Value && Certificado="F30-1").ID)))
                 Width: =44
                 X: =1337
@@ -462,7 +462,7 @@ ModuloRevisionFormatos As screen:
                     =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo"&& 'Ubicación Laboral'.Value="Chile" && GerenciaOrigen_0="GERENCIA TECNOLOGIA"))
                     
                     //CountRows(Filter(Lst_UsuariosCargadosF30;ID_Documento=LookUp(Col_CargueCertificadosF30;RUT=Label15_75.Text&& Mes=Cmb_FiltroNombre_10.Selected.Value && Anio=Cmb_FiltroNombre_11.Selected.Value && Certificado="F30-1").ID)))
-                Width: =44
+                Width: =55
                 X: =1357
                 Y: =10
                 ZIndex: =13

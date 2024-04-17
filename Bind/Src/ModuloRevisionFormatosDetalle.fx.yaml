@@ -90,7 +90,7 @@ ModuloRevisionFormatosDetalle As screen:
         FontWeight: =FontWeight.Semibold
         Height: =42
         Size: =20
-        Text: =LookUp(Lst_Proveedores,RUT=_Var_SelecProveedor).Razon_Social_Proveedor
+        Text: =LookUp(Lst_Proveedores,ID=_Var_SelecProveedor).Razon_Social_Proveedor
         Width: =1000
         X: =144
         Y: =232
@@ -219,7 +219,7 @@ ModuloRevisionFormatosDetalle As screen:
         BorderThickness: =1
         DelayItemLoading: =true
         Height: =397
-        Items: =Filter(Lst_UsuariosCargadosF30,ID_Documento=Gallery17_2.Selected.ID)
+        Items: =Filter(Lst_UsuariosCargadosF30,ID_Documento=Text(Gallery17_2.Selected.ID))
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =49
@@ -292,7 +292,7 @@ ModuloRevisionFormatosDetalle As screen:
         Items: |-
             =//Filter(Col_CargueCertificadosF30;Proveedor=_Var_SelecProveedor)
             Search(
-            Filter(Col_CargueCertificadosF30,RUT=_Var_SelecProveedor&& 
+            Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(_Var_SelecProveedor)&& 
             (Mes=Cmb_FiltroNombre_15.Selected.Value||IsBlank(Cmb_FiltroNombre_15.Selected.Value)) && 
             (Anio=Cmb_FiltroNombre_16.Selected.Value||IsBlank(Cmb_FiltroNombre_16.Selected.Value)) &&
             (Certificado="F30" || Certificado="F30-1")),
