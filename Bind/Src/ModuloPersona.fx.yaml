@@ -2283,7 +2283,7 @@ ModuloPersona As screen:
                 ={Title: LookUp(Col_BD_Dominios, IDDominio = LookUp(Col_BD_Equipos, IDEquipo = ThisItem.IDEquipo,IDDominio),Title)}
             DefaultSelectedItems: |-
                 =Table({Title: LookUp(Col_BD_Dominios, IDDominio = LookUp(Col_BD_Equipos, IDEquipo = ThisItem.IDEquipo,IDDominio),Title)})
-            DisplayFields: =["ComplianceAssetId"]
+            DisplayFields: =["Title"]
             Height: =Txt_FondoForm1_9.Height - 10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             InputTextPlaceholder: ="Buscar Dominio"
@@ -2296,8 +2296,12 @@ ModuloPersona As screen:
             OnChange: =
             OnSelect: =Select(Parent)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["ComplianceAssetId"]
-            SearchItems: =[]
+            SearchFields: =["Title"]
+            SearchItems: |-
+                =Search(Sort(
+                    Filter(Col_BD_Dominios, !(Title = "Dominio de Prueba" ) && !(Title = "Historico Portafolio")),
+                    Title, SortOrder.Ascending
+                ),Cmb_IC_Dominios.SearchText,"Title")
             SelectMultiple: =false
             Width: =Txt_FondoForm1_9.Width - 27
             X: =220
