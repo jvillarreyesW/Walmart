@@ -295,7 +295,7 @@ ModuloRevisionFormatosDetalle As screen:
             Filter(Col_CargueCertificadosF30,ID_Proveedor=Text(_Var_SelecProveedor)&& 
             (Mes=Cmb_FiltroNombre_15.Selected.Value||IsBlank(Cmb_FiltroNombre_15.Selected.Value)) && 
             (Anio=Cmb_FiltroNombre_16.Selected.Value||IsBlank(Cmb_FiltroNombre_16.Selected.Value)) &&
-            (Certificado="F30" || Certificado="F30-1")),
+            (Certificado="F30" || Certificado="F30-1")&&Estado.Value="Cargado"),
             Txt_FondoForm1_207.Text,"Certificado","RUT","{Name}")
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
