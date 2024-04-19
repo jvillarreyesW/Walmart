@@ -2158,7 +2158,7 @@ ModuloRiesgos As screen:
         BorderThickness: =2
         DelayItemLoading: =true
         Height: =229
-        Items: =Sort(Filter(Lst_Historico_Riesgos_Proyectos,IDProyecto = Text(Dt_ListaRiesgos.Selected.ID)),Creado,SortOrder.Descending)
+        Items: =Sort(Filter(Lst_Historico_Riesgos_Proyectos,IDProyecto = Text(Dt_ListaRiesgos.Selected.ID)),Created,SortOrder.Descending)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =Label8_7.Height + 5
@@ -2181,7 +2181,7 @@ ModuloRiesgos As screen:
             Align: =Align.Center
             Height: =45
             Size: =10
-            Text: =ThisItem.Modificado
+            Text: =ThisItem.Modified
             Width: =180
             ZIndex: =3
 

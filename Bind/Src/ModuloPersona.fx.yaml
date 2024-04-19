@@ -2297,11 +2297,7 @@ ModuloPersona As screen:
             OnSelect: =Select(Parent)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Title"]
-            SearchItems: |-
-                =Search(Sort(
-                    Filter(Col_BD_Dominios, !(Title = "Dominio de Prueba" ) && !(Title = "Historico Portafolio")),
-                    Title, SortOrder.Ascending
-                ),Cmb_IC_Dominios.SearchText,"Title")
+            SearchItems: =[]
             SelectMultiple: =false
             Width: =Txt_FondoForm1_9.Width - 27
             X: =220

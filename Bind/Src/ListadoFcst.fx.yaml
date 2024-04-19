@@ -46,20 +46,20 @@ ListadoFcst As screen:
 
         Label44 As label:
             OnSelect: =Select(Parent)
-            Text: =ThisItem.Título
+            Text: =ThisItem.Title
             Width: =531
             ZIndex: =2
 
         Label44_1 As label:
             OnSelect: =Select(Parent)
-            Text: =ThisItem.Título
+            Text: =ThisItem.Title
             Width: =531
             X: =538
             ZIndex: =3
 
         Label44_2 As label:
             OnSelect: =Select(Parent)
-            Text: =ThisItem.Título
+            Text: =ThisItem.Title
             Width: =531
             X: =1083
             ZIndex: =4

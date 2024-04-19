@@ -329,14 +329,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Desplegable",
+  "Name": "Dropdown",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta para los lectores de pantalla.",
+      "Description": "Label for screen readers.",
       "DescriptionResourceString": "DropdownCanvas_AccessibleLabel_Desc",
-      "DisplayName": "Etiqueta accesible",
+      "DisplayName": "Accessible label",
       "DisplayNameResourceString": "DropdownCanvas_AccessibleLabel",
       "EnumValues": [],
       "HelperUI": null,
@@ -362,9 +362,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Indica si este control debe contener un valor seleccionado.",
+      "Description": "Whether this control must contain a selected value.",
       "DescriptionResourceString": "DropdownCanvas_Required_Desc",
-      "DisplayName": "Obligatorio",
+      "DisplayName": "Required",
       "DisplayNameResourceString": "DropdownCanvas_Required",
       "EnumValues": [],
       "HelperUI": null,
@@ -390,9 +390,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Elija una paleta de colores que sea diferente del tema.",
+      "Description": "Choose a color palette that's different from the theme.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Paleta de colores",
+      "DisplayName": "Color palette",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -418,9 +418,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
+      "Description": "Set the font size for displayed text.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -446,9 +446,9 @@
     {
       "Category": "data",
       "DefaultValue": "None",
-      "Description": "El estado actual del desplegable, con respecto a la validación.",
+      "Description": "The current status of the dropdown, with regard to validation.",
       "DescriptionResourceString": "DropdownCanvas_ValidationState_Desc",
-      "DisplayName": "Estado de validación",
+      "DisplayName": "Validation state",
       "DisplayNameResourceString": "DropdownCanvas_ValidationState",
       "EnumValues": [
         {
@@ -459,8 +459,8 @@
           "Value": "Error"
         },
         {
-          "Description": "Ninguno",
-          "DisplayName": "Ninguno",
+          "Description": "None",
+          "DisplayName": "None",
           "IsDefaultValue": true,
           "Name": "None",
           "Value": "None"
@@ -545,10 +545,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": true,
@@ -573,10 +573,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetSelected##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetSelected##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -601,10 +601,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetSelectedItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetSelectedItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -629,10 +629,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetDefaultSelectedItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetDefaultSelectedItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -759,7 +759,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.DropdownCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.DropdownCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Elementos\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Required\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ValidationState\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"None\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.DropdownCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.DropdownCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Items\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Required\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ValidationState\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"None\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
       "Type": 3
     },
     {
@@ -1109,7 +1109,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"DropdownCanvas\":\"Desplegable\",\"DropdownCanvas_AccessibleLabel\":\"Etiqueta accesible\",\"DropdownCanvas_AccessibleLabel_Desc\":\"Etiqueta para los lectores de pantalla.\",\"DropdownCanvas_Desc\":\"Permite a los usuarios elegir un valor de un conjunto de opciones.\",\"DropdownCanvas_Items\":\"Elementos\",\"DropdownCanvas_Items_Desc\":\"El origen de datos que contiene los elementos que aparecen en el control.\",\"DropdownCanvas_Required\":\"Obligatorio\",\"DropdownCanvas_Required_Desc\":\"Indica si este control debe contener un valor seleccionado.\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"DropdownCanvas_ValidationState\":\"Estado de validación\",\"DropdownCanvas_ValidationState_Desc\":\"El estado actual del desplegable, con respecto a la validación.\",\"DropdownCanvas_ValidationState_None\":\"Ninguno\",\"DropdownCanvas_ValidationState_Error\":\"Error\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"DropdownCanvas\":\"Dropdown\",\"DropdownCanvas_AccessibleLabel\":\"Accessible label\",\"DropdownCanvas_AccessibleLabel_Desc\":\"Label for screen readers.\",\"DropdownCanvas_Desc\":\"Let users pick a value from a set of options.\",\"DropdownCanvas_Items\":\"Items\",\"DropdownCanvas_Items_Desc\":\"The source of data that contains the items that appear in the control.\",\"DropdownCanvas_Required\":\"Required\",\"DropdownCanvas_Required_Desc\":\"Whether this control must contain a selected value.\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"DropdownCanvas_ValidationState\":\"Validation state\",\"DropdownCanvas_ValidationState_Desc\":\"The current status of the dropdown, with regard to validation.\",\"DropdownCanvas_ValidationState_None\":\"None\",\"DropdownCanvas_ValidationState_Error\":\"Error\"}}}",
       "Type": 3
     },
     {

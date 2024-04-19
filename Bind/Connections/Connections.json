@@ -261,9 +261,44 @@
       "a70aa8f7-1506-4159-b342-258583986d13",
       "c9422c84-0162-403a-9f11-eddd4398aca9",
       "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0",
-      "8debb5fc-4ca5-4048-ba92-b463b7de472e"
+      "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
     ],
     "id": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
+  },
+  "4dd5b93a-a81f-4be1-92f7-ebd0055888ba": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "DescargarDetSoportesProveedores"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "DescargarDetSoportesProveedores"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "DescargarDetSoportesProveedores"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness_1": "a0d29168-60c2-4c7d-a020-de2b911834dd",
+      "shared_sharepointonline_1": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
+    },
+    "dependents": [],
+    "id": "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
   },
   "6d60d96f-db91-4cf4-8fa6-e70811dfc78a": {
     "appActions": [
@@ -380,57 +415,6 @@
     "dependents": [],
     "id": "7b2a6d6e-dcde-49cf-a9f0-f25c3dcbc1a0"
   },
-  "8debb5fc-4ca5-4048-ba92-b463b7de472e": {
-    "appActions": [
-      "Run"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c": {
-          "value": "shared_sharepointonline_1"
-        },
-        "a0d29168-60c2-4c7d-a020-de2b911834dd": {
-          "value": "shared_excelonlinebusiness_1"
-        },
-        "workflowDisplayName": {
-          "value": "DescargarDetSoportesProveedores"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_excelonlinebusiness_1": {
-          "value": "a0d29168-60c2-4c7d-a020-de2b911834dd"
-        },
-        "shared_sharepointonline_1": {
-          "value": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-        },
-        "workflowDisplayName": {
-          "value": "DescargarDetSoportesProveedores"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "DescargarDetSoportesProveedores"
-    ],
-    "dependencies": {
-      "shared_excelonlinebusiness_1": "a0d29168-60c2-4c7d-a020-de2b911834dd",
-      "shared_sharepointonline_1": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-    },
-    "dependents": [],
-    "id": "8debb5fc-4ca5-4048-ba92-b463b7de472e"
-  },
   "9b0b83eb-6ebf-429c-9862-ef3b7e2607e4": {
     "appActions": [
       "Run"
@@ -497,7 +481,7 @@
       "d2b80453-b56e-4cc6-b15f-9791d2cee342",
       "a70aa8f7-1506-4159-b342-258583986d13",
       "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0",
-      "8debb5fc-4ca5-4048-ba92-b463b7de472e"
+      "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
     ],
     "id": "a0d29168-60c2-4c7d-a020-de2b911834dd"
   },
