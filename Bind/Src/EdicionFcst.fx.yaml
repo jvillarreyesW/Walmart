@@ -427,7 +427,7 @@ EdicionFcst As screen:
                 =If(
                     !ThisItem.Editando,
                     Patch(FcstDetalle1, ThisItem, {Editando:true}),
-                    Notify("Entro Al Patch",NotificationType.Success,6000);
+                    //Notify("Entro Al Patch";NotificationType.Success;6000);;
                         Patch(
                             Lst_Fcst_Detalle,
                             LookUp(Lst_Fcst_Detalle, SemanaFCST = ThisItem.SemanaFCST && IDInputData = ThisItem.IDInputData && IDServicio = ThisItem.IdServicio),
@@ -1111,7 +1111,7 @@ EdicionFcst As screen:
                 Collect(
                 FcstDetalle1,
                     {
-                        SemanaFCST: First(Col_SemanaEnCurso).Semana,
+                        SemanaFCST: Dpd_SemanaDescargar_1.Selected.Value,
                         IDResponsable: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Usuario),
                         ResponsableServicio: LookUp(Col_BD_Fcst_Responsable, IDInputData = SerAs.Usuario, Responsable),
                         IdServicio: SerAs.IDServicio,

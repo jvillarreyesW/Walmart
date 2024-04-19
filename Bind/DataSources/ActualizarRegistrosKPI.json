@@ -1,8 +1,0 @@
-[
-  {
-    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
-    "Name": "ActualizarRegistrosKPI",
-    "ServiceKind": "ConnectedWadl",
-    "Type": "ServiceInfo"
-  }
-]
