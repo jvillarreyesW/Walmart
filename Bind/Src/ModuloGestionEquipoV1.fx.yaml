@@ -32,8 +32,7 @@ ModuloGestionEquipoV1 As screen:
         Height: =60
         HoverFill: =_VarColoresApp.AzulFondo
         OnSelect: |-
-            =Reset(Sld_BarraDesplazamiento);
-            Back()
+            =Back()
             /*
             If(
                 !_VarMostrarBarraBloqueo;
@@ -99,14 +98,13 @@ ModuloGestionEquipoV1 As screen:
             Items: |-
                 =If(
                     _VarEquipo = "MiEquipo",
-                    Search(Filter(Col_EquipoOrdenados, Gerencia = _VarGeOri && Orden <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),
-                    Sort(Search(Filter(Col_EquipoOrdenados, Orden <= Sld_BarraDesplazamiento.Value), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),Nombre,SortOrder.Ascending)
+                    Search(Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),
+                    Sort(Search(Col_InegrantesEquipo,  Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),Nombre,SortOrder.Ascending)
                 )
                 
                 //Filter(Col_BD_AsignacionEquipos; IDEquipo = _VarEquipoSeleccionado)0
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
-            ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =110
             Width: =1262
@@ -221,7 +219,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            Dpd_TipoTrabajo As Dropdown.pcfdataset:
+            Dpd_TipoTrabajo As Desplegable.pcfdataset:
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
                 DefaultSelectedItems: |-
                     =Table({Value:ThisItem.TipoTrabajo})
@@ -232,14 +230,14 @@ ModuloGestionEquipoV1 As screen:
                         DisplayMode.Edit
                     )
                 FontSize: =14
-                Height: =30
+                Height: =28
                 Items: =["","SPA", "BAU", "SPA + BAU"]
                 OnChange: |-
                     =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
                     Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
                 Required: =false
-                Width: =160
-                X: =1089
+                Width: =138
+                X: =1098
                 Y: =11
                 ZIndex: =16
 
@@ -255,7 +253,7 @@ ModuloGestionEquipoV1 As screen:
                     Image: ='cambiar (2)'
                     OnSelect: =Select(Parent)
                     Width: =35
-                    X: =1160
+                    X: =1148
                     Y: =61
                     ZIndex: =12
 
@@ -264,7 +262,7 @@ ModuloGestionEquipoV1 As screen:
                     Image: ='bote-de-basura'
                     OnSelect: =Select(Parent)
                     Width: =35
-                    X: =1208
+                    X: =1196
                     Y: =61
                     ZIndex: =13
 
@@ -280,7 +278,7 @@ ModuloGestionEquipoV1 As screen:
                     PressedFill: =RGBA(255, 255, 255, 0.71)
                     Text: =""
                     Width: =35
-                    X: =1160
+                    X: =1148
                     Y: =61
                     ZIndex: =14
 
@@ -295,7 +293,7 @@ ModuloGestionEquipoV1 As screen:
                     PressedFill: =RGBA(255, 255, 255, 0.71)
                     Text: =""
                     Width: =35
-                    X: =1208
+                    X: =1196
                     Y: =61
                     ZIndex: =15
 
@@ -715,7 +713,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =18
 
-            TextCanvas3 As Text:
+            TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -731,30 +729,6 @@ ModuloGestionEquipoV1 As screen:
                 X: =145
                 Y: =2
                 ZIndex: =19
-
-        Sld_BarraDesplazamiento As Slider:
-            AccessibleLabel: =
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            Height: =272
-            Layout: ='Slider.Layout'.Vertical
-            Max: |-
-                =If(
-                    _VarEquipo = "MiEquipo",
-                    CountRows(Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri)),
-                    CountRows(Col_InegrantesEquipo)
-                )
-            Min: =1
-            Value: |-
-                =If(
-                    _VarEquipo = "MiEquipo",
-                    CountRows(Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri)),
-                    CountRows(Col_InegrantesEquipo)
-                )
-            Width: =48
-            X: =1277
-            Y: =338
-            ZIndex: =12
 
         TextInput15_4 As text:
             Align: =Align.Center
@@ -1131,20 +1105,28 @@ ModuloGestionEquipoV1 As screen:
         Cmb_CambiardeEquipo As combobox:
             DisplayFields: =["Equipo_x002f_Squad"]
             InputTextPlaceholder: ="Buscar equipo"
-            Items: |
+            Items: |-
                 =Filter(
                     Col_BD_Equipos, 
+                    IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"
+                )
+                
+                
+                /*
+                Filter(
+                    Col_BD_Equipos; 
                     IDGerencia = LookUp(
-                        Col_BD_Gerencia,
+                        Col_BD_Gerencia;
                         Nivel = "2" && 
                         NombreGerencia = LookUp(
-                            Col_BD_Persona, 
-                            Usuario = _VarusuarioCambiar, 
+                            Col_BD_Persona; 
+                            Usuario = _VarusuarioCambiar; 
                             GerenciaOrigen_1
-                        ),
+                        );
                         IDGerencias
                     )
                 )
+                */
             SearchFields: =["Equipo_x002f_Squad"]
             SearchItems: |-
                 =Search(Filter(

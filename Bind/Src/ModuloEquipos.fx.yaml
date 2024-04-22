@@ -738,7 +738,7 @@ ModuloEquipos As screen:
                     ChevronDisabledFill: =RGBA(128, 128, 128, 1)
                     ChevronFill: =RGBA(0, 121, 187, 1)
                     ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: =LookUp(Col_BD_Dominios, IDDominio = ThisItem.IDDominio,Name)
+                    Default: =LookUp(Col_BD_Dominios, IDDominio = ThisItem.IDDominio,Nombre)
                     DisabledBorderColor: =RGBA(128, 128, 128, 1)
                     DisabledColor: =RGBA(128, 128, 128, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
