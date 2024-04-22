@@ -457,7 +457,7 @@ ModuloGestionEquipoV1 As screen:
             Height: |-
                 =If(
                     _VarAbrirDetalle,
-                    504,
+                    450,
                     40
                 )
             RadiusBottomLeft: =20
@@ -514,6 +514,12 @@ ModuloGestionEquipoV1 As screen:
 
             Label61_2 As label:
                 Text: ="Responsable"
+                Visible: |-
+                    =If(
+                        _VarEquipo = "MiEquipo",
+                        true,
+                        false
+                    )
                 Width: =151
                 X: =18
                 Y: |-
@@ -534,7 +540,7 @@ ModuloGestionEquipoV1 As screen:
                     )
                 Width: =151
                 X: =18
-                Y: =385
+                Y: =320
                 ZIndex: =8
 
             Label61_4 As label:
@@ -547,7 +553,8 @@ ModuloGestionEquipoV1 As screen:
                     )
                 Width: =151
                 X: =18
-                Y: =324
+                Y: |
+                    =265
                 ZIndex: =10
 
             Cmb_ModEq_Responsable As combobox:
@@ -559,6 +566,12 @@ ModuloGestionEquipoV1 As screen:
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
                 SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Nombre_Persona")
+                Visible: |-
+                    =If(
+                        _VarEquipo = "MiEquipo",
+                        true,
+                        false
+                    )
                 Width: =320
                 X: =169
                 Y: |+
@@ -588,8 +601,7 @@ ModuloGestionEquipoV1 As screen:
                     )
                 Width: =320
                 X: =169
-                Y: |
-                    =385
+                Y: =320
                 ZIndex: =12
 
             Cmb_ModEq_PM As combobox:
@@ -610,7 +622,7 @@ ModuloGestionEquipoV1 As screen:
                 Width: =320
                 X: =169
                 Y: |
-                    =324
+                    =265
                 ZIndex: =13
 
             Button27 As button:
@@ -651,7 +663,7 @@ ModuloGestionEquipoV1 As screen:
                     =If(
                         _VarEquipo = "MiEquipo",
                         380,
-                        450
+                        380
                     )
                 ZIndex: =14
 
@@ -1106,9 +1118,26 @@ ModuloGestionEquipoV1 As screen:
             DisplayFields: =["Equipo_x002f_Squad"]
             InputTextPlaceholder: ="Buscar equipo"
             Items: |-
-                =Filter(
-                    Col_BD_Equipos, 
-                    IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"
+                =If(
+                    _VarEquipo = "MiEquipo",
+                    Filter(
+                        Col_BD_Equipos, 
+                        IDGerencia = LookUp(
+                            Col_BD_Gerencia,
+                            Nivel = "2" && 
+                            NombreGerencia = LookUp(
+                                Col_BD_Persona, 
+                                Usuario = _VarusuarioCambiar, 
+                                GerenciaOrigen_1
+                            ),
+                            IDGerencias
+                        )
+                    ),
+                
+                    Filter(
+                        Col_BD_Equipos, 
+                        IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"
+                    )
                 )
                 
                 
@@ -1129,20 +1158,44 @@ ModuloGestionEquipoV1 As screen:
                 */
             SearchFields: =["Equipo_x002f_Squad"]
             SearchItems: |-
-                =Search(Filter(
-                    Col_BD_Equipos, 
+                =Search(If(
+                    _VarEquipo = "MiEquipo",
+                    Filter(
+                        Col_BD_Equipos, 
+                        IDGerencia = LookUp(
+                            Col_BD_Gerencia,
+                            Nivel = "2" && 
+                            NombreGerencia = LookUp(
+                                Col_BD_Persona, 
+                                Usuario = _VarusuarioCambiar, 
+                                GerenciaOrigen_1
+                            ),
+                            IDGerencias
+                        )
+                    ),
+                
+                    Filter(
+                        Col_BD_Equipos, 
+                        IDGerencia = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63" && IDDominio <> "Via-09CD63F6-1359-3DC0-9C0D-06DD2D5281F3"
+                    )
+                )
+                
+                
+                /*
+                Filter(
+                    Col_BD_Equipos; 
                     IDGerencia = LookUp(
-                        Col_BD_Gerencia,
+                        Col_BD_Gerencia;
                         Nivel = "2" && 
                         NombreGerencia = LookUp(
-                            Col_BD_Persona, 
-                            Usuario = _VarusuarioCambiar, 
+                            Col_BD_Persona; 
+                            Usuario = _VarusuarioCambiar; 
                             GerenciaOrigen_1
-                        ),
+                        );
                         IDGerencias
                     )
                 )
-                ,Cmb_CambiardeEquipo.SearchText,"Equipo_x002f_Squad")
+                */,Cmb_CambiardeEquipo.SearchText,"Equipo_x002f_Squad")
             SelectMultiple: =false
             Visible: =_VarCambiardeEquipo
             Width: =368
