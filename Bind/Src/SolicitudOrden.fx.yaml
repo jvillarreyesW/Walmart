@@ -32,10 +32,10 @@ SolicitudOrden As screen:
             DataField: ="TipoSolicitud"
             Default: =ThisItem.TipoSolicitud
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"TipoSolicitud")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,TipoSolicitud)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "TipoSolicitud")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, TipoSolicitud)
             Required: =false
             Update: =DataCardValue90.Text
             Visible: =false
@@ -192,10 +192,10 @@ SolicitudOrden As screen:
             DataField: ="Responsable"
             Default: =ThisItem.Responsable
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Responsable")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Responsable)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Responsable")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, Responsable)
             Required: =false
             Update: |-
                 =Upper(Last(ForAll(Split(First(ForAll(Split(User().Email,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)
@@ -261,10 +261,10 @@ SolicitudOrden As screen:
             DataField: ="Gerencia"
             Default: =ThisItem.Gerencia
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Gerencia")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Gerencia)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =100
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Gerencia")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, Gerencia)
             Required: =false
             Update: =DataCardValue14_1.Text
             Width: =782
@@ -330,7 +330,7 @@ SolicitudOrden As screen:
             DataField: ="Accion"
             Default: =ThisItem.Accion
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Accion")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Accion)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =88
             Required: =false
@@ -476,10 +476,10 @@ SolicitudOrden As screen:
             DataField: ="Ceco"
             Default: =ThisItem.Ceco
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Ceco")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Ceco)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Ceco")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, Ceco)
             Required: =false
             Update: |-
                 =Cmb_CECO.Selected.Ceco &"
@@ -662,10 +662,10 @@ SolicitudOrden As screen:
             DataField: ="Capex"
             Default: =ThisItem.Capex
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Capex")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Capex)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Capex")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, Capex)
             Required: =false
             Update: =DataCardValue23.Text
             Width: =391
@@ -735,10 +735,10 @@ SolicitudOrden As screen:
             DataField: ="Opex"
             Default: =ThisItem.Opex
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"Opex")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,Opex)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =114
-            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, "Opex")
+            MaxLength: =DataSourceInfo([@Lst_SolicitudOrdenes], DataSourceInfo.MaxLength, Opex)
             Required: =false
             Update: =DataCardValue24_1.Text
             Width: =391
@@ -808,7 +808,7 @@ SolicitudOrden As screen:
             DataField: ="{Attachments}"
             Default: =ThisItem.'Datos adjuntos'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,"{Attachments}")
+            DisplayName: =DataSourceInfo([@Lst_SolicitudOrdenes],DataSourceInfo.DisplayName,'{Attachments}')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =264
             Required: =false

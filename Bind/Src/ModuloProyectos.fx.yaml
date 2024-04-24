@@ -1603,7 +1603,7 @@ ModuloProyectos As screen:
                     );
                     Blank()
                 )*/
-                ,Cmb_Gl_Equipo.SearchText,"Equipo_x002f_Squad")
+                ,Cmb_Gl_Equipo.SearchText,Equipo_x002f_Squad)
             SelectMultiple: =false
             Width: =Txt_FondoEquipo.Width - 27
             X: =507
@@ -2532,12 +2532,12 @@ ModuloProyectos As screen:
             Height: =Txt_FondoEquipo.Height - 10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             InputTextPlaceholder: ="Buscar Necesidad"
-            Items: =GroupBy(Filter(Col_BD_OA, 'Estado Necesidad'.Value = "6. Terminado"),"Nombre_x0020_de_x0020_Necesidad","NombreNecesidad")
+            Items: =GroupBy(Filter(Col_BD_OA, 'Estado Necesidad'.Value = "6. Terminado"),Nombre_x0020_de_x0020_Necesidad,NombreNecesidad)
             OnSelect: =
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =ResetearControlPry
             SearchFields: =["Nombre_x0020_de_x0020_Necesidad"]
-            SearchItems: =Search(GroupBy(Filter(Col_BD_OA, 'Estado Necesidad'.Value = "6. Terminado"),"Nombre_x0020_de_x0020_Necesidad","NombreNecesidad"),Dpd_Pry_NombreNecesidad.SearchText,"Nombre_x0020_de_x0020_Necesidad")
+            SearchItems: =Search(GroupBy(Filter(Col_BD_OA, 'Estado Necesidad'.Value = "6. Terminado"),Nombre_x0020_de_x0020_Necesidad,NombreNecesidad),Dpd_Pry_NombreNecesidad.SearchText,Nombre_x0020_de_x0020_Necesidad)
             SelectMultiple: =false
             Visible: |-
                 =true
@@ -2562,7 +2562,7 @@ ModuloProyectos As screen:
                 DataField: ="{Attachments}"
                 Default: =ThisItem.'Datos adjuntos'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Dominio - Proyecto/Producto'],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@'Dominio - Proyecto/Producto'],DataSourceInfo.DisplayName,'{Attachments}')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false

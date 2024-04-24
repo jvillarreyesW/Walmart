@@ -790,7 +790,7 @@ Mantenedores As screen:
                 DataField: ="Mantenedor"
                 Default: =ThisItem.Mantenedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Mantenedor")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,Mantenedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -850,7 +850,7 @@ Mantenedores As screen:
                 DataField: ="servicioData"
                 Default: =ThisItem.servicioData
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"servicioData")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,servicioData)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -910,7 +910,7 @@ Mantenedores As screen:
                 DataField: ="Auditoria"
                 Default: =ThisItem.Auditoria
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Auditoria")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,Auditoria)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -970,7 +970,7 @@ Mantenedores As screen:
                 DataField: ="Nombre"
                 Default: =ThisItem.Nombre
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Nombre")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,Nombre)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1037,7 +1037,7 @@ Mantenedores As screen:
                 DataField: ="Dominio"
                 Default: =ThisItem.Dominio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Dominio")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,Dominio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1102,7 +1102,7 @@ Mantenedores As screen:
                 DataField: ="Acceso_x0020_Outcome"
                 Default: =ThisItem.'Acceso Outcome'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,"Acceso_x0020_Outcome")
+                DisplayName: =DataSourceInfo([@Perfilamiento],DataSourceInfo.DisplayName,Acceso_x0020_Outcome)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1257,7 +1257,7 @@ Mantenedores As screen:
             Height: =32
             Items: =Col_BD_Persona
             SearchFields: =["Categoria"]
-            SearchItems: =Search(Col_BD_Persona,ComboBox1.SearchText,"Categoria")
+            SearchItems: =Search(Col_BD_Persona,ComboBox1.SearchText,Categoria)
             SelectMultiple: =false
             Template: =ListItemTemplate.Double
             Width: =369
@@ -1368,10 +1368,10 @@ Mantenedores As screen:
                 DataField: ="UsuarioSolicitante"
                 Default: =ThisItem.'Usuario Solicitante'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"UsuarioSolicitante")
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,UsuarioSolicitante)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =96
-                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, "UsuarioSolicitante")
+                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, UsuarioSolicitante)
                 Required: =false
                 Update: =DataCardValue102.Text
                 Width: =526
@@ -1436,7 +1436,7 @@ Mantenedores As screen:
                     DisplayFields: =["Nombre_Persona","Usuario"]
                     Items: =Col_BD_Persona
                     SearchFields: =["Categoria"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,"Categoria")
+                    SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,Categoria)
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Double
                     Width: =374
@@ -1449,10 +1449,10 @@ Mantenedores As screen:
                 DataField: ="Descripci_x00f3_nRequerimiento"
                 Default: =ThisItem.'Descripción Requerimiento'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"Descripci_x00f3_nRequerimiento")
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,Descripci_x00f3_nRequerimiento)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =246
-                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, "Descripci_x00f3_nRequerimiento")
+                MaxLength: =DataSourceInfo([@'Soporte / Requerimientos Slack'], DataSourceInfo.MaxLength, Descripci_x00f3_nRequerimiento)
                 Required: =false
                 Update: =DataCardValue103.Text
                 Width: =526
@@ -1519,7 +1519,7 @@ Mantenedores As screen:
                 DataField: ="TIempodetrabajo"
                 Default: =ThisItem.'TIempo de trabajo'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"TIempodetrabajo")
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,TIempodetrabajo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1586,7 +1586,7 @@ Mantenedores As screen:
                 DataField: ="FechaRequerimiento"
                 Default: =ThisItem.'Fecha Requerimiento'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,"FechaRequerimiento")
+                DisplayName: =DataSourceInfo([@'Soporte / Requerimientos Slack'],DataSourceInfo.DisplayName,FechaRequerimiento)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false

@@ -311,7 +311,7 @@ ModuloRevisionFormatos As screen:
                 =Search(
                     Col_BD_Proveedores
                     //Lst_Proveedores
-                ,Txt_FondoForm1_204.Text,"Razon_Social")
+                ,Txt_FondoForm1_204.Text,Razon_Social)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =57

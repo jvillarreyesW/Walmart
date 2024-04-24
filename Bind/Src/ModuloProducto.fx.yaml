@@ -738,7 +738,7 @@ ModuloProducto As screen:
                     )
                 Height: =Txt_FondoForm1_119.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
-                Items: =GroupBy(Filter(Col_BD_OA, Dominio = Dpd_DominioOA_3.SelectedText.Value, 'Estado Necesidad'.Value = "6. Terminado"),"Nombre_x0020_de_x0020_Necesidad","NombreNecesidad")
+                Items: =GroupBy(Filter(Col_BD_OA, Dominio = Dpd_DominioOA_3.SelectedText.Value, 'Estado Necesidad'.Value = "6. Terminado"),Nombre_x0020_de_x0020_Necesidad,NombreNecesidad)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 Tooltip: =
                 Visible: =Rd_ProvieneOA_3.Selected.Value = "SI"
@@ -785,7 +785,7 @@ ModuloProducto As screen:
                     )
                 Height: =Txt_FondoForm1_116.Height -10
                 HoverBorderColor: =RGBA(0, 121, 187, 1)
-                Items: =GroupBy(Col_BD_OA,"Dominio","Dominios")
+                Items: =GroupBy(Col_BD_OA,Dominio,Dominios)
                 PressedFill: =RGBA(0, 121, 187, 1)
                 Tooltip: =
                 Visible: =Rd_ProvieneOA_3.Selected.Value = "SI"
@@ -1339,7 +1339,7 @@ ModuloProducto As screen:
                         );
                         Blank()
                     )*/
-                    ,Cmb_Equipo_5.SearchText,"ComplianceAssetId")
+                    ,Cmb_Equipo_5.SearchText,ComplianceAssetId)
                 SelectMultiple: =false
                 Width: =Txt_FondoForm1_114.Width - 27
                 X: =1576
@@ -2296,7 +2296,7 @@ ModuloProducto As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["AreadeImpacto"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_5.SearchText,"AreadeImpacto")
+            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_5.Selected.Value, Estado = Dpd_FiltroEstado_5.Selected.Value),Cmb_FiltroNombre_5.SearchText,AreadeImpacto)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

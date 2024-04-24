@@ -213,7 +213,7 @@ ModuloData As screen:
                             !(IDDominio = "Via-7472DB8B-4704-22CA-6C67-FB0803F64EC3")
                         ),
                         'Nombre Producto/Proyecto',SortOrder.Ascending
-                    ),Cmb_ImpactoTech.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+                    ),Cmb_ImpactoTech.SearchText,Nombre_x0020_Producto_x002f_Proy)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -302,7 +302,7 @@ ModuloData As screen:
                 "Infrastructure and Tech Ops",
                 "IT Risk Management",
                 "Technology Platforms",
-                "Associate Digital Experience"],Value,SortOrder.Ascending),Cmb_DominioDatos.SearchText,"Value")
+                "Associate Digital Experience"],Value,SortOrder.Ascending),Cmb_DominioDatos.SearchText,Value)
             SelectionFill: =RGBA(0, 121, 187, 1)
             Tooltip: =
             Visible: =ThisItem.Editando
@@ -1876,7 +1876,7 @@ ModuloData As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_1.Selected.Value, Estado = Dpd_FiltroEstado_1.Selected.Value),Cmb_FiltroNombre_1.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+            SearchItems: =Search(Filter(Col_DominiosGestion,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd_1.Selected.Value, Estado = Dpd_FiltroEstado_1.Selected.Value),Cmb_FiltroNombre_1.SearchText,Nombre_x0020_Producto_x002f_Proy)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

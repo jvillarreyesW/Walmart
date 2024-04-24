@@ -63,7 +63,7 @@ Ctr_Estado As CanvasComponent:
             =
             RGBA(0, 0, 0, 0)
         Height: =32 *  CountRows(Ctr_Estado.ListaEstados)
-        Items: =GroupBy(Ctr_Estado.ListaEstados,"Grupo","Grup")
+        Items: =GroupBy(Ctr_Estado.ListaEstados,Grupo,Grup)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =If( CountRows(Filter(Ctr_Estado.ListaEstados, Grupo = Self.Selected.Label9.Text)) = 1, 32,70)

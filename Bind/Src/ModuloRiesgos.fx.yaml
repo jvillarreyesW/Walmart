@@ -1164,10 +1164,10 @@ ModuloRiesgos As screen:
             DataField: ="NombreRiesgo"
             Default: =ThisItem.NombreRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"NombreRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,NombreRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =246
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "NombreRiesgo")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, NombreRiesgo)
             Required: =false
             Update: =Txt_Ris_NombreRiesgo.Text
             Width: =316
@@ -1237,10 +1237,10 @@ ModuloRiesgos As screen:
             DataField: ="ImpactoTeorico"
             Default: =ThisItem.ImpactoTeorico
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"ImpactoTeorico")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,ImpactoTeorico)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "ImpactoTeorico")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, ImpactoTeorico)
             Required: =false
             Update: =Txt_Ris_ImpactoTeorico.Text
             Width: =316
@@ -1311,10 +1311,10 @@ ModuloRiesgos As screen:
             DataField: ="PlandeAccion"
             Default: =ThisItem.PlandeAccion
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"PlandeAccion")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,PlandeAccion)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "PlandeAccion")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, PlandeAccion)
             Required: =false
             Update: =Txt_Ris_PlanAccion.Text
             Width: =316
@@ -1380,12 +1380,12 @@ ModuloRiesgos As screen:
                 ZIndex: =4
 
         Impacto_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Impacto")
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, Impacto)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Impacto"
             Default: =ThisItem.Impacto
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Impacto")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Impacto)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1472,12 +1472,12 @@ ModuloRiesgos As screen:
                 ZIndex: =5
 
         Probabilidad_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Probabilidad")
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, Probabilidad)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Probabilidad"
             Default: =ThisItem.Probabilidad
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Probabilidad")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Probabilidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1568,10 +1568,10 @@ ModuloRiesgos As screen:
             DataField: ="Criticidad"
             Default: =ThisItem.Criticidad
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Criticidad")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Criticidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "Criticidad")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, Criticidad)
             Required: =false
             Update: =Txt_Ris_Criticidad.Text
             Width: =316
@@ -1657,7 +1657,7 @@ ModuloRiesgos As screen:
             DataField: ="FechaRegistroRiesgo"
             Default: =ThisItem.FechaRegistroRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaRegistroRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,FechaRegistroRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1743,7 +1743,7 @@ ModuloRiesgos As screen:
             DataField: ="FechaUmbralRiesgo"
             Default: =ThisItem.FechaUmbralRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaUmbralRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,FechaUmbralRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1825,12 +1825,12 @@ ModuloRiesgos As screen:
                 ZIndex: =5
 
         Estado_DataCard3 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Estado")
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, Estado)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Estado"
             Default: =ThisItem.Estado
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Estado")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Estado)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1918,12 +1918,12 @@ ModuloRiesgos As screen:
                 ZIndex: =6
 
         Responsable_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Responsable")
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, Responsable)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Responsable"
             Default: =ThisItem.Responsable
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Responsable")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Responsable)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -2031,10 +2031,10 @@ ModuloRiesgos As screen:
             DataField: ="IDProyecto"
             Default: =ThisItem.IDProyecto
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"IDProyecto")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,IDProyecto)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "IDProyecto")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, IDProyecto)
             Required: =false
             Update: =Txt_Ris_IDProyecto.Text
             Visible: =false
@@ -2100,7 +2100,7 @@ ModuloRiesgos As screen:
             DataField: ="ID"
             Default: =ThisItem.ID
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"ID")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,ID)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false

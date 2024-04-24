@@ -441,7 +441,7 @@ ModuloPersona As screen:
         ZIndex: =13
 
         "'Interno/Externo_DataCard2' As typedDataCard.allowedValuesStringEditCard":
-            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Interno_x002f_Externo")
+            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Interno_x002f_Externo)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Interno_x002f_Externo"
             Default: =ThisItem.'Interno/Externo'
@@ -452,7 +452,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled
                 )
                 
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Interno_x002f_Externo")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Interno_x002f_Externo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -607,7 +607,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"BuscarNombrePersona")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,BuscarNombrePersona)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =99
             Required: =false
@@ -735,10 +735,10 @@ ModuloPersona As screen:
                     DisplayMode.Edit
                 )
                 */
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"GerenciaOrigen")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,GerenciaOrigen)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "GerenciaOrigen")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, GerenciaOrigen)
             Required: =false
             Update: =Cmb_GerenciaOrigen.Selected.NombreGerencia
             Width: =339
@@ -860,7 +860,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Ubicaci_x00f3_n")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Ubicaci_x00f3_n)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -970,10 +970,10 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"RUT")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,RUT)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "RUT")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, RUT)
             Required: =false
             Update: =Txt_Rut.Text
             Width: =339
@@ -1069,7 +1069,7 @@ ModuloPersona As screen:
                 ZIndex: =4
 
         Empresa_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Empresa")
+            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Empresa)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Empresa"
             Default: =ThisItem.Empresa
@@ -1079,7 +1079,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Empresa")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Empresa)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1186,7 +1186,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Fecha_x0020_de_x0020_Ingreso")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Fecha_x0020_de_x0020_Ingreso)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1285,10 +1285,10 @@ ModuloPersona As screen:
             DataField: ="Usuario"
             Default: =ThisItem.Usuario
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Usuario")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Usuario)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Usuario")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Usuario)
             Required: =false
             Update: =Txt_Usuario.Text
             Width: =339
@@ -1361,10 +1361,10 @@ ModuloPersona As screen:
             DataField: ="Nuevo_x0020_Correo"
             Default: =ThisItem.'Correo Electrónico'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Nuevo_x0020_Correo")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Nuevo_x0020_Correo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Nuevo_x0020_Correo")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Nuevo_x0020_Correo)
             Required: =false
             Update: =Txt_CorreoElectronico.Text
             Width: =339
@@ -1435,7 +1435,7 @@ ModuloPersona As screen:
                 ZIndex: =4
 
         Rol_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Rol")
+            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Rol)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Rol"
             Default: =ThisItem.Rol
@@ -1445,7 +1445,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Rol")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Rol)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1543,7 +1543,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"BuscarJefeDirecto")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,BuscarJefeDirecto)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1662,7 +1662,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Considera_x0020_Head_x0020_Count")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Considera_x0020_Head_x0020_Count)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1781,10 +1781,10 @@ ModuloPersona As screen:
             DataField: ="Nombre_Persona"
             Default: =ThisItem.Nombre_Persona
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Nombre_Persona")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Nombre_Persona)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Nombre_Persona")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Nombre_Persona)
             Required: =false
             Update: =Txt_NombrePersona.Text
             Visible: =false
@@ -1850,10 +1850,10 @@ ModuloPersona As screen:
             DataField: ="Jefe_Directo"
             Default: =ThisItem.Jefe_Directo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Jefe_Directo")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Jefe_Directo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "Jefe_Directo")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Jefe_Directo)
             Required: =false
             Update: =Txt_JefeDirecto.Text
             Visible: =false
@@ -1931,10 +1931,10 @@ ModuloPersona As screen:
             DataField: ="IDPersona"
             Default: =ThisItem.IDPersona
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"IDPersona")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,IDPersona)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, "IDPersona")
+            MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, IDPersona)
             Required: =false
             Update: =DataCardValue1.Text
             Visible: =false
@@ -2001,7 +2001,7 @@ ModuloPersona As screen:
                 ZIndex: =4
 
         Genero_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, "Genero")
+            AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Genero)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Genero"
             Default: =ThisItem.Genero
@@ -2011,7 +2011,7 @@ ModuloPersona As screen:
                     DisplayMode.Disabled,
                     DisplayMode.Edit
                 )
-            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,"Genero")
+            DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Genero)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =106
             Required: =false
@@ -3077,7 +3077,7 @@ ModuloPersona As screen:
                     Rd_InternoExterno.Selected.Value = "Internos",
                     Sort(Filter(Col_MiEquipoWalmart, 'Interno/Externo' = "Interno"),Nombre_Persona,SortOrder.Ascending),
                     Sort(Filter(Col_MiEquipoWalmart, 'Interno/Externo' = "Externo"),Nombre_Persona,SortOrder.Ascending)
-                    ),Cmb_BuscarMiEquipo.SearchText,"Categoria")
+                    ),Cmb_BuscarMiEquipo.SearchText,Categoria)
             SelectMultiple: =false
             Visible: |-
                 =If(
@@ -3986,7 +3986,7 @@ ModuloPersona As screen:
             Items: =Col_BD_Dominios
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["ComplianceAssetId"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio.SearchText,"ComplianceAssetId")
+            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio.SearchText,ComplianceAssetId)
             SelectMultiple: =false
             Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_1.Selected.Value = "Movilidad interna"
             Width: =Txt_FondoForm1_17.Width - 27

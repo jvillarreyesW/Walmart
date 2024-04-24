@@ -1667,7 +1667,7 @@ MantenedoresFCST As screen:
                     OnSelect: =Select(Parent)
                     Reset: =_VarResetCtrlSer
                     SearchFields: =["Ceco"]
-                    SearchItems: =Search(Col_BD_Fcst_Ceco,Cmb_CecoNuevo.SearchText,"Ceco")
+                    SearchItems: =Search(Col_BD_Fcst_Ceco,Cmb_CecoNuevo.SearchText,Ceco)
                     SelectMultiple: =false
                     Size: =11
                     Template: =ListItemTemplate.Double
@@ -1697,7 +1697,7 @@ MantenedoresFCST As screen:
                     OnSelect: =Select(Parent)
                     Reset: =_VarResetCtrlSer
                     SearchFields: =["Cuenta"]
-                    SearchItems: =Search(Col_BD_Fcst_Cuenta,Cmb_CuentaNuevo.SearchText,"Cuenta")
+                    SearchItems: =Search(Col_BD_Fcst_Cuenta,Cmb_CuentaNuevo.SearchText,Cuenta)
                     SelectMultiple: =false
                     Size: =11
                     Template: =ListItemTemplate.Double
@@ -1964,7 +1964,7 @@ MantenedoresFCST As screen:
                     OnSelect: =Select(Parent)
                     Reset: =_VarResetCtrlSer
                     SearchFields: =["InputData"]
-                    SearchItems: =Search(Lst_Fcst_Responsable,Cmb_InputDataNuevo.SearchText,"InputData")
+                    SearchItems: =Search(Lst_Fcst_Responsable,Cmb_InputDataNuevo.SearchText,InputData)
                     SelectMultiple: =false
                     Size: =11
                     Template: =ListItemTemplate.Double
@@ -2264,9 +2264,9 @@ MantenedoresFCST As screen:
             =Table({ImputData: "Felipe Tagle"})
         DisplayFields: =["ImputData","IDInputData"]
         InputTextPlaceholder: ="Buscar InputData"
-        Items: =GroupBy(Lst_Fcst_Detalle,"ImputData","IPData")
+        Items: =GroupBy(Lst_Fcst_Detalle,ImputData,IPData)
         SearchFields: =["ImputData"]
-        SearchItems: =Search(GroupBy(Lst_Fcst_Detalle,"ImputData","IPData"),Cmb_FiltroInputData_Mantenedor.SearchText,"ImputData")
+        SearchItems: =Search(GroupBy(Lst_Fcst_Detalle,ImputData,IPData),Cmb_FiltroInputData_Mantenedor.SearchText,ImputData)
         SelectMultiple: =false
         Template: =ListItemTemplate.Double
         Visible: |-

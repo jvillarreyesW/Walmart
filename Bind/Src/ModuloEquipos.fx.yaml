@@ -602,12 +602,12 @@ ModuloEquipos As screen:
             ZIndex: =20
 
             IDSubdominio_DataCard3 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDSubdominio")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDSubdominio)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDSubdominio"
                 Default: =ThisItem.IDSubdominio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDSubdominio")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDSubdominio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -687,12 +687,12 @@ ModuloEquipos As screen:
                     ZIndex: =5
 
             IDDominio_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDDominio")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDDominio)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDDominio"
                 Default: =ThisItem.IDDominio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDDominio")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDDominio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -779,12 +779,12 @@ ModuloEquipos As screen:
                     ZIndex: =5
 
             IDGerencia_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDGerencia")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDGerencia)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDGerencia"
                 Default: =ThisItem.IDGerencia
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDGerencia")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDGerencia)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =109
                 Required: =false
@@ -874,10 +874,10 @@ ModuloEquipos As screen:
                 DataField: ="Estado"
                 Default: =ThisItem.Estado
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Estado")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Estado)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Estado")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, Estado)
                 Required: =false
                 Update: =DataCardValue15_1.Text
                 Visible: =false
@@ -943,10 +943,10 @@ ModuloEquipos As screen:
                 DataField: ="IDEquipo"
                 Default: =ThisItem.IDEquipo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDEquipo")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDEquipo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "IDEquipo")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, IDEquipo)
                 Required: =false
                 Update: =DataCardValue9_1.Text
                 Visible: =false
@@ -1013,7 +1013,7 @@ ModuloEquipos As screen:
                 DataField: ="LogoEquipo"
                 Default: =ThisItem.LogoEquipo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,LogoEquipo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1085,7 +1085,7 @@ ModuloEquipos As screen:
                 DataField: ="Equipo_x0020_de_x0020_Producto_x"
                 Default: =ThisItem.'Equipo de Producto ¿SI/NO?'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x0020_de_x0020_Producto_x")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Equipo_x0020_de_x0020_Producto_x)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1175,10 +1175,10 @@ ModuloEquipos As screen:
                 DataField: ="Equipo_x002f_Squad"
                 Default: =ThisItem.'Equipo/Squad'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Equipo_x002f_Squad)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =109
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, Equipo_x002f_Squad)
                 Required: =true
                 Update: =DataCardValue3_1.Text
                 Width: =340
@@ -1374,12 +1374,12 @@ ModuloEquipos As screen:
             ZIndex: =27
 
             IDGerencia_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDGerencia")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDGerencia)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDGerencia"
                 Default: =ThisItem.IDGerencia
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDGerencia")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDGerencia)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =109
                 Required: =false
@@ -1460,12 +1460,12 @@ ModuloEquipos As screen:
                     ZIndex: =5
 
             IDDominio_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDDominio")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDDominio)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDDominio"
                 Default: =ThisItem.IDDominio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDDominio")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDDominio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1547,12 +1547,12 @@ ModuloEquipos As screen:
                     ZIndex: =5
 
             IDSubdominio_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, "IDSubdominio")
+                AllowedValues: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.AllowedValues, IDSubdominio)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDSubdominio"
                 Default: =ThisItem.IDSubdominio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDSubdominio")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDSubdominio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1638,10 +1638,10 @@ ModuloEquipos As screen:
                 DataField: ="Equipo_x002f_Squad"
                 Default: =ThisItem.'Equipo/Squad'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x002f_Squad")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Equipo_x002f_Squad)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =109
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Equipo_x002f_Squad")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, Equipo_x002f_Squad)
                 Required: =true
                 Update: =DataCardValue3.Text
                 Width: =367
@@ -1711,7 +1711,7 @@ ModuloEquipos As screen:
                 DataField: ="Equipo_x0020_de_x0020_Producto_x"
                 Default: =ThisItem.'Equipo de Producto ¿SI/NO?'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Equipo_x0020_de_x0020_Producto_x")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Equipo_x0020_de_x0020_Producto_x)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1801,7 +1801,7 @@ ModuloEquipos As screen:
                 DataField: ="LogoEquipo"
                 Default: =ThisItem.LogoEquipo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"LogoEquipo")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,LogoEquipo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1872,10 +1872,10 @@ ModuloEquipos As screen:
                 DataField: ="IDEquipo"
                 Default: =ThisItem.IDEquipo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"IDEquipo")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,IDEquipo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "IDEquipo")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, IDEquipo)
                 Required: =false
                 Update: =DataCardValue9.Text
                 Visible: =false
@@ -1941,10 +1941,10 @@ ModuloEquipos As screen:
                 DataField: ="Estado"
                 Default: =ThisItem.Estado
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,"Estado")
+                DisplayName: =DataSourceInfo([@DominioEquipoSquad],DataSourceInfo.DisplayName,Estado)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, "Estado")
+                MaxLength: =DataSourceInfo([@DominioEquipoSquad], DataSourceInfo.MaxLength, Estado)
                 Required: =false
                 Update: =DataCardValue15.Text
                 Visible: =false

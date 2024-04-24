@@ -269,7 +269,7 @@ RepositorioProveedor As screen:
             ,
                             
                             Txt_FondoForm1_156.Text,
-                            "Descripcion_Solicitud","Solicitante","Proveedor","Nombre_Solicitud","Razon_Social_Proveedor"),
+                            Descripcion_Solicitud,Solicitante,Proveedor,Nombre_Solicitud,Razon_Social_Proveedor),
                         (IsBlank(Cmb_FiltroNombre_9.Selected.Value)||Formulario_Solicitud.Value=Cmb_FiltroNombre_9.Selected.Value)),Razon_Social_Proveedor),
             "Value",SortOrder.Ascending)
             
@@ -322,11 +322,11 @@ RepositorioProveedor As screen:
                                 "Todos",Filter(Lst_ContratosProveedores,Estado_Solicitud.Value="Documento archivado" ||Estado_Solicitud.Value="Contrato Inactivo"))
                                ,
                                 Txt_FondoForm1_156.Text,
-                                "Descripcion_Solicitud","Solicitante","Proveedor","Razon_Social_Proveedor"),
+                                Descripcion_Solicitud,Solicitante,Proveedor,Razon_Social_Proveedor),
                   
                     (IsBlank(Cmb_FiltroNombre_9.Selected.Value)||Formulario_Solicitud.Value=Cmb_FiltroNombre_9.Selected.Value)
                     ),
-                    "ID orden",If(IsBlank(ID_Contrato_Padre),Text(ID),(ID_Contrato_Padre)&"-1")),"ID orden",SortOrder.Ascending)
+                    'ID orden',If(IsBlank(ID_Contrato_Padre),Text(ID),(ID_Contrato_Padre)&"-1")),"ID orden",SortOrder.Ascending)
                     ,Razon_Social_Proveedor=Label52.Text)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
@@ -781,10 +781,10 @@ RepositorioProveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =165
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue132.Text
                 Visible: =false
@@ -850,10 +850,10 @@ RepositorioProveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =151
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue133.Text
                 Visible: =false
@@ -919,7 +919,7 @@ RepositorioProveedor As screen:
                 DataField: ="{Attachments}"
                 Default: =ThisItem.'Datos adjuntos'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'{Attachments}')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =135
                 Required: =false
@@ -996,7 +996,7 @@ RepositorioProveedor As screen:
                 DataField: ="Formulario_Solicitud"
                 Default: =ThisItem.Formulario_Solicitud
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Formulario_Solicitud")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Formulario_Solicitud)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1062,10 +1062,10 @@ RepositorioProveedor As screen:
                 DataField: ="Area_solicitante"
                 Default: =ThisItem.Area_solicitante
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Area_solicitante")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Area_solicitante)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Area_solicitante")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Area_solicitante)
                 Required: =false
                 Update: =DataCardValue144.Text
                 Visible: =false
@@ -1131,7 +1131,7 @@ RepositorioProveedor As screen:
                 DataField: ="Proveedor_Extranjero"
                 Default: =ThisItem.Proveedor_Extranjero
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor_Extranjero")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Proveedor_Extranjero)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1192,10 +1192,10 @@ RepositorioProveedor As screen:
                 DataField: ="Proveedor"
                 Default: =ThisItem.Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Proveedor)
                 Required: =false
                 Update: =DataCardValue135.Text
                 Width: =672
@@ -1261,7 +1261,7 @@ RepositorioProveedor As screen:
                     DisplayFields: =["Razon_Social"]
                     Items: =Lst_Proveedores
                     SearchFields: =["Razon_Social"]
-                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,"Razon_Social")
+                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,Razon_Social)
                     SelectMultiple: =false
                     Width: =508
                     X: =31
@@ -1273,7 +1273,7 @@ RepositorioProveedor As screen:
                 DataField: ="Fecha_Inicio_Vigencia"
                 Default: =ThisItem.Fecha_Inicio_Vigencia
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Inicio_Vigencia")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Inicio_Vigencia)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1338,7 +1338,7 @@ RepositorioProveedor As screen:
                 DataField: ="Fecha_Contrato"
                 Default: =ThisItem.Fecha_Contrato
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Contrato")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Contrato)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1403,7 +1403,7 @@ RepositorioProveedor As screen:
                 DataField: ="Fecha_Termino_Contrato"
                 Default: =ThisItem.Fecha_Termino_Contrato
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Termino_Contrato")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Termino_Contrato)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1468,10 +1468,10 @@ RepositorioProveedor As screen:
                 DataField: ="ID_Contrato_WebDox"
                 Default: =ThisItem.ID_Contrato_WebDox
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Contrato_WebDox")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,ID_Contrato_WebDox)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_Contrato_WebDox")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, ID_Contrato_WebDox)
                 Required: =false
                 Update: =DataCardValue131.Text
                 Width: =336
@@ -1536,10 +1536,10 @@ RepositorioProveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue137.Text
                 Visible: =false
@@ -1605,10 +1605,10 @@ RepositorioProveedor As screen:
                 DataField: ="Nombre_Solicitud"
                 Default: =ThisItem.Nombre_Solicitud
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Solicitud")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_Solicitud)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Solicitud")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_Solicitud)
                 Required: =false
                 Update: =DataCardValue143.Text
                 Visible: =false
@@ -1679,10 +1679,10 @@ RepositorioProveedor As screen:
                 DataField: ="Solicitante"
                 Default: =ThisItem.Solicitante
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Solicitante")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Solicitante)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Solicitante")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Solicitante)
                 Required: =false
                 Update: =DataCardValue145.Text
                 Visible: =false
@@ -1748,7 +1748,7 @@ RepositorioProveedor As screen:
                 DataField: ="Estado_Solicitud"
                 Default: =ThisItem.Estado_Solicitud
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Estado_Solicitud")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Estado_Solicitud)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1816,10 +1816,10 @@ RepositorioProveedor As screen:
                 DataField: ="Descripcion"
                 Default: =ThisItem.Descripcion_del_Servicio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Descripcion")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Descripcion)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =122
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Descripcion")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Descripcion)
                 Required: =false
                 Update: =DataCardValue148.Text
                 Width: =1008
@@ -1886,10 +1886,10 @@ RepositorioProveedor As screen:
                 DataField: ="Valor_del_Contrato"
                 Default: =ThisItem.Valor_del_Contrato
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Valor_del_Contrato")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Valor_del_Contrato)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Valor_del_Contrato")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Valor_del_Contrato)
                 Required: =false
                 Update: =DataCardValue149.Text
                 Width: =336
@@ -1954,10 +1954,10 @@ RepositorioProveedor As screen:
                 DataField: ="Contacto_Walmart_notificacione"
                 Default: =ThisItem.Contacto_Walmart_notificaciones
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Contacto_Walmart_notificacione")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Contacto_Walmart_notificacione)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Contacto_Walmart_notificacione")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Contacto_Walmart_notificacione)
                 Required: =false
                 Update: =DataCardValue150.Text
                 Width: =336
@@ -2027,7 +2027,7 @@ RepositorioProveedor As screen:
                     DisplayMode: =Parent.DisplayMode
                     Items: =Col_BD_Persona
                     SearchFields: =["Nombre_Persona"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox2_5.SearchText,"Nombre_Persona")
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_5.SearchText,Nombre_Persona)
                     SelectMultiple: =false
                     Width: =282
                     X: =28
@@ -2039,10 +2039,10 @@ RepositorioProveedor As screen:
                 DataField: ="Manager"
                 Default: =ThisItem.Manager
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Manager")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Manager)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Manager")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Manager)
                 Required: =false
                 Update: =DataCardValue33.Text
                 Width: =336
@@ -2112,7 +2112,7 @@ RepositorioProveedor As screen:
                     DisplayMode: =Parent.DisplayMode
                     Items: =Col_BD_Persona
                     SearchFields: =["Nombre_Persona"]
-                    SearchItems: =Search(Col_BD_Persona,ComboBox2_7.SearchText,"Nombre_Persona")
+                    SearchItems: =Search(Col_BD_Persona,ComboBox2_7.SearchText,Nombre_Persona)
                     SelectMultiple: =false
                     Width: =282
                     X: =30
@@ -2124,10 +2124,10 @@ RepositorioProveedor As screen:
                 DataField: ="Usuarios_relacionados"
                 Default: =ThisItem.Usuarios_relacionados
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Usuarios_relacionados")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Usuarios_relacionados)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Usuarios_relacionados")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Usuarios_relacionados)
                 Required: =false
                 Update: =DataCardValue147.Text
                 Visible: =false
@@ -2193,7 +2193,7 @@ RepositorioProveedor As screen:
                 DataField: ="ID_Contrato_Padre"
                 Default: =ThisItem.ID_Contrato_Padre
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Contrato_Padre")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,ID_Contrato_Padre)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -2261,10 +2261,10 @@ RepositorioProveedor As screen:
                 DataField: ="Nombre_del_Servicio"
                 Default: =ThisItem.Nombre_del_Servicio
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_del_Servicio")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_del_Servicio)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_del_Servicio")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_del_Servicio)
                 Required: =false
                 Update: =DataCardValue163.Text
                 Width: =672
@@ -2329,7 +2329,7 @@ RepositorioProveedor As screen:
                 DataField: ="Comit_x00e9_"
                 Default: =ThisItem.Comité
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Comit_x00e9_")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Comit_x00e9_)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -2395,10 +2395,10 @@ RepositorioProveedor As screen:
                 DataField: ="Razon_Social_Proveedor"
                 Default: =ThisItem.Razon_Social_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Razon_Social_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Razon_Social_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Razon_Social_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Razon_Social_Proveedor)
                 Required: =false
                 Update: =DataCardValue165.Text
                 Visible: =false
@@ -2510,7 +2510,7 @@ RepositorioProveedor As screen:
             Items: |-
                 =SortByColumns(Search(Filter(Col_BD_Persona,'Interno/Externo'="Externo" && Estado="Activo",
                 If(Toggle1_1.Value, Usuario in Col_UsuariosContrato,(!(Usuario in Col_UsuariosContrato) && !(Usuario in Col_UsuariosYaAsignados)))
-                ),Txt_FondoForm1_188.Text,"Nombre_Persona","Usuario"),"Nombre_Persona",SortOrder.Ascending)
+                ),Txt_FondoForm1_188.Text,Nombre_Persona,Usuario),"Nombre_Persona",SortOrder.Ascending)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =56

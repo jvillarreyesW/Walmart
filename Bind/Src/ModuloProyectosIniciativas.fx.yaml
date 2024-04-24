@@ -2044,7 +2044,7 @@ ModuloProyectosIniciativas As screen:
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: ="Buscar responsable"
         IsSearchable: =false
-        Items: =Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje","IDDominio"),Title,SortOrder.Ascending)
+        Items: =Sort(Search(Filter(Col_BD_Dominios,IDGerencias = "Ger-87EC3ACE-2B01-1EB7-19D4-EED0A2FC68EA"),"Viaje",IDDominio),Title,SortOrder.Ascending)
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
@@ -2073,7 +2073,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["Value"]
-        SearchItems: =Search(["Proyecto Tecnológico","Proyectos Ecommerce"],Dpd_Pry_ProductoProyecto_1.SearchText,"Value")
+        SearchItems: =Search(["Proyecto Tecnológico","Proyectos Ecommerce"],Dpd_Pry_ProductoProyecto_1.SearchText,Value)
         SelectMultiple: =false
         Width: =Txt_FondoNegocio_3.Width - 27
         X: =135
@@ -2252,7 +2252,7 @@ ModuloProyectosIniciativas As screen:
                 );
                 Blank()
             )*/
-            ,Cmb_Gl_Equipo_1.SearchText,"Equipo_x002f_Squad")
+            ,Cmb_Gl_Equipo_1.SearchText,Equipo_x002f_Squad)
         SelectMultiple: =false
         Width: =Txt_FondoEquipo_14.Width - 27
         X: =1220
