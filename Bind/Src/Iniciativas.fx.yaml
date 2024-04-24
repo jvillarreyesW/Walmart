@@ -99,7 +99,7 @@
                     =SortByColumns(
                         Filter(
                             AddColumns(
-                                Col_BD_Plan_Objetivo,"Prioridad",LookUp(Col_BD_Plan_Prioridad, ID = Value(IDPrioridad), NombrePrioridad)) , 
+                                Col_BD_Plan_Objetivo,Prioridad,LookUp(Col_BD_Plan_Prioridad, ID = Value(IDPrioridad), NombrePrioridad)) , 
                                 Eliminado <> true,
                                 IsBlank(Cmb_Filtro_Prioridades.SelectedItems) || IsEmpty(Cmb_Filtro_Prioridades.SelectedItems) || IDPrioridad = Text(Cmb_Filtro_Prioridades.Selected.ID),
                                 IsBlank(Cmb_Filtro_Objetivo.SelectedItems) || IsEmpty(Cmb_Filtro_Objetivo.SelectedItems) || ID = Cmb_Filtro_Objetivo.Selected.ID
@@ -432,7 +432,7 @@
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 121, 187, 1)
                         SearchFields: =["Value"]
-                        SearchItems: =Search(["2023","2024","2025","2030"],Cmb_Obj_Anno.SearchText,"Value")
+                        SearchItems: =Search(["2023","2024","2025","2030"],Cmb_Obj_Anno.SearchText,Value)
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
                         Tooltip: ="Año del Objetivo"
@@ -667,7 +667,7 @@
                         Width: =1752
                         ZIndex: =15
 
-                    "Spinner1 As 'Indicador giratorio'":
+                    Spinner1 As Spinner:
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -910,7 +910,7 @@
                 Height: =686
                 Items: |-
                     =Filter(
-                        AddColumns(Col_BD_Plan_OPortunidaD,"NombreObjetivo",LookUp(Col_BD_Plan_Objetivo, ID = Value(IDObjetivo),NombreObjetivo)),
+                        AddColumns(Col_BD_Plan_OPortunidaD,NombreObjetivo,LookUp(Col_BD_Plan_Objetivo, ID = Value(IDObjetivo),NombreObjetivo)),
                         Eliminado <> true, 
                         NivelOportunidad = "1",
                         IsBlank(Cmb_Filtro_Prioridades.SelectedItems) || IsEmpty(Cmb_Filtro_Prioridades.SelectedItems) || IDPrioridad = Text(Cmb_Filtro_Prioridades.Selected.ID),
@@ -1482,7 +1482,7 @@
                         Y: =8
                         ZIndex: =26
 
-                    "Spinner1_1 As 'Indicador giratorio'":
+                    Spinner1_1 As Spinner:
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -2525,7 +2525,7 @@
                         Y: =8
                         ZIndex: =23
 
-                    "Spinner1_2 As 'Indicador giratorio'":
+                    Spinner1_2 As Spinner:
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Font: =""
@@ -2636,7 +2636,7 @@
                         
                         "Make more data-driven decisions",
                         
-                        "Leverage our scale to negotiate better fees with suppliers",],Cmb_Op_PowerOp.SearchText,"Value")
+                        "Leverage our scale to negotiate better fees with suppliers",],Cmb_Op_PowerOp.SearchText,Value)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     Tooltip: |-
@@ -4501,7 +4501,7 @@
                 Y: =693
                 ZIndex: =64
 
-            "Spinner2 As 'Indicador giratorio'":
+            Spinner2 As Spinner:
                 Appearance: ='Spinner.Appearance'.Primary
                 BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
@@ -6827,7 +6827,7 @@
                 Y: =762
                 ZIndex: =62
 
-            "Spinner2_1 As 'Indicador giratorio'":
+            Spinner2_1 As Spinner:
                 Appearance: ='Spinner.Appearance'.Primary
                 BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
@@ -7288,7 +7288,7 @@
             ZIndex: =18
 
             IDPrioridad_DataCard6 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, "IDPrioridad")
+                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, IDPrioridad)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="IDPrioridad"
                 Default: |-
@@ -7298,7 +7298,7 @@
                         Cmb_Filtro_Prioridades.Selected.NombrePrioridad
                     )
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"IDPrioridad")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,IDPrioridad)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =106
                 Required: =false
@@ -7363,12 +7363,12 @@
                     ZIndex: =4
 
             UsuarioResponsable_DataCard5 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, "UsuarioResponsable")
+                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, UsuarioResponsable)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="UsuarioResponsable"
                 Default: =ThisItem.UsuarioResponsable
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"UsuarioResponsable")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,UsuarioResponsable)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =110
                 Required: =false
@@ -7431,12 +7431,12 @@
                     ZIndex: =5
 
             AnnoObjetivo_DataCard5 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, "AnnoObjetivo")
+                AllowedValues: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.AllowedValues, AnnoObjetivo)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="AnnoObjetivo"
                 Default: =ThisItem.AnnoObjetivo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"AnnoObjetivo")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,AnnoObjetivo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7500,10 +7500,10 @@
                 DataField: ="OnePage"
                 Default: =ThisItem.OnePage
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"OnePage")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,OnePage)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, "OnePage")
+                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, OnePage)
                 Required: =false
                 Update: =DataCardValue11.Text
                 Width: =719
@@ -7570,10 +7570,10 @@
                 DataField: ="NombreObjetivo"
                 Default: =ThisItem.NombreObjetivo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"NombreObjetivo")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,NombreObjetivo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, "NombreObjetivo")
+                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, NombreObjetivo)
                 Required: =false
                 Update: =DataCardValue61.Text
                 Width: =717
@@ -7641,10 +7641,10 @@
                 DataField: ="DescripcionObjetivo"
                 Default: =ThisItem.DescripcionObjetivo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,"DescripcionObjetivo")
+                DisplayName: =DataSourceInfo([@Lst_Plan_Objetivos],DataSourceInfo.DisplayName,DescripcionObjetivo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =231
-                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, "DescripcionObjetivo")
+                MaxLength: =DataSourceInfo([@Lst_Plan_Objetivos], DataSourceInfo.MaxLength, DescripcionObjetivo)
                 Required: =false
                 Update: =DataCardValue62.Text
                 Width: =717
@@ -7761,7 +7761,7 @@
         ZIndex: =22
 
         IDPrioridad_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, "IDPrioridad")
+            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, IDPrioridad)
             BorderStyle: =BorderStyle.Solid
             DataField: ="IDPrioridad"
             Default: =ThisItem.IDPrioridad
@@ -7771,7 +7771,7 @@
                     Parent.DisplayMode.Edit,
                     Parent.DisplayMode.Disabled
                 )
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"IDPrioridad")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,IDPrioridad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -7835,7 +7835,7 @@
                 ZIndex: =4
 
         IDObjetivo_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, "IDObjetivo")
+            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, IDObjetivo)
             BorderStyle: =BorderStyle.Solid
             DataField: ="IDObjetivo"
             Default: =ThisItem.IDObjetivo
@@ -7845,7 +7845,7 @@
                     Parent.DisplayMode.Edit,
                     Parent.DisplayMode.Disabled
                 )
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"IDObjetivo")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,IDObjetivo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -7909,7 +7909,7 @@
                 ZIndex: =4
 
         NivelOportunidad_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, "NivelOportunidad")
+            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, NivelOportunidad)
             BorderStyle: =BorderStyle.Solid
             DataField: ="NivelOportunidad"
             Default: =ThisItem.NivelOportunidad
@@ -7919,7 +7919,7 @@
                     Parent.DisplayMode.Edit,
                     Parent.DisplayMode.Disabled
                 )
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"NivelOportunidad")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,NivelOportunidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -7989,7 +7989,7 @@
                 ZIndex: =4
 
         OportunidadOrigen_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, "OportunidadOrigen")
+            AllowedValues: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.AllowedValues, OportunidadOrigen)
             BorderStyle: =BorderStyle.Solid
             DataField: ="OportunidadOrigen"
             Default: =ThisItem.OportunidadOrigen
@@ -7999,7 +7999,7 @@
                     Parent.DisplayMode.Edit,
                     Parent.DisplayMode.Disabled
                 )
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"OportunidadOrigen")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,OportunidadOrigen)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -8078,10 +8078,10 @@
             DataField: ="NombreOportunidad"
             Default: =ThisItem.NombreOportunidad
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"NombreOportunidad")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,NombreOportunidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, "NombreOportunidad")
+            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, NombreOportunidad)
             Required: =false
             Update: =DataCardValue14.Text
             Width: =717
@@ -8146,10 +8146,10 @@
             DataField: ="DescripcionOportunidad"
             Default: =ThisItem.DescripcionOportunidad
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"DescripcionOportunidad")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,DescripcionOportunidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =186
-            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, "DescripcionOportunidad")
+            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, DescripcionOportunidad)
             Required: =false
             Update: =DataCardValue16.Text
             Width: =717
@@ -8216,10 +8216,10 @@
             DataField: ="LinkDocumentario"
             Default: =ThisItem.LinkDocumentario
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,"LinkDocumentario")
+            DisplayName: =DataSourceInfo([@Lst_Plan_Oportunidad],DataSourceInfo.DisplayName,LinkDocumentario)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, "LinkDocumentario")
+            MaxLength: =DataSourceInfo([@Lst_Plan_Oportunidad], DataSourceInfo.MaxLength, LinkDocumentario)
             Required: =false
             Update: =DataCardValue21.Text
             Width: =717
@@ -8988,7 +8988,7 @@
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =_VarResetFiltro
             SearchFields: =["ComplianceAssetId"]
-            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,"ComplianceAssetId")
+            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,'Compliance Asset Id')
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"
@@ -9099,7 +9099,7 @@
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =_VarResetFiltro
             SearchFields: =["NombrePrioridad"]
-            SearchItems: =Search(Sort(Col_BD_Plan_Prioridad, NombrePrioridad, SortOrder.Ascending),Cmb_Filtro_Prioridades.SearchText,"NombrePrioridad")
+            SearchItems: =Search(Sort(Col_BD_Plan_Prioridad, NombrePrioridad, SortOrder.Ascending),Cmb_Filtro_Prioridades.SearchText,NombrePrioridad)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"
@@ -9188,7 +9188,7 @@
                     ),
                     NombreObjetivo,
                     SortOrder.Ascending
-                ),Cmb_Filtro_Objetivo.SearchText,"NombreObjetivo")
+                ),Cmb_Filtro_Objetivo.SearchText,NombreObjetivo)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"
@@ -9314,7 +9314,7 @@
                         SortOrder.Ascending
                     )
                 )
-                ,Cmb_Filtro_Oportunidades.SearchText,"NombreOportunidad")
+                ,Cmb_Filtro_Oportunidades.SearchText,NombreOportunidad)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"

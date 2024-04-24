@@ -98,8 +98,8 @@ ModuloGestionEquipoV1 As screen:
             Items: |-
                 =If(
                     _VarEquipo = "MiEquipo",
-                    Search(Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri), Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),
-                    Sort(Search(Col_InegrantesEquipo,  Txt_BuscadorPersona_1.Text, "Nombre", "Gerencia", "Rol", "Estado"),Nombre,SortOrder.Ascending)
+                    Search(Filter(Col_InegrantesEquipo, Gerencia = _VarGeOri), Txt_BuscadorPersona_1.Text, Nombre, Gerencia, Rol, Estado),
+                    Sort(Search(Col_InegrantesEquipo,  Txt_BuscadorPersona_1.Text, Nombre, Gerencia, Rol, Estado),Nombre,SortOrder.Ascending)
                 )
                 
                 //Filter(Col_BD_AsignacionEquipos; IDEquipo = _VarEquipoSeleccionado)0
@@ -219,7 +219,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            Dpd_TipoTrabajo As Desplegable.pcfdataset:
+            Dpd_TipoTrabajo As Dropdown.pcfdataset:
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
                 DefaultSelectedItems: |-
                     =Table({Value:ThisItem.TipoTrabajo})
@@ -565,7 +565,7 @@ ModuloGestionEquipoV1 As screen:
                 DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,"Nombre_Persona")
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_Responsable.SearchText,Nombre_Persona)
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -592,7 +592,7 @@ ModuloGestionEquipoV1 As screen:
                 DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,"Nombre_Persona")
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,Nombre_Persona)
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -612,7 +612,7 @@ ModuloGestionEquipoV1 As screen:
                 DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,"Nombre_Persona")
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,Nombre_Persona)
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -725,7 +725,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =18
 
-            TextCanvas3 As Texto:
+            TextCanvas3 As Text:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
@@ -1195,7 +1195,7 @@ ModuloGestionEquipoV1 As screen:
                         IDGerencias
                     )
                 )
-                */,Cmb_CambiardeEquipo.SearchText,"Equipo_x002f_Squad")
+                */,Cmb_CambiardeEquipo.SearchText,'Equipo/Squad')
             SelectMultiple: =false
             Visible: =_VarCambiardeEquipo
             Width: =368

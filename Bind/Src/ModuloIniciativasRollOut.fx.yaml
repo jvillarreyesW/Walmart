@@ -805,7 +805,7 @@ ModuloIniciativasRollOut As screen:
 
             Label40_1 As label:
                 Height: =25
-                Text: =Mid(ThisItem.'Nombre de archivo con extensión',12,50)
+                Text: =Mid(ThisItem.'File name with extension',12,50)
                 Width: =440
                 X: =38
                 Y: =7
@@ -814,7 +814,7 @@ ModuloIniciativasRollOut As screen:
             Label40_4 As label:
                 Align: =Align.Center
                 Height: =25
-                Text: =ThisItem.'Creado por'.DisplayName
+                Text: =ThisItem.'Created By'.DisplayName
                 Width: =219
                 X: =886
                 Y: =7
@@ -823,7 +823,7 @@ ModuloIniciativasRollOut As screen:
             Label40_2 As label:
                 Align: =Align.Center
                 Height: =25
-                Text: =Text(ThisItem.Creado,"dd/mm/yyyy")
+                Text: =Text(ThisItem.Created,"dd/mm/yyyy")
                 Width: =134
                 X: =742
                 Y: =7
@@ -883,7 +883,7 @@ ModuloIniciativasRollOut As screen:
             Icon33 As icon.Link:
                 Height: =37
                 Icon: =Icon.Link
-                OnSelect: =If(Right(ThisItem.'Nombre de archivo con extensión',3)="url",Launch(ThisItem.Link),Launch(ThisItem.'Vinculo al elemento'))
+                OnSelect: =If(Right(ThisItem.'File name with extension',3)="url",Launch(ThisItem.Link),Launch(ThisItem.'Link to item'))
                 Width: =26
                 X: =6
                 ZIndex: =7
@@ -1154,9 +1154,9 @@ ModuloIniciativasRollOut As screen:
                 "'Nombre de archivo con extensión_DataCard1' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="{FilenameWithExtension}"
-                    Default: =ThisItem.'Nombre de archivo con extensión'
+                    Default: =ThisItem.'File name with extension'
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"{FilenameWithExtension}")
+                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,'File name with extension')
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =87
                     Required: =false
@@ -1193,10 +1193,10 @@ ModuloIniciativasRollOut As screen:
                     DataField: ="Clasificaci_x00f3_n"
                     Default: =ThisItem.Clasificación
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"Clasificaci_x00f3_n")
+                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,Clasificación)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =113
-                    MaxLength: =DataSourceInfo([@DocumentosIniciativas], DataSourceInfo.MaxLength, "Clasificaci_x00f3_n")
+                    MaxLength: =DataSourceInfo([@DocumentosIniciativas], DataSourceInfo.MaxLength, Clasificación)
                     Required: =false
                     Update: =DataCardValue129.Text
                     Visible: =false
@@ -1329,9 +1329,9 @@ ModuloIniciativasRollOut As screen:
                 Creado_DataCard1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Created"
-                    Default: =ThisItem.Creado
+                    Default: =ThisItem.Created
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"Created")
+                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,Created)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
@@ -1368,13 +1368,13 @@ ModuloIniciativasRollOut As screen:
                     DataField: ="Link"
                     Default: =ThisItem.Link
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,"Link")
+                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,Link)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
-                    MaxLength: =DataSourceInfo([@DocumentosIniciativas], DataSourceInfo.MaxLength, "Link")
+                    MaxLength: =DataSourceInfo([@DocumentosIniciativas], DataSourceInfo.MaxLength, Link)
                     Required: =false
                     Update: =DataCardValue121.Text
-                    Visible: =Right(ThisItem.'Nombre de archivo con extensión',3)="url"
+                    Visible: =Right(ThisItem.'File name with extension',3)="url"
                     Width: =552
                     X: =0
                     Y: =3

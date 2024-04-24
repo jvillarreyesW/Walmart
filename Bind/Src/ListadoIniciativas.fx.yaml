@@ -935,7 +935,7 @@ ListadoIniciativas As screen:
             Reset: |
                 =Valor = "Producto" || Valor = "Proyecto"
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+            SearchItems: =Search(Filter(Col_DominiosGestion,Iniciativa),Cmb_FiltroJefePO_3.SearchText,'Nombre Producto/Proyecto')
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

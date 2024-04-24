@@ -296,7 +296,7 @@ ModuloRevisionFormatosDetalle As screen:
             (Mes=Cmb_FiltroNombre_15.Selected.Value||IsBlank(Cmb_FiltroNombre_15.Selected.Value)) && 
             (Anio=Cmb_FiltroNombre_16.Selected.Value||IsBlank(Cmb_FiltroNombre_16.Selected.Value)) &&
             (Certificado="F30" || Certificado="F30-1")&&Estado.Value="Cargado"),
-            Txt_FondoForm1_207.Text,"Certificado","RUT","{Name}")
+            Txt_FondoForm1_207.Text,Certificado,RUT,Name)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =56
@@ -308,7 +308,7 @@ ModuloRevisionFormatosDetalle As screen:
         Label46_3 As label:
             FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Normal)
             OnSelect: =Select(Parent)
-            Text: =Right(ThisItem.Nombre,Len(ThisItem.Nombre)-11)
+            Text: =Right(ThisItem.Name,Len(ThisItem.Name)-11)
             Width: =643
             Y: =6
             ZIndex: =2
@@ -367,7 +367,7 @@ ModuloRevisionFormatosDetalle As screen:
             Height: =31
             Icon: =Icon.View
             OnSelect: |-
-                =Launch("https://teams.wal-mart.com/sites/NecesidadesWalmartTech/"&ThisItem.'Ruta de acceso completa')
+                =Launch("https://teams.wal-mart.com/sites/NecesidadesWalmartTech/"&ThisItem.'Full Path')
             Width: =27
             X: =1073
             Y: =9
@@ -887,7 +887,7 @@ ModuloRevisionFormatosDetalle As screen:
 
             Label46_9 As label:
                 OnSelect: =Select(Parent)
-                Text: =Right(ThisItem.Nombre,Len(ThisItem.Nombre)-11)
+                Text: =Right(ThisItem.Name,Len(ThisItem.Name)-11)
                 Width: =643
                 Y: =5
                 ZIndex: =2
@@ -918,7 +918,7 @@ ModuloRevisionFormatosDetalle As screen:
                 Height: =31
                 Icon: =Icon.View
                 OnSelect: |-
-                    =Launch("https://teams.wal-mart.com/sites/NecesidadesWalmartTech/"&ThisItem.'Ruta de acceso completa')
+                    =Launch("https://teams.wal-mart.com/sites/NecesidadesWalmartTech/"&ThisItem.'Full Path')
                 Width: =27
                 X: =1516
                 Y: =15
@@ -927,7 +927,7 @@ ModuloRevisionFormatosDetalle As screen:
             Label46_12 As label:
                 Align: =Align.Center
                 OnSelect: =Select(Parent)
-                Text: =Text(ThisItem.Creado,DateTimeFormat.ShortDate)
+                Text: =Text(ThisItem.Created,DateTimeFormat.ShortDate)
                 Width: =145
                 X: =1013
                 Y: =5

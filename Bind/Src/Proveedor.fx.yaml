@@ -14,7 +14,7 @@ Proveedor As screen:
         DropTargetBorderThickness: =0
         Height: =63
         IsInDataCard: =true
-        Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor&&Campo="Documento final").'Datos adjuntos'
+        Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor&&Campo="Documento final").Attachments
         MaxAttachments: =20
         NoAttachmentsText: =
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -183,7 +183,7 @@ Proveedor As screen:
             DataField: ="Formulario_Solicitud"
             Default: =ThisItem.Formulario_Solicitud
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Formulario_Solicitud")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Formulario_Solicitud)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -211,7 +211,7 @@ Proveedor As screen:
                 Items: =Filter(Choices([@Lst_ContratosProveedores].Formulario_Solicitud),Value<>"Carta término anticipado contrato o servicio")
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Search(Filter(Choices([@Lst_ContratosProveedores].Formulario_Solicitud),Value<>"Carta término anticipado contrato o servicio"),DataCardValue26_1.SearchText,"Value")
+                SearchItems: =Search(Filter(Choices([@Lst_ContratosProveedores].Formulario_Solicitud),Value<>"Carta término anticipado contrato o servicio"),DataCardValue26_1.SearchText,Value)
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
@@ -249,10 +249,10 @@ Proveedor As screen:
             DataField: ="Nombre_Solicitud"
             Default: =ThisItem.Nombre_Solicitud
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Solicitud")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_Solicitud)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =100
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Solicitud")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_Solicitud)
             Required: =false
             Update: =DataCardValue32_1.Text
             Width: =1383
@@ -323,7 +323,7 @@ Proveedor As screen:
             DataField: ="Tipo_Documento"
             Default: =ThisItem.Tipo_Documento
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Tipo_Documento")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Tipo_Documento)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -390,10 +390,10 @@ Proveedor As screen:
             DataField: ="Asunto"
             Default: =ThisItem.Asunto
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Asunto")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Asunto)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =104
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Asunto")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Asunto)
             Required: =false
             Update: =DataCardValue61_1.Text
             Width: =461
@@ -471,10 +471,10 @@ Proveedor As screen:
             DataField: ="Manager"
             Default: =ThisItem.Manager
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Manager")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Manager)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Manager")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Manager)
             Required: =false
             Update: =DataCardValue32.Text
             Width: =461
@@ -544,7 +544,7 @@ Proveedor As screen:
                 DisplayMode: =Parent.DisplayMode
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,ComboBox2_6.SearchText,"Nombre_Persona")
+                SearchItems: =Search(Col_BD_Persona,ComboBox2_6.SearchText,Nombre_Persona)
                 SelectMultiple: =false
                 Width: =408
                 X: =30
@@ -556,10 +556,10 @@ Proveedor As screen:
             DataField: ="Nombre_del_Servicio"
             Default: =ThisItem.Nombre_del_Servicio
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_del_Servicio")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_del_Servicio)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_del_Servicio")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_del_Servicio)
             Required: =false
             Update: =DataCardValue166.Text
             Width: =922
@@ -664,7 +664,7 @@ Proveedor As screen:
             DataField: ="Razon_Social_Walmart"
             Default: =ThisItem.Razon_Social_Walmart
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Razon_Social_Walmart")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Razon_Social_Walmart)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =97
             Required: =false
@@ -733,10 +733,10 @@ Proveedor As screen:
             DataField: ="Firmante_x0020_por_x0020_Walmart"
             Default: =ThisItem.'Firmante por Walmart 1'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Firmante_x0020_por_x0020_Walmart")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Firmante por Walmart 1')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Firmante_x0020_por_x0020_Walmart")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, 'Firmante por Walmart 1')
             Required: =false
             Update: =ComboBox2.Selected.Usuario
             Width: =1383
@@ -810,7 +810,7 @@ Proveedor As screen:
                 IsSearchable: =false
                 Items: |-
                     =SortByColumns(
-                        AddColumns(Filter(Lst_Persona, Usuario="FECKER1"|| Usuario="E0S00E7"  || Usuario="SQUIJAD" || Usuario="FNICOLE" || Usuario="D0P0G5W"  || Usuario="GMAUREI"),"ORDER",
+                        AddColumns(Filter(Lst_Persona, Usuario="FECKER1"|| Usuario="E0S00E7"  || Usuario="SQUIJAD" || Usuario="FNICOLE" || Usuario="D0P0G5W"  || Usuario="GMAUREI"),ORDER,
                     If(Usuario="FECKER1",5,
                     If(Usuario="E0S00E7",2,
                     If(Usuario="SQUIJAD",3,
@@ -830,10 +830,10 @@ Proveedor As screen:
             DataField: ="Contacto_Walmart_notificacione"
             Default: =ThisItem.Contacto_Walmart_notificaciones
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Contacto_Walmart_notificacione")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Contacto_Walmart_notificaciones)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Contacto_Walmart_notificacione")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Contacto_Walmart_notificaciones)
             Required: =false
             Update: =ComboBox2_2.Selected.Usuario
             Width: =461
@@ -903,7 +903,7 @@ Proveedor As screen:
                 DisplayMode: =Parent.DisplayMode
                 Items: =Col_BD_Persona
                 SearchFields: =["Nombre_Persona"]
-                SearchItems: =Search(Col_BD_Persona,ComboBox2_2.SearchText,"Nombre_Persona")
+                SearchItems: =Search(Col_BD_Persona,ComboBox2_2.SearchText,Nombre_Persona)
                 SelectMultiple: =false
                 Width: =408
                 X: =30
@@ -925,10 +925,10 @@ Proveedor As screen:
             DataField: ="Correo_Contacto_Walmart_Notifcac"
             Default: =ThisItem.Correo_Contacto_Walmart_Notifcaciones
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Correo_Contacto_Walmart_Notifcac")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Correo_Contacto_Walmart_Notifcaciones)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =101
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Correo_Contacto_Walmart_Notifcac")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Correo_Contacto_Walmart_Notifcaciones)
             Required: =false
             Update: =DataCardValue45_1.Text
             Width: =461
@@ -996,10 +996,10 @@ Proveedor As screen:
             DataField: ="Direcci_x00f3_n_contacto_Walmart"
             Default: =ThisItem.Dirección_contacto_Walmart_notificaciones
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Direcci_x00f3_n_contacto_Walmart")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Dirección_contacto_Walmart_notificaciones)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Direcci_x00f3_n_contacto_Walmart")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Dirección_contacto_Walmart_notificaciones)
             Required: =false
             Update: =DataCardValue101.Text
             Width: =461
@@ -1064,10 +1064,10 @@ Proveedor As screen:
             DataField: ="Telefono_Contacto_Notifcaciones"
             Default: =ThisItem.Telefono_Contacto_Notificaciones
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Telefono_Contacto_Notifcaciones")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Telefono_Contacto_Notificaciones)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Telefono_Contacto_Notifcaciones")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Telefono_Contacto_Notificaciones)
             Required: =false
             Update: =DataCardValue55_1.Text
             Width: =461
@@ -1152,7 +1152,7 @@ Proveedor As screen:
             DataField: ="Proveedor_Extranjero"
             Default: =ThisItem.Proveedor_Extranjero
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor_Extranjero")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Proveedor_Extranjero)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1349,10 +1349,10 @@ Proveedor As screen:
             DataField: ="Descripcion"
             Default: =ThisItem.Descripcion_del_Servicio
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Descripcion")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Descripcion_del_Servicio)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =181
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Descripcion")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Descripcion_del_Servicio)
             Required: =false
             Update: =DataCardValue60.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -1420,10 +1420,10 @@ Proveedor As screen:
             DataField: ="Nombre_Documento_Descripcion_Ser"
             Default: =ThisItem.Nombre_Documento_Descripcion_Servicios
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Documento_Descripcion_Ser")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_Documento_Descripcion_Servicios)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Documento_Descripcion_Ser")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_Documento_Descripcion_Servicios)
             Required: =false
             Update: =DataCardValue67_1.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -1488,10 +1488,10 @@ Proveedor As screen:
             DataField: ="Comentarios_Generales_del_Contra"
             Default: =ThisItem.Comentarios_Generales_del_Contrato
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Comentarios_Generales_del_Contra")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Comentarios_Generales_del_Contrato)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Comentarios_Generales_del_Contra")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Comentarios_Generales_del_Contrato)
             Required: =false
             Update: =DataCardValue69_1.Text
             Width: =922
@@ -1555,7 +1555,7 @@ Proveedor As screen:
             DataField: ="Incluye_arrendamiento"
             Default: =ThisItem.Incluye_arrendamiento
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Incluye_arrendamiento")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Incluye_arrendamiento)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1631,7 +1631,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_2.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Propuesta Comercial").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Propuesta Comercial").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -1674,7 +1674,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_1.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Base de Licitación").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Base de Licitación").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -1702,7 +1702,7 @@ Proveedor As screen:
             DataField: ="Involucra_Tecnologia"
             Default: =ThisItem.Involucra_Tecnologia
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Involucra_Tecnologia")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Involucra_Tecnologia)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1784,7 +1784,7 @@ Proveedor As screen:
             DataField: ="Fecha_Contrato"
             Default: =ThisItem.Fecha_Contrato
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Contrato")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Contrato)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1849,7 +1849,7 @@ Proveedor As screen:
             DataField: ="Vigencia_Documento"
             Default: =ThisItem.Vigencia_Documento
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Vigencia_Documento")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Vigencia_Documento)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1916,7 +1916,7 @@ Proveedor As screen:
             DataField: ="Fecha_Inicio_Vigencia"
             Default: =ThisItem.Fecha_Inicio_Vigencia
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Inicio_Vigencia")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Inicio_Vigencia)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1982,7 +1982,7 @@ Proveedor As screen:
             DataField: ="Fecha_Termino_Contrato"
             Default: =ThisItem.Fecha_Termino_Contrato
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Fecha_Termino_Contrato")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Fecha_Termino_Contrato)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -2048,7 +2048,7 @@ Proveedor As screen:
             DataField: ="Renovacion_Automatica"
             Default: =ThisItem.Renovacion_Automatica
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Renovacion_Automatica")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Renovacion_Automatica)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -2110,7 +2110,7 @@ Proveedor As screen:
             DataField: ="Plazo_Renovacion_meses"
             Default: =ThisItem.Plazo_Renovacion_meses
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Plazo_Renovacion_meses")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Plazo_Renovacion_meses)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =99
             Required: =false
@@ -2176,10 +2176,10 @@ Proveedor As screen:
             DataField: ="Licitacion_contratos_FPU"
             Default: =ThisItem.Licitacion_contratos_FPU
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Licitacion_contratos_FPU")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Licitacion_contratos_FPU)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =120
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Licitacion_contratos_FPU")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Licitacion_contratos_FPU)
             Required: =false
             Update: =DataCardValue138.Text
             Width: =922
@@ -2272,7 +2272,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_14.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Soporte Licitacion, 3 contratos, FPU").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Soporte Licitacion, 3 contratos, FPU").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -2325,10 +2325,10 @@ Proveedor As screen:
             DataField: ="Valor_del_Contrato"
             Default: =ThisItem.Valor_del_Contrato
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Valor_del_Contrato")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Valor_del_Contrato)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Valor_del_Contrato")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Valor_del_Contrato)
             Required: =false
             Update: =DataCardValue73.Text
             Width: =461
@@ -2393,7 +2393,7 @@ Proveedor As screen:
             DataField: ="Plazo_de_pago"
             Default: =ThisItem.Plazo_de_pago
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Plazo_de_pago")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Plazo_de_pago)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -2475,7 +2475,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_3.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Documento Detalle de Precio").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Documento Detalle de Precio").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -2504,7 +2504,7 @@ Proveedor As screen:
             DataField: ="Contrato_supera_MM_x0024_50"
             Default: =ThisItem.'Contrato_supera_MM$50'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Contrato_supera_MM_x0024_50")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Contrato_supera_MM$50')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -2564,10 +2564,10 @@ Proveedor As screen:
             DataField: ="Firmante_x0020_por_x0020_Walmart0"
             Default: =ThisItem.'Firmante por Walmart 2'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Firmante_x0020_por_x0020_Walmart0")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Firmante por Walmart 2')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =102
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Firmante_x0020_por_x0020_Walmart0")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, 'Firmante por Walmart 2')
             Required: =false
             Update: =ComboBox2_1.Selected.Usuario
             Visible: =DataCardValue75.Value
@@ -2637,7 +2637,7 @@ Proveedor As screen:
                 Items: |-
                     =Filter(
                         SortByColumns(
-                        AddColumns(Filter(Lst_Persona, Usuario="FECKER1"|| Usuario="E0S00E7"  || Usuario="SQUIJAD" || Usuario="FNICOLE" || Usuario="D0P0G5W" || Usuario ="C0L03H3"),"ORDER",
+                        AddColumns(Filter(Lst_Persona, Usuario="FECKER1"|| Usuario="E0S00E7"  || Usuario="SQUIJAD" || Usuario="FNICOLE" || Usuario="D0P0G5W" || Usuario ="C0L03H3"),ORDER,
                     If(Usuario="C0L03H3",6,
                     If(Usuario="FECKER1",5,
                     If(Usuario="E0S00E7",2,
@@ -2725,7 +2725,7 @@ Proveedor As screen:
             DataField: ="Incluye_Outsourcing"
             Default: =ThisItem.Incluye_Outsourcing
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Incluye_Outsourcing")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Incluye_Outsourcing)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =112
             Required: =true
@@ -2784,7 +2784,7 @@ Proveedor As screen:
             DataField: ="CI_TipoSolicitud"
             Default: =ThisItem.CI_TipoSolicitud
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"CI_TipoSolicitud")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,CI_TipoSolicitud)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =Self.Visible
@@ -2851,7 +2851,7 @@ Proveedor As screen:
             DataField: ="CI_TipoInversiones"
             Default: =ThisItem.CI_TipoInversiones
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"CI_TipoInversiones")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,CI_TipoInversiones)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =Self.Visible
@@ -2919,7 +2919,7 @@ Proveedor As screen:
             DataField: ="CI_Monto_Inversion"
             Default: =ThisItem.CI_Monto_Inversion
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"CI_Monto_Inversion")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,CI_Monto_Inversion)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =Self.Visible
@@ -3008,7 +3008,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_15.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3070,7 +3070,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_17.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio 2").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio 2").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3110,7 +3110,7 @@ Proveedor As screen:
             DataField: ="Comit_x00e9_"
             Default: =ThisItem.Comité
             DisplayMode: =DisplayMode.Disabled
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Comit_x00e9_")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Comité)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =105
             Required: =false
@@ -3183,7 +3183,7 @@ Proveedor As screen:
             DataField: ="Aprobacion_Comite"
             Default: =ThisItem.Aprobacion_Comite
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Aprobacion_Comite")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Aprobacion_Comite)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3265,7 +3265,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_16.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Respuesta Comite").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Respuesta Comite").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3317,7 +3317,7 @@ Proveedor As screen:
             DataField: ="Multas_en__x0025_"
             Default: =ThisItem.'Multas_en_%'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Multas_en__x0025_")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Multas_en_%')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3384,7 +3384,7 @@ Proveedor As screen:
             DataField: ="Multa_tope_en__x0025_"
             Default: =ThisItem.'Multa_tope_en_%'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Multa_tope_en__x0025_")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Multa_tope_en_%')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3452,7 +3452,7 @@ Proveedor As screen:
             DataField: ="Monto_multa_en_x0024_"
             Default: =ThisItem.'Monto_multa_en_$'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Monto_multa_en_x0024_")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Monto_multa_en_$')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3535,7 +3535,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_5.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Tabla de multas").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Tabla de multas").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3579,7 +3579,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_6.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="SLA").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="SLA").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3623,7 +3623,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_7.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización Gerente multa 0").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización Gerente multa 0").Attachments
                 MaxAttachments: =2
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3673,7 +3673,7 @@ Proveedor As screen:
             DataField: ="Garantias__x0028_Obligatorias_x0"
             Default: =ThisItem.'Garantias_(Obligatorias)'
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Garantias__x0028_Obligatorias_x0")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Garantias_(Obligatorias)')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3740,7 +3740,7 @@ Proveedor As screen:
             DataField: ="Otro_Monto_Garantia"
             Default: =ThisItem.Otro_Monto_Garantia
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Otro_Monto_Garantia")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Otro_Monto_Garantia)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -3823,7 +3823,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_4.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización gerente area").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización gerente area").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3888,7 +3888,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_8.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Certificado de Vigencia de Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Certificado de Vigencia de Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3933,7 +3933,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_9.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(First(Filter(Lst_Proveedores_Adjuntos,Campo="RUT de la Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos')
+                Items: =First(First(Filter(Lst_Proveedores_Adjuntos,Campo="RUT de la Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).Attachments)
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3978,7 +3978,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_10.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Personeria o Poderes",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Personeria o Poderes",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4022,7 +4022,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_11.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Copia Cedula Representante Legal",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Copia Cedula Representante Legal",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4051,10 +4051,10 @@ Proveedor As screen:
             DataField: ="ID_Sol_Proveedor"
             Default: =ThisItem.ID_Sol_Proveedor
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
             Required: =false
             Update: =DataCardValue94.Text
             Visible: =false
@@ -4141,7 +4141,7 @@ Proveedor As screen:
             DataField: ="Servicio_almacena_informacion"
             Default: =ThisItem.Servicio_almacena_informacion
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Servicio_almacena_informacion")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Servicio_almacena_informacion)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -4201,10 +4201,10 @@ Proveedor As screen:
             DataField: ="Nombre_Denominacion_Contrato_ISA"
             Default: =ThisItem.Nombre_Denominacion_Contrato_ISA
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Denominacion_Contrato_ISA")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_Denominacion_Contrato_ISA)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Denominacion_Contrato_ISA")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_Denominacion_Contrato_ISA)
             Required: =false
             Update: =DataCardValue96.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -4270,10 +4270,10 @@ Proveedor As screen:
             DataField: ="Cargo_Contacto_ISA"
             Default: =ThisItem.Cargo_Contacto_ISA
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Cargo_Contacto_ISA")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Cargo_Contacto_ISA)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Cargo_Contacto_ISA")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Cargo_Contacto_ISA)
             Required: =false
             Update: =DataCardValue97.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -4339,10 +4339,10 @@ Proveedor As screen:
             DataField: ="Telefono_Contacto_ISA"
             Default: =ThisItem.Telefono_Contacto_ISA
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Telefono_Contacto_ISA")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Telefono_Contacto_ISA)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Telefono_Contacto_ISA")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Telefono_Contacto_ISA)
             Required: =false
             Update: =DataCardValue98.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -4408,10 +4408,10 @@ Proveedor As screen:
             DataField: ="Correo_Electronico_Contacto_ISA"
             Default: =ThisItem.Correo_Electronico_Contacto_ISA
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Correo_Electronico_Contacto_ISA")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Correo_Electronico_Contacto_ISA)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Correo_Electronico_Contacto_ISA")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Correo_Electronico_Contacto_ISA)
             Required: =false
             Update: =DataCardValue99.Text
             Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -4500,7 +4500,7 @@ Proveedor As screen:
             DataField: ="Proveedor_TPI"
             Default: =ThisItem.Proveedor_TPI
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor_TPI")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Proveedor_TPI)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =90
             Required: =false
@@ -4578,7 +4578,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_12.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Due Diligence",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Due Diligence",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4626,9 +4626,9 @@ Proveedor As screen:
         Attachments_DataCard3 As typedDataCard.attachmentsEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.'Datos adjuntos'
+            Default: =ThisItem.Attachments
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"{Attachments}")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Attachments)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -4686,7 +4686,7 @@ Proveedor As screen:
             DataField: ="Estado_Solicitud"
             Default: =ThisItem.Estado_Solicitud
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Estado_Solicitud")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Estado_Solicitud)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -4755,10 +4755,10 @@ Proveedor As screen:
             DataField: ="Razon_Social_Proveedor"
             Default: =ThisItem.Razon_Social_Proveedor
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Razon_Social_Proveedor")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Razon_Social_Proveedor)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Razon_Social_Proveedor")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Razon_Social_Proveedor)
             Required: =false
             Update: =DataCardValue30.Text
             Visible: =false
@@ -4824,10 +4824,10 @@ Proveedor As screen:
             DataField: ="ID_x0020_Webdox"
             Default: =ThisItem.'ID Webdox'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_x0020_Webdox")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'ID Webdox')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "ID_x0020_Webdox")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, 'ID Webdox')
             Required: =false
             Update: =DataCardValue173.Text
             Visible: =false
@@ -4893,10 +4893,10 @@ Proveedor As screen:
             DataField: ="Descripcion_Solicitud"
             Default: =ThisItem.Descripcion_Solicitud
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Descripcion")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Descripcion_del_Servicio)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Descripcion")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Descripcion_del_Servicio)
             Required: =false
             Update: =DataCardValue62_1.Text
             Width: =922
@@ -4961,10 +4961,10 @@ Proveedor As screen:
             DataField: ="Solicitante"
             Default: =ThisItem.Solicitante
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Solicitante")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Solicitante)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Solicitante")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Solicitante)
             Required: =false
             Update: =DataCardValue56_1.Text
             Width: =461
@@ -5029,7 +5029,7 @@ Proveedor As screen:
 
             DataCardValue56_3 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =ThisItem.'Creado por'.Email
+                Default: =ThisItem.'Created By'.Email
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(0, 0, 0, 1)
@@ -5053,10 +5053,10 @@ Proveedor As screen:
             DataField: ="Cargo_solicitante"
             Default: =ThisItem.Cargo_solicitante
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Cargo_solicitante")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Cargo_solicitante)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Cargo_solicitante")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Cargo_solicitante)
             Required: =false
             Update: =DataCardValue57.Text
             Width: =461
@@ -5123,10 +5123,10 @@ Proveedor As screen:
             DataField: ="Area_solicitante"
             Default: =ThisItem.Area_solicitante
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Area_solicitante")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Area_solicitante)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =115
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Area_solicitante")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Area_solicitante)
             Required: =false
             Update: =DataCardValue58.Text
             Width: =461
@@ -5194,10 +5194,10 @@ Proveedor As screen:
             DataField: ="CECO_Solicitante"
             Default: =ThisItem.CECO_Solicitante
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"CECO_Solicitante")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,CECO_Solicitante)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "CECO_Solicitante")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, CECO_Solicitante)
             Required: =false
             Update: =DataCardValue59.Selected.Ceco
             Width: =461
@@ -5248,7 +5248,7 @@ Proveedor As screen:
                 DisplayMode: =Parent.DisplayMode
                 Items: =Lst_Fcst_MantenedorCeco
                 SearchFields: =["Ceco"]
-                SearchItems: =Search(Lst_Fcst_MantenedorCeco,DataCardValue59.SearchText,"Ceco")
+                SearchItems: =Search(Lst_Fcst_MantenedorCeco,DataCardValue59.SearchText,Ceco)
                 Template: =ListItemTemplate.Double
                 Width: =385
                 X: =30
@@ -5269,10 +5269,10 @@ Proveedor As screen:
             DataField: ="Proveedor"
             Default: =ThisItem.Proveedor
             DisplayMode: =DisplayMode.Edit
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Proveedor")
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Proveedor)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =100
-            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Proveedor")
+            MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Proveedor)
             Required: =false
             Update: =If(DataCardValue70_1.Value,ComboBox4.Selected.Razon_Social_Proveedor,DataCardValue68_1.Text)
             Width: =461
@@ -5391,7 +5391,7 @@ Proveedor As screen:
                         Set(var_Prov_Rut,Self.Selected)
                     )
                 SearchFields: =["Razon_Social"]
-                SearchItems: =Search(Filter(Lst_Proveedores,RUT="Extranjero"),ComboBox4.SearchText,"Razon_Social")
+                SearchItems: =Search(Filter(Lst_Proveedores,RUT="Extranjero"),ComboBox4.SearchText,Razon_Social_Proveedor)
                 SelectMultiple: =false
                 Visible: =DataCardValue70_1.Value
                 Width: =360
@@ -5601,10 +5601,10 @@ Proveedor As screen:
             DataField: ="ID_Sol_Proveedor"
             Default: =ThisItem.ID_Sol_Proveedor
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+            MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
             Required: =false
             Update: =DataCardValue122.Text
             Width: =20
@@ -5669,10 +5669,10 @@ Proveedor As screen:
             DataField: ="Campo"
             Default: =ThisItem.Campo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+            MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
             Required: =false
             Update: =DataCardValue127.Text
             Width: =20
@@ -5735,9 +5735,9 @@ Proveedor As screen:
         "'Datos adjuntos_DataCard2' As typedDataCard.attachmentsEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.'Datos adjuntos'
+            Default: =ThisItem.Attachments
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -5833,10 +5833,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91.Text
                 Width: =286
@@ -5901,10 +5901,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92.Text
                 Width: =286
@@ -5967,9 +5967,9 @@ Proveedor As screen:
             Attachments_DataCard4 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6045,10 +6045,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_1.Text
                 Width: =286
@@ -6113,10 +6113,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_1.Text
                 Width: =286
@@ -6179,9 +6179,9 @@ Proveedor As screen:
             Attachments_DataCard4_1 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6257,10 +6257,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_2.Text
                 Width: =286
@@ -6325,10 +6325,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_2.Text
                 Width: =286
@@ -6391,9 +6391,9 @@ Proveedor As screen:
             Attachments_DataCard4_2 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6469,10 +6469,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_3.Text
                 Width: =286
@@ -6537,10 +6537,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_3.Text
                 Width: =286
@@ -6603,9 +6603,9 @@ Proveedor As screen:
             Attachments_DataCard4_3 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6681,10 +6681,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_4.Text
                 Width: =286
@@ -6749,10 +6749,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_4.Text
                 Width: =286
@@ -6815,9 +6815,9 @@ Proveedor As screen:
             Attachments_DataCard4_4 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6893,10 +6893,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_5.Text
                 Width: =286
@@ -6961,10 +6961,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_5.Text
                 Width: =286
@@ -7027,9 +7027,9 @@ Proveedor As screen:
             Attachments_DataCard4_5 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7105,10 +7105,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_6.Text
                 Width: =286
@@ -7173,10 +7173,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_6.Text
                 Width: =286
@@ -7239,9 +7239,9 @@ Proveedor As screen:
             Attachments_DataCard4_6 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7316,10 +7316,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_7.Text
                 Width: =286
@@ -7384,10 +7384,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_7.Text
                 Width: =286
@@ -7450,9 +7450,9 @@ Proveedor As screen:
             Attachments_DataCard4_7 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7528,10 +7528,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_8.Text
                 Width: =286
@@ -7596,10 +7596,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_8.Text
                 Width: =286
@@ -7662,9 +7662,9 @@ Proveedor As screen:
             Attachments_DataCard4_8 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7740,10 +7740,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_9.Text
                 Width: =286
@@ -7808,10 +7808,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_9.Text
                 Width: =286
@@ -7874,9 +7874,9 @@ Proveedor As screen:
             Attachments_DataCard4_9 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7952,10 +7952,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_10.Text
                 Width: =286
@@ -8020,10 +8020,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_10.Text
                 Width: =286
@@ -8086,9 +8086,9 @@ Proveedor As screen:
             Attachments_DataCard4_10 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8164,10 +8164,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_11.Text
                 Width: =286
@@ -8232,10 +8232,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_11.Text
                 Width: =286
@@ -8298,9 +8298,9 @@ Proveedor As screen:
             Attachments_DataCard4_11 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8376,10 +8376,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_12.Text
                 Width: =286
@@ -8444,10 +8444,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_12.Text
                 Width: =286
@@ -8510,9 +8510,9 @@ Proveedor As screen:
             Attachments_DataCard4_12 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8588,10 +8588,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_13.Text
                 Width: =286
@@ -8656,10 +8656,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_13.Text
                 Width: =286
@@ -8722,9 +8722,9 @@ Proveedor As screen:
             Attachments_DataCard4_13 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8800,10 +8800,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_14.Text
                 Width: =286
@@ -8868,10 +8868,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_14.Text
                 Width: =286
@@ -8934,9 +8934,9 @@ Proveedor As screen:
             Attachments_DataCard4_14 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -9012,10 +9012,10 @@ Proveedor As screen:
                 DataField: ="ID_Sol_Proveedor"
                 Default: =ThisItem.ID_Sol_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"ID_Sol_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,ID_Sol_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "ID_Sol_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, ID_Sol_Proveedor)
                 Required: =false
                 Update: =DataCardValue91_15.Text
                 Width: =286
@@ -9080,10 +9080,10 @@ Proveedor As screen:
                 DataField: ="Campo"
                 Default: =ThisItem.Campo
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"Campo")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Campo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, "Campo")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores_Adjuntos], DataSourceInfo.MaxLength, Campo)
                 Required: =false
                 Update: =DataCardValue92_15.Text
                 Width: =286
@@ -9146,9 +9146,9 @@ Proveedor As screen:
             Attachments_DataCard4_15 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,"{Attachments}")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -9253,10 +9253,10 @@ Proveedor As screen:
                 DataField: ="Razon_Social"
                 Default: =ThisItem.Razon_Social_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Razon_Social")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Razon_Social_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Razon_Social")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Razon_Social_Proveedor)
                 Required: =false
                 Update: =DataCardValue11_1.Text
                 Width: =944
@@ -9321,7 +9321,7 @@ Proveedor As screen:
                 DataField: ="Region"
                 Default: =ThisItem.Region
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Region")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Region)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -9384,7 +9384,7 @@ Proveedor As screen:
                         "Los Ríos",
                         "Arica y Parinacota",
                         "Ñuble"
-                        ],DataCardValue81.SearchText,"Value")
+                        ],DataCardValue81.SearchText,Value)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -9422,7 +9422,7 @@ Proveedor As screen:
                 DataField: ="Ciudad"
                 Default: =ThisItem.Ciudad
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Ciudad")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Ciudad)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -9506,10 +9506,10 @@ Proveedor As screen:
                 DataField: ="Comuna"
                 Default: =ThisItem.Comuna
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Comuna")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Comuna)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Comuna")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Comuna)
                 Required: =false
                 Update: =DataCardValue125.Text
                 Width: =472
@@ -9967,7 +9967,7 @@ Proveedor As screen:
                 DataField: ="Fecha_Escritura_Publica"
                 Default: =ThisItem.'Fecha_Escritura _Publica'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Fecha_Escritura_Publica")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,'Fecha_Escritura _Publica')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -10033,7 +10033,7 @@ Proveedor As screen:
                 DataField: ="Fecha_Certificado_Estatuto_Empre"
                 Default: =ThisItem.Fecha_Certificado_Estatuto_Empresa
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Fecha_Certificado_Estatuto_Empre")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Fecha_Certificado_Estatuto_Empresa)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -10128,10 +10128,10 @@ Proveedor As screen:
                 DataField: ="Direccion_Contacto__x0020_1"
                 Default: =ThisItem.Direccion_Contacto_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Direccion_Contacto__x0020_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Direccion_Contacto_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Direccion_Contacto__x0020_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Direccion_Contacto_1)
                 Required: =false
                 Update: =DataCardValue86.Text
                 Width: =472
@@ -10196,10 +10196,10 @@ Proveedor As screen:
                 DataField: ="Telefono_Contacto__x0020_1"
                 Default: =ThisItem.Telefono_Contacto_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Telefono_Contacto__x0020_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Telefono_Contacto_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Telefono_Contacto__x0020_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Telefono_Contacto_1)
                 Required: =false
                 Update: =DataCardValue88.Text
                 Width: =472
@@ -10264,10 +10264,10 @@ Proveedor As screen:
                 DataField: ="Direccion_Contacto_2"
                 Default: =ThisItem.Direccion_Contacto_Notificaciones
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Direccion_Contacto_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Direccion_Contacto_Notificaciones)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Direccion_Contacto_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Direccion_Contacto_Notificaciones)
                 Required: =false
                 Update: =DataCardValue87.Text
                 Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -10333,10 +10333,10 @@ Proveedor As screen:
                 DataField: ="Telefono_Contacto_2"
                 Default: =ThisItem.Telefono_Contacto_Notificaciones
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Telefono_Contacto_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Telefono_Contacto_Notificaciones)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Telefono_Contacto_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Telefono_Contacto_Notificaciones)
                 Required: =false
                 Update: =DataCardValue89.Text
                 Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -10402,10 +10402,10 @@ Proveedor As screen:
                 DataField: ="EstadoRegistro"
                 Default: =ThisItem.EstadoRegistro
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"EstadoRegistro")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,EstadoRegistro)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "EstadoRegistro")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, EstadoRegistro)
                 Required: =false
                 Update: =DataCardValue120.Text
                 Visible: =false
@@ -10474,7 +10474,7 @@ Proveedor As screen:
                 DataField: ="Tipo_Contraparte"
                 Default: =ThisItem.Tipo_Contraparte
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Tipo_Contraparte")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Tipo_Contraparte)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =7
                 Required: =false
@@ -10540,10 +10540,10 @@ Proveedor As screen:
                 DataField: ="RUT"
                 Default: =ThisItem.RUT
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"RUT")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,RUT)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "RUT")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, RUT)
                 Required: =false
                 Update: =DataCardValue33_1.Text
                 Width: =472
@@ -10611,10 +10611,10 @@ Proveedor As screen:
                 DataField: ="Giro_Proveedor"
                 Default: =ThisItem.Giro_Proveedor
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Giro_Proveedor")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Giro_Proveedor)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Giro_Proveedor")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Giro_Proveedor)
                 Required: =false
                 Update: =DataCardValue41_1.Text
                 Width: =472
@@ -10679,10 +10679,10 @@ Proveedor As screen:
                 DataField: ="Direccion"
                 Default: =ThisItem.Direccion
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Direccion")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Direccion)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Direccion")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Direccion)
                 Required: =false
                 Update: =DataCardValue34_1.Text
                 Width: =472
@@ -10747,10 +10747,10 @@ Proveedor As screen:
                 DataField: ="Nombre_Representante_Legal_1"
                 Default: =ThisItem.Nombre_Representante_Legal_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Nombre_Representante_Legal_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Nombre_Representante_Legal_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Nombre_Representante_Legal_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Nombre_Representante_Legal_1)
                 Required: =false
                 Update: =DataCardValue47.Text
                 Width: =472
@@ -10815,10 +10815,10 @@ Proveedor As screen:
                 DataField: ="Rut_Representante_Legal_1"
                 Default: =ThisItem.Rut_Representante_Legal_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Rut_Representante_Legal_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Rut_Representante_Legal_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Rut_Representante_Legal_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Rut_Representante_Legal_1)
                 Required: =false
                 Update: =DataCardValue48.Text
                 Width: =472
@@ -10883,10 +10883,10 @@ Proveedor As screen:
                 DataField: ="Correo_Representante_1"
                 Default: =ThisItem.Correo_Representante_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Correo_Representante_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Correo_Representante_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Correo_Representante_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Correo_Representante_1)
                 Required: =false
                 Update: =DataCardValue49.Text
                 Width: =472
@@ -10951,10 +10951,10 @@ Proveedor As screen:
                 DataField: ="Nombre_Representante_Legal_2"
                 Default: =ThisItem.Nombre_Representante_Legal_2
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Nombre_Representante_Legal_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Nombre_Representante_Legal_2)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Nombre_Representante_Legal_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Nombre_Representante_Legal_2)
                 Required: =false
                 Update: =DataCardValue50.Text
                 Width: =472
@@ -11019,10 +11019,10 @@ Proveedor As screen:
                 DataField: ="Rut_Representante_Legal_2"
                 Default: =ThisItem.Rut_Representante_Legal_2
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Rut_Representante_Legal_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Rut_Representante_Legal_2)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Rut_Representante_Legal_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Rut_Representante_Legal_2)
                 Required: =false
                 Update: =DataCardValue51_1.Text
                 Width: =472
@@ -11087,10 +11087,10 @@ Proveedor As screen:
                 DataField: ="Correo_Representante_2"
                 Default: =ThisItem.Correo_Representante_2
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Correo_Representante_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Correo_Representante_2)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Correo_Representante_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Correo_Representante_2)
                 Required: =false
                 Update: =DataCardValue52_1.Text
                 Width: =472
@@ -11155,10 +11155,10 @@ Proveedor As screen:
                 DataField: ="Notaria_Personeria"
                 Default: =ThisItem.Notaria_Personeria
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Notaria_Personeria")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Notaria_Personeria)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Notaria_Personeria")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Notaria_Personeria)
                 Required: =false
                 Update: =DataCardValue43_1.Text
                 Width: =472
@@ -11223,10 +11223,10 @@ Proveedor As screen:
                 DataField: ="Nombre_Notario_Personeria"
                 Default: =ThisItem.Nombre_Notario_Personeria
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Nombre_Notario_Personeria")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Nombre_Notario_Personeria)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Nombre_Notario_Personeria")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Nombre_Notario_Personeria)
                 Required: =false
                 Update: =DataCardValue44.Text
                 Width: =472
@@ -11291,10 +11291,10 @@ Proveedor As screen:
                 DataField: ="Nombre_Contacto_1"
                 Default: =ThisItem.'Nombre_Contacto_ 1'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Nombre_Contacto_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,'Nombre_Contacto_ 1')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Nombre_Contacto_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, 'Nombre_Contacto_ 1')
                 Required: =false
                 Update: =DataCardValue36_1.Text
                 Width: =472
@@ -11359,10 +11359,10 @@ Proveedor As screen:
                 DataField: ="Correo_Contacto_1"
                 Default: =ThisItem.Correo_Contacto_1
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Correo_Contacto_1")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Correo_Contacto_1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Correo_Contacto_1")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Correo_Contacto_1)
                 Required: =false
                 Update: =DataCardValue37_1.Text
                 Width: =472
@@ -11427,10 +11427,10 @@ Proveedor As screen:
                 DataField: ="Nombre_Contacto_2"
                 Default: =ThisItem.'Nombre_Contacto_ Notificaciones'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Nombre_Contacto_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,'Nombre_Contacto_ Notificaciones')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Nombre_Contacto_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, 'Nombre_Contacto_ Notificaciones')
                 Required: =false
                 Update: =DataCardValue38_1.Text
                 Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)
@@ -11496,10 +11496,10 @@ Proveedor As screen:
                 DataField: ="Correo_Contacto_2"
                 Default: =ThisItem.Correo_Contacto_Notificaciones
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,"Correo_Contacto_2")
+                DisplayName: =DataSourceInfo([@Lst_Proveedores],DataSourceInfo.DisplayName,Correo_Contacto_Notificaciones)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, "Correo_Contacto_2")
+                MaxLength: =DataSourceInfo([@Lst_Proveedores], DataSourceInfo.MaxLength, Correo_Contacto_Notificaciones)
                 Required: =false
                 Update: =DataCardValue40.Text
                 Visible: =If(DataCardValue26_1.Selected.Value="Contrato de Prestación de Servicio",true,false)

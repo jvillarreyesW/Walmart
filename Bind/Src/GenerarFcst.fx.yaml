@@ -1012,9 +1012,9 @@ GenerarFcst As screen:
     Cmb_FiltroInputData As combobox:
         DisplayFields: =["ImputData"]
         InputTextPlaceholder: ="Buscar InputData"
-        Items: =GroupBy(Lst_Fcst_Detalle,"ImputData","IPData")
+        Items: =GroupBy(Lst_Fcst_Detalle,InputData,IPData)
         SearchFields: =["ImputData"]
-        SearchItems: =Search(GroupBy(Lst_Fcst_Detalle,"ImputData","IPData"),Cmb_FiltroInputData.SearchText,"ImputData")
+        SearchItems: =Search(GroupBy(Lst_Fcst_Detalle,InputData,IPData),Cmb_FiltroInputData.SearchText,ImputData)
         SelectMultiple: =false
         Template: =ListItemTemplate.Double
         Visible: |-
@@ -1942,12 +1942,12 @@ GenerarFcst As screen:
                     ZIndex: =1
 
             "'NOMBRE CECO_DataCard2' As typedDataCard.allowedValuesStringEditCard":
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "NOMBRE_x0020_CECO")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, 'NOMBRE CECO')
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="NOMBRE_x0020_CECO"
                 Default: =ThisItem.'NOMBRE CECO'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NOMBRE_x0020_CECO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,'NOMBRE CECO')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -2094,12 +2094,12 @@ GenerarFcst As screen:
                     ZIndex: =1
 
             "'NOMBRE CUENTA_DataCard2' As typedDataCard.allowedValuesStringEditCard":
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "NOMBRE_x0020_CUENTA")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, 'NOMBRE CUENTA')
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="NOMBRE_x0020_CUENTA"
                 Default: =ThisItem.'NOMBRE CUENTA'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NOMBRE_x0020_CUENTA")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,'NOMBRE CUENTA')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =110
                 Required: =false
@@ -2199,12 +2199,12 @@ GenerarFcst As screen:
                     ZIndex: =6
 
             PAQUETE_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PAQUETE")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, PAQUETE)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="PAQUETE"
                 Default: =ThisItem.PAQUETE
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PAQUETE")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,PAQUETE)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -2331,12 +2331,12 @@ GenerarFcst As screen:
                     ZIndex: =1
 
             PROVEEDOR_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PROVEEDOR")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, PROVEEDOR)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="PROVEEDOR"
                 Default: =ThisItem.PROVEEDOR
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PROVEEDOR")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,PROVEEDOR)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =110
                 Required: =false
@@ -2459,7 +2459,7 @@ GenerarFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Empresa0"]
-                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54.SearchText,"Empresa0")
+                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54.SearchText,Empresa)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2471,12 +2471,12 @@ GenerarFcst As screen:
                     ZIndex: =6
 
             PRODUCTO_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "PRODUCTO")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, PRODUCTO)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="PRODUCTO"
                 Default: =ThisItem.PRODUCTO
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"PRODUCTO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,PRODUCTO)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -2598,7 +2598,7 @@ GenerarFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-                    SearchItems: =Search(Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending),DataCardValue55.SearchText,"Nombre_x0020_Producto_x002f_Proy")
+                    SearchItems: =Search(Sort(Col_BD_Portafolio,'Nombre Producto/Proyecto',SortOrder.Ascending),DataCardValue55.SearchText,'Nombre Producto/Proyecto')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2610,12 +2610,12 @@ GenerarFcst As screen:
                     ZIndex: =6
 
             MONEDA_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, "MONEDA")
+                AllowedValues: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.AllowedValues, MONEDA)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="MONEDA"
                 Default: =ThisItem.MONEDA
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"MONEDA")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,MONEDA)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =104
                 Required: =false
@@ -2805,10 +2805,10 @@ GenerarFcst As screen:
                 DataField: ="IDImputData"
                 Default: =ThisItem.IDInputData
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"IDImputData")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,IDInputData)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "IDImputData")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, IDInputData)
                 Required: =false
                 Update: =DataCardValue123.Text
                 Visible: =false
@@ -2874,10 +2874,10 @@ GenerarFcst As screen:
                 DataField: ="InputData"
                 Default: =ThisItem.InputData
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"InputData")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,InputData)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "InputData")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, InputData)
                 Required: =false
                 Update: =DataCardValue124.Text
                 Visible: =false
@@ -2943,10 +2943,10 @@ GenerarFcst As screen:
                 DataField: ="RESPONSABLE"
                 Default: =ThisItem.RESPONSABLE
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"RESPONSABLE")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,RESPONSABLE)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =100
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "RESPONSABLE")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, RESPONSABLE)
                 Required: =false
                 Update: =DataCardValue13.Selected.DisplayName
                 Width: =591
@@ -3073,10 +3073,10 @@ GenerarFcst As screen:
                 DataField: ="SERVICIO"
                 Default: =ThisItem.SERVICIO
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"SERVICIO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,SERVICIO)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =104
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "SERVICIO")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, SERVICIO)
                 Required: =false
                 Update: =DataCardValue20.Text
                 Width: =590
@@ -3143,10 +3143,10 @@ GenerarFcst As screen:
                 DataField: ="CECO"
                 Default: =ThisItem.CECO
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"CECO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,CECO)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =70
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "CECO")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, CECO)
                 Required: =false
                 Update: =DataCardValue42.Text
                 Width: =590
@@ -3213,10 +3213,10 @@ GenerarFcst As screen:
                 DataField: ="NUEVA_x0020_CLASIFICACION"
                 Default: =ThisItem.'NUEVA CLASIFICACION'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"NUEVA_x0020_CLASIFICACION")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,'NUEVA CLASIFICACION')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "NUEVA_x0020_CLASIFICACION")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, 'NUEVA CLASIFICACION')
                 Required: =false
                 Update: =DataCardValue34.Text
                 Width: =590
@@ -3284,10 +3284,10 @@ GenerarFcst As screen:
                 DataField: ="DUE_x00d1_O_x0020_CECO"
                 Default: =ThisItem.'DUEÑO CECO'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"DUE_x00d1_O_x0020_CECO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,'DUEÑO CECO')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =104
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "DUE_x00d1_O_x0020_CECO")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, 'DUEÑO CECO')
                 Required: =false
                 Update: =DataCardValue43.Text
                 Width: =590
@@ -3355,10 +3355,10 @@ GenerarFcst As screen:
                 DataField: ="CUENTA"
                 Default: =ThisItem.CUENTA
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"CUENTA")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,CUENTA)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "CUENTA")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, CUENTA)
                 Required: =false
                 Update: =DataCardValue41.Text
                 Visible: =true
@@ -3426,10 +3426,10 @@ GenerarFcst As screen:
                 DataField: ="USUARIO"
                 Default: =ThisItem.USUARIO
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"USUARIO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,USUARIO)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =110
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "USUARIO")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, USUARIO)
                 Required: =false
                 Update: =DataCardValue45.Selected.DisplayName
                 Width: =590
@@ -3567,10 +3567,10 @@ GenerarFcst As screen:
                 DataField: ="EQUIPO"
                 Default: =ThisItem.EQUIPO
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"EQUIPO")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,EQUIPO)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =70
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "EQUIPO")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, EQUIPO)
                 Required: =false
                 Update: =DataCardValue46.Selected.'Equipo/Squad'
                 Width: =590
@@ -3691,7 +3691,7 @@ GenerarFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["Equipo_x002f_Squad"]
-                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46.SearchText,"Equipo_x002f_Squad")
+                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46.SearchText,'Equipo/Squad')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -3707,10 +3707,10 @@ GenerarFcst As screen:
                 DataField: ="Title"
                 Default: =ThisItem.IDRESPONSABLE
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,"Title")
+                DisplayName: =DataSourceInfo([@Lst_Fcst_Datos],DataSourceInfo.DisplayName,IDRESPONSABLE)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, "Title")
+                MaxLength: =DataSourceInfo([@Lst_Fcst_Datos], DataSourceInfo.MaxLength, IDRESPONSABLE)
                 Required: =false
                 Update: =DataCardValue12.Text
                 Visible: =false

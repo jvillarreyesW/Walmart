@@ -344,10 +344,10 @@ ModuloRiesgosServTech As screen:
             DataField: ="NombreRiesgo"
             Default: =ThisItem.NombreRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"NombreRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,NombreRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =221
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "NombreRiesgo")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, NombreRiesgo)
             Required: =false
             Update: =Txt_Ris_NombreRiesgo_1.Text
             Width: =475
@@ -416,7 +416,7 @@ ModuloRiesgosServTech As screen:
             DataField: ="FechaRegistroRiesgo"
             Default: =ThisItem.FechaRegistroRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaRegistroRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,FechaRegistroRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -548,10 +548,10 @@ ModuloRiesgosServTech As screen:
             DataField: ="PlandeAccion"
             Default: =ThisItem.PlandeAccion
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"PlandeAccion")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,PlandeAccion)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =220
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "PlandeAccion")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, PlandeAccion)
             Required: =false
             Update: =DataCardValue17.Text
             Width: =475
@@ -626,10 +626,10 @@ ModuloRiesgosServTech As screen:
             DataField: ="Criticidad"
             Default: =ThisItem.Criticidad
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Criticidad")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Criticidad)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =90
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "Criticidad")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, Criticidad)
             Required: =false
             Update: =Dpd_Ris_Impacto_2.Selected.Value
             Width: =475
@@ -716,12 +716,12 @@ ModuloRiesgosServTech As screen:
                 ZIndex: =10
 
         Responsable_DataCard2_1 As typedDataCard.allowedValuesStringEditCard:
-            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, "Responsable")
+            AllowedValues: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.AllowedValues, Responsable)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Responsable"
             Default: =ThisItem.Responsable
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Responsable")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Responsable)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =110
             Required: =false
@@ -829,10 +829,10 @@ ModuloRiesgosServTech As screen:
             DataField: ="Estado"
             Default: =ThisItem.Estado
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"Estado")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,Estado)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "Estado")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, Estado)
             Required: =false
             Update: =DataCardValue106.Text
             Visible: =true
@@ -942,10 +942,10 @@ ModuloRiesgosServTech As screen:
             DataField: ="IDProyecto"
             Default: =ThisItem.IDProyecto
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"IDProyecto")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,IDProyecto)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, "IDProyecto")
+            MaxLength: =DataSourceInfo([@Lst_Riesgos_Proyectos], DataSourceInfo.MaxLength, IDProyecto)
             Required: =false
             Update: =Txt_Ris_IDProyecto_1.Text
             Visible: =false
@@ -1011,7 +1011,7 @@ ModuloRiesgosServTech As screen:
             DataField: ="ID"
             Default: =ThisItem.ID
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"ID")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,ID)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false
@@ -1049,7 +1049,7 @@ ModuloRiesgosServTech As screen:
             DataField: ="FechaUmbralRiesgo"
             Default: =ThisItem.FechaUmbralRiesgo
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,"FechaUmbralRiesgo")
+            DisplayName: =DataSourceInfo([@Lst_Riesgos_Proyectos],DataSourceInfo.DisplayName,FechaUmbralRiesgo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false

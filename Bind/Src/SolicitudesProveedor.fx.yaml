@@ -444,7 +444,7 @@ SolicitudesProveedor As screen:
                             ),
                             
                                 Txt_FondoForm1_84.Text,
-                                "Nombre_Solicitud","Solicitante","Proveedor","ID_x0020_Webdox","Nombre_del_Servicio","Descripcion"),
+                                Nombre_Solicitud,Solicitante,Proveedor,'ID Webdox',Nombre_del_Servicio,Descripcion_del_Servicio),
                         (IsBlank(Cmb_FiltroNombre_2.Selected.Value)||Estado_Solicitud.Value=Cmb_FiltroNombre_2.Selected.Value) 
                         && Estado_Solicitud.Value<>"Documento archivado" 
                         &&  Estado_Solicitud.Value<>"Cancelada"   &&  Estado_Solicitud.Value<>"Contrato Inactivo"  
@@ -1192,7 +1192,7 @@ SolicitudesProveedor As screen:
                 =Search(
                             Filter(Lst_ContratosProveedores,Formulario_Solicitud.Value="Contrato de Prestación de Servicio" && Estado_Solicitud.Value="Documento archivado"),
                             Txt_FondoForm1_159.Text,
-                            "Descripcion_Solicitud","Nombre_Solicitud","Nombre_Documento_Descripcion_Ser")
+                            Descripcion_Solicitud,Nombre_Solicitud,Nombre_Documento_Descripcion_Servicios)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =215
@@ -1418,7 +1418,7 @@ SolicitudesProveedor As screen:
                 DataField: ="ID_x0020_Webdox"
                 Default: =ThisItem.'ID Webdox'
                 DisplayMode: =DisplayMode.Edit
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"ID_x0020_Webdox")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'ID Webdox')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1485,7 +1485,7 @@ SolicitudesProveedor As screen:
                 DataField: ="Estado_Solicitud"
                 Default: =ThisItem.Estado_Solicitud
                 DisplayMode: =DisplayMode.Edit
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Estado_Solicitud")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Estado_Solicitud)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -1551,10 +1551,10 @@ SolicitudesProveedor As screen:
                 DataField: ="Solicitante"
                 Default: =ThisItem.Solicitante
                 DisplayMode: =DisplayMode.Edit
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Solicitante")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Solicitante)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Solicitante")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Solicitante)
                 Required: =false
                 Update: =DataCardValue160.Text
                 Width: =342
@@ -1619,10 +1619,10 @@ SolicitudesProveedor As screen:
                 DataField: ="Nombre_Solicitud"
                 Default: =ThisItem.Nombre_Solicitud
                 DisplayMode: =DisplayMode.Edit
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Nombre_Solicitud")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Nombre_Solicitud)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Nombre_Solicitud")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Nombre_Solicitud)
                 Required: =false
                 Update: =DataCardValue157.Text
                 Width: =1026
@@ -1687,10 +1687,10 @@ SolicitudesProveedor As screen:
                 DataField: ="Comentarios_Seguimiento"
                 Default: =ThisItem.Comentarios_Seguimiento
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,"Comentarios_Seguimiento")
+                DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Comentarios_Seguimiento)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =224
-                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, "Comentarios_Seguimiento")
+                MaxLength: =DataSourceInfo([@Lst_ContratosProveedores], DataSourceInfo.MaxLength, Comentarios_Seguimiento)
                 Required: =false
                 Update: =DataCardValue153.Text
                 Width: =1026
@@ -2052,7 +2052,7 @@ SolicitudesProveedor As screen:
 
     DescargarContratos As button:
         OnSelect: |-
-            =ClearCollect(xx,ShowColumns(AddColumns(Gallery2_4.AllItems,"estado",Estado_Solicitud.Value),"Solicitante","ID_x0020_Webdox","Proveedor","estado","Nombre_Solicitud"));
+            =ClearCollect(xx,ShowColumns(AddColumns(Gallery2_4.AllItems,estado,Estado_Solicitud.Value),Solicitante,'ID Webdox',Proveedor,estado,Nombre_Solicitud));
             Set(li,BindExportarContratos.Run(JSON(xx,JSONFormat.Compact)).export);
             Launch(li)//&"?Download=1")
         Text: ="Botón"
