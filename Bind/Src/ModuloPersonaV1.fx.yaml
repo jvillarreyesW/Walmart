@@ -1873,18 +1873,26 @@ ModuloPersonaV1 As screen:
                     ChevronDisabledFill: =RGBA(128, 128, 128, 1)
                     ChevronFill: =RGBA(0, 121, 187, 1)
                     ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |
-                        =If(
-                            Dpd_InternoExterno_1.Selected.Value = "Interno",
-                            Blank(),
+                    Default: |-
+                        ={Value:Parent.Default}
+                        
+                        /*
+                        If(
+                            Dpd_InternoExterno_1.Selected.Value = "Interno";
+                            Blank();
                             {Value:Parent.Default}
                         )
+                        */
                     DefaultSelectedItems: |-
-                        =If(
-                            Dpd_InternoExterno_1.Selected.Value = "Interno",
-                            Blank(),
+                        =Table({Value:Parent.Default})
+                        
+                        /*
+                        If(
+                            Dpd_InternoExterno_1.Selected.Value = "Interno";
+                            Blank();
                             Table({Value:Parent.Default})
                         )
+                        */
                         
                         /*
                         If(
@@ -1898,11 +1906,11 @@ ModuloPersonaV1 As screen:
                     DisplayMode: =Parent.DisplayMode
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
                     IsSearchable: =false
-                    Items: =["Subcontratación Outsourcing","Subcontratación Servicios"]
+                    Items: =["Headcount","Subcontratación Headcount","Subcontratación Servicios"]
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Search(["Headcount","Subcontratación Headcount","Subcontratación Servicios"],DataCardValue162.SearchText,Value)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Txt_FondoForm1_197.Width - 27
