@@ -49,7 +49,7 @@ Component1 As CanvasComponent:
         ZIndex: =1
 
     Gallery13_1 As gallery.galleryHorizontal:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =83
         Items: =Distinct(Col_MenuBind,Menu)
@@ -96,7 +96,7 @@ Component1 As CanvasComponent:
             ZIndex: =3
 
     Gl_OpcionesMenu As gallery.galleryVertical:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderStyle: =BorderStyle.None
         BorderThickness: =2
         DelayItemLoading: =true
@@ -262,7 +262,7 @@ Component1 As CanvasComponent:
             ZIndex: =2
 
     Gallery14_2 As gallery.galleryHorizontal:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderStyle: =BorderStyle.None
         DelayItemLoading: =true
         Height: =443

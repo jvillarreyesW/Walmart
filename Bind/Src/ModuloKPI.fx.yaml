@@ -18,7 +18,7 @@ ModuloKPI As screen:
         Set(_VarMostrarCargando;false)*/
 
     GL_ProductoProyecto_2 As gallery.variableTemplateHeightGallery:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1
@@ -126,7 +126,7 @@ ModuloKPI As screen:
             ZIndex: =115
 
             Gl_KPIs_1 As gallery.variableTemplateHeightGallery:
-                '#CopilotOverlayLabel': ="Filtrada"
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(128, 128, 128, 1)
                 BorderStyle: =BorderStyle.Dotted
                 BorderThickness: =1
@@ -878,7 +878,7 @@ ModuloKPI As screen:
                     ZIndex: =36
 
             Gl_KPIs_Detalle_1 As gallery.variableTemplateHeightGallery:
-                '#CopilotOverlayLabel': ="Filtrada"
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(179, 179, 179, 1)
                 BorderStyle: =BorderStyle.Dotted
                 BorderThickness: =1

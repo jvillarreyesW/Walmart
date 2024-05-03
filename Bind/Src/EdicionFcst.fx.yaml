@@ -27,7 +27,7 @@ EdicionFcst As screen:
         )
 
     Gallery6_1 As gallery.galleryVertical:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(53, 61, 63, 1)
         BorderThickness: =1
         DelayItemLoading: =true

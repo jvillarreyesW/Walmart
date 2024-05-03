@@ -19,7 +19,7 @@ ListadoProductoProyecto As screen:
         
 
     GL_ListadoProductoProyecto As gallery.variableTemplateHeightGallery:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1
@@ -801,7 +801,7 @@ ListadoProductoProyecto As screen:
         ZIndex: =30
 
     Gl_PopUpProducto As gallery.galleryVertical:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =782
         Items: =Filter(Col_DominiosGestion,IDProducto = _VarIDProdSele )

@@ -421,7 +421,7 @@ SolicitudesProveedor As screen:
         ZIndex: =22
 
         Gallery2_4 As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =647
@@ -1186,7 +1186,7 @@ SolicitudesProveedor As screen:
             ZIndex: =2
 
         Gallery2_5 As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =700

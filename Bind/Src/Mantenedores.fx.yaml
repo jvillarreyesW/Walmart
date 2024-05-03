@@ -63,7 +63,7 @@ Mantenedores As screen:
         ZIndex: =3
 
     "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderThickness: =2
         Height: =896
@@ -297,7 +297,7 @@ Mantenedores As screen:
             ZIndex: =22
 
         Gl_Administrar As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             Height: =295
             Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar.Text)
@@ -355,7 +355,7 @@ Mantenedores As screen:
             ZIndex: =24
 
         Gl_Dashboard As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             Height: =295
             Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar_1.Text)
@@ -413,7 +413,7 @@ Mantenedores As screen:
             ZIndex: =26
 
         Gl_Ayuda As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             Height: =295
             Items: =Filter(Lst_MenuBind, Menu = Lbl_Administrar_2.Text)
@@ -1728,7 +1728,7 @@ Mantenedores As screen:
                 ZIndex: =1
 
             Gallery12_2 As gallery.galleryVertical:
-                '#CopilotOverlayLabel': ="Filtrada"
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(53, 61, 63, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true

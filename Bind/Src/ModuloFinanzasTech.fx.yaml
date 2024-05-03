@@ -9,7 +9,7 @@ ModuloFinanzasTech As screen:
         ZIndex: =4
 
     GL_ProductoProyecto_5 As gallery.variableTemplateHeightGallery:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1
@@ -37,7 +37,7 @@ ModuloFinanzasTech As screen:
             ZIndex: =1
 
         Gl_FinanciamientoProducto_2 As gallery.variableTemplateHeightGallery:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.Dotted
             BorderThickness: =2

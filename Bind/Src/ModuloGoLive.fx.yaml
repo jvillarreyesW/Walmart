@@ -1189,7 +1189,7 @@ ModuloGoLive As screen:
         ZIndex: =32
 
     Gallery4 As gallery.variableTemplateHeightGallery:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(255, 255, 255, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =2
@@ -1385,7 +1385,7 @@ ModuloGoLive As screen:
         ZIndex: =39
 
     Gallery4_1 As gallery.variableTemplateHeightGallery:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(255, 255, 255, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =2

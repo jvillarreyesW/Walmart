@@ -91,7 +91,7 @@ ModuloGestionEquipoV1 As screen:
         ZIndex: =5
 
         "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(53, 61, 63, 1)
             BorderThickness: =2
             DelayItemLoading: =true

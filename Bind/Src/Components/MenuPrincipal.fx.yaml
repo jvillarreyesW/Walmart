@@ -14,7 +14,7 @@ MenuPrincipal As CanvasComponent:
     ZIndex: =1
 
     Menu As gallery.galleryHorizontal:
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =669
         Items: =MenuPrincipal.TablaPrincipal
@@ -158,7 +158,7 @@ MenuPrincipal As CanvasComponent:
             ZIndex: =2
 
         SubMenu As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtrada"
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             DelayItemLoading: =true
@@ -399,7 +399,7 @@ MenuPrincipal As CanvasComponent:
         ZIndex: =7
 
     "Gallery9 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
-        '#CopilotOverlayLabel': ="Filtrada"
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =123
         Items: =MenuPrincipal.SubTablaN2

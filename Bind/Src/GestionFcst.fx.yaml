@@ -3379,7 +3379,7 @@ GestionFcst As screen:
             ZIndex: =42
 
             Gallery17 As gallery.variableTemplateHeightGallery:
-                '#CopilotOverlayLabel': ="Filtrada"
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(106, 122, 127, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
