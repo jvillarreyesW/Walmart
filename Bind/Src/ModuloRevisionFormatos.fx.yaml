@@ -304,6 +304,7 @@ ModuloRevisionFormatos As screen:
         ZIndex: =6
 
         Gallery2_7 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =698

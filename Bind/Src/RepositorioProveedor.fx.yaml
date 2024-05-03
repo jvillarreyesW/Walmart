@@ -252,6 +252,7 @@ RepositorioProveedor As screen:
             ZIndex: =25
 
     Gallery16 As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderThickness: =1
         Fill: =RGBA(255, 255, 255, 1)
         Height: =760
@@ -295,6 +296,7 @@ RepositorioProveedor As screen:
             ZIndex: =1
 
         GalListaContratos_1 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: |-
@@ -2454,6 +2456,7 @@ RepositorioProveedor As screen:
             ZIndex: =7
 
         Gallery8 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(214, 221, 224, 1)
             BorderThickness: =1
             DelayItemLoading: =true
@@ -3065,6 +3068,7 @@ RepositorioProveedor As screen:
             ZIndex: =2
 
         Gallery2_6 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =875

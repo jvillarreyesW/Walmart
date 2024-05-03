@@ -58,6 +58,7 @@ Ctr_Estado As CanvasComponent:
         ZIndex: =1
 
     Principal As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Fill: |
             =
@@ -82,6 +83,7 @@ Ctr_Estado As CanvasComponent:
             ZIndex: =1
 
         Secundario As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             Height: =39 *  CountRows(Filter(Ctr_Estado.ListaEstados, Grupo =ThisItem.Grupo))
             Items: =Filter(Ctr_Estado.ListaEstados,Grupo = ThisItem.Grupo)

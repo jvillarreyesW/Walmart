@@ -514,6 +514,7 @@ ModuloKPIServTech As screen:
         ZIndex: =53
 
         Gl_KPIs_2 As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(128, 128, 128, 1)
             BorderStyle: =BorderStyle.Dotted
             BorderThickness: =1
@@ -1295,6 +1296,7 @@ ModuloKPIServTech As screen:
                 ZIndex: =40
 
         Gl_KPIs_Detalle_2 As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.Dotted
             BorderThickness: =1

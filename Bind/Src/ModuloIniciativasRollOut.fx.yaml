@@ -322,6 +322,7 @@ ModuloIniciativasRollOut As screen:
             ZIndex: =21
 
         "Gallery14_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(79, 90, 94, 1)
             BorderThickness: =1
             DelayItemLoading: =true
@@ -791,6 +792,7 @@ ModuloIniciativasRollOut As screen:
         ZIndex: =15
 
         Gallery12_1 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =495

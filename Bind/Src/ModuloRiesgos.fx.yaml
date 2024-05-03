@@ -2153,6 +2153,7 @@ ModuloRiesgos As screen:
         ZIndex: =49
 
     Gallery4_2 As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(255, 255, 255, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =2

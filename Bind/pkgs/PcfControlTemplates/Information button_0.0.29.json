@@ -20,144 +20,14 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 3,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
         "Type": 53,
         "WizardStep": null
       },
-      "Checked": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 1,
-        "SectionName": null,
-        "SectionType": "BehaviorSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 0,
-        "WizardStep": null
-      },
-      "DisplayMode": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 1,
-        "SectionName": null,
-        "SectionType": "BehaviorSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 27,
-        "WizardStep": null
-      },
-      "Font": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 33,
-        "WizardStep": null
-      },
-      "FontColor": {
-        "EnabledForFlyout": false,
-        "HelperUI": "color",
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 31,
-        "WizardStep": null
-      },
-      "FontItalic": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "Style",
-        "PropertyKind": 2,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 35,
-        "WizardStep": null
-      },
-      "FontSize": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 0,
-        "WizardStep": null
-      },
-      "FontStrikethrough": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "Style",
-        "PropertyKind": 2,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 37,
-        "WizardStep": null
-      },
-      "FontUnderline": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "Style",
-        "PropertyKind": 2,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 36,
-        "WizardStep": null
-      },
-      "FontWeight": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 3,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 34,
-        "WizardStep": null
-      },
-      "Height": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "Size",
-        "PropertyKind": 2,
-        "SectionIndex": 2,
-        "SectionName": null,
-        "SectionType": "SizeAndPositioningSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 0,
-        "WizardStep": null
-      },
-      "Label": {
+      "Content": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
@@ -170,13 +40,117 @@
         "Type": 0,
         "WizardStep": null
       },
-      "LabelPosition": {
+      "Font": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
         "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 33,
+        "WizardStep": null
+      },
+      "FontColor": {
+        "EnabledForFlyout": false,
+        "HelperUI": "color",
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 31,
+        "WizardStep": null
+      },
+      "FontItalic": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 35,
+        "WizardStep": null
+      },
+      "FontSize": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 0,
+        "WizardStep": null
+      },
+      "FontStrikethrough": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 37,
+        "WizardStep": null
+      },
+      "FontUnderline": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 36,
+        "WizardStep": null
+      },
+      "FontWeight": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 2,
+        "SectionName": null,
+        "SectionType": "StyleAndThemeSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 34,
+        "WizardStep": null
+      },
+      "Height": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Size",
+        "PropertyKind": 2,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": "SizeAndPositioningSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 0,
+        "WizardStep": null
+      },
+      "IconSize": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 1,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -202,7 +176,7 @@
         "Hidden": false,
         "PropertyGroupName": "Size",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 1,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -215,7 +189,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 1,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -228,7 +202,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 1,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -247,27 +221,9 @@
       "PfxDefaultValue": null
     }
   ],
-  "ControlConstructor": "Toggle",
+  "ControlConstructor": "InfoButtonCanvas",
   "ControlNamespace": "PowerApps.CoreControls",
-  "DisplayNameKey": "Toggle_Display_Key",
-  "Events": [
-    {
-      "Description": "OnCheck",
-      "DisplayName": "OnCheck",
-      "Hidden": false,
-      "IsPrimaryInput": false,
-      "Name": "OnCheck",
-      "PfxDefaultValue": null
-    },
-    {
-      "Description": "OnUncheck",
-      "DisplayName": "OnUncheck",
-      "Hidden": false,
-      "IsPrimaryInput": false,
-      "Name": "OnUncheck",
-      "PfxDefaultValue": null
-    }
-  ],
+  "DisplayNameKey": "InfoButtonCanvas",
   "IncludedProperties": [
     {
       "Category": "design",
@@ -327,7 +283,7 @@
     },
     {
       "Category": "design",
-      "DefaultValue": "110",
+      "DefaultValue": "32",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Width",
@@ -346,16 +302,16 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "110",
+      "PhoneDefaultValue": "32",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "110"
+      "WebDefaultValue": "32"
     },
     {
       "Category": "design",
-      "DefaultValue": "35",
+      "DefaultValue": "32",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Height",
@@ -374,12 +330,12 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "35",
+      "PhoneDefaultValue": "32",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "35"
+      "WebDefaultValue": "32"
     },
     {
       "Category": "design",
@@ -438,26 +394,26 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Alternancia",
+  "Name": "Information button",
   "Properties": [
     {
       "Category": "data",
-      "DefaultValue": "",
-      "Description": "Para establecer el estado de activación del control de alternancia",
-      "DescriptionResourceString": "Toggle_Checked_Desc_Key",
-      "DisplayName": "Activado",
-      "DisplayNameResourceString": "Toggle_Checked_Display_Key",
+      "DefaultValue": "true",
+      "Description": "Whether this field can be reached with Tab key.",
+      "DescriptionResourceString": "InfoButtonCanvas_AcceptsFocus_Desc",
+      "DisplayName": "Accepts focus",
+      "DisplayNameResourceString": "InfoButtonCanvas_AcceptsFocus",
       "EnumValues": [],
-      "HelperUI": null,
+      "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
       "IsLinkableToParentTheme": false,
       "IsPrimaryBehavioral": false,
       "IsPrimaryInput": false,
       "IsPrimaryOutput": false,
-      "IsResettable": true,
+      "IsResettable": false,
       "IsResettableToManifestDefault": false,
-      "Name": "Checked",
+      "Name": "AcceptsFocus",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": "",
@@ -470,39 +426,11 @@
     },
     {
       "Category": "data",
-      "DefaultValue": "Label",
-      "Description": "Etiqueta de alternancia",
-      "DescriptionResourceString": "Toggle_Label_Desc_Key",
-      "DisplayName": "Etiqueta",
-      "DisplayNameResourceString": "Toggle_Label_Display_Key",
-      "EnumValues": [],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "Label",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 6,
-      "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta de accesibilidad para el componente de alternancia",
-      "DescriptionResourceString": "Toggle_AccessibleLabel_Desc_Key",
-      "DisplayName": "Etiqueta de accesibilidad",
-      "DisplayNameResourceString": "Toggle_AccessibleLabel_Display_Key",
+      "Description": "Label read out by screen readers.",
+      "DescriptionResourceString": "InfoButtonCanvas_AccessibleLabel_Desc",
+      "DisplayName": "Accessible label",
+      "DisplayNameResourceString": "InfoButtonCanvas_AccessibleLabel",
       "EnumValues": [],
       "HelperUI": null,
       "Hidden": false,
@@ -526,32 +454,32 @@
     },
     {
       "Category": "data",
-      "DefaultValue": "After",
-      "Description": "Defina la posición de la etiqueta alrededor del control de alternancia",
-      "DescriptionResourceString": "Toggle_LabelPosition_Desc_Key",
-      "DisplayName": "Posición de la etiqueta",
-      "DisplayNameResourceString": "Toggle_LabelPosition_Display_Key",
+      "DefaultValue": "Medium",
+      "Description": "Size of the button icon.",
+      "DescriptionResourceString": "InfoButtonCanvas_IconSize_Desc",
+      "DisplayName": "Icon size",
+      "DisplayNameResourceString": "InfoButtonCanvas_IconSize",
       "EnumValues": [
         {
-          "Description": "Delante",
-          "DisplayName": "Delante",
+          "Description": "Small",
+          "DisplayName": "Small",
           "IsDefaultValue": false,
-          "Name": "Before",
-          "Value": "Before"
+          "Name": "Small",
+          "Value": "Small"
         },
         {
-          "Description": "Detrás",
-          "DisplayName": "Detrás",
+          "Description": "Medium",
+          "DisplayName": "Medium",
           "IsDefaultValue": true,
-          "Name": "After",
-          "Value": "After"
+          "Name": "Medium",
+          "Value": "Medium"
         },
         {
-          "Description": "Encima",
-          "DisplayName": "Encima",
+          "Description": "Large",
+          "DisplayName": "Large",
           "IsDefaultValue": false,
-          "Name": "Above",
-          "Value": "Above"
+          "Name": "Large",
+          "Value": "Large"
         }
       ],
       "HelperUI": null,
@@ -563,23 +491,51 @@
       "IsPrimaryOutput": false,
       "IsResettable": false,
       "IsResettableToManifestDefault": false,
-      "Name": "LabelPosition",
+      "Name": "IconSize",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": "",
-      "PhoneDefaultValue": "After",
+      "PhoneDefaultValue": "Medium",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 1,
-      "Usage": 0,
-      "WebDefaultValue": "After"
+      "Usage": 2,
+      "WebDefaultValue": "Medium"
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "InfoButton content",
+      "Description": "Text content to display in the popup.",
+      "DescriptionResourceString": "InfoButtonCanvas_Content_Desc",
+      "DisplayName": "Content",
+      "DisplayNameResourceString": "InfoButtonCanvas_Content",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": true,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Content",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 6,
+      "Usage": 2,
+      "WebDefaultValue": ""
     },
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Elija una paleta de colores que sea diferente del tema.",
+      "Description": "Choose a color palette that's different from the theme.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Paleta de colores",
+      "DisplayName": "Color palette",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -605,9 +561,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
+      "Description": "The name of the family of fonts in which text appears",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Fuente",
+      "DisplayName": "Font",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -633,9 +589,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
+      "Description": "Set the font size for displayed text.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -661,9 +617,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El color del texto del control",
+      "Description": "The color of text in the control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Color de fuente",
+      "DisplayName": "Font color",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -689,9 +645,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El grosor del texto de un control",
+      "Description": "The weight of the text in a control",
       "DescriptionResourceString": "Font_Weight_description",
-      "DisplayName": "Espesor de la fuente",
+      "DisplayName": "Font weight",
       "DisplayNameResourceString": "Font_Weight",
       "EnumValues": [],
       "HelperUI": null,
@@ -717,9 +673,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Cursiva",
+      "Description": "Italic",
       "DescriptionResourceString": "Italic",
-      "DisplayName": "Cursiva",
+      "DisplayName": "Italic",
       "DisplayNameResourceString": "Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -745,9 +701,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Subrayado",
+      "Description": "Underline",
       "DescriptionResourceString": "Underline",
-      "DisplayName": "Subrayado",
+      "DisplayName": "Underline",
       "DisplayNameResourceString": "Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -773,9 +729,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Tachado",
+      "Description": "Strikethrough",
       "DescriptionResourceString": "Strikethrough",
-      "DisplayName": "Tachado",
+      "DisplayName": "Strikethrough",
       "DisplayNameResourceString": "Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -937,357 +893,357 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.Toggle\",\"CustomControlId\":\"PowerApps.CoreControls.Toggle\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"Checked\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"Label\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Label\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"LabelPosition\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"After\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":{\"OnCheck\":{\"EventName\":\"OnCheck\"},\"OnUncheck\":{\"EventName\":\"OnUncheck\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AcceptsFocus\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"true\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"IconSize\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Medium\"},\"Content\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"InfoButton content\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Checked\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Label\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"LabelPosition\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"AcceptsFocus\",\"Type\":\"TwoOptions\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"IconSize\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Content\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.29\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.29\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/bundle.js",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/InfoButtonCanvas.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1033.resx",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1033.resx",
       "Type": 2
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1025.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1025.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1026.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1026.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1027.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1027.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1028.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1028.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1029.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1029.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1030.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1030.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1031.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1031.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1032.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1032.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1033.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1033.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1035.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1035.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1036.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1036.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1037.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1037.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1038.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1038.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1040.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1040.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1041.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1041.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1042.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1042.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1043.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1043.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1044.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1044.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1045.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1045.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1046.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1046.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1048.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1048.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1049.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1049.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1050.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1050.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1051.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1051.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1053.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1053.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1054.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1054.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1055.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1055.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1057.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1057.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1058.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1058.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1060.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1060.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1061.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1061.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1062.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1062.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1063.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1063.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1066.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1066.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1069.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1069.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1081.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1081.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1086.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1086.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1087.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1087.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.1110.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.1110.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.2052.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.2052.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.2070.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.2070.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.2074.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.2074.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.3076.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.3076.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.3082.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.3082.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle.3098.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_InfoButtonCanvas/strings/InfoButtonCanvas.3098.json",
       "Type": 5
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Toggle_Display_Key\":\"Alternancia\",\"Toggle_Desc_Key\":\"Permite a los usuarios visualizar el control de alternancia\",\"Toggle_Label_Display_Key\":\"Etiqueta\",\"Toggle_Label_Desc_Key\":\"Etiqueta de alternancia\",\"Toggle_AccessibleLabel_Display_Key\":\"Etiqueta de accesibilidad\",\"Toggle_AccessibleLabel_Desc_Key\":\"Etiqueta de accesibilidad para el componente de alternancia\",\"Toggle_LabelPosition_Display_Key\":\"Posición de la etiqueta\",\"Toggle_LabelPosition_Desc_Key\":\"Defina la posición de la etiqueta alrededor del control de alternancia\",\"Toggle_LabelPosition_Before\":\"Delante\",\"Toggle_LabelPosition_After\":\"Detrás\",\"Toggle_LabelPosition_Above\":\"Encima\",\"Toggle_Checked_Display_Key\":\"Activado\",\"Toggle_Checked_Desc_Key\":\"Para establecer el estado de activación del control de alternancia\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Font_Weight\":\"Espesor de la fuente\",\"Font_Weight_description\":\"El grosor del texto de un control\",\"Italic\":\"Cursiva\",\"Underline\":\"Subrayado\",\"Strikethrough\":\"Tachado\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"InfoButtonCanvas\":\"Information button\",\"InfoButtonCanvas_Desc\":\"A way to display additional information about a form field or an area in the UI.\",\"InfoButtonCanvas_AcceptsFocus\":\"Accepts focus\",\"InfoButtonCanvas_AcceptsFocus_Desc\":\"Whether this field can be reached with Tab key.\",\"InfoButtonCanvas_AccessibleLabel\":\"Accessible label\",\"InfoButtonCanvas_AccessibleLabel_Desc\":\"Label read out by screen readers.\",\"InfoButtonCanvas_Content\":\"Content\",\"InfoButtonCanvas_Content_Desc\":\"Text content to display in the popup.\",\"InfoButtonCanvas_IconSize\":\"Icon size\",\"InfoButtonCanvas_IconSize_Desc\":\"Size of the button icon.\",\"InfoButtonCanvas_IconSize_Small\":\"Small\",\"InfoButtonCanvas_IconSize_Medium\":\"Medium\",\"InfoButtonCanvas_IconSize_Large\":\"Large\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Default_Value_Content\":\"InfoButton content\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
       "Type": 3
     },
     {
@@ -1301,21 +1257,19 @@
       "IsControlSpecific": false,
       "LoadingOrder": 0,
       "ModifiedPath": "",
-      "Path": "React/16.8.6/16.8.6",
+      "Path": "Fluent/9.4.0/9.4.0",
       "Type": 4
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 0,
       "ModifiedPath": "",
-      "Path": "Fluent/9.2.0/9.4.0",
+      "Path": "React/16.8.6/16.8.6",
       "Type": 4
     }
   ],
   "SubscribedFunctionalities": {
-    "autoDisabledViewState": "true",
-    "supportResettableProperties": "true",
     "supportSetFocus": "true"
   },
-  "Version": "1.0.29"
+  "Version": "0.0.29"
 }

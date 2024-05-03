@@ -81,6 +81,7 @@
             ZIndex: =1
 
             "Gl_Plan_Objetivos As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -905,6 +906,7 @@
             ZIndex: =2
 
             "GL_Plan_Oportunidades As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderStyle: =BorderStyle.None
                 DelayItemLoading: =true
                 Height: =686
@@ -1674,6 +1676,7 @@
                 ZIndex: =1
 
             Gallery14 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =793
                 Items: =Lst_Plan_Soluciones
@@ -1950,6 +1953,7 @@
             ZIndex: =4
 
             Gallery10 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =592
                 Items: =Col_DetalleMenu
@@ -2082,6 +2086,7 @@
             ZIndex: =5
 
             "GL_Plan_OportunidadesN2 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =579
                 Items: =Col_BD_Plan_OPortunidadN2
@@ -2812,6 +2817,7 @@
             ZIndex: =6
 
             Gallery7 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderStyle: =BorderStyle.None
                 DelayItemLoading: =true
                 Height: =702
@@ -4501,6 +4507,27 @@
                 Y: =693
                 ZIndex: =64
 
+            Spinner2 As Spinner:
+                Appearance: ='Spinner.Appearance'.Primary
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =58
+                Label: ="Guardando"
+                LabelPosition: ='Spinner.LabelPosition'.Before
+                SpinnerSize: ='Spinner.SpinnerSize'.Huge
+                Visible: =_VarMostrarSpinner
+                Width: =200
+                X: =1040
+                Y: =686
+                ZIndex: =65
+
             Group3 As group:
                 Height: =5
                 Width: =5
@@ -4559,27 +4586,6 @@
                     X: =1478
                     Y: =126
                     ZIndex: =63
-
-            Spinner2 As Spinner:
-                Appearance: ='Spinner.Appearance'.Primary
-                BasePaletteColor: =
-                DisplayMode: =DisplayMode.Edit
-                Font: =""
-                FontColor: =
-                FontItalic: =false
-                FontSize: =0
-                FontStrikethrough: =false
-                FontUnderline: =false
-                FontWeight: =""
-                Height: =58
-                Label: ="Guardando"
-                LabelPosition: ='Spinner.LabelPosition'.Before
-                SpinnerSize: ='Spinner.SpinnerSize'.Huge
-                Visible: =_VarMostrarSpinner
-                Width: =200
-                X: =1040
-                Y: =686
-                ZIndex: =65
 
             Txt_KPI_Q3Actual As text:
                 BorderColor: =RGBA(128, 128, 128, 1)
@@ -4972,6 +4978,7 @@
                 ZIndex: =6
 
             Gl_AvancesKPI As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =438
                 Items: =SortByColumns(Col_AvancesKPI_,"ID",SortOrder.Descending,"FechaRegistro",SortOrder.Descending)
@@ -8330,6 +8337,7 @@
             ZIndex: =26
 
             "Gallery3 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -8375,6 +8383,7 @@
                     ZIndex: =4
 
             "Gallery3_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -8431,6 +8440,7 @@
                     ZIndex: =5
 
             Gallery3_2 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -8562,6 +8572,7 @@
             ZIndex: =28
 
             "Gallery3_4 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -8607,6 +8618,7 @@
                     ZIndex: =4
 
             "Gallery3_5 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -8713,6 +8725,7 @@
                 ZIndex: =9
 
     Gll_MenuIni As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderStyle: =BorderStyle.None
         DelayItemLoading: =true
         Height: =846

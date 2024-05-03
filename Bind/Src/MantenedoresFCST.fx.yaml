@@ -1110,6 +1110,7 @@ MantenedoresFCST As screen:
                     ZIndex: =24
 
             Gl_Fcst_TipoCambio As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(116, 116, 116, 1)
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =2
@@ -1611,6 +1612,7 @@ MantenedoresFCST As screen:
             ZIndex: =4
 
             Gallery15 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(53, 61, 63, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
@@ -2164,6 +2166,7 @@ MantenedoresFCST As screen:
                 ZIndex: =10
 
     Gallery11 As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =49
         Items: |

@@ -216,6 +216,7 @@ ModuloRevisionFormatosDetalle As screen:
         ZIndex: =13
 
     Gallery17_1 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderThickness: =1
         DelayItemLoading: =true
         Height: =397
@@ -285,6 +286,7 @@ ModuloRevisionFormatosDetalle As screen:
             ZIndex: =5
 
     Gallery17_2 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderColor: =RGBA(0, 0, 0, 1)
         BorderThickness: =1
         DelayItemLoading: =true
@@ -869,6 +871,7 @@ ModuloRevisionFormatosDetalle As screen:
         ZIndex: =31
 
         Gallery17_3 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(0, 0, 0, 1)
             BorderThickness: =1
             DelayItemLoading: =true

@@ -1,6 +1,7 @@
 ModuloData As screen:
 
     GL_ProductoProyecto_1 As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1
         DelayItemLoading: =true

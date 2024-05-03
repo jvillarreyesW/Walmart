@@ -1048,6 +1048,7 @@ SolicitudOrden As screen:
         ZIndex: =13
 
     Gallery3_3 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
         BorderThickness: =1
         DelayItemLoading: =true
         Height: =682
@@ -1318,6 +1319,7 @@ SolicitudOrden As screen:
         ZIndex: =32
 
         Gl_FinanciamientoProducto_6 As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.Dotted
             BorderThickness: =2
@@ -1851,6 +1853,7 @@ SolicitudOrden As screen:
             ZIndex: =8
 
         Gallery3_6 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =682
