@@ -766,7 +766,11 @@ ServiciosTech As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Title"]
-            SearchItems: =[]
+            SearchItems: |-
+                =Search(Filter(Col_BD_Dominios,
+                IDDominio="Via-F0530905-33AC-1567-7C50-3BF2EFCF230A" || 
+                IDDominio="Via-EFF1A142-75C7-8AD8-4CCA-C645097B0BA4" ||
+                IDDominio="Via-F0530905-33AC-1567-7C50-3BF2EFCFP7K8"),Cmb_FiltroNombre_6.SearchText,Title)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -814,7 +818,7 @@ ServiciosTech As screen:
                 IDDominio="Via-EFF1A142-75C7-8AD8-4CCA-C645097B0BA4" || 
                 IDDominio="Via-FDB30966-A6C1-2FAC-8856-34429C2AA582")
                 &&Estado<>"Inactivo")
-                ,Cmb_FiltroNombre_7.SearchText,'Nombre Producto/Proyecto')
+                ,Cmb_FiltroNombre_7.SearchText,Nombre_x0020_Producto_x002f_Proy)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

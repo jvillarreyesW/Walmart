@@ -930,7 +930,7 @@ ModuloRevisionFormatosDetalle As screen:
             Label46_12 As label:
                 Align: =Align.Center
                 OnSelect: =Select(Parent)
-                Text: =Text(ThisItem.Creado,DateTimeFormat.ShortDate)
+                Text: =Text(ThisItem.Created,DateTimeFormat.ShortDate)
                 Width: =145
                 X: =1013
                 Y: =5

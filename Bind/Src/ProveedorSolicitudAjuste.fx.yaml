@@ -1604,7 +1604,7 @@ ProveedorSolicitudAjuste As screen:
         IsSearchable: =false
         Items: =Choices(Lst_ContratosProveedores.Estado_Solicitud)
         SearchFields: =["Value"]
-        SearchItems: =[]
+        SearchItems: =Choices(Lst_ContratosProveedores.Estado_Solicitud,ComboBox2_4.SearchText)
         SelectMultiple: =false
         Visible: =PermisoUsuario.Mantenedor
         Width: =362
