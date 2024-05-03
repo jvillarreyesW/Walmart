@@ -788,7 +788,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "\"Filtrada\"",
+            "InvariantScript": "\"Filtered\"",
             "Property": "#CopilotOverlayLabel",
             "RuleProviderType": "Unknown"
           },
@@ -2399,7 +2399,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "\"Filtrada\"",
+            "InvariantScript": "\"Filtered\"",
             "Property": "#CopilotOverlayLabel",
             "RuleProviderType": "Unknown"
           },
@@ -3371,7 +3371,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "\"Filtrada\"",
+            "InvariantScript": "\"Filtered\"",
             "Property": "#CopilotOverlayLabel",
             "RuleProviderType": "Unknown"
           },
@@ -3788,7 +3788,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638503428601754743",
+    "LastModifiedTimestamp": "638503438764434637",
     "Name": "Component1",
     "Rules": [
       {
@@ -3847,7 +3847,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638503428601754743",
+  "LastModifiedTimestamp": "638503438764434637",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"

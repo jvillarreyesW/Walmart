@@ -570,7 +570,7 @@ Mantenedores As screen:
                 
                 /* Carga de Perfil por Usuario */
                 Set(_Perfil, UsuariosdeOffice365.UserProfileV2(ThisItem.Nombre.Email));
-                Set(PermisoUsuario,LookUp(Perfilamiento, Nombre.DisplayName = _Perfil.displayName ));
+                Set(PermisoUsuario,LookUp(Perfilamiento, Nombre.Email = _Perfil.mail));
                 Set(_VarRolUsuario, LookUp(Lst_Persona,'Correo Electrónico' = _Perfil.mail,Rol));
                 ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName = _Perfil.displayName ,Dominio));  //trae los dominios asignados al usuario 
                 /*------------------------------------------------------*/
@@ -609,7 +609,7 @@ Mantenedores As screen:
                     ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco),
                     ClearCollect(Col_MenuBind,Lst_MenuBind),
                     /* PERMISO MODULO EQUIPO VIRTUALES */
-                    ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"});
+                    ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"})
                     /*===========================================*/ 
                     
                 );
@@ -1437,7 +1437,7 @@ Mantenedores As screen:
                     ZIndex: =4
 
                 ComboBox1_1 As combobox:
-                    DisplayFields: =["Nombre_Persona","Usuario"]
+                    DisplayFields: =["Categoria"]
                     Items: =Col_BD_Persona
                     SearchFields: =["Categoria"]
                     SearchItems: =Search(Col_BD_Persona,ComboBox1_1.SearchText,Categoria)
