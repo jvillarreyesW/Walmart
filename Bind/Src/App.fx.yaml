@@ -74,7 +74,22 @@ App As appinfo:
             ClearCollect(Col_MenuBind,Lst_MenuBind),
             ClearCollect(Col_CargueCertificadosF30,Filter(CargueCertificadosF30,Estado.Value="Reemplazado" || Estado.Value="Cargado" || Estado.Value="Correcto" || Estado.Value="Inconforme" || Estado.Value="Pendiente")) ,
             /* PERMISO MODULO EQUIPO VIRTUALES */
-            ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"})
+            ClearCollect(
+                Col_UserPermiso,
+                {User:"A0D0GI1"},
+                {User:"ASALDES"},
+                {User:"D0M0E0D"},
+                {User:"Product Owner"},
+                {User:"E0R065K"},
+                {User:"G0O00SY"},
+                {User:"M0G09A7"},
+                {User:"M0G09RU"},
+                {User:"W0P00K7"},
+                {User: Upper("j0m04fx")},
+                {User: Upper("f0m00jv")},
+                {User: Upper("m0p0k0s")},
+                {User: Upper("j0g0dsw")}
+            )
             /*===========================================*/ 
         );
         

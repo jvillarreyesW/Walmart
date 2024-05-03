@@ -7550,9 +7550,7 @@
         },
         "Height",
         "ZIndex",
-        "MaxTemplateSize",
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate22",
       "HasDynamicProperties": false,
@@ -7572,11 +7570,6 @@
         {
           "Category": "Data",
           "PropertyName": "Items",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7698,11 +7691,6 @@
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
-          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -7764,9 +7752,7 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        },
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        }
       ],
       "GalleryTemplateChildName": "galleryTemplate34",
       "HasDynamicProperties": false,
@@ -7791,11 +7777,6 @@
         {
           "Category": "Data",
           "PropertyName": "WrapCount",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7916,11 +7897,6 @@
         {
           "Category": "Design",
           "PropertyName": "BorderThickness",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -8067,9 +8043,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "MaxTemplateSize",
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate25",
       "HasDynamicProperties": false,
@@ -8089,11 +8063,6 @@
         {
           "Category": "Data",
           "PropertyName": "Items",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -8219,11 +8188,6 @@
         {
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],

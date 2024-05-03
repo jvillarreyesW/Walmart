@@ -3774,9 +3774,7 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        },
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        }
       ],
       "GalleryTemplateChildName": "galleryTemplate32_1",
       "HasDynamicProperties": false,
@@ -3801,11 +3799,6 @@
         {
           "Category": "Data",
           "PropertyName": "WrapCount",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3926,11 +3919,6 @@
         {
           "Category": "Design",
           "PropertyName": "BorderThickness",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -3986,9 +3974,7 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        },
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        }
       ],
       "GalleryTemplateChildName": "galleryTemplate32_2",
       "HasDynamicProperties": false,
@@ -4013,11 +3999,6 @@
         {
           "Category": "Data",
           "PropertyName": "WrapCount",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -4138,11 +4119,6 @@
         {
           "Category": "Design",
           "PropertyName": "BorderThickness",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -4198,9 +4174,7 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        },
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        }
       ],
       "GalleryTemplateChildName": "galleryTemplate32_3",
       "HasDynamicProperties": false,
@@ -4225,11 +4199,6 @@
         {
           "Category": "Data",
           "PropertyName": "WrapCount",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -4350,11 +4319,6 @@
         {
           "Category": "Design",
           "PropertyName": "BorderThickness",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],

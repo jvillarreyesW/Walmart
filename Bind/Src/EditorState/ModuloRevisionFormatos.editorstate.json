@@ -3277,9 +3277,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "MaxTemplateSize",
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate3_8",
       "HasDynamicProperties": false,
@@ -3304,11 +3302,6 @@
         {
           "Category": "Data",
           "PropertyName": "WrapCount",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3434,11 +3427,6 @@
         {
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],
