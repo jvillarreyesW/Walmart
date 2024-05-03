@@ -672,9 +672,7 @@
           "NameMapSourceSchema": "?"
         },
         "MaxTemplateSize",
-        "Visible",
-        "#CopilotOverlayLabel",
-        "#CopilotOverlayVisible"
+        "Visible"
       ],
       "GalleryTemplateChildName": "galleryTemplate28",
       "HasDynamicProperties": false,
@@ -829,16 +827,6 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayLabel",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],
