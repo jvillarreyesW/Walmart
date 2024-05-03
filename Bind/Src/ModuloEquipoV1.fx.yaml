@@ -77,6 +77,7 @@ ModuloEquipoV1 As screen:
         ZIndex: =5
 
     Gl_Equipos As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtrada"
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =2
         DelayItemLoading: =true

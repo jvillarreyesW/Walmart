@@ -74,15 +74,15 @@ App As appinfo:
             ClearCollect(Col_MenuBind,Lst_MenuBind),
             ClearCollect(Col_CargueCertificadosF30,Filter(CargueCertificadosF30,Estado.Value="Reemplazado" || Estado.Value="Cargado" || Estado.Value="Correcto" || Estado.Value="Inconforme" || Estado.Value="Pendiente")) ,
             /* PERMISO MODULO EQUIPO VIRTUALES */
-            ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"});
+            ClearCollect(Col_UserPermiso,{User:"A0D0GI1"},{User:"ASALDES"},{User:"D0M0E0D"},{User:"Product Owner"},{User:"E0R065K"},{User:"G0O00SY"},{User:"M0G09A7"},{User:"M0G09RU"},{User:"W0P00K7"})
             /*===========================================*/ 
         );
-        ClearCollect(Col_BD_Proveedores,AddColumns(Lst_Proveedores,Personas,CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisRecord.ID), GerenciaOrigen_0="GERENCIA TECNOLOGIA"))));
         
+        ClearCollect(Col_BD_Proveedores,AddColumns(Lst_Proveedores,Personas,CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisRecord.ID), GerenciaOrigen_0="GERENCIA TECNOLOGIA"))));
         ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName,Dominio));  //trae los dominios asignados al usuario
         /*------------------------------------------------------*/
-        ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
         
+        ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
         ClearCollect(Col_DominiosGestion, Col_BD_Portafolio);
         //ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
         

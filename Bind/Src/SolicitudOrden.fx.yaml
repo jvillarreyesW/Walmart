@@ -1048,6 +1048,7 @@ SolicitudOrden As screen:
         ZIndex: =13
 
     Gallery3_3 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtrada"
         BorderThickness: =1
         DelayItemLoading: =true
         Height: =682
@@ -1070,7 +1071,7 @@ SolicitudOrden As screen:
         Label17_1 As label:
             Align: =Align.Center
             OnSelect: =Select(Parent);ResetForm(Form2)
-            Text: =Mid(ThisItem.Created,1,10)
+            Text: =Mid(ThisItem.Creado,1,10)
             Width: =147
             Y: =8
             ZIndex: =2
@@ -1318,6 +1319,7 @@ SolicitudOrden As screen:
         ZIndex: =32
 
         Gl_FinanciamientoProducto_6 As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtrada"
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.Dotted
             BorderThickness: =2
@@ -1851,6 +1853,7 @@ SolicitudOrden As screen:
             ZIndex: =8
 
         Gallery3_6 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtrada"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =682

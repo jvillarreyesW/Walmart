@@ -1,6 +1,7 @@
 ModuloProducto As screen:
 
     Gl_PopUpProducto_1 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtrada"
         DelayItemLoading: =true
         Height: =782
         Items: =Filter(Col_DominiosGestion,IDProducto = _VarIDProdSele )

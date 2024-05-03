@@ -94,6 +94,7 @@ MenuLateral As CanvasComponent:
         ZIndex: =2
 
     "Gallery5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
         Fill: |-
             =RGBA(0, 0, 0, 0)
             /*
@@ -159,6 +160,7 @@ MenuLateral As CanvasComponent:
             ZIndex: =2
 
     "Gallery5_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        '#CopilotOverlayLabel': ="Filtrada"
         Fill: |-
             =RGBA(0, 0, 0, 0)
             /*

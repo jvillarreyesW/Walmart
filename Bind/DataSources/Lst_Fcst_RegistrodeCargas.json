@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2024-03-28T20:39:27.0310000Z",
+      "LastChangedTimeString": "2024-04-24T16:59:54.0110000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -37,10 +37,12 @@
       "EstadoFcst": "EstadoFcst",
       "GerenciaUsuario": "GerenciaUsuario",
       "ID": "ID",
+      "InputDataResponsable": "InputDataResponsable",
       "Modified": "Modificado",
       "NombreUsuario": "NombreUsuario",
       "OData__ColorTag": "Etiqueta de color",
       "RegistrosCargados": "RegistrosCargados",
+      "ResponsableCarga": "ResponsableCarga",
       "SemanaCarga": "SemanaCarga",
       "TipodeCarga": "TipodeCarga",
       "Title": "Título",

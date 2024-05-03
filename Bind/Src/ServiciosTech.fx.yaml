@@ -1,6 +1,7 @@
 ServiciosTech As screen:
 
     GL_ListadoProductoProyecto_1 As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtrada"
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1

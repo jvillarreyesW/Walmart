@@ -322,6 +322,7 @@ ModuloIniciativasRollOut As screen:
             ZIndex: =21
 
         "Gallery14_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            '#CopilotOverlayLabel': ="Filtrada"
             BorderColor: =RGBA(79, 90, 94, 1)
             BorderThickness: =1
             DelayItemLoading: =true
@@ -791,6 +792,7 @@ ModuloIniciativasRollOut As screen:
         ZIndex: =15
 
         Gallery12_1 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtrada"
             BorderThickness: =1
             DelayItemLoading: =true
             Height: =495
@@ -823,7 +825,7 @@ ModuloIniciativasRollOut As screen:
             Label40_2 As label:
                 Align: =Align.Center
                 Height: =25
-                Text: =Text(ThisItem.Created,"dd/mm/yyyy")
+                Text: =Text(ThisItem.Creado,"dd/mm/yyyy")
                 Width: =134
                 X: =742
                 Y: =7
@@ -1329,9 +1331,9 @@ ModuloIniciativasRollOut As screen:
                 Creado_DataCard1 As typedDataCard.textualViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Created"
-                    Default: =ThisItem.Created
+                    Default: =ThisItem.Creado
                     DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,Created)
+                    DisplayName: =DataSourceInfo([@DocumentosIniciativas],DataSourceInfo.DisplayName,Creado)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false

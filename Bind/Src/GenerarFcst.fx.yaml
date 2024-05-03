@@ -139,6 +139,7 @@ GenerarFcst As screen:
         ZIndex: =2
 
     Gallery6 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtrada"
         BorderColor: =RGBA(53, 61, 63, 1)
         BorderThickness: =1
         DelayItemLoading: =true
