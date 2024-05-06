@@ -1560,7 +1560,7 @@ ModuloServiciosTech As screen:
         Y: =723
         ZIndex: =56
 
-        "Spinner5 As 'Indicador giratorio'":
+        Spinner5 As Spinner:
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             Font: =""

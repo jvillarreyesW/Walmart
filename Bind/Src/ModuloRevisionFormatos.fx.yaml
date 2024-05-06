@@ -454,7 +454,7 @@ ModuloRevisionFormatos As screen:
             Label15_129 As label:
                 Align: =Align.Center
                 Height: =45
-                Text: =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo" && 'Ubicación Laboral'.Value="Extranjero" && GerenciaOrigen_0="GERENCIA TECNOLOGIA")) &" Personas"
+                Text: =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo"&& 'Ubicación Laboral'.Value="Extranjero" && GerenciaOrigen_0="GERENCIA TECNOLOGIA")) &" Personas"
                 Width: =129
                 X: =1632
                 Y: =3
@@ -474,7 +474,9 @@ ModuloRevisionFormatos As screen:
                 Align: =Align.Center
                 Height: =47
                 Text: |-
-                    =CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo"&& 'Ubicación Laboral'.Value="Chile" && GerenciaOrigen_0="GERENCIA TECNOLOGIA"))
+                    =CountRows(Filter(Lst_Persona,(Estado="Activo"||
+                    (Estado="De baja"&&FechaCese>=Date(Cmb_FiltroNombre_14.Selected.Value,Cmb_FiltroNombre_13.Selected.Value,"02")))
+                    && ID_Proveedor=Text(ThisItem.ID),'Interno/Externo'="Externo"&& 'Ubicación Laboral'.Value="Chile" && GerenciaOrigen_0="GERENCIA TECNOLOGIA"))
                     //CountRows(Filter(Lst_UsuariosCargadosF30;ID_Documento=LookUp(Col_CargueCertificadosF30;RUT=Label15_75.Text&& Mes=Cmb_FiltroNombre_10.Selected.Value && Anio=Cmb_FiltroNombre_11.Selected.Value && Certificado="F30-1").ID)))
                 Width: =55
                 X: =1357

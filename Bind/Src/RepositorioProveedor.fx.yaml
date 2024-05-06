@@ -1215,7 +1215,7 @@ RepositorioProveedor As screen:
                     DisplayFields: =["ComplianceAssetId"]
                     Items: =Lst_Proveedores
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,ComplianceAssetId)
+                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,'Compliance Asset Id')
                     SelectMultiple: =false
                     Width: =508
                     X: =31

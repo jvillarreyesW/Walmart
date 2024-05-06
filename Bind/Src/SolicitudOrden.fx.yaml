@@ -1087,7 +1087,7 @@ SolicitudOrden As screen:
         Label17_1 As label:
             Align: =Align.Center
             OnSelect: =Select(Parent);ResetForm(Form2)
-            Text: =Mid(ThisItem.Creado,1,10)
+            Text: =Mid(ThisItem.Created,1,10)
             Width: =147
             Y: =8
             ZIndex: =2

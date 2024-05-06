@@ -102,7 +102,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 270,
+    "BindingErrorCount": 82,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "DesktopOrTablet",
@@ -125,7 +125,7 @@
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "Bind",
+    "AppName": "9f192b5e-5700-4e95-a16f-2414058c30b2",
     "BackgroundColor": "rgba(255, 255, 255, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "",
@@ -133,7 +133,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": false,
     "PublishTarget": "player",
-    "UserLocale": "es-ES"
+    "UserLocale": "en-US"
   },
   "ScreenOrder": [
     "Portada",

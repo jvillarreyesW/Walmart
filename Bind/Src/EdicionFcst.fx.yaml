@@ -2230,7 +2230,7 @@ EdicionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue53_2.SearchText,ComplianceAssetId)
+                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue53_2.SearchText,'Compliance Asset Id')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2335,7 +2335,7 @@ EdicionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue51_3.SearchText,ComplianceAssetId)
+                    SearchItems: =Search(Lst_Fcst_MantenedorCuenta,DataCardValue51_3.SearchText,'Compliance Asset Id')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -2502,7 +2502,7 @@ EdicionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54_1.SearchText,ComplianceAssetId)
+                    SearchItems: =Search(Sort(Empresa,Empresa,SortOrder.Ascending),DataCardValue54_1.SearchText,'Id. de activo de cumplimiento normativo')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
@@ -3733,7 +3733,7 @@ EdicionFcst As screen:
                     PressedFill: =RGBA(0, 121, 187, 1)
                     Reset: =ResetearControlPry
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46_3.SearchText,ComplianceAssetId)
+                    SearchItems: =Search(Sort(Col_BD_Equipos,'Equipo/Squad',SortOrder.Ascending),DataCardValue46_3.SearchText,'Id. de activo de cumplimiento normativo')
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     TabIndex: =6
