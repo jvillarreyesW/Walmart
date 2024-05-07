@@ -604,7 +604,7 @@ ModuloProyectosIniciativas As screen:
                     ),
                     {
                         'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
-                        IDViaje: Dpd_Pry_Dominio_1.Selected.IDDominio ,
+                        IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio ,
                         IDProducto:  First(ProyectoSeleccionado).IDProducto,	
                         IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
                         'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
@@ -729,7 +729,7 @@ ModuloProyectosIniciativas As screen:
                         ),
                         {
                         'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
-                        IDViaje: Dpd_Pry_Dominio_1.Selected.IDDominio,
+                        IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio,
                         IDProducto:  First(ProyectoSeleccionado).IDProducto,	
                         IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
                         'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
