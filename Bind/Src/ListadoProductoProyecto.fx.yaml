@@ -316,9 +316,9 @@ ListadoProductoProyecto As screen:
                 ChevronHoverBackground: =RGBA(0, 121, 187, 1)
                 Default: |-
                     =If(
-                        IsBlank(ThisItem.IDViaje),
+                        IsBlank(ThisItem.IDDominio),
                         Blank(),
-                        LookUp(Col_BD_Dominios , IDDominio = ThisItem.IDViaje, Title)
+                        LookUp(Col_BD_Dominios , IDDominio = ThisItem.IDDominio, Title)
                     )
                 DisabledBorderColor: =RGBA(128, 128, 128, 1)
                 DisplayMode: |-
@@ -434,7 +434,7 @@ ListadoProductoProyecto As screen:
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
                 Text: |-
-                    ="Viaje:"
+                    ="Dominio:"
                 Visible: |-
                     =If( 
                         _VarVerProductoProyecto,
@@ -1226,7 +1226,7 @@ ListadoProductoProyecto As screen:
                 ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
                 ChevronFill: =RGBA(0, 121, 187, 1)
                 ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                Default: =LookUp(Col_BD_Dominios , IDDominio = ThisItem.IDViaje, Title)
+                Default: =LookUp(Col_BD_Dominios , IDDominio = ThisItem.IDDominio, Title)
                 DisabledBorderColor: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =DisplayMode.Edit
@@ -1420,7 +1420,7 @@ ListadoProductoProyecto As screen:
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
                 Text: |-
-                    ="Viaje:"
+                    ="Dominio:"
                 Visible: |-
                     =If( 
                         _VarVerProductoProyecto,
