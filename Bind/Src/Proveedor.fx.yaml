@@ -14,7 +14,7 @@ Proveedor As screen:
         DropTargetBorderThickness: =0
         Height: =63
         IsInDataCard: =true
-        Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor&&Campo="Documento final").'Datos adjuntos'
+        Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor&&Campo="Documento final").Attachments
         MaxAttachments: =20
         NoAttachmentsText: =
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -1631,7 +1631,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_2.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Propuesta Comercial").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Propuesta Comercial").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -1674,7 +1674,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_1.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Base de Licitación").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Base de Licitación").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -2272,7 +2272,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_14.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Soporte Licitacion, 3 contratos, FPU").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Soporte Licitacion, 3 contratos, FPU").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -2475,7 +2475,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_3.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Documento Detalle de Precio").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Documento Detalle de Precio").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3008,7 +3008,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_15.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3070,7 +3070,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_17.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio 2").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Caso de negocio 2").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3265,7 +3265,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_16.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Respuesta Comite").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Respuesta Comite").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3535,7 +3535,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_5.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Tabla de multas").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Tabla de multas").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3579,7 +3579,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_6.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="SLA").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="SLA").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3623,7 +3623,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_7.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización Gerente multa 0").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización Gerente multa 0").Attachments
                 MaxAttachments: =2
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3823,7 +3823,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_4.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización gerente area").'Datos adjuntos'
+                Items: =LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=Guid_Proveedor && Campo="Autorización gerente area").Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3888,7 +3888,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_8.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Certificado de Vigencia de Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Certificado de Vigencia de Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3933,7 +3933,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_9.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(First(Filter(Lst_Proveedores_Adjuntos,Campo="RUT de la Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos')
+                Items: =First(First(Filter(Lst_Proveedores_Adjuntos,Campo="RUT de la Sociedad",ID_Sol_Proveedor=Guid_Proveedor)).Attachments)
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -3978,7 +3978,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_10.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Personeria o Poderes",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Personeria o Poderes",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4022,7 +4022,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_11.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Copia Cedula Representante Legal",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Copia Cedula Representante Legal",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4578,7 +4578,7 @@ Proveedor As screen:
                 DropTargetBorderThickness: =0
                 Height: =If (CountRows(DataCardValue35_12.Attachments)=0,70,36)
                 IsInDataCard: =true
-                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Due Diligence",ID_Sol_Proveedor=Guid_Proveedor)).'Datos adjuntos'
+                Items: =First(Filter(Lst_Proveedores_Adjuntos,Campo="Due Diligence",ID_Sol_Proveedor=Guid_Proveedor)).Attachments
                 MaxAttachments: =1
                 MaxAttachmentsText: =
                 NoAttachmentsText: =
@@ -4626,9 +4626,9 @@ Proveedor As screen:
         Attachments_DataCard3 As typedDataCard.attachmentsEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.'Datos adjuntos'
+            Default: =ThisItem.Attachments
             DisplayMode: =If(_VarFormEstado,DisplayMode.View,DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,'Datos adjuntos')
+            DisplayName: =DataSourceInfo([@Lst_ContratosProveedores],DataSourceInfo.DisplayName,Attachments)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -5029,7 +5029,7 @@ Proveedor As screen:
 
             DataCardValue56_3 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =ThisItem.'Creado por'.Email
+                Default: =ThisItem.'Created By'.Email
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(0, 0, 0, 1)
@@ -5735,9 +5735,9 @@ Proveedor As screen:
         "'Datos adjuntos_DataCard2' As typedDataCard.attachmentsEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.'Datos adjuntos'
+            Default: =ThisItem.Attachments
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+            DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -5967,9 +5967,9 @@ Proveedor As screen:
             Attachments_DataCard4 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6179,9 +6179,9 @@ Proveedor As screen:
             Attachments_DataCard4_1 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6391,9 +6391,9 @@ Proveedor As screen:
             Attachments_DataCard4_2 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6603,9 +6603,9 @@ Proveedor As screen:
             Attachments_DataCard4_3 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -6815,9 +6815,9 @@ Proveedor As screen:
             Attachments_DataCard4_4 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7027,9 +7027,9 @@ Proveedor As screen:
             Attachments_DataCard4_5 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7239,9 +7239,9 @@ Proveedor As screen:
             Attachments_DataCard4_6 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7450,9 +7450,9 @@ Proveedor As screen:
             Attachments_DataCard4_7 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7662,9 +7662,9 @@ Proveedor As screen:
             Attachments_DataCard4_8 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -7874,9 +7874,9 @@ Proveedor As screen:
             Attachments_DataCard4_9 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8086,9 +8086,9 @@ Proveedor As screen:
             Attachments_DataCard4_10 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8298,9 +8298,9 @@ Proveedor As screen:
             Attachments_DataCard4_11 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8510,9 +8510,9 @@ Proveedor As screen:
             Attachments_DataCard4_12 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8722,9 +8722,9 @@ Proveedor As screen:
             Attachments_DataCard4_13 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -8934,9 +8934,9 @@ Proveedor As screen:
             Attachments_DataCard4_14 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -9146,9 +9146,9 @@ Proveedor As screen:
             Attachments_DataCard4_15 As typedDataCard.attachmentsEditCard:
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false

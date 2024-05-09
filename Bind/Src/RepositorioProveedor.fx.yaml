@@ -488,11 +488,11 @@ RepositorioProveedor As screen:
                 Height: =50
                 Image: ='file-pdf'
                 OnSelect: |-
-                    =UpdateContext({_VerContrato:ThisItem});UpdateContext({ID_PDF:First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value}); UpdateContext({_VarVerPDF:true})
+                    =UpdateContext({_VerContrato:ThisItem});UpdateContext({ID_PDF:First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").Attachments).Value}); UpdateContext({_VarVerPDF:true})
                 Visible: |-
                     =If(
                         (ThisItem.Solicitante=_Perfil.displayName || PermisoUsuario.Mantenedor|| PermisoUsuario.Proveedores_Vista) &&
-                        !IsBlank(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').Value)
+                        !IsBlank(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=ThisItem.ID_Sol_Proveedor && Campo="Documento Final").Attachments).Value)
                     ,true,false)
                 Width: =63
                 X: =1759
@@ -871,9 +871,9 @@ RepositorioProveedor As screen:
             "'Datos adjuntos_DataCard3' As typedDataCard.attachmentsEditCard":
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.'Datos adjuntos'
+                Default: =ThisItem.Attachments
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,'Datos adjuntos')
+                DisplayName: =DataSourceInfo([@Lst_Proveedores_Adjuntos],DataSourceInfo.DisplayName,Attachments)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =135
                 Required: =false
@@ -1215,7 +1215,7 @@ RepositorioProveedor As screen:
                     DisplayFields: =["ComplianceAssetId"]
                     Items: =Lst_Proveedores
                     SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,'Id. de activo de cumplimiento normativo')
+                    SearchItems: =Search(Lst_Proveedores,ComboBox6.SearchText,'Compliance Asset Id')
                     SelectMultiple: =false
                     Width: =508
                     X: =31
@@ -2956,7 +2956,7 @@ RepositorioProveedor As screen:
                 )
             Fill: =RGBA(0, 0, 0, 0)
             HoverFill: =RGBA(255, 255, 255, 0.5)
-            OnSelect: =Launch(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_VerContrato.ID_Sol_Proveedor && Campo="Documento Final").'Datos adjuntos').AbsoluteUri)
+            OnSelect: =Launch(First(LookUp(Lst_Proveedores_Adjuntos,ID_Sol_Proveedor=_VerContrato.ID_Sol_Proveedor && Campo="Documento Final").Attachments).AbsoluteUri)
             PressedFill: =RGBA(255, 255, 255, 0.7)
             Text: =""
             Width: =161
