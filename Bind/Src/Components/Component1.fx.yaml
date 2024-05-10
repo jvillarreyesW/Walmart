@@ -50,6 +50,7 @@ Component1 As CanvasComponent:
 
     Gallery13_1 As gallery.galleryHorizontal:
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: =false
         DelayItemLoading: =true
         Height: =83
         Items: =Distinct(Col_MenuBind,Menu)
@@ -97,6 +98,7 @@ Component1 As CanvasComponent:
 
     Gl_OpcionesMenu As gallery.galleryVertical:
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: =false
         BorderStyle: =BorderStyle.None
         BorderThickness: =2
         DelayItemLoading: =true
@@ -263,6 +265,7 @@ Component1 As CanvasComponent:
 
     Gallery14_2 As gallery.galleryHorizontal:
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: =false
         BorderStyle: =BorderStyle.None
         DelayItemLoading: =true
         Height: =443
@@ -283,6 +286,7 @@ Component1 As CanvasComponent:
         ZIndex: =4
 
         Image8_21 As image:
+            AccessibleLabel: =false
             Height: |-
                 =If(
                     ThisItem.Title = "Tech News",

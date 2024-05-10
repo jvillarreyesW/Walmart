@@ -16,9 +16,6 @@
     "datasets": {
       "https://teams.wal-mart.com/sites/NecesidadesWalmartTech": {
         "dataSources": {
-          "CargueCertificadosF30": {
-            "tableName": "40fbe842-d949-4398-b2ca-4647ba0be433"
-          },
           "DocumentosIniciativas": {
             "tableName": "f548d082-3ab1-4d8e-8466-af8f50bb6a60"
           },
@@ -33,15 +30,6 @@
           },
           "Ingresos_Ceses_Personas": {
             "tableName": "73825681-874c-4a7c-9a59-cb69365be1ae"
-          },
-          "Lst_Auditoria": {
-            "tableName": "bf0c5fe4-2f89-4885-a314-ea8a1b1a090e"
-          },
-          "Lst_Auditoria_Seg": {
-            "tableName": "a72476ac-96d5-41e8-a8a5-80c0cdc3be30"
-          },
-          "Lst_ContratosProveedores": {
-            "tableName": "1fc01576-dd1c-478d-b35b-fb5ee615d54a"
           },
           "Lst_DependenciasPortafolio": {
             "tableName": "c0e357af-0925-4cfb-88a8-0a1cf1ce3faa"
@@ -151,9 +139,6 @@
           "Lst_Proveedores": {
             "tableName": "2064f440-029a-461d-91a9-88c9dc09c77a"
           },
-          "Lst_Proveedores_Adjuntos": {
-            "tableName": "c9f2aedc-3536-4112-b9c7-cfc5ebcb62c5"
-          },
           "Lst_Riesgos_Proyectos": {
             "tableName": "f957a6a5-1d41-4f9f-8fef-4174cd576b65"
           },
@@ -165,9 +150,6 @@
           },
           "Lst_SubDominio": {
             "tableName": "1bbdce94-eab8-4f93-a0f2-add495028de0"
-          },
-          "Lst_UsuariosCargadosF30": {
-            "tableName": "c89782ce-3447-4ddb-acdd-6c08cf94b56a"
           },
           "Necesidades Walmart Tech": {
             "tableName": "4be60215-f525-4972-8803-41dae263c8b8"
@@ -211,8 +193,6 @@
       "Lst_GestionErrores",
       "Lst_DependenciasPortafolio",
       "Lst_LabelsJira",
-      "Lst_Auditoria",
-      "Lst_Auditoria_Seg",
       "Lst_HistoricoGoLive",
       "Lst_HistorialComoVamos",
       "Lst_Riesgos_Proyectos",
@@ -235,9 +215,6 @@
       "Lst_SolicitudOrdenes",
       "Soporte / Requerimientos Slack",
       "Lst_Fcst_RegistrodeCargas",
-      "Lst_ContratosProveedores",
-      "Lst_Proveedores",
-      "Lst_Proveedores_Adjuntos",
       "Lst_Plan_Perfilamiento",
       "Lst_Plan_Riesgo_Oportunidad",
       "Lst_Info_APM",
@@ -250,8 +227,7 @@
       "Lst_ServicioCuentaCeco",
       "Lst_Fcst_Correlativo",
       "Lst_Fcst_Calendario",
-      "CargueCertificadosF30",
-      "Lst_UsuariosCargadosF30"
+      "Lst_Proveedores"
     ],
     "dependencies": {},
     "dependents": [
@@ -260,57 +236,9 @@
       "6d60d96f-db91-4cf4-8fa6-e70811dfc78a",
       "a70aa8f7-1506-4159-b342-258583986d13",
       "c9422c84-0162-403a-9f11-eddd4398aca9",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0",
-      "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
+      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
     ],
     "id": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-  },
-  "4dd5b93a-a81f-4be1-92f7-ebd0055888ba": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c": {
-          "value": "shared_sharepointonline_1"
-        },
-        "a0d29168-60c2-4c7d-a020-de2b911834dd": {
-          "value": "shared_excelonlinebusiness_1"
-        },
-        "workflowDisplayName": {
-          "value": "DescargarDetSoportesProveedores"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_excelonlinebusiness_1": {
-          "value": "a0d29168-60c2-4c7d-a020-de2b911834dd"
-        },
-        "shared_sharepointonline_1": {
-          "value": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-        },
-        "workflowDisplayName": {
-          "value": "DescargarDetSoportesProveedores"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4bebd08f-ef86-435d-a3cf-c5ae479dd139"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "DescargarDetSoportesProveedores"
-    ],
-    "dependencies": {
-      "shared_excelonlinebusiness_1": "a0d29168-60c2-4c7d-a020-de2b911834dd",
-      "shared_sharepointonline_1": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-    },
-    "dependents": [],
-    "id": "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
   },
   "6d60d96f-db91-4cf4-8fa6-e70811dfc78a": {
     "appActions": [
@@ -492,8 +420,7 @@
     "dependents": [
       "d2b80453-b56e-4cc6-b15f-9791d2cee342",
       "a70aa8f7-1506-4159-b342-258583986d13",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0",
-      "4dd5b93a-a81f-4be1-92f7-ebd0055888ba"
+      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
     ],
     "id": "a0d29168-60c2-4c7d-a020-de2b911834dd"
   },
@@ -616,8 +543,7 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "6d60d96f-db91-4cf4-8fa6-e70811dfc78a",
-      "f5526b00-e870-4832-9bce-204d089172d4"
+      "6d60d96f-db91-4cf4-8fa6-e70811dfc78a"
     ],
     "id": "c0148d27-c103-49e3-b70e-9b1ae4bab675"
   },
@@ -762,43 +688,5 @@
     },
     "dependents": [],
     "id": "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
-  },
-  "f5526b00-e870-4832-9bce-204d089172d4": {
-    "appActions": [
-      "Run"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "c0148d27-c103-49e3-b70e-9b1ae4bab675": {
-          "value": "shared_onedriveforbusiness"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "40ae46f1-ab4a-4914-80a0-e7b157db9acb"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_onedriveforbusiness": {
-          "value": "c0148d27-c103-49e3-b70e-9b1ae4bab675"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "40ae46f1-ab4a-4914-80a0-e7b157db9acb"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "BindExportarContratos"
-    ],
-    "dependencies": {
-      "shared_onedriveforbusiness": "c0148d27-c103-49e3-b70e-9b1ae4bab675"
-    },
-    "dependents": [],
-    "id": "f5526b00-e870-4832-9bce-204d089172d4"
   }
 }

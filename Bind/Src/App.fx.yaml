@@ -5,20 +5,6 @@ App As appinfo:
         =/*Mostrar Spinner Cargando*/
         Set(_VarMostrarCargando,true);
         
-        /*Param DeepLink Proveedores*/
-        
-        If(!IsBlank(Param("SolicitudProv")),
-        Set(Guid_Proveedor,Param("SolicitudProv"));
-        If(LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor).Proveedor_Extranjero,
-        Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor)),
-        false);    
-        Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor));
-        Set(_VarFormEstado,true);
-         Set(var_Prov_Rut,
-                    If(_VarContratocopia.Proveedor_Extranjero,
-                    LookUp(Lst_Proveedores,Razon_Social_Proveedor = _VarContratocopia.Proveedor),
-                    LookUp(Lst_Proveedores,RUT = _VarContratocopia.Proveedor)
-                    )));
         
         /*Colores para la App*/
         Set(_VarColoresApp,
@@ -62,7 +48,8 @@ App As appinfo:
             ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
             ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
             ClearCollect(Col_BD_DetalleKPIs,OUTCOME),
-            ClearCollect(Col_BD_Fcst_Responsable, Lst_Fcst_Responsable),
+            
+            /*ClearCollect(Col_BD_Fcst_Responsable, Lst_Fcst_Responsable),
             ClearCollect(Col_BD_Fcst_Servicios, Lst_Fcst_Servicios),
             ClearCollect(Col_BD_Fcst_ServAsignados, Lst_Fcst_ServiciosAsignados),
             ClearCollect(Col_BD_Fcst_Datos, Lst_Fcst_Datos),
@@ -70,9 +57,8 @@ App As appinfo:
             ClearCollect(Col_BD_Fcst_Ceco, Lst_Fcst_MantenedorCeco),
             ClearCollect(Col_BD_Fcst_Semanas, LST_Fcst_MantenedorSemanas),
             ClearCollect(Col_BD_Fcst_TCSemanas, Lst_Fcst_TipoCambioSemana),
-            ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco), 
+            ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco), */
             ClearCollect(Col_MenuBind,Lst_MenuBind),
-            ClearCollect(Col_CargueCertificadosF30,Filter(CargueCertificadosF30,Estado.Value="Reemplazado" || Estado.Value="Cargado" || Estado.Value="Correcto" || Estado.Value="Inconforme" || Estado.Value="Pendiente")) ,
             /* PERMISO MODULO EQUIPO VIRTUALES */
             ClearCollect(
                 Col_UserPermiso,
@@ -93,7 +79,7 @@ App As appinfo:
             /*===========================================*/ 
         );
         
-        ClearCollect(Col_BD_Proveedores,AddColumns(Lst_Proveedores,Personas,CountRows(Filter(Col_BD_Persona,ID_Proveedor=Text(ThisRecord.ID), GerenciaOrigen_0="GERENCIA TECNOLOGIA"))));
+        
         ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName,Dominio));  //trae los dominios asignados al usuario
         /*------------------------------------------------------*/
         
@@ -230,23 +216,7 @@ App As appinfo:
         
         /*------------------------------------------------------*/
         
-    StartScreen: |-
-        =/*Param DeepLink Proveedores*/
-        If(
-            !IsBlank(Param("SolicitudProv")),
-            If(
-                LookUp(
-                    Lst_ContratosProveedores,
-                    Param("SolicitudProv") = ID_Sol_Proveedor
-                ).Formulario_Solicitud.Value = "Contrato de Prestación de Servicio" || LookUp(
-                    Lst_ContratosProveedores,
-                    Param("SolicitudProv") = ID_Sol_Proveedor
-                ).Formulario_Solicitud.Value = "Anexo Contrato de Servicio",
-                Proveedor,
-                ProveedorSolicitudAjuste
-            ),
-            Portada
-        )
+    StartScreen: =
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

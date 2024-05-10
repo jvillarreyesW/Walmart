@@ -27,7 +27,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5795,
+            "PublishOrderIndex": 3975,
             "Rules": [
               {
                 "Category": "Design",
@@ -156,7 +156,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5796,
+            "PublishOrderIndex": 3976,
             "Rules": [
               {
                 "Category": "Data",
@@ -462,7 +462,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery13_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5797,
+            "PublishOrderIndex": 3977,
             "Rules": [
               {
                 "Category": "Design",
@@ -618,7 +618,15 @@
           "ZIndex",
           "MaxTemplateSize",
           "#CopilotOverlayLabel",
-          "#CopilotOverlayVisible"
+          "#CopilotOverlayVisible",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "29",
         "HasDynamicProperties": false,
@@ -634,13 +642,19 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5794,
+        "PublishOrderIndex": 3974,
         "Rules": [
           {
             "Category": "Data",
             "InvariantScript": "Distinct(Col_MenuBind,Menu)",
             "Property": "Items",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -918,7 +932,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5798,
+        "PublishOrderIndex": 3978,
         "Rules": [
           {
             "Category": "Data",
@@ -1086,7 +1100,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5800,
+            "PublishOrderIndex": 3980,
             "Rules": [
               {
                 "Category": "Design",
@@ -1180,7 +1194,15 @@
               "PaddingRight",
               "PaddingBottom",
               "PaddingLeft",
-              "Visible"
+              "Visible",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "\"\"",
+                "InvariantPropertyName": "AccessibleLabel",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "36",
             "HasDynamicProperties": false,
@@ -1196,13 +1218,19 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5801,
+            "PublishOrderIndex": 3981,
             "Rules": [
               {
                 "Category": "Data",
                 "InvariantScript": "If(\n    !(ThisItem.Title = \"Proyectos Finalizados !!\"),\n    ImagenAbril,\n    '02'\n)",
                 "Property": "Image",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Data",
+                "InvariantScript": "false",
+                "Property": "AccessibleLabel",
+                "RuleProviderType": "User"
               },
               {
                 "Category": "Design",
@@ -1465,7 +1493,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5802,
+            "PublishOrderIndex": 3982,
             "Rules": [
               {
                 "Category": "Design",
@@ -1637,7 +1665,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5803,
+            "PublishOrderIndex": 3983,
             "Rules": [
               {
                 "Category": "Data",
@@ -1866,7 +1894,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery14_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5804,
+            "PublishOrderIndex": 3984,
             "Rules": [
               {
                 "Category": "Data",
@@ -2211,7 +2239,15 @@
           },
           "MaxTemplateSize",
           "#CopilotOverlayLabel",
-          "#CopilotOverlayVisible"
+          "#CopilotOverlayVisible",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "34",
         "HasDynamicProperties": false,
@@ -2227,13 +2263,19 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5799,
+        "PublishOrderIndex": 3979,
         "Rules": [
           {
             "Category": "Data",
             "InvariantScript": "Sort(Filter(Lst_NoticiasBind, FechaInicioPublicacion >= Today() || Today()<= FechaFinPublicacion),OrdenPublicacion,SortOrder.Ascending)",
             "Property": "Items",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -2449,7 +2491,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5806,
+            "PublishOrderIndex": 3986,
             "Rules": [
               {
                 "Category": "Design",
@@ -2593,7 +2635,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5807,
+            "PublishOrderIndex": 3987,
             "Rules": [
               {
                 "Category": "Data",
@@ -2917,7 +2959,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gl_OpcionesMenu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5808,
+            "PublishOrderIndex": 3988,
             "Rules": [
               {
                 "Category": "Data",
@@ -3183,7 +3225,15 @@
           },
           "MaxTemplateSize",
           "#CopilotOverlayLabel",
-          "#CopilotOverlayVisible"
+          "#CopilotOverlayVisible",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "40",
         "HasDynamicProperties": false,
@@ -3199,7 +3249,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5805,
+        "PublishOrderIndex": 3985,
         "Rules": [
           {
             "Category": "Data",
@@ -3212,6 +3262,12 @@
             "InvariantScript": "Sort(Filter(Col_MenudelUsuario, Menu = _VarMenuSeleccionado ), SubMenu,SortOrder.Ascending)",
             "Property": "Items",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -3499,7 +3555,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Component1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5809,
+        "PublishOrderIndex": 3989,
         "Rules": [
           {
             "Category": "Data",
@@ -3788,7 +3844,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638509460749968178",
+    "LastModifiedTimestamp": "638509475818347397",
     "Name": "Component1",
     "Rules": [
       {
@@ -3847,7 +3903,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638509460749968178",
+  "LastModifiedTimestamp": "638509475818347397",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"

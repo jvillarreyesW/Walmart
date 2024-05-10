@@ -12,6 +12,7 @@ InfoAplica As CanvasComponent:
     ZIndex: =1
 
     Icon6 As icon.Error:
+        AccessibleLabel: =false
         Height: =32
         Icon: =Icon.Error
         OnSelect: =Set(_VarMostrarMensaje,!_VarMostrarMensaje)
@@ -21,6 +22,7 @@ InfoAplica As CanvasComponent:
         ZIndex: =1
 
     TextInput1 As text:
+        AccessibleLabel: =false
         Align: =Align.Center
         Color: =RGBA(0, 16, 96, 1)
         Default: ="Marcar solo aquellos que NO APLIQUEN para este proyecto."

@@ -122,7 +122,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5737,
+        "PublishOrderIndex": 3930,
         "Rules": [
           {
             "Category": "Data",
@@ -456,7 +456,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5738,
+        "PublishOrderIndex": 3931,
         "Rules": [
           {
             "Category": "Data",
@@ -803,7 +803,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5740,
+        "PublishOrderIndex": 3933,
         "Rules": [
           {
             "Category": "Data",
@@ -1212,7 +1212,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5741,
+        "PublishOrderIndex": 3934,
         "Rules": [
           {
             "Category": "Data",
@@ -1488,7 +1488,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5743,
+            "PublishOrderIndex": 3936,
             "Rules": [
               {
                 "Category": "Design",
@@ -1590,7 +1590,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5744,
+            "PublishOrderIndex": 3937,
             "Rules": [
               {
                 "Category": "Data",
@@ -1942,7 +1942,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5745,
+            "PublishOrderIndex": 3938,
             "Rules": [
               {
                 "Category": "Data",
@@ -2270,7 +2270,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5742,
+        "PublishOrderIndex": 3935,
         "Rules": [
           {
             "Category": "Data",
@@ -2474,7 +2474,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5747,
+            "PublishOrderIndex": 3940,
             "Rules": [
               {
                 "Category": "Design",
@@ -2645,7 +2645,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5748,
+            "PublishOrderIndex": 3941,
             "Rules": [
               {
                 "Category": "Data",
@@ -2859,9 +2859,9 @@
               },
               {
                 "Category": "Behavior",
-                "InvariantScript": "If(\n    _VarIDSelec = 0,\n    If(\n        ThisItem.SubMenu = \"Lista de Productos\",\n        If(\n            PermisoUsuario.servicioData,\n            Navigate(ModuloData,ScreenTransition.CoverRight),\n                If(\n                PermisoUsuario.Auditoria,\n                Navigate(ModuloAuditoria,ScreenTransition.CoverRight),\n                Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:\"Producto\"})\n            )\n        ),\n        If(\n            ThisItem.SubMenu = \"Lista de Proyectos\",\n            Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:\"Proyecto\"}),\n            If(\n                ThisItem.SubMenu = \"Personas\",\n                Navigate(ModuloPersona,ScreenTransition.CoverRight),\n                If(\n                    ThisItem.SubMenu = \"Opportunity Assessment\",\n                    Launch(\"https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal\"),\n                    If(\n                        ThisItem.SubMenu = \"Estrategia\",\n                        Launch(\"https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/902a0c7d-7b90-4648-abbd-88a0d5fb6cb0?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal\")\n                    )\n                )\n            )\n        )\n    ),\n    If(\n        _VarIDSelec = 1,\n        If(\n            ThisItem.SubMenu =\"Organigrama\",\n            Launch(\"https://app.powerbi.com/Redirect?action=OpenReport&appId=e1290d0b-33c6-4038-bb60-8293995f520d&reportObjectId=c5e45737-1799-4739-892c-e7148426185e&ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&reportPage=ReportSection11e2fb1f6c5bd727fe2b&pbi_source=appShareLink&portalSessionId=a7e0655a-d170-40bf-a00b-9286baf5f94a\"),\n            If(\n            ThisItem.SubMenu =\"Roadmap Walmart Tech\",\n            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/90a4329c-7687-4aa7-9732-042eb267d454/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n            If(\n                ThisItem.SubMenu =\"KPI\",\n                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/f9d5fa53-7d93-48b9-a1e6-495819ed9a77/ReportSectionabb163607decac0771e9?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                If(\n                    ThisItem.SubMenu =\"Personas\",\n                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSection8b940955096850385d83?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                    If(\n                        ThisItem.SubMenu =\"Opportunity Assessment\",\n                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/48e6ded5-6162-48f3-9762-ab0af5baa5f2/ReportSectiond75284fbe6005e84b29e?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                        If(\n                            ThisItem.SubMenu =\"Estrategia\",\n                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2c586354-e6f5-42a9-b76c-12094b80219f/ReportSectionad5efd82f030a454aeaa?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                            If(\n                                ThisItem.SubMenu =\"International Monthly Report\",\n                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/49eb77e0-9b4b-4ed1-96f1-863611b903bf/ReportSection4155f03508ecd0cd330d?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                If(\n                                    ThisItem.SubMenu =\"Capitalización\",\n                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/7da42a5a-cb3a-4650-8131-d9828134f725/ReportSection8c764697e730f7446c9b?experience=power-bi\n\"),\n                                    If(\n                                        ThisItem.SubMenu =\"Code Yellow\",\n                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/17a0a2fb-7810-4705-ad13-51260bc586d0/ReportSection3fc7ad15af466f6842b8?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                        If(\n                                            ThisItem.SubMenu =\"Programas\",\n                                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/a6df0060-15a5-43b8-b297-cc2d3796310b/ReportSection10abdf753679c60477dc?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                            If(\n                                                ThisItem.SubMenu =\"Seguimiento OI/OE\",\n                                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/794c6b79-2ef3-4d5d-a93e-b41842780aef/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                If(\n                                                    ThisItem.SubMenu = \"Completitud\",\n                                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9f03d9ce-3674-478e-996c-3b7ab77ecd32/ReportSection6919644c4212a78e8341?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                                    If(\n                                                        ThisItem.SubMenu = \"HeadCount\",\n                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/8c3c82df-5242-4c55-9ba7-6abac2a56b24?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                        If(\n                                                            ThisItem.SubMenu = \"Infosec\",\n                                                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2779ce08-b506-4e37-955d-8d8bf28406d4/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                            If(\n                                                                ThisItem.SubMenu = \"Auditoria\",\n                                                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/11e3b0ad-5b07-4a83-a37e-9988a52aeeb0/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                If(\n                                                                    ThisItem.SubMenu = \"Seguimiento de proyectos\",\n                                                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9e06fb09-d313-42fb-ba00-5be4f3dd6236/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                    If(\n                                                                        ThisItem.SubMenu = \"Seguimiento Datos\",\n                                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/39ec915b-f306-460b-852c-d6db63b6f15d/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                                    If(\n                                                                                        ThisItem.SubMenu = \"Seguimiento servicios tecnologicos\",\n                                                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\")\n                                                                                    )\n                                                                    )\n                                                                )\n                                                            )\n                                                        )\n                                                    )\n                                                )\n                                            )\n                                        )\n                                    )\n                                )\n                            )\n                        )\n                    )\n                )\n            )\n        )\n    ),\n        If(\n            _VarIDSelec = 2,\n                If(\n                ThisItem.SubMenu = \"Onboarding\",\n                Launch(\"https://confluence.walmart.com/display/CLAPMO/Onboarding+Tech+Portfolio\"),\n                If(\n                    ThisItem.SubMenu = \"Contáctate con nosotros\",\n                    Launch(\"https://wmt-chile.slack.com/archives/C02UUPQM7QR\"),\n                    If(\n                        ThisItem.SubMenu = \"Déjanos tu feedback\",\n                        Launch(\"https://feedbackally.walmart.com/survey/z7iE9PpIcMXNNbd\")\n                    )\n                )\n            )\n        )\n    )\n);\nSet(_VarAbrirMenu,!_VarAbrirMenu);",
+                "InvariantScript": "If(\n    _VarIDSelec = 0,\n    If(\n        ThisItem.SubMenu = \"Lista de Productos\",\n        If(\n            PermisoUsuario.servicioData,\n            Navigate(ModuloData,ScreenTransition.CoverRight),\n                If(\n                PermisoUsuario.Auditoria,\n                Launch(\"https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/dc79ad06-2c1d-42bf-9a98-aba96fcb2217?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=03554963-7233-441c-8bc8-875f44930003&sourcetime=1715349147478\",Blank(),LaunchTarget.Replace),\n                Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:\"Producto\"})\n            )\n        ),\n        If(\n            ThisItem.SubMenu = \"Lista de Proyectos\",\n            Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:\"Proyecto\"}),\n            If(\n                ThisItem.SubMenu = \"Personas\",\n                Navigate(ModuloPersona,ScreenTransition.CoverRight),\n                If(\n                    ThisItem.SubMenu = \"Opportunity Assessment\",\n                    Launch(\"https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal\"),\n                    If(\n                        ThisItem.SubMenu = \"Estrategia\",\n                        Launch(\"https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/902a0c7d-7b90-4648-abbd-88a0d5fb6cb0?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal\")\n                    )\n                )\n            )\n        )\n    ),\n    If(\n        _VarIDSelec = 1,\n        If(\n            ThisItem.SubMenu =\"Organigrama\",\n            Launch(\"https://app.powerbi.com/Redirect?action=OpenReport&appId=e1290d0b-33c6-4038-bb60-8293995f520d&reportObjectId=c5e45737-1799-4739-892c-e7148426185e&ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&reportPage=ReportSection11e2fb1f6c5bd727fe2b&pbi_source=appShareLink&portalSessionId=a7e0655a-d170-40bf-a00b-9286baf5f94a\"),\n            If(\n            ThisItem.SubMenu =\"Roadmap Walmart Tech\",\n            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/90a4329c-7687-4aa7-9732-042eb267d454/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n            If(\n                ThisItem.SubMenu =\"KPI\",\n                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/f9d5fa53-7d93-48b9-a1e6-495819ed9a77/ReportSectionabb163607decac0771e9?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                If(\n                    ThisItem.SubMenu =\"Personas\",\n                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSection8b940955096850385d83?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                    If(\n                        ThisItem.SubMenu =\"Opportunity Assessment\",\n                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/48e6ded5-6162-48f3-9762-ab0af5baa5f2/ReportSectiond75284fbe6005e84b29e?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                        If(\n                            ThisItem.SubMenu =\"Estrategia\",\n                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2c586354-e6f5-42a9-b76c-12094b80219f/ReportSectionad5efd82f030a454aeaa?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                            If(\n                                ThisItem.SubMenu =\"International Monthly Report\",\n                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/49eb77e0-9b4b-4ed1-96f1-863611b903bf/ReportSection4155f03508ecd0cd330d?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                If(\n                                    ThisItem.SubMenu =\"Capitalización\",\n                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/7da42a5a-cb3a-4650-8131-d9828134f725/ReportSection8c764697e730f7446c9b?experience=power-bi\n\"),\n                                    If(\n                                        ThisItem.SubMenu =\"Code Yellow\",\n                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/17a0a2fb-7810-4705-ad13-51260bc586d0/ReportSection3fc7ad15af466f6842b8?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                        If(\n                                            ThisItem.SubMenu =\"Programas\",\n                                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/a6df0060-15a5-43b8-b297-cc2d3796310b/ReportSection10abdf753679c60477dc?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                            If(\n                                                ThisItem.SubMenu =\"Seguimiento OI/OE\",\n                                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/794c6b79-2ef3-4d5d-a93e-b41842780aef/ReportSection3d1fff04a24b0a9091a5?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                If(\n                                                    ThisItem.SubMenu = \"Completitud\",\n                                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9f03d9ce-3674-478e-996c-3b7ab77ecd32/ReportSection6919644c4212a78e8341?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d\"),\n                                                    If(\n                                                        ThisItem.SubMenu = \"HeadCount\",\n                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/8c3c82df-5242-4c55-9ba7-6abac2a56b24?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                        If(\n                                                            ThisItem.SubMenu = \"Infosec\",\n                                                            Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/2779ce08-b506-4e37-955d-8d8bf28406d4/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                            If(\n                                                                ThisItem.SubMenu = \"Auditoria\",\n                                                                Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/11e3b0ad-5b07-4a83-a37e-9988a52aeeb0/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                If(\n                                                                    ThisItem.SubMenu = \"Seguimiento de proyectos\",\n                                                                    Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/9e06fb09-d313-42fb-ba00-5be4f3dd6236/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                    If(\n                                                                        ThisItem.SubMenu = \"Seguimiento Datos\",\n                                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/39ec915b-f306-460b-852c-d6db63b6f15d/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\"),\n                                                                                    If(\n                                                                                        ThisItem.SubMenu = \"Seguimiento servicios tecnologicos\",\n                                                                                        Launch(\"https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi\")\n                                                                                    )\n                                                                    )\n                                                                )\n                                                            )\n                                                        )\n                                                    )\n                                                )\n                                            )\n                                        )\n                                    )\n                                )\n                            )\n                        )\n                    )\n                )\n            )\n        )\n    ),\n        If(\n            _VarIDSelec = 2,\n                If(\n                ThisItem.SubMenu = \"Onboarding\",\n                Launch(\"https://confluence.walmart.com/display/CLAPMO/Onboarding+Tech+Portfolio\"),\n                If(\n                    ThisItem.SubMenu = \"Contáctate con nosotros\",\n                    Launch(\"https://wmt-chile.slack.com/archives/C02UUPQM7QR\"),\n                    If(\n                        ThisItem.SubMenu = \"Déjanos tu feedback\",\n                        Launch(\"https://feedbackally.walmart.com/survey/z7iE9PpIcMXNNbd\")\n                    )\n                )\n            )\n        )\n    )\n);\nSet(_VarAbrirMenu,!_VarAbrirMenu);",
                 "Property": "OnSelect",
-                "RuleProviderType": "Unknown"
+                "RuleProviderType": "User"
               }
             ],
             "StyleName": "defaultButtonStyle",
@@ -2971,7 +2971,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery5_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 5749,
+            "PublishOrderIndex": 3942,
             "Rules": [
               {
                 "Category": "Data",
@@ -3271,7 +3271,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5746,
+        "PublishOrderIndex": 3939,
         "Rules": [
           {
             "Category": "Data",
@@ -3486,7 +3486,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "MenuLateral",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5739,
+        "PublishOrderIndex": 3932,
         "Rules": [
           {
             "Category": "Design",
@@ -3613,7 +3613,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638509455512841084",
+    "LastModifiedTimestamp": "638509466655070251",
     "Name": "MenuLateral",
     "Rules": [
       {
@@ -3763,7 +3763,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638509455512841084",
+  "LastModifiedTimestamp": "638509466655070251",
   "Name": "f3a0cb7deccd49c09eaba3ab560f68a1",
   "OverridableProperties": {},
   "Version": "638138012209706999"

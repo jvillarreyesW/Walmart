@@ -160,6 +160,14 @@
             "InvariantPropertyName": "Visible",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
           }
         ],
         "ControlUniqueId": "46",
@@ -176,7 +184,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5822,
+        "PublishOrderIndex": 4000,
         "Rules": [
           {
             "Category": "Data",
@@ -189,6 +197,12 @@
             "InvariantScript": "false",
             "Property": "DelayOutput",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -513,7 +527,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5823,
+        "PublishOrderIndex": 4001,
         "Rules": [
           {
             "Category": "Design",
@@ -745,6 +759,14 @@
             "InvariantPropertyName": "Tooltip",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
           }
         ],
         "ControlUniqueId": "48",
@@ -761,13 +783,19 @@
         "OptimizeForDevices": "Off",
         "Parent": "InfoAplica",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5824,
+        "PublishOrderIndex": 4002,
         "Rules": [
           {
             "Category": "Data",
             "InvariantScript": "\"Presionar para tener mas información\"",
             "Property": "Tooltip",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -960,7 +988,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638509455512725657",
+    "LastModifiedTimestamp": "638509475930222305",
     "Name": "InfoAplica",
     "Rules": [
       {
@@ -1019,7 +1047,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638509455512725657",
+  "LastModifiedTimestamp": "638509475930222305",
   "Name": "9cbf5b8daffc4fb6a63f632b0c8c9c4e",
   "OverridableProperties": {},
   "Version": "638235682749298151"

@@ -73,7 +73,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Cargando",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5790,
+        "PublishOrderIndex": 3970,
         "Rules": [
           {
             "Category": "Data",
@@ -359,7 +359,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Cargando",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5791,
+        "PublishOrderIndex": 3971,
         "Rules": [
           {
             "Category": "Data",

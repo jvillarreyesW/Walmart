@@ -1582,10 +1582,6 @@ ModuloRiesgosServTech As screen:
         Y: =5
         ZIndex: =22
 
-    Guardando_6 As Guardando_4:
-        Visible: =_VarMostrarCargando
-        ZIndex: =23
-
     Gp_CabeceraPortafolio_13 As group:
         Height: =5
         Width: =5

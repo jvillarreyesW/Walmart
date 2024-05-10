@@ -686,10 +686,6 @@ ModuloServiciosTech As screen:
         Y: =457
         ZIndex: =35
 
-    Guardando_5 As Guardando_4:
-        Visible: =_VarMostrarCargando
-        ZIndex: =37
-
     Txt_FondoSubViaje_5 As text:
         BorderColor: =RGBA(128, 128, 128, 1)
         BorderThickness: =3

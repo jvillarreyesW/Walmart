@@ -174,7 +174,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5780,
+        "PublishOrderIndex": 3960,
         "Rules": [
           {
             "Category": "Data",
@@ -504,7 +504,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5781,
+        "PublishOrderIndex": 3961,
         "Rules": [
           {
             "Category": "Data",
@@ -744,6 +744,14 @@
             "InvariantPropertyName": "Visible",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
           }
         ],
         "ControlUniqueId": "10",
@@ -760,8 +768,14 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5782,
+        "PublishOrderIndex": 3962,
         "Rules": [
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
+          },
           {
             "Category": "Design",
             "InvariantScript": "1",
@@ -954,7 +968,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5783,
+        "PublishOrderIndex": 3963,
         "Rules": [
           {
             "Category": "Data",
@@ -1150,6 +1164,14 @@
             "InvariantPropertyName": "Visible",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "\"\"",
+            "InvariantPropertyName": "AccessibleLabel",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
           }
         ],
         "ControlUniqueId": "12",
@@ -1166,8 +1188,14 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5784,
+        "PublishOrderIndex": 3964,
         "Rules": [
+          {
+            "Category": "Data",
+            "InvariantScript": "false",
+            "Property": "AccessibleLabel",
+            "RuleProviderType": "User"
+          },
           {
             "Category": "Design",
             "InvariantScript": "Icon.CancelBadge",
@@ -1390,7 +1418,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638509455512730113",
+    "LastModifiedTimestamp": "638509475479256033",
     "Name": "AlertasBind",
     "Rules": [
       {
@@ -1501,7 +1529,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638509455512730113",
+  "LastModifiedTimestamp": "638509475479256033",
   "Name": "6411b8eee5bc4fafb939612acfcd54b6",
   "OverridableProperties": {},
   "Version": "638261583052902903"

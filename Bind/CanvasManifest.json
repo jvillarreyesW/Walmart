@@ -147,7 +147,6 @@
     "ModuloKPI",
     "ModuloFinanzas",
     "ModuloData",
-    "ModuloAuditoria",
     "Mantenedores",
     "GestionFcst",
     "ListadoFcst",
@@ -157,10 +156,6 @@
     "Iniciativas",
     "MantenedorIniciativa",
     "SolicitudOrden",
-    "SolicitudesProveedor",
-    "Proveedor",
-    "ProveedorSolicitudAjuste",
-    "RepositorioProveedor",
     "ServiciosTech",
     "ModuloServiciosTech",
     "ModuloRiesgosServTech",
@@ -169,8 +164,6 @@
     "ModuloFinanciadoNegocio",
     "ModuloPersonaV1",
     "ModuloEquipoV1",
-    "ModuloGestionEquipoV1",
-    "ModuloRevisionFormatos",
-    "ModuloRevisionFormatosDetalle"
+    "ModuloGestionEquipoV1"
   ]
 }

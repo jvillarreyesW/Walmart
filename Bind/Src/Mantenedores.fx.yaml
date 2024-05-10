@@ -537,20 +537,6 @@ Mantenedores As screen:
                 =/*Mostrar Spinner Cargando*/
                 Set(_VarMostrarCargando,true);
                 
-                /*Param DeepLink Proveedores*/
-                
-                If(!IsBlank(Param("SolicitudProv")),
-                Set(Guid_Proveedor,Param("SolicitudProv"));
-                If(LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor).Proveedor_Extranjero,
-                Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor)),
-                false);    
-                Set(_VarContratocopia,LookUp(Lst_ContratosProveedores,Param("SolicitudProv")=ID_Sol_Proveedor));
-                Set(_VarFormEstado,true);
-                 Set(var_Prov_Rut,
-                            If(_VarContratocopia.Proveedor_Extranjero,
-                            LookUp(Lst_Proveedores,Razon_Social_Proveedor = _VarContratocopia.Proveedor),
-                            LookUp(Lst_Proveedores,RUT = _VarContratocopia.Proveedor)
-                            )));
                 
                 /*Colores para la App*/
                 Set(_VarColoresApp,

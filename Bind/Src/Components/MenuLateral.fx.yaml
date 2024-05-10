@@ -217,7 +217,7 @@ MenuLateral As CanvasComponent:
                             Navigate(ModuloData,ScreenTransition.CoverRight),
                                 If(
                                 PermisoUsuario.Auditoria,
-                                Navigate(ModuloAuditoria,ScreenTransition.CoverRight),
+                                Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/dc79ad06-2c1d-42bf-9a98-aba96fcb2217?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=03554963-7233-441c-8bc8-875f44930003&sourcetime=1715349147478",Blank(),LaunchTarget.Replace),
                                 Navigate(ListadoProductoProyecto,ScreenTransition.CoverRight,{Valor:"Producto"})
                             )
                         ),
