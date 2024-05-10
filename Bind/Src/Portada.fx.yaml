@@ -198,6 +198,7 @@ Portada As screen:
         ZIndex: =15
 
     Cargando_16 As Cargando:
+        Fill: =RGBA(255, 255, 255, 0.91)
         Visible: =_VarMostrarCargando
         ZIndex: =16
 

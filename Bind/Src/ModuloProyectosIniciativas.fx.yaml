@@ -327,7 +327,6 @@ ModuloProyectosIniciativas As screen:
                 =Concurrent(
                 ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
                 ClearCollect(Col_BD_Financiamiento,Portafolio),
-                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
                 ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
                 ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
                 //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
@@ -350,7 +349,7 @@ ModuloProyectosIniciativas As screen:
                 =Concurrent(
                 ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
                 ClearCollect(Col_BD_Financiamiento,Portafolio),
-                ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
+                
                 ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
                 ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
                 );

@@ -150,7 +150,7 @@ Component1 As CanvasComponent:
                         ThisItem.SubMenu = "Auditoria",
                         Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/dc79ad06-2c1d-42bf-9a98-aba96fcb2217?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=03554963-7233-441c-8bc8-875f44930003&sourcetime=1715349147478",Blank(),LaunchTarget.Replace),
                         ThisItem.SubMenu = "Forecast",
-                        Navigate(GestionFcst,ScreenTransition.Fade),
+                        Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/ba38a670-4b16-4ed6-83b5-4059eaf65929?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=131b443d-562b-46ed-bd16-b80d1f4d2020&sourcetime=1715353704500&source=portal"),
                         ThisItem.SubMenu = "Lista Producto",
                         Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Producto"}),
                         ThisItem.SubMenu = "Lista Proyecto",

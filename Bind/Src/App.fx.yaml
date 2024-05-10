@@ -183,7 +183,7 @@ App As appinfo:
         //Set(htmlAlerta; AlertasdesdeBind.Run(_Perfil.mail;_VarEsManager).alertahtml);; //Belen.Neira@walmart.com --livia.ramdey@walmart.com  --  _Perfil.mail --Gonzalo.Toledo@walmart.com
         
         /*Registrar ingreso User*/
-        Patch(Lst_log_usage,Defaults(Lst_log_usage),{Nombre_Usuario:_Perfil.displayName, Usuario:_Perfil.mailNickname,Accion:"Ingreso App"});
+        //Patch(Lst_log_usage,Defaults(Lst_log_usage),{Nombre_Usuario:_Perfil.displayName, Usuario:_Perfil.mailNickname,Accion:"Ingreso App"});
         
         /*==================== Menu del usuario ===============================*/
         If(

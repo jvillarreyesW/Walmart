@@ -734,46 +734,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Component1.Gl_OpcionesMenu.Button21_4.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Component1.Gl_OpcionesMenu.Button21_4.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 11,
-                  "charOffset": 422,
-                  "snippet": {
-                    "text": "GestionFcst"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Component1",
-                "type": "Component1.Gl_OpcionesMenu.Button21_4"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "GestionFcst"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "MenuPrincipal.Menu.SubMenu.Btn_ProductoProyecto_1.OnSelect"
                 }
               ],
@@ -28616,66 +28576,6 @@
                 "member": "TabIndex",
                 "module": "ListadoIniciativas",
                 "type": "ListadoIniciativas.Image23_18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 11
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
               }
             }
           ],
@@ -57103,36 +57003,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ListadoProductoProyecto.Btn_SeleccionarLimpiarFiltro_2.OnSelect"
                 }
               ],
@@ -59383,66 +59253,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloIniciativasRollOut.Image23_20.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloIniciativasRollOut.Image23_20.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ModuloIniciativasRollOut",
-                "type": "ModuloIniciativasRollOut.Image23_20"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloIniciativasRollOut.Label10_91.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloIniciativasRollOut.Label10_91.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ModuloIniciativasRollOut",
-                "type": "ModuloIniciativasRollOut.Label10_91"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ModuloProyectos.Image23_5.OnSelect"
                 }
               ],
@@ -59653,96 +59463,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListadoIniciativas.Btn_SeleccionarLimpiarFiltro_14.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Btn_SeleccionarLimpiarFiltro_14.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Btn_SeleccionarLimpiarFiltro_14"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Image23_13.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Image23_13.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Image23_13"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_13.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_13.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_13"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ListadoIniciativas.Image23_18.OnSelect"
                 }
               ],
@@ -59756,36 +59476,6 @@
                 "member": "OnSelect",
                 "module": "ListadoIniciativas",
                 "type": "ListadoIniciativas.Image23_18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
               }
             }
           ],
@@ -60236,66 +59926,6 @@
                 "member": "OnSelect",
                 "module": "ModuloFinanzasTech",
                 "type": "ModuloFinanzasTech.Ctn_Filtros_5.Label10_70"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloProyectosIniciativas.Image23_19.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloProyectosIniciativas.Image23_19.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ModuloProyectosIniciativas",
-                "type": "ModuloProyectosIniciativas.Image23_19"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloProyectosIniciativas.Label10_85.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloProyectosIniciativas.Label10_85.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ModuloProyectosIniciativas",
-                "type": "ModuloProyectosIniciativas.Label10_85"
               }
             }
           ],
@@ -61076,36 +60706,6 @@
                 "member": "OnSelect",
                 "module": "ListadoIniciativas",
                 "type": "ListadoIniciativas.Image23_18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
               }
             }
           ],
@@ -62473,36 +62073,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ListadoProductoProyecto.Btn_SeleccionarLimpiarFiltro_2.OnSelect"
                 }
               ],
@@ -63896,36 +63466,6 @@
                 "member": "OnSelect",
                 "module": "ListadoIniciativas",
                 "type": "ListadoIniciativas.Image23_18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListadoIniciativas.Label10_81.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "ListadoIniciativas",
-                "type": "ListadoIniciativas.Label10_81"
               }
             }
           ],
