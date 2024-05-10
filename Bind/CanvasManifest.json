@@ -29,7 +29,7 @@
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": true,
-      "delayloadscreens": false,
+      "delayloadscreens": true,
       "disablebehaviorreturntypecheck": false,
       "disablecdsfileandlargeimage": false,
       "disableruntimepolicies": false,
