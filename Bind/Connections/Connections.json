@@ -37,17 +37,8 @@
           "Lst_Dominio": {
             "tableName": "f59f15c5-e56c-4bb1-917d-7bdabd0fa9c4"
           },
-          "Lst_Fcst_Calendario": {
-            "tableName": "b56424e4-1a03-44c3-88a9-021cbbc89b0e"
-          },
-          "Lst_Fcst_Correlativo": {
-            "tableName": "a80fcaaa-df9c-4b6c-a7fc-1d099963b89e"
-          },
           "Lst_Fcst_Datos": {
             "tableName": "eee65971-c2f6-4e1b-b898-15da0349bd24"
-          },
-          "Lst_Fcst_Detalle": {
-            "tableName": "d0f1f3ae-3285-4daf-827d-8fe05d701cc9"
           },
           "Lst_Fcst_MantenedorCeco": {
             "tableName": "7498c795-0e0b-4e47-9d9a-2710da33fdf3"
@@ -57,9 +48,6 @@
           },
           "LST_Fcst_MantenedorSemanas": {
             "tableName": "2dc365d8-0cd0-4598-bdf6-b478f869dd3c"
-          },
-          "Lst_Fcst_RegistrodeCargas": {
-            "tableName": "d72a0974-86af-4ece-b249-531baf830a62"
           },
           "Lst_Fcst_Responsable": {
             "tableName": "79b858f2-affc-4141-961d-6d227ac690d9"
@@ -207,14 +195,12 @@
       "Lst_Plan_AvancesKPI",
       "Lst_Fcst_Datos",
       "Lst_Fcst_Servicios",
-      "Lst_Fcst_Detalle",
       "LST_Fcst_MantenedorSemanas",
       "Lst_Fcst_MantenedorCuenta",
       "Lst_Fcst_MantenedorCeco",
       "Lst_Fcst_TipoCambioSemana",
       "Lst_SolicitudOrdenes",
       "Soporte / Requerimientos Slack",
-      "Lst_Fcst_RegistrodeCargas",
       "Lst_Plan_Perfilamiento",
       "Lst_Plan_Riesgo_Oportunidad",
       "Lst_Info_APM",
@@ -225,8 +211,6 @@
       "Lst_NoticiasBind",
       "Lst_OrdenesEquipos",
       "Lst_ServicioCuentaCeco",
-      "Lst_Fcst_Correlativo",
-      "Lst_Fcst_Calendario",
       "Lst_Proveedores"
     ],
     "dependencies": {},
@@ -234,9 +218,7 @@
       "71c447a0-de1a-4f75-ade2-a14c1260a2e2",
       "d2b80453-b56e-4cc6-b15f-9791d2cee342",
       "6d60d96f-db91-4cf4-8fa6-e70811dfc78a",
-      "a70aa8f7-1506-4159-b342-258583986d13",
-      "c9422c84-0162-403a-9f11-eddd4398aca9",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
+      "c9422c84-0162-403a-9f11-eddd4398aca9"
     ],
     "id": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
   },
@@ -323,87 +305,6 @@
     "dependents": [],
     "id": "71c447a0-de1a-4f75-ade2-a14c1260a2e2"
   },
-  "7b2a6d6e-dcde-49cf-a9f0-f25c3dcbc1a0": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowDisplayName": {
-          "value": "DescargarFcst_CDG"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4253742f-493c-4d72-b89a-096c7f03557f"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowDisplayName": {
-          "value": "DescargarFcst_CDG"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "4253742f-493c-4d72-b89a-096c7f03557f"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "DescargarFcst_CDG"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "7b2a6d6e-dcde-49cf-a9f0-f25c3dcbc1a0"
-  },
-  "9b0b83eb-6ebf-429c-9862-ef3b7e2607e4": {
-    "appActions": [
-      "Run"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "382ebaa2-b3ea-4a4a-91f0-9f8d14fcde5c"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "382ebaa2-b3ea-4a4a-91f0-9f8d14fcde5c"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "BindDescargarPlantillaFcst"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "9b0b83eb-6ebf-429c-9862-ef3b7e2607e4"
-  },
-  "a05820f9-d192-4400-bbbe-07ac80699a01": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Microsoft Teams",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/teams/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_teams",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "a70aa8f7-1506-4159-b342-258583986d13",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
-    ],
-    "id": "a05820f9-d192-4400-bbbe-07ac80699a01"
-  },
   "a0d29168-60c2-4c7d-a020-de2b911834dd": {
     "appActions": [],
     "connectionRef": {
@@ -418,9 +319,7 @@
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "d2b80453-b56e-4cc6-b15f-9791d2cee342",
-      "a70aa8f7-1506-4159-b342-258583986d13",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
+      "d2b80453-b56e-4cc6-b15f-9791d2cee342"
     ],
     "id": "a0d29168-60c2-4c7d-a020-de2b911834dd"
   },
@@ -464,70 +363,8 @@
       "Office365Outlook"
     ],
     "dependencies": {},
-    "dependents": [
-      "a70aa8f7-1506-4159-b342-258583986d13",
-      "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
-    ],
-    "id": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d"
-  },
-  "a70aa8f7-1506-4159-b342-258583986d13": {
-    "appActions": [
-      "Run"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c": {
-          "value": "shared_sharepointonline"
-        },
-        "a05820f9-d192-4400-bbbe-07ac80699a01": {
-          "value": "shared_teams"
-        },
-        "a0d29168-60c2-4c7d-a020-de2b911834dd": {
-          "value": "shared_excelonlinebusiness"
-        },
-        "a3f60f36-e44b-44da-a7a1-ddce87c7a64d": {
-          "value": "shared_office365"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "d17e5a4a-a209-4387-bd7c-814b965c701f"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_excelonlinebusiness": {
-          "value": "a0d29168-60c2-4c7d-a020-de2b911834dd"
-        },
-        "shared_office365": {
-          "value": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d"
-        },
-        "shared_sharepointonline": {
-          "value": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-        },
-        "shared_teams": {
-          "value": "a05820f9-d192-4400-bbbe-07ac80699a01"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "d17e5a4a-a209-4387-bd7c-814b965c701f"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "CargaMasivaFcst"
-    ],
-    "dependencies": {
-      "shared_excelonlinebusiness": "a0d29168-60c2-4c7d-a020-de2b911834dd",
-      "shared_office365": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d",
-      "shared_sharepointonline": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c",
-      "shared_teams": "a05820f9-d192-4400-bbbe-07ac80699a01"
-    },
     "dependents": [],
-    "id": "a70aa8f7-1506-4159-b342-258583986d13"
+    "id": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d"
   },
   "c0148d27-c103-49e3-b70e-9b1ae4bab675": {
     "appActions": [],
@@ -629,64 +466,5 @@
     },
     "dependents": [],
     "id": "d2b80453-b56e-4cc6-b15f-9791d2cee342"
-  },
-  "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0": {
-    "appActions": [
-      "Run"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Flujos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c": {
-          "value": "shared_sharepointonline"
-        },
-        "a05820f9-d192-4400-bbbe-07ac80699a01": {
-          "value": "shared_teams"
-        },
-        "a0d29168-60c2-4c7d-a020-de2b911834dd": {
-          "value": "shared_excelonlinebusiness"
-        },
-        "a3f60f36-e44b-44da-a7a1-ddce87c7a64d": {
-          "value": "shared_office365"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "92d3e52b-9f06-4444-b151-ee32adade1b0"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_excelonlinebusiness": {
-          "value": "a0d29168-60c2-4c7d-a020-de2b911834dd"
-        },
-        "shared_office365": {
-          "value": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d"
-        },
-        "shared_sharepointonline": {
-          "value": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c"
-        },
-        "shared_teams": {
-          "value": "a05820f9-d192-4400-bbbe-07ac80699a01"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "92d3e52b-9f06-4444-b151-ee32adade1b0"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "CargaMasivaFcst_Real"
-    ],
-    "dependencies": {
-      "shared_excelonlinebusiness": "a0d29168-60c2-4c7d-a020-de2b911834dd",
-      "shared_office365": "a3f60f36-e44b-44da-a7a1-ddce87c7a64d",
-      "shared_sharepointonline": "2c209db4-e0ec-4bfd-b21f-47ed6e9ba40c",
-      "shared_teams": "a05820f9-d192-4400-bbbe-07ac80699a01"
-    },
-    "dependents": [],
-    "id": "d9b6987d-d35b-4b7e-9043-e6e0ef5b12c0"
   }
 }
