@@ -102,7 +102,7 @@ ServiciosTech As screen:
         Txt_FondoForm1_30 As text:
             BorderColor: =RGBA(128, 128, 128, 1)
             BorderThickness: =3
-            Default: =LookUp(Lst_Persona,ThisItem.ID_Responsable_Tecnologia =Usuario).Nombre_Persona
+            Default: =LookUp(Col_BD_Persona,ThisItem.ID_Responsable_Tecnologia =Usuario).Nombre_Persona
             DisabledFill: |-
                 =If(
                     ThisItem.Editando,

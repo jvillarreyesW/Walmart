@@ -2017,7 +2017,7 @@ ListadoProductoProyecto As screen:
                         IsBlank(ThisItem.ID_Responsable_Tecnologia),
                         Blank(),
                         If(
-                            !IsBlank(LookUp(Lst_Persona, Usuario = ThisItem.ID_Responsable_Tecnologia)),
+                            !IsBlank(LookUp(Col_BD_Persona, Usuario = ThisItem.ID_Responsable_Tecnologia)),
                             Table(
                             {
                                 DisplayName: LookUp(
