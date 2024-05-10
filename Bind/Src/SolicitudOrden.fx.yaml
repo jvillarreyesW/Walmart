@@ -1817,7 +1817,7 @@ SolicitudOrden As screen:
                         'Fecha Inicio de desarrollo': Today(),
                         'Fecha Termino Estimada': Today(),
                         Descripción: "",
-                        Creado: Now(),
+                        //Created: Now(),
                         Editando: true
                     }
                 );
