@@ -363,7 +363,7 @@
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 121, 187, 1)
                         SearchFields: =["AnnoPrioridad"]
-                        SearchItems: =Search(Lst_Plan_Prioridad,Cmb_Obj_IDPrioridad.SearchText,AnnoPrioridad)
+                        SearchItems: =[]
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
                         Tooltip: ="Prioridad"
@@ -9001,7 +9001,7 @@
             PressedFill: =RGBA(0, 121, 187, 1)
             Reset: =_VarResetFiltro
             SearchFields: =["ComplianceAssetId"]
-            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,'Compliance Asset Id')
+            SearchItems: =Search(Lst_Plan_Riesgo_Oportunidad,Cmb_Filtro_Soluciones_1.SearchText,ComplianceAssetId)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: ="Prioridad"

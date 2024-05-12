@@ -2000,7 +2000,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["NombreObjetivo"]
-        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID)),Dpd_Pry_ObjeEstr.SearchText,NombreObjetivo)
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2024,7 +2024,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["AnnoPrioridad"]
-        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_Pry_PrioriEstrate.SearchText,AnnoPrioridad)
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -2051,10 +2051,7 @@ ModuloProyectosIniciativas As screen:
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["Title"]
-        SearchItems: |-
-            =Search(Sort(Filter(Col_BD_Dominios,IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63"),Title,SortOrder.Ascending)
-            
-            //Sort(Search(Filter(Col_BD_Dominios;IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63");"Dominio";IDDominio);Title;SortOrder.Ascending),Dpd_Pry_Dominio_1.SearchText,Title)
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =Txt_FondoNegocio_3.Width - 27
         X: =134
@@ -2257,7 +2254,7 @@ ModuloProyectosIniciativas As screen:
                 );
                 Blank()
             )*/
-            ,Cmb_Gl_Equipo_1.SearchText,'Id. de activo de cumplimiento normativo')
+            ,Cmb_Gl_Equipo_1.SearchText,ComplianceAssetId)
         SelectMultiple: =false
         Width: =Txt_FondoEquipo_14.Width - 27
         X: =1220
