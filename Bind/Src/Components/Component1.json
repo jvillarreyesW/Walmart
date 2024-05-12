@@ -1008,9 +1008,9 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "If(\n    _VarMenuSeleccionado = \"Noticias\",\n    470,\n    379\n)",
+            "InvariantScript": "If(\n    _VarMenuSeleccionado = \"Noticias\",\n    470,\n    379\n)-50",
             "Property": "Height",
-            "RuleProviderType": "Unknown"
+            "RuleProviderType": "User"
           },
           {
             "Category": "Design",
@@ -3844,7 +3844,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638511440519402139",
+    "LastModifiedTimestamp": "638511447145586322",
     "Name": "Component1",
     "Rules": [
       {
@@ -3903,7 +3903,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638511440519402139",
+  "LastModifiedTimestamp": "638511447145586322",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"

@@ -2223,18 +2223,7 @@ ModuloIniciativasRollOut As screen:
                     DisplayMode.Edit
                 )
             FontWeight: =FontWeight.Bold
-            OnSelect: |-
-                =Concurrent(
-                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
-                ClearCollect(Col_BD_Financiamiento,Portafolio),
-                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
-                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
-                //ClearCollect(Col_BD_Dependencias;Lst_DependenciasPortafolio)
-                );
-                
-                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
-                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
-                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            OnSelect: =
             Text: ="Actualizar"
             Tooltip: ="Agregar Producto / Proyecto"
             Width: =98
@@ -2245,17 +2234,7 @@ ModuloIniciativasRollOut As screen:
         Image23_20 As image:
             Height: =40
             Image: ='nuevo actualizar '
-            OnSelect: |-
-                =Concurrent(
-                ClearCollect(Col_BD_Portafolio,'Dominio - Proyecto/Producto'),
-                ClearCollect(Col_BD_Financiamiento,Portafolio),
-                ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
-                ClearCollect(Col_BD_DetalleKPIs,OUTCOME)
-                );
-                
-                ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
-                ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
-                UpdateContext({_VarMostrarCuadroBloqueo:false})
+            OnSelect: =
             Tooltip: ="Actualizar datos"
             Width: =35
             X: =1690

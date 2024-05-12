@@ -13826,7 +13826,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceraPortafolio_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 134,
+      "ParentIndex": 133,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13878,7 +13878,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_Filtros_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 135,
+      "ParentIndex": 134,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13930,7 +13930,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_Pry_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 140,
+      "ParentIndex": 135,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14190,7 +14190,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_Pry_Menu",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 133,
+      "ParentIndex": 140,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16342,7 +16342,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultImageStyle",
@@ -20719,7 +20719,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultLabelStyle",

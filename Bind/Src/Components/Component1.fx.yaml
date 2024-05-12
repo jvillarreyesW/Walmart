@@ -14,7 +14,7 @@ Component1 As CanvasComponent:
                 _VarMenuSeleccionado = "Noticias",
                 470,
                 379
-            )
+            )-50
         HtmlText: |-
             =/*
             "<div style =' width: " & Self.Width & "px; height: " & Self.Height-1 & "px; 
