@@ -27,11 +27,15 @@ ListadoIniciativas As screen:
         DelayItemLoading: =true
         Height: =782
         Items: |
-            =Filter(Col_DominiosGestion,Iniciativa=true,
-            (Prioridad_Estrategica=Text(Dpd_FiltroProyeProd_2.Selected.ID) || IsBlank(Dpd_FiltroProyeProd_2.Selected.ID))&&
-            (Objetivo_Estrategico=Text(Cmb_FiltroNombre_8.Selected.ID) || IsBlank(Cmb_FiltroNombre_8.Selected.ID))&&
-            ('Nombre Producto/Proyecto' =Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto' || IsBlank(Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto'))&&
-            (Estado=Dpd_FiltroEstadoTemp_1.Selected.Value || IsBlank(Dpd_FiltroEstadoTemp_1.Selected.Value))
+            =Sort(
+                Filter(Col_DominiosGestion,Iniciativa=true,
+                (Prioridad_Estrategica=Text(Dpd_FiltroProyeProd_2.Selected.ID) || IsBlank(Dpd_FiltroProyeProd_2.Selected.ID))&&
+                (Objetivo_Estrategico=Text(Cmb_FiltroNombre_8.Selected.ID) || IsBlank(Cmb_FiltroNombre_8.Selected.ID))&&
+                ('Nombre Producto/Proyecto' =Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto' || IsBlank(Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto'))&&
+                (Estado=Dpd_FiltroEstadoTemp_1.Selected.Value || IsBlank(Dpd_FiltroEstadoTemp_1.Selected.Value))
+                ),
+                'Nombre Producto/Proyecto',
+                SortOrder.Ascending
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
