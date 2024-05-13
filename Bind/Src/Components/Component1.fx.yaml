@@ -28,7 +28,7 @@ Component1 As CanvasComponent:
             "
             <div style='
                 width: " & Self.Width & "px; 
-                height: " & Self.Height-1 & "px;
+                height: " & Self.Height-30 & "px;
                 background: #FFFFFF;
                 border-radius: 20px;
                 box-shadow: 1px 1px 10px #888888;
