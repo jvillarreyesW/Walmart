@@ -312,7 +312,7 @@ Mantenedores As screen:
             Y: =122
             ZIndex: =23
 
-            CheckboxCanvas1 As Checkbox:
+            CheckboxCanvas1 As Casilla:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -370,7 +370,7 @@ Mantenedores As screen:
             Y: =122
             ZIndex: =25
 
-            CheckboxCanvas1_1 As Checkbox:
+            CheckboxCanvas1_1 As Casilla:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -427,7 +427,7 @@ Mantenedores As screen:
             Y: =119
             ZIndex: =27
 
-            CheckboxCanvas1_2 As Checkbox:
+            CheckboxCanvas1_2 As Casilla:
                 BasePaletteColor: =
                 Checked: |-
                     =If(
@@ -469,7 +469,7 @@ Mantenedores As screen:
             Y: =99
             ZIndex: =29
 
-        Chk_Administrar As Checkbox:
+        Chk_Administrar As Casilla:
             BasePaletteColor: =
             Checked: =false
             DisplayMode: =DisplayMode.Edit
@@ -490,7 +490,7 @@ Mantenedores As screen:
             Y: =90
             ZIndex: =30
 
-        Chk_Dashboard As Checkbox:
+        Chk_Dashboard As Casilla:
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             Font: =""
@@ -510,7 +510,7 @@ Mantenedores As screen:
             Y: =90
             ZIndex: =31
 
-        Chk_Ayuda As Checkbox:
+        Chk_Ayuda As Casilla:
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             Font: =""

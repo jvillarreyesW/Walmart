@@ -7479,7 +7479,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceraPortafolio_14",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 26,
+      "ParentIndex": 27,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7531,7 +7531,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_KPI_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 27,
+      "ParentIndex": 26,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

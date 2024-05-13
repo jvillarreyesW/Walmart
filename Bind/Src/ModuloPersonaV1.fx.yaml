@@ -1919,7 +1919,7 @@ ModuloPersonaV1 As screen:
                     Y: =45
                     ZIndex: =6
 
-                "InfoButtonCanvas1 As 'Information button'":
+                "InfoButtonCanvas1 As 'Botón de información'":
                     BasePaletteColor: =
                     Content: |-
                         ="Servicios: contratación de prestación de servicios cuando no se tiene expertiz. Importa el resultado independiente de quienes prestan el servicio. Temporalidad esporadica y específica, aun cuando puede ser recuerrente. No forman parte del negocio, el prestador trabaja independiente, solo solicitud inicial y entregas se tratan directo con equipo WM. Ej: encuesta a fin de mes. 
@@ -3048,7 +3048,7 @@ ModuloPersonaV1 As screen:
             Items: =Col_BD_Dominios
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["ComplianceAssetId"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio_1.SearchText,ComplianceAssetId)
+            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio_1.SearchText,'Id. de activo de cumplimiento normativo')
             SelectMultiple: =false
             Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_2.Selected.Value = "Movilidad interna"
             Width: =Txt_FondoForm1_198.Width - 27
