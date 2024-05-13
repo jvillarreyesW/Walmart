@@ -673,7 +673,7 @@ ListadoIniciativas As screen:
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: |-
             =Table({DisplayName:_Perfil.displayName})
-        DisplayFields: =["AnnoPrioridad"]
+        DisplayFields: =["NombrePrioridad"]
         DisplayMode: |-
             =If(
                 _VarVerPopUpPortafolio,
@@ -682,7 +682,6 @@ ListadoIniciativas As screen:
             )
         Height: =Txt_FondoForm1_171.Height -10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
-        IsSearchable: =false
         Items: =Lst_Plan_Prioridad
         OnChange: |
             =UpdateContext({_VarMostrarCuadroBloqueo:false});
@@ -694,8 +693,8 @@ ListadoIniciativas As screen:
             )
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
-        SearchFields: =["AnnoPrioridad"]
-        SearchItems: =[]
+        SearchFields: =["NombrePrioridad"]
+        SearchItems: =Search(Lst_Plan_Prioridad,Dpd_FiltroProyeProd_2.SearchText,NombrePrioridad)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
         Tooltip: =
@@ -908,7 +907,7 @@ ListadoIniciativas As screen:
                         Table({DisplayName:_Perfil.displayName, Claims:_Perfil.userPrincipalName})
                     )
                 )
-            DisplayFields: =["AreadeImpacto"]
+            DisplayFields: =["Nombre_x0020_Producto_x002f_Proy"]
             DisplayMode: |
                 =
                         DisplayMode.Edit
@@ -978,7 +977,7 @@ ListadoIniciativas As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
                 =Table({DisplayName:_Perfil.displayName})
-            DisplayFields: =["AnnoObjetivo"]
+            DisplayFields: =["NombreObjetivo"]
             DisplayMode: |-
                 =If(
                     _VarVerPopUpPortafolio,
@@ -987,7 +986,6 @@ ListadoIniciativas As screen:
                 )
             Height: =Txt_FondoForm1_171.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
-            IsSearchable: =false
             Items: =Lst_Plan_Objetivos
             OnChange: |
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
@@ -999,8 +997,8 @@ ListadoIniciativas As screen:
                 )
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["AnnoObjetivo"]
-            SearchItems: =[]
+            SearchFields: =["NombreObjetivo"]
+            SearchItems: =Search(Lst_Plan_Objetivos,Cmb_FiltroNombre_8.SearchText,NombreObjetivo)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
