@@ -74,9 +74,9 @@ App As appinfo:
         ClearCollect(Col_DominiosAsignados,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName,Dominio));  //trae los dominios asignados al usuario
         /*------------------------------------------------------*/
         
-        //ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
+        ClearCollect(Col_IDDOminios, Filter(Col_BD_Dominios, Title in Col_DominiosAsignados.Value).IDDominio);
         //ClearCollect(Col_DominiosGestion, Col_BD_Portafolio);
-        //ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+        ClearCollect(Col_DominiosGestion, Filter(Col_BD_Portafolio, IDDominio in Col_IDDOminios.IDDominio));
         
         Clear(Col_IDEquiposAsignados);
         Clear(Col_MiEquiposJefe);

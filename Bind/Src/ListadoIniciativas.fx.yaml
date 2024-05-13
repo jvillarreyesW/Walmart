@@ -925,7 +925,7 @@ ListadoIniciativas As screen:
                     */
             Height: =Txt_FondoForm1_172.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =Filter(Col_DominiosGestion,Iniciativa)
+            Items: =Filter(Col_DominiosGestion,Iniciativa = true)
             OnChange: |-
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
                 If(
