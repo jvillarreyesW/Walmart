@@ -1425,7 +1425,7 @@ ModuloProyectosIniciativas As screen:
         Y: =403
         ZIndex: =86
 
-    Chk_AplicaPO_1 As Casilla:
+    Chk_AplicaPO_1 As Checkbox:
         AccessibleLabel: ="Aplica PO/JO para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaJefeProyecto
@@ -1446,7 +1446,7 @@ ModuloProyectosIniciativas As screen:
         Y: =538
         ZIndex: =87
 
-    Chk_AplicaEM_1 As Casilla:
+    Chk_AplicaEM_1 As Checkbox:
         AccessibleLabel: ="Aplica EM para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaEM
@@ -1467,7 +1467,7 @@ ModuloProyectosIniciativas As screen:
         Y: =632
         ZIndex: =88
 
-    Chk_AplicaUx_1 As Casilla:
+    Chk_AplicaUx_1 As Checkbox:
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaUx
         DisplayMode: =DisplayMode.Edit
@@ -1487,7 +1487,7 @@ ModuloProyectosIniciativas As screen:
         Y: =903
         ZIndex: =89
 
-    Chk_AplicaDatos_1 As Casilla:
+    Chk_AplicaDatos_1 As Checkbox:
         AccessibleLabel: ="Aplica Datos para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaDatos
@@ -1508,7 +1508,7 @@ ModuloProyectosIniciativas As screen:
         Y: =811
         ZIndex: =90
 
-    Chk_AplicaNegocio_1 As Casilla:
+    Chk_AplicaNegocio_1 As Checkbox:
         AccessibleLabel: ="Aplica Negocio para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaNegocio
@@ -3425,7 +3425,7 @@ ModuloProyectosIniciativas As screen:
             Y: =327
             ZIndex: =32
 
-        "InfoButtonCanvas3_22 As 'Botón de información'":
+        "InfoButtonCanvas3_22 As 'Information button'":
             BasePaletteColor: =
             Content: ="Dueño del registro APM para el producto o servicio. Este rol corresponde al PO."
             DisplayMode: =DisplayMode.Edit
@@ -3443,7 +3443,7 @@ ModuloProyectosIniciativas As screen:
             Y: =629
             ZIndex: =34
 
-        "InfoButtonCanvas3_18 As 'Botón de información'":
+        "InfoButtonCanvas3_18 As 'Information button'":
             BasePaletteColor: =
             Content: ="Corresponde al ID de producto creado en Roadmap de productos de Walmart. Con este identificador puede solicitar Budget (Cloud) y está asociado al APM entre otros."
             DisplayMode: =DisplayMode.Edit
@@ -3461,7 +3461,7 @@ ModuloProyectosIniciativas As screen:
             Y: =438
             ZIndex: =35
 
-        "InfoButtonCanvas3_17 As 'Botón de información'":
+        "InfoButtonCanvas3_17 As 'Information button'":
             BasePaletteColor: =
             Content: ="Indica donde esta implementada la solución o servicio, Cloud, On premise, SaaS."
             DisplayMode: =DisplayMode.Edit
@@ -3479,7 +3479,7 @@ ModuloProyectosIniciativas As screen:
             Y: =346
             ZIndex: =36
 
-        "InfoButtonCanvas3_16 As 'Botón de información'":
+        "InfoButtonCanvas3_16 As 'Information button'":
             BasePaletteColor: =
             Content: ="Corresponde al estado del registro del APM (Procucción, Piloto, Decomisado, entre otros)"
             DisplayMode: =DisplayMode.Edit
@@ -3497,7 +3497,7 @@ ModuloProyectosIniciativas As screen:
             Y: =346
             ZIndex: =37
 
-        "InfoButtonCanvas3_20 As 'Botón de información'":
+        "InfoButtonCanvas3_20 As 'Information button'":
             BasePaletteColor: =
             Content: ="Información del Host del producto , en caso del Install type es Cloud, este debe contener cual cloud (AWS, Azure, Google). Puede tener más de una optción, en caso de que sea un producto hibrido."
             DisplayMode: =DisplayMode.Edit
@@ -3515,7 +3515,7 @@ ModuloProyectosIniciativas As screen:
             Y: =534
             ZIndex: =38
 
-        "InfoButtonCanvas3_21 As 'Botón de información'":
+        "InfoButtonCanvas3_21 As 'Information button'":
             BasePaletteColor: =
             Content: ="Criticidad del producto, el valor más bajo es más crítico. SI es 0 o 1, implica que el producto es alta disponibilidad (impacto en Budget)."
             DisplayMode: =DisplayMode.Edit
@@ -3533,7 +3533,7 @@ ModuloProyectosIniciativas As screen:
             Y: =628
             ZIndex: =39
 
-        "InfoButtonCanvas3_23 As 'Botón de información'":
+        "InfoButtonCanvas3_23 As 'Information button'":
             BasePaletteColor: =
             Content: ="Que tan crítico el producto, y cuánto tiempo puede en producto no contar con la información disponible. 0 y 1 son los más críticos."
             DisplayMode: =DisplayMode.Edit
@@ -3551,7 +3551,7 @@ ModuloProyectosIniciativas As screen:
             Y: =726
             ZIndex: =40
 
-        "InfoButtonCanvas3_19 As 'Botón de información'":
+        "InfoButtonCanvas3_19 As 'Information button'":
             BasePaletteColor: =
             Content: ="Plan de Seguridad del producto. Más detalle lo pueden obtener en Infosec."
             DisplayMode: =DisplayMode.Edit

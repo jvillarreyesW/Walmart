@@ -28,7 +28,7 @@ ListadoIniciativas As screen:
         Height: =782
         Items: |
             =Sort(
-                Filter(Col_DominiosGestion,Iniciativa=true,
+                Filter(Col_BD_Portafolio,Iniciativa=true,
                 (Prioridad_Estrategica=Text(Dpd_FiltroProyeProd_2.Selected.ID) || IsBlank(Dpd_FiltroProyeProd_2.Selected.ID))&&
                 (Objetivo_Estrategico=Text(Cmb_FiltroNombre_8.Selected.ID) || IsBlank(Cmb_FiltroNombre_8.Selected.ID))&&
                 ('Nombre Producto/Proyecto' =Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto' || IsBlank(Cmb_FiltroJefePO_3.Selected.'Nombre Producto/Proyecto'))&&
