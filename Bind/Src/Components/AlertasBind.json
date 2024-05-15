@@ -1418,7 +1418,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638513786070056018",
+    "LastModifiedTimestamp": "638513945941758597",
     "Name": "AlertasBind",
     "Rules": [
       {
@@ -1529,7 +1529,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638513786070056018",
+  "LastModifiedTimestamp": "638513945941758597",
   "Name": "6411b8eee5bc4fafb939612acfcd54b6",
   "OverridableProperties": {},
   "Version": "638261583052902903"

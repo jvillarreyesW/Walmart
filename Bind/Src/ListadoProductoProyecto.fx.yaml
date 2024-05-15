@@ -27,54 +27,14 @@ ListadoProductoProyecto As screen:
         Height: =782
         Items: |
             =Filter(
-                If( // Todo sin Filtros
-                IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),
-                Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Creado,SortOrder.Descending),
-                If(     // Categoria - Proyecto 
-                    IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),  
-                    Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value,'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),Creado,SortOrder.Descending),
-                    If(     // Categoria - Jefe 
-                        IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected), 
-                        Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value,Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)),Creado,SortOrder.Descending),
-                        If(     // Categoria - Proyecto - Jefe 
-                            IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected), 
-                            Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value,'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto', Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)),Creado,SortOrder.Descending),
-                            If(     // Categoria - Estado - Proyecto - Jefe 
-                                !IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !(Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución") && !(Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected),
-                                Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstadoTemp.Selected.Value,'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto', Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)),Creado,SortOrder.Descending),
-                                If(     // Categoria - Estado  
-                                    !IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !(Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución") && !(Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),
-                                    Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstadoTemp.Selected.Value),Creado,SortOrder.Descending),
-                                    If(     // Categoria - Estado - Proyecto  
-                                        !IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !(Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución") && !(Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),
-                                        Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstadoTemp.Selected.Value,'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),Creado,SortOrder.Descending),
-                                        If(     // Categoria - Estado - Jefe  
-                                            !IsBlank(Dpd_FiltroEstadoTemp.Selected.Value) && !(Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución") && !(Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected),
-                                            Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstadoTemp.Selected.Value,Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)),Creado,SortOrder.Descending),
-                                            If(     // Categoria - Estado = Ejecucion - Jefe  
-                                                (Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución" || Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected),
-                                                Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstado.Selected.Value,Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)),Creado,SortOrder.Descending),
-                                                If(     // Categoria - Estado = Ejecucion - Jefe - Proyecto 
-                                                    (Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución" || Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && !IsBlank(Cmb_FiltroJefePO.Selected),
-                                                    Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstado.Selected.Value,Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value),'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),Creado,SortOrder.Descending),
-                                                    If(     // Categoria - Estado = Ejecucion - Proyecto 
-                                                        (Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución" || Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && !IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),
-                                                        Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstado.Selected.Value,'Nombre Producto/Proyecto' = Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),Creado,SortOrder.Descending),
-                                                        If(     // Categoria - Estado = Ejecucion
-                                                            (Dpd_FiltroEstadoTemp.Selected.Value = "Ejecución" || Dpd_FiltroEstadoTemp.Selected.Value = "Descontinuado") && IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto') && IsBlank(Cmb_FiltroJefePO.Selected),
-                                                            Sort(Filter(Col_BD_Portafolio, 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, Estado = Dpd_FiltroEstado.Selected.Value),Creado,SortOrder.Descending)
-                                                        )
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
+                Sort(Filter(Col_BD_Portafolio, 
+                'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, 
+                Estado = Dpd_FiltroEstadoTemp.Selected.Value || IsBlank(Dpd_FiltroEstadoTemp.Selected.Value),
+                'Nombre Producto/Proyecto'=Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'|| IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),
+                Lower(ID_Responsable_Tecnologia) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)||IsBlank(Cmb_FiltroJefePO.Selected.Claims)
+            
                 )
-            ),
+                ,Creado,SortOrder.Descending),
             IDDominio<>"Via-F0530905-33AC-1567-7C50-3BF2EFCF230A" && //Plataformas y redes
             IDDominio<>"Via-EFF1A142-75C7-8AD8-4CCA-C645097B0BA4" && //Soporte y Operación tecnológica
             IDDominio<>"Via-F0530905-33AC-1567-7C50-3BF2EFCFP7K8" && //DataOps
