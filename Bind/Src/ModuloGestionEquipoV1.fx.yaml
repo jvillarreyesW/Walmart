@@ -1196,7 +1196,7 @@ ModuloGestionEquipoV1 As screen:
                         IDGerencias
                     )
                 )
-                */,Cmb_CambiardeEquipo.SearchText,'Equipo/Squad')
+                */,Cmb_CambiardeEquipo.SearchText,Equipo_x002f_Squad)
             SelectMultiple: =false
             Visible: =_VarCambiardeEquipo
             Width: =368

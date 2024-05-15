@@ -152,7 +152,7 @@ ListadoProductoProyecto As screen:
                     Set(_VarVerPopUpPortafolio,false);
                     Set(Valor1,"Proyecto");
                     Navigate(ModuloProyectosIniciativas,ScreenTransition.Fade),
-                    //Navigate(ModuloProyectos;ScreenTransition.Fade);
+                    //Navigate(ModuloProyectos,ScreenTransition.Fade);
                     Concurrent(
                         Set(_VarIDProdSele,ThisItem.IDProducto), 
                         Set(_VarVerPopUpPortafolio,true)
@@ -804,7 +804,7 @@ ListadoProductoProyecto As screen:
         '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =782
-        Items: =Filter(Col_DominiosGestion,IDProducto = _VarIDProdSele )
+        Items: =Filter(Col_BD_Portafolio,IDProducto = _VarIDProdSele )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =760
@@ -1841,7 +1841,7 @@ ListadoProductoProyecto As screen:
                         );
                         Blank()
                     )*/
-                    ,Cmb_Equipo_2.SearchText,'Equipo/Squad')
+                    ,Cmb_Equipo_2.SearchText,Equipo_x002f_Squad)
                 SelectMultiple: =false
                 Width: =Txt_FondoForm1_65.Width - 27
                 X: =1495
@@ -2131,11 +2131,11 @@ ListadoProductoProyecto As screen:
                         If(
                             IsEmpty(Col_ErroresGuardarProyecto),
                             Patch(
-                            Col_DominiosGestion,
+                            Col_BD_Portafolio,
                                 If(
-                                    IsBlank(LookUp(Col_DominiosGestion, IDProducto = ThisItem.IDProducto)),
-                                    Defaults(Col_DominiosGestion),
-                                    LookUp(Col_DominiosGestion, IDProducto = ThisItem.IDProducto)
+                                    IsBlank(LookUp(Col_BD_Portafolio, IDProducto = ThisItem.IDProducto)),
+                                    Defaults(Col_BD_Portafolio),
+                                    LookUp(Col_BD_Portafolio, IDProducto = ThisItem.IDProducto)
                                 ),
                                 {
                                     'Categoría Iniciativa': {Value:"Producto Tecnológico"} ,
@@ -2213,7 +2213,7 @@ ListadoProductoProyecto As screen:
                     /*
                             If(
                                 !(ThisItem.Estado = Dpd_EstadoProductoProyecto_2.Selected.Value) || !(ThisItem.'Categoría Iniciativa'.Value = Dpd_ProductoProyecto_2.Selected.Value);
-                                ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+                                ClearCollect(Col_BD_Portafolio; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
                                 UpdateContext({_VarMostrarCuadroBloqueo:false})
                                 
                             );;

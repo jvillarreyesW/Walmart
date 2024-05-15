@@ -1580,7 +1580,7 @@ ModuloProyectos As screen:
                     );
                     Blank()
                 )*/
-                ,Cmb_Gl_Equipo.SearchText,'Equipo/Squad')
+                ,Cmb_Gl_Equipo.SearchText,Equipo_x002f_Squad)
             SelectMultiple: =false
             Width: =Txt_FondoEquipo.Width - 27
             X: =507
