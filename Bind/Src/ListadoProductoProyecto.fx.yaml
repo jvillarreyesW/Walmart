@@ -3533,7 +3533,7 @@ ListadoProductoProyecto As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,Nombre_x0020_Producto_x002f_Proy)
+            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,'Nombre Producto/Proyecto')
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

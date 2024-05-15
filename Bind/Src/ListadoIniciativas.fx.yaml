@@ -939,7 +939,7 @@ ListadoIniciativas As screen:
             Reset: |
                 =Valor = "Producto" || Valor = "Proyecto"
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_BD_Portafolio,Iniciativa = true),Cmb_FiltroJefePO_3.SearchText,Nombre_x0020_Producto_x002f_Proy)
+            SearchItems: =Search(Filter(Col_BD_Portafolio,Iniciativa = true),Cmb_FiltroJefePO_3.SearchText,'Nombre Producto/Proyecto')
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =
@@ -1055,7 +1055,7 @@ ListadoIniciativas As screen:
                 )
             Height: =Txt_FondoForm1_173.Height -10
             HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =["","Por iniciar","En Ejecución","Documentando","On Hold","Preparación","Desarrollo","Pruebas UAT","Piloto","Rollout","Hypercare","Finalizado"]
+            Items: =["","Inicio","En Ejecución","Documentando","On Hold","Planificación","Desarrollo","Pruebas UAT","Piloto","Rollout","Hypercare","Cierre","Finalizado"]
             OnChange: |-
                 =UpdateContext({_VarMostrarCuadroBloqueo:false});
                 If(

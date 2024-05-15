@@ -115,7 +115,7 @@ ModuloGoLive As screen:
         RadiusBottomRight: =25
         RadiusTopLeft: =25
         RadiusTopRight: =25
-        Width: =300
+        Width: =263
         X: =151
         Y: =428
         ZIndex: =6
@@ -127,7 +127,6 @@ ModuloGoLive As screen:
         DefaultDate: =First(ProyectoSeleccionado).FechaGolive
         EndYear: =Year(Today())+100
         Format: ="dd/mm/y"
-        Height: =Txt_Gl_FondoFecha.Height - 10
         IconBackground: =Color.White
         IconFill: =RGBA(0, 121, 187, 1)
         IsEditable: =true
@@ -136,7 +135,7 @@ ModuloGoLive As screen:
         Reset: =ResetearControlPry
         StartYear: =1899
         Tooltip: =
-        Width: =Txt_Gl_FondoFecha.Width - 27
+        Width: =235
         X: =168
         Y: =433
         ZIndex: =7
@@ -350,11 +349,13 @@ ModuloGoLive As screen:
                             'Registrado en APM': Rd_Pry_RegistradoenAPM.Selected,
                             'Nombre APM': Txt_Pry_NombreAPM.Text,
                             'Codigo APM': Txt_Pry_CodigoAPM.Text,
+                            GoliveRealizado:Dpd_Gl_Estadogolive.Selected.Value,
                             'Nombre Necesidad': If(
                                 Rd_Pry_ProvieneOA.Selected.Value = "SI",
                                 Dpd_Pry_NombreNecesidad.Selected.Nombre_x0020_de_x0020_Necesidad,
                                 ""
                             ),
+                            
                             //'Leverage con WM Internacional (BTV)': Rd_Pry_LeverageWM.Selected ;
                             TipoProyecto: Dpd_Pry_TipoPry.Selected.Value,
                             Tamano: Dpd_Pry_TamanoPry.Selected.Value,
@@ -639,6 +640,7 @@ ModuloGoLive As screen:
                             TipoProyecto: Dpd_Pry_TipoPry.Selected.Value,
                             Tamano: Dpd_Pry_TamanoPry.Selected.Value,
                             RequiereFinanciamiento: Rd_Pry_RequiereFinanciamiento.Selected.Value,
+                            GoliveRealizado:Dpd_Gl_Estadogolive.Selected.Value,
                             Desc_Financiamiento: If(
                                 Rd_Pry_RequiereFinanciamiento.Selected.Value = "NO",
                                 Dpd_Pry_DetalleMotivo.Selected.Value,
@@ -1312,8 +1314,8 @@ ModuloGoLive As screen:
         Items: |-
             =If( First(ProyectoSeleccionado).Estado="Solicitud de finalización",["Solicitud de finalización"],
              If(Rd_Pry_Discovery.Selected.Value="SI",
-                    ["Por iniciar","En Ejecución","Documentando","Finalizado"],
-                    ["Por iniciar","On Hold","Preparación","Desarrollo","Pruebas UAT","Piloto","Rollout","Hypercare","Finalizado"]
+                    ["Inicio","En Ejecución","Documentando","Finalizado"],
+                    ["Inicio","En Ejecución","Documentando","On Hold","Planificación","Desarrollo","Pruebas UAT","Piloto","Rollout","Hypercare","Cierre","Finalizado"]
              ))
               
         PressedFill: =RGBA(0, 121, 187, 1)
@@ -1803,8 +1805,8 @@ ModuloGoLive As screen:
         Text: |-
             ="Fecha de finalización Iniciativa:"
         Width: =317
-        X: =483
-        Y: =393
+        X: =666
+        Y: =394
         ZIndex: =70
 
     Txt_Gl_FondoFecha_7 As text:
@@ -1820,7 +1822,7 @@ ModuloGoLive As screen:
         RadiusTopLeft: =25
         RadiusTopRight: =25
         Width: =300
-        X: =483
+        X: =666
         Y: =428
         ZIndex: =71
 
@@ -1841,8 +1843,8 @@ ModuloGoLive As screen:
         StartYear: =1899
         Tooltip: =
         Width: =Txt_Gl_FondoFecha_7.Width - 27
-        X: =500
-        Y: =433
+        X: =683
+        Y: =434
         ZIndex: =72
 
     Container21 As groupContainer.manualLayoutContainer:
@@ -2257,6 +2259,78 @@ ModuloGoLive As screen:
     Guardando_2 As Guardando:
         Visible: =_VarMostrarCargando
         ZIndex: =74
+
+    Txt_FondoDetalleMotivo_3 As text:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =3
+        Default: =""
+        DisabledFill: =If(First(ProyectoSeleccionado).Estado="Finalizado" || First(ProyectoSeleccionado).Estado ="Solicitud de finalización",RGBA(244, 244, 244, 1),RGBA(0, 0, 0, 0))
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =If(First(ProyectoSeleccionado).Estado="Finalizado" || First(ProyectoSeleccionado).Estado ="Solicitud de finalización",RGBA(244, 244, 244, 1),RGBA(0, 0, 0, 0))
+        Height: =50
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Visible: |-
+            =true
+            //Rd_Pry_RequiereFinanciamiento.Selected.Value = "NO"
+        Width: =99
+        X: =466
+        Y: =428
+        ZIndex: =75
+
+    Dpd_Gl_Estadogolive As dropdown:
+        BorderColor: =
+        BorderStyle: =BorderStyle.None
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(102, 102, 102, 1)
+        ChevronFill: =RGBA(0, 121, 187, 1)
+        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+        Default: |-
+            =First(ProyectoSeleccionado).GoliveRealizado
+            
+            /*If(First(ProyectoSeleccionado).Iniciativa;
+                First(ProyectoSeleccionado).Estado_Iniciativa
+                    ;
+                If(
+                    First(ProyectoSeleccionado).Estado in ["Por iniciar";"Discovery";"Requerimientos detallados";"Diseño técnico detallado";"Desarrollo";"Pruebas";"Puesta en marcha";"Roll out";"Hypercare";"Pausado";"Traspaso a Soporte"];
+                    "Ejecución";
+                    If(
+                        First(ProyectoSeleccionado).Estado in ["Tech";"Negocio"];
+                        "Descontinuado";
+                        First(ProyectoSeleccionado).Estado
+                    )
+                )
+            )*/
+        DisplayMode: |-
+            =If(First(ProyectoSeleccionado).Estado="Finalizado" || First(ProyectoSeleccionado).Estado="Solicitud de finalización",
+            DisplayMode.Disabled,
+            DisplayMode.Edit)
+        HoverBorderColor: =RGBA(0, 121, 187, 1)
+        Items: =["No","Si"]
+        PressedFill: =RGBA(0, 121, 187, 1)
+        Reset: =ResetearControlPry
+        Tooltip: =
+        Visible: |-
+            =true
+            //Rd_Pry_RequiereFinanciamiento.Selected.Value = "NO"
+        Width: =74
+        X: =478
+        Y: =434
+        ZIndex: =76
+
+    Lbl_Gl_FechaGoLive_5 As label:
+        AutoHeight: =true
+        FontWeight: =FontWeight.Semibold
+        Height: =59
+        OnSelect: =
+        Text: ="¿Se realizó GoLive?"
+        Width: =170
+        X: =443
+        Y: =393
+        ZIndex: =77
 
     Gp_Filtros_6 As group:
         Height: =5
