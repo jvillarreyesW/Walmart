@@ -15,7 +15,7 @@ ModuloFinanciadoNegocio As screen:
         BorderThickness: =1
         DelayItemLoading: =true
         Height: =782
-        Items: =Filter(Col_DominiosGestion, IDProducto = Var_IDProducto)
+        Items: =Filter(Col_BD_Portafolio, IDProducto = Var_IDProducto)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =782
