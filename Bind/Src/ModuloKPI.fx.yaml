@@ -25,7 +25,7 @@ ModuloKPI As screen:
         DelayItemLoading: =true
         Height: =782
         Items: |-
-            =Filter(Col_DominiosGestion, IDProducto = Var_IDProducto)
+            =Filter(Col_BD_Portafolio, IDProducto = Var_IDProducto)
             /*
             If(
                 IsBlank(Cmb_FiltroNombre_2.Selected.'Nombre Producto/Proyecto');

@@ -6381,7 +6381,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_CabeceraPortafolio_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 28,
+      "ParentIndex": 27,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6433,7 +6433,7 @@
       "MetaDataIDKey": "",
       "Name": "Gp_Filtros_7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 27,
+      "ParentIndex": 28,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
