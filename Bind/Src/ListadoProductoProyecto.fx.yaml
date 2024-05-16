@@ -31,8 +31,13 @@ ListadoProductoProyecto As screen:
                 'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value, 
                 Estado = Dpd_FiltroEstadoTemp.Selected.Value || IsBlank(Dpd_FiltroEstadoTemp.Selected.Value),
                 'Nombre Producto/Proyecto'=Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'|| IsBlank(Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'),
+                If(
+                Valor = "Producto",
                 Lower(ID_Responsable_Tecnologia) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)||IsBlank(Cmb_FiltroJefePO.Selected.Claims)
-            
+                ,
+                Lower(ID_Jefe_Poyecto) = Lower(Last(Split(First(Split(Cmb_FiltroJefePO.Selected.Claims,"@")).Value,"|")).Value)||IsBlank(Cmb_FiltroJefePO.Selected.Claims)
+                )
+             
                 )
                 ,Creado,SortOrder.Descending),
             IDDominio<>"Via-F0530905-33AC-1567-7C50-3BF2EFCF230A" && //Plataformas y redes
@@ -197,7 +202,12 @@ ListadoProductoProyecto As screen:
                 ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
                 ChevronFill: =RGBA(0, 121, 187, 1)
                 ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                Default: =LookUp(Lst_Persona, Usuario = ThisItem.ID_Jefe_Poyecto,Nombre_Persona)
+                Default: |
+                    =If(
+                        Valor = "Producto",
+                        LookUp(Lst_Persona, Usuario = ThisItem.ID_Responsable_Tecnologia,Nombre_Persona),
+                        LookUp(Lst_Persona, Usuario = ThisItem.ID_Jefe_Poyecto,Nombre_Persona)
+                    )
                 DisplayMode: |-
                     =If(
                         ThisItem.Editando,
@@ -419,7 +429,11 @@ ListadoProductoProyecto As screen:
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
                 Text: |-
-                    ="Responsable:"
+                    =If(
+                        Valor = "Producto",
+                        "PM:",
+                       "Responsable:"
+                    )
                 Visible: |-
                     =If( 
                         _VarVerProductoProyecto,
@@ -3351,7 +3365,11 @@ ListadoProductoProyecto As screen:
             Color: =RGBA(0, 0, 0, 1)
             FontWeight: =FontWeight.Semibold
             Text: |-
-                ="Responsable:"
+                =If(
+                    Valor = "Producto",
+                    "PM:",
+                   "Responsable:"
+                )
             Width: =239
             Wrap: =false
             X: =1037
