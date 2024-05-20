@@ -3947,8 +3947,10 @@ ListadoProductoProyecto As screen:
             Text: ="Solicitar/Ingresar Orden"
             Tooltip: ="Agregar Producto / Proyecto"
             Visible: |-
-                =If(
-                    Valor = "Producto",true,false)
+                =false
+                /*
+                If(
+                    Valor = "Producto",true,false)*/
             Width: =220
             X: =1674
             Y: =171
@@ -3960,8 +3962,10 @@ ListadoProductoProyecto As screen:
             OnSelect: =
             Tooltip: ="Actualizar datos"
             Visible: |-
-                =If(
-                    Valor = "Producto",true,false)
+                =false
+                /*
+                If(
+                    Valor = "Producto",true,false)*/
             Width: =35
             X: =1636
             Y: =171
@@ -3975,8 +3979,10 @@ ListadoProductoProyecto As screen:
             PressedFill: =RGBA(255, 255, 255, 0.7)
             Text: =""
             Visible: |-
-                =If(
-                    Valor = "Producto",true,false)
+                =false
+                /*
+                If(
+                    Valor = "Producto",true,false)*/
             Width: =260
             X: =1634
             Y: =168

@@ -1420,6 +1420,7 @@ ListadoIniciativas As screen:
             OnSelect: =
             Text: ="Abrir/Extender Orden"
             Tooltip: ="Agregar Producto / Proyecto"
+            Visible: =false
             Width: =215
             X: =1674
             Y: =171
@@ -1430,6 +1431,7 @@ ListadoIniciativas As screen:
             Image: ='layers (1)'
             OnSelect: =
             Tooltip: ="Actualizar datos"
+            Visible: =false
             Width: =35
             X: =1636
             Y: =171
@@ -1442,6 +1444,7 @@ ListadoIniciativas As screen:
             OnSelect: =Navigate(SolicitudOrden)
             PressedFill: =RGBA(255, 255, 255, 0.7)
             Text: =""
+            Visible: =false
             Width: =240
             X: =1634
             Y: =168
