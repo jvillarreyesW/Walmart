@@ -289,19 +289,19 @@ Component1 As CanvasComponent:
             AccessibleLabel: =false
             Height: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     300,
                     150
                 )
             Image: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     ImagenAbril,
                     '02'
                 )
             ImagePosition: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     ImagePosition.Fit,
                     ImagePosition.Fit
                 )
@@ -310,7 +310,7 @@ Component1 As CanvasComponent:
             X: =15
             Y: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     10,
                     10
                 )
@@ -324,7 +324,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     false,
                     true
                 )
@@ -341,7 +341,7 @@ Component1 As CanvasComponent:
             Underline: =true
             Visible: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     true,
                     false
                 )
@@ -357,7 +357,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     true,
                     false
                 )
