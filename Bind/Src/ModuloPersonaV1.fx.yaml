@@ -18,7 +18,7 @@ ModuloPersonaV1 As screen:
         Text: ="Ver mi equipo"
         Width: =204
         X: =1609
-        Y: =787
+        Y: =801
         ZIndex: =1
 
     Gp_CabeceraPersona_3 As group:
@@ -305,7 +305,7 @@ ModuloPersonaV1 As screen:
             =If(Rd_PersonasEquipos.Selected.Value="Mis Equipos",NuevoImg_Equipo,AgregarPersona)
         Width: =45
         X: =106
-        Y: =787
+        Y: =801
         ZIndex: =9
 
     Btn_AgregarExternos As button:
@@ -342,7 +342,7 @@ ModuloPersonaV1 As screen:
             )
         Width: =290
         X: =157
-        Y: =787
+        Y: =801
         ZIndex: =10
 
     Label19_3 As label:
@@ -452,7 +452,7 @@ ModuloPersonaV1 As screen:
             DefaultMode: =FormMode.New
             Height: =566
             Item: |
-                =LookUp(Lst_Persona, Usuario = _VarUsuarioSelect)
+                =LookUp(Col_BD_Persona, Usuario = _VarUsuarioSelect)
             OnFailure: =Notify("PAso algo", NotificationType.Error,5000)
             OnSuccess: |-
                 =ResetForm(Frm_EditarPersona_1);
@@ -560,7 +560,7 @@ ModuloPersonaV1 As screen:
                             LookUp(Lst_Persona; Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result);'Interno/Externo')
                         )
                         */
-                    DisabledColor: =RGBA(102, 102, 102, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: |-
                         =DisplayMode.Disabled
                         /*
@@ -690,7 +690,7 @@ ModuloPersonaV1 As screen:
                     ChevronHoverBackground: =RGBA(0, 121, 187, 1)
                     DefaultSelectedItems: |-
                         =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
-                    DisabledColor: =RGBA(102, 102, 102, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_74.Height -10
@@ -856,6 +856,7 @@ ModuloPersonaV1 As screen:
                         //Table({NombreGerencia: ThisItem.GerenciaOrigen})
                         //!IsBlank(_VarNuevoIDPErsona
                         //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["ComplianceAssetId"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_76.Height -10
@@ -944,7 +945,7 @@ ModuloPersonaV1 As screen:
                             Parent.Default,
                             LookUp(Lst_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,'Ubicación Laboral')
                         )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_78.Height -10
@@ -1028,7 +1029,7 @@ ModuloPersonaV1 As screen:
                         LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),RUT)
                         )
                     DelayOutput: =true
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: =Parent.DisplayMode
                     Height: =50
                     MaxLength: =Parent.MaxLength
@@ -1163,7 +1164,7 @@ ModuloPersonaV1 As screen:
                             Parent.Default,
                             LookUp(Col_BD_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,Empresa)
                         )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_79.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -1264,7 +1265,7 @@ ModuloPersonaV1 As screen:
                             Parent.Default,
                             LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
                         )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: =Parent.DisplayMode
                     EndYear: =Year(Today())+100
                     Height: =Txt_FondoForm1_80.Height - 10
@@ -1341,7 +1342,7 @@ ModuloPersonaV1 As screen:
                             Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result
                         ))
                     DelayOutput: =true
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Height: =50
                     MaxLength: =Parent.MaxLength
@@ -1418,7 +1419,7 @@ ModuloPersonaV1 As screen:
                             Cmb_BuscarPersona_2.Selected.Email
                         )
                     DelayOutput: =true
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: |
                         =DisplayMode.Disabled
                     Height: =50
@@ -1521,7 +1522,7 @@ ModuloPersonaV1 As screen:
                             Parent.Default,
                             LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
                         )
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_193.Height - 10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -1634,6 +1635,7 @@ ModuloPersonaV1 As screen:
                             ),
                             Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_1.Text), Jefe_Directo), Nombre_Persona)})
                         )
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode.Disabled
                     Height: =Txt_FondoForm1_194.Height - 10
@@ -1768,7 +1770,7 @@ ModuloPersonaV1 As screen:
                         ={Value:ThisItem.Genero}
                     DefaultSelectedItems: |-
                         =Table({Value:ThisItem.Genero})
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_196.Height -10
@@ -1901,7 +1903,7 @@ ModuloPersonaV1 As screen:
                             Table({Value:LookUp(Col_BD_Persona; Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result);Categoria)})
                         )
                         */
-                    DisabledColor: =RGBA(128, 128, 128, 1)
+                    DisabledColor: =RGBA(53, 61, 63, 1)
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -2315,7 +2317,7 @@ ModuloPersonaV1 As screen:
         ZIndex: =21
 
         Rct_FondoBloqueo_1 As rectangle:
-            Fill: =RGBA(15, 84, 140, 0.63)
+            Fill: =RGBA(122, 138, 143, 0.55)
             Height: =1050
             Visible: =_VarMostrarBarraBloqueo
             Width: =1920

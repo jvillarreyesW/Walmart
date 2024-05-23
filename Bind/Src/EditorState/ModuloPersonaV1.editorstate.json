@@ -4828,7 +4828,14 @@
         "Color",
         "HoverColor",
         "PressedColor",
-        "DisabledColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "DisabledColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledBorderColor",
         {
           "AFDDataSourceName": "",
@@ -6594,7 +6601,14 @@
           "NameMapSourceSchema": "?"
         },
         "PressedColor",
-        "DisabledColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "DisabledColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledBorderColor",
         {
           "AFDDataSourceName": "",
