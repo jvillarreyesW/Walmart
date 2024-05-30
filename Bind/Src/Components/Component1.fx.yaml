@@ -132,16 +132,6 @@ Component1 As CanvasComponent:
             Align: =Align.Left
             BorderStyle: =BorderStyle.None
             Color: =RGBA(71, 158, 245, 1)
-            DisplayMode: |-
-                =If(
-                    ThisItem.SubMenu = "Equipos",
-                    If(
-                        _VarUsuarioJefe in Col_UserPermiso.User || _VarRolUsuario = "ENGINEERING MANAGER III" ,
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
-                    ),
-                    DisplayMode.Edit
-                )
             Fill: =RGBA(0, 0, 0, 0)
             OnSelect: |-
                 =If(
@@ -276,7 +266,7 @@ Component1 As CanvasComponent:
         LoadingSpinner: =LoadingSpinner.Data
         ShowNavigation: =true
         ShowScrollbar: =false
-        TemplateSize: =757
+        TemplateSize: =1531
         Visible: |-
             =If(
                 !(_VarMenuSeleccionado = "Noticias"),
@@ -310,13 +300,8 @@ Component1 As CanvasComponent:
                 )
             OnSelect: =Launch(ThisItem.MasDetalleUrl)
             Width: =724
-            X: =15
-            Y: |-
-                =If(
-                    ThisItem.Título = "Tech News",
-                    10,
-                    10
-                )
+            X: =382
+            Y: =8
             ZIndex: =2
 
         HtmlText10 As htmlViewer:
@@ -332,8 +317,8 @@ Component1 As CanvasComponent:
                     true
                 )
             Width: =724
-            X: =15
-            Y: =176
+            X: =382
+            Y: =158
             ZIndex: =3
 
         Label57 As label:

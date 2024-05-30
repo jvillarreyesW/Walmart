@@ -1169,14 +1169,7 @@
               "DisabledColor",
               "PressedColor",
               "HoverColor",
-              {
-                "AFDDataSourceName": "",
-                "AutoRuleBindingEnabled": false,
-                "AutoRuleBindingString": "DisplayMode.Edit",
-                "InvariantPropertyName": "DisplayMode",
-                "IsLockable": false,
-                "NameMapSourceSchema": "?"
-              },
+              "DisplayMode",
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -1314,9 +1307,9 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.SubMenu = \"Equipos\",\n    If(\n        _VarUsuarioJefe in Col_UserPermiso.User || _VarRolUsuario = \"ENGINEERING MANAGER III\" ,\n        DisplayMode.Edit,\n        DisplayMode.Disabled\n    ),\n    DisplayMode.Edit\n)",
+                "InvariantScript": "DisplayMode.Edit",
                 "Property": "DisplayMode",
-                "RuleProviderType": "Unknown"
+                "RuleProviderType": "User"
               },
               {
                 "Category": "Design",
@@ -2239,13 +2232,13 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "15",
+                "InvariantScript": "382",
                 "Property": "X",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "If(\n    ThisItem.Título = \"Tech News\",\n    10,\n    10\n)",
+                "InvariantScript": "8",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
@@ -2740,13 +2733,13 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "15",
+                "InvariantScript": "382",
                 "Property": "X",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "176",
+                "InvariantScript": "158",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
@@ -3272,7 +3265,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "757",
+            "InvariantScript": "1531",
             "Property": "TemplateSize",
             "RuleProviderType": "Unknown"
           },
@@ -3851,7 +3844,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638527010515254053",
+    "LastModifiedTimestamp": "638527022180578124",
     "Name": "Component1",
     "Rules": [
       {
@@ -3910,7 +3903,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638527010515254053",
+  "LastModifiedTimestamp": "638527022180578124",
   "Name": "a2f5f86503b544beab7613b0db999a13",
   "OverridableProperties": {},
   "Version": "1.0"
