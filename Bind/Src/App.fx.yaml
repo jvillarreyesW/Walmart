@@ -28,7 +28,6 @@ App As appinfo:
         Set(PermisoUsuario,LookUp(Perfilamiento,Nombre.DisplayName=_Perfil.displayName));
         
         
-        
         /*Modulo de Persona*/
         Set(_VarUsuarioJefe, Upper(Last(Split(First(Split(_Perfil.userPrincipalName,"@")).Value,"|")).Value)) ; //  Upper(Last(Split(First(Split(_Perfil.userPrincipalName;"@")).Value;"|")).Value) || m0a00y0 || c0r076x || L0M02OW
         Set(_VarRolUsuario, LookUp(Lst_Persona,'Correo Electrónico' = _Perfil.mail,Rol));

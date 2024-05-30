@@ -11,6 +11,12 @@ ModuloPersonaV1 As screen:
             =Set(_VarEquipo,"MiEquipo");
             Navigate(ModuloEquipoV1,ScreenTransition.Fade)
         Text: ="Mi Equipo funcional"
+        Visible: |-
+            =If(
+                LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe,GerenciaOrigen) = "GERENCIA INGENIERIA DE SOFTWARE",
+                false,
+                true
+            )
         Width: =225
         X: =1306
         Y: =795
