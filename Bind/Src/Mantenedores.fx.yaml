@@ -1902,3 +1902,23 @@ Mantenedores As screen:
             Y: =249
             ZIndex: =25
 
+    Button11 As button:
+        OnSelect: |-
+            =ClearCollect(Col_TempPerfil, Perfilamiento);
+            
+            ForAll(
+                Col_TempPerfil As UsePer,
+                Patch(
+                    Perfilamiento,
+                    LookUp(Perfilamiento, ID = UsePer.ID),
+                    {
+                        PermisosMenu:UsePer.PermisosMenu &",98"
+                    }
+                )
+            )
+        Text: ="AgregarMenumasivo"
+        Width: =246
+        X: =1661
+        Y: =85
+        ZIndex: =27
+

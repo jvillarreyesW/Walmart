@@ -28,7 +28,7 @@ Component1 As CanvasComponent:
             "
             <div style='
                 width: " & Self.Width & "px; 
-                height: " & Self.Height-30 & "px;
+                height: " & Self.Height-15 & "px;
                 background: #FFFFFF;
                 border-radius: 20px;
                 box-shadow: 1px 1px 10px #888888;
@@ -125,7 +125,7 @@ Component1 As CanvasComponent:
                 3
             )
         X: =60
-        Y: =130
+        Y: =110
         ZIndex: =3
 
         Button21_4 As button:
@@ -157,7 +157,7 @@ Component1 As CanvasComponent:
                     Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
                     ThisItem.SubMenu = "Opportunity Assessment",
                     Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal"),
-                    ThisItem.SubMenu = "Personas",
+                    ThisItem.SubMenu = "Personas/Equipos",
                     Navigate(ModuloPersonaV1,ScreenTransition.Fade),
                     ThisItem.SubMenu = "PPP",
                     Navigate(Iniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"}),
