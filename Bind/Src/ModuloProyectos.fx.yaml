@@ -1302,7 +1302,7 @@ ModuloProyectos As screen:
         Y: =8
         ZIndex: =116
 
-    Chk_AplicaPO As Checkbox:
+    Chk_AplicaPO As Casilla:
         AccessibleLabel: ="Aplica PO/JO para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaJefeProyecto
@@ -1323,7 +1323,7 @@ ModuloProyectos As screen:
         Y: =541
         ZIndex: =117
 
-    Chk_AplicaEM As Checkbox:
+    Chk_AplicaEM As Casilla:
         AccessibleLabel: ="Aplica EM para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaEM
@@ -1344,7 +1344,7 @@ ModuloProyectos As screen:
         Y: =635
         ZIndex: =118
 
-    Chk_AplicaUx As Checkbox:
+    Chk_AplicaUx As Casilla:
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaUx
         DisplayMode: =DisplayMode.Edit
@@ -1364,7 +1364,7 @@ ModuloProyectos As screen:
         Y: =906
         ZIndex: =119
 
-    Chk_AplicaDatos As Checkbox:
+    Chk_AplicaDatos As Casilla:
         AccessibleLabel: ="Aplica Datos para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaDatos
@@ -1385,7 +1385,7 @@ ModuloProyectos As screen:
         Y: =814
         ZIndex: =120
 
-    Chk_AplicaNegocio As Checkbox:
+    Chk_AplicaNegocio As Casilla:
         AccessibleLabel: ="Aplica Negocio para el Proyecto"
         BasePaletteColor: =
         Checked: =First(ProyectoSeleccionado).AplicaNegocio
@@ -2537,9 +2537,9 @@ ModuloProyectos As screen:
             "'Datos adjuntos_DataCard1' As typedDataCard.attachmentsEditCard":
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="{Attachments}"
-                Default: =ThisItem.Attachments
+                Default: =ThisItem.'Datos adjuntos'
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@'Dominio - Proyecto/Producto'],DataSourceInfo.DisplayName,Attachments)
+                DisplayName: =DataSourceInfo([@'Dominio - Proyecto/Producto'],DataSourceInfo.DisplayName,'Datos adjuntos')
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -3866,7 +3866,7 @@ ModuloProyectos As screen:
             Y: =327
             ZIndex: =32
 
-        "InfoButtonCanvas3_8 As 'Information button'":
+        "InfoButtonCanvas3_8 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Dueño del registro APM para el producto o servicio. Este rol corresponde al PO."
             DisplayMode: =DisplayMode.Edit
@@ -3884,7 +3884,7 @@ ModuloProyectos As screen:
             Y: =629
             ZIndex: =34
 
-        "InfoButtonCanvas3_9 As 'Information button'":
+        "InfoButtonCanvas3_9 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Corresponde al ID de producto creado en Roadmap de productos de Walmart. Con este identificador puede solicitar Budget (Cloud) y está asociado al APM entre otros."
             DisplayMode: =DisplayMode.Edit
@@ -3902,7 +3902,7 @@ ModuloProyectos As screen:
             Y: =438
             ZIndex: =35
 
-        "InfoButtonCanvas3_10 As 'Information button'":
+        "InfoButtonCanvas3_10 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Indica donde esta implementada la solución o servicio, Cloud, On premise, SaaS."
             DisplayMode: =DisplayMode.Edit
@@ -3920,7 +3920,7 @@ ModuloProyectos As screen:
             Y: =346
             ZIndex: =36
 
-        "InfoButtonCanvas3_11 As 'Information button'":
+        "InfoButtonCanvas3_11 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Corresponde al estado del registro del APM (Procucción, Piloto, Decomisado, entre otros)"
             DisplayMode: =DisplayMode.Edit
@@ -3938,7 +3938,7 @@ ModuloProyectos As screen:
             Y: =346
             ZIndex: =37
 
-        "InfoButtonCanvas3_12 As 'Information button'":
+        "InfoButtonCanvas3_12 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Información del Host del producto , en caso del Install type es Cloud, este debe contener cual cloud (AWS, Azure, Google). Puede tener más de una optción, en caso de que sea un producto hibrido."
             DisplayMode: =DisplayMode.Edit
@@ -3956,7 +3956,7 @@ ModuloProyectos As screen:
             Y: =534
             ZIndex: =38
 
-        "InfoButtonCanvas3_13 As 'Information button'":
+        "InfoButtonCanvas3_13 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Criticidad del producto, el valor más bajo es más crítico. SI es 0 o 1, implica que el producto es alta disponibilidad (impacto en Budget)."
             DisplayMode: =DisplayMode.Edit
@@ -3974,7 +3974,7 @@ ModuloProyectos As screen:
             Y: =628
             ZIndex: =39
 
-        "InfoButtonCanvas3_14 As 'Information button'":
+        "InfoButtonCanvas3_14 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Que tan crítico el producto, y cuánto tiempo puede en producto no contar con la información disponible. 0 y 1 son los más críticos."
             DisplayMode: =DisplayMode.Edit
@@ -3992,7 +3992,7 @@ ModuloProyectos As screen:
             Y: =726
             ZIndex: =40
 
-        "InfoButtonCanvas3_15 As 'Information button'":
+        "InfoButtonCanvas3_15 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Plan de Seguridad del producto. Más detalle lo pueden obtener en Infosec."
             DisplayMode: =DisplayMode.Edit

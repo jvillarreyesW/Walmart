@@ -158,7 +158,7 @@ Component1 As CanvasComponent:
                     ThisItem.SubMenu = "Opportunity Assessment",
                     Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/7d8b9673-b624-4a74-9427-f12f8a267162?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&source=portal"),
                     ThisItem.SubMenu = "Personas",
-                    Navigate(ModuloPersona,ScreenTransition.Fade),
+                    Navigate(ModuloPersonaV1,ScreenTransition.Fade),
                     ThisItem.SubMenu = "PPP",
                     Navigate(Iniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"}),
                     ThisItem.SubMenu = "Servicio",
@@ -216,7 +216,10 @@ Component1 As CanvasComponent:
                             ThisItem.SubMenu = "Seguimiento servicios tecnologicos",
                                 Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
                             ThisItem.SubMenu = "Seguimiento Forecast",
-                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/fdb68645-644f-4ad4-9afc-4262e0c08526/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                                Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/fdb68645-644f-4ad4-9afc-4262e0c08526/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Equipos virtuales",
+                            Launch("https://teams.microsoft.com/l/message/19:2a1a0daf-14a0-42b4-ac77-3c259309458c_e4ed05fb-5528-42f4-b695-b467bb640be8@unq.gbl.spaces/1717018803531?context=%7B%22contextType%22%3A%22chat%22%7D")
+                
                         )
                     /* Fin de Opciondes Dashboard */
                     ,
@@ -289,19 +292,19 @@ Component1 As CanvasComponent:
             AccessibleLabel: =false
             Height: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     300,
                     150
                 )
             Image: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     ImagenAbril,
                     '02'
                 )
             ImagePosition: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     ImagePosition.Fit,
                     ImagePosition.Fit
                 )
@@ -310,7 +313,7 @@ Component1 As CanvasComponent:
             X: =15
             Y: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     10,
                     10
                 )
@@ -324,7 +327,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     false,
                     true
                 )
@@ -341,7 +344,7 @@ Component1 As CanvasComponent:
             Underline: =true
             Visible: |-
                 =If(
-                    !(ThisItem.Title = "Proyectos Finalizados !!"),
+                    !(ThisItem.Título = "Proyectos Finalizados !!"),
                     true,
                     false
                 )
@@ -357,7 +360,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Title = "Tech News",
+                    ThisItem.Título = "Tech News",
                     true,
                     false
                 )

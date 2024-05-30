@@ -1,6 +1,6 @@
 ModuloPersonaV1 As screen:
 
-    Button25_2 As button:
+    Button25_3 As button:
         Fill: |-
             =If(
                 _VarEquipo="MiEquipo",
@@ -10,15 +10,10 @@ ModuloPersonaV1 As screen:
         OnSelect: |-
             =Set(_VarEquipo,"MiEquipo");
             Navigate(ModuloEquipoV1,ScreenTransition.Fade)
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Size: =14
-        Text: ="Ver mi equipo"
-        Width: =204
-        X: =1609
-        Y: =801
+        Text: ="Mi Equipo funcional"
+        Width: =225
+        X: =1306
+        Y: =795
         ZIndex: =1
 
     Gp_CabeceraPersona_3 As group:
@@ -32,7 +27,7 @@ ModuloPersonaV1 As screen:
             Fill: =_VarColoresApp.AzulparaCabeceras
             Height: =60
             Width: =1920
-            ZIndex: =3
+            ZIndex: =4
 
         Img_UsuarioPantallaPersona_12 As image:
             Height: =50
@@ -45,15 +40,37 @@ ModuloPersonaV1 As screen:
             Width: =54
             X: =1774
             Y: =5
-            ZIndex: =4
+            ZIndex: =5
+
+    Button25_4 As button:
+        DisplayMode: |-
+            =If(
+                  _VarUsuarioJefe in Col_UserPermiso.User || _VarRolUsuario = "ENGINEERING MANAGER III",
+                  DisplayMode.Edit,
+                  DisplayMode.Disabled
+            )
+        Fill: |-
+            =If(
+                _VarEquipo="EquiposVirtuales",
+                RGBA(22, 196, 247,1),
+                RGBA(56, 96, 178, 1)
+            )
+        OnSelect: |-
+            =Set(_VarEquipo,"EquiposVirtuales");
+            Navigate(ModuloEquipoV1,ScreenTransition.Fade)
+        Text: ="Equipos virtuales"
+        Width: =225
+        X: =1549
+        Y: =795
+        ZIndex: =2
 
     Image4_2 As image:
         Height: =74
         Image: ='OddPreciousIndri-max-1mb'
         Width: =132
-        X: =481
-        Y: =100
-        ZIndex: =2
+        X: =320
+        Y: =102
+        ZIndex: =3
 
     Button2_3 As button:
         Fill: =_VarColoresApp.VerdeParaBotones
@@ -85,7 +102,7 @@ ModuloPersonaV1 As screen:
         Tooltip: ="Regresar"
         Width: =83
         X: =1837
-        ZIndex: =5
+        ZIndex: =6
 
     Label13_20 As label:
         Align: =Align.Center
@@ -103,14 +120,14 @@ ModuloPersonaV1 As screen:
         Width: =611
         X: =598
         Y: =2
-        ZIndex: =6
+        ZIndex: =7
 
     Cnt_Personas As groupContainer.manualLayoutContainer:
         Height: =526
         Width: =1796
         X: =62
         Y: =261
-        ZIndex: =7
+        ZIndex: =8
 
         Gallery2 As gallery.galleryHorizontal:
             '#CopilotOverlayLabel': ="Filtered"
@@ -293,11 +310,11 @@ ModuloPersonaV1 As screen:
         FontWeight: =FontWeight.Semibold
         Height: =60
         Size: =18
-        Text: ="En tu equipo hay " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Interno")) & " colaboradores internos y " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Externo")) & " colaboradores externos"
+        Text: ="En tu equipo hay " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Interno")) & " colaboradores internos y " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Externo")) & " colaboradores externos, que son de tu responsabilidad."
         Width: =1408
-        X: =270
+        X: =263
         Y: =106
-        ZIndex: =8
+        ZIndex: =9
 
     Image14_2 As image:
         Height: =40
@@ -306,7 +323,7 @@ ModuloPersonaV1 As screen:
         Width: =45
         X: =106
         Y: =801
-        ZIndex: =9
+        ZIndex: =10
 
     Btn_AgregarExternos As button:
         Fill: =RGBA(232, 46, 179, 1)
@@ -343,7 +360,7 @@ ModuloPersonaV1 As screen:
         Width: =290
         X: =157
         Y: =801
-        ZIndex: =10
+        ZIndex: =11
 
     Label19_3 As label:
         Align: =Align.Center
@@ -359,7 +376,7 @@ ModuloPersonaV1 As screen:
         Width: =1707
         X: =106
         Y: =955
-        ZIndex: =11
+        ZIndex: =12
 
     Txt_BuscadorPersona As text:
         BorderColor: =RGBA(53, 61, 63, 1)
@@ -378,7 +395,7 @@ ModuloPersonaV1 As screen:
             )
         X: =106
         Y: =217
-        ZIndex: =12
+        ZIndex: =13
 
     Icon1 As icon.Search:
         BorderStyle: =BorderStyle.None
@@ -394,7 +411,7 @@ ModuloPersonaV1 As screen:
                 110
             )
         Y: =221
-        ZIndex: =13
+        ZIndex: =14
 
     Label27 As label:
         Color: =RGBA(79, 90, 94, 1)
@@ -413,7 +430,7 @@ ModuloPersonaV1 As screen:
         Width: =300
         X: =163
         Y: =217
-        ZIndex: =14
+        ZIndex: =15
 
     Container24 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
@@ -441,7 +458,7 @@ ModuloPersonaV1 As screen:
         Width: =1767
         X: =76
         Y: =199
-        ZIndex: =20
+        ZIndex: =21
 
         Frm_EditarPersona_1 As form:
             AcceptsFocus: =true
@@ -857,7 +874,7 @@ ModuloPersonaV1 As screen:
                         //!IsBlank(_VarNuevoIDPErsona
                         //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
                     DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["ComplianceAssetId"]
+                    DisplayFields: =["NombreGerencia"]
                     DisplayMode: =Parent.DisplayMode
                     Height: =Txt_FondoForm1_76.Height -10
                     HoverBorderColor: =RGBA(0, 121, 187, 1)
@@ -866,8 +883,8 @@ ModuloPersonaV1 As screen:
                     OnChange: =
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["ComplianceAssetId"]
-                    SearchItems: =[]
+                    SearchFields: =["NombreGerencia"]
+                    SearchItems: =Search(Filter(Col_BD_Gerencia, Nivel = "2"),Cmb_GerenciaOrigen_1.SearchText,NombreGerencia)
                     SelectionFill: =RGBA(0, 121, 187, 1)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
@@ -1920,7 +1937,7 @@ ModuloPersonaV1 As screen:
                     Y: =45
                     ZIndex: =6
 
-                "InfoButtonCanvas1 As 'Information button'":
+                "InfoButtonCanvas1 As 'Botón de información'":
                     BasePaletteColor: =
                     Content: |-
                         ="Servicios: contratación de prestación de servicios cuando no se tiene expertiz. Importa el resultado independiente de quienes prestan el servicio. Temporalidad esporadica y específica, aun cuando puede ser recuerrente. No forman parte del negocio, el prestador trabaja independiente, solo solicitud inicial y entregas se tratan directo con equipo WM. Ej: encuesta a fin de mes. 
@@ -2272,43 +2289,6 @@ ModuloPersonaV1 As screen:
             Y: =578
             ZIndex: =2
 
-    Btn_EliminarRegistros_2 As button:
-        BorderColor: =RGBA(128, 128, 128, 1)
-        BorderThickness: =1
-        DisabledColor: =RGBA(128, 128, 128, 1)
-        DisabledFill: =RGBA(204, 204, 204, 0.33)
-        Fill: =Color.Red
-        OnSelect: |
-            =Set(PopUpBorrar_CasoEspecial,true)
-        PressedColor: =
-        PressedFill: =Self.Fill
-        Text: ="Eliminar Persona"
-        Visible: |-
-            =_VarMostrarBarraBloqueo && Dpd_InternoExterno_1.Selected.Value = "Externo"
-            /*
-            If(
-                Dpd_InternoExterno.Selected.Value = "Interno";
-                false;
-                If(
-                    !IsBlank(_VarNuevoIDPErsona);
-                    false;
-                    If(
-                        IsBlank(Cmb_BuscarMiEquipo.Selected.Nombre_Persona) && IsBlank(_VarUsuarioSelect);
-                        false;
-                        If(
-                            Rd_PersonasEquipos.Selected.Value = "Mis Equipos";
-                            false;
-                            true
-                        )
-                    )
-                )
-            )
-            */
-        Width: =225
-        X: =106
-        Y: =133
-        ZIndex: =21
-
     Group2 As group:
         Height: =5
         Width: =5
@@ -2321,7 +2301,7 @@ ModuloPersonaV1 As screen:
             Height: =1050
             Visible: =_VarMostrarBarraBloqueo
             Width: =1920
-            ZIndex: =15
+            ZIndex: =16
 
         Btn_Actualizar_1 As button:
             DisplayMode: |-
@@ -2540,7 +2520,7 @@ ModuloPersonaV1 As screen:
             Width: =167
             X: =598
             Y: =874
-            ZIndex: =16
+            ZIndex: =17
 
         Btn_Cancelar_1 As button:
             Fill: =_VarColoresApp.AzulFondo
@@ -2558,7 +2538,7 @@ ModuloPersonaV1 As screen:
             Width: =167
             X: =798
             Y: =874
-            ZIndex: =17
+            ZIndex: =18
 
         Html_CabeceraInfoPersonal_1 As htmlViewer:
             Height: =83
@@ -2589,7 +2569,7 @@ ModuloPersonaV1 As screen:
             Width: =1767
             X: =76
             Y: =117
-            ZIndex: =18
+            ZIndex: =19
 
         Btn_Limpiar_1 As button:
             DisplayMode: |-
@@ -2609,7 +2589,44 @@ ModuloPersonaV1 As screen:
             Width: =167
             X: =998
             Y: =874
-            ZIndex: =19
+            ZIndex: =20
+
+    Btn_EliminarRegistros_2 As button:
+        BorderColor: =RGBA(128, 128, 128, 1)
+        BorderThickness: =1
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisabledFill: =RGBA(204, 204, 204, 0.33)
+        Fill: =Color.Red
+        OnSelect: |
+            =Set(PopUpBorrar_CasoEspecial,true)
+        PressedColor: =
+        PressedFill: =Self.Fill
+        Text: ="Eliminar Persona"
+        Visible: |-
+            =_VarMostrarBarraBloqueo && Dpd_InternoExterno_1.Selected.Value = "Externo"
+            /*
+            If(
+                Dpd_InternoExterno.Selected.Value = "Interno";
+                false;
+                If(
+                    !IsBlank(_VarNuevoIDPErsona);
+                    false;
+                    If(
+                        IsBlank(Cmb_BuscarMiEquipo.Selected.Nombre_Persona) && IsBlank(_VarUsuarioSelect);
+                        false;
+                        If(
+                            Rd_PersonasEquipos.Selected.Value = "Mis Equipos";
+                            false;
+                            true
+                        )
+                    )
+                )
+            )
+            */
+        Width: =225
+        X: =106
+        Y: =133
+        ZIndex: =22
 
     Btn_Cambiar_Jefatura_1 As button:
         DisplayMode: |-
@@ -2630,7 +2647,7 @@ ModuloPersonaV1 As screen:
         Width: =179
         X: =1198
         Y: =874
-        ZIndex: =22
+        ZIndex: =23
 
     Solicitar_Cambio_Jefatura_1 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(202, 202, 202, 0.78)
@@ -2639,7 +2656,7 @@ ModuloPersonaV1 As screen:
         Width: =1811
         X: =62
         Y: =70
-        ZIndex: =23
+        ZIndex: =24
 
         Label25_1 As label:
             BorderColor: =RGBA(219, 219, 219, 1)
@@ -2747,7 +2764,7 @@ ModuloPersonaV1 As screen:
             Height: =1050
             Visible: =PopUpBorrar_CasoEspecial
             Width: =1920
-            ZIndex: =24
+            ZIndex: =25
 
         "'rectangulo blanco_4' As rectangle":
             BorderColor: =RGBA(128, 128, 128, 1)
@@ -2763,7 +2780,7 @@ ModuloPersonaV1 As screen:
             Width: =843
             X: =599
             Y: =326
-            ZIndex: =25
+            ZIndex: =26
 
         "'text pop up_13' As label":
             Align: =Align.Right
@@ -2776,7 +2793,7 @@ ModuloPersonaV1 As screen:
             Width: =305
             X: =683
             Y: =435
-            ZIndex: =26
+            ZIndex: =27
 
         Borrar_4 As button:
             BorderColor: =Color.Transparent
@@ -2896,7 +2913,7 @@ ModuloPersonaV1 As screen:
                     720,
                     580
                 )
-            ZIndex: =27
+            ZIndex: =28
 
         Cancelar_4 As button:
             BorderColor: =Color.Transparent
@@ -2915,7 +2932,7 @@ ModuloPersonaV1 As screen:
                     720,
                     580
                 )
-            ZIndex: =28
+            ZIndex: =29
 
         Txt_FondoForm1_200 As text:
             BorderColor: =RGBA(128, 128, 128, 1)
@@ -2933,7 +2950,7 @@ ModuloPersonaV1 As screen:
             Width: =314
             X: =992
             Y: =427
-            ZIndex: =29
+            ZIndex: =30
 
         Dpd_SeleccionarAccion_2 As dropdown:
             BorderStyle: =BorderStyle.None
@@ -2960,7 +2977,7 @@ ModuloPersonaV1 As screen:
             Width: =Txt_FondoForm1_200.Width - 27
             X: =1005
             Y: =432
-            ZIndex: =30
+            ZIndex: =31
 
         "'text pop up_14' As label":
             Align: =Align.Center
@@ -2973,7 +2990,7 @@ ModuloPersonaV1 As screen:
             Width: =843
             X: =599
             Y: =326
-            ZIndex: =31
+            ZIndex: =32
 
         "'text pop up_10' As label":
             Align: =Align.Right
@@ -2985,7 +3002,7 @@ ModuloPersonaV1 As screen:
             Width: =305
             X: =690
             Y: =500
-            ZIndex: =32
+            ZIndex: =33
 
         Txt_FondoForm1_195 As text:
             BorderColor: =RGBA(128, 128, 128, 1)
@@ -3003,7 +3020,7 @@ ModuloPersonaV1 As screen:
             Width: =314
             X: =992
             Y: =495
-            ZIndex: =33
+            ZIndex: =34
 
         Dtp_FechaBaja_2 As datepicker:
             BorderStyle: =BorderStyle.None
@@ -3017,7 +3034,7 @@ ModuloPersonaV1 As screen:
             Width: =Txt_FondoForm1_195.Width - 27
             X: =1005
             Y: =500
-            ZIndex: =34
+            ZIndex: =35
 
         Txt_FondoForm1_198 As text:
             BorderColor: =RGBA(128, 128, 128, 1)
@@ -3035,7 +3052,7 @@ ModuloPersonaV1 As screen:
             Width: =314
             X: =992
             Y: =559
-            ZIndex: =35
+            ZIndex: =36
 
         Cmb_CambioDominio_1 As combobox:
             BorderStyle: =BorderStyle.None
@@ -3055,7 +3072,7 @@ ModuloPersonaV1 As screen:
             Width: =Txt_FondoForm1_198.Width - 27
             X: =1006
             Y: =564
-            ZIndex: =36
+            ZIndex: =37
 
         Txt_FondoForm1_199 As text:
             BorderColor: =RGBA(128, 128, 128, 1)
@@ -3073,7 +3090,7 @@ ModuloPersonaV1 As screen:
             Width: =314
             X: =992
             Y: =626
-            ZIndex: =37
+            ZIndex: =38
 
         Cmb_CambioEquipo_1 As combobox:
             BorderStyle: =BorderStyle.None
@@ -3094,7 +3111,7 @@ ModuloPersonaV1 As screen:
             Width: =Txt_FondoForm1_199.Width - 27
             X: =1006
             Y: =631
-            ZIndex: =38
+            ZIndex: =39
 
         "'text pop up_15' As label":
             Align: =Align.Right
@@ -3106,7 +3123,7 @@ ModuloPersonaV1 As screen:
             Width: =305
             X: =687
             Y: =566
-            ZIndex: =39
+            ZIndex: =40
 
         "'text pop up_16' As label":
             Align: =Align.Right
@@ -3118,7 +3135,7 @@ ModuloPersonaV1 As screen:
             Width: =305
             X: =683
             Y: =635
-            ZIndex: =40
+            ZIndex: =41
 
         Html_CabeceraEliminarUsuario_1 As htmlViewer:
             Height: =83
@@ -3140,5 +3157,5 @@ ModuloPersonaV1 As screen:
             Width: =843
             X: =599
             Y: =251
-            ZIndex: =41
+            ZIndex: =42
 
