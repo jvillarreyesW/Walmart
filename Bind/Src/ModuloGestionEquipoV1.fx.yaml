@@ -590,10 +590,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,EM)),Usuario) })
-                DisplayFields: =["Categoria"]
+                DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Categoria"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,Categoria)
+                SearchFields: =["Nombre_Persona"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_EM.SearchText,Nombre_Persona)
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",
@@ -610,10 +610,10 @@ ModuloGestionEquipoV1 As screen:
                     ={Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) }
                 DefaultSelectedItems: |-
                     =Table({Nombre_Persona:LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Nombre_Persona), Usuario: LookUp(Col_BD_Persona, Usuario = Upper(LookUp(Col_BD_Equipos, IDEquipo = _VarEquipoSeleccionado,PM)),Usuario) })
-                DisplayFields: =["Categoria"]
+                DisplayFields: =["Nombre_Persona"]
                 Items: =Col_BD_Persona
-                SearchFields: =["Categoria"]
-                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,Categoria)
+                SearchFields: =["Nombre_Persona"]
+                SearchItems: =Search(Col_BD_Persona,Cmb_ModEq_PM.SearchText,Nombre_Persona)
                 Visible: |-
                     =If(
                         _VarEquipo = "MiEquipo",

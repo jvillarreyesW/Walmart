@@ -174,7 +174,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3295,
+        "PublishOrderIndex": 3296,
         "Rules": [
           {
             "Category": "Data",
@@ -504,7 +504,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3296,
+        "PublishOrderIndex": 3297,
         "Rules": [
           {
             "Category": "Data",
@@ -768,7 +768,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3297,
+        "PublishOrderIndex": 3298,
         "Rules": [
           {
             "Category": "Data",
@@ -968,7 +968,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3298,
+        "PublishOrderIndex": 3299,
         "Rules": [
           {
             "Category": "Data",
@@ -1188,7 +1188,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3299,
+        "PublishOrderIndex": 3300,
         "Rules": [
           {
             "Category": "Data",
@@ -1418,7 +1418,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638526997175954929",
+    "LastModifiedTimestamp": "638527606283532813",
     "Name": "AlertasBind",
     "Rules": [
       {
@@ -1529,7 +1529,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638526997175954929",
+  "LastModifiedTimestamp": "638527606283532813",
   "Name": "6411b8eee5bc4fafb939612acfcd54b6",
   "OverridableProperties": {},
   "Version": "638261583052902903"
