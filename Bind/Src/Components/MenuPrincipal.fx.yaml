@@ -230,7 +230,7 @@ MenuPrincipal As CanvasComponent:
                                                 If(
                                                     ThisItem.SubMenu = "Fcst",
                                                     Set(_VarMenuSelec,ThisItem.SubMenu);
-                                                    Navigate(GestionFcst,ScreenTransition.Fade),
+                                                    Navigate(Menu,ScreenTransition.Fade),//GestionFcst
                                                     If(
                                                         ThisItem.SubMenu = "PPP",
                                                         Set(_VarMenuSelec,ThisItem.SubMenu)
@@ -301,7 +301,13 @@ MenuPrincipal As CanvasComponent:
                                                                                                         Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/74ec20d0-364e-4fda-8a6c-b8d7563fcf4d/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
                                                                                                         If(
                                                                                                             ThisItem.SubMenu = "Seguimiento servicios tecnologicos",
-                                                                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                                                                                                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/67585ec7-5774-4277-b0f9-0c027c5e47fe/ReportSectioncbe55ae730a4dc700307?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                                             If(
+                                                                                                                    ThisItem.SubMenu = "Programa Glass",
+                                                                                                                    Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/5622a90a-0df0-4038-996b-0356e9feb3cc/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                                                                                                                    false
+                                                                                                                )
+                                                                                                                
                                                                                                         )
                                                                                                     )
                                                                                         )

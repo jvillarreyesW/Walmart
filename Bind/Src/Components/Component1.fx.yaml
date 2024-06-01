@@ -208,7 +208,10 @@ Component1 As CanvasComponent:
                             ThisItem.SubMenu = "Seguimiento Forecast",
                                 Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/fdb68645-644f-4ad4-9afc-4262e0c08526/ReportSection?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
                             ThisItem.SubMenu = "Equipos virtuales",
-                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSectionde126829460e0b57911b?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSectionde126829460e0b57911b?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Programa Glass",
+                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/5622a90a-0df0-4038-996b-0356e9feb3cc/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                                
                 
                         )
                     /* Fin de Opciondes Dashboard */
@@ -282,19 +285,19 @@ Component1 As CanvasComponent:
             AccessibleLabel: =false
             Height: |-
                 =If(
-                    ThisItem.Título = "Tech News",
+                    ThisItem.Title = "Tech News",
                     300,
                     150
                 )
             Image: |-
                 =If(
-                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    !(ThisItem.Title = "Proyectos Finalizados !!"),
                     ImagenAbril,
                     '02'
                 )
             ImagePosition: |-
                 =If(
-                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    !(ThisItem.Title = "Proyectos Finalizados !!"),
                     ImagePosition.Fit,
                     ImagePosition.Fit
                 )
@@ -312,7 +315,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Título = "Tech News",
+                    ThisItem.Title = "Tech News",
                     false,
                     true
                 )
@@ -329,7 +332,7 @@ Component1 As CanvasComponent:
             Underline: =true
             Visible: |-
                 =If(
-                    !(ThisItem.Título = "Proyectos Finalizados !!"),
+                    !(ThisItem.Title = "Proyectos Finalizados !!"),
                     true,
                     false
                 )
@@ -345,7 +348,7 @@ Component1 As CanvasComponent:
             OnSelect: =Select(Parent)
             Visible: |-
                 =If(
-                    ThisItem.Título = "Tech News",
+                    ThisItem.Title = "Tech News",
                     true,
                     false
                 )
