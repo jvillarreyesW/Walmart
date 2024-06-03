@@ -420,14 +420,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Spinner",
+  "Name": "Indicador giratorio",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Label for Spinner",
+      "Description": "Etiqueta del indicador giratorio",
       "DescriptionResourceString": "Spinner_Label_Desc_Key",
-      "DisplayName": "Label",
+      "DisplayName": "Etiqueta",
       "DisplayNameResourceString": "Spinner_Label_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
@@ -453,9 +453,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Accessibility Label for Spinner component",
+      "Description": "Etiqueta de accesibilidad para el componente Indicador giratorio",
       "DescriptionResourceString": "Spinner_AccessibleLabel_Desc_Key",
-      "DisplayName": "Accessibility Label",
+      "DisplayName": "Etiqueta de accesibilidad",
       "DisplayNameResourceString": "Spinner_AccessibleLabel_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
@@ -481,21 +481,21 @@
     {
       "Category": "data",
       "DefaultValue": "Primary",
-      "Description": "Appearance of Spinner",
+      "Description": "Apariencia del indicador giratorio",
       "DescriptionResourceString": "Spinner_Appearance_Desc_Key",
-      "DisplayName": "Appearance",
+      "DisplayName": "Apariencia",
       "DisplayNameResourceString": "Spinner_Appearance_Display_Key",
       "EnumValues": [
         {
-          "Description": "Inverted",
-          "DisplayName": "Inverted",
+          "Description": "Invertido",
+          "DisplayName": "Invertido",
           "IsDefaultValue": false,
           "Name": "Inverted",
           "Value": "Inverted"
         },
         {
-          "Description": "Primary",
-          "DisplayName": "Primary",
+          "Description": "Principal",
+          "DisplayName": "Principal",
           "IsDefaultValue": true,
           "Name": "Primary",
           "Value": "Primary"
@@ -524,35 +524,35 @@
     {
       "Category": "data",
       "DefaultValue": "After",
-      "Description": "Define position for the label around the Spinner",
+      "Description": "Defina la posición de la etiqueta alrededor del indicador giratorio",
       "DescriptionResourceString": "Spinner_LabelPosition_Desc_Key",
-      "DisplayName": "Label Position",
+      "DisplayName": "Posición de la etiqueta",
       "DisplayNameResourceString": "Spinner_LabelPosition_Display_Key",
       "EnumValues": [
         {
-          "Description": "Before",
-          "DisplayName": "Before",
+          "Description": "Antes",
+          "DisplayName": "Antes",
           "IsDefaultValue": false,
           "Name": "Before",
           "Value": "Before"
         },
         {
-          "Description": "After",
-          "DisplayName": "After",
+          "Description": "Después",
+          "DisplayName": "Después",
           "IsDefaultValue": true,
           "Name": "After",
           "Value": "After"
         },
         {
-          "Description": "Above",
-          "DisplayName": "Above",
+          "Description": "Encima",
+          "DisplayName": "Encima",
           "IsDefaultValue": false,
           "Name": "Above",
           "Value": "Above"
         },
         {
-          "Description": "Below",
-          "DisplayName": "Below",
+          "Description": "Por debajo",
+          "DisplayName": "Por debajo",
           "IsDefaultValue": false,
           "Name": "Below",
           "Value": "Below"
@@ -581,56 +581,56 @@
     {
       "Category": "data",
       "DefaultValue": "Medium",
-      "Description": "Define size of Spinner",
+      "Description": "Defina el tamaño del indicador giratorio",
       "DescriptionResourceString": "Spinner_SpinnerSize_Desc_Key",
-      "DisplayName": "Spinner Size",
+      "DisplayName": "Tamaño del indicador giratorio",
       "DisplayNameResourceString": "Spinner_SpinnerSize_Display_Key",
       "EnumValues": [
         {
-          "Description": "Tiny",
-          "DisplayName": "Tiny",
+          "Description": "Muy pequeño",
+          "DisplayName": "Muy pequeño",
           "IsDefaultValue": false,
           "Name": "Tiny",
           "Value": "Tiny"
         },
         {
-          "Description": "ExtraSmall",
-          "DisplayName": "ExtraSmall",
+          "Description": "Extrapequeño",
+          "DisplayName": "Extrapequeño",
           "IsDefaultValue": false,
           "Name": "ExtraSmall",
           "Value": "ExtraSmall"
         },
         {
-          "Description": "Small",
-          "DisplayName": "Small",
+          "Description": "Pequeño",
+          "DisplayName": "Pequeño",
           "IsDefaultValue": false,
           "Name": "Small",
           "Value": "Small"
         },
         {
-          "Description": "Medium",
-          "DisplayName": "Medium",
+          "Description": "Mediano",
+          "DisplayName": "Mediano",
           "IsDefaultValue": true,
           "Name": "Medium",
           "Value": "Medium"
         },
         {
-          "Description": "Large",
-          "DisplayName": "Large",
+          "Description": "Grande",
+          "DisplayName": "Grande",
           "IsDefaultValue": false,
           "Name": "Large",
           "Value": "Large"
         },
         {
-          "Description": "ExtraLarge",
-          "DisplayName": "ExtraLarge",
+          "Description": "Extragrande",
+          "DisplayName": "Extragrande",
           "IsDefaultValue": false,
           "Name": "ExtraLarge",
           "Value": "ExtraLarge"
         },
         {
-          "Description": "Huge",
-          "DisplayName": "Huge",
+          "Description": "Muy grande",
+          "DisplayName": "Muy grande",
           "IsDefaultValue": false,
           "Name": "Huge",
           "Value": "Huge"
@@ -659,9 +659,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Choose a color palette that's different from the theme.",
+      "Description": "Elija una paleta de colores que sea diferente del tema.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Color palette",
+      "DisplayName": "Paleta de colores",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -687,9 +687,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The name of the family of fonts in which text appears",
+      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Font",
+      "DisplayName": "Fuente",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -715,9 +715,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Set the font size for displayed text.",
+      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Font size",
+      "DisplayName": "Tamaño de fuente",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -743,9 +743,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The color of text in the control",
+      "Description": "El color del texto del control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Font color",
+      "DisplayName": "Color de fuente",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -771,9 +771,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The weight of the text in a control",
+      "Description": "El grosor del texto de un control",
       "DescriptionResourceString": "Font_Weight_description",
-      "DisplayName": "Font weight",
+      "DisplayName": "Espesor de la fuente",
       "DisplayNameResourceString": "Font_Weight",
       "EnumValues": [],
       "HelperUI": null,
@@ -799,9 +799,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Italic",
+      "Description": "Cursiva",
       "DescriptionResourceString": "Italic",
-      "DisplayName": "Italic",
+      "DisplayName": "Cursiva",
       "DisplayNameResourceString": "Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -827,9 +827,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Underline",
+      "Description": "Subrayado",
       "DescriptionResourceString": "Underline",
-      "DisplayName": "Underline",
+      "DisplayName": "Subrayado",
       "DisplayNameResourceString": "Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -855,9 +855,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Strikethrough",
+      "Description": "Tachado",
       "DescriptionResourceString": "Strikethrough",
-      "DisplayName": "Strikethrough",
+      "DisplayName": "Tachado",
       "DisplayNameResourceString": "Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -1369,7 +1369,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Spinner_Display_Key\":\"Spinner\",\"Spinner_Desc_Key\":\"Let users visualise spinner/loading effect\",\"Spinner_Label_Display_Key\":\"Label\",\"Spinner_Label_Desc_Key\":\"Label for Spinner\",\"Spinner_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"Spinner_AccessibleLabel_Desc_Key\":\"Accessibility Label for Spinner component\",\"Spinner_Appearance_Display_Key\":\"Appearance\",\"Spinner_Appearance_Desc_Key\":\"Appearance of Spinner\",\"Spinner_LabelPosition_Display_Key\":\"Label Position\",\"Spinner_LabelPosition_Desc_Key\":\"Define position for the label around the Spinner\",\"Spinner_SpinnerSize_Display_Key\":\"Spinner Size\",\"Spinner_SpinnerSize_Desc_Key\":\"Define size of Spinner\",\"Spinner_LabelPosition_Before\":\"Before\",\"Spinner_LabelPosition_After\":\"After\",\"Spinner_LabelPosition_Above\":\"Above\",\"Spinner_LabelPosition_Below\":\"Below\",\"Spinner_SpinnerSize_Tiny\":\"Tiny\",\"Spinner_SpinnerSize_ExtraSmall\":\"ExtraSmall\",\"Spinner_SpinnerSize_Small\":\"Small\",\"Spinner_SpinnerSize_Medium\":\"Medium\",\"Spinner_SpinnerSize_Large\":\"Large\",\"Spinner_SpinnerSize_ExtraLarge\":\"ExtraLarge\",\"Spinner_SpinnerSize_Huge\":\"Huge\",\"Spinner_Appearance_Primary\":\"Primary\",\"Spinner_Appearance_Inverted\":\"Inverted\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Spinner_Display_Key\":\"Indicador giratorio\",\"Spinner_Desc_Key\":\"Permite a los usuarios visualizar el efecto de giro o carga\",\"Spinner_Label_Display_Key\":\"Etiqueta\",\"Spinner_Label_Desc_Key\":\"Etiqueta del indicador giratorio\",\"Spinner_AccessibleLabel_Display_Key\":\"Etiqueta de accesibilidad\",\"Spinner_AccessibleLabel_Desc_Key\":\"Etiqueta de accesibilidad para el componente Indicador giratorio\",\"Spinner_Appearance_Display_Key\":\"Apariencia\",\"Spinner_Appearance_Desc_Key\":\"Apariencia del indicador giratorio\",\"Spinner_LabelPosition_Display_Key\":\"Posición de la etiqueta\",\"Spinner_LabelPosition_Desc_Key\":\"Defina la posición de la etiqueta alrededor del indicador giratorio\",\"Spinner_SpinnerSize_Display_Key\":\"Tamaño del indicador giratorio\",\"Spinner_SpinnerSize_Desc_Key\":\"Defina el tamaño del indicador giratorio\",\"Spinner_LabelPosition_Before\":\"Antes\",\"Spinner_LabelPosition_After\":\"Después\",\"Spinner_LabelPosition_Above\":\"Encima\",\"Spinner_LabelPosition_Below\":\"Por debajo\",\"Spinner_SpinnerSize_Tiny\":\"Muy pequeño\",\"Spinner_SpinnerSize_ExtraSmall\":\"Extrapequeño\",\"Spinner_SpinnerSize_Small\":\"Pequeño\",\"Spinner_SpinnerSize_Medium\":\"Mediano\",\"Spinner_SpinnerSize_Large\":\"Grande\",\"Spinner_SpinnerSize_ExtraLarge\":\"Extragrande\",\"Spinner_SpinnerSize_Huge\":\"Muy grande\",\"Spinner_Appearance_Primary\":\"Principal\",\"Spinner_Appearance_Inverted\":\"Invertido\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Font_Weight\":\"Espesor de la fuente\",\"Font_Weight_description\":\"El grosor del texto de un control\",\"Italic\":\"Cursiva\",\"Underline\":\"Subrayado\",\"Strikethrough\":\"Tachado\"}}}",
       "Type": 3
     },
     {
