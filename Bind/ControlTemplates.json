@@ -126,7 +126,7 @@
     "Name": "PowerApps_CoreControls_CheckboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Casilla",
-    "Version": "0.0.21"
+    "Version": "0.0.23"
   },
   "checkbox": {
     "CustomGroupControlTemplateName": "",
@@ -182,7 +182,7 @@
     "LastModifiedTimestamp": "0",
     "Name": "dataTable",
     "OverridableProperties": {},
-    "Version": "1.0.2"
+    "Version": "1.0.3"
   },
   "dataTableColumn": {
     "CustomGroupControlTemplateName": "",
@@ -225,7 +225,7 @@
     "Name": "PowerApps_CoreControls_DropdownCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Desplegable",
-    "Version": "0.0.29"
+    "Version": "0.0.32"
   },
   "dropdown": {
     "CustomGroupControlTemplateName": "",
@@ -522,7 +522,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Texto",
-    "Version": "0.0.25"
+    "Version": "0.0.30"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",

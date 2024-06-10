@@ -128,6 +128,9 @@ ModuloGestionEquipoV1 As screen:
 
             Title2 As label:
                 AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(71, 69, 64, 1)
+                DisabledColor: =RGBA(186, 186, 186, 1)
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =26
                 OnSelect: =Select(Parent)
@@ -135,6 +138,7 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
+                Size: =14
                 Text: |-
                     =ThisItem.Nombre
                     //LookUp(Col_BD_Persona; Usuario = ThisItem.Usuario;Nombre_Persona)
@@ -145,6 +149,7 @@ ModuloGestionEquipoV1 As screen:
                 ZIndex: =2
 
             Separator2 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =8
                 OnSelect: =Select(Parent)
@@ -163,6 +168,9 @@ ModuloGestionEquipoV1 As screen:
             Title2_2 As label:
                 Align: =Align.Center
                 AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(71, 69, 64, 1)
+                DisabledColor: =RGBA(186, 186, 186, 1)
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =26
                 OnSelect: =Select(Parent)
@@ -170,6 +178,7 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
+                Size: =14
                 Text: |-
                     =ThisItem.Gerencia
                     
@@ -183,6 +192,9 @@ ModuloGestionEquipoV1 As screen:
             Title2_3 As label:
                 Align: =Align.Center
                 AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(71, 69, 64, 1)
+                DisabledColor: =RGBA(186, 186, 186, 1)
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =26
                 OnSelect: =Select(Parent)
@@ -190,6 +202,7 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
+                Size: =14
                 Text: |-
                     =ThisItem.Rol
                     
@@ -203,6 +216,9 @@ ModuloGestionEquipoV1 As screen:
             Title2_7 As label:
                 Align: =Align.Center
                 AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(71, 69, 64, 1)
+                DisabledColor: =RGBA(186, 186, 186, 1)
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =28
                 OnSelect: =Select(Parent)
@@ -210,6 +226,7 @@ ModuloGestionEquipoV1 As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
+                Size: =14
                 Text: |-
                     =ThisItem.Estado
                     
@@ -221,23 +238,30 @@ ModuloGestionEquipoV1 As screen:
                 ZIndex: =9
 
             Dpd_TipoTrabajo As Desplegable.pcfdataset:
+                Appearance: ="FilledDarker"
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
+                BorderColor: =""
+                BorderStyle: =""
                 DefaultSelectedItems: |-
                     =Table({Value:ThisItem.TipoTrabajo})
+                DisabledBorderColor: =""
                 DisplayMode: |-
                     =If(
                         _VarEquipo = "MiEquipo",
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
+                FocusedBorderColor: =""
                 FontSize: =14
                 Height: =28
+                HoverBorderColor: =""
                 Items: |-
                     =["", "SPA", "Otro", "SPA + Otro"]
                     //["";"SPA"; "BAU"; "SPA + BAU"]
                 OnChange: |-
                     =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
                     Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
+                PressedBorderColor: =""
                 Required: =false
                 Width: =138
                 X: =1098
@@ -730,6 +754,8 @@ ModuloGestionEquipoV1 As screen:
 
             TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
+                BorderColor: =""
+                BorderStyle: =""
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =
                 Height: =35

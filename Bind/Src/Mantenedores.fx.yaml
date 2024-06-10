@@ -314,6 +314,7 @@ Mantenedores As screen:
 
             CheckboxCanvas1 As Casilla:
                 BasePaletteColor: =
+                CheckboxSize: =16
                 Checked: |-
                     =If(
                         Chk_Administrar.Checked,
@@ -372,6 +373,7 @@ Mantenedores As screen:
 
             CheckboxCanvas1_1 As Casilla:
                 BasePaletteColor: =
+                CheckboxSize: =16
                 Checked: |-
                     =If(
                         Chk_Dashboard.Checked,
@@ -429,6 +431,7 @@ Mantenedores As screen:
 
             CheckboxCanvas1_2 As Casilla:
                 BasePaletteColor: =
+                CheckboxSize: =16
                 Checked: |-
                     =If(
                         ThisItem.ID in Split(Label41_5.Text,","),
@@ -471,6 +474,7 @@ Mantenedores As screen:
 
         Chk_Administrar As Casilla:
             BasePaletteColor: =
+            CheckboxSize: =16
             Checked: =false
             DisplayMode: =DisplayMode.Edit
             Font: =""
@@ -492,6 +496,7 @@ Mantenedores As screen:
 
         Chk_Dashboard As Casilla:
             BasePaletteColor: =
+            CheckboxSize: =16
             DisplayMode: =DisplayMode.Edit
             Font: =""
             FontColor: =
@@ -512,6 +517,7 @@ Mantenedores As screen:
 
         Chk_Ayuda As Casilla:
             BasePaletteColor: =
+            CheckboxSize: =16
             DisplayMode: =DisplayMode.Edit
             Font: =""
             FontColor: =

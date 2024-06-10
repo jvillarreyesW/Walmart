@@ -1305,6 +1305,7 @@ ModuloProyectos As screen:
     Chk_AplicaPO As Casilla:
         AccessibleLabel: ="Aplica PO/JO para el Proyecto"
         BasePaletteColor: =
+        CheckboxSize: =16
         Checked: =First(ProyectoSeleccionado).AplicaJefeProyecto
         DisplayMode: =DisplayMode.Edit
         Font: =""
@@ -1326,6 +1327,7 @@ ModuloProyectos As screen:
     Chk_AplicaEM As Casilla:
         AccessibleLabel: ="Aplica EM para el Proyecto"
         BasePaletteColor: =
+        CheckboxSize: =16
         Checked: =First(ProyectoSeleccionado).AplicaEM
         DisplayMode: =DisplayMode.Edit
         Font: =""
@@ -1346,6 +1348,7 @@ ModuloProyectos As screen:
 
     Chk_AplicaUx As Casilla:
         BasePaletteColor: =
+        CheckboxSize: =16
         Checked: =First(ProyectoSeleccionado).AplicaUx
         DisplayMode: =DisplayMode.Edit
         Font: =""
@@ -1367,6 +1370,7 @@ ModuloProyectos As screen:
     Chk_AplicaDatos As Casilla:
         AccessibleLabel: ="Aplica Datos para el Proyecto"
         BasePaletteColor: =
+        CheckboxSize: =16
         Checked: =First(ProyectoSeleccionado).AplicaDatos
         DisplayMode: =DisplayMode.Edit
         Font: =""
@@ -1388,6 +1392,7 @@ ModuloProyectos As screen:
     Chk_AplicaNegocio As Casilla:
         AccessibleLabel: ="Aplica Negocio para el Proyecto"
         BasePaletteColor: =
+        CheckboxSize: =16
         Checked: =First(ProyectoSeleccionado).AplicaNegocio
         DisplayMode: =DisplayMode.Edit
         Font: =""

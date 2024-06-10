@@ -3625,12 +3625,7 @@ ListadoProductoProyecto As screen:
             FontWeight: =FontWeight.Bold
             Text: ="Agregar"
             Tooltip: ="Agregar nuevo Producto / Proyecto"
-            Visible: |-
-                =If(
-                    _VarVerKpi || _VarVerFinanciamiento,
-                    false,
-                   true
-                ) 
+            Visible: =false
             Width: =98
             X: =1672
             Y: =122
@@ -3715,12 +3710,7 @@ ListadoProductoProyecto As screen:
                 //UpdateContext({_VarVerDetalleKPI:false});;
                 UpdateContext({_VarVerFinanciamiento:false});
             Tooltip: ="Agregar nuevo Producto / Proyecto"
-            Visible: |-
-                =If(
-                    _VarVerKpi || _VarVerFinanciamiento,
-                    false,
-                   true
-                ) 
+            Visible: =false
             Width: =40
             X: =1634
             Y: =122
@@ -3776,7 +3766,7 @@ ListadoProductoProyecto As screen:
             Tooltip: ="Agregar Producto / Proyecto"
             Width: =98
             X: =1672
-            Y: =73
+            Y: =121
             ZIndex: =25
 
         Image23 As image:
@@ -3786,7 +3776,7 @@ ListadoProductoProyecto As screen:
             Tooltip: ="Actualizar datos"
             Width: =35
             X: =1634
-            Y: =73
+            Y: =121
             ZIndex: =26
 
         Btn_SeleccionarLimpiarFiltro As button:
@@ -3901,6 +3891,7 @@ ListadoProductoProyecto As screen:
                 */
             PressedFill: =RGBA(255, 255, 255, 0.7)
             Text: =""
+            Visible: =false
             Width: =136
             X: =1632
             Y: =120
@@ -3931,7 +3922,7 @@ ListadoProductoProyecto As screen:
             Text: =""
             Width: =136
             X: =1632
-            Y: =70
+            Y: =118
             ZIndex: =29
 
         Label10_7 As label:

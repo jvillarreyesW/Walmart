@@ -119,6 +119,7 @@
                 ZIndex: =1
 
                 Rct_Separator6 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(120, 185, 231, 1)
                     Height: =2
                     OnSelect: =Select(Parent)
@@ -931,6 +932,7 @@
                 ZIndex: =1
 
                 Separator8 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
@@ -1055,6 +1057,7 @@
                     ZIndex: =7
 
                 Rct_Separator6_1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(120, 185, 231, 1)
                     Height: =2
                     OnSelect: =Select(Parent)
@@ -2102,6 +2105,7 @@
                 ZIndex: =1
 
                 Separator8_1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
@@ -2154,6 +2158,7 @@
                     ZIndex: =5
 
                 Rct_Separator6_2 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(120, 185, 231, 1)
                     Height: =2
                     OnSelect: =Select(Parent)
@@ -8353,6 +8358,9 @@
                 ZIndex: =1
 
                 Title4 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
@@ -8360,6 +8368,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    Size: =14
                     Text: =ThisItem.NombreKPI
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 86
@@ -8368,6 +8377,7 @@
                     ZIndex: =1
 
                 Separator4 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
@@ -8399,6 +8409,9 @@
                 ZIndex: =1
 
                 Title5 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
@@ -8406,6 +8419,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    Size: =14
                     Text: =ThisItem.NombreOportunidad
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 86
@@ -8414,6 +8428,7 @@
                     ZIndex: =1
 
                 Separator5 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
@@ -8588,6 +8603,9 @@
                 ZIndex: =1
 
                 Title5_1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
@@ -8595,6 +8613,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    Size: =14
                     Text: =ThisItem.NombreOportunidad
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 86
@@ -8603,6 +8622,7 @@
                     ZIndex: =1
 
                 Separator5_1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
@@ -8634,6 +8654,9 @@
                 ZIndex: =1
 
                 Title2_1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
@@ -8641,6 +8664,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    Size: =14
                     Text: =ThisItem.SampleHeading
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 86
@@ -8649,6 +8673,7 @@
                     ZIndex: =1
 
                 Separator2_3 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =8
                     OnSelect: =Select(Parent)
