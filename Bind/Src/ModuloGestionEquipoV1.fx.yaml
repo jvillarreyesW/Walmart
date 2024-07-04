@@ -240,28 +240,23 @@ ModuloGestionEquipoV1 As screen:
             Dpd_TipoTrabajo As Desplegable.pcfdataset:
                 Appearance: ="FilledDarker"
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
-                BorderColor: =""
                 BorderStyle: =""
                 DefaultSelectedItems: |-
                     =Table({Value:ThisItem.TipoTrabajo})
-                DisabledBorderColor: =""
                 DisplayMode: |-
                     =If(
                         _VarEquipo = "MiEquipo",
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
-                FocusedBorderColor: =""
                 FontSize: =14
                 Height: =28
-                HoverBorderColor: =""
                 Items: |-
                     =["", "SPA", "Otro", "SPA + Otro"]
                     //["";"SPA"; "BAU"; "SPA + BAU"]
                 OnChange: |-
                     =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
                     Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
-                PressedBorderColor: =""
                 Required: =false
                 Width: =138
                 X: =1098
@@ -754,7 +749,6 @@ ModuloGestionEquipoV1 As screen:
 
             TextCanvas3 As Texto:
                 Align: ='TextCanvas.Align'.Center
-                BorderColor: =""
                 BorderStyle: =""
                 DisplayMode: =DisplayMode.Edit
                 FontColor: =

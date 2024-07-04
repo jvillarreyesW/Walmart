@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2024-04-24T16:59:54.0110000Z",
+      "LastChangedTimeString": "2024-07-02T17:20:20.5240000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -41,6 +41,10 @@
       "OData__ColorTag": "Etiqueta de color",
       "OData__DisplayName": "Confidencialidad",
       "OData__ExtendedDescription": "Descripción",
+      "SharedWithDetails": "Detalles de uso compartido",
+      "SharedWithUsers": "Compartido con",
+      "SharedWithUsers#Claims": "Compartido con Claims",
+      "SharedWithUsers@odata.type": "SharedWithUsers (SharedWithUsers@odata.type)",
       "Title": "Título"
     },
     "DatasetName": "https://teams.wal-mart.com/sites/NecesidadesWalmartTech",

@@ -951,7 +951,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.29\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.0.35\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
@@ -1317,5 +1317,5 @@
     "supportResettableProperties": "true",
     "supportSetFocus": "true"
   },
-  "Version": "1.0.29"
+  "Version": "1.0.35"
 }

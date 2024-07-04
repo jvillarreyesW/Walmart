@@ -5,7 +5,7 @@
       "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": false
     },
-    "DocVersion": "1.341",
+    "DocVersion": "1.342",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -67,6 +67,7 @@
       "improvedtabstopbehavior": true,
       "isemptyrequirestableargument": true,
       "keeprecentscreensloaded": true,
+      "legacyformulabar": false,
       "longlivingcache": false,
       "mobilenativerendering": false,
       "nativecdsexperimental": true,
@@ -79,7 +80,6 @@
       "powerfxv1": false,
       "primaryoutputpropertycoerciondeprecated": true,
       "projectionmapping": true,
-      "reactformulabar": true,
       "reliableconcurrent": true,
       "reservedkeywords": false,
       "rtlinstudiopreview": false,

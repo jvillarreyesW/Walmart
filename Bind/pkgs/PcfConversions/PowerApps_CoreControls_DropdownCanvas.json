@@ -110,7 +110,59 @@
       ],
       "From": "0.0.29",
       "To": "0.0.30"
+    },
+    {
+      "Action": [
+        {
+          "Name": "BorderStyle",
+          "Type": "remove"
+        },
+        {
+          "Name": "BorderThickness",
+          "Type": "remove"
+        },
+        {
+          "Name": "HoverBorderColor",
+          "Type": "remove"
+        },
+        {
+          "Name": "PressedBorderColor",
+          "Type": "remove"
+        },
+        {
+          "Name": "DisabledBorderColor",
+          "Type": "remove"
+        },
+        {
+          "Name": "FocusedBorderColor",
+          "Type": "remove"
+        },
+        {
+          "Name": "BorderColor",
+          "Type": "remove"
+        }
+      ],
+      "From": "0.0.39",
+      "To": "0.0.40"
+    },
+    {
+      "Action": [
+        {
+          "Name": "BorderStyle",
+          "Type": "add"
+        },
+        {
+          "Name": "BorderThickness",
+          "Type": "add"
+        },
+        {
+          "Name": "BorderColor",
+          "Type": "add"
+        }
+      ],
+      "From": "0.0.40",
+      "To": "0.0.41"
     }
   ],
-  "Version": "0.0.32"
+  "Version": "0.0.41"
 }

@@ -26,7 +26,7 @@
     "Name": "PowerApps_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Alternancia",
-    "Version": "1.0.29"
+    "Version": "1.0.35"
   },
   "appinfo": {
     "CustomGroupControlTemplateName": "",
@@ -97,7 +97,7 @@
     "Name": "PowerApps_CoreControls_InfoButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Botón de información",
-    "Version": "0.0.29"
+    "Version": "0.0.30"
   },
   "button": {
     "CustomGroupControlTemplateName": "",
@@ -126,7 +126,7 @@
     "Name": "PowerApps_CoreControls_CheckboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Casilla",
-    "Version": "0.0.23"
+    "Version": "0.0.24"
   },
   "checkbox": {
     "CustomGroupControlTemplateName": "",
@@ -225,7 +225,7 @@
     "Name": "PowerApps_CoreControls_DropdownCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Desplegable",
-    "Version": "0.0.32"
+    "Version": "0.0.41"
   },
   "dropdown": {
     "CustomGroupControlTemplateName": "",
@@ -395,7 +395,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Indicador giratorio",
-    "Version": "1.0.34"
+    "Version": "1.4.1"
   },
   "label": {
     "CustomGroupControlTemplateName": "",
@@ -522,7 +522,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Texto",
-    "Version": "0.0.30"
+    "Version": "0.0.38"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",
