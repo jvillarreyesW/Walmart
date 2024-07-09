@@ -459,14 +459,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Desplegable",
+  "Name": "Dropdown",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta para los lectores de pantalla.",
+      "Description": "Label for screen readers.",
       "DescriptionResourceString": "DropdownCanvas_AccessibleLabel_Desc",
-      "DisplayName": "Etiqueta accesible",
+      "DisplayName": "Accessible label",
       "DisplayNameResourceString": "DropdownCanvas_AccessibleLabel",
       "EnumValues": [],
       "HelperUI": null,
@@ -492,9 +492,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Indica si este control debe contener un valor seleccionado.",
+      "Description": "Whether this control must contain a selected value.",
       "DescriptionResourceString": "DropdownCanvas_Required_Desc",
-      "DisplayName": "Obligatorio",
+      "DisplayName": "Required",
       "DisplayNameResourceString": "DropdownCanvas_Required",
       "EnumValues": [],
       "HelperUI": null,
@@ -520,9 +520,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Elija una paleta de colores que sea diferente del tema.",
+      "Description": "Choose a color palette that's different from the theme.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Paleta de colores",
+      "DisplayName": "Color palette",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -548,9 +548,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
+      "Description": "Set the font size for displayed text.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -576,9 +576,9 @@
     {
       "Category": "data",
       "DefaultValue": "None",
-      "Description": "El estado actual del desplegable, con respecto a la validación.",
+      "Description": "The current status of the dropdown, with regard to validation.",
       "DescriptionResourceString": "DropdownCanvas_ValidationState_Desc",
-      "DisplayName": "Estado de validación",
+      "DisplayName": "Validation state",
       "DisplayNameResourceString": "DropdownCanvas_ValidationState",
       "EnumValues": [
         {
@@ -589,8 +589,8 @@
           "Value": "Error"
         },
         {
-          "Description": "Ninguno",
-          "DisplayName": "Ninguno",
+          "Description": "None",
+          "DisplayName": "None",
           "IsDefaultValue": true,
           "Name": "None",
           "Value": "None"
@@ -619,9 +619,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Color de fondo del control.",
+      "Description": "Background color of the control.",
       "DescriptionResourceString": "Fill_Description",
-      "DisplayName": "Relleno",
+      "DisplayName": "Fill",
       "DisplayNameResourceString": "Fill",
       "EnumValues": [],
       "HelperUI": null,
@@ -647,28 +647,28 @@
     {
       "Category": "data",
       "DefaultValue": "FilledDarker",
-      "Description": "Apariencia de los bordes y el relleno del control",
+      "Description": "Appearance of the control's borders and fill",
       "DescriptionResourceString": "Appearance_Description",
-      "DisplayName": "Apariencia",
+      "DisplayName": "Appearance",
       "DisplayNameResourceString": "Appearance",
       "EnumValues": [
         {
-          "Description": "Relleno más oscuro",
-          "DisplayName": "Relleno más oscuro",
+          "Description": "Filled Darker",
+          "DisplayName": "Filled Darker",
           "IsDefaultValue": true,
           "Name": "FilledDarker",
           "Value": "FilledDarker"
         },
         {
-          "Description": "Relleno más claro",
-          "DisplayName": "Relleno más claro",
+          "Description": "Filled Lighter",
+          "DisplayName": "Filled Lighter",
           "IsDefaultValue": false,
           "Name": "FilledLighter",
           "Value": "FilledLighter"
         },
         {
-          "Description": "Contorno",
-          "DisplayName": "Contorno",
+          "Description": "Outline",
+          "DisplayName": "Outline",
           "IsDefaultValue": false,
           "Name": "Outline",
           "Value": "Outline"
@@ -697,9 +697,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Estilo de los bordes alrededor del control",
+      "Description": "Style of borders around the control",
       "DescriptionResourceString": "BorderStyle_Description",
-      "DisplayName": "Estilo de los bordes",
+      "DisplayName": "Border style",
       "DisplayNameResourceString": "BorderStyle",
       "EnumValues": [],
       "HelperUI": null,
@@ -725,9 +725,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Grosor o ancho de los bordes alrededor del control.",
+      "Description": "Thickness or width of borders around the control.",
       "DescriptionResourceString": "BorderThickness_Description",
-      "DisplayName": "Grosor de los bordes",
+      "DisplayName": "Border thickness",
       "DisplayNameResourceString": "BorderThickness",
       "EnumValues": [],
       "HelperUI": null,
@@ -754,9 +754,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Color de los bordes alrededor del control.",
+      "Description": "Color of borders around the control.",
       "DescriptionResourceString": "BorderColor_Description",
-      "DisplayName": "Color de los bordes",
+      "DisplayName": "Border color",
       "DisplayNameResourceString": "BorderColor",
       "EnumValues": [],
       "HelperUI": "color",
@@ -782,9 +782,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Redondez de las esquinas del control. Un valor de 0 es perfectamente cuadrado.",
+      "Description": "Roundedness of the control's corners. A value of 0 is perfectly square.",
       "DescriptionResourceString": "BorderRadius_Description",
-      "DisplayName": "Radio de los bordes",
+      "DisplayName": "Border radius",
       "DisplayNameResourceString": "BorderRadius",
       "EnumValues": [],
       "HelperUI": null,
@@ -811,9 +811,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El valor del relleno superior del control.",
+      "Description": "The value of the control's top padding.",
       "DescriptionResourceString": "PaddingTop_Description",
-      "DisplayName": "Relleno superior",
+      "DisplayName": "Top",
       "DisplayNameResourceString": "PaddingTop",
       "EnumValues": [],
       "HelperUI": null,
@@ -840,9 +840,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El valor del relleno derecho del control.",
+      "Description": "The value of the control's right padding.",
       "DescriptionResourceString": "PaddingRight_Description",
-      "DisplayName": "Relleno derecho",
+      "DisplayName": "Right",
       "DisplayNameResourceString": "PaddingRight",
       "EnumValues": [],
       "HelperUI": null,
@@ -869,9 +869,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El valor del relleno inferior del control.",
+      "Description": "The value of the control's bottom padding.",
       "DescriptionResourceString": "PaddingBottom_Description",
-      "DisplayName": "Relleno inferior",
+      "DisplayName": "Bottom",
       "DisplayNameResourceString": "PaddingBottom",
       "EnumValues": [],
       "HelperUI": null,
@@ -898,9 +898,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El valor del relleno izquierdo del control.",
+      "Description": "The value of the control's left padding.",
       "DescriptionResourceString": "PaddingLeft_Description",
-      "DisplayName": "Relleno izquierdo",
+      "DisplayName": "Left",
       "DisplayNameResourceString": "PaddingLeft",
       "EnumValues": [],
       "HelperUI": null,
@@ -983,10 +983,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": true,
@@ -1011,10 +1011,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetSelected##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetSelected##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -1039,10 +1039,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetSelectedItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetSelectedItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -1067,10 +1067,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DescriptionResourceString": "El origen de datos que contiene los elementos que aparecen en el control.",
-      "DisplayName": "Elementos(##PCFDatasetDefaultSelectedItems##)",
-      "DisplayNameResourceString": "Elementos",
+      "Description": "The source of data that contains the items that appear in the control.",
+      "DescriptionResourceString": "The source of data that contains the items that appear in the control.",
+      "DisplayName": "Items(##PCFDatasetDefaultSelectedItems##)",
+      "DisplayNameResourceString": "Items",
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -1197,7 +1197,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.DropdownCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.DropdownCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Elementos\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Required\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ValidationState\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"None\"},\"Fill\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Appearance\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"FilledDarker\"},\"BorderStyle\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderThickness\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderRadius\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingTop\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingRight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingBottom\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingLeft\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.DropdownCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.DropdownCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Items\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Required\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ValidationState\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"None\"},\"Fill\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Appearance\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"FilledDarker\"},\"BorderStyle\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderThickness\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BorderRadius\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingTop\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingRight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingBottom\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"PaddingLeft\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
       "Type": 3
     },
     {
@@ -1547,7 +1547,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"DropdownCanvas\":\"Desplegable\",\"DropdownCanvas_AccessibleLabel\":\"Etiqueta accesible\",\"DropdownCanvas_AccessibleLabel_Desc\":\"Etiqueta para los lectores de pantalla.\",\"DropdownCanvas_Desc\":\"Permite a los usuarios elegir un valor de un conjunto de opciones.\",\"DropdownCanvas_Items\":\"Elementos\",\"DropdownCanvas_Items_Desc\":\"El origen de datos que contiene los elementos que aparecen en el control.\",\"DropdownCanvas_Required\":\"Obligatorio\",\"DropdownCanvas_Required_Desc\":\"Indica si este control debe contener un valor seleccionado.\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"DropdownCanvas_ValidationState\":\"Estado de validación\",\"DropdownCanvas_ValidationState_Desc\":\"El estado actual del desplegable, con respecto a la validación.\",\"DropdownCanvas_ValidationState_None\":\"Ninguno\",\"DropdownCanvas_ValidationState_Error\":\"Error\",\"Fill\":\"Relleno\",\"Fill_Description\":\"Color de fondo del control.\",\"BorderStyle\":\"Estilo de los bordes\",\"BorderStyle_Description\":\"Estilo de los bordes alrededor del control\",\"BorderStyle_Dashed\":\"Con guiones\",\"BorderStyle_Dotted\":\"De puntos\",\"BorderStyle_None\":\"Ninguno\",\"BorderStyle_Solid\":\"Continuo\",\"BorderThickness\":\"Grosor de los bordes\",\"BorderThickness_Description\":\"Grosor o ancho de los bordes alrededor del control.\",\"BorderColor\":\"Color de los bordes\",\"BorderColor_Description\":\"Color de los bordes alrededor del control.\",\"BorderRadius\":\"Radio de los bordes\",\"BorderRadius_Description\":\"Redondez de las esquinas del control. Un valor de 0 es perfectamente cuadrado.\",\"PaddingTop\":\"Relleno superior\",\"PaddingTop_Description\":\"El valor del relleno superior del control.\",\"PaddingRight\":\"Relleno derecho\",\"PaddingRight_Description\":\"El valor del relleno derecho del control.\",\"PaddingBottom\":\"Relleno inferior\",\"PaddingBottom_Description\":\"El valor del relleno inferior del control.\",\"PaddingLeft\":\"Relleno izquierdo\",\"PaddingLeft_Description\":\"El valor del relleno izquierdo del control.\",\"HoverBorderColor\":\"Color de los bordes al mantener el puntero\",\"HoverBorderColor_Description\":\"Color de los bordes mientras se mantiene el puntero sobre el control.\",\"PressedBorderColor\":\"Color de los bordes al presionar\",\"PressedBorderColor_Description\":\"Color de los bordes mientras se presiona o selecciona el control.\",\"FocusedBorderColor\":\"Color de los bordes cuando tiene el foco\",\"FocusedBorderColor_Description\":\"Color de los bordes mientras el control tiene el foco.\",\"DisabledBorderColor\":\"Color de los bordes cuando está deshabilitado\",\"DisabledBorderColor_Description\":\"Color de los bordes mientras el control está deshabilitado.\",\"Appearance\":\"Apariencia\",\"Appearance_Description\":\"Apariencia de los bordes y el relleno del control\",\"Appearance_FilledDarker\":\"Relleno más oscuro\",\"Appearance_FilledLighter\":\"Relleno más claro\",\"Appearance_Outline\":\"Contorno\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"DropdownCanvas\":\"Dropdown\",\"DropdownCanvas_AccessibleLabel\":\"Accessible label\",\"DropdownCanvas_AccessibleLabel_Desc\":\"Label for screen readers.\",\"DropdownCanvas_Desc\":\"Let users pick a value from a set of options.\",\"DropdownCanvas_Items\":\"Items\",\"DropdownCanvas_Items_Desc\":\"The source of data that contains the items that appear in the control.\",\"DropdownCanvas_Required\":\"Required\",\"DropdownCanvas_Required_Desc\":\"Whether this control must contain a selected value.\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"DropdownCanvas_ValidationState\":\"Validation state\",\"DropdownCanvas_ValidationState_Desc\":\"The current status of the dropdown, with regard to validation.\",\"DropdownCanvas_ValidationState_None\":\"None\",\"DropdownCanvas_ValidationState_Error\":\"Error\",\"Fill\":\"Fill\",\"Fill_Description\":\"Background color of the control.\",\"BorderStyle\":\"Border style\",\"BorderStyle_Description\":\"Style of borders around the control\",\"BorderStyle_Dashed\":\"Dashed\",\"BorderStyle_Dotted\":\"Dotted\",\"BorderStyle_None\":\"None\",\"BorderStyle_Solid\":\"Solid\",\"BorderThickness\":\"Border thickness\",\"BorderThickness_Description\":\"Thickness or width of borders around the control.\",\"BorderColor\":\"Border color\",\"BorderColor_Description\":\"Color of borders around the control.\",\"BorderRadius\":\"Border radius\",\"BorderRadius_Description\":\"Roundedness of the control's corners. A value of 0 is perfectly square.\",\"PaddingTop\":\"Top\",\"PaddingTop_Description\":\"The value of the control's top padding.\",\"PaddingRight\":\"Right\",\"PaddingRight_Description\":\"The value of the control's right padding.\",\"PaddingBottom\":\"Bottom\",\"PaddingBottom_Description\":\"The value of the control's bottom padding.\",\"PaddingLeft\":\"Left\",\"PaddingLeft_Description\":\"The value of the control's left padding.\",\"HoverBorderColor\":\"Hover border color\",\"HoverBorderColor_Description\":\"Color of borders while hovering over the control.\",\"PressedBorderColor\":\"Pressed border color\",\"PressedBorderColor_Description\":\"Color of borders while pressing or selecting the control.\",\"FocusedBorderColor\":\"Focused border color\",\"FocusedBorderColor_Description\":\"Color of borders while the control has focus.\",\"DisabledBorderColor\":\"Disabled border color\",\"DisabledBorderColor_Description\":\"Color of borders while the control is disabled.\",\"Appearance\":\"Appearance\",\"Appearance_Description\":\"Appearance of the control's borders and fill\",\"Appearance_FilledDarker\":\"Filled Darker\",\"Appearance_FilledLighter\":\"Filled Lighter\",\"Appearance_Outline\":\"Outline\"}}}",
       "Type": 3
     },
     {

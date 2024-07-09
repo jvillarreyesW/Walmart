@@ -525,14 +525,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Texto",
+  "Name": "Text",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "Text",
-      "Description": "Texto que aparece en un control.",
+      "Description": "Text that appears on a control.",
       "DescriptionResourceString": "TextCanvas_Text_Desc",
-      "DisplayName": "Texto",
+      "DisplayName": "Text",
       "DisplayNameResourceString": "TextCanvas_Text",
       "EnumValues": [],
       "HelperUI": null,
@@ -558,9 +558,9 @@
     {
       "Category": "data",
       "DefaultValue": "14",
-      "Description": "Mostrar el texto utilizando los tamaños de fuente seleccionados.",
+      "Description": "Display text using the selected font sizes.",
       "DescriptionResourceString": "TextCanvas_Size_Desc",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "TextCanvas_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -586,35 +586,35 @@
     {
       "Category": "data",
       "DefaultValue": "Regular",
-      "Description": "Mostrar el texto utilizando los espesores de fuente seleccionados.",
+      "Description": "Display text using the selected font weights.",
       "DescriptionResourceString": "TextCanvas_Weight_Desc",
-      "DisplayName": "Espesor de la fuente",
+      "DisplayName": "Font weight",
       "DisplayNameResourceString": "TextCanvas_Weight",
       "EnumValues": [
         {
-          "Description": "Mediano",
-          "DisplayName": "Mediano",
+          "Description": "Medium",
+          "DisplayName": "Medium",
           "IsDefaultValue": false,
           "Name": "Medium",
           "Value": "Medium"
         },
         {
-          "Description": "Normal",
-          "DisplayName": "Normal",
+          "Description": "Regular",
+          "DisplayName": "Regular",
           "IsDefaultValue": true,
           "Name": "Regular",
           "Value": "Regular"
         },
         {
-          "Description": "Seminegrita",
-          "DisplayName": "Seminegrita",
+          "Description": "Semibold",
+          "DisplayName": "Semibold",
           "IsDefaultValue": false,
           "Name": "Semibold",
           "Value": "Semibold"
         },
         {
-          "Description": "Negrita",
-          "DisplayName": "Negrita",
+          "Description": "Bold",
+          "DisplayName": "Bold",
           "IsDefaultValue": false,
           "Name": "Bold",
           "Value": "Bold"
@@ -643,35 +643,35 @@
     {
       "Category": "data",
       "DefaultValue": "Start",
-      "Description": "Mostrar el texto utilizando la alineación de texto seleccionada.",
+      "Description": "Display text using the selected text alignment.",
       "DescriptionResourceString": "TextCanvas_Align_Desc",
-      "DisplayName": "Alinear",
+      "DisplayName": "Align",
       "DisplayNameResourceString": "TextCanvas_Align",
       "EnumValues": [
         {
-          "Description": "Inicio",
-          "DisplayName": "Inicio",
+          "Description": "Start",
+          "DisplayName": "Start",
           "IsDefaultValue": true,
           "Name": "Start",
           "Value": "Start"
         },
         {
-          "Description": "Fin",
-          "DisplayName": "Fin",
+          "Description": "End",
+          "DisplayName": "End",
           "IsDefaultValue": false,
           "Name": "End",
           "Value": "End"
         },
         {
-          "Description": "Centro",
-          "DisplayName": "Centro",
+          "Description": "Center",
+          "DisplayName": "Center",
           "IsDefaultValue": false,
           "Name": "Center",
           "Value": "Center"
         },
         {
-          "Description": "Justificar",
-          "DisplayName": "Justificar",
+          "Description": "Justify",
+          "DisplayName": "Justify",
           "IsDefaultValue": false,
           "Name": "Justify",
           "Value": "Justify"
@@ -700,28 +700,28 @@
     {
       "Category": "data",
       "DefaultValue": "Middle",
-      "Description": "Mostrar el texto utilizando la alineación vertical de texto seleccionada.",
+      "Description": "Display text using the selected text verlitcal alignment.",
       "DescriptionResourceString": "TextCanvas_VerticalAlign_Desc",
-      "DisplayName": "Alineación vertical",
+      "DisplayName": "Vertical align",
       "DisplayNameResourceString": "TextCanvas_VerticalAlign",
       "EnumValues": [
         {
-          "Description": "Superior",
-          "DisplayName": "Superior",
+          "Description": "Top",
+          "DisplayName": "Top",
           "IsDefaultValue": false,
           "Name": "Top",
           "Value": "Top"
         },
         {
-          "Description": "Medio",
-          "DisplayName": "Medio",
+          "Description": "Middle",
+          "DisplayName": "Middle",
           "IsDefaultValue": true,
           "Name": "Middle",
           "Value": "Middle"
         },
         {
-          "Description": "Inferior",
-          "DisplayName": "Inferior",
+          "Description": "Bottom",
+          "DisplayName": "Bottom",
           "IsDefaultValue": false,
           "Name": "Bottom",
           "Value": "Bottom"
@@ -750,9 +750,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "El alto del contenedor se ajustará al contenido del texto.",
+      "Description": "Container height will adjust to text content.",
       "DescriptionResourceString": "TextCanvas_AutoHeight_Desc",
-      "DisplayName": "Alto automático",
+      "DisplayName": "Auto height",
       "DisplayNameResourceString": "TextCanvas_AutoHeight",
       "EnumValues": [],
       "HelperUI": null,
@@ -778,9 +778,9 @@
     {
       "Category": "design",
       "DefaultValue": "32",
-      "Description": "El alto del control.",
+      "Description": "The height of the control.",
       "DescriptionResourceString": "TextCanvas_Height_Desc",
-      "DisplayName": "Alto del texto",
+      "DisplayName": "Text height",
       "DisplayNameResourceString": "TextCanvas_Height",
       "EnumValues": [],
       "HelperUI": null,
@@ -806,9 +806,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
+      "Description": "The name of the family of fonts in which text appears",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Fuente",
+      "DisplayName": "Font",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -834,9 +834,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El color del texto del control",
+      "Description": "The color of text in the control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Color de fuente",
+      "DisplayName": "Font color",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -862,9 +862,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Mostrar el texto utilizando el estilo de fuente cursiva.",
+      "Description": "Display text using the italic font style.",
       "DescriptionResourceString": "TextCanvas_Italic_Desc",
-      "DisplayName": "Cursiva",
+      "DisplayName": "Italic",
       "DisplayNameResourceString": "TextCanvas_Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -890,9 +890,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Mostrar el texto utilizando el estilo de fuente tachado.",
+      "Description": "Display text using the strikethrough font style.",
       "DescriptionResourceString": "TextCanvas_Strikethrough_Desc",
-      "DisplayName": "Tachado",
+      "DisplayName": "Strikethrough",
       "DisplayNameResourceString": "TextCanvas_Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -918,9 +918,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Mostrar el texto utilizando el estilo de fuente subrayado.",
+      "Description": "Display text using the underline font style.",
       "DescriptionResourceString": "TextCanvas_Underline_Desc",
-      "DisplayName": "Subrayado",
+      "DisplayName": "Underline",
       "DisplayNameResourceString": "TextCanvas_Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -946,9 +946,9 @@
     {
       "Category": "data",
       "DefaultValue": "true",
-      "Description": "Mostrar el texto de desbordamiento como ajustado.",
+      "Description": "Display overflow text as wrapped.",
       "DescriptionResourceString": "TextCanvas_Wrap_Desc",
-      "DisplayName": "Ajustar",
+      "DisplayName": "Wrap",
       "DisplayNameResourceString": "TextCanvas_Wrap",
       "EnumValues": [],
       "HelperUI": null,
@@ -974,9 +974,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Color de fondo del control.",
+      "Description": "Background color fo the control.",
       "DescriptionResourceString": "Fill_Description",
-      "DisplayName": "Relleno",
+      "DisplayName": "Fill",
       "DisplayNameResourceString": "Fill",
       "EnumValues": [],
       "HelperUI": null,
@@ -1002,9 +1002,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Estilo de los bordes alrededor del control",
+      "Description": "Style of borders around the control",
       "DescriptionResourceString": "BorderStyle_Description",
-      "DisplayName": "Estilo de los bordes",
+      "DisplayName": "Border style",
       "DisplayNameResourceString": "BorderStyle",
       "EnumValues": [],
       "HelperUI": null,
@@ -1030,9 +1030,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Grosor o ancho de los bordes alrededor del control.",
+      "Description": "Thickness or width of borders around the control.",
       "DescriptionResourceString": "BorderThickness_Description",
-      "DisplayName": "Grosor de los bordes",
+      "DisplayName": "Border thickness",
       "DisplayNameResourceString": "BorderThickness",
       "EnumValues": [],
       "HelperUI": null,
@@ -1059,9 +1059,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Color de los bordes alrededor del control.",
+      "Description": "Color of borders around the control.",
       "DescriptionResourceString": "BorderColor_Description",
-      "DisplayName": "Color de los bordes",
+      "DisplayName": "Border color",
       "DisplayNameResourceString": "BorderColor",
       "EnumValues": [],
       "HelperUI": "color",
@@ -1087,9 +1087,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Redondez de la esquina superior izquierda del control. Un valor de 0 es perfectamente cuadrado.",
+      "Description": "Roundedness of the control's top left corner. A value of 0 is perfectly square.",
       "DescriptionResourceString": "BorderRadiusTopLeft_Description",
-      "DisplayName": "Radio del borde superior izquierdo",
+      "DisplayName": "Top left border radius",
       "DisplayNameResourceString": "BorderRadiusTopLeft",
       "EnumValues": [],
       "HelperUI": null,
@@ -1116,9 +1116,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Redondez de la esquina superior derecha del control. Un valor de 0 es perfectamente cuadrado.",
+      "Description": "Roundedness of the control's top right corner. A value of 0 is perfectly square.",
       "DescriptionResourceString": "BorderRadiusTopRight_Description",
-      "DisplayName": "Radio del borde superior derecho",
+      "DisplayName": "Top right border radius",
       "DisplayNameResourceString": "BorderRadiusTopRight",
       "EnumValues": [],
       "HelperUI": null,
@@ -1145,9 +1145,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Redondez de la esquina inferior derecha del control. Un valor de 0 es perfectamente cuadrado.",
+      "Description": "Roundedness of the control's bottom right corner. A value of 0 is perfectly square.",
       "DescriptionResourceString": "BorderRadiusBottomRight_Description",
-      "DisplayName": "Radio del borde inferior derecho",
+      "DisplayName": "Bottom right border radius",
       "DisplayNameResourceString": "BorderRadiusBottomRight",
       "EnumValues": [],
       "HelperUI": null,
@@ -1174,9 +1174,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Redondez de la esquina inferior izquierda del control. Un valor de 0 es perfectamente cuadrado.",
+      "Description": "Roundedness of the control's bottom left corner. A value of 0 is perfectly square.",
       "DescriptionResourceString": "BorderRadiusBottomLeft_Description",
-      "DisplayName": "Radio del borde inferior izquierdo",
+      "DisplayName": "Bottom left border radius",
       "DisplayNameResourceString": "BorderRadiusBottomLeft",
       "EnumValues": [],
       "HelperUI": null,
@@ -1203,9 +1203,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Relleno que se aplicará en la parte superior del control.",
+      "Description": "Padding to apply to the top of the control.",
       "DescriptionResourceString": "PaddingTop_Description",
-      "DisplayName": "Relleno superior",
+      "DisplayName": "Top",
       "DisplayNameResourceString": "PaddingTop",
       "EnumValues": [],
       "HelperUI": null,
@@ -1232,9 +1232,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Relleno que se aplicará a la derecha del control.",
+      "Description": "Padding to apply to the right of the control.",
       "DescriptionResourceString": "PaddingRight_Description",
-      "DisplayName": "Relleno derecho",
+      "DisplayName": "Right",
       "DisplayNameResourceString": "PaddingRight",
       "EnumValues": [],
       "HelperUI": null,
@@ -1261,9 +1261,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Relleno que se aplicará en la parte inferior del control.",
+      "Description": "Padding to apply to the bottom of the control.",
       "DescriptionResourceString": "PaddingBottom_Description",
-      "DisplayName": "Relleno inferior",
+      "DisplayName": "Bottom",
       "DisplayNameResourceString": "PaddingBottom",
       "EnumValues": [],
       "HelperUI": null,
@@ -1290,9 +1290,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Relleno que se aplicará a la izquierda del control.",
+      "Description": "Padding to apply to the left of the control.",
       "DescriptionResourceString": "PaddingLeft_Description",
-      "DisplayName": "Relleno izquierdo",
+      "DisplayName": "Left",
       "DisplayNameResourceString": "PaddingLeft",
       "EnumValues": [],
       "HelperUI": null,
@@ -1805,7 +1805,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"TextCanvas\":\"Texto\",\"TextCanvas_VerticalAlign\":\"Alineación vertical\",\"TextCanvas_VerticalAlign_Desc\":\"Mostrar el texto utilizando la alineación vertical de texto seleccionada.\",\"TextCanvas_VerticalAlign_Top\":\"Superior\",\"TextCanvas_VerticalAlign_Middle\":\"Medio\",\"TextCanvas_VerticalAlign_Bottom\":\"Inferior\",\"TextCanvas_Height\":\"Alto del texto\",\"TextCanvas_Height_Desc\":\"El alto del control.\",\"TextCanvas_Align\":\"Alinear\",\"TextCanvas_Align_Desc\":\"Mostrar el texto utilizando la alineación de texto seleccionada.\",\"TextCanvas_Align_Start\":\"Inicio\",\"TextCanvas_Align_End\":\"Fin\",\"TextCanvas_Align_Center\":\"Centro\",\"TextCanvas_Align_Justify\":\"Justificar\",\"TextCanvas_Desc\":\"Texto para mostrar\",\"TextCanvas_AutoHeight\":\"Alto automático\",\"TextCanvas_AutoHeight_Desc\":\"El alto del contenedor se ajustará al contenido del texto.\",\"TextCanvas_Italic\":\"Cursiva\",\"TextCanvas_Italic_Desc\":\"Mostrar el texto utilizando el estilo de fuente cursiva.\",\"TextCanvas_Size\":\"Tamaño de fuente\",\"TextCanvas_Size_Desc\":\"Mostrar el texto utilizando los tamaños de fuente seleccionados.\",\"TextCanvas_Strikethrough\":\"Tachado\",\"TextCanvas_Strikethrough_Desc\":\"Mostrar el texto utilizando el estilo de fuente tachado.\",\"TextCanvas_Text\":\"Texto\",\"TextCanvas_Text_Desc\":\"Texto que aparece en un control.\",\"TextCanvas_Underline\":\"Subrayado\",\"TextCanvas_Underline_Desc\":\"Mostrar el texto utilizando el estilo de fuente subrayado.\",\"TextCanvas_Weight\":\"Espesor de la fuente\",\"TextCanvas_Weight_Desc\":\"Mostrar el texto utilizando los espesores de fuente seleccionados.\",\"TextCanvas_Weight_Medium\":\"Mediano\",\"TextCanvas_Weight_Regular\":\"Normal\",\"TextCanvas_Weight_Semibold\":\"Seminegrita\",\"TextCanvas_Weight_Bold\":\"Negrita\",\"TextCanvas_Wrap\":\"Ajustar\",\"TextCanvas_Wrap_Desc\":\"Mostrar el texto de desbordamiento como ajustado.\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Fill\":\"Relleno\",\"Fill_Description\":\"Color de fondo del control.\",\"BorderStyle\":\"Estilo de los bordes\",\"BorderStyle_Description\":\"Estilo de los bordes alrededor del control\",\"BorderStyle_Dashed\":\"Con guiones\",\"BorderStyle_Dotted\":\"De puntos\",\"BorderStyle_None\":\"Ninguno\",\"BorderStyle_Solid\":\"Continuo\",\"BorderThickness\":\"Grosor de los bordes\",\"BorderThickness_Description\":\"Grosor o ancho de los bordes alrededor del control.\",\"BorderColor\":\"Color de los bordes\",\"BorderColor_Description\":\"Color de los bordes alrededor del control.\",\"BorderRadiusTopLeft\":\"Radio del borde superior izquierdo\",\"BorderRadiusTopLeft_Description\":\"Redondez de la esquina superior izquierda del control. Un valor de 0 es perfectamente cuadrado.\",\"BorderRadiusTopRight\":\"Radio del borde superior derecho\",\"BorderRadiusTopRight_Description\":\"Redondez de la esquina superior derecha del control. Un valor de 0 es perfectamente cuadrado.\",\"BorderRadiusBottomRight\":\"Radio del borde inferior derecho\",\"BorderRadiusBottomRight_Description\":\"Redondez de la esquina inferior derecha del control. Un valor de 0 es perfectamente cuadrado.\",\"BorderRadiusBottomLeft\":\"Radio del borde inferior izquierdo\",\"BorderRadiusBottomLeft_Description\":\"Redondez de la esquina inferior izquierda del control. Un valor de 0 es perfectamente cuadrado.\",\"PaddingTop\":\"Relleno superior\",\"PaddingTop_Description\":\"Relleno que se aplicará en la parte superior del control.\",\"PaddingBottom\":\"Relleno inferior\",\"PaddingBottom_Description\":\"Relleno que se aplicará en la parte inferior del control.\",\"PaddingLeft\":\"Relleno izquierdo\",\"PaddingLeft_Description\":\"Relleno que se aplicará a la izquierda del control.\",\"PaddingRight\":\"Relleno derecho\",\"PaddingRight_Description\":\"Relleno que se aplicará a la derecha del control.\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"TextCanvas\":\"Text\",\"TextCanvas_VerticalAlign\":\"Vertical align\",\"TextCanvas_VerticalAlign_Desc\":\"Display text using the selected text verlitcal alignment.\",\"TextCanvas_VerticalAlign_Top\":\"Top\",\"TextCanvas_VerticalAlign_Middle\":\"Middle\",\"TextCanvas_VerticalAlign_Bottom\":\"Bottom\",\"TextCanvas_Height\":\"Text height\",\"TextCanvas_Height_Desc\":\"The height of the control.\",\"TextCanvas_Align\":\"Align\",\"TextCanvas_Align_Desc\":\"Display text using the selected text alignment.\",\"TextCanvas_Align_Start\":\"Start\",\"TextCanvas_Align_End\":\"End\",\"TextCanvas_Align_Center\":\"Center\",\"TextCanvas_Align_Justify\":\"Justify\",\"TextCanvas_Desc\":\"Display text\",\"TextCanvas_AutoHeight\":\"Auto height\",\"TextCanvas_AutoHeight_Desc\":\"Container height will adjust to text content.\",\"TextCanvas_Italic\":\"Italic\",\"TextCanvas_Italic_Desc\":\"Display text using the italic font style.\",\"TextCanvas_Size\":\"Font size\",\"TextCanvas_Size_Desc\":\"Display text using the selected font sizes.\",\"TextCanvas_Strikethrough\":\"Strikethrough\",\"TextCanvas_Strikethrough_Desc\":\"Display text using the strikethrough font style.\",\"TextCanvas_Text\":\"Text\",\"TextCanvas_Text_Desc\":\"Text that appears on a control.\",\"TextCanvas_Underline\":\"Underline\",\"TextCanvas_Underline_Desc\":\"Display text using the underline font style.\",\"TextCanvas_Weight\":\"Font weight\",\"TextCanvas_Weight_Desc\":\"Display text using the selected font weights.\",\"TextCanvas_Weight_Medium\":\"Medium\",\"TextCanvas_Weight_Regular\":\"Regular\",\"TextCanvas_Weight_Semibold\":\"Semibold\",\"TextCanvas_Weight_Bold\":\"Bold\",\"TextCanvas_Wrap\":\"Wrap\",\"TextCanvas_Wrap_Desc\":\"Display overflow text as wrapped.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Fill\":\"Fill\",\"Fill_Description\":\"Background color fo the control.\",\"BorderStyle\":\"Border style\",\"BorderStyle_Description\":\"Style of borders around the control\",\"BorderStyle_Dashed\":\"Dashed\",\"BorderStyle_Dotted\":\"Dotted\",\"BorderStyle_None\":\"None\",\"BorderStyle_Solid\":\"Solid\",\"BorderThickness\":\"Border thickness\",\"BorderThickness_Description\":\"Thickness or width of borders around the control.\",\"BorderColor\":\"Border color\",\"BorderColor_Description\":\"Color of borders around the control.\",\"BorderRadiusTopLeft\":\"Top left border radius\",\"BorderRadiusTopLeft_Description\":\"Roundedness of the control's top left corner. A value of 0 is perfectly square.\",\"BorderRadiusTopRight\":\"Top right border radius\",\"BorderRadiusTopRight_Description\":\"Roundedness of the control's top right corner. A value of 0 is perfectly square.\",\"BorderRadiusBottomRight\":\"Bottom right border radius\",\"BorderRadiusBottomRight_Description\":\"Roundedness of the control's bottom right corner. A value of 0 is perfectly square.\",\"BorderRadiusBottomLeft\":\"Bottom left border radius\",\"BorderRadiusBottomLeft_Description\":\"Roundedness of the control's bottom left corner. A value of 0 is perfectly square.\",\"PaddingTop\":\"Top\",\"PaddingTop_Description\":\"Padding to apply to the top of the control.\",\"PaddingBottom\":\"Bottom\",\"PaddingBottom_Description\":\"Padding to apply to the bottom of the control.\",\"PaddingLeft\":\"Left\",\"PaddingLeft_Description\":\"Padding to apply to the left of the control.\",\"PaddingRight\":\"Right\",\"PaddingRight_Description\":\"Padding to apply to the right of the control.\"}}}",
       "Type": 3
     },
     {

@@ -394,14 +394,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Botón de información",
+  "Name": "Information button",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "true",
-      "Description": "Indica si se puede acceder a este campo con la tecla Tab.",
+      "Description": "Whether this field can be reached with Tab key.",
       "DescriptionResourceString": "InfoButtonCanvas_AcceptsFocus_Desc",
-      "DisplayName": "Acepta el foco",
+      "DisplayName": "Accepts focus",
       "DisplayNameResourceString": "InfoButtonCanvas_AcceptsFocus",
       "EnumValues": [],
       "HelperUI": "",
@@ -427,9 +427,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Etiqueta que leen en voz alta los lectores de pantalla.",
+      "Description": "Label read out by screen readers.",
       "DescriptionResourceString": "InfoButtonCanvas_AccessibleLabel_Desc",
-      "DisplayName": "Etiqueta accesible",
+      "DisplayName": "Accessible label",
       "DisplayNameResourceString": "InfoButtonCanvas_AccessibleLabel",
       "EnumValues": [],
       "HelperUI": null,
@@ -455,28 +455,28 @@
     {
       "Category": "data",
       "DefaultValue": "Medium",
-      "Description": "Tamaño del icono del botón.",
+      "Description": "Size of the button icon.",
       "DescriptionResourceString": "InfoButtonCanvas_IconSize_Desc",
-      "DisplayName": "Tamaño de icono",
+      "DisplayName": "Icon size",
       "DisplayNameResourceString": "InfoButtonCanvas_IconSize",
       "EnumValues": [
         {
-          "Description": "Pequeño",
-          "DisplayName": "Pequeño",
+          "Description": "Small",
+          "DisplayName": "Small",
           "IsDefaultValue": false,
           "Name": "Small",
           "Value": "Small"
         },
         {
-          "Description": "Mediano",
-          "DisplayName": "Mediano",
+          "Description": "Medium",
+          "DisplayName": "Medium",
           "IsDefaultValue": true,
           "Name": "Medium",
           "Value": "Medium"
         },
         {
-          "Description": "Grande",
-          "DisplayName": "Grande",
+          "Description": "Large",
+          "DisplayName": "Large",
           "IsDefaultValue": false,
           "Name": "Large",
           "Value": "Large"
@@ -504,10 +504,10 @@
     },
     {
       "Category": "data",
-      "DefaultValue": "Contenido del botón de información",
-      "Description": "Contenido de texto que se mostrará en la ventana emergente.",
+      "DefaultValue": "InfoButton content",
+      "Description": "Text content to display in the popup.",
       "DescriptionResourceString": "InfoButtonCanvas_Content_Desc",
-      "DisplayName": "Contenido",
+      "DisplayName": "Content",
       "DisplayNameResourceString": "InfoButtonCanvas_Content",
       "EnumValues": [],
       "HelperUI": null,
@@ -533,9 +533,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Elija una paleta de colores que sea diferente del tema.",
+      "Description": "Choose a color palette that's different from the theme.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Paleta de colores",
+      "DisplayName": "Color palette",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -561,9 +561,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
+      "Description": "The name of the family of fonts in which text appears",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Fuente",
+      "DisplayName": "Font",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -589,9 +589,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
+      "Description": "Set the font size for displayed text.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Tamaño de fuente",
+      "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -617,9 +617,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El color del texto del control",
+      "Description": "The color of text in the control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Color de fuente",
+      "DisplayName": "Font color",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -645,9 +645,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "El grosor del texto de un control",
+      "Description": "The weight of the text in a control",
       "DescriptionResourceString": "Font_Weight_description",
-      "DisplayName": "Espesor de la fuente",
+      "DisplayName": "Font weight",
       "DisplayNameResourceString": "Font_Weight",
       "EnumValues": [],
       "HelperUI": null,
@@ -673,9 +673,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Cursiva",
+      "Description": "Italic",
       "DescriptionResourceString": "Italic",
-      "DisplayName": "Cursiva",
+      "DisplayName": "Italic",
       "DisplayNameResourceString": "Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -701,9 +701,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Subrayado",
+      "Description": "Underline",
       "DescriptionResourceString": "Underline",
-      "DisplayName": "Subrayado",
+      "DisplayName": "Underline",
       "DisplayNameResourceString": "Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -729,9 +729,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Tachado",
+      "Description": "Strikethrough",
       "DescriptionResourceString": "Strikethrough",
-      "DisplayName": "Tachado",
+      "DisplayName": "Strikethrough",
       "DisplayNameResourceString": "Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -893,7 +893,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AcceptsFocus\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"true\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"IconSize\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Medium\"},\"Content\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Contenido del botón de información\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.InfoButtonCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AcceptsFocus\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"true\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"IconSize\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Medium\"},\"Content\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"InfoButton content\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
@@ -1243,7 +1243,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"InfoButtonCanvas\":\"Botón de información\",\"InfoButtonCanvas_Desc\":\"Es una forma de mostrar información adicional sobre un campo de formulario o un área de la interfaz de usuario.\",\"InfoButtonCanvas_AcceptsFocus\":\"Acepta el foco\",\"InfoButtonCanvas_AcceptsFocus_Desc\":\"Indica si se puede acceder a este campo con la tecla Tab.\",\"InfoButtonCanvas_AccessibleLabel\":\"Etiqueta accesible\",\"InfoButtonCanvas_AccessibleLabel_Desc\":\"Etiqueta que leen en voz alta los lectores de pantalla.\",\"InfoButtonCanvas_Content\":\"Contenido\",\"InfoButtonCanvas_Content_Desc\":\"Contenido de texto que se mostrará en la ventana emergente.\",\"InfoButtonCanvas_IconSize\":\"Tamaño de icono\",\"InfoButtonCanvas_IconSize_Desc\":\"Tamaño del icono del botón.\",\"InfoButtonCanvas_IconSize_Small\":\"Pequeño\",\"InfoButtonCanvas_IconSize_Medium\":\"Mediano\",\"InfoButtonCanvas_IconSize_Large\":\"Grande\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"Default_Value_Content\":\"Contenido del botón de información\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Font_Weight\":\"Espesor de la fuente\",\"Font_Weight_description\":\"El grosor del texto de un control\",\"Italic\":\"Cursiva\",\"Underline\":\"Subrayado\",\"Strikethrough\":\"Tachado\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"InfoButtonCanvas\":\"Information button\",\"InfoButtonCanvas_Desc\":\"A way to display additional information about a form field or an area in the UI.\",\"InfoButtonCanvas_AcceptsFocus\":\"Accepts focus\",\"InfoButtonCanvas_AcceptsFocus_Desc\":\"Whether this field can be reached with Tab key.\",\"InfoButtonCanvas_AccessibleLabel\":\"Accessible label\",\"InfoButtonCanvas_AccessibleLabel_Desc\":\"Label read out by screen readers.\",\"InfoButtonCanvas_Content\":\"Content\",\"InfoButtonCanvas_Content_Desc\":\"Text content to display in the popup.\",\"InfoButtonCanvas_IconSize\":\"Icon size\",\"InfoButtonCanvas_IconSize_Desc\":\"Size of the button icon.\",\"InfoButtonCanvas_IconSize_Small\":\"Small\",\"InfoButtonCanvas_IconSize_Medium\":\"Medium\",\"InfoButtonCanvas_IconSize_Large\":\"Large\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Default_Value_Content\":\"InfoButton content\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
       "Type": 3
     },
     {

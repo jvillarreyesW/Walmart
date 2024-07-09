@@ -237,7 +237,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
-            Dpd_TipoTrabajo As Desplegable.pcfdataset:
+            Dpd_TipoTrabajo As Dropdown.pcfdataset:
                 Appearance: ="FilledDarker"
                 BasePaletteColor: =RGBA(30, 136, 230, 1)
                 BorderStyle: =""
@@ -747,7 +747,7 @@ ModuloGestionEquipoV1 As screen:
                 Y: =2
                 ZIndex: =18
 
-            TextCanvas3 As Texto:
+            TextCanvas3 As Text:
                 Align: ='TextCanvas.Align'.Center
                 BorderStyle: =""
                 DisplayMode: =DisplayMode.Edit
