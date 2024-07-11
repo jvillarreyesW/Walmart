@@ -851,8 +851,8 @@ ModuloPersonaV1_1 As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Tooltip: =
-            Width: =127
-            X: =764
+            Width: =115
+            X: =770
             Y: =15
             ZIndex: =9
 
@@ -3408,7 +3408,7 @@ ModuloPersonaV1_1 As screen:
             FontWeight: =FontWeight.Lighter
             Height: =46
             OnSelect: =Set(_VarMostrarBuscar, !_VarMostrarBuscar)
-            Size: =18
+            Size: =15
             Text: ="Buscar Persona, Rol o Tipo"
             Visible: |-
                 =If(
@@ -3446,6 +3446,7 @@ ModuloPersonaV1_1 As screen:
         SearchItems: =Search(SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending),Cmb_BuscarPersona_5.SearchText,Razon_Social)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
+        Size: =15
         Tooltip: =
         Width: =450
         X: =540
