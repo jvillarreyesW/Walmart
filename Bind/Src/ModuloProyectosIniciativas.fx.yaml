@@ -2237,7 +2237,7 @@ ModuloProyectosIniciativas As screen:
                 );
                 Blank()
             )*/
-            ,Cmb_Gl_Equipo_1.SearchText,'Id. de activo de cumplimiento normativo')
+            ,Cmb_Gl_Equipo_1.SearchText,ComplianceAssetId)
         SelectMultiple: =false
         Width: =Txt_FondoEquipo_14.Width - 27
         X: =1220
@@ -3441,7 +3441,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =601
@@ -3459,7 +3458,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =987
@@ -3477,7 +3475,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1203
@@ -3495,7 +3492,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =828
@@ -3513,7 +3509,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1257
@@ -3531,7 +3526,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1151
@@ -3549,7 +3543,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1153
@@ -3567,7 +3560,6 @@ ModuloProyectosIniciativas As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1257

@@ -1585,7 +1585,7 @@ ModuloProyectos As screen:
                     );
                     Blank()
                 )*/
-                ,Cmb_Gl_Equipo.SearchText,'Equipo/Squad')
+                ,Cmb_Gl_Equipo.SearchText,Equipo_x002f_Squad)
             SelectMultiple: =false
             Width: =Txt_FondoEquipo.Width - 27
             X: =507
@@ -3882,7 +3882,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =601
@@ -3900,7 +3899,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =987
@@ -3918,7 +3916,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1203
@@ -3936,7 +3933,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =828
@@ -3954,7 +3950,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1257
@@ -3972,7 +3967,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1151
@@ -3990,7 +3984,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1153
@@ -4008,7 +4001,6 @@ ModuloProyectos As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1257

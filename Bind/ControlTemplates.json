@@ -365,7 +365,7 @@
     "Name": "PowerApps_CoreControls_InfoButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Information button",
-    "Version": "0.0.30"
+    "Version": "0.0.31"
   },
   "label": {
     "CustomGroupControlTemplateName": "",
@@ -507,7 +507,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.38"
+    "Version": "0.0.39"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",

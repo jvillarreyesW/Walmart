@@ -1815,7 +1815,7 @@ ListadoProductoProyecto As screen:
                         );
                         Blank()
                     )*/
-                    ,Cmb_Equipo_2.SearchText,'Equipo/Squad')
+                    ,Cmb_Equipo_2.SearchText,Equipo_x002f_Squad)
                 SelectMultiple: =false
                 Width: =Txt_FondoForm1_65.Width - 27
                 X: =1495
@@ -3050,7 +3050,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =602
@@ -3068,7 +3067,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =988
@@ -3086,7 +3084,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1204
@@ -3104,7 +3101,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =829
@@ -3122,7 +3118,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1258
@@ -3140,7 +3135,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1152
@@ -3158,7 +3152,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1152
@@ -3176,7 +3169,6 @@ ListadoProductoProyecto As screen:
             FontUnderline: =false
             FontWeight: =""
             Height: =32
-            IconSize: ='InfoButtonCanvas.IconSize'.Large
             OnSelect: =false
             Width: =32
             X: =1250
@@ -3511,7 +3503,7 @@ ListadoProductoProyecto As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,'Nombre Producto/Proyecto')
+            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,Nombre_x0020_Producto_x002f_Proy)
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

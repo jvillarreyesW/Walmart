@@ -18453,14 +18453,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -18487,11 +18479,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -18585,14 +18572,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -18619,11 +18598,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -18717,14 +18691,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -18751,11 +18717,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -18849,14 +18810,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -18883,11 +18836,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -18988,14 +18936,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -19022,11 +18962,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -19120,14 +19055,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -19154,11 +19081,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -19252,14 +19174,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -19286,11 +19200,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
@@ -19384,14 +19293,6 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "IconSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "BasePaletteColor",
         "OnSelect",
         "Font",
@@ -19418,11 +19319,6 @@
         {
           "Category": "Data",
           "PropertyName": "Content",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "IconSize",
           "RuleProviderType": "Unknown"
         },
         {
