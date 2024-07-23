@@ -784,7 +784,7 @@
                 },
                 "region": {
                   "charLength": 15,
-                  "charOffset": 59,
+                  "charOffset": 88,
                   "snippet": {
                     "text": "NombrePrioridad"
                   }
@@ -824,7 +824,7 @@
                 },
                 "region": {
                   "charLength": 14,
-                  "charOffset": 56,
+                  "charOffset": 84,
                   "snippet": {
                     "text": "NombreObjetivo"
                   }
