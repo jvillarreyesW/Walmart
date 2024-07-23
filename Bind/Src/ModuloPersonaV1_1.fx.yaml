@@ -1035,7 +1035,7 @@ ModuloPersonaV1_1 As screen:
             SearchItems: =[]
             SelectMultiple: =false
             Tooltip: =
-            Width: =280
+            Width: =261
             X: =1298
             Y: =20
             ZIndex: =18
@@ -1049,7 +1049,7 @@ ModuloPersonaV1_1 As screen:
             ZIndex: =19
 
         Cmb_Rol_3 As dropdown:
-            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+            BorderColor: =
             BorderStyle: =BorderStyle.None
             BorderThickness: =0
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -1057,21 +1057,16 @@ ModuloPersonaV1_1 As screen:
             ChevronDisabledFill: =RGBA(149, 149, 149, 1)
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            Default: |-
-                =If(
-                    IsBlank(_VarNuevoIDPErsona),
-                    Parent.Default,
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
-                )
+            Default: =ThisItem.Rol
             DisabledColor: =RGBA(53, 61, 63, 1)
             DisplayMode: =Parent.DisplayMode
             Height: =45
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: =Sort(Rol,Roles,SortOrder.Ascending)
             PressedFill: =RGBA(0, 121, 187, 1)
-            Tooltip: =Parent.DisplayName
-            Width: =160
-            X: =1578
+            Tooltip: =
+            Width: =179
+            X: =1559
             Y: =15
             ZIndex: =20
 

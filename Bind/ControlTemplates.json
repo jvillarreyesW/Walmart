@@ -536,7 +536,7 @@
     "Name": "PowerApps_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toggle",
-    "Version": "1.0.35"
+    "Version": "1.1.0"
   },
   "toggleSwitch": {
     "CustomGroupControlTemplateName": "",

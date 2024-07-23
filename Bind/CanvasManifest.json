@@ -22,7 +22,7 @@
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
       "classiccontrols": false,
-      "commentgeneratedformulas": true,
+      "commentgeneratedformulasv2": false,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
       "dataflowanalysisenabled": false,
@@ -101,7 +101,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 87,
+    "BindingErrorCount": 82,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "DesktopOrTablet",

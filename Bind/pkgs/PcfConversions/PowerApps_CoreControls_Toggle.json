@@ -68,7 +68,17 @@
       ],
       "From": "1.0.19",
       "To": "1.0.20"
+    },
+    {
+      "Action": [
+        {
+          "Name": "ToggleSize",
+          "Type": "add"
+        }
+      ],
+      "From": "1.0.32",
+      "To": "1.0.33"
     }
   ],
-  "Version": "1.0.35"
+  "Version": "1.1.0"
 }

@@ -1978,12 +1978,12 @@ ModuloProyectosIniciativas As screen:
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
         IsSearchable: =false
-        Items: =Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID))
+        Items: =Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID),AnnoObjetivo="2024")
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["NombreObjetivo"]
-        SearchItems: =[]
+        SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate.Selected.ID),AnnoObjetivo="2024"),Dpd_Pry_ObjeEstr.SearchText,NombreObjetivo)
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
@@ -1997,17 +1997,17 @@ ModuloProyectosIniciativas As screen:
         ChevronFill: =RGBA(0, 121, 187, 1)
         ChevronHoverBackground: =RGBA(0, 121, 187, 1)
         DefaultSelectedItems: =Filter(Lst_Plan_Prioridad,ID=Value(First(ProyectoSeleccionado).Prioridad_Estrategica))
-        DisplayFields: =["AnnoPrioridad"]
+        DisplayFields: =["NombrePrioridad"]
         Height: =Txt_FondoSubViaje_10.Height - 10
         HoverBorderColor: =RGBA(0, 121, 187, 1)
         InputTextPlaceholder: =
         IsSearchable: =false
-        Items: =Lst_Plan_Prioridad
+        Items: =Filter(Lst_Plan_Prioridad,AnnoPrioridad="2024")
         OnSelect: =
         PressedFill: =RGBA(0, 121, 187, 1)
         Reset: =ResetearControlPry
         SearchFields: =["AnnoPrioridad"]
-        SearchItems: =[]
+        SearchItems: =Search(Filter(Lst_Plan_Prioridad,AnnoPrioridad="2024"),Dpd_Pry_PrioriEstrate.SearchText,AnnoPrioridad)
         SelectMultiple: =false
         Width: =Txt_FondoSubViaje_10.Width - 27
         X: =513
