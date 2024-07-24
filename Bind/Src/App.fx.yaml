@@ -143,7 +143,19 @@ App As appinfo:
         
         /*------------------------------------------------------*/
         
-    StartScreen: =
+    StartScreen: |-
+        =/*Param DeepLink personas f30*/
+        
+        If(
+            //Si viene de Bind valida a que ventana se dirige
+            !IsBlank(Param("ID_Request")),
+        
+                If(IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion),
+                ModuloPersonaV2,
+                Portada
+                )
+        
+        )    
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

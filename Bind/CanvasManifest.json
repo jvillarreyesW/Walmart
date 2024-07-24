@@ -101,7 +101,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 96,
+    "BindingErrorCount": 82,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 2000,
     "DocumentAppType": "DesktopOrTablet",
@@ -162,6 +162,6 @@
     "ModuloPersonaV1",
     "ModuloEquipoV1",
     "ModuloGestionEquipoV1",
-    "ModuloPersonaV1_1"
+    "ModuloPersonaV2"
   ]
 }

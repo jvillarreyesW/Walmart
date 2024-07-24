@@ -31,6 +31,9 @@
           "Ingresos_Ceses_Personas": {
             "tableName": "73825681-874c-4a7c-9a59-cb69365be1ae"
           },
+          "Lst_ConfirmacionManagersF30": {
+            "tableName": "fd907e87-c522-4ca2-bd99-9e96db9d4b53"
+          },
           "Lst_DependenciasPortafolio": {
             "tableName": "c0e357af-0925-4cfb-88a8-0a1cf1ce3faa"
           },
@@ -211,7 +214,8 @@
       "Lst_NoticiasBind",
       "Lst_OrdenesEquipos",
       "Lst_ServicioCuentaCeco",
-      "Lst_Proveedores"
+      "Lst_Proveedores",
+      "Lst_ConfirmacionManagersF30"
     ],
     "dependencies": {},
     "dependents": [
