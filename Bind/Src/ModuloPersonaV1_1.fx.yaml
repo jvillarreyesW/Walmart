@@ -156,6 +156,13 @@ ModuloPersonaV1_1 As screen:
         OnSelect: |-
             =UpdateContext({_VarMostrarBarraBloqueo:true});
             Set(_VarNuevoIDPErsona,"Usu-" & GUID());
+            Patch(Col_MiEquipoWalmart,Defaults(Col_MiEquipoWalmart),
+            {
+                'Interno/Externo':"Externo",
+                ID_Proveedor:Cmb_BuscarPersona_5.Selected.ID,
+                Jefe_Directo:_VarUsuarioJefe
+            }
+            )
             /*
             If(
                 Rd_PersonasEquipos.Selected.Value = "Mis Personas";
@@ -364,316 +371,16 @@ ModuloPersonaV1_1 As screen:
             Y: =275
             ZIndex: =5
 
-    Group2_2 As group:
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =21
-
-        Rct_FondoBloqueo_2 As rectangle:
-            Fill: =RGBA(122, 138, 143, 0.55)
-            Height: =1050
-            Visible: =_VarMostrarBarraBloqueo
-            Width: =1920
-            ZIndex: =37
-
-        Btn_Actualizar_2 As button:
-            DisplayMode: |-
-                =If(
-                    !IsBlank(_VarNuevoIDPErsona) && !IsBlank(LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario_2.Text) && 'Interno/Externo' = "Interno")),
-                    DisplayMode.Disabled,
-                    If(
-                        !IsBlank(_VarNuevoIDPErsona) && IsBlank(LookUp(Lst_Persona, Usuario =  Upper(Txt_Usuario_2.Text) && Estado = "Activo")),// Validando campos para una persona nueva
-                        If(
-                            IsBlank(Cmb_BuscarPersona_3.Selected.DisplayName) Or
-                            IsBlank(DataCardValue162_1.Selected.Value) Or
-                            IsBlank(Dpd_InternoExterno_2.Selected.Value) Or
-                            IsBlank(Dpd_Empresa_3.SelectedText.Value) Or
-                            IsBlank(Dtp_FechaIngreso_2.SelectedDate) Or
-                            IsBlank(Dpd_UbicacionLaboral_2.Selected.Value) Or
-                            IsBlank(Txt_Usuario_2.Text) Or
-                            IsBlank(Txt_CorreoElectronico_2.Text) Or
-                            IsBlank(Cmb_Rol_2.Selected.Roles) Or
-                            IsBlank(Cmb_BuscarJefe_2.SelectedItems.DisplayName) Or 
-                            IsBlank(Dpd_Genero_2.Selected.Value),
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit
-                        ),
-                        If(
-                            IsBlank(_VarNuevoIDPErsona) && !IsBlank(LookUp(Lst_Persona, Usuario = Txt_Usuario_2.Text)) && CountRows(Col_EquiposPersonas)=0,
-                            If(
-                                IsBlank(Cmb_BuscarPersona_3.Selected.DisplayName) Or
-                                IsBlank(DataCardValue162_1.Selected.Value) Or
-                                IsBlank(Dpd_InternoExterno_2.Selected.Value) Or
-                                IsBlank(Dpd_Empresa_3.SelectedText.Value) Or
-                                IsBlank(Dtp_FechaIngreso_2.SelectedDate) Or
-                                IsBlank(Dpd_UbicacionLaboral_2.Selected.Value) Or
-                                IsBlank(Txt_Usuario_2.Text) Or
-                                IsBlank(Txt_CorreoElectronico_2.Text) Or
-                                IsBlank(Cmb_Rol_2.Selected.Roles) Or
-                                IsBlank(Cmb_BuscarJefe_2.SelectedItems.DisplayName) Or 
-                                IsBlank(Dpd_Genero_2.Selected.Value),
-                                DisplayMode.Disabled,
-                                DisplayMode.Edit
-                            ),
-                            If(
-                                IsBlank(Cmb_BuscarPersona_3.Selected.DisplayName) Or
-                                IsBlank(DataCardValue162_1.Selected.Value) Or
-                                IsBlank(Dpd_InternoExterno_2.Selected.Value) Or
-                                IsBlank(Dpd_Empresa_3.SelectedText.Value) Or
-                                IsBlank(Dtp_FechaIngreso_2.SelectedDate) Or
-                                IsBlank(Dpd_UbicacionLaboral_2.Selected.Value) Or
-                                IsBlank(Txt_Usuario_2.Text) Or
-                                IsBlank(Txt_CorreoElectronico_2.Text) Or
-                                IsBlank(Cmb_Rol_2.Selected.Roles) Or
-                                IsBlank(Cmb_BuscarJefe_2.SelectedItems.DisplayName) Or 
-                                IsBlank(Dpd_Genero_2.Selected.Value) Or
-                                IsBlank(Cmb_IC_Equipo.Selected.'Equipo/Squad') Or
-                                CountIf(Col_EquiposPersonas,EquipoPrincipal = true)=0 Or
-                                CountIf(Col_EquiposPersonas,EquipoPrincipal = true)>1,
-                                DisplayMode.Disabled,
-                                DisplayMode.Edit
-                            )
-                        )
-                    )
-                )
-            Fill: =_VarColoresApp.AzulFondo
-            Height: =54
-            OnSelect: |-
-                =/*Mostrar Spinner Cargando*/
-                Set(_VarMostrarCargando,true);
-                    Patch(
-                        Lst_Persona,
-                            If( 
-                                IsBlank(LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                                    Defaults(Lst_Persona),
-                                    LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario_2.Text))
-                            ),
-                            {
-                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = Txt_JefeDirecto_2.Text, GerenciaOrigen_0),
-                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = Txt_JefeDirecto_2.Text, GerenciaOrigen_1),
-                                GerenciaOrigen: Cmb_GerenciaOrigen_2.Selected.NombreGerencia, 
-                                Nombre_Persona: Txt_NombrePersona_2.Text,
-                                RUT: Txt_Rut_2.Text,
-                                'Interno/Externo': Dpd_InternoExterno_2.Selected.Value,
-                                Jefe_Directo: _VarUsuarioJefe,
-                                'Considera Head Count': DataCardValue174_1.Selected,
-                                //Dominio: GaleriaDatos.Dominio;
-                                //Empresa: Dpd_Empresa_2.Selected.Result,
-                                ID_Proveedor: Dpd_Empresa_3.Selected.ID,
-                                Usuario: Upper(Txt_Usuario_2.Text),
-                                Rol: Cmb_Rol_2.Selected.Roles,
-                                'Correo Electrónico': Txt_CorreoElectronico_2.Text,
-                                'Ubicación Laboral': Dpd_UbicacionLaboral_2.Selected,
-                                'Fecha de Ingreso': Dtp_FechaIngreso_2.SelectedDate,
-                                Genero: Dpd_Genero_2.Selected.Value,
-                                Categoria: DataCardValue162_1.Selected.Value,
-                                Estado: "Activo"
-                            }
-                    );
-                /*
-                    ForAll(
-                        Col_EquiposPersonas As GaleriaEquipos;
-                        Patch(
-                            Ingresos_Ceses_Personas;
-                            If(
-                                IsBlank(GaleriaEquipos.ID);
-                                Defaults(Ingresos_Ceses_Personas);
-                                LookUp(Ingresos_Ceses_Personas; ID = GaleriaEquipos.ID)
-                            );
-                            {
-                            IDEquipo: GaleriaEquipos.IDEquipo;
-                            Usuario: GaleriaEquipos.Usuario;
-                            AsignadoPor: _Perfil.displayName;
-                            FechaAsignacion: Today();
-                            EquipoPrincipal: GaleriaEquipos.EquipoPrincipal;
-                            Estado: "Activo"
-                            }
-                        )
-                        
-                    );;
-                */
-                
-                    Refresh(Lst_Persona);
-                    Refresh(Ingresos_Ceses_Personas);
-                    ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
-                    ClearCollect(Col_BD_AsignacionEquipos, Filter(Ingresos_Ceses_Personas,Estado = "Activo"));
-                    Clear(Col_EquiposPersonas);
-                    Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos,Usuario = Upper(Txt_Usuario.Text), Estado = "Activo"));
-                
-                    /*
-                    If(
-                        !IsBlank(_VarUsuarioSelect);
-                        //UpdateContext({_VarMostrarBarraBloqueo:false});;
-                        Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = _VarUsuarioSelect; Estado = "Activo"));
-                        If(
-                            !IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario);
-                            //UpdateContext({_VarMostrarBarraBloqueo:false});;
-                            Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = Cmb_BuscarMiEquipo.Selected.Usuario; Estado = "Activo"));
-                            Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos;Usuario = Upper(Txt_Usuario.Text); Estado = "Activo"))
-                        )
-                    );;
-                    */
-                    
-                    //ResetForm(Frm_EditarPersona);;
-                
-                
-                    Set(_VarUsuarioSelect,Upper(Txt_Usuario.Text));
-                    EditForm(Frm_EditarPersona);
-                    Set(_VarNuevoIDPErsona,"");
-                    Reset(Cmb_BuscarMiEquipo);
-                    Set(_VarUsuarioSelect,Blank());
-                    ResetForm(Frm_EditarPersona);
-                    //Set(_verPopUpNuevoUsuario;false);;
-                    UpdateContext({_VarMostrarBarraBloqueo:false});
-                
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
-                
-                Clear(Col_IDEquiposAsignados);
-                Clear(Col_MiEquiposJefe);
-                Clear(Col_DatosparaGrafico);
-                
-                // Recuperando los ID de los Equipos asignados
-                ForAll(Col_MiEquipoWalmart As CME,Collect(Col_IDEquiposAsignados, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario)).IDEquipo));
-                ForAll(Col_MiEquipoWalmart As CME,Collect(Col_DatosparaGrafico, Filter(Col_BD_AsignacionEquipos, Trim(Usuario) = Trim(CME.Usuario))));
-                // Recuperando los equipos asignados en los dominios
-                //ForAll(ForAll(Distinct(Col_IDEquiposAsignados;Value); {Result: ThisRecord.Value}) As CIEA;Collect(Col_MiEquiposJefe;Filter(Col_BD_Equipos; IDEquipo= CIEA.Result)));;
-                ForAll(ForAll(Distinct(Col_IDEquiposAsignados,IDEquipo), {Result: ThisRecord.Value}) As CIEA,Collect(Col_MiEquiposJefe,Filter(Col_BD_Equipos, IDEquipo = CIEA.Result)));
-                ClearCollect(Col_TempMisEquipos,Col_MiEquiposJefe);
-                
-                Notify("Se actulizaron los registros del usuario",NotificationType.Success,5000);
-                
-                /*Ocultar Spinner Cargando*/
-                Set(_VarMostrarCargando,false);
-                
-                
-                    /*
-                    Patch(
-                        Lst_Bajas_Personas;
-                        Defaults(Lst_Bajas_Personas);
-                        {
-                            Nombre2: Cmb_Nombre.SelectedItems;
-                            RUT: form_rut.Text;
-                            'Interno/Externo': IntExt.Selected.Result;
-                            'Jefe Directo': Jefe_form.Selected.DisplayName;
-                            'Considera Head Count': HC_form.Selected;
-                            Dominio: Dominioform.Text;
-                            Empresa: Empres.SelectedText.Value;
-                            Usuario: User_form.Text;
-                            Rol: Rol_form.Selected.Result;
-                            'Correo Electrónico': mail_form.Text;
-                            'Responsable Actualización': Responsable_form.Selected.DisplayName;
-                            UbicacionLaboral: UbicacionLaboral1.Selected.Value;
-                            'Fecha de Ingreso': Ingreso.SelectedDate;
-                            Estado: DataCardValue13.Selected.Result;
-                            'Etapas del vacante': Blank()
-                        }
-                    );;
-                    */
-            Text: |-
-                =If(
-                    IsBlank(_VarNuevoIDPErsona),
-                    "Actualizar",
-                    "Agregar"
-                )
-            Tooltip: |-
-                =/*
-                If(IsBlank(Cmb_Nombre_1.SelectedItems.DisplayName) Or
-                   IsBlank(form_rut_1.Text) Or
-                   IsBlank(IntExt_1.SelectedText.Value) Or
-                   IsBlank(Empres_1.SelectedText.Value) Or
-                   IsBlank(Ingreso_1.SelectedDate) Or
-                   IsBlank(UbicacionLaboral1_1.SelectedItems.Value) Or
-                   IsBlank(User_form_1.Text) Or
-                   IsBlank(mail_form_1.Text) Or
-                   IsBlank(Rol_form_2.SelectedText.Value) Or
-                   IsBlank(Responsable_form_1.SelectedItems.DisplayName) Or
-                   IsBlank(Jefe_form_1.SelectedItems.DisplayName)
-                 ;"Debes completar todala información para poder agregar")
-                 */
-            Visible: =_VarMostrarBarraBloqueo
-            Width: =167
-            X: =598
-            Y: =874
-            ZIndex: =38
-
-        Btn_Cancelar_2 As button:
-            Fill: =_VarColoresApp.AzulFondo
-            Height: =54
-            OnSelect: |-
-                =UpdateContext({_VarMostrarBarraBloqueo:false});
-                //Clear(Col_EquiposPersonas);;
-                Set(_VarNuevoIDPErsona,Blank());
-                //Reset(Cmb_BuscarMiEquipo);;
-                Set(_VarUsuarioSelect,Blank());
-                ResetForm(Frm_EditarPersona_2);
-                //Set(_verPopUpNuevoUsuario;false)
-            Text: ="Cancelar"
-            Visible: =_VarMostrarBarraBloqueo
-            Width: =167
-            X: =798
-            Y: =874
-            ZIndex: =39
-
-        Html_CabeceraInfoPersonal_2 As htmlViewer:
-            Height: =83
-            HtmlText: |-
-                =If(
-                    IsBlank(_VarNuevoIDPErsona),
-                "
-                <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: "& Self.Width -20 &"px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
-                  <h1 style='text-indent: 1300px; text-align: center;'> Información Personal</h1>
-                </div>
-                ",
-                "
-                <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: "& Self.Width -20 &"px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
-                  <h1 style='text-indent: 1300px; text-align: center;'> Agregar Persona Nueva</h1>
-                </div>
-                "
-                )
-                
-                /*
-                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
-                 <p style='text-align: center;' data-mce-style='text-align: center;'>
-                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
-                 <strong>Información Personal</strong></span></p>
-                 </div>
-                "
-                */
-            Visible: =_VarMostrarBarraBloqueo
-            Width: =1767
-            X: =76
-            Y: =117
-            ZIndex: =40
-
-        Btn_Limpiar_2 As button:
-            DisplayMode: |-
-                =If(
-                    !IsBlank(_VarNuevoIDPErsona),
-                    DisplayMode.Edit,
-                    DisplayMode.Disabled
-                )
-            Fill: =_VarColoresApp.AzulFondo
-            Height: =54
-            OnSelect: |
-                =Clear(Col_EquiposPersonas);
-                Reset(Cmb_BuscarMiEquipo);
-                ResetForm(Frm_EditarPersona_2);
-            Text: ="Limpiar"
-            Visible: =_VarMostrarBarraBloqueo
-            Width: =167
-            X: =998
-            Y: =874
-            ZIndex: =41
-
     Gallery2_2 As gallery.galleryVertical:
         DelayItemLoading: =true
         Height: =644
         Items: |-
             =Search(
                     SortByColumns(
+                            Filter(
                             Col_MiEquipoWalmart,
+                            ID_Proveedor=Text(Cmb_BuscarPersona_5.Selected.ID)||IsBlank(Cmb_BuscarPersona_5.Selected.ID)
+                            ),
                         "Nombre_Persona",
                         SortOrder.Ascending
                         ),
@@ -694,9 +401,9 @@ ModuloPersonaV1_1 As screen:
             BorderColor: =RGBA(15, 108, 189, 1)
             Default: =""
             DisabledBorderColor: =RGBA(15, 108, 189, 1)
-            DisabledFill: =If(!IsBlank(ThisItem.ID),RGBA(244, 244, 244, 1),RGBA(255, 255, 255, 1))
+            DisabledFill: =If(ThisItem.'Interno/Externo'="Externo",RGBA(255, 255, 255, 1),RGBA(214, 221, 224, 1))
             DisplayMode: =DisplayMode.Disabled
-            Fill: =If(!(ThisItem.ID),RGBA(214, 221, 224, 1),RGBA(255, 255, 255, 1))
+            Fill: =If(ThisItem.'Interno/Externo'="Externo",RGBA(255, 255, 255, 1),RGBA(214, 221, 224, 1))
             Height: =67
             OnSelect: =Select(Parent)
             RadiusBottomLeft: =20
@@ -712,12 +419,12 @@ ModuloPersonaV1_1 As screen:
             Height: =60
             Image: |-
                 =If(
-                    IsBlank(ThisItem.'Correo Electrónico'),
+                    IsBlank(Cmb_BuscarPersona_4.Selected.Email),
                     'no-fotos-1',
                     If(
-                        IsBlank(UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico')),
+                        IsBlank(UsuariosdeOffice365.UserPhotoV2(Cmb_BuscarPersona_4.Selected.Email)),
                         'no-fotos-1',
-                        UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico')
+                        UsuariosdeOffice365.UserPhotoV2(Cmb_BuscarPersona_4.Selected.Email)
                     )
                 )
                 /*
@@ -744,27 +451,6 @@ ModuloPersonaV1_1 As screen:
             Y: =10
             ZIndex: =2
 
-        Image18_6 As image:
-            Height: =40
-            Image: =sp16
-            OnSelect: |
-                =//Clear(Col_EquiposPersonas);;
-                Set(_VarUsuarioSelect,Gallery2.Selected.Usuario);
-                UpdateContext({_VarMostrarBarraBloqueo:true});
-                EditForm(Frm_EditarPersona_1);
-                /*
-                If(
-                    !IsBlank(_VarUsuarioSelect);
-                    Collect(Col_EquiposPersonas;Filter(Col_BD_AsignacionEquipos; Usuario = _VarUsuarioSelect; Estado = "Activo"));
-                    Clear(Col_EquiposPersonas)
-                );;
-                */
-            Tooltip: ="Ver los detalles de la persona"
-            Width: =40
-            X: =1738
-            Y: =20
-            ZIndex: =5
-
         Cmb_BuscarPersona_4 As combobox:
             BorderColor: =
             BorderStyle: =BorderStyle.None
@@ -775,7 +461,7 @@ ModuloPersonaV1_1 As screen:
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             DefaultSelectedItems: |-
-                =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
+                =Table({DisplayName: ThisItem.Nombre_Persona, Email:ThisItem.'Correo Electrónico'})
             DisabledColor: =RGBA(53, 61, 63, 1)
             DisplayFields: =["DisplayName","Email","Picture"]
             DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
@@ -816,23 +502,22 @@ ModuloPersonaV1_1 As screen:
             ChevronFill: =RGBA(0, 121, 187, 1)
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             Default: |-
-                =LookUp(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = _VarUsuarioSelect).ID_Proveedor),Razon_Social_Proveedor)
-                
+                =If(ThisItem.'Interno/Externo'="Interno","Walmart", LookUp(Lst_Proveedores,ID=ThisItem.ID_Proveedor).Razon_Social_Proveedor)
                 /*If(
                     IsBlank(_VarNuevoIDPErsona),
                     Parent.Default,
                     LookUp(Col_BD_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,Empresa)
                 )*/
             DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: |-
                 =SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending)
                 //Sort(ForAll(Distinct(Filter(Empresa,Dpd_InternoExterno_1.SelectedText.Value='Interno/Externo'),Empresa), {Result: ThisRecord.Value}),Result,SortOrder.Ascending)
             PressedFill: =RGBA(0, 121, 187, 1)
             Tooltip: =
-            Width: =321
-            X: =432
+            Width: =350
+            X: =404
             Y: =20
             ZIndex: =8
 
@@ -843,7 +528,7 @@ ModuloPersonaV1_1 As screen:
             Default: =ThisItem.RUT
             DelayOutput: =true
             DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
             Height: =50
             PaddingLeft: =10
             RadiusBottomLeft: =0
@@ -851,8 +536,8 @@ ModuloPersonaV1_1 As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Tooltip: =
-            Width: =115
-            X: =770
+            Width: =125
+            X: =768
             Y: =15
             ZIndex: =9
 
@@ -867,13 +552,14 @@ ModuloPersonaV1_1 As screen:
                     LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_4.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
                 )
             DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
             EndYear: =Year(Today())+100
             IconBackground: =RGBA(244, 244, 244, 1)
             IconFill: =RGBA(0, 121, 187, 1)
             IsEditable: =true
             PaddingBottom: =0
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            Size: =13
             StartYear: =1899
             Tooltip: =
             Width: =140
@@ -885,7 +571,7 @@ ModuloPersonaV1_1 As screen:
             Height: =50
             OnSelect: =Select(Parent)
             Width: =1
-            X: =425
+            X: =390
             Y: =15
             ZIndex: =11
 
@@ -902,7 +588,7 @@ ModuloPersonaV1_1 As screen:
             Height: =50
             OnSelect: =Select(Parent)
             Width: =1
-            X: =890
+            X: =897
             Y: |
                 =5+10
             ZIndex: =13
@@ -930,8 +616,7 @@ ModuloPersonaV1_1 As screen:
                 =Table({Value:ThisItem.Genero})
             DisabledColor: =RGBA(53, 61, 63, 1)
             DisplayFields: =["Value"]
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
-            Height: =Txt_FondoForm1_206.Height -10
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             IsSearchable: =false
             Items: =["M","F"]
@@ -941,7 +626,7 @@ ModuloPersonaV1_1 As screen:
             SearchItems: =[]
             SelectMultiple: =false
             Tooltip: =
-            Width: =58
+            Width: =70
             X: =1073
             Y: =20
             ZIndex: =15
@@ -950,95 +635,9 @@ ModuloPersonaV1_1 As screen:
             Height: =50
             OnSelect: =Select(Parent)
             Width: =1
-            X: =1137
+            X: =1149
             Y: =15
             ZIndex: =16
-
-        Dpd_UbicacionLaboral_3 As combobox:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-            ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DefaultSelectedItems: |-
-                =If(
-                    !IsBlank(ThisItem.ID),
-                    ThisItem.'Ubicación Laboral',
-                    LookUp(Lst_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,'Ubicación Laboral')
-                )
-            DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayFields: =["Value"]
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
-            Height: =Txt_FondoForm1_93.Height -10
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =Choices([@Lst_Persona].'Ubicación Laboral')
-            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Value"]
-            SearchItems: =Choices(Lst_Persona.'Ubicación Laboral',Dpd_UbicacionLaboral_3.SearchText)
-            SelectMultiple: =false
-            Tooltip: =
-            Width: =140
-            X: =1148
-            Y: =20
-            ZIndex: =17
-
-        DataCardValue162_2 As combobox:
-            BorderColor: =
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-            ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            Default: |-
-                =
-                
-                /*
-                If(
-                    Dpd_InternoExterno_1.Selected.Value = "Interno";
-                    Blank();
-                    {Value:Parent.Default}
-                )
-                */
-            DefaultSelectedItems: |-
-                =
-                
-                /*
-                If(
-                    Dpd_InternoExterno_1.Selected.Value = "Interno";
-                    Blank();
-                    Table({Value:Parent.Default})
-                )
-                */
-                
-                /*
-                If(
-                    IsBlank(_VarNuevoIDPErsona);
-                    Table({Value:Parent.Default});
-                    Table({Value:LookUp(Col_BD_Persona; Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result);Categoria)})
-                )
-                */
-            DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayFields: =["Value"]
-            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            IsSearchable: =false
-            Items: =["Headcount","Subcontratación Headcount","Subcontratación Servicios"]
-            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Value"]
-            SearchItems: =[]
-            SelectMultiple: =false
-            Tooltip: =
-            Width: =261
-            X: =1298
-            Y: =20
-            ZIndex: =18
 
         Separator_5 As rectangle:
             Height: =50
@@ -1059,2282 +658,425 @@ ModuloPersonaV1_1 As screen:
             ChevronHoverBackground: =RGBA(0, 121, 187, 1)
             Default: =ThisItem.Rol
             DisabledColor: =RGBA(53, 61, 63, 1)
-            DisplayMode: =Parent.DisplayMode
-            Height: =45
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            Height: =47
             HoverBorderColor: =RGBA(0, 121, 187, 1)
             Items: =Sort(Rol,Roles,SortOrder.Ascending)
             PressedFill: =RGBA(0, 121, 187, 1)
+            Size: =12
             Tooltip: =
-            Width: =179
-            X: =1559
-            Y: =15
+            Width: =283
+            X: =1301
+            Y: =18
             ZIndex: =20
 
-    Container24_1 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =647
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Visible: |-
-            =_VarMostrarBarraBloqueo
-            /*If(
-                !IsBlank(_VarNuevoIDPErsona);
-                true;
-                If(
-                    IsBlank(Cmb_BuscarMiEquipo.Selected.Nombre_Persona) && IsBlank(_VarUsuarioSelect);
-                    false;
-                    If(
-                        Rd_PersonasEquipos.Selected.Value = "Mis Equipos";
-                        false;
-                        true
-                    )
-                )
-            )
-            */
-        Width: =1767
-        X: =76
-        Y: =199
-        ZIndex: =42
-
-        Frm_EditarPersona_2 As form:
-            AcceptsFocus: =true
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =2
-            DataSource: =Lst_Persona
-            DefaultMode: =FormMode.New
-            Height: =566
-            Item: |
-                =LookUp(Col_BD_Persona, Usuario = _VarUsuarioSelect)
-            OnFailure: =Notify("PAso algo", NotificationType.Error,5000)
-            OnSuccess: |-
-                =ResetForm(Frm_EditarPersona_2);
-                Notify("Se guardo Correctamente el registro", NotificationType.Success,5000)
-            Width: =1746
-            X: =9
-            Y: =12
-            ZIndex: =1
-
-            "'Interno/Externo_DataCard2_2' As typedDataCard.allowedValuesStringEditCard":
-                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, 'Interno/Externo')
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Interno_x002f_Externo"
-                Default: =ThisItem.'Interno/Externo'
-                DisplayMode: |+
-                    =If(
-                        !IsBlank(_VarNuevoIDPErsona),
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
-                    )
-                    
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,'Interno/Externo')
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Dpd_InternoExterno_2.Selected.Value
-                Width: =582
-                X: =0
-                Y: =0
-                ZIndex: =1
-
-                Txt_FondoForm1_50 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |
-                        =RGBA(244, 244, 244, 1)
-                        /*
-                        If(
-                            !IsBlank(_VarNuevoIDPErsona);
-                            RGBA(255; 255; 255; 1);
-                            RGBA(244; 244; 244; 1)
-                        )
-                        
-                        
-                        If(
-                            Dpd_InternoExterno.Selected.Value = "Externo";
-                            RGBA(255; 255; 255; 1);
-                            If(
-                                !IsBlank(_VarUsuarioSelect) && LookUp(Lst_Persona; Usuario = _VarUsuarioSelect;'Interno/Externo') = "Interno";
-                                RGBA(244; 244; 244; 1);
-                                If(
-                                    !IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario) && LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarMiEquipo.Selected.Usuario;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;'Interno/Externo') = "Interno";
-                                    RGBA(244; 244; 244; 1);
-                                    If(
-                                        LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;'Interno/Externo') = "Interno";
-                                        RGBA(244; 244; 244; 1);
-                                        RGBA(255; 255; 255; 1)
-                                    )
-                                )
-                            )
-                        )
-                        */
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey14_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Dpd_InternoExterno_2 As dropdown:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona) && IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                            Parent.Default,
-                            LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario_2.Text),'Interno/Externo')
-                        )
-                        /*
-                        If(
-                            IsBlank(_VarNuevoIDPErsona) && IsBlank(LookUp(Col_BD_Persona; Usuario = Upper(Txt_Usuario.Text)));
-                            Parent.Default;
-                            LookUp(Lst_Persona; Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result);'Interno/Externo')
-                        )
-                        */
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: |-
-                        =DisplayMode.Disabled
-                        /*
-                        If(
-                            !IsBlank(_VarUsuarioSelect) && LookUp(Lst_Persona; Usuario = _VarUsuarioSelect;'Interno/Externo') = "Interno";
-                            DisplayMode.Disabled;
-                            If(
-                                !IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario) && LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarMiEquipo.Selected.Usuario;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;'Interno/Externo') = "Interno";
-                                DisplayMode.Disabled;
-                                If(
-                                    LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;'Interno/Externo') = "Interno";
-                                    DisplayMode.Disabled;
-                                    DisplayMode.Edit
-                                )
-                            )
-                        )
-                        */
-                    Height: =Txt_FondoForm1_50.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: |-
-                        =  If(
-                            IsBlank(_VarNuevoIDPErsona) || !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                            ["Interno","Externo"],
-                            ["Externo"]
-                        )
-                         
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_50.Width -27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage14_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Dpd_InternoExterno_2.Y + Dpd_InternoExterno_2.Height
-                    ZIndex: =4
-
-                StarVisible14_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey14_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey14_2.Y
-                    ZIndex: =5
-
-            BuscarNombrePersona_DataCard1_2 As typedDataCard.comboBoxEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="BuscarNombrePersona"
-                Default: =ThisItem.BuscarNombrePersona
-                DisplayMode: |-
-                    =If(
-                        !IsBlank(ThisItem.Nombre_Persona),
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,BuscarNombrePersona)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =99
-                Required: =false
-                Update: =Cmb_BuscarPersona_3.Selected
-                Width: =582
-                X: =1
-                Y: =0
-                ZIndex: =1
-
-                Txt_FondoForm1_84 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            IsBlank(ThisItem.Nombre_Persona),
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                        /*
-                        If(
-                            Dpd_InternoExterno.Selected.Value = "Externo";
-                            RGBA(255; 255; 255; 1);
-                            RGBA(244; 244; 244; 1)
-                        )
-                        */
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey15_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: ="Nombre Persona"
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Cmb_BuscarPersona_3 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    DefaultSelectedItems: |-
-                        =Table({DisplayName: LookUp(Lst_Persona, Usuario = ThisItem.Usuario, Nombre_Persona)})
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["DisplayName","Email","Picture"]
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_84.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: =Choices([@Lst_Persona].BuscarNombrePersona)
-                    OnChange: |
-                        =
-                        If(
-                            IsBlank(_VarUsuarioSelect) && IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario),
-                            Clear(Col_EquiposPersonas);
-                            //UpdateContext({_VarTempJefeDirecto:LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;Jefe_Directo)});;
-                            Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result, Estado = "Activo"))
-                        );
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_3.SearchText)
-                    SelectionFill: =RGBA(0, 121, 187, 1)
-                    SelectMultiple: =false
-                    Template: =ListItemTemplate.Person
-                    Tooltip: =Parent.DisplayName
-                    Width: |
-                        =Txt_FondoForm1_84.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage15_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Cmb_BuscarPersona_3.Y + Cmb_BuscarPersona_3.Height
-                    ZIndex: =4
-
-                StarVisible15_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey15_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey15_2.Y
-                    ZIndex: =5
-
-            GerenciaOrigen_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="GerenciaOrigen"
-                Default: =ThisItem.GerenciaOrigen
-                DisplayMode: |-
-                    =DisplayMode.Disabled
-                    
-                    /*
-                    If(
-                        Dpd_InternoExterno.Selected.Value = "Interno";
-                        DisplayMode.Disabled;
-                        DisplayMode.Edit
-                    )
-                    */
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,GerenciaOrigen)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, GerenciaOrigen)
-                Required: =false
-                Update: =Cmb_GerenciaOrigen_2.Selected.NombreGerencia
-                Width: =582
-                X: =2
-                Y: =0
-                ZIndex: =1
-
-                DataCardKey4_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(0, 18, 107, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                ErrorMessage4_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Txt_FondoForm1_92.Y + Txt_FondoForm1_92.Height
-                    ZIndex: =3
-
-                StarVisible4_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey4_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey4_2.Y
-                    ZIndex: =4
-
-                Txt_FondoForm1_92 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =RGBA(244, 244, 244, 1)
-                        /*
-                        If(
-                            Dpd_InternoExterno.Selected.Value = "Externo";
-                            RGBA(255; 255; 255; 1);
-                            RGBA(244; 244; 244; 1)
-                        )
-                        */
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =44
-                    ZIndex: =5
-
-                Cmb_GerenciaOrigen_2 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        =If(
-                            !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                            {NombreGerencia: LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text), GerenciaOrigen)},
-                            {NombreGerencia: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen)}
-                        )
-                    DefaultSelectedItems: |-
-                        =If(
-                            !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                            Table({NombreGerencia: LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text), GerenciaOrigen)}),
-                            Table({NombreGerencia: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen)})
-                        )
-                        
-                        //Col_BD_Gerencia
-                         //IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text))
-                        //Table({NombreGerencia: ThisItem.GerenciaOrigen})
-                        //!IsBlank(_VarNuevoIDPErsona
-                        //Filter(Col_BD_Gerencia,NombreGerencia= LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario.Text), GerenciaOrigen))
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["NombreGerencia"]
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_92.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    IsSearchable: =false
-                    Items: =Filter(Col_BD_Gerencia, Nivel = "2")
-                    OnChange: =
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["NombreGerencia"]
-                    SearchItems: =[]
-                    SelectionFill: =RGBA(0, 121, 187, 1)
-                    SelectMultiple: =false
-                    Tooltip: =Parent.DisplayName
-                    Width: |
-                        =Txt_FondoForm1_92.Width - 27
-                    X: =30
-                    Y: =49
-                    ZIndex: =6
-
-            "'Ubicación Laboral_DataCard1_2' As typedDataCard.comboBoxEditCard":
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Ubicaci_x00f3_n"
-                Default: =ThisItem.'Ubicación Laboral'
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,'Ubicación Laboral')
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Dpd_UbicacionLaboral_2.Selected
-                Width: =582
-                X: =0
-                Y: =1
-                ZIndex: =1
-
-                Txt_FondoForm1_93 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey2_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Dpd_UbicacionLaboral_2 As combobox:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =1
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    DefaultSelectedItems: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Lst_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,'Ubicación Laboral')
-                        )
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["Value"]
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_93.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: =Choices([@Lst_Persona].'Ubicación Laboral')
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["Value"]
-                    SearchItems: =Choices(Lst_Persona.'Ubicación Laboral',Dpd_UbicacionLaboral_2.SearchText)
-                    SelectMultiple: =false
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_93.Width -27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage2_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Dpd_UbicacionLaboral_2.Y + Dpd_UbicacionLaboral_2.Height
-                    ZIndex: =4
-
-                StarVisible2_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey2_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey2_2.Y
-                    ZIndex: =5
-
-            RUT_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="RUT"
-                Default: =ThisItem.RUT
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,RUT)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, RUT)
-                Required: =false
-                Update: =Txt_Rut_2.Text
-                Width: =582
-                X: =1
-                Y: =1
-                ZIndex: =1
-
-                DataCardKey3_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Txt_Rut_2 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                        LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),RUT)
-                        )
-                    DelayOutput: =true
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =50
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =10
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Tooltip: =Parent.DisplayName
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =2
-
-                ErrorMessage3_2 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(255, 0, 0, 1)
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        =Parent.Error
-                        /*
-                        If(
-                            Dpd_UbicacionLaboral.Selected.Value = "Chile";
-                            If(
-                                Len(Txt_Rut.Text) =9 && 
-                                IsMatch(Txt_Rut.Text;Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Hyphen & Match.Digit);
-                                Parent.Error;
-                                If(
-                                    Len(Txt_Rut.Text) =10 &&
-                                    IsMatch(Txt_Rut.Text;Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Digit & Match.Hyphen & Match.Digit);
-                                    Parent.Error;
-                                    "Debe completar el Rut de manera correcta."
-                                )
-                            );
-                            If(
-                                IsBlank(Txt_Rut.Text) && Dpd_UbicacionLaboral.Selected.Value = "Extranjero";
-                                "Ingresar el registro unico de su país.";
-                                Parent.Error
-                                
-                            )
-                        )
-                        */
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 20
-                    X: =13
-                    Y: =Txt_Rut_2.Y + Txt_Rut_2.Height + 5
-                    ZIndex: =3
-
-                StarVisible3_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey3_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey3_2.Y
-                    ZIndex: =4
-
-            Empresa_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Empresa)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Empresa"
-                Default: =ThisItem.Empresa
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Empresa)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Dpd_Empresa_3.Selected.ID
-                Width: =582
-                X: =2
-                Y: =1
-                ZIndex: =1
-
-                Txt_FondoForm1_94 As text:
-                    AccessibleLabel: =" "
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey13_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Dpd_Empresa_3 As dropdown:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        =LookUp(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = _VarUsuarioSelect).ID_Proveedor),Razon_Social_Proveedor)
-                        
-                        /*If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Col_BD_Persona, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,Empresa)
-                        )*/
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_94.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: |-
-                        =SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending)
-                        //Sort(ForAll(Distinct(Filter(Empresa,Dpd_InternoExterno_1.SelectedText.Value='Interno/Externo'),Empresa), {Result: ThisRecord.Value}),Result,SortOrder.Ascending)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_94.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage13_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Dpd_Empresa_3.Y + Dpd_Empresa_3.Height
-                    ZIndex: =4
-
-                StarVisible13_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey13_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey13_2.Y
-                    ZIndex: =5
-
-            "'Fecha de Ingreso_DataCard1_2' As typedDataCard.dateEditCard":
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Fecha_x0020_de_x0020_Ingreso"
-                Default: =ThisItem.'Fecha de Ingreso'
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,'Fecha de Ingreso')
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Dtp_FechaIngreso_2.SelectedDate
-                Width: =582
-                X: =0
-                Y: =2
-                ZIndex: =1
-
-                Txt_FondoForm1_95 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey6_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Dtp_FechaIngreso_2 As datepicker:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    DefaultDate: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
-                        )
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    EndYear: =Year(Today())+100
-                    Height: =Txt_FondoForm1_95.Height - 10
-                    IconBackground: =RGBA(244, 244, 244, 1)
-                    IconFill: =RGBA(0, 121, 187, 1)
-                    IsEditable: =true
-                    PaddingBottom: =0
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    StartYear: =1899
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_95.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage6_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Dtp_FechaIngreso_2.Y + Dtp_FechaIngreso_2.Height
-                    ZIndex: =4
-
-                StarVisible6_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey6_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey6_2.Y
-                    ZIndex: =5
-
-            Usuario_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Usuario"
-                Default: =ThisItem.Usuario
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Usuario)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Usuario)
-                Required: =false
-                Update: =Txt_Usuario_2.Text
-                Width: =582
-                X: =1
-                Y: =2
-                ZIndex: =1
-
-                DataCardKey7_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Txt_Usuario_2 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: |-
-                        =Upper(If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result
-                        ))
-                    DelayOutput: =true
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: =DisplayMode.Disabled
-                    Height: =50
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =15
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Tooltip: =Parent.DisplayName
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =2
-
-                ErrorMessage7_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Txt_Usuario_2.Y + Txt_Usuario_2.Height
-                    ZIndex: =3
-
-                StarVisible7_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey7_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey7_2.Y
-                    ZIndex: =4
-
-            "'Correo Electrónico_DataCard1_2' As typedDataCard.textualEditCard":
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Nuevo_x0020_Correo"
-                Default: =ThisItem.'Correo Electrónico'
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,'Correo Electrónico')
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, 'Correo Electrónico')
-                Required: =false
-                Update: =Txt_CorreoElectronico_2.Text
-                Width: =582
-                X: =2
-                Y: =2
-                ZIndex: =1
-
-                DataCardKey8_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Txt_CorreoElectronico_2 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            Cmb_BuscarPersona_3.Selected.Email
-                        )
-                    DelayOutput: =true
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: |
-                        =DisplayMode.Disabled
-                    Height: =50
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =15
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Tooltip: =Parent.DisplayName
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =2
-
-                ErrorMessage8_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Txt_CorreoElectronico_2.Y + Txt_CorreoElectronico_2.Height
-                    ZIndex: =3
-
-                StarVisible8_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey8_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey8_2.Y
-                    ZIndex: =4
-
-            Rol_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Rol)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Rol"
-                Default: =ThisItem.Rol
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Rol)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Cmb_Rol_2.Selected.Roles
-                Width: =582
-                X: =0
-                Y: =3
-                ZIndex: =1
-
-                Txt_FondoForm1_204 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey18_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Cmb_Rol_2 As dropdown:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(149, 149, 149, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        =If(
-                            IsBlank(_VarNuevoIDPErsona),
-                            Parent.Default,
-                            LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_3.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
-                        )
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_204.Height - 10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    Items: =Sort(Rol,Roles,SortOrder.Ascending)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_204.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage18_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Cmb_Rol_2.Y + Cmb_Rol_2.Height
-                    ZIndex: =4
-
-                StarVisible18_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey18_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey18_2.Y
-                    ZIndex: =5
-
-            BuscarJefeDirecto_DataCard1_2 As typedDataCard.comboBoxEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="BuscarJefeDirecto"
-                Default: =ThisItem.BuscarJefeDirecto
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,BuscarJefeDirecto)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =Cmb_BuscarJefe_2.Selected
-                Width: =582
-                X: =1
-                Y: =3
-                ZIndex: =1
-
-                Txt_FondoForm1_205 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    DisabledFill: |-
-                        =RGBA(244, 244, 244, 1)
-                        /*
-                        If(
-                            Dpd_InternoExterno.Selected.Value = "Externo";
-                            RGBA(255; 255; 255; 1);
-                            RGBA(244; 244; 244; 1)
-                        )
-                        */
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =1
-
-                DataCardKey16_2 As label:
-                    AutoHeight: =true
-                    DisabledColor: =RGBA(102, 102, 102, 1)
-                    Height: =34
-                    Text: ="Jefe Directo"
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =2
-
-                Cmb_BuscarJefe_2 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(116, 116, 116, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    DefaultSelectedItems: |-
-                        =If(
-                            IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                            If(
-                                !IsBlank(_VarNuevoIDPErsona) ,
-                                Table({DisplayName: LookUp(Lst_Persona, Usuario =_VarUsuarioJefe, Nombre_Persona)}),
-                                Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text), Jefe_Directo), Nombre_Persona)})
-                            ),
-                            Table({DisplayName: LookUp(Col_BD_Persona, Usuario =  LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text), Jefe_Directo), Nombre_Persona)})
-                        )
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["DisplayName","Email","Picture"]
-                    DisplayMode: =Parent.DisplayMode.Disabled
-                    Height: =Txt_FondoForm1_205.Height - 10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    InputTextPlaceholder: ="Buscar Jefe"
-                    Items: =Choices([@Lst_Persona].BuscarJefeDirecto)
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(Lst_Persona.BuscarJefeDirecto,Cmb_BuscarJefe_2.SearchText)
-                    SelectMultiple: =false
-                    Template: =ListItemTemplate.Person
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_205.Width - 27
-                    X: =30
-                    Y: =51
-                    ZIndex: =3
-
-                ErrorMessage16_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Cmb_BuscarJefe_2.Y + Cmb_BuscarJefe_2.Height
-                    ZIndex: =4
-
-                StarVisible16_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey16_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey16_2.Y
-                    ZIndex: =5
-
-            Genero_DataCard2_2 As typedDataCard.allowedValuesStringEditCard:
-                AllowedValues: =DataSourceInfo([@Lst_Persona], DataSourceInfo.AllowedValues, Genero)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Genero"
-                Default: =ThisItem.Genero
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Genero)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =106
-                Required: =false
-                Update: =Dpd_Genero_2.Selected.Value
-                Width: =582
-                X: =2
-                Y: =3
-                ZIndex: =1
-
-                DataCardKey27_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                ErrorMessage27_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =
-                    ZIndex: =3
-
-                StarVisible27_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey27_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey27_2.Y
-                    ZIndex: =4
-
-                Txt_FondoForm1_206 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =46
-                    ZIndex: =5
-
-                Dpd_Genero_2 As combobox:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =1
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        ={Value:ThisItem.Genero}
-                    DefaultSelectedItems: |-
-                        =Table({Value:ThisItem.Genero})
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["Value"]
-                    DisplayMode: =Parent.DisplayMode
-                    Height: =Txt_FondoForm1_206.Height -10
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    IsSearchable: =false
-                    Items: =["M","F"]
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["Value"]
-                    SearchItems: =[]
-                    SelectMultiple: =false
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_206.Width -27
-                    X: =30
-                    Y: =51
-                    ZIndex: =6
-
-            Categoria_DataCard1_1 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Categoria"
-                Default: =ThisItem.Categoria
-                DisplayMode: |-
-                    =If(
-                        Dpd_InternoExterno_2.Selected.Value = "Interno",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Categoria)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =106
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Categoria)
-                Required: =false
-                Update: =DataCardValue162_1.Selected.Value
-                Width: =582
-                X: =0
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey186_1 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                ErrorMessage60_1 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue162_1.Y + DataCardValue162_1.Height
-                    ZIndex: =3
-
-                StarVisible60_1 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey186_1.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey186_1.Y
-                    ZIndex: =4
-
-                Txt_FondoForm1_207 As text:
-                    BorderColor: =RGBA(128, 128, 128, 1)
-                    BorderThickness: =3
-                    Default: =""
-                    DisabledFill: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            RGBA(255, 255, 255, 1),
-                            RGBA(244, 244, 244, 1)
-                        )
-                    DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    RadiusBottomLeft: =25
-                    RadiusBottomRight: =25
-                    RadiusTopLeft: =25
-                    RadiusTopRight: =25
-                    Width: =527
-                    X: =13
-                    Y: =40
-                    ZIndex: =5
-
-                DataCardValue162_1 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-                    ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-                    ChevronFill: =RGBA(0, 121, 187, 1)
-                    ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-                    Default: |-
-                        ={Value:Parent.Default}
-                        
-                        /*
-                        If(
-                            Dpd_InternoExterno_1.Selected.Value = "Interno";
-                            Blank();
-                            {Value:Parent.Default}
-                        )
-                        */
-                    DefaultSelectedItems: |-
-                        =Table({Value:Parent.Default})
-                        
-                        /*
-                        If(
-                            Dpd_InternoExterno_1.Selected.Value = "Interno";
-                            Blank();
-                            Table({Value:Parent.Default})
-                        )
-                        */
-                        
-                        /*
-                        If(
-                            IsBlank(_VarNuevoIDPErsona);
-                            Table({Value:Parent.Default});
-                            Table({Value:LookUp(Col_BD_Persona; Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_2.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result);Categoria)})
-                        )
-                        */
-                    DisabledColor: =RGBA(53, 61, 63, 1)
-                    DisplayFields: =["Value"]
-                    DisplayMode: =Parent.DisplayMode
-                    HoverBorderColor: =RGBA(0, 121, 187, 1)
-                    IsSearchable: =false
-                    Items: =["Headcount","Subcontratación Headcount","Subcontratación Servicios"]
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedFill: =RGBA(0, 121, 187, 1)
-                    SearchFields: =["Value"]
-                    SearchItems: =[]
-                    SelectMultiple: =false
-                    Tooltip: =Parent.DisplayName
-                    Width: =Txt_FondoForm1_207.Width - 27
-                    X: =30
-                    Y: =45
-                    ZIndex: =6
-
-                "InfoButtonCanvas1_1 As 'Information button'":
-                    BasePaletteColor: =
-                    Content: |-
-                        ="Servicios: contratación de prestación de servicios cuando no se tiene expertiz. Importa el resultado independiente de quienes prestan el servicio. Temporalidad esporadica y específica, aun cuando puede ser recuerrente. No forman parte del negocio, el prestador trabaja independiente, solo solicitud inicial y entregas se tratan directo con equipo WM. Ej: encuesta a fin de mes. 
-                        
-                        Subcontratación:  externalización de servicios permanentes. Temporalidad permanente, no esporádico o puntual. Colaboradores no forman parte de los equipos ni reciben instrucciones de líderes de WM sino que a traves de un coordinador o supervisor. Ej: Mesa de ayuda.
-                        
-                        Outsourcing: contratación empresa externa que suministra un trabajador externo que tiene contrato de prestación de servicios. Temporalidad variable. Existen ordenes directas de los trabajadores, forman parte de los equipos y ocupan herramientas de Walmart."
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: =
-                    FontSize: =15
-                    Height: =32
-                    Width: =32
-                    X: =133
-                    Y: =8
-                    ZIndex: =7
-
-            "'Considera Head Count_DataCard2_1' As typedDataCard.comboBoxEditCard":
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Considera_x0020_Head_x0020_Count"
-                Default: =ThisItem.'Considera Head Count'
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,'Considera Head Count')
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =DataCardValue174_1.Selected
-                Visible: =false
-                Width: =582
-                X: =1
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey199_1 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue174_1 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            If(
-                                DataCardValue162_1.Selected.Value = "Subcontratación Outsourcing",
-                                {Value:"SI"},
-                                {Value:"NO"}
-                            ),
-                            {Value:"SI"}
-                        )
-                    DefaultSelectedItems: |-
-                        =If(
-                            Dpd_InternoExterno_2.Selected.Value = "Externo",
-                            If(
-                                 DataCardValue162_1.Selected.Value = "Subcontratación Outsourcing",
-                                Table({Value:"SI"}),
-                                Table({Value:"NO"})
-                            ),
-                            Table({Value:"SI"})
-                        )
-                    DisplayFields: =["Value"]
-                    DisplayMode: =Parent.DisplayMode
-                    Items: =Choices([@Lst_Persona].'Considera Head Count')
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    SearchFields: =["Value"]
-                    SearchItems: =Choices(Lst_Persona.'Considera Head Count',DataCardValue174_1.SearchText)
-                    SelectMultiple: =false
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey199_1.Y + DataCardKey199_1.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage193_1 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue174_1.Y + DataCardValue174_1.Height
-                    ZIndex: =3
-
-                StarVisible193_1 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey199_1.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey199_1.Y
-                    ZIndex: =4
-
-            IDPersona_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="IDPersona"
-                Default: =ThisItem.IDPersona
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,IDPersona)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, IDPersona)
-                Required: =false
-                Update: =DataCardValue1_2.Text
-                Visible: =false
-                Width: =582
-                X: =2
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey1_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue1_2 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: |-
-                        =If(
-                            IsBlank(ThisItem.IDPersona),
-                            _VarNuevoIDPErsona,
-                            ThisItem.IDPersona
-                        )
-                    DelayOutput: =true
-                    DisplayMode: =Parent.DisplayMode
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey1_2.Y + DataCardKey1_2.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage1_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue1_2.Y + DataCardValue1_2.Height
-                    ZIndex: =3
-
-                StarVisible1_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey1_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey1_2.Y
-                    ZIndex: =4
-
-            Jefe_Directo_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Jefe_Directo"
-                Default: =ThisItem.Jefe_Directo
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Jefe_Directo)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Jefe_Directo)
-                Required: =false
-                Update: =Txt_JefeDirecto_2.Text
-                Visible: =false
-                Width: =582
-                X: =0
-                Y: =5
-                ZIndex: =1
-
-                DataCardKey10_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Txt_JefeDirecto_2 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: |-
-                        =If(
-                            IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))),
-                           _VarUsuarioJefe,
-                            LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text)).Jefe_Directo
-                        )
-                        /*
-                        If(
-                            IsBlank(ThisItem.Jefe_Directo),
-                         Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarJefe.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result,
-                            ThisItem.Jefe_Directo
-                        )
-                        */
-                    DelayOutput: =true
-                    DisplayMode: =Parent.DisplayMode
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =44
-                    ZIndex: =2
-
-                ErrorMessage10_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Txt_JefeDirecto_2.Y + Txt_JefeDirecto_2.Height
-                    ZIndex: =3
-
-                StarVisible10_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey10_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey10_2.Y
-                    ZIndex: =4
-
-            Nombre_Persona_DataCard1_2 As typedDataCard.textualEditCard:
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Nombre_Persona"
-                Default: =ThisItem.Nombre_Persona
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Lst_Persona],DataSourceInfo.DisplayName,Nombre_Persona)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@Lst_Persona], DataSourceInfo.MaxLength, Nombre_Persona)
-                Required: =false
-                Update: =Txt_NombrePersona_2.Text
-                Visible: =false
-                Width: =582
-                X: =1
-                Y: =5
-                ZIndex: =1
-
-                DataCardKey9_2 As label:
-                    AutoHeight: =true
-                    Height: =34
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Txt_NombrePersona_2 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    Default: =Cmb_BuscarPersona_3.Selected.DisplayName
-                    DelayOutput: =true
-                    DisplayMode: =Parent.DisplayMode
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey9_2.Y + DataCardKey9_2.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage9_2 As label:
-                    AutoHeight: =true
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Txt_NombrePersona_2.Y + Txt_NombrePersona_2.Height
-                    ZIndex: =3
-
-                StarVisible9_2 As label:
-                    Align: =Align.Center
-                    Height: =DataCardKey9_2.Height
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey9_2.Y
-                    ZIndex: =4
-
-        "'Debes completar info_3' As label":
-            Fill: =RGBA(255, 255, 255, 1)
-            FontWeight: =FontWeight.Semibold
-            Height: =69
-            Text: |-
-                =If(
-                    !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Txt_Usuario_2.Text))) && !IsBlank(_VarNuevoIDPErsona),
-                    If(Txt_JefeDirecto_2.Text=_VarUsuarioJefe,"",
-                    "** Esta persona ya se encuentra asignada a una jefatura, no puedes modificar su información." & 
-                    If(Dpd_InternoExterno_2.Selected.Value="Externo","
-                    Si este usuario está a tu cargo, puedes moverlo en la opción 'Cambiar Jefatura'.","
-                    Si esta información no está actualizada por favor comunicarse con el equipo de Personas.")
-                    ),
-                    If(
-                        Dpd_InternoExterno_2.Selected.Value = "Externo",
-                        "** Debes completar toda la información para poder actualizar los datos de la persona.",
-                        "** Se debe completar o actualizar el rol del usuario. Se debe considerar que los demás campos son actualizados de manera automática"
-                    )
-                )
-            Width: =1720
-            X: =9
-            Y: =578
-            ZIndex: =2
-
-    Gp_PopUpBorrarEquipoAsignado_2 As group:
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =42
-
-        "'rectangulo gris_5' As rectangle":
-            Fill: =RGBA(169,169,169,0.75)
-            Height: =1050
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =1920
-            ZIndex: =18
-
-        "'rectangulo blanco_5' As rectangle":
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderThickness: =4
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: |
-                =If(
-                    Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna",
-                    490,
-                    363
-                )
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =843
-            X: =599
-            Y: =326
-            ZIndex: =19
-
-        "'text pop up_18' As label":
-            Align: =Align.Right
-            Height: =39
-            PaddingRight: =15
-            Text: |-
-                =//"Estas seguro que quieres eliminar a " & PersonaBorrar.'Nombre (Nombre2)'.DisplayName
-                " Seleccionar el motivo:"
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =305
-            X: =683
-            Y: =435
-            ZIndex: =20
-
-        Borrar_5 As button:
-            BorderColor: =Color.Transparent
-            DisplayMode: |-
-                =If(
-                    Dpd_SeleccionarAccion_3.SelectedText.Value = "-- Seleccionar motivo --", 
-                    DisplayMode.Disabled,
-                    If(
-                        Dpd_SeleccionarAccion_3.SelectedText.Value = "Movilidad interna" && ( IsBlank(Cmb_CambioDominio_2.Selected.IDDominio) || IsBlank(Cmb_CambioEquipo_2.Selected.'Equipo/Squad')),
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                )
-            Fill: =RGBA(255, 0, 0, 1)
-            Height: =65
-            HoverFill: =ColorFade(RGBA(255, 0, 0, 100), -10%)
+        Label12 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.'Interno/Externo'
+            Width: =130
+            X: =1155
+            Y: =20
+            ZIndex: =21
+
+        Icn_Pry_Guardar_12 As icon.CheckBadge:
+            Color: =RGBA(54, 176, 75, 1)
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            Height: =35
+            Icon: =Icon.CheckBadge
             OnSelect: |-
                 =/*Mostrar Spinner Cargando*/
                 Set(_VarMostrarCargando,true);
-                
-                Patch(
-                        Lst_Persona,
-                        LookUp(Lst_Persona, Usuario = Txt_Usuario_2.Text && Estado = "Activo"),
+                Set(IDRegistro,
+                    Patch(
+                        'Dominio - Proyecto/Producto',
+                        If(
+                            IsBlank(LookUp('Dominio - Proyecto/Producto', IDProducto = First(ProyectoSeleccionado).IDProducto)),
+                            Defaults('Dominio - Proyecto/Producto'),
+                            LookUp('Dominio - Proyecto/Producto', IDProducto = First(ProyectoSeleccionado).IDProducto)
+                        ),
                         {
-                            Estado: "Inactivo",
-                            FechaCese: Dtp_FechaBaja_3.SelectedDate,
-                            //CesadoPor: _Perfil.mail;
-                            RazondeBaja: Dpd_SeleccionarAccion_3.SelectedText.Value
+                            'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
+                            IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio ,
+                            IDProducto:  First(ProyectoSeleccionado).IDProducto,	
+                            IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
+                            'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
+                            Discovery:  If( Rd_Pry_Discovery.Selected.Value = "SI",true,false) ,
+                            SGP:If( Rd_Pry_SGP.Selected.Value = "SI",true,false) ,		
+                            'Registrado en APM': Rd_Pry_RegistradoenAPM_1.Selected ,		
+                            'Nombre APM': Txt_Pry_NombreAPM_1.Text ,		
+                            'Codigo APM': Txt_Pry_CodigoAPM_1.Text,		
+                
+                            //'Nombre Necesidad':  If(Rd_Pry_ProvieneOA_1.Selected.Value = "SI";Dpd_Pry_NombreNecesidad_1.Selected.Nombre_x0020_de_x0020_Necesidad;""); 	
+                            //'Leverage con WM Internacional (BTV)': Rd_Pry_LeverageWM.Selected ;
+                            TipoProyecto: Dpd_Pry_TipoPry_1.Selected.Value,
+                            //Tamano: Dpd_Pry_TamanoPry.Selected.Value;				
+                            RequiereFinanciamiento:  Rd_Pry_RequiereFinanciamiento_1.Selected.Value ,								
+                            ID_Jefe_Poyecto:
+                            If(
+                                Chk_AplicaPO_1.Checked,
+                                Blank(),   
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_JefeProyecto_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),		
+                            ID_Responsable_Tecnologia:
+                            If(
+                                Chk_AplicaEM_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_ResponsableNegocio:
+                            If(
+                                Chk_AplicaNegocio_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Negocio_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_ResponsableNegocio,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Negocio_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_Sponsor:
+                            Upper(
+                                If( 
+                                    IsBlank(Cmb_Gl_Sponsor_1.Selected.Claims)
+                                    ,First(ProyectoSeleccionado).ID_Sponsor,
+                                    Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Sponsor_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)),
+                            ID_Datos:
+                             If(
+                                Chk_AplicaDatos_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Datos_1.Selected.Claims),
+                                        First(ProyectoSeleccionado).ID_Datos,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Datos_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                             ),
+                            ID_Ux:
+                            If(
+                                Chk_AplicaUx_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Ux_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Ux,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Ux_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            AplicaJefeProyecto: Chk_AplicaPO_1.Checked,    
+                            AplicaEM: Chk_AplicaEM_1.Checked,  
+                            AplicaNegocio: Chk_AplicaNegocio_1.Checked,  
+                            AplicaDatos: Chk_AplicaDatos_1.Checked,  
+                            AplicaUx: Chk_AplicaUx_1.Checked,      
+                            Estado_Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,Dpd_Gl_EstadoProductoProyecto.Selected.Value,""),
+                            Estado:If(First(ProyectoSeleccionado).Estado="Finalizado" , "Finalizado",
+                                    If(First(ProyectoSeleccionado).Estado="Solicitud de finalización" || Dpd_Gl_EstadoProductoProyecto.Selected.Value ="Finalizado","Solicitud de finalización",
+                                    Dpd_Gl_EstadoProductoProyecto.Selected.Value)),
+                            'Bring Buy Build': Cmb_Pry_BBB_1.SelectedItems,
+                            LabelJira:  Txt_Pry_LabelJira_2.Text,
+                            //BigRock:If( Rd_Pry_BigRock.Selected.Value = "SI";true;false);
+                            //MatrizStakeholders: Rd_Gl_MatrizStakeholders.Selected.Value;
+                           // LinkDocumentario: If( !IsBlank(Txt_Gl_LinkDocumentario.Text); Lower(If( ( Lower(Left(Txt_Gl_LinkDocumentario.Text;8)) = "https://" ||  Lower(Left(Txt_Gl_LinkDocumentario.Text;7)) = "http://");Txt_Gl_LinkDocumentario.Text;"https://" & Txt_Gl_LinkDocumentario.Text));"");
+                            FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                            ComentariosGolive: Txt_Gl_ComentarioGolive.Text,
+                            ComoVamos: Txt_Gl_ComoVamos.Text,
+                            FechaUltimoEstado: If( 		
+                                Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado",		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                ),		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_EstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                )		
+                	            ),
+                            AreadeImpacto: Dpd_Pry_AreadeImpacto.Selected.Value,
+                            //-------Campos Iniciativa-----
+                            Descripcion_Proyecto:Txt_FondoSubViaje_14.Text,
+                            Prioridad_Estrategica:Dpd_Pry_PrioriEstrate.Selected.ID,
+                            Objetivo_Estrategico:Dpd_Pry_ObjeEstr.Selected.ID,
+                            Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,true,First(ProyectoSeleccionado).Iniciativa)
+                
+                        }
+                    ).ID
+                );
+                
+                    /* Gestion de Errores */
+                    ClearCollect(Col_ErroresGuardarProyecto, Errors('Dominio - Proyecto/Producto',First(ProyectoSeleccionado)));
+                    If(
+                        IsEmpty(Col_ErroresGuardarProyecto),
+                        Patch(
+                        Col_DominiosGestion,
+                            If(
+                                IsBlank(LookUp(Col_DominiosGestion, IDProducto = First(ProyectoSeleccionado).IDProducto)),
+                                Defaults(Col_DominiosGestion),
+                                LookUp(Col_DominiosGestion, IDProducto = First(ProyectoSeleccionado).IDProducto)
+                            ),
+                            {
+                            'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
+                            IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio,
+                            IDProducto:  First(ProyectoSeleccionado).IDProducto,	
+                            IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
+                            'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
+                            Discovery:  If( Rd_Pry_Discovery.Selected.Value = "SI",true,false),	
+                            SGP:If( Rd_Pry_SGP.Selected.Value = "SI",true,false),		
+                            'Registrado en APM': Rd_Pry_RegistradoenAPM_1.Selected,		
+                            'Nombre APM': Txt_Pry_NombreAPM_1.Text,		
+                            'Codigo APM': Txt_Pry_CodigoAPM_1.Text,		
+                            //'Nombre Necesidad':  If(Rd_Pry_ProvieneOA_1.Selected.Value = "SI";Dpd_Pry_NombreNecesidad_1.Selected.Nombre_x0020_de_x0020_Necesidad;""); 	
+                            //'Leverage con WM Internacional (BTV)': Rd_Pry_LeverageWM.Selected ;
+                            TipoProyecto: Dpd_Pry_TipoPry_1.Selected.Value,
+                            //Tamano: Dpd_Pry_TamanoPry.Selected.Value;				
+                            RequiereFinanciamiento:  Rd_Pry_RequiereFinanciamiento_1.Selected.Value ,								
+                            ID_Jefe_Poyecto:
+                            If(
+                                Chk_AplicaPO_1.Checked,
+                                Blank(),   
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_JefeProyecto_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),		
+                            ID_Responsable_Tecnologia:
+                            If(
+                                Chk_AplicaEM_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_ResponsableNegocio:
+                            If(
+                                Chk_AplicaNegocio_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Negocio_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_ResponsableNegocio,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Negocio_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_Sponsor:
+                            Upper(
+                                If( 
+                                    IsBlank(Cmb_Gl_Sponsor_1.Selected.Claims)
+                                    ,First(ProyectoSeleccionado).ID_Sponsor,
+                                    Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Sponsor_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)),
+                            ID_Datos:
+                             If(
+                                Chk_AplicaDatos_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Datos_1.Selected.Claims),
+                                        First(ProyectoSeleccionado).ID_Datos,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Datos_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                             ),
+                            ID_Ux:
+                            If(
+                                Chk_AplicaUx_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Ux_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Ux,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Ux_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            AplicaJefeProyecto: Chk_AplicaPO_1.Checked,    
+                            AplicaEM: Chk_AplicaEM_1.Checked,  
+                            AplicaNegocio: Chk_AplicaNegocio_1.Checked,  
+                            AplicaDatos: Chk_AplicaDatos_1.Checked,  
+                            AplicaUx: Chk_AplicaUx_1.Checked,      
+                            Estado_Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,Dpd_Gl_EstadoProductoProyecto.Selected.Value,""),
+                            Estado:If(First(ProyectoSeleccionado).Estado="Finalizado" , "Finalizado",
+                                    If(First(ProyectoSeleccionado).Estado="Solicitud de finalización" || Dpd_Gl_EstadoProductoProyecto.Selected.Value ="Finalizado","Solicitud de finalización",
+                                    Dpd_Gl_EstadoProductoProyecto.Selected.Value)),
+                            'Bring Buy Build': Cmb_Pry_BBB_1.SelectedItems,
+                            LabelJira:  Txt_Pry_LabelJira_2.Text,
+                            //BigRock:If( Rd_Pry_BigRock.Selected.Value = "SI";true;false);
+                            //MatrizStakeholders: Rd_Gl_MatrizStakeholders.Selected.Value;
+                           // LinkDocumentario: If( !IsBlank(Txt_Gl_LinkDocumentario.Text); Lower(If( ( Lower(Left(Txt_Gl_LinkDocumentario.Text;8)) = "https://" ||  Lower(Left(Txt_Gl_LinkDocumentario.Text;7)) = "http://");Txt_Gl_LinkDocumentario.Text;"https://" & Txt_Gl_LinkDocumentario.Text));"");
+                            FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                            ComentariosGolive: Txt_Gl_ComentarioGolive.Text,
+                            ComoVamos: Txt_Gl_ComoVamos.Text,
+                            FechaUltimoEstado: If( 		
+                                Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado",		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                ),		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_EstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                )		
+                	            ),
+                            AreadeImpacto: Dpd_Pry_AreadeImpacto.Selected.Value,
+                            //-------Campos Iniciativa-----
+                            Descripcion_Proyecto:Txt_FondoSubViaje_14.Text,
+                            Prioridad_Estrategica:Dpd_Pry_PrioriEstrate.Selected.ID,
+                            Objetivo_Estrategico:Dpd_Pry_ObjeEstr.Selected.ID,
+                            Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,true,First(ProyectoSeleccionado).Iniciativa)
+                
                         }
                     );
                 
-                    ClearCollect(Col_EquipodelUsuario,Filter(Ingresos_Ceses_Personas, Usuario = Txt_Usuario_2.Text && Estado = "Activo"));
+                    //Guardar el Historial de GoLive
+                    If(
+                        !(First(ProyectoSeleccionado).FechaGolive = Dtp_Gl_FechaGolive.SelectedDate) && !(First(ProyectoSeleccionado).ComentariosGolive = Txt_Gl_ComentarioGolive.Text),
+                        Patch(
+                            Lst_HistoricoGoLive,
+                            Defaults(Lst_HistoricoGoLive),
+                            {
+                                IDProducto: First(ProyectoSeleccionado).IDProducto,
+                                FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                                ComentarioGoLive: Txt_Gl_ComentarioGolive.Text,
+                                Version: _VarVersionGoLive +1
+                            }
+                        )
+                    );
                 
-                ForAll(
-                    Col_EquipodelUsuario As EquiposAsignados,
-                    Patch(
-                        Ingresos_Ceses_Personas,
-                        LookUp(Ingresos_Ceses_Personas, ID = EquiposAsignados.ID),
-                        {
-                            Estado: "Inactivo",
-                            FechaCese: Dtp_FechaBaja_3.SelectedDate,
-                            //CesadoPor: _Perfil.mail;
-                            RazondeBaja: Dpd_SeleccionarAccion_3.SelectedText.Value
-                        }
-                    )
-                );
+                    //Guardar el Historial de ComoVamos
+                    If(
+                        !(First(ProyectoSeleccionado).ComoVamos = Txt_Gl_ComoVamos.Text) && !IsBlank(Txt_Gl_ComoVamos.Text),
+                        Patch(
+                            Lst_HistorialComoVamos,
+                            Defaults(Lst_HistorialComoVamos),
+                            {
+                                IDProducto: First(ProyectoSeleccionado).IDProducto,
+                                FechaRegistro: Today(),
+                                ComoVamos: Txt_Gl_ComoVamos.Text,
+                                Estado: If( Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado" ,Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,Dpd_Gl_EstadoProductoProyecto.Selected.Value),
+                                Version: _VarVersionComoVamos +1
+                            }
+                        )
+                    );
+                        
+                            Patch(
+                                Lst_LabelsJira,
+                                If(
+                                    IsBlank(LookUp( Lst_LabelsJira, CodigoAsociado = First(ProyectoSeleccionado).IDProducto)),
+                                    Defaults(Lst_LabelsJira),
+                                    LookUp( Lst_LabelsJira, CodigoAsociado = First(ProyectoSeleccionado).IDProducto)
+                                ),
+                                {
+                                    Herramienta: "Bind",
+                                    CodigoAsociado: First(ProyectoSeleccionado).IDProducto,
+                                    EtiquetaJira: If( Dpd_Pry_ProductoProyecto.Selected.Value = "Proyecto Tecnológico","cl_pry","cl_prd"),
+                                    //Epica: Txt_CodigoJira.Text;
+                                    LabelJira: Txt_Pry_LabelJira_2.Text
+                                }
+                            );
+                            /*----------------------------------------------------------*/
+                        Refresh('Dominio - Proyecto/Producto');
+                        ClearCollect(Col_BD_Portafolio, 'Dominio - Proyecto/Producto');
+                        Refresh(Lst_HistorialComoVamos);
+                        
+                        /*If(
+                            !(First(ProyectoSeleccionado).Estado = Dpd_EstadoProductoProyecto_2.Selected.Value) || !(First(ProyectoSeleccionado).'Categoría Iniciativa'.Value = Dpd_Pry_ProductoProyecto.Selected.Value);
+                            ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+                            UpdateContext({_VarMostrarCuadroBloqueo:false})
+                            
+                        );;*/
+                        
+                        If(
+                            First(ProyectoSeleccionado).'Nombre Producto/Proyecto' = "NUEVO PROYECTO",
+                            Notify("Se guardo correctamente el proyecto.",NotificationType.Success,10000),
+                            Notify("Se actualizo correctamente el la información del proyecto.",NotificationType.Success,10000)
+                        );
                 
-                
-                UpdateContext({_VarMostrarBarraBloqueo:false});
-                Clear(Col_EquiposPersonas);
-                Set(_VarNuevoIDPErsona,"");
-                Reset(Cmb_BuscarMiEquipo);
-                Set(_VarUsuarioSelect,Blank());
-                ResetForm(Frm_EditarPersona);
-                //Set(_verPopUpNuevoUsuario;false);;
-                Set(PopUpBorrar_CasoEspecial,false);
-                //UpdateContext({_VarEliminarTodo:false});;
-                Reset(Dpd_SeleccionarAccion_1);
-                
-                /*
-                // =======================================
-                If(
-                    Dpd_SeleccionarAccion_1.Selected.Value = "Movilidad interna";
-                    Patch(
-                        Lst_Persona;
-                        Defaults(Lst_Persona);
-                        {
-                            Nombre_Persona: _VarUsuarioEliminar.Nombre_Persona;
-                            RUT: _VarUsuarioEliminar.RUT;
-                            'Interno/Externo': _VarUsuarioEliminar.'Interno/Externo';
-                            Jefe_Directo: _VarUsuarioEliminar.Jefe_Directo;
-                            'Considera Head Count': _VarUsuarioEliminar.'Considera Head Count';
-                            //Dominio: GaleriaDatos.Dominio;
-                            Empresa: _VarUsuarioEliminar.Empresa;
-                            Usuario: _VarUsuarioEliminar.Usuario;
-                            Rol: _VarUsuarioEliminar.Rol;
-                            'Correo Electrónico': _VarUsuarioEliminar.'Correo Electrónico';
-                            'Ubicación Laboral': _VarUsuarioEliminar.'Ubicación Laboral';
-                            'Fecha de Ingreso': _VarUsuarioEliminar.'Fecha de Ingreso';
-                            Estado: "Activo"
-                        }
-                    );;
-                    Patch(
-                        Ingresos_Ceses_Personas;
-                            Defaults(Ingresos_Ceses_Personas);
-                        {
-                           IDEquipo: Cmb_CambioEquipo.Selected.IDEquipo;
-                           Usuario: _VarUsuarioEliminar.Usuario;
-                           AsignadoPor: _Perfil.displayName;
-                           FechaAsignacion: Today();
-                           //EquipoPrincipal: ;
-                           Estado: "Activo"
-                        }
-                    )
-                )
-                    ;;
-                //========================================
-                */
-                //Clear(Col_EquiposPersonas);;
-                //Collect(Col_EquiposPersonas;Filter(Ingresos_Ceses_Personas; Usuario = _VarUsuarioEliminar.Usuario; Estado = "Activo"));;
-                //Reset(Cmb_CambioDominio);;
-                //Reset(Cmb_CambioEquipo);;
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
-                Notify("Se elimino de manera correcta al usuario.",NotificationType.Success,10000);
-                /*Ocultar Spinner Cargando*/
-                Set(_VarMostrarCargando,false);
-                Reset(Dpd_SeleccionarAccion_1);
-                //Set(PopUpBorrar;false);;
-                //Set(IconoCargar;false)
-            Text: ="SI"
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =166.99
-            X: =820
-            Y: |-
+                        // Cargar nuevamente la coleccion del proyecto Seleccionado
+                        ClearCollect(ProyectoSeleccionado, LookUp('Dominio - Proyecto/Producto',ID = IDRegistro))
+                        
+                        , // En caso tire algun error
+                        
+                        Patch(Lst_GestionErrores,
+                        Defaults(Lst_GestionErrores),
+                            {
+                                Modulo: "Proyecto", 
+                                Usuario: _Perfil.displayName, 
+                                FechaError: Today(), 
+                                MensajeError:First(Col_ErroresGuardarProyecto).Message, 
+                                IDError: First(Col_ErroresGuardarProyecto).Error, 
+                                HoraError: Hour(Now()) & ":" & Minute(Now()), 
+                                CampoError: First(Col_ErroresGuardarProyecto).Column
+                            }
+                        );
+                        Notify(First(Col_ErroresGuardarProyecto).Message,NotificationType.Error,4000)
+                    );
+                    
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,false)
+                /* ------------------ */
+            Tooltip: ="Guardar Datos del Proyecto"
+            Visible: |-
                 =If(
-                    Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna",
-                    720,
-                    580
-                )
-            ZIndex: =21
-
-        Cancelar_5 As button:
-            BorderColor: =Color.Transparent
-            Height: =65
-            OnSelect: |-
-                =Set(PopUpBorrar_CasoEspecial,false);
-                //UpdateContext({_VarEliminarTodo:false});;
-                Reset(Dpd_SeleccionarAccion_3);
-            Text: ="Cancelar"
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =166.99
-            X: =1049
-            Y: |-
-                =If(
-                    Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna",
-                    720,
-                    580
-                )
+                        First(ProyectoSeleccionado).FechaGolive = Dtp_Gl_FechaGolive.SelectedDate,
+                        true,
+                        If(
+                            CountRows(Filter(Lst_HistoricoGoLive,IDProducto = First(ProyectoSeleccionado).IDProducto))=0,
+                            true,
+                            If(
+                                IsBlank(Txt_Gl_ComentarioGolive.Text),
+                                false,
+                                true
+                            )
+                        )
+                    )
+            Width: =35
+            X: =1693
+            Y: =23
             ZIndex: =22
 
-        Txt_FondoForm1_208 As text:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderThickness: =3
-            Default: =""
-            DisabledFill: =RGBA(255, 255, 255, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            RadiusBottomLeft: =25
-            RadiusBottomRight: =25
-            RadiusTopLeft: =25
-            RadiusTopRight: =25
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =314
-            X: =992
-            Y: =427
-            ZIndex: =23
-
-        Dpd_SeleccionarAccion_3 As dropdown:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            Height: =Txt_FondoForm1_208.Height - 10
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: |-
-                =["-- Seleccionar motivo --","Salida Walmart - Desvinculación","Salida Walmart - Voluntaria"]
-                
-                /*
-                If(
-                    _VarEliminarTodo || (Txt_ElementosSeleccionados.Text = "true");
-                    ["-- Seleccionar motivo --";"Movilidad interna"; "Salida Walmart - Desvinculación";"Salida Walmart - Voluntaria"];
-                    ["-- Seleccionar motivo --";"Movilidad interna"; "Salida Walmart - Desvinculación";"Salida Walmart - Voluntaria"]
+        Icn_Pry_Cancelar_12 As icon.CancelBadge:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =35
+            Icon: |-
+                =If(
+                    Txt_Rut_3.Text<>ThisItem.RUT,
+                    Icon.CheckBadge,
+                    Icon.CancelBadge
                 )
+            OnSelect: |-
+                =/*
+                Reset(Txt_Pry_NombreProyectoProducto);;
+                Reset(Cmb_Pry_BBB);;
+                Reset(Dpd_Pry_Dominio);;
+                Reset(Rd_Pry_LeverageWM);;
+                Reset(Rd_Pry_RegistradoenAPM);;
+                Reset(Rd_Pry_ProvieneOA);;
+                Reset(Rd_Pry_RequiereFinanciamiento);;
+                Reset(Cmb_Gl_JefeProyecto);;
+                //Reset(Txt_CodigoJira);;
+                Reset(Cmb_Gl_Equipo);;
+                Reset(Txt_Pry_NombreAPM);;
+                Reset(Txt_Pry_CodigoAPM);;
+                Reset(Dpd_Pry_NombreNecesidad);;
+                Reset(Dpd_Pry_DetalleMotivo);;
                 */
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SelectionFill: =RGBA(0, 121, 187, 1)
-            Size: =12
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =Txt_FondoForm1_208.Width - 27
-            X: =1005
-            Y: =432
-            ZIndex: =24
-
-        "'text pop up_17' As label":
-            Align: =Align.Center
-            FontWeight: =FontWeight.Bold
-            Height: =85
-            Size: =18
-            Text: |
-                ="¿ Estas seguro que quieres eliminar a " & Txt_NombrePersona.Text & " ?"
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =843
-            X: =599
-            Y: =326
-            ZIndex: =25
-
-        "'text pop up_19' As label":
-            Align: =Align.Right
-            PaddingRight: =15
-            Text: |-
-                =//"Estas seguro que quieres eliminar a " & PersonaBorrar.'Nombre (Nombre2)'.DisplayName
-                " Seleccionar fecha:"
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =305
-            X: =690
-            Y: =500
-            ZIndex: =26
-
-        Txt_FondoForm1_209 As text:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderThickness: =3
-            Default: =""
-            DisabledFill: =RGBA(255, 255, 255, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            RadiusBottomLeft: =25
-            RadiusBottomRight: =25
-            RadiusTopLeft: =25
-            RadiusTopRight: =25
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =314
-            X: =992
-            Y: =495
-            ZIndex: =27
-
-        Dtp_FechaBaja_3 As datepicker:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            Format: ="dd/mm/yyyy"
-            Height: =Txt_FondoForm1_209.Height - 10
-            IconBackground: =RGBA(255, 255, 255, 1)
-            IconFill: =RGBA(0, 121, 187, 1)
-            Size: =12
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =Txt_FondoForm1_209.Width - 27
-            X: =1005
-            Y: =500
-            ZIndex: =28
-
-        Txt_FondoForm1_210 As text:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderThickness: =3
-            Default: =""
-            DisabledFill: =RGBA(255, 255, 255, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            RadiusBottomLeft: =25
-            RadiusBottomRight: =25
-            RadiusTopLeft: =25
-            RadiusTopRight: =25
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =314
-            X: =992
-            Y: =559
-            ZIndex: =29
-
-        Cmb_CambioDominio_2 As combobox:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DisplayFields: =["ComplianceAssetId"]
-            Height: =Txt_FondoForm1_210.Height - 10
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            Items: =Col_BD_Dominios
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["ComplianceAssetId"]
-            SearchItems: =Search(Col_BD_Dominios,Cmb_CambioDominio_2.SearchText,ComplianceAssetId)
-            SelectMultiple: =false
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =Txt_FondoForm1_210.Width - 27
-            X: =1006
-            Y: =564
-            ZIndex: =30
-
-        Txt_FondoForm1_214 As text:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderThickness: =3
-            Default: =""
-            DisabledFill: =RGBA(255, 255, 255, 1)
-            DisplayMode: =DisplayMode.Disabled
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            RadiusBottomLeft: =25
-            RadiusBottomRight: =25
-            RadiusTopLeft: =25
-            RadiusTopRight: =25
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =314
-            X: =992
-            Y: =626
-            ZIndex: =31
-
-        Cmb_CambioEquipo_2 As combobox:
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =0
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            DisplayFields: =["Equipo_x002f_Squad"]
-            Height: =Txt_FondoForm1_214.Height - 10
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            IsSearchable: =false
-            Items: =Filter(Col_BD_Equipos, IDDominio = Cmb_CambioDominio_2.Selected.IDDominio)
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Equipo_x002f_Squad"]
-            SearchItems: =[]
-            SelectMultiple: =false
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =Txt_FondoForm1_214.Width - 27
-            X: =1006
-            Y: =631
-            ZIndex: =32
-
-        "'text pop up_20' As label":
-            Align: =Align.Right
-            Height: =39
-            PaddingRight: =15
-            Text: |-
-                =" Seleccionar el Gerencia/Viaje:"
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =305
-            X: =687
-            Y: =566
-            ZIndex: =33
-
-        "'text pop up_21' As label":
-            Align: =Align.Right
-            Height: =39
-            PaddingRight: =15
-            Text: |-
-                =" Seleccionar el equipo:"
-            Visible: =PopUpBorrar_CasoEspecial && Dpd_SeleccionarAccion_3.Selected.Value = "Movilidad interna"
-            Width: =305
-            X: =683
-            Y: =635
-            ZIndex: =34
-
-        Html_CabeceraEliminarUsuario_2 As htmlViewer:
-            Height: =83
-            HtmlText: |-
-                ="
-                <div style='background: linear-gradient(90deg, #7EC9F5, #0079BB); color: white; width: 830px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 20px;'>
-                  <h1 style='text-indent: 240px; text-align: center;'> Eliminar Usuario/Equipo</h1>
-                </div>
-                "
-                /*
-                "<div style = 'background: linear-gradient( 90deg, #7EC9F5, #0079BB)'>
-                 <p style='text-align: center;' data-mce-style='text-align: center;'>
-                 <span style='color: rgb(236, 240, 241); font-size: 20pt' data-mce-style='color: #ecf0f1;; font-size: 20pt'>
-                 <strong>Información Personal</strong></span></p>
-                 </div>
-                "
-                */
-            Visible: =PopUpBorrar_CasoEspecial
-            Width: =843
-            X: =599
-            Y: =251
-            ZIndex: =35
+                Set(ResetearControlPry,true);
+                
+                Clear(ProyectoSeleccionado);
+                If(Valor1="Proyecto",
+                Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
+                Navigate(ListadoIniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"})
+                );
+            Tooltip: ="Limpiar Controles"
+            Width: =35
+            X: =1739
+            Y: =23
+            ZIndex: =23
 
     Txt_BuscadorPersona_3 As text:
         BorderColor: =RGBA(53, 61, 63, 1)
@@ -3447,4 +1189,10 @@ ModuloPersonaV1_1 As screen:
         X: =540
         Y: =219
         ZIndex: =45
+
+    Label6 As label:
+        Text: =Cmb_BuscarPersona_5.Selected.ID
+        X: =1111
+        Y: =205
+        ZIndex: =46
 
