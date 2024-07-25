@@ -202,109 +202,6 @@ ModuloPersonaV2 As screen:
         Y: =955
         ZIndex: =11
 
-    Solicitar_Cambio_Jefatura_2 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(202, 202, 202, 0.78)
-        Height: =885
-        Visible: =_Var_sol_cambioJefe
-        Width: =1811
-        X: =62
-        Y: =70
-        ZIndex: =17
-
-        Label25_2 As label:
-            BorderColor: =RGBA(219, 219, 219, 1)
-            BorderThickness: =1
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =287
-            PaddingLeft: =25
-            PaddingRight: =20
-            Size: =14
-            Text: |-
-                ="
-                
-                
-                Estas a punto de asignar a " &Cmb_BuscarPersona.Selected.DisplayName& " bajo tu cargo.
-                
-                Se enviará un correo a " &Cmb_BuscarJefe.Selected.DisplayName & " y al equipo de Agile Portfolio informando este ajuste."
-            VerticalAlign: =VerticalAlign.Top
-            Width: =715
-            X: =585
-            Y: =275
-            ZIndex: =1
-
-        Btn_Cambiar_Jefatura_6 As button:
-            DisplayMode: |-
-                =If(
-                    !IsBlank(_VarNuevoIDPErsona),
-                    DisplayMode.Edit,
-                    DisplayMode.Disabled
-                )
-            Fill: =_VarColoresApp.AzulFondo
-            Height: =52
-            OnSelect: =Set(_Var_sol_cambioJefe,false)
-            Text: ="Cancelar"
-            Width: =179
-            X: =726
-            Y: =488
-            ZIndex: =3
-
-        Btn_Cambiar_Jefatura_7 As button:
-            DisplayMode: |-
-                =If(
-                    !IsBlank(_VarNuevoIDPErsona),
-                    DisplayMode.Edit,
-                    DisplayMode.Disabled
-                )
-            Fill: =_VarColoresApp.AzulFondo
-            Height: =52
-            OnSelect: |
-                =Office365Outlook.SendEmailV2(
-                    "AgilePortfolio@wal-mart.com;" &LookUp(Col_BD_Persona, Usuario = Txt_JefeDirecto.Text, 'Correo Electrónico'),
-                    "Cambio de Jefatura en un recurso de BIND",
-                  "<p>Hola!<br>
-                <br>He asignado a mi cargo a una persona que estaba a tu nombre en el módulo de personas de BIND.<br>"
-                &"<br><br><strong>Usuario ajustado: </strong>" & Cmb_BuscarPersona.Selected.DisplayName&" ("& Txt_Usuario.Text &")"
-                &"<br><strong>Jefe Anterior: </strong>"& Cmb_BuscarJefe.Selected.DisplayName &" ("& Txt_JefeDirecto.Text &")"
-                &"<br><strong>Nuevo Jefe: </strong>" & User().FullName&" ("& _VarUsuarioJefe &")"
-                &"<br><br>
-                </p>"
-                );
-                Patch(Lst_Persona,LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario.Text)),{
-                    GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
-                    GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
-                    GerenciaOrigen: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen),
-                    Jefe_Directo:_VarUsuarioJefe
-                }) ;
-                
-                ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
-                Notify("Se ha asignado " &Cmb_BuscarPersona.Selected.DisplayName &" a tu Jefatura!",NotificationType.Success);
-                UpdateContext({_VarMostrarBarraBloqueo:false});
-                Clear(Col_EquiposPersonas);
-                Set(_VarNuevoIDPErsona,Blank());
-                Reset(Cmb_BuscarMiEquipo);
-                Set(_VarUsuarioSelect,Blank());
-                ResetForm(Frm_EditarPersona);
-                Set(_Var_sol_cambioJefe,false)
-            Text: ="Asignar a mi"
-            Width: =179
-            X: =983
-            Y: =488
-            ZIndex: =4
-
-        Label26_2 As label:
-            Align: =Align.Center
-            Color: =RGBA(255, 255, 255, 1)
-            Fill: =_VarColoresApp.AzulparaCabeceras
-            FontWeight: =FontWeight.Semibold
-            Height: =46
-            Size: =15
-            Text: ="Cambio de Jefatura"
-            Width: =715
-            X: =585
-            Y: =275
-            ZIndex: =5
-
     Gallery2_2 As gallery.galleryVertical:
         DelayItemLoading: =true
         Height: =644
@@ -313,7 +210,8 @@ ModuloPersonaV2 As screen:
                     SortByColumns(
                             Filter(
                             Col_MiEquipoWalmart,
-                            ID_Proveedor=Text(Cmb_BuscarPersona_5.Selected.ID)||IsBlank(Cmb_BuscarPersona_5.Selected.ID)
+                            ID_Proveedor=Text(Cmb_BuscarPersona_5.Selected.ID)||IsBlank(Cmb_BuscarPersona_5.Selected.ID),
+                            If(Toggle1.Checked,'Interno/Externo'="Externo",true)
                             ),
                         "Nombre_Persona",
                         SortOrder.Ascending
@@ -329,7 +227,7 @@ ModuloPersonaV2 As screen:
         Width: =1811
         X: =62
         Y: =296
-        ZIndex: =36
+        ZIndex: =15
 
         TextInput14_1 As text:
             BorderColor: =RGBA(15, 108, 189, 1)
@@ -665,10 +563,13 @@ ModuloPersonaV2 As screen:
 
         Icn_Pry_Cancelar_12 As icon.CancelBadge:
             Color: |-
-                =If(
-                    Txt_Rut_3.Text<>ThisItem.RUT,
-                    RGBA(54, 176, 75, 1),
-                    RGBA(255, 0, 0, 1)
+                =Switch(
+                    Label14.Text,
+                    "Modificar",RGBA(54, 176, 75, 1),
+                    "Agregar Usuario",RGBA(54, 176, 75, 1),
+                    "Dar de baja",RGBA(255, 0, 0, 1),
+                    "Cambiar Jefatura",RGBA(54, 176, 75, 1),
+                    RGBA(0, 0, 0, 1)
                 )
             Height: =35
             Icon: |-
@@ -681,30 +582,8 @@ ModuloPersonaV2 As screen:
                     Icon.Information
                 )
             OnSelect: |-
-                =/*
-                Reset(Txt_Pry_NombreProyectoProducto);;
-                Reset(Cmb_Pry_BBB);;
-                Reset(Dpd_Pry_Dominio);;
-                Reset(Rd_Pry_LeverageWM);;
-                Reset(Rd_Pry_RegistradoenAPM);;
-                Reset(Rd_Pry_ProvieneOA);;
-                Reset(Rd_Pry_RequiereFinanciamiento);;
-                Reset(Cmb_Gl_JefeProyecto);;
-                //Reset(Txt_CodigoJira);;
-                Reset(Cmb_Gl_Equipo);;
-                Reset(Txt_Pry_NombreAPM);;
-                Reset(Txt_Pry_CodigoAPM);;
-                Reset(Dpd_Pry_NombreNecesidad);;
-                Reset(Dpd_Pry_DetalleMotivo);;
-                */
-                Set(ResetearControlPry,true);
-                
-                Clear(ProyectoSeleccionado);
-                If(Valor1="Proyecto",
-                Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
-                Navigate(ListadoIniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"})
-                );
-            Tooltip: ="Limpiar Controles"
+                =UpdateContext({var_ConfirmarPersona:true})
+            Tooltip: =
             Visible: =Label12.Text="Externo"
             Width: =35
             X: =1739
@@ -753,6 +632,36 @@ ModuloPersonaV2 As screen:
             Y: =21
             ZIndex: =19
 
+        Button13 As button:
+            Height: =60
+            OnSelect: |-
+                =Patch(Col_MiEquipoWalmart,ThisItem,{Editando:!ThisItem.Editando})
+            PaddingBottom: =10
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            RadiusBottomLeft: =45
+            RadiusBottomRight: =45
+            RadiusTopLeft: =45
+            RadiusTopRight: =45
+            Size: =10
+            Text: =If( ThisItem.Editando,"Buscar persona", "Crear persona")
+            Visible: =IsBlank(Cmb_BuscarPersona_4.Selected.Email)
+            Width: =60
+            X: =Image1_2.X
+            Y: =Image1_2.Y
+            ZIndex: =20
+
+        "TextInputCanvas1 As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =40
+            Placeholder: ="Nombre de nueva Persona"
+            Visible: =ThisItem.Editando
+            Width: =300
+            X: =77
+            Y: =18
+            ZIndex: =21
+
     Txt_BuscadorPersona_3 As text:
         BorderColor: =RGBA(53, 61, 63, 1)
         Default: =""
@@ -765,7 +674,192 @@ ModuloPersonaV2 As screen:
         Width: =1
         X: =529
         Y: =219
-        ZIndex: =43
+        ZIndex: =16
+
+    Cmb_BuscarPersona_5 As combobox:
+        AccessibleLabel: ="."
+        BorderColor: =
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+        ChevronFill: =RGBA(0, 121, 187, 1)
+        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+        DefaultSelectedItems: |-
+            =/*Param DeepLink personas f30*/
+            
+            If(
+                //Si viene de Bind valida a que ventana se dirige
+                !IsBlank(Param("ID_Request")),
+            
+                    If(IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion),
+                    Filter(Lst_Proveedores,ID=Value(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).ID_Proveedor)),
+                    Blank()
+                    )
+            
+            )
+        DisabledColor: =RGBA(53, 61, 63, 1)
+        DisplayFields: =["Razon_Social"]
+        Height: |
+            =40
+        HoverBorderColor: =RGBA(0, 121, 187, 1)
+        InputTextPlaceholder: ="Seleccionar proveedor"
+        Items: =SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending)
+        OnChange: =
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        PressedFill: =RGBA(0, 121, 187, 1)
+        SearchFields: =["Razon_Social"]
+        SearchItems: =Search(SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending),Cmb_BuscarPersona_5.SearchText,Razon_Social)
+        SelectionFill: =RGBA(0, 121, 187, 1)
+        SelectMultiple: =false
+        Size: =15
+        Tooltip: =
+        Width: =450
+        X: =540
+        Y: =219
+        ZIndex: =17
+
+    Toggle1 As Toggle:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =18
+        Height: =48
+        Label: ="Ver solo Externos"
+        LabelPosition: ='Toggle.LabelPosition'.Before
+        OnCheck: =false
+        OnUncheck: =false
+        Width: =229
+        X: =1062
+        Y: =217
+        ZIndex: =18
+
+    Txt_BuscadorPersona_4 As text:
+        BorderColor: =RGBA(53, 61, 63, 1)
+        Default: =""
+        Height: =46
+        HintText: ="Buscar Persona, Rol o Tipo"
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =1
+        X: =1062
+        Y: =219
+        ZIndex: =19
+
+    ModalPersonas As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(202, 202, 202, 0.78)
+        Height: =1050
+        Visible: =var_ConfirmarPersona
+        Width: =1920
+        ZIndex: =20
+
+        Label25_2 As label:
+            BorderColor: =RGBA(219, 219, 219, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =287
+            PaddingLeft: =25
+            PaddingRight: =20
+            Size: =14
+            Text: |-
+                ="
+                
+                "&
+                Switch(
+                    Label14.Text,
+                    "Modificar",Icon.CheckBadge,
+                    "Agregar Usuario",Icon.CheckBadge,
+                    "Dar de baja",Icon.CancelBadge,
+                    "Cambiar Jefatura",Icon.Sync,
+                    Icon.Information
+                )
+                &"Estas a punto de asignar a " &Cmb_BuscarPersona.Selected.DisplayName& " bajo tu cargo.
+                
+                Se enviará un correo a " &Cmb_BuscarJefe.Selected.DisplayName & " y al equipo de Agile Portfolio informando este ajuste."
+            VerticalAlign: =VerticalAlign.Top
+            Width: =715
+            X: =585
+            Y: =350
+            ZIndex: =1
+
+        Btn_Cambiar_Jefatura_6 As button:
+            DisplayMode: |-
+                =If(
+                    !IsBlank(_VarNuevoIDPErsona),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =_VarColoresApp.AzulFondo
+            Height: =52
+            OnSelect: |-
+                =UpdateContext({var_ConfirmarPersona:false})
+            Text: ="Cancelar"
+            Width: =179
+            X: =726
+            Y: =563
+            ZIndex: =3
+
+        Btn_Cambiar_Jefatura_7 As button:
+            DisplayMode: |-
+                =If(
+                    !IsBlank(_VarNuevoIDPErsona),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =_VarColoresApp.AzulFondo
+            Height: =52
+            OnSelect: |-
+                =
+                
+                
+                /*Office365Outlook.SendEmailV2(
+                    "AgilePortfolio@wal-mart.com;" &LookUp(Col_BD_Persona, Usuario = Txt_JefeDirecto.Text, 'Correo Electrónico'),
+                    "Cambio de Jefatura en un recurso de BIND",
+                  "<p>Hola!<br>
+                <br>He asignado a mi cargo a una persona que estaba a tu nombre en el módulo de personas de BIND.<br>"
+                &"<br><br><strong>Usuario ajustado: </strong>" & Cmb_BuscarPersona.Selected.DisplayName&" ("& Txt_Usuario.Text &")"
+                &"<br><strong>Jefe Anterior: </strong>"& Cmb_BuscarJefe.Selected.DisplayName &" ("& Txt_JefeDirecto.Text &")"
+                &"<br><strong>Nuevo Jefe: </strong>" & User().FullName&" ("& _VarUsuarioJefe &")"
+                &"<br><br>
+                </p>"
+                );
+                Patch(Lst_Persona,LookUp(Lst_Persona, Usuario = Upper(Txt_Usuario.Text)),{
+                    GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
+                    GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
+                    GerenciaOrigen: LookUp(Col_BD_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen),
+                    Jefe_Directo:_VarUsuarioJefe
+                }) ;
+                
+                ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
+                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
+                Notify("Se ha asignado " &Cmb_BuscarPersona.Selected.DisplayName &" a tu Jefatura!",NotificationType.Success);
+                UpdateContext({_VarMostrarBarraBloqueo:false});
+                Clear(Col_EquiposPersonas);
+                Set(_VarNuevoIDPErsona,Blank());
+                Reset(Cmb_BuscarMiEquipo);
+                Set(_VarUsuarioSelect,Blank());
+                ResetForm(Frm_EditarPersona);
+                Set(_Var_sol_cambioJefe,false)
+                */
+            Text: ="Asignar a mi"
+            Width: =179
+            X: =983
+            Y: =563
+            ZIndex: =4
+
+        Label26_2 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =46
+            Size: =15
+            Text: ="Confirmar Cambios"
+            Width: =715
+            X: =585
+            Y: =350
+            ZIndex: =5
 
     Gp_Buscador_1 As group:
         Height: =5
@@ -811,75 +905,4 @@ ModuloPersonaV2 As screen:
             X: =163
             Y: =217
             ZIndex: =14
-
-    Cmb_BuscarPersona_5 As combobox:
-        AccessibleLabel: ="."
-        BorderColor: =
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =0
-        ChevronBackground: =RGBA(255, 255, 255, 1)
-        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-        ChevronDisabledFill: =RGBA(116, 116, 116, 1)
-        ChevronFill: =RGBA(0, 121, 187, 1)
-        ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-        DefaultSelectedItems: |-
-            =/*Param DeepLink personas f30*/
-            
-            If(
-                //Si viene de Bind valida a que ventana se dirige
-                !IsBlank(Param("ID_Request")),
-            
-                    If(IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion),
-                    Filter(Lst_Proveedores,ID=Value(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).ID_Proveedor)),
-                    Blank()
-                    )
-            
-            )
-        DisabledColor: =RGBA(53, 61, 63, 1)
-        DisplayFields: =["Razon_Social"]
-        Height: |
-            =40
-        HoverBorderColor: =RGBA(0, 121, 187, 1)
-        InputTextPlaceholder: ="Seleccionar proveedor"
-        Items: =SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending)
-        OnChange: =
-        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-        PressedFill: =RGBA(0, 121, 187, 1)
-        SearchFields: =["Razon_Social"]
-        SearchItems: =Search(SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending),Cmb_BuscarPersona_5.SearchText,Razon_Social)
-        SelectionFill: =RGBA(0, 121, 187, 1)
-        SelectMultiple: =false
-        Size: =15
-        Tooltip: =
-        Width: =450
-        X: =540
-        Y: =219
-        ZIndex: =45
-
-    Toggle1 As Toggle:
-        DisplayMode: =DisplayMode.Edit
-        FontSize: =18
-        Height: =48
-        Label: ="Ver solo Externos"
-        LabelPosition: ='Toggle.LabelPosition'.Before
-        OnCheck: =false
-        OnUncheck: =false
-        Width: =229
-        X: =1062
-        Y: =217
-        ZIndex: =46
-
-    Txt_BuscadorPersona_4 As text:
-        BorderColor: =RGBA(53, 61, 63, 1)
-        Default: =""
-        Height: =46
-        HintText: ="Buscar Persona, Rol o Tipo"
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Width: =1
-        X: =1062
-        Y: =219
-        ZIndex: =47
 
