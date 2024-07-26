@@ -7048,36 +7048,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Dpd_Empresa_4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Dpd_Empresa_4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Gallery2_2.Dpd_Empresa_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 11
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Txt_Rut_3.AccessibleLabel"
                 }
               ],
@@ -7168,19 +7138,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12.AccessibleLabel"
+                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Cmb_Rol_5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12.AccessibleLabel",
+                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Cmb_Rol_5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12"
+                "type": "ModuloPersonaV2.Gallery2_3.Cmb_Rol_5"
               }
             }
           ],
@@ -7192,36 +7162,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 11
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Gallery2_2.Icn_Pry_Cancelar_12"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
         },
         {
           "locations": [
@@ -58041,36 +57981,6 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 13
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersonaV2.ModalPersonas.Label25_2.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.ModalPersonas.Label25_2.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.ModalPersonas.Label25_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 17
         },
         {
           "locations": [

@@ -2407,7 +2407,7 @@ ModuloPersonaV1 As screen:
                     //Set(_verPopUpNuevoUsuario;false);;
                     UpdateContext({_VarMostrarBarraBloqueo:false});
                 
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
+                ClearCollect(Col_MiEquipoWalmart,SortByColumns(Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"),"Nombre_Persona",SortOrder.Descending));
                 
                 Clear(Col_IDEquiposAsignados);
                 Clear(Col_MiEquiposJefe);
@@ -2679,7 +2679,7 @@ ModuloPersonaV1 As screen:
                 }) ;
                 
                 ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
+                ClearCollect(Col_MiEquipoWalmart,SortByColumns(Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"),"Nombre_Persona",SortOrder.Descending));
                 Notify("Se ha asignado " &Cmb_BuscarPersona.Selected.DisplayName &" a tu Jefatura!",NotificationType.Success);
                 UpdateContext({_VarMostrarBarraBloqueo:false});
                 Clear(Col_EquiposPersonas);
@@ -2851,7 +2851,7 @@ ModuloPersonaV1 As screen:
                 //Collect(Col_EquiposPersonas;Filter(Ingresos_Ceses_Personas; Usuario = _VarUsuarioEliminar.Usuario; Estado = "Activo"));;
                 //Reset(Cmb_CambioDominio);;
                 //Reset(Cmb_CambioEquipo);;
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"));
+                ClearCollect(Col_MiEquipoWalmart,SortByColumns(Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"),"Nombre_Persona",SortOrder.Descending));
                 Notify("Se elimino de manera correcta al usuario.",NotificationType.Success,10000);
                 /*Ocultar Spinner Cargando*/
                 Set(_VarMostrarCargando,false);

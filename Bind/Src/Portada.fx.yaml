@@ -84,7 +84,7 @@ Portada As screen:
                 ClearCollect(Col_BD_Gerencia, Filter(Lst_Gerencias, Estado = "Activo")),
                 ClearCollect(Col_BD_Persona, Filter(Lst_Persona, Estado = "Activo"));
                 ClearCollect(Col_BD_Equipos, DominioEquipoSquad),
-                ClearCollect(Col_MiEquipoWalmart,Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo")) //_Perfil.mail "Carlos.Reichmann0@walmart.com"
+                ClearCollect(Col_MiEquipoWalmart,SortByColumns(Filter(Lst_Persona, Jefe_Directo = _VarUsuarioJefe && Estado = "Activo"),"Nombre_Persona",SortOrder.Descending)) //_Perfil.mail "Carlos.Reichmann0@walmart.com"
                 
             );
             
