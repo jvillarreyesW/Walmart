@@ -210,8 +210,7 @@ ModuloPersonaV2 As screen:
                     SortByColumns(
                             Filter(
                             Col_MiEquipoWalmart,
-                            ID_Proveedor=Text(Cmb_BuscarPersona_5.Selected.ID)||IsBlank(Cmb_BuscarPersona_5.Selected.ID),
-                            If(Toggle1.Checked,'Interno/Externo'="Externo",true)
+                            'Interno/Externo'="Interno"
                             ),
                         "Nombre_Persona",
                         SortOrder.Ascending
@@ -720,19 +719,6 @@ ModuloPersonaV2 As screen:
         Y: =219
         ZIndex: =17
 
-    Toggle1 As Toggle:
-        DisplayMode: =DisplayMode.Edit
-        FontSize: =18
-        Height: =48
-        Label: ="Ver solo Externos"
-        LabelPosition: ='Toggle.LabelPosition'.Before
-        OnCheck: =false
-        OnUncheck: =false
-        Width: =229
-        X: =1062
-        Y: =217
-        ZIndex: =18
-
     Txt_BuscadorPersona_4 As text:
         BorderColor: =RGBA(53, 61, 63, 1)
         Default: =""
@@ -860,6 +846,510 @@ ModuloPersonaV2 As screen:
             X: =585
             Y: =350
             ZIndex: =5
+
+    Gallery2_3 As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =644
+        Items: |-
+            =Search(
+                    SortByColumns(
+                            Filter(
+                            Col_MiEquipoWalmart,
+                            ID_Proveedor=Text(Cmb_BuscarPersona_5.Selected.ID)||IsBlank(Cmb_BuscarPersona_5.Selected.ID),
+                            'Interno/Externo'="Externo"
+                            ),
+                        "Nombre_Persona",
+                        SortOrder.Ascending
+                        ),
+                        Txt_BuscadorPersona_2.Text,
+                        Nombre_Persona,
+                        Rol,
+                        'Interno/Externo'
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =74
+        Width: =1811
+        X: =109
+        Y: =311
+        ZIndex: =21
+
+        TextInput14_2 As text:
+            BorderColor: =RGBA(15, 108, 189, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(15, 108, 189, 1)
+            DisabledFill: =If(ThisItem.'Interno/Externo'="Externo",RGBA(255, 255, 255, 1),RGBA(214, 221, 224, 1))
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =If(ThisItem.'Interno/Externo'="Externo",RGBA(255, 255, 255, 1),RGBA(214, 221, 224, 1))
+            Height: =67
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =1785
+            Y: =7
+            ZIndex: =1
+
+        Button12_1 As button:
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(214, 221, 224, 1)
+            Height: =67
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =20
+            RadiusTopLeft: =0
+            RadiusTopRight: =20
+            Text: =
+            Width: =185
+            X: =1600
+            Y: =7
+            ZIndex: =2
+
+        Image1_3 As image:
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =60
+            Image: |-
+                =If(
+                    IsBlank(Cmb_BuscarPersona_6.Selected.Email),
+                    'no-fotos-1',
+                    If(
+                        IsBlank(UsuariosdeOffice365.UserPhotoV2(Cmb_BuscarPersona_6.Selected.Email)),
+                        'no-fotos-1',
+                        UsuariosdeOffice365.UserPhotoV2(Cmb_BuscarPersona_6.Selected.Email)
+                    )
+                )
+                /*
+                If(
+                    CountRows(Col_MiEquipoWalmart) > 0;
+                    If(
+                        Rd_PersonasEquipos.Selected.Value = "Mis Personas";
+                        If(
+                            IfError(IsBlank(UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico'));false;IsBlank(UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico')));
+                            'no-fotos-1';
+                           IfError(UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico');'no-fotos-1';UsuariosdeOffice365.UserPhotoV2(ThisItem.'Correo Electrónico'))
+                        )
+                    )
+                )
+                */
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =60
+            RadiusBottomRight: =60
+            RadiusTopLeft: =60
+            RadiusTopRight: =60
+            Width: =60
+            X: =7
+            Y: =10
+            ZIndex: =3
+
+        Cmb_BuscarPersona_6 As combobox:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: |-
+                =Table({DisplayName: ThisItem.Nombre_Persona, Email:ThisItem.'Correo Electrónico'})
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =If(ThisItem.'Interno/Externo'="Interno", RGBA(214, 221, 224, 1),RGBA(255, 255, 255, 1))
+            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayMode: =If(IsBlank(ThisItem.ID),DisplayMode.Edit,DisplayMode.Disabled)
+            Height: |
+                =40
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+            OnChange: |
+                =
+                If(
+                    IsBlank(_VarUsuarioSelect) && IsBlank(Cmb_BuscarMiEquipo.Selected.Usuario),
+                    Clear(Col_EquiposPersonas);
+                    //UpdateContext({_VarTempJefeDirecto:LookUp(Lst_Persona; Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona.Selected.Claims;"@"); {Result: ThisRecord.Value})).Result;"|"); {Result: ThisRecord.Value})).Result;Jefe_Directo)});;
+                    Collect(Col_EquiposPersonas,Filter(Col_BD_AsignacionEquipos, Usuario = Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result, Estado = "Activo"))
+                );
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            SearchFields: =["DisplayName"]
+            SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_BuscarPersona_6.SearchText)
+            SelectionFill: =RGBA(0, 121, 187, 1)
+            SelectMultiple: =false
+            Template: =ListItemTemplate.Person
+            Tooltip: =
+            Width: |+
+                =300
+                
+            X: =77
+            Y: =20
+            ZIndex: =4
+
+        Dpd_Empresa_5 As dropdown:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                =If(ThisItem.'Interno/Externo'="Interno","WALMART CHILE S.A.",
+                If(
+                    !IsBlank(ThisItem.ID),
+                    LookUp(Lst_Proveedores,ID=Value(ThisItem.ID_Proveedor)).Razon_Social_Proveedor,
+                    LookUp(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor))).Razon_Social_Proveedor
+                ))
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            Items: |-
+                =SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending)
+                //Sort(ForAll(Distinct(Filter(Empresa,Dpd_InternoExterno_1.SelectedText.Value='Interno/Externo'),Empresa), {Result: ThisRecord.Value}),Result,SortOrder.Ascending)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Tooltip: =
+            Visible: =Label12_4.Text="Externo"
+            Width: =350
+            X: =404
+            Y: =20
+            ZIndex: =5
+
+        Txt_Rut_4 As text:
+            Align: =Align.Center
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =0
+            Default: |-
+                =If(
+                    !IsBlank(ThisItem.ID),
+                    ThisItem.RUT,
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),RUT)
+                )
+            DelayOutput: =true
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            PaddingLeft: =10
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Tooltip: =
+            Width: =125
+            X: =768
+            Y: =20
+            ZIndex: =6
+
+        Dtp_FechaIngreso_4 As datepicker:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            DefaultDate: |-
+                =If(
+                    !IsBlank(ThisItem.ID),
+                    ThisItem.'Fecha de Ingreso',
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Fecha de Ingreso')
+                )
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            EndYear: =Year(Today())+100
+            IconBackground: =RGBA(244, 244, 244, 1)
+            IconFill: =RGBA(0, 121, 187, 1)
+            IsEditable: =true
+            PaddingBottom: =0
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            Size: =13
+            StartYear: =1899
+            Tooltip: =
+            Width: =140
+            X: =904
+            Y: =20
+            ZIndex: =7
+
+        Separator_6 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =390
+            Y: =15
+            ZIndex: =8
+
+        Separator_7 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =763
+            Y: |
+                =5+10
+            ZIndex: =9
+
+        Separator_8 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =897
+            Y: |
+                =5+10
+            ZIndex: =10
+
+        Separator_9 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =1057
+            Y: =10+5
+            ZIndex: =11
+
+        Dpd_Genero_4 As combobox:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(128, 128, 128, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                ={Value:ThisItem.Genero}
+            DefaultSelectedItems: |-
+                =If(
+                    !IsBlank(ThisItem.ID),
+                    Table({Value:ThisItem.Genero}),
+                    Table({Value:LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Genero)})
+                )
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayFields: =["Value"]
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            IsSearchable: =false
+            Items: =["M","F"]
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionColor: =RGBA(0, 0, 0, 1)
+            SelectionFill: =RGBA(255, 255, 255, 1)
+            SelectMultiple: =false
+            Tooltip: =
+            Width: =70
+            X: =1073
+            Y: =20
+            ZIndex: =12
+
+        Separator_10 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =1149
+            Y: =15
+            ZIndex: =13
+
+        Separator_11 As rectangle:
+            Height: =50
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =1290
+            Y: =15
+            ZIndex: =14
+
+        Cmb_Rol_4 As dropdown:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(149, 149, 149, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                =If(
+                    !IsBlank(ThisItem.ID),
+                    ThisItem.Rol,
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Rol)
+                )
+            DisabledColor: =RGBA(53, 61, 63, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
+            Height: =47
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            Items: =Sort(Rol,Roles,SortOrder.Ascending)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Size: =12
+            Tooltip: =
+            Width: =283
+            X: =1301
+            Y: =18
+            ZIndex: =15
+
+        Label12_4 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: |
+                =If(IsBlank( 
+                    If(
+                    !IsBlank(ThisItem.ID),
+                    ThisItem.'Interno/Externo',
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
+                    )),
+                    "Externo",
+                    If(
+                    !IsBlank(ThisItem.ID),
+                    ThisItem.'Interno/Externo',
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
+                    )
+                )
+            Width: =130
+            X: =1155
+            Y: =20
+            ZIndex: =16
+
+        Icn_Pry_Cancelar_13 As icon.CancelBadge:
+            Color: |-
+                =Switch(
+                    Label14_1.Text,
+                    "Modificar",RGBA(54, 176, 75, 1),
+                    "Agregar Usuario",RGBA(54, 176, 75, 1),
+                    "Dar de baja",RGBA(255, 0, 0, 1),
+                    "Cambiar Jefatura",RGBA(54, 176, 75, 1),
+                    RGBA(0, 0, 0, 1)
+                )
+            Height: =35
+            Icon: |-
+                =Switch(
+                    Label14_1.Text,
+                    "Modificar",Icon.CheckBadge,
+                    "Agregar Usuario",Icon.CheckBadge,
+                    "Dar de baja",Icon.CancelBadge,
+                    "Cambiar Jefatura",Icon.Sync,
+                    Icon.Information
+                )
+            OnSelect: |-
+                =UpdateContext({var_ConfirmarPersona:true})
+            Tooltip: =
+            Visible: =Label12_4.Text="Externo"
+            Width: =35
+            X: =1739
+            Y: =23
+            ZIndex: =17
+
+        Label14_1 As label:
+            Align: =Align.Center
+            Height: =50
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: |-
+                =If(IsBlank(ThisItem.ID),
+                   
+                //Validar si ya esta asignado a otro jefe
+                If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)),
+                 "Agregar Usuario",
+                
+                If(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)=_VarUsuarioJefe,
+                "Ya asignado",
+                "Cambiar Jefatura")
+                ),
+                        If(
+                            Txt_Rut_4.Text<>ThisItem.RUT||
+                            Dpd_Genero_4.Selected.Value<>ThisItem.Genero||
+                            Dtp_FechaIngreso_4.SelectedDate<>ThisItem.'Fecha de Ingreso'||
+                            Cmb_Rol_4.Selected.Roles<>ThisItem.Rol||
+                            Text(Dpd_Empresa_5.Selected.ID)<>ThisItem.ID_Proveedor,
+                            "Modificar",
+                            "Dar de baja"
+                        )
+                )
+            Visible: =Label12_4.Text="Externo"
+            Width: =126
+            X: =1600
+            Y: =15
+            ZIndex: =18
+
+        Label12_6 As label:
+            Height: =49
+            OnSelect: =Select(Parent)
+            Text: ="WALMART CHILE S.A."
+            Visible: =Label12_4.Text="Interno"
+            Width: =350
+            X: =404
+            Y: =21
+            ZIndex: =19
+
+        Button13_1 As button:
+            Height: =60
+            OnSelect: |-
+                =Patch(Col_MiEquipoWalmart,ThisItem,{Editando:!ThisItem.Editando})
+            PaddingBottom: =10
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            RadiusBottomLeft: =45
+            RadiusBottomRight: =45
+            RadiusTopLeft: =45
+            RadiusTopRight: =45
+            Size: =10
+            Text: =If( ThisItem.Editando,"Buscar persona", "Crear persona")
+            Visible: =IsBlank(Cmb_BuscarPersona_6.Selected.Email)
+            Width: =60
+            X: =Image1_3.X
+            Y: =Image1_3.Y
+            ZIndex: =20
+
+        "TextInputCanvas1_1 As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =40
+            Placeholder: ="Nombre de nueva Persona"
+            Visible: =ThisItem.Editando
+            Width: =300
+            X: =77
+            Y: =18
+            ZIndex: =21
+
+    Image14_5 As image:
+        Height: =40
+        Image: |
+            =If(Rd_PersonasEquipos.Selected.Value="Mis Equipos",NuevoImg_Equipo,AgregarPersona)
+        OnSelect: =Collect(Col_MiEquipoWalmart,Defaults(Lst_Persona))
+        Width: =45
+        X: =1546
+        Y: =166
+        ZIndex: =22
+
+    Btn_AgregarExternos_3 As button:
+        Fill: =RGBA(232, 46, 179, 1)
+        HoverFill: =RGBA(255, 255, 255, 0.63)
+        OnSelect: |
+            =UpdateContext({_VarMostrarBarraBloqueo:true});
+            Set(_VarNuevoIDPErsona,"Usu-" & GUID());
+            Patch(Col_MiEquipoWalmart,Defaults(Col_MiEquipoWalmart),
+            {
+                'Interno/Externo':"Externo",
+                ID_Proveedor:Cmb_BuscarPersona_5.Selected.ID,
+                Jefe_Directo:_VarUsuarioJefe,
+                Nombre_Persona:" "
+            }
+            )
+        PaddingTop: =2.5
+        PressedFill: =RGBA(255, 255, 255, 0.68)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =14
+        Text: ="Agregar persona externa"
+        Tooltip: |
+            =If(
+                Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                "Agregar Nuevo Equipo",
+                "Agregar Nueva Persona"
+            )
+        Width: =290
+        X: =1597
+        Y: =166
+        ZIndex: =23
 
     Gp_Buscador_1 As group:
         Height: =5
