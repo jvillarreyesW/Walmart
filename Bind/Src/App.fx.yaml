@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     OnError: =
-    OnStart: |+
+    OnStart: |-
         =/*Mostrar Spinner Cargando*/
         Set(_VarMostrarCargando,true);
         
@@ -143,6 +143,15 @@ App As appinfo:
         
         /*------------------------------------------------------*/
         
+        If(
+            //Si viene de Bind valida a que ventana se dirige
+            !IsBlank(Param("ID_Request")),
+        
+                If(IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion),
+                Set(_Var_ExternosPersonas,true),
+                Set(_Var_ExternosPersonas,false)
+                )
+        )
     StartScreen: |-
         =/*Param DeepLink personas f30*/
         
