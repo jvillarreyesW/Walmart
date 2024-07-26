@@ -143,16 +143,6 @@ ModuloPersonaV2 As screen:
         Y: =106
         ZIndex: =8
 
-    Image14_4 As image:
-        Height: =40
-        Image: |
-            =If(Rd_PersonasEquipos.Selected.Value="Mis Equipos",NuevoImg_Equipo,AgregarPersona)
-        OnSelect: =Collect(Col_MiEquipoWalmart,Defaults(Lst_Persona))
-        Width: =45
-        X: =1531
-        Y: =223
-        ZIndex: =9
-
     Btn_AgregarExternos_2 As button:
         Fill: =RGBA(232, 46, 179, 1)
         HoverFill: =RGBA(255, 255, 255, 0.63)
@@ -164,7 +154,8 @@ ModuloPersonaV2 As screen:
                 'Interno/Externo':"Externo",
                 ID_Proveedor:Cmb_BuscarPersona_5.Selected.ID,
                 Jefe_Directo:_VarUsuarioJefe,
-                Nombre_Persona:" "
+                Nombre_Persona:" ",
+                Tipo_Usuario:"Directorio Activo"
             }
             )
         PaddingTop: =2.5
@@ -1001,7 +992,6 @@ ModuloPersonaV2 As screen:
                 //Sort(ForAll(Distinct(Filter(Empresa,Dpd_InternoExterno_1.SelectedText.Value='Interno/Externo'),Empresa), {Result: ThisRecord.Value}),Result,SortOrder.Ascending)
             PressedFill: =RGBA(0, 121, 187, 1)
             Tooltip: =
-            Visible: =Label12_4.Text="Externo"
             Width: =350
             X: =404
             Y: =20
@@ -1093,51 +1083,6 @@ ModuloPersonaV2 As screen:
             Y: =10+5
             ZIndex: =11
 
-        Dpd_Genero_4 As combobox:
-            BorderColor: =RGBA(128, 128, 128, 1)
-            BorderStyle: =BorderStyle.None
-            BorderThickness: =1
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
-            ChevronDisabledFill: =RGBA(128, 128, 128, 1)
-            ChevronFill: =RGBA(0, 121, 187, 1)
-            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
-            Default: |-
-                ={Value:ThisItem.Genero}
-            DefaultSelectedItems: |-
-                =If(
-                    !IsBlank(ThisItem.ID),
-                    Table({Value:ThisItem.Genero}),
-                    Table({Value:LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Genero)})
-                )
-            DisabledColor: =RGBA(53, 61, 63, 1)
-            DisabledFill: =RGBA(214, 221, 224, 1)
-            DisplayFields: =["Value"]
-            DisplayMode: =If(ThisItem.'Interno/Externo'="Externo",DisplayMode.Edit,DisplayMode.Disabled)
-            HoverBorderColor: =RGBA(0, 121, 187, 1)
-            IsSearchable: =false
-            Items: =["M","F"]
-            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-            PressedFill: =RGBA(0, 121, 187, 1)
-            SearchFields: =["Value"]
-            SearchItems: =[]
-            SelectionColor: =RGBA(0, 0, 0, 1)
-            SelectionFill: =RGBA(255, 255, 255, 1)
-            SelectMultiple: =false
-            Tooltip: =
-            Width: =70
-            X: =1073
-            Y: =20
-            ZIndex: =12
-
-        Separator_10 As rectangle:
-            Height: =50
-            OnSelect: =Select(Parent)
-            Width: =1
-            X: =1149
-            Y: =15
-            ZIndex: =13
-
         Separator_11 As rectangle:
             Height: =50
             OnSelect: =Select(Parent)
@@ -1175,28 +1120,6 @@ ModuloPersonaV2 As screen:
             Y: =18
             ZIndex: =15
 
-        Label12_4 As label:
-            Align: =Align.Center
-            OnSelect: =Select(Parent)
-            Text: |
-                =If(IsBlank( 
-                    If(
-                    !IsBlank(ThisItem.ID),
-                    ThisItem.'Interno/Externo',
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
-                    )),
-                    "Externo",
-                    If(
-                    !IsBlank(ThisItem.ID),
-                    ThisItem.'Interno/Externo',
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
-                    )
-                )
-            Width: =130
-            X: =1155
-            Y: =20
-            ZIndex: =16
-
         Icn_Pry_Cancelar_13 As icon.CancelBadge:
             Color: |-
                 =Switch(
@@ -1220,7 +1143,6 @@ ModuloPersonaV2 As screen:
             OnSelect: |-
                 =UpdateContext({var_ConfirmarPersona:true})
             Tooltip: =
-            Visible: =Label12_4.Text="Externo"
             Width: =35
             X: =1739
             Y: =23
@@ -1244,7 +1166,6 @@ ModuloPersonaV2 As screen:
                 ),
                         If(
                             Txt_Rut_4.Text<>ThisItem.RUT||
-                            Dpd_Genero_4.Selected.Value<>ThisItem.Genero||
                             Dtp_FechaIngreso_4.SelectedDate<>ThisItem.'Fecha de Ingreso'||
                             Cmb_Rol_4.Selected.Roles<>ThisItem.Rol||
                             Text(Dpd_Empresa_5.Selected.ID)<>ThisItem.ID_Proveedor,
@@ -1252,21 +1173,10 @@ ModuloPersonaV2 As screen:
                             "Dar de baja"
                         )
                 )
-            Visible: =Label12_4.Text="Externo"
             Width: =126
             X: =1600
             Y: =15
             ZIndex: =18
-
-        Label12_6 As label:
-            Height: =49
-            OnSelect: =Select(Parent)
-            Text: ="WALMART CHILE S.A."
-            Visible: =Label12_4.Text="Interno"
-            Width: =350
-            X: =404
-            Y: =21
-            ZIndex: =19
 
         Button13_1 As button:
             Height: =60
@@ -1298,16 +1208,6 @@ ModuloPersonaV2 As screen:
             Y: =18
             ZIndex: =21
 
-    Image14_5 As image:
-        Height: =40
-        Image: |
-            =If(Rd_PersonasEquipos.Selected.Value="Mis Equipos",NuevoImg_Equipo,AgregarPersona)
-        OnSelect: =Collect(Col_MiEquipoWalmart,Defaults(Lst_Persona))
-        Width: =45
-        X: =1546
-        Y: =166
-        ZIndex: =22
-
     Btn_AgregarExternos_3 As button:
         Fill: =RGBA(232, 46, 179, 1)
         HoverFill: =RGBA(255, 255, 255, 0.63)
@@ -1319,7 +1219,9 @@ ModuloPersonaV2 As screen:
                 'Interno/Externo':"Externo",
                 ID_Proveedor:Cmb_BuscarPersona_5.Selected.ID,
                 Jefe_Directo:_VarUsuarioJefe,
-                Nombre_Persona:" "
+                Nombre_Persona:" ",
+                Tipo_Usuario:"Manual",
+                Editando:true
             }
             )
         PaddingTop: =2.5
@@ -1337,8 +1239,8 @@ ModuloPersonaV2 As screen:
                 "Agregar Nueva Persona"
             )
         Width: =290
-        X: =1597
-        Y: =166
+        X: =1268
+        Y: =227
         ZIndex: =23
 
     ButtonCanvas1 As Button:
@@ -1346,8 +1248,8 @@ ModuloPersonaV2 As screen:
         Height: =32
         OnSelect: =Set(_Var_ExternosPersonas,!_Var_ExternosPersonas)
         Width: =96
-        X: =1281
-        Y: =206
+        X: =1135
+        Y: =235
         ZIndex: =24
 
     Gp_Buscador_1 As group:
