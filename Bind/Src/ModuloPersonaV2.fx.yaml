@@ -223,6 +223,7 @@ ModuloPersonaV2 As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =74
+        Visible: =!_Var_ExternosPersonas
         Width: =1811
         X: =62
         Y: =296
@@ -670,6 +671,7 @@ ModuloPersonaV2 As screen:
         RadiusBottomRight: =20
         RadiusTopLeft: =20
         RadiusTopRight: =20
+        Visible: =_Var_ExternosPersonas
         Width: =1
         X: =529
         Y: =219
@@ -714,24 +716,11 @@ ModuloPersonaV2 As screen:
         SelectMultiple: =false
         Size: =15
         Tooltip: =
+        Visible: =_Var_ExternosPersonas
         Width: =450
         X: =540
         Y: =219
         ZIndex: =17
-
-    Txt_BuscadorPersona_4 As text:
-        BorderColor: =RGBA(53, 61, 63, 1)
-        Default: =""
-        Height: =46
-        HintText: ="Buscar Persona, Rol o Tipo"
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Width: =1
-        X: =1062
-        Y: =219
-        ZIndex: =19
 
     ModalPersonas As groupContainer.manualLayoutContainer:
         Fill: =RGBA(202, 202, 202, 0.78)
@@ -870,9 +859,10 @@ ModuloPersonaV2 As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =74
+        Visible: =_Var_ExternosPersonas
         Width: =1811
-        X: =109
-        Y: =311
+        X: =95
+        Y: =296
         ZIndex: =21
 
         TextInput14_2 As text:
@@ -1350,6 +1340,15 @@ ModuloPersonaV2 As screen:
         X: =1597
         Y: =166
         ZIndex: =23
+
+    ButtonCanvas1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: =Set(_Var_ExternosPersonas,!_Var_ExternosPersonas)
+        Width: =96
+        X: =1281
+        Y: =206
+        ZIndex: =24
 
     Gp_Buscador_1 As group:
         Height: =5
