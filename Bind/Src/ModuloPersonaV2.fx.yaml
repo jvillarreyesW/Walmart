@@ -975,6 +975,7 @@ ModuloPersonaV2 As screen:
                 );
                 Set(_var_PersonaSeleccionada,ThisItem)
             Tooltip: =
+            Visible: =Label12_4.Text="Externo"
             Width: =35
             X: =1739
             Y: =23
@@ -1005,6 +1006,7 @@ ModuloPersonaV2 As screen:
                             "Dar de baja"
                         )
                 )
+            Visible: =Label12_4.Text="Externo"
             Width: =126
             X: =1600
             Y: =15
@@ -1054,20 +1056,14 @@ ModuloPersonaV2 As screen:
             Align: =Align.Center
             Height: =18
             OnSelect: =Select(Parent)
-            Text: |
-                =If(IsBlank( 
-                    If(
-                    !IsBlank(ThisItem.ID),
-                    ThisItem.'Interno/Externo',
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_4.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
-                    )),
+            Text: |-
+                =    If(ThisItem.Editando,
                     "Externo",
-                    If(
-                    !IsBlank(ThisItem.ID),
-                    ThisItem.'Interno/Externo',
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_4.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
+                    If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')),
+                    "Externo",
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
                     )
-                )
+                    )
             Visible: =false
             Width: =130
             X: =1600
