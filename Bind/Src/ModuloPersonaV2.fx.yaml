@@ -1350,10 +1350,17 @@ ModuloPersonaV2 As screen:
                 RGBA(56, 96, 178, 1)
             )
         OnSelect: |-
-            =Set(_VarEquipo,"MiEquipo");
-            Navigate(ModuloEquipoV1,ScreenTransition.Fade)
+            =Patch(
+                Lst_ConfirmacionManagersF30,
+                LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))),
+                {
+                    Fechaconfirmacion:Today()
+                }
+            
+            );
+            Navigate(Portada,ScreenTransition.Fade)
         Text: ="Confirmar Personas a Control de Gestión"
-        Visible: =true//IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion)
+        Visible: =IsBlank(LookUp(Lst_ConfirmacionManagersF30,ID=Value(Param("ID_Request"))).Fechaconfirmacion)&&!IsBlank(Param("ID_Request"))
         Width: =466
         X: =1379
         Y: =955
