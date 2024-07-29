@@ -81,8 +81,8 @@ ModuloPersonaV2 As screen:
         Height: =74
         Image: ='OddPreciousIndri-max-1mb'
         Width: =132
-        X: =320
-        Y: =102
+        X: =318
+        Y: =74
         ZIndex: =3
 
     Button2_8 As button:
@@ -147,7 +147,7 @@ ModuloPersonaV2 As screen:
         Text: ="En tu equipo hay " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Interno")) & " colaboradores internos y " & CountRows(Filter(Col_MiEquipoWalmart,'Interno/Externo' = "Externo")) & " colaboradores externos, que son de tu responsabilidad."
         Width: =1408
         X: =263
-        Y: =106
+        Y: =81
         ZIndex: =8
 
     Btn_AgregarExternos_2 As button:
@@ -172,7 +172,7 @@ ModuloPersonaV2 As screen:
         RadiusTopLeft: =20
         RadiusTopRight: =20
         Size: =14
-        Text: ="Agregar persona con cuenta"
+        Text: ="Agregar persona con cuenta WM"
         Tooltip: |
             =If(
                 Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
@@ -180,9 +180,9 @@ ModuloPersonaV2 As screen:
                 "Agregar Nueva Persona"
             )
         Visible: =_Var_ExternosPersonas
-        Width: =290
-        X: =1582
-        Y: =223
+        Width: =310
+        X: =1583
+        Y: =241
         ZIndex: =9
 
     Label19_5 As label:
@@ -1094,7 +1094,7 @@ ModuloPersonaV2 As screen:
             ZIndex: =26
 
     Btn_AgregarExternos_3 As button:
-        Fill: =RGBA(232, 46, 179, 1)
+        Fill: =RGBA(72, 163, 62, 1)
         HoverFill: =RGBA(255, 255, 255, 0.63)
         OnSelect: |
             =UpdateContext({_VarMostrarBarraBloqueo:true});
@@ -1117,7 +1117,7 @@ ModuloPersonaV2 As screen:
         RadiusTopLeft: =20
         RadiusTopRight: =20
         Size: =14
-        Text: ="Agregar persona "
+        Text: ="Crear persona"
         Tooltip: |
             =If(
                 Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
@@ -1127,17 +1127,8 @@ ModuloPersonaV2 As screen:
         Visible: =_Var_ExternosPersonas
         Width: =290
         X: =1268
-        Y: =227
+        Y: =241
         ZIndex: =18
-
-    ButtonCanvas1 As Button:
-        DisplayMode: =DisplayMode.Edit
-        Height: =32
-        OnSelect: =Set(_Var_ExternosPersonas,!_Var_ExternosPersonas)
-        Width: =96
-        X: =1135
-        Y: =235
-        ZIndex: =19
 
     ModalPersonas_CambioJefe As groupContainer.manualLayoutContainer:
         Fill: =RGBA(202, 202, 202, 0.78)
@@ -1367,6 +1358,66 @@ ModuloPersonaV2 As screen:
         X: =1379
         Y: =955
         ZIndex: =22
+
+    Txt_BuscadorPersona_4 As text:
+        BorderColor: =RGBA(53, 61, 63, 1)
+        Default: =""
+        Height: =1
+        HintText: ="Buscar Persona, Rol o Tipo"
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =1800
+        X: =95
+        Y: =200
+        ZIndex: =23
+
+    Btn_AgregarExternos_4 As button:
+        Fill: =If(!_Var_ExternosPersonas , RGBA(214, 221, 224, 1), RGBA(40, 134, 222, 1))
+        HoverFill: =RGBA(255, 255, 255, 0.63)
+        OnSelect: =Set(_Var_ExternosPersonas,true)
+        PaddingTop: =2.5
+        PressedFill: =RGBA(255, 255, 255, 0.68)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =14
+        Text: ="Ver Externos"
+        Tooltip: |
+            =If(
+                Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                "Agregar Nuevo Equipo",
+                "Agregar Nueva Persona"
+            )
+        Width: =290
+        X: =1583
+        Y: =160
+        ZIndex: =24
+
+    Btn_AgregarExternos_5 As button:
+        Fill: =If(_Var_ExternosPersonas , RGBA(214, 221, 224, 1), RGBA(40, 134, 222, 1))
+        HoverFill: =RGBA(255, 255, 255, 0.63)
+        OnSelect: =Set(_Var_ExternosPersonas,false)
+        PaddingTop: =2.5
+        PressedFill: =RGBA(255, 255, 255, 0.68)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =14
+        Text: ="Ver Internos"
+        Tooltip: |
+            =If(
+                Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
+                "Agregar Nuevo Equipo",
+                "Agregar Nueva Persona"
+            )
+        Width: =290
+        X: =1292
+        Y: =160
+        ZIndex: =25
 
     Gp_Buscador_1 As group:
         Height: =5
