@@ -1815,7 +1815,7 @@ ListadoProductoProyecto As screen:
                         );
                         Blank()
                     )*/
-                    ,Cmb_Equipo_2.SearchText,Equipo_x002f_Squad)
+                    ,Cmb_Equipo_2.SearchText,'Equipo/Squad')
                 SelectMultiple: =false
                 Width: =Txt_FondoForm1_65.Width - 27
                 X: =1495
@@ -3039,7 +3039,7 @@ ListadoProductoProyecto As screen:
             Y: =327
             ZIndex: =32
 
-        "InfoButtonCanvas3 As 'Information button'":
+        "InfoButtonCanvas3 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Dueño del registro APM para el producto o servicio. Este rol corresponde al PO."
             DisplayMode: =DisplayMode.Edit
@@ -3056,7 +3056,7 @@ ListadoProductoProyecto As screen:
             Y: =630
             ZIndex: =34
 
-        "InfoButtonCanvas3_1 As 'Information button'":
+        "InfoButtonCanvas3_1 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Corresponde al ID de producto creado en Roadmap de productos de Walmart. Con este identificador puede solicitar Budget (Cloud) y está asociado al APM entre otros."
             DisplayMode: =DisplayMode.Edit
@@ -3073,7 +3073,7 @@ ListadoProductoProyecto As screen:
             Y: =439
             ZIndex: =35
 
-        "InfoButtonCanvas3_2 As 'Information button'":
+        "InfoButtonCanvas3_2 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Indica donde esta implementada la solución o servicio, Cloud, On premise, SaaS."
             DisplayMode: =DisplayMode.Edit
@@ -3090,7 +3090,7 @@ ListadoProductoProyecto As screen:
             Y: =347
             ZIndex: =36
 
-        "InfoButtonCanvas3_3 As 'Information button'":
+        "InfoButtonCanvas3_3 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Corresponde al estado del registro del APM (Procucción, Piloto, Decomisado, entre otros)"
             DisplayMode: =DisplayMode.Edit
@@ -3107,7 +3107,7 @@ ListadoProductoProyecto As screen:
             Y: =347
             ZIndex: =37
 
-        "InfoButtonCanvas3_4 As 'Information button'":
+        "InfoButtonCanvas3_4 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Información del Host del producto , en caso del Install type es Cloud, este debe contener cual cloud (AWS, Azure, Google). Puede tener más de una optción, en caso de que sea un producto hibrido."
             DisplayMode: =DisplayMode.Edit
@@ -3124,7 +3124,7 @@ ListadoProductoProyecto As screen:
             Y: =535
             ZIndex: =38
 
-        "InfoButtonCanvas3_5 As 'Information button'":
+        "InfoButtonCanvas3_5 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Criticidad del producto, el valor más bajo es más crítico. SI es 0 o 1, implica que el producto es alta disponibilidad (impacto en Budget)."
             DisplayMode: =DisplayMode.Edit
@@ -3141,7 +3141,7 @@ ListadoProductoProyecto As screen:
             Y: =629
             ZIndex: =39
 
-        "InfoButtonCanvas3_6 As 'Information button'":
+        "InfoButtonCanvas3_6 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Que tan crítico el producto, y cuánto tiempo puede en producto no contar con la información disponible. 0 y 1 son los más críticos."
             DisplayMode: =DisplayMode.Edit
@@ -3158,7 +3158,7 @@ ListadoProductoProyecto As screen:
             Y: =727
             ZIndex: =40
 
-        "InfoButtonCanvas3_7 As 'Information button'":
+        "InfoButtonCanvas3_7 As 'Botón de información'":
             BasePaletteColor: =
             Content: ="Plan de Seguridad del producto. Más detalle lo pueden obtener en Infosec."
             DisplayMode: =DisplayMode.Edit
@@ -3503,7 +3503,7 @@ ListadoProductoProyecto As screen:
             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
             PressedFill: =RGBA(0, 121, 187, 1)
             SearchFields: =["Nombre_x0020_Producto_x002f_Proy"]
-            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,Nombre_x0020_Producto_x002f_Proy)
+            SearchItems: =Search(Filter(Col_BD_Portafolio,'Categoría Iniciativa'.Value = Dpd_FiltroProyeProd.Selected.Value),Cmb_FiltroNombre.SearchText,'Nombre Producto/Proyecto')
             SelectionFill: =RGBA(0, 121, 187, 1)
             SelectMultiple: =false
             Tooltip: =

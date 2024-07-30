@@ -1,0 +1,1567 @@
+Screen1 As screen:
+
+    Container5 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(106, 122, 127, 1)
+        BorderThickness: =2
+        Height: =805
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Width: =1893
+        X: =12
+        Y: =242
+        ZIndex: =25
+
+        Txt_FondoViaje_12 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =""
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =126
+            Y: =448
+            ZIndex: =5
+
+        Txt_Pry_NombreProyectoProducto_2 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Clear: =true
+            Default: |-
+                =//First(ProyectoSeleccionado).'Nombre Producto/Proyecto'
+                If(Left(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',5)="CL - ",Mid(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',6,100),
+                If(Left(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',4)="CL -",Mid(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',5,100),
+                If(Left(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',4)="CL- ",Mid(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',5,100),
+                If(Left(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',3)="CL-",Mid(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',4,100),
+                If(Left(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',3)="CL ",Mid(First(ProyectoSeleccionado).'Nombre Producto/Proyecto',4,100),First(ProyectoSeleccionado).'Nombre Producto/Proyecto')))))
+            DelayOutput: =true
+            DisplayMode: |
+                =DisplayMode.Edit
+            Height: =48
+            HoverFill: =Self.Fill
+            PaddingLeft: =40
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Reset: =ResetearControlPry
+            Tooltip: =
+            X: =122
+            Y: =167
+            ZIndex: =6
+
+        Lbl_Pry_NombreProducto_36 As label:
+            AutoHeight: =true
+            Color: |-
+                =    If(
+                        Txt_Pry_NombreProyectoProducto_2.Text = "NUEVO PROYECTO" Or
+                        IsBlank(Txt_Pry_NombreProyectoProducto_2.Text),
+                        Color.Red,
+                        RGBA(0, 0, 0, 1)
+                    )
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            PaddingLeft: =15
+            Text: |-
+                ="Nombre "&If(First(ProyectoSeleccionado).Iniciativa,"Iniciativa","Proyecto")&": "
+            Width: =287
+            X: =122
+            Y: =133
+            ZIndex: =11
+
+        Lbl_Pry_Viaje_3 As label:
+            AutoHeight: =true
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            OnSelect: =true
+            PaddingLeft: =15
+            Text: |-
+                ="Dominio:"
+            Width: =284
+            X: =126
+            Y: =416
+            ZIndex: =12
+
+        Lbl_Pry_Titulo_20 As label:
+            Color: =_VarColoresApp.AzulparaCabeceras
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            OnSelect: =
+            Size: =21
+            Text: |-
+                ="Gestión del programa:"
+            Width: =1041
+            X: =163
+            Y: =28
+            ZIndex: =21
+
+        Image8_30 As image:
+            Height: =56
+            Image: ='SP Gestión productos'
+            OnSelect: =
+            Width: =82
+            X: =97
+            Y: =31
+            ZIndex: =22
+
+        Icn_Abrir_Cerrar_Registro_Pry_8 As icon.ChevronDown:
+            Height: =42
+            Icon: |
+                =Icon.ChevronUp
+            OnSelect: |-
+                = /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                
+                Concurrent(
+                    UpdateContext({_VarMostrarCuadroBloqueo:false}),
+                    Set(_VarVerPopUpPortafolio,false),
+                    Set(ResetearControlPry,true)
+                );
+                If(Valor1 = "Proyecto",
+                Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
+                Navigate(ListadoIniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"})
+                );
+                
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,false)
+            Width: =44
+            X: =30
+            Y: =41
+            ZIndex: =23
+
+        Pry_LineaSeparadora_12 As rectangle:
+            Fill: =RGBA(179, 179, 179, 1)
+            Height: =1
+            OnSelect: =
+            Width: =1780
+            X: =113
+            Y: =113
+            ZIndex: =24
+
+        Pry_Separador0_7 As rectangle:
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =580
+            Width: =2
+            X: =96
+            Y: =113
+            ZIndex: =25
+
+        Label7_6 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Size: =10
+            Text: ="No olvides guardar toda la información del programa."
+            Width: =773
+            X: =163
+            Y: =74
+            ZIndex: =26
+
+        Txt_FondoNegocio_4 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =""
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =126
+            Y: =637
+            ZIndex: =42
+
+        Cmb_Gl_Sponsor_2 As combobox:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                ={
+                        DisplayName: LookUp(
+                            Lst_Persona,
+                            Usuario = First(ProyectoSeleccionado).ID_Sponsor,
+                            Nombre_Persona
+                        )
+                    }
+            DefaultSelectedItems: |-
+                =If(
+                    IsBlank( First(ProyectoSeleccionado).ID_Sponsor),
+                    Blank(),
+                    If(
+                        !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Sponsor)),
+                        Table(
+                        {
+                            DisplayName: LookUp(
+                                Lst_Persona,
+                                Usuario = First(ProyectoSeleccionado).ID_Sponsor,
+                                Nombre_Persona
+                            )
+                        }
+                    ),
+                        Table(
+                            {
+                                DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Sponsor})).DisplayName
+                            }
+                        )
+                    )
+                )
+            DisplayFields: =["DisplayName","Email","Picture"]
+            Height: =Txt_FondoNegocio_4.Height - 10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            InputTextPlaceholder: ="Buscar responsable"
+            Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+            OnSelect: =
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Reset: =ResetearControlPry
+            SearchFields: =["Claims"]
+            SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_Sponsor_2.SearchText)
+            SelectMultiple: =false
+            Template: =ListItemTemplate.Person
+            Width: =Txt_FondoNegocio_4.Width - 27
+            X: =141
+            Y: =643
+            ZIndex: =43
+
+        Lbl_Gl_Negocio_5 As label:
+            AutoHeight: =true
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            Text: |-
+                ="Sponsor:"
+            Width: =239
+            X: =126
+            Y: =603
+            ZIndex: =44
+
+        Txt_FondoTipoProyecto_7 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =""
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =507
+            Y: =254
+            ZIndex: =45
+
+        Lbl_Pry_Tipo_7 As label:
+            AutoHeight: =true
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            PaddingLeft: =15
+            Text: |-
+                ="Objetivo Estrategico:"
+            Width: =253
+            X: =507
+            Y: =220
+            ZIndex: =46
+
+        Txt_FondoSubViaje_15 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =""
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =507
+            Y: =163
+            ZIndex: =47
+
+        Lbl_Pry_SubViaje_6 As label:
+            AutoHeight: =true
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            PaddingLeft: =15
+            Text: |-
+                ="Prioridad estrategica:"
+            Width: =280
+            X: =507
+            Y: =132
+            ZIndex: =48
+
+        Lbl_Gl_Negocio_6 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            OnSelect: =
+            Text: |-
+                ="SPA:"
+            Width: =226
+            X: =520
+            Y: =326
+            ZIndex: =49
+
+        Txt_FondoSubViaje_16 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =First(ProyectoSeleccionado).Descripcion_Proyecto
+            DisabledFill: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =155
+            Mode: =TextMode.MultiLine
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =121
+            Y: =253
+            ZIndex: =50
+
+        Gp_Pry_Menu_8 As group:
+            Height: =5
+            Width: =5
+            X: =-11
+            Y: =-232
+            ZIndex: =51
+
+            Img_Pry_Portafolio_8 As image:
+                Height: =50
+                Image: ='Icn_gestionar 01'
+                OnSelect: =
+                Width: =50
+                X: =27
+                Y: =173
+                ZIndex: =3
+
+            Btn_Pry_Portafolio_8 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                Fill: |
+                    =RGBA(222, 154, 237, 0.22)
+                Height: =60
+                HoverColor: =RGBA(222, 154, 237, 0.22)
+                HoverFill: =
+                OnSelect: |-
+                    =/*
+                    UpdateContext({_VarVerProductoProyecto:true});;
+                    //UpdateContext({_VarVerDependencia:false});;
+                    UpdateContext({_VarVerKpi:false});;
+                    //UpdateContext({_VarVerDetalleKPI:false});;
+                    UpdateContext({_VarVerFinanciamiento:false});;
+                    */
+                PressedFill: =RGBA(222, 154, 237, 0.22)
+                Size: =25
+                Text: =""
+                Tooltip: ="Gestionar Producto / Proyecto"
+                Width: =60
+                X: =22
+                Y: =167
+                ZIndex: =20
+
+        Lbl_Pry_SubViaje_7 As label:
+            AutoHeight: =true
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =
+            PaddingLeft: =15
+            Text: |-
+                ="Descripción:"
+            Width: =280
+            X: =121
+            Y: =222
+            ZIndex: =52
+
+        Dpd_Pry_ObjeEstr_1 As combobox:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                ={
+                        DisplayName: LookUp(
+                            Lst_Persona,
+                            Usuario = First(ProyectoSeleccionado).ID_Sponsor,
+                            Nombre_Persona
+                        )
+                    }
+            DefaultSelectedItems: =Filter(Lst_Plan_Objetivos,ID=Value(First(ProyectoSeleccionado).Objetivo_Estrategico))
+            DisplayFields: =["NombreObjetivo"]
+            Height: =Txt_FondoSubViaje_15.Height - 10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            InputTextPlaceholder: =
+            IsSearchable: =false
+            Items: =Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate_1.Selected.ID),AnnoObjetivo="2024")
+            OnSelect: =
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Reset: =ResetearControlPry
+            SearchFields: =["NombreObjetivo"]
+            SearchItems: =Search(Filter(Lst_Plan_Objetivos,IDPrioridad=Text(Dpd_Pry_PrioriEstrate_1.Selected.ID),AnnoObjetivo="2024"),Dpd_Pry_ObjeEstr_1.SearchText,NombreObjetivo)
+            SelectMultiple: =false
+            Width: =Txt_FondoSubViaje_15.Width - 27
+            X: =520
+            Y: =258
+            ZIndex: =53
+
+        Dpd_Pry_PrioriEstrate_1 As combobox:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: =Filter(Lst_Plan_Prioridad,ID=Value(First(ProyectoSeleccionado).Prioridad_Estrategica))
+            DisplayFields: =["NombrePrioridad"]
+            Height: =Txt_FondoSubViaje_15.Height - 10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            InputTextPlaceholder: =
+            IsSearchable: =false
+            Items: =Filter(Lst_Plan_Prioridad,AnnoPrioridad="2024")
+            OnSelect: =
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Reset: =ResetearControlPry
+            SearchFields: =["AnnoPrioridad"]
+            SearchItems: =Search(Filter(Lst_Plan_Prioridad,AnnoPrioridad="2024"),Dpd_Pry_PrioriEstrate_1.SearchText,AnnoPrioridad)
+            SelectMultiple: =false
+            Width: =Txt_FondoSubViaje_15.Width - 27
+            X: =520
+            Y: =168
+            ZIndex: =54
+
+        Dpd_Pry_Dominio_2 As combobox:
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            DefaultSelectedItems: =Filter(Col_BD_Dominios , IDDominio = First(ProyectoSeleccionado).IDDominio)
+            DisplayFields: =["Title"]
+            Height: =Txt_FondoNegocio_4.Height - 10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            InputTextPlaceholder: ="Buscar responsable"
+            IsSearchable: =false
+            Items: |-
+                =Sort(Filter(Col_BD_Dominios,IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63"),Title,SortOrder.Ascending)
+                
+                //Sort(Search(Filter(Col_BD_Dominios;IDGerencias = "Ger-355B1687-6EA9-89B5-55E1-C5408DE50A63");"Dominio";IDDominio);Title;SortOrder.Ascending)
+            OnSelect: =
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Reset: =ResetearControlPry
+            SearchFields: =["Title"]
+            SearchItems: =[]
+            SelectMultiple: =false
+            Width: =Txt_FondoNegocio_4.Width - 27
+            X: =141
+            Y: =454
+            ZIndex: =55
+
+        Rd_Pry_SGP_1 As radio:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Default: =If( First(ProyectoSeleccionado).SGP, "SI","NO")
+            Height: =50
+            Items: =["NO","SI"]
+            Layout: =Layout.Horizontal
+            OnSelect: =
+            RadioSize: =25
+            Reset: =ResetearControlPry
+            Width: =168
+            X: =514
+            Y: =358
+            ZIndex: =57
+
+        Txt_FondoPOJP_19 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =""
+            DisabledFill: |
+                =If(
+                    Chk_AplicaPO_1.Checked,
+                    RGBA(244, 244, 244, 1),
+                    Color.White
+                    )
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            X: =126
+            Y: =541
+            ZIndex: =58
+
+        Gp_Pry_11 As group:
+            Height: =5
+            Width: =5
+            X: =-11
+            Y: =-232
+            ZIndex: =58
+
+            Rd_Pry_RegistradoenAPM_2 As radio:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Default: =First(ProyectoSeleccionado).'Registrado en APM'.Value
+                Height: =50
+                Items: =["NO","SI"]
+                Layout: =Layout.Horizontal
+                OnSelect: =
+                RadioSize: =25
+                Reset: =ResetearControlPry
+                Width: =188
+                X: =507
+                Y: =451
+                ZIndex: =7
+
+            Txt_Pry_NombreAPM_4 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: |+
+                    =If(
+                        Rd_Pry_RegistradoenAPM_2.Selected.Value = "SI",
+                        First(ProyectoSeleccionado).'Nombre APM',
+                        ""
+                    )
+                    
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        Rd_Pry_RegistradoenAPM_2.Selected.Value = "SI",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =50
+                HoverBorderColor: =RGBA(128, 128, 128, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =10
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Reset: =ResetearControlPry
+                Tooltip: =
+                Visible: |-
+                    =true
+                    //Rd_RegistradoenAPM_2.Selected.Value = "SI"
+                X: =507
+                Y: =542
+                ZIndex: =8
+
+            Txt_Pry_CodigoAPM_2 As text:
+                BorderColor: =RGBA(128, 128, 128, 1)
+                BorderThickness: =3
+                Default: |+
+                    =If(
+                        Rd_Pry_RegistradoenAPM_2.Selected.Value = "SI",
+                        First(ProyectoSeleccionado).'Codigo APM',
+                        ""
+                    )
+                    
+                DelayOutput: =true
+                DisplayMode: |-
+                    =If(
+                        Rd_Pry_RegistradoenAPM_2.Selected.Value = "SI",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =50
+                HoverBorderColor: =RGBA(128, 128, 128, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =10
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Reset: =ResetearControlPry
+                Tooltip: =
+                Visible: |-
+                    =true
+                    //Rd_RegistradoenAPM_2.Selected.Value = "SI"
+                X: =507
+                Y: =637
+                ZIndex: =9
+
+            Lbl_Pry_RegistradoenApm_2 As label:
+                AutoHeight: =true
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Text: |-
+                    ="Registrado en APM:"
+                Width: =188
+                X: =507
+                Y: =419
+                ZIndex: =14
+
+            Lbl_Pry_NombreApm_5 As label:
+                AutoHeight: =true
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Text: |-
+                    ="Nombre APM:"
+                Visible: |-
+                    =true
+                    //Rd_RegistradoenAPM_2.Selected.Value = "SI"
+                Width: =287
+                X: =507
+                Y: =509
+                ZIndex: =15
+
+            Lbl_Pry_CodigoApm_2 As label:
+                AutoHeight: =true
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =
+                Text: |-
+                    ="Codigo APM:"
+                Visible: |-
+                    =true
+                    //Rd_RegistradoenAPM_2.Selected.Value = "SI"
+                Width: =287
+                X: =507
+                Y: =603
+                ZIndex: =16
+
+        Lbl_Gl_PoJp_3 As label:
+            AutoHeight: =true
+            Color: |-
+                =If(
+                    IsBlank(Cmb_Gl_JefeProyecto_3.Selected.DisplayName),
+                    Color.Red,
+                    RGBA(0, 0, 0, 1)
+                )
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            Text: |-
+                =If(First(ProyectoSeleccionado).Iniciativa,"Responsable:","PO / JP:")
+            Width: =239
+            Wrap: =false
+            X: =126
+            Y: =509
+            ZIndex: =59
+
+        Cmb_Gl_JefeProyecto_3 As combobox:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledFill: =RGBA(116, 116, 116, 1)
+            ChevronFill: =RGBA(0, 121, 187, 1)
+            ChevronHoverBackground: =RGBA(0, 121, 187, 1)
+            Default: |-
+                ={
+                        DisplayName: LookUp(
+                            Lst_Persona,
+                            Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                            Nombre_Persona
+                        )
+                    }
+            DefaultSelectedItems: |-
+                =If(
+                    IsBlank( First(ProyectoSeleccionado).ID_Jefe_Poyecto),
+                    Blank(),
+                    If(
+                        !IsBlank(LookUp(Lst_Persona,Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto)),
+                        Table(
+                        {
+                            DisplayName: LookUp(
+                                Lst_Persona,
+                                Usuario = First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                Nombre_Persona
+                            )
+                        }
+                    ),
+                        Table(
+                            {
+                                DisplayName: First(UsuariosdeOffice365.SearchUser({searchTerm: First(ProyectoSeleccionado).ID_Jefe_Poyecto})).DisplayName
+                            }
+                        )
+                    )
+                )
+            DisplayFields: =["DisplayName","Email","Picture"]
+            DisplayMode: |-
+                =If(
+                    Chk_AplicaPO_1.Checked,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =Txt_FondoPOJP_19.Height -10
+            HoverBorderColor: =RGBA(0, 121, 187, 1)
+            InputTextPlaceholder: ="Buscar PO/JP"
+            Items: =Choices([@Lst_Persona].BuscarNombrePersona)
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PressedFill: =RGBA(0, 121, 187, 1)
+            Reset: =ResetearControlPry
+            SearchFields: =["Claims"]
+            SearchItems: =Choices(Lst_Persona.BuscarNombrePersona,Cmb_Gl_JefeProyecto_3.SearchText)
+            SelectionFill: =RGBA(0, 121, 187, 1)
+            SelectMultiple: =false
+            TabIndex: =6
+            Template: =ListItemTemplate.Person
+            Tooltip: =
+            Width: |
+                =Txt_FondoPOJP_19.Width - 27
+            X: =141
+            Y: =546
+            ZIndex: =60
+
+        Icn_Pry_Guardar_12 As icon.CheckBadge:
+            Color: =RGBA(54, 176, 75, 1)
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisplayMode: |-
+                = If(PermisoUsuario.Mantenedor,
+                    If( 
+                    Txt_Pry_NombreProyectoProducto_1.Text =  "NUEVA INICIATIVA" Or
+                    IsBlank(Cmb_Gl_JefeProyecto_1.Selected.DisplayName),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                ),
+                 
+                
+                            If(
+                                Txt_Pry_NombreProyectoProducto_1.Text = "NUEVO PROYECTO" Or
+                                IsBlank(Txt_Pry_NombreProyectoProducto_1.Text)Or
+                                IsBlank(Dpd_Pry_Dominio_1.Selected.IDDominio) Or
+                                //IsBlank(Cmb_Gl_Equipo_1.Selected.IDEquipo) Or
+                                IsBlank(Cmb_Gl_JefeProyecto_1.Selected.DisplayName)Or
+                                Icn_ValidarNombre_1.Visible Or
+                                //Dpd_Pry_TamanoPry.Selected.Value = "Seleccionar Tamaño" Or
+                                Dpd_Pry_TipoPry_1.Selected.Value = "Seleccionar Tipo" ,
+                                DisplayMode.Disabled,
+                                DisplayMode.Edit
+                            )
+                            
+                
+                 )
+                /*
+                If(
+                    Rd_RequiereFinanciamiento_2.Selected.Value = "SI";
+                    If(
+                        IsBlank(Txt_NombreProyectoProducto_3) Or
+                        Txt_NombreProyectoProducto_3.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_BBB_2.SelectedItems.Value) Or
+                        IsBlank(Dpd_Dominio_3.SelectedText) Or 
+                        IsBlank(Rd_LeverageWM_4.Selected.Value) Or 
+                        IsBlank(Rd_RegistradoenAPM_2.Selected.Value) Or 
+                        IsBlank(Rd_ProvieneOA_2.Selected.Value) Or
+                        IsBlank(Rd_RequiereFinanciamiento_2.Selected.Value) Or
+                        IsBlank(Cmb_JefeProyecto_3.Selected.DisplayName);
+                        DisplayMode.Disabled;
+                        DisplayMode.Edit
+                    );
+                    If(
+                        IsBlank(Txt_NombreProyectoProducto_3) Or
+                        Txt_NombreProyectoProducto_3.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_BBB_2.SelectedItems.Value) Or
+                        IsBlank(Dpd_Dominio_3.SelectedText) Or 
+                        IsBlank(Rd_LeverageWM_4.Selected.Value) Or 
+                        IsBlank(Rd_RegistradoenAPM_2.Selected.Value) Or 
+                        IsBlank(Rd_ProvieneOA_2.Selected.Value) Or
+                        IsBlank(Rd_RequiereFinanciamiento_2.Selected.Value) Or
+                        (Dpd_DetalleMotivo_2.Selected.Value = "Seleccionar Motivo") Or
+                        IsBlank(Cmb_JefeProyecto_3.Selected.DisplayName);
+                        DisplayMode.Disabled;
+                        DisplayMode.Edit
+                    )
+                )
+                */
+            Height: =45
+            Icon: =Icon.CheckBadge
+            OnSelect: |-
+                =/*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                Set(IDRegistro,
+                    Patch(
+                        'Dominio - Proyecto/Producto',
+                        If(
+                            IsBlank(LookUp('Dominio - Proyecto/Producto', IDProducto = First(ProyectoSeleccionado).IDProducto)),
+                            Defaults('Dominio - Proyecto/Producto'),
+                            LookUp('Dominio - Proyecto/Producto', IDProducto = First(ProyectoSeleccionado).IDProducto)
+                        ),
+                        {
+                            'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
+                            IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio ,
+                            IDProducto:  First(ProyectoSeleccionado).IDProducto,	
+                            IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
+                            'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
+                            Discovery:  If( Rd_Pry_Discovery.Selected.Value = "SI",true,false) ,
+                            SGP:If( Rd_Pry_SGP.Selected.Value = "SI",true,false) ,		
+                            'Registrado en APM': Rd_Pry_RegistradoenAPM_1.Selected ,		
+                            'Nombre APM': Txt_Pry_NombreAPM_1.Text ,		
+                            'Codigo APM': Txt_Pry_CodigoAPM_1.Text,		
+                
+                            //'Nombre Necesidad':  If(Rd_Pry_ProvieneOA_1.Selected.Value = "SI";Dpd_Pry_NombreNecesidad_1.Selected.Nombre_x0020_de_x0020_Necesidad;""); 	
+                            //'Leverage con WM Internacional (BTV)': Rd_Pry_LeverageWM.Selected ;
+                            TipoProyecto: Dpd_Pry_TipoPry_1.Selected.Value,
+                            //Tamano: Dpd_Pry_TamanoPry.Selected.Value;				
+                            RequiereFinanciamiento:  Rd_Pry_RequiereFinanciamiento_1.Selected.Value ,								
+                            ID_Jefe_Poyecto:
+                            If(
+                                Chk_AplicaPO_1.Checked,
+                                Blank(),   
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_JefeProyecto_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),		
+                            ID_Responsable_Tecnologia:
+                            If(
+                                Chk_AplicaEM_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_ResponsableNegocio:
+                            If(
+                                Chk_AplicaNegocio_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Negocio_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_ResponsableNegocio,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Negocio_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_Sponsor:
+                            Upper(
+                                If( 
+                                    IsBlank(Cmb_Gl_Sponsor_1.Selected.Claims)
+                                    ,First(ProyectoSeleccionado).ID_Sponsor,
+                                    Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Sponsor_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)),
+                            ID_Datos:
+                             If(
+                                Chk_AplicaDatos_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Datos_1.Selected.Claims),
+                                        First(ProyectoSeleccionado).ID_Datos,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Datos_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                             ),
+                            ID_Ux:
+                            If(
+                                Chk_AplicaUx_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Ux_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Ux,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Ux_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            AplicaJefeProyecto: Chk_AplicaPO_1.Checked,    
+                            AplicaEM: Chk_AplicaEM_1.Checked,  
+                            AplicaNegocio: Chk_AplicaNegocio_1.Checked,  
+                            AplicaDatos: Chk_AplicaDatos_1.Checked,  
+                            AplicaUx: Chk_AplicaUx_1.Checked,      
+                            Estado_Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,Dpd_Gl_EstadoProductoProyecto.Selected.Value,""),
+                            Estado:If(First(ProyectoSeleccionado).Estado="Finalizado" , "Finalizado",
+                                    If(First(ProyectoSeleccionado).Estado="Solicitud de finalización" || Dpd_Gl_EstadoProductoProyecto.Selected.Value ="Finalizado","Solicitud de finalización",
+                                    Dpd_Gl_EstadoProductoProyecto.Selected.Value)),
+                            'Bring Buy Build': Cmb_Pry_BBB_1.SelectedItems,
+                            LabelJira:  Txt_Pry_LabelJira_2.Text,
+                            //BigRock:If( Rd_Pry_BigRock.Selected.Value = "SI";true;false);
+                            //MatrizStakeholders: Rd_Gl_MatrizStakeholders.Selected.Value;
+                           // LinkDocumentario: If( !IsBlank(Txt_Gl_LinkDocumentario.Text); Lower(If( ( Lower(Left(Txt_Gl_LinkDocumentario.Text;8)) = "https://" ||  Lower(Left(Txt_Gl_LinkDocumentario.Text;7)) = "http://");Txt_Gl_LinkDocumentario.Text;"https://" & Txt_Gl_LinkDocumentario.Text));"");
+                            FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                            ComentariosGolive: Txt_Gl_ComentarioGolive.Text,
+                            ComoVamos: Txt_Gl_ComoVamos.Text,
+                            FechaUltimoEstado: If( 		
+                                Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado",		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                ),		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_EstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                )		
+                	            ),
+                            AreadeImpacto: Dpd_Pry_AreadeImpacto.Selected.Value,
+                            //-------Campos Iniciativa-----
+                            Descripcion_Proyecto:Txt_FondoSubViaje_14.Text,
+                            Prioridad_Estrategica:Dpd_Pry_PrioriEstrate.Selected.ID,
+                            Objetivo_Estrategico:Dpd_Pry_ObjeEstr.Selected.ID,
+                            Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,true,First(ProyectoSeleccionado).Iniciativa)
+                
+                        }
+                    ).ID
+                );
+                
+                    /* Gestion de Errores */
+                    ClearCollect(Col_ErroresGuardarProyecto, Errors('Dominio - Proyecto/Producto',First(ProyectoSeleccionado)));
+                    If(
+                        IsEmpty(Col_ErroresGuardarProyecto),
+                        Patch(
+                        Col_DominiosGestion,
+                            If(
+                                IsBlank(LookUp(Col_DominiosGestion, IDProducto = First(ProyectoSeleccionado).IDProducto)),
+                                Defaults(Col_DominiosGestion),
+                                LookUp(Col_DominiosGestion, IDProducto = First(ProyectoSeleccionado).IDProducto)
+                            ),
+                            {
+                            'Categoría Iniciativa': {Value:Dpd_Pry_ProductoProyecto_1.Selected.Value},
+                            IDDominio: Dpd_Pry_Dominio_1.Selected.IDDominio,
+                            IDProducto:  First(ProyectoSeleccionado).IDProducto,	
+                            IDEquipo:  Cmb_Gl_Equipo_1.Selected.IDEquipo,	
+                            'Nombre Producto/Proyecto': "CL - "&Txt_Pry_NombreProyectoProducto_1.Text,		
+                            Discovery:  If( Rd_Pry_Discovery.Selected.Value = "SI",true,false),	
+                            SGP:If( Rd_Pry_SGP.Selected.Value = "SI",true,false),		
+                            'Registrado en APM': Rd_Pry_RegistradoenAPM_1.Selected,		
+                            'Nombre APM': Txt_Pry_NombreAPM_1.Text,		
+                            'Codigo APM': Txt_Pry_CodigoAPM_1.Text,		
+                            //'Nombre Necesidad':  If(Rd_Pry_ProvieneOA_1.Selected.Value = "SI";Dpd_Pry_NombreNecesidad_1.Selected.Nombre_x0020_de_x0020_Necesidad;""); 	
+                            //'Leverage con WM Internacional (BTV)': Rd_Pry_LeverageWM.Selected ;
+                            TipoProyecto: Dpd_Pry_TipoPry_1.Selected.Value,
+                            //Tamano: Dpd_Pry_TamanoPry.Selected.Value;				
+                            RequiereFinanciamiento:  Rd_Pry_RequiereFinanciamiento_1.Selected.Value ,								
+                            ID_Jefe_Poyecto:
+                            If(
+                                Chk_AplicaPO_1.Checked,
+                                Blank(),   
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Jefe_Poyecto,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_JefeProyecto_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),		
+                            ID_Responsable_Tecnologia:
+                            If(
+                                Chk_AplicaEM_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Responsable_Tecnologia,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_ResponsableTecnologia_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_ResponsableNegocio:
+                            If(
+                                Chk_AplicaNegocio_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Negocio_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_ResponsableNegocio,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Negocio_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            ID_Sponsor:
+                            Upper(
+                                If( 
+                                    IsBlank(Cmb_Gl_Sponsor_1.Selected.Claims)
+                                    ,First(ProyectoSeleccionado).ID_Sponsor,
+                                    Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Sponsor_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result)),
+                            ID_Datos:
+                             If(
+                                Chk_AplicaDatos_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Datos_1.Selected.Claims),
+                                        First(ProyectoSeleccionado).ID_Datos,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Datos_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                             ),
+                            ID_Ux:
+                            If(
+                                Chk_AplicaUx_1.Checked,
+                                Blank(), 
+                                Upper(
+                                    If( 
+                                        IsBlank(Cmb_Gl_Ux_1.Selected.Claims)
+                                        ,First(ProyectoSeleccionado).ID_Ux,
+                                        Last(ForAll(Split(First(ForAll(Split(Cmb_Gl_Ux_1.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result))
+                            ),
+                            AplicaJefeProyecto: Chk_AplicaPO_1.Checked,    
+                            AplicaEM: Chk_AplicaEM_1.Checked,  
+                            AplicaNegocio: Chk_AplicaNegocio_1.Checked,  
+                            AplicaDatos: Chk_AplicaDatos_1.Checked,  
+                            AplicaUx: Chk_AplicaUx_1.Checked,      
+                            Estado_Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,Dpd_Gl_EstadoProductoProyecto.Selected.Value,""),
+                            Estado:If(First(ProyectoSeleccionado).Estado="Finalizado" , "Finalizado",
+                                    If(First(ProyectoSeleccionado).Estado="Solicitud de finalización" || Dpd_Gl_EstadoProductoProyecto.Selected.Value ="Finalizado","Solicitud de finalización",
+                                    Dpd_Gl_EstadoProductoProyecto.Selected.Value)),
+                            'Bring Buy Build': Cmb_Pry_BBB_1.SelectedItems,
+                            LabelJira:  Txt_Pry_LabelJira_2.Text,
+                            //BigRock:If( Rd_Pry_BigRock.Selected.Value = "SI";true;false);
+                            //MatrizStakeholders: Rd_Gl_MatrizStakeholders.Selected.Value;
+                           // LinkDocumentario: If( !IsBlank(Txt_Gl_LinkDocumentario.Text); Lower(If( ( Lower(Left(Txt_Gl_LinkDocumentario.Text;8)) = "https://" ||  Lower(Left(Txt_Gl_LinkDocumentario.Text;7)) = "http://");Txt_Gl_LinkDocumentario.Text;"https://" & Txt_Gl_LinkDocumentario.Text));"");
+                            FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                            ComentariosGolive: Txt_Gl_ComentarioGolive.Text,
+                            ComoVamos: Txt_Gl_ComoVamos.Text,
+                            FechaUltimoEstado: If( 		
+                                Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado",		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                ),		
+                	                If(		
+                	                    First(ProyectoSeleccionado).Estado <> Dpd_Gl_EstadoProductoProyecto.Selected.Value,		
+                	                    Text(Today(),"dd/MM/yyyy"),		
+                	                    First(ProyectoSeleccionado).FechaUltimoEstado		
+                	                )		
+                	            ),
+                            AreadeImpacto: Dpd_Pry_AreadeImpacto.Selected.Value,
+                            //-------Campos Iniciativa-----
+                            Descripcion_Proyecto:Txt_FondoSubViaje_14.Text,
+                            Prioridad_Estrategica:Dpd_Pry_PrioriEstrate.Selected.ID,
+                            Objetivo_Estrategico:Dpd_Pry_ObjeEstr.Selected.ID,
+                            Iniciativa:If(First(ProyectoSeleccionado).Iniciativa,true,First(ProyectoSeleccionado).Iniciativa)
+                
+                        }
+                    );
+                
+                    //Guardar el Historial de GoLive
+                    If(
+                        !(First(ProyectoSeleccionado).FechaGolive = Dtp_Gl_FechaGolive.SelectedDate) && !(First(ProyectoSeleccionado).ComentariosGolive = Txt_Gl_ComentarioGolive.Text),
+                        Patch(
+                            Lst_HistoricoGoLive,
+                            Defaults(Lst_HistoricoGoLive),
+                            {
+                                IDProducto: First(ProyectoSeleccionado).IDProducto,
+                                FechaGolive: Dtp_Gl_FechaGolive.SelectedDate,
+                                ComentarioGoLive: Txt_Gl_ComentarioGolive.Text,
+                                Version: _VarVersionGoLive +1
+                            }
+                        )
+                    );
+                
+                    //Guardar el Historial de ComoVamos
+                    If(
+                        !(First(ProyectoSeleccionado).ComoVamos = Txt_Gl_ComoVamos.Text) && !IsBlank(Txt_Gl_ComoVamos.Text),
+                        Patch(
+                            Lst_HistorialComoVamos,
+                            Defaults(Lst_HistorialComoVamos),
+                            {
+                                IDProducto: First(ProyectoSeleccionado).IDProducto,
+                                FechaRegistro: Today(),
+                                ComoVamos: Txt_Gl_ComoVamos.Text,
+                                Estado: If( Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Ejecución" || Dpd_Gl_EstadoProductoProyecto.Selected.Value = "Descontinuado" ,Dpd_Gl_SubEstadoProductoProyecto.Selected.Value,Dpd_Gl_EstadoProductoProyecto.Selected.Value),
+                                Version: _VarVersionComoVamos +1
+                            }
+                        )
+                    );
+                        
+                            Patch(
+                                Lst_LabelsJira,
+                                If(
+                                    IsBlank(LookUp( Lst_LabelsJira, CodigoAsociado = First(ProyectoSeleccionado).IDProducto)),
+                                    Defaults(Lst_LabelsJira),
+                                    LookUp( Lst_LabelsJira, CodigoAsociado = First(ProyectoSeleccionado).IDProducto)
+                                ),
+                                {
+                                    Herramienta: "Bind",
+                                    CodigoAsociado: First(ProyectoSeleccionado).IDProducto,
+                                    EtiquetaJira: If( Dpd_Pry_ProductoProyecto.Selected.Value = "Proyecto Tecnológico","cl_pry","cl_prd"),
+                                    //Epica: Txt_CodigoJira.Text;
+                                    LabelJira: Txt_Pry_LabelJira_2.Text
+                                }
+                            );
+                            /*----------------------------------------------------------*/
+                        Refresh('Dominio - Proyecto/Producto');
+                        ClearCollect(Col_BD_Portafolio, 'Dominio - Proyecto/Producto');
+                        Refresh(Lst_HistorialComoVamos);
+                        
+                        /*If(
+                            !(First(ProyectoSeleccionado).Estado = Dpd_EstadoProductoProyecto_2.Selected.Value) || !(First(ProyectoSeleccionado).'Categoría Iniciativa'.Value = Dpd_Pry_ProductoProyecto.Selected.Value);
+                            ClearCollect(Col_DominiosGestion; Filter(Col_BD_Portafolio; IDDominio in Col_IDDOminios.IDDominio));;
+                            UpdateContext({_VarMostrarCuadroBloqueo:false})
+                            
+                        );;*/
+                        
+                        If(
+                            First(ProyectoSeleccionado).'Nombre Producto/Proyecto' = "NUEVO PROYECTO",
+                            Notify("Se guardo correctamente el proyecto.",NotificationType.Success,10000),
+                            Notify("Se actualizo correctamente el la información del proyecto.",NotificationType.Success,10000)
+                        );
+                
+                        // Cargar nuevamente la coleccion del proyecto Seleccionado
+                        ClearCollect(ProyectoSeleccionado, LookUp('Dominio - Proyecto/Producto',ID = IDRegistro))
+                        
+                        , // En caso tire algun error
+                        
+                        Patch(Lst_GestionErrores,
+                        Defaults(Lst_GestionErrores),
+                            {
+                                Modulo: "Proyecto", 
+                                Usuario: _Perfil.displayName, 
+                                FechaError: Today(), 
+                                MensajeError:First(Col_ErroresGuardarProyecto).Message, 
+                                IDError: First(Col_ErroresGuardarProyecto).Error, 
+                                HoraError: Hour(Now()) & ":" & Minute(Now()), 
+                                CampoError: First(Col_ErroresGuardarProyecto).Column
+                            }
+                        );
+                        Notify(First(Col_ErroresGuardarProyecto).Message,NotificationType.Error,4000)
+                    );
+                    
+                /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,false)
+                /* ------------------ */
+            Tooltip: ="Guardar Datos del Proyecto"
+            Visible: |-
+                =If(
+                        First(ProyectoSeleccionado).FechaGolive = Dtp_Gl_FechaGolive.SelectedDate,
+                        true,
+                        If(
+                            CountRows(Filter(Lst_HistoricoGoLive,IDProducto = First(ProyectoSeleccionado).IDProducto))=0,
+                            true,
+                            If(
+                                IsBlank(Txt_Gl_ComentarioGolive.Text),
+                                false,
+                                true
+                            )
+                        )
+                    )
+            Width: =50
+            X: =1762
+            Y: =742
+            ZIndex: =61
+
+        Icn_Pry_Cancelar_12 As icon.CancelBadge:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =45
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =/*
+                Reset(Txt_Pry_NombreProyectoProducto);;
+                Reset(Cmb_Pry_BBB);;
+                Reset(Dpd_Pry_Dominio);;
+                Reset(Rd_Pry_LeverageWM);;
+                Reset(Rd_Pry_RegistradoenAPM);;
+                Reset(Rd_Pry_ProvieneOA);;
+                Reset(Rd_Pry_RequiereFinanciamiento);;
+                Reset(Cmb_Gl_JefeProyecto);;
+                //Reset(Txt_CodigoJira);;
+                Reset(Cmb_Gl_Equipo);;
+                Reset(Txt_Pry_NombreAPM);;
+                Reset(Txt_Pry_CodigoAPM);;
+                Reset(Dpd_Pry_NombreNecesidad);;
+                Reset(Dpd_Pry_DetalleMotivo);;
+                */
+                Set(ResetearControlPry,true);
+                
+                Clear(ProyectoSeleccionado);
+                If(Valor1="Proyecto",
+                Navigate(ListadoProductoProyecto,ScreenTransition.Fade,{Valor:"Proyecto"}),
+                Navigate(ListadoIniciativas,ScreenTransition.Fade,{Valor:"Iniciativa"})
+                );
+            Tooltip: ="Limpiar Controles"
+            Width: =50
+            X: =1823
+            Y: =742
+            ZIndex: =62
+
+        Pry_Msj_Validacion_9 As label:
+            Align: =Align.Right
+            Color: |-
+                =If(
+                    Rd_Pry_RequiereFinanciamiento_1.Selected.Value = "SI",
+                    If(
+                        Txt_Pry_NombreProyectoProducto_1.Text = "NUEVO PROYECTO" Or
+                        IsBlank(Txt_Pry_NombreProyectoProducto_1.Text)Or
+                        IsBlank(Dpd_Pry_Dominio_1.Selected.IDDominio)Or
+                        IsBlank(Cmb_Gl_Equipo_1.Selected.IDEquipo)Or
+                        //Dpd_Pry_TamanoPry.Selected.Value = "Seleccionar Tamaño" Or
+                        Dpd_Pry_TipoPry_1.Selected.Value = "Seleccionar Tipo" Or
+                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.DisplayName),
+                        Color.Red,
+                        RGBA(102, 102, 102, 1)
+                    ),
+                    If(
+                        Txt_Pry_NombreProyectoProducto_1.Text = "NUEVO PROYECTO" Or
+                        IsBlank(Txt_Pry_NombreProyectoProducto_1.Text)Or
+                        IsBlank(Dpd_Pry_Dominio_1.Selected.IDDominio)Or
+                        IsBlank(Cmb_Gl_Equipo_1.Selected.IDEquipo)Or
+                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.DisplayName)Or
+                        
+                        //Dpd_Pry_TamanoPry.Selected.Value = "Seleccionar Tamaño" Or
+                        Dpd_Pry_TipoPry_1.Selected.Value = "Seleccionar Tipo",
+                        Color.Red,
+                        RGBA(102, 102, 102, 1)
+                    )
+                )
+                /*
+                If(
+                    Rd_Pry_RequiereFinanciamiento.Selected.Value = "SI";
+                    If(
+                        IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                        Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                        IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                        IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                        IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                        IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                        Color.Red;
+                        RGBA(102; 102; 102; 1)
+                    );
+                    If(
+                        IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                        Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                        IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                        IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                        IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                        (Dpd_Pry_DetalleMotivo.Selected.Value = "Seleccionar Motivo") Or
+                        IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                        Color.Red;
+                        RGBA(102; 102; 102; 1)
+                    )
+                )
+                */
+            Height: =38
+            OnSelect: =
+            Text: |-
+                =
+                    If(
+                        Txt_Pry_NombreProyectoProducto_1.Text = "NUEVO PROYECTO" Or
+                        IsBlank(Txt_Pry_NombreProyectoProducto_1.Text)Or
+                        IsBlank(Dpd_Pry_Dominio_1.Selected.IDDominio)Or
+                        //IsBlank(Cmb_Gl_Equipo_1.Selected.IDEquipo)Or
+                        IsBlank(Cmb_Gl_JefeProyecto_1.Selected.DisplayName)Or
+                        //Dpd_Pry_TamanoPry.Selected.Value = "Seleccionar Tamaño" Or
+                        Dpd_Pry_TipoPry_1.Selected.Value = "Seleccionar Tipo"
+                       ,
+                        "Para poder guardar debes completar como minimo los titulos en rojo",
+                "Recuerda guardar los datos del proyecto dando click aqui."
+                    )
+                
+                /*
+                If(
+                    Rd_Pry_RequiereFinanciamiento.Selected.Value = "SI";
+                    If(
+                        IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                        Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                        IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                        IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                        IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                        IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                        "Para poder guardar debes completar todos los Campos";
+                "Recuerda guardar los datos registrados dando click aqui."
+                    );
+                    If(
+                        IsBlank(Txt_Pry_NombreProyectoProducto) Or
+                        Txt_Pry_NombreProyectoProducto.Text = "NUEVO PRODUCTO / PROYECTO" Or
+                        IsBlank(Cmb_Pry_BBB.SelectedItems.Value) Or
+                        IsBlank(Dpd_Pry_Dominio.SelectedText) Or 
+                        IsBlank(Rd_Pry_LeverageWM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_RegistradoenAPM.Selected.Value) Or 
+                        IsBlank(Rd_Pry_ProvieneOA.Selected.Value) Or
+                        IsBlank(Rd_Pry_RequiereFinanciamiento.Selected.Value) Or
+                        (Dpd_Pry_DetalleMotivo.Selected.Value = "Seleccionar Motivo") Or
+                        IsBlank(Cmb_Gl_JefeProyecto.Selected.DisplayName);
+                        "Para poder guardar debes completar todos los Campos";
+                "Recuerda guardar los datos registrados dando click aqui."
+                    )
+                )*/
+            Width: =585
+            X: =1180
+            Y: =747
+            ZIndex: =63
+
+        Pry_Separador1_9 As rectangle:
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =550
+            Width: =2
+            X: =469
+            Y: =126
+            ZIndex: =64
+
+        Btn_InfoProyecto_8 As button:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Color: =RGBA(26, 26, 26, 1)
+            Fill: |-
+                =If(
+                    App.ActiveScreen = ModuloProyectosIniciativas,
+                    Color.Beige,
+                    RGBA(255, 255, 255, 1)
+                )
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            Size: =14
+            Text: ="Características generales"
+            Width: =255
+            X: =1618
+            Y: =74
+            ZIndex: =65
+
+    DataTable2 As dataTable.datatable:
+        BorderColor: =RGBA(139, 154, 159, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =554
+        Items: ='Dominio - Proyecto/Producto'
+        Width: =1017
+        X: =874
+        Y: =367
+        ZIndex: =26
+
+    Gp_CabeceraPortafolio_22 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =27
+
+        Rct_FondoCabecera_Persona_31 As rectangle:
+            Fill: =_VarColoresApp.AzulparaCabeceras
+            Height: =60
+            Width: =1920
+            ZIndex: =2
+
+        Img_UsuarioPantallaPersona_36 As image:
+            Height: =50
+            Image: =_UserFoto
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: |
+                =50
+            RadiusTopRight: =50
+            Width: =54
+            X: =1772
+            Y: =5
+            ZIndex: =3
+
+        Btn_Back_28 As button:
+            Fill: =_VarColoresApp.VerdeParaBotones
+            Height: =60
+            HoverFill: =_VarColoresApp.AzulFondo
+            OnSelect: |-
+                =Reset(Rd_InternoExterno);
+                Reset(Cmb_BuscarMiEquipo);
+                //UpdateContext({_VarMostrarEdicionEquipo:false});;
+                Clear(Col_UsuarioenEquipo);
+                ResetForm(Frm_EditarEquipo);
+                Reset(Rd_PersonasEquipos);
+                Navigate(Portada,ScreenTransition.Fade)
+            PaddingTop: =2.5
+            PressedFill: =_VarColoresApp.VerdeParaBotones
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =35
+            Text: ="⬅"
+            Tooltip: ="Regresar"
+            Width: =83
+            X: =1837
+            ZIndex: =4
+
+    Gp_Filtros_13 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        Html_FondoNuevoEquipo_47 As htmlViewer:
+            Height: =145
+            HtmlText: |-
+                ="
+                <div style='
+                    width: 1450px;
+                    height: 105px;
+                    background: #C4D5E3;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 10px #888888;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                '>
+                </div>
+                "
+            PaddingLeft: =10
+            Width: =1500
+            X: =203
+            Y: =97
+            ZIndex: =1
+
+        Txt_FondoForm1_188 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Dpd_FiltroProyeProd.Selected.Value
+            DisabledColor: =RGBA(51, 51, 51, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =418
+            Y: =145
+            ZIndex: =5
+
+        Label6_157 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Tipo:"
+            Width: =287
+            X: =424
+            Y: =105
+            ZIndex: =6
+
+        Label6_158 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Nombre del proyecto:" 
+            Width: =287
+            X: =761
+            Y: =105
+            ZIndex: =7
+
+        Txt_FondoForm1_192 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroJefePO.Selected.DisplayName
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =1083
+            Y: =145
+            ZIndex: =8
+
+        DataCardKey15_31 As label:
+            AutoHeight: =true
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="PO / JP:"
+            Width: =239
+            Wrap: =false
+            X: =1093
+            Y: =105
+            ZIndex: =9
+
+        Txt_FondoForm1_204 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Cmb_FiltroNombre.Selected.'Nombre Producto/Proyecto'
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =314
+            X: =754
+            Y: =145
+            ZIndex: =10
+
+        Txt_FondoForm1_205 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Default: =Dpd_FiltroEstado.Selected.Value
+            DisabledColor: =RGBA(77, 77, 77, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Width: =192
+            X: =1428
+            Y: =145
+            ZIndex: =11
+
+        Label6_159 As label:
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Estado:"
+            Width: =182
+            X: =1428
+            Y: =105
+            ZIndex: =12
+
+        Label10_92 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filtra por"
+            Width: =122
+            X: =292
+            Y: =110
+            ZIndex: =13
+
+        Label13_24 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Size: =25
+            Text: ="DETALLE PROGRAMA"
+            Visible: |-
+                =If(
+                    _VarVerPopUpPortafolio,
+                    false,
+                    true
+                )
+            Width: =611
+            X: =647
+            ZIndex: =15
+
+        Image5_23 As image:
+            Height: =35
+            Image: ='filtrar (1)'
+            Width: =40
+            X: =243
+            Y: =110
+            ZIndex: =16
+
+        Image20_23 As image:
+            Height: =35
+            Image: =borrarnose
+            Tooltip: ="Limpiar Filtros"
+            Width: =40
+            X: =248
+            Y: =159
+            ZIndex: =18
+
+        Label10_94 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Text: ="Limpiar"
+            Width: =122
+            X: =292
+            Y: =161
+            ZIndex: =19
+
+        Btn_Pry_LimpiarFiltros_20 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =43
+            HoverFill: =RGBA(255, 255, 255, 0.5)
+            OnSelect: =Notify("No puede usar este control en este momento, termine de editar el proyecto.",NotificationType.Information,5000)
+            PressedFill: =RGBA(255, 255, 255, 0.7)
+            Text: =""
+            Width: =136
+            X: =243
+            Y: =156
+            ZIndex: =22
+
