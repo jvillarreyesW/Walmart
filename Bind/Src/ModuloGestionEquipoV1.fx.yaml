@@ -237,6 +237,32 @@ ModuloGestionEquipoV1 As screen:
                 Y: =16
                 ZIndex: =9
 
+            Dpd_TipoTrabajo As Dropdown.pcfdataset:
+                Appearance: ="FilledDarker"
+                BasePaletteColor: =RGBA(30, 136, 230, 1)
+                BorderStyle: =""
+                DefaultSelectedItems: |-
+                    =Table({Value:ThisItem.TipoTrabajo})
+                DisplayMode: |-
+                    =If(
+                        _VarEquipo = "MiEquipo",
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
+                FontSize: =14
+                Height: =28
+                Items: |-
+                    =["", "SPA", "Otro", "SPA + Otro"]
+                    //["";"SPA"; "BAU"; "SPA + BAU"]
+                OnChange: |-
+                    =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
+                    Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
+                Required: =false
+                Width: =138
+                X: =1098
+                Y: =11
+                ZIndex: =16
+
             Gp_Acciones As group:
                 Height: =5
                 Width: =5
@@ -292,32 +318,6 @@ ModuloGestionEquipoV1 As screen:
                     X: =1196
                     Y: =61
                     ZIndex: =15
-
-            Dpd_TipoTrabajo As Dropdown.pcfdataset:
-                Appearance: ="FilledDarker"
-                BasePaletteColor: =RGBA(30, 136, 230, 1)
-                BorderStyle: =""
-                DefaultSelectedItems: |-
-                    =Table({Value:ThisItem.TipoTrabajo})
-                DisplayMode: |-
-                    =If(
-                        _VarEquipo = "MiEquipo",
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit
-                    )
-                FontSize: =14
-                Height: =28
-                Items: |-
-                    =["", "SPA", "Otro", "SPA + Otro"]
-                    //["";"SPA"; "BAU"; "SPA + BAU"]
-                OnChange: |-
-                    =Patch(Ingresos_Ceses_Personas, LookUp(Ingresos_Ceses_Personas, ID = ThisItem.IDe), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value });
-                    Patch(Col_EquipoOrdenados, LookUp(Col_EquipoOrdenados, Orden = ThisItem.Orden), {TipoTrabajo: Dpd_TipoTrabajo.Selected.Value })
-                Required: =false
-                Width: =138
-                X: =1098
-                Y: =11
-                ZIndex: =16
 
         Txt_BuscadorPersona_1 As text:
             BorderColor: =RGBA(53, 61, 63, 1)
