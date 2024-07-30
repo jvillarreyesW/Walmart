@@ -4428,6 +4428,646 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 20,
+                  "charOffset": 2540,
+                  "snippet": {
+                    "text": "Lst_Fcst_Responsable"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_Responsable"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2502,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 2603,
+                  "snippet": {
+                    "text": "Lst_Fcst_Servicios"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_Servicios"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2567,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 27,
+                  "charOffset": 2668,
+                  "snippet": {
+                    "text": "Lst_Fcst_ServiciosAsignados"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_ServiciosAsignados"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2628,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 14,
+                  "charOffset": 2734,
+                  "snippet": {
+                    "text": "Lst_Fcst_Datos"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_Datos"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2702,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 25,
+                  "charOffset": 2788,
+                  "snippet": {
+                    "text": "Lst_Fcst_MantenedorCuenta"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_MantenedorCuenta"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2755,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 23,
+                  "charOffset": 2851,
+                  "snippet": {
+                    "text": "Lst_Fcst_MantenedorCeco"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_MantenedorCeco"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2820,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 26,
+                  "charOffset": 2915,
+                  "snippet": {
+                    "text": "LST_Fcst_MantenedorSemanas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LST_Fcst_MantenedorSemanas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2881,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 25,
+                  "charOffset": 2984,
+                  "snippet": {
+                    "text": "Lst_Fcst_TipoCambioSemana"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Lst_Fcst_TipoCambioSemana"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Mantenedores.Gallery1_1.Button4_12.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 2948,
+                  "snippet": {
+                    "text": "ClearCollect"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Mantenedores",
+                "type": "Mantenedores.Gallery1_1.Button4_12"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ClearCollect"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "MenuPrincipal.Menu.AccessibleLabel"
                 }
               ],
@@ -19638,36 +20278,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloListadoPrograma",
-                "type": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ModuloPersona.Rd_PersonasEquipos.AccessibleLabel"
                 }
               ],
@@ -22932,66 +23542,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Icon11.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Icon11.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Gallery2_3.Icon11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Icon11.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Gallery2_3.Icon11.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Gallery2_3.Icon11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 10
         },
         {
           "locations": [
@@ -55998,6 +56548,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ModuloListadoPrograma",
+                "type": "ModuloListadoPrograma.GL_ListadoProductoProyecto_3.Txt_NombreProyectoProducto_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._VarEsManager"
                 }
               ],
@@ -60972,36 +61552,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ModuloPersonaV2.Txt_BuscadorPersona_2.DelayOutput"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ModuloPersonaV2.Txt_BuscadorPersona_2.DelayOutput",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "DelayOutput",
-                "module": "ModuloPersonaV2",
-                "type": "ModuloPersonaV2.Txt_BuscadorPersona_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-TextInputIsNotDelayOutput",
-          "ruleIndex": 19
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ModuloProducto"
                 }
               ],
@@ -61233,7 +61783,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 20
+          "ruleIndex": 19
         },
         {
           "locations": [
@@ -63625,23 +64175,6 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ModuloFinanciadoNegocio\" es 573, que es superior al umbral máximo recomendado (300)."
-              }
-            },
-            {
-              "id": "app-TextInputIsNotDelayOutput",
-              "messageStrings": {
-                "issue": {
-                  "text": "Entrada de texto ineficiente"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Habilite la propiedad DelayOutput del control de entrada de texto."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Si un control de entrada de texto tiene muchos controles que dependen de su valor, es posible que, al escribir en esa entrada, la aplicación se ralentice. Si se establece DelayOutput en true, se evitará este problema, ya que solo se actualizarán los controles dependientes cuando se deje de escribir."
               }
             },
             {

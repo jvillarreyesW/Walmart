@@ -253,7 +253,7 @@
       "MetaDataIDKey": "",
       "Name": "Borrar_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 40,
+      "ParentIndex": 44,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -594,7 +594,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Actualizar",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 54,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -952,7 +952,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_AgregarUsuario",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 27,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1266,7 +1266,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Cambiar_Jefatura",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 57,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2202,7 +2202,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Cancelar",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 55,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2505,7 +2505,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_CrearNuevoEquipo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 45,
+      "ParentIndex": 49,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2847,7 +2847,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_EliminarRegistros_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3156,7 +3156,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Limpiar",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 56,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3481,7 +3481,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_SeleccionarLimpiarFiltro_6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 20,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4071,7 +4071,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Vista_MisEquipos",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4344,7 +4344,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_Vista_MisPersonas",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4992,7 +4992,7 @@
       "MetaDataIDKey": "",
       "Name": "Button2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5290,7 +5290,7 @@
       "MetaDataIDKey": "",
       "Name": "Button7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 46,
+      "ParentIndex": 50,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5585,7 +5585,7 @@
       "MetaDataIDKey": "",
       "Name": "Cancelar_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 41,
+      "ParentIndex": 45,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6861,7 +6861,7 @@
       "MetaDataIDKey": "",
       "Name": "Cmb_BuscarMiEquipo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 18,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7779,7 +7779,7 @@
       "MetaDataIDKey": "",
       "Name": "Cmb_CambioDominio",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 37,
+      "ParentIndex": 41,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8162,7 +8162,7 @@
       "MetaDataIDKey": "",
       "Name": "Cmb_CambioEquipo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 43,
+      "ParentIndex": 47,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15430,7 +15430,7 @@
       "MetaDataIDKey": "",
       "Name": "Debes completar info_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 49,
+      "ParentIndex": 53,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17571,7 +17571,7 @@
       "MetaDataIDKey": "",
       "Name": "Dpd_SeleccionarAccion_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 31,
+      "ParentIndex": 35,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18388,7 +18388,7 @@
       "MetaDataIDKey": "",
       "Name": "Dtp_FechaBaja_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 35,
+      "ParentIndex": 39,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24027,7 +24027,7 @@
       "MetaDataIDKey": "",
       "Name": "Frm_EditarPersona",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24647,7 +24647,7 @@
       "MetaDataIDKey": "",
       "Name": "Gl_MiEquipoGestion",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 28,
+      "ParentIndex": 32,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24903,7 +24903,7 @@
       "MetaDataIDKey": "",
       "Name": "Gl_MultiEquipos",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 50,
+      "ParentIndex": 54,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25420,7 +25420,7 @@
       "MetaDataIDKey": "",
       "Name": "Html_CabeceraEliminarUsuario",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 24,
+      "ParentIndex": 28,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25579,7 +25579,7 @@
       "MetaDataIDKey": "",
       "Name": "Html_CabeceraInfoCorporativa",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 39,
+      "ParentIndex": 43,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25731,7 +25731,7 @@
       "MetaDataIDKey": "",
       "Name": "Html_CabeceraInfoPersonal",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25884,7 +25884,7 @@
       "MetaDataIDKey": "",
       "Name": "Html_FondoNuevoEquipo_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 25,
+      "ParentIndex": 29,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26066,7 +26066,7 @@
       "MetaDataIDKey": "",
       "Name": "Html_FondoNuevoEquipo_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27098,7 +27098,7 @@
       "MetaDataIDKey": "",
       "Name": "Image14",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 26,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27331,7 +27331,7 @@
       "MetaDataIDKey": "",
       "Name": "Image16",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 52,
+      "ParentIndex": 56,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27566,7 +27566,7 @@
       "MetaDataIDKey": "",
       "Name": "Image17",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 53,
+      "ParentIndex": 57,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28069,7 +28069,7 @@
       "MetaDataIDKey": "",
       "Name": "Image19",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 23,
+      "ParentIndex": 25,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28295,7 +28295,7 @@
       "MetaDataIDKey": "",
       "Name": "Image4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 29,
+      "ParentIndex": 33,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28560,7 +28560,7 @@
       "MetaDataIDKey": "",
       "Name": "Img_UsuarioPantallaPersona",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -29135,7 +29135,7 @@
       "MetaDataIDKey": "",
       "Name": "Label18",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 51,
+      "ParentIndex": 55,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -29432,7 +29432,7 @@
       "MetaDataIDKey": "",
       "Name": "Label2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 21,
+      "ParentIndex": 23,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31209,7 +31209,7 @@
       "MetaDataIDKey": "",
       "Name": "Label4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 47,
+      "ParentIndex": 51,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31506,7 +31506,7 @@
       "MetaDataIDKey": "",
       "Name": "Label5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 48,
+      "ParentIndex": 52,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32154,7 +32154,7 @@
       "MetaDataIDKey": "",
       "Name": "MenuLateral_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32527,7 +32527,7 @@
       "MetaDataIDKey": "",
       "Name": "Rct_FondoBloqueo",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32879,7 +32879,7 @@
       "MetaDataIDKey": "",
       "Name": "Rd_InternoExterno",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 22,
+      "ParentIndex": 24,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33206,7 +33206,7 @@
       "MetaDataIDKey": "",
       "Name": "Rd_PersonasEquipos",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33631,7 +33631,7 @@
       "MetaDataIDKey": "",
       "Name": "rectangulo blanco_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 26,
+      "ParentIndex": 30,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34346,7 +34346,7 @@
       "MetaDataIDKey": "",
       "Name": "Solicitar_Cambio_Jefatura",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 19,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39290,7 +39290,7 @@
       "MetaDataIDKey": "",
       "Name": "text pop up_11",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 27,
+      "ParentIndex": 31,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39601,7 +39601,7 @@
       "MetaDataIDKey": "",
       "Name": "text pop up_12",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 44,
+      "ParentIndex": 48,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39912,7 +39912,7 @@
       "MetaDataIDKey": "",
       "Name": "text pop up_7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 34,
+      "ParentIndex": 38,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -40223,7 +40223,7 @@
       "MetaDataIDKey": "",
       "Name": "text pop up_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 32,
+      "ParentIndex": 36,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -40534,7 +40534,7 @@
       "MetaDataIDKey": "",
       "Name": "text pop up_9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 38,
+      "ParentIndex": 42,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -41533,7 +41533,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_FondoBuscarPersona",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 17,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -43240,7 +43240,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_FondoForm1_16",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 33,
+      "ParentIndex": 37,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -43580,7 +43580,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_FondoForm1_17",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 36,
+      "ParentIndex": 40,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -43920,7 +43920,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_FondoForm1_18",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 42,
+      "ParentIndex": 46,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -46305,7 +46305,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_FondoForm1_7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 30,
+      "ParentIndex": 34,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
