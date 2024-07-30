@@ -181,8 +181,8 @@ ModuloPersonaV2 As screen:
             )
         Visible: =_Var_ExternosPersonas
         Width: =310
-        X: =1562
-        Y: =217
+        X: =1259
+        Y: =219
         ZIndex: =9
 
     Label19_5 As label:
@@ -489,26 +489,6 @@ ModuloPersonaV2 As screen:
             X: =1479
             Y: =16
             ZIndex: =15
-
-        Button13 As button:
-            Height: =60
-            OnSelect: |-
-                =Patch(Col_MiEquipoWalmart,ThisItem,{Editando:!ThisItem.Editando})
-            PaddingBottom: =10
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            RadiusBottomLeft: =45
-            RadiusBottomRight: =45
-            RadiusTopLeft: =45
-            RadiusTopRight: =45
-            Size: =10
-            Text: =If( ThisItem.Editando,"Buscar persona", "Crear persona")
-            Visible: =IsBlank(Cmb_BuscarPersona_4.Selected.Email)
-            Width: =60
-            X: =Image1_2.X
-            Y: =Image1_2.Y
-            ZIndex: =20
 
         "TextInputCanvas1 As 'Text input'":
             DisplayMode: =DisplayMode.Edit
@@ -883,148 +863,6 @@ ModuloPersonaV2 As screen:
             Y: =15
             ZIndex: =15
 
-        Icn_Pry_Cancelar_13 As icon.CancelBadge:
-            Color: |-
-                =Switch(
-                    Label14_1.Text,
-                    "Modificar",RGBA(54, 176, 75, 1),
-                    "Agregar Usuario",RGBA(54, 176, 75, 1),
-                    "Dar de baja",RGBA(255, 0, 0, 1),
-                    "Cambiar Jefatura",RGBA(54, 176, 75, 1),
-                    RGBA(0, 0, 0, 1)
-                )
-            DisplayMode: |-
-                =If(
-                    
-                    If(ThisItem.Editando,IsBlank(Label12_4.Text),IsBlank(Cmb_BuscarPersona_6.Selected.Email))||
-                    IsBlank(Dtp_FechaIngreso_4.SelectedDate)||
-                    IsBlank(Txt_Rut_4.Text)||
-                    IsBlank(Dpd_Empresa_5.Selected.ID),
-                    DisplayMode.Disabled,
-                    DisplayMode.Edit)
-            Height: =35
-            Icon: |-
-                =Switch(
-                    Label14_1.Text,
-                    "Modificar",Icon.CheckBadge,
-                    "Agregar Usuario",Icon.CheckBadge,
-                    "Dar de baja",Icon.CancelBadge,
-                    "Cambiar Jefatura",Icon.Sync,
-                    Icon.Information
-                )
-            OnSelect: |-
-                =Switch(
-                    Label14_1.Text,
-                    "Modificar",RGBA(54, 176, 75, 1),
-                    "Agregar Usuario",
-                    
-                    //-------------------------------------------------
-                
-                    /*Mostrar Spinner Cargando*/
-                Set(_VarMostrarCargando,true);
-                    Patch(
-                        Lst_Persona,
-                            If( 
-                                IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
-                                    Defaults(Lst_Persona),
-                                    LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))
-                            ),
-                            {
-                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
-                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
-                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
-                                Nombre_Persona: TextInputCanvas1_1.Value,
-                                RUT: Txt_Rut_4.Text,
-                                'Interno/Externo': "Externo",
-                                Jefe_Directo: _VarUsuarioJefe,
-                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
-                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
-                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
-                                'Ubicación Laboral': Cmb_Rol_5.Selected,
-                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
-                                Rol: Cmb_Rol_4.Selected.Roles,
-                                Estado: "Activo",
-                                'Considera Head Count':{Value:"NO"},
-                                Usuario: If(ThisItem.Editando, ThisItem.Usuario,Upper(Label6.Text)),
-                                Categoria: ThisItem.Categoria
-                            }
-                    );
-                    If( 
-                        IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
-                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se agrega a: "& TextInputCanvas1_1.Value),
-                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|se modifica a: "& TextInputCanvas1_1.Value)
-                        );
-                    Patch(
-                        Col_MiEquipoWalmart,
-                            ThisItem,
-                            {
-                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
-                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
-                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
-                                Nombre_Persona: TextInputCanvas1_1.Value,
-                                RUT: Txt_Rut_4.Text,
-                                'Interno/Externo': "Externo",
-                                Jefe_Directo: _VarUsuarioJefe,
-                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
-                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
-                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
-                                'Ubicación Laboral': Cmb_Rol_5.Selected,
-                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
-                                Rol: Cmb_Rol_4.Selected.Roles,
-                                Estado: "Activo",
-                                'Considera Head Count':{Value:"NO"},
-                                Usuario: If(ThisItem.Editando, "aleatorio",Upper(Label6.Text)),
-                                Categoria: ThisItem.Categoria  
-                            }
-                    );
-                    
-                
-                    //--------------------------------------------------
-                    
-                    ,
-                    "Dar de baja",UpdateContext({var_ModalDardeBaja:true}),
-                    "Cambiar Jefatura",UpdateContext({var_ModalCambioJefatura:true}),
-                    RGBA(0, 0, 0, 1)
-                );
-                Set(_var_PersonaSeleccionada,ThisItem);
-            Tooltip: =
-            Visible: =Label12_4.Text="Externo"
-            Width: =35
-            X: =1739
-            Y: =23
-            ZIndex: =17
-
-        Label14_1 As label:
-            Align: =Align.Center
-            Height: =50
-            OnSelect: =Select(Parent)
-            Size: =12
-            Text: |-
-                =If(IsBlank(ThisItem.ID),
-                   
-                //Validar si ya esta asignado a otro jefe
-                If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)),
-                 "Agregar Usuario",
-                
-                If(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)=_VarUsuarioJefe,
-                "Ya asignado",
-                "Cambiar Jefatura")
-                ),
-                        If(
-                            Txt_Rut_4.Text<>ThisItem.RUT||
-                            Dtp_FechaIngreso_4.SelectedDate<>ThisItem.'Fecha de Ingreso'||
-                            Cmb_Rol_4.Selected.Roles<>ThisItem.Rol||
-                            Text(Dpd_Empresa_5.Selected.ID)<>ThisItem.ID_Proveedor,
-                            "Modificar",
-                            "Dar de baja"
-                        )
-                )
-            Visible: =Label12_4.Text="Externo"
-            Width: =106
-            X: =1600
-            Y: =15
-            ZIndex: =18
-
         "TextInputCanvas1_1 As 'Text input'":
             DisplayMode: =DisplayMode.Edit
             FontSize: =18
@@ -1122,6 +960,112 @@ ModuloPersonaV2 As screen:
             Y: =20
             ZIndex: =26
 
+        Label14_1 As button:
+            Height: =67
+            OnSelect: |-
+                =Switch(
+                    Label14_1.Text,
+                    "Modificar",RGBA(54, 176, 75, 1),
+                    "Agregar Usuario",
+                    
+                    //-------------------------------------------------
+                
+                    /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                    Patch(
+                        Lst_Persona,
+                            If( 
+                                IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
+                                    Defaults(Lst_Persona),
+                                    LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))
+                            ),
+                            {
+                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
+                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
+                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
+                                Nombre_Persona: TextInputCanvas1_1.Value,
+                                RUT: Txt_Rut_4.Text,
+                                'Interno/Externo': "Externo",
+                                Jefe_Directo: _VarUsuarioJefe,
+                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
+                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
+                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
+                                'Ubicación Laboral': Cmb_Rol_5.Selected,
+                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
+                                Rol: Cmb_Rol_4.Selected.Roles,
+                                Estado: "Activo",
+                                'Considera Head Count':{Value:"NO"},
+                                Usuario: If(ThisItem.Editando, ThisItem.Usuario,Upper(Label6.Text)),
+                                Categoria: ThisItem.Categoria
+                            }
+                    );
+                    If( 
+                        IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se agrega a: "& TextInputCanvas1_1.Value),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|se modifica a: "& TextInputCanvas1_1.Value)
+                        );
+                    Patch(
+                        Col_MiEquipoWalmart,
+                            ThisItem,
+                            {
+                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
+                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
+                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
+                                Nombre_Persona: TextInputCanvas1_1.Value,
+                                RUT: Txt_Rut_4.Text,
+                                'Interno/Externo': "Externo",
+                                Jefe_Directo: _VarUsuarioJefe,
+                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
+                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
+                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
+                                'Ubicación Laboral': Cmb_Rol_5.Selected,
+                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
+                                Rol: Cmb_Rol_4.Selected.Roles,
+                                Estado: "Activo",
+                                'Considera Head Count':{Value:"NO"},
+                                Usuario: If(ThisItem.Editando, "aleatorio",Upper(Label6.Text)),
+                                Categoria: ThisItem.Categoria  
+                            }
+                    );
+                    Set(_VarMostrarCargando,false)
+                
+                    //--------------------------------------------------
+                    
+                    ,
+                    "Dar de baja",UpdateContext({var_ModalDardeBaja:true}),
+                    "Cambiar Jefatura",UpdateContext({var_ModalCambioJefatura:true}),
+                    RGBA(0, 0, 0, 1)
+                );
+                Set(_var_PersonaSeleccionada,ThisItem);
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =20
+            RadiusTopLeft: =0
+            RadiusTopRight: =20
+            Text: |-
+                =If(IsBlank(ThisItem.ID),
+                   
+                //Validar si ya esta asignado a otro jefe
+                If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)),
+                 "Agregar Usuario",
+                
+                If(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)=_VarUsuarioJefe,
+                "Ya asignado",
+                "Cambiar Jefatura")
+                ),
+                        If(
+                            Txt_Rut_4.Text<>ThisItem.RUT||
+                            Dtp_FechaIngreso_4.SelectedDate<>ThisItem.'Fecha de Ingreso'||
+                            Cmb_Rol_4.Selected.Roles<>ThisItem.Rol||
+                            Text(Dpd_Empresa_5.Selected.ID)<>ThisItem.ID_Proveedor,
+                            "Modificar",
+                            "Dar de baja"
+                        )
+                )
+            Width: =257
+            X: =1527
+            Y: =7
+            ZIndex: =27
+
     Btn_AgregarExternos_3 As button:
         Fill: =RGBA(72, 163, 62, 1)
         HoverFill: =RGBA(255, 255, 255, 0.63)
@@ -1155,7 +1099,7 @@ ModuloPersonaV2 As screen:
             )
         Visible: =_Var_ExternosPersonas
         Width: =290
-        X: =1247
+        X: =1587
         Y: =217
         ZIndex: =18
 
