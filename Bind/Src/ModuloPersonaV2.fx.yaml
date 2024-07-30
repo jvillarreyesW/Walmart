@@ -949,6 +949,11 @@ ModuloPersonaV2 As screen:
                                 Categoria: ThisItem.Categoria
                             }
                     );
+                    If( 
+                        IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se agrega a: "& TextInputCanvas1_1.Value),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|se modifica a: "& TextInputCanvas1_1.Value)
+                        );
                     Patch(
                         Col_MiEquipoWalmart,
                             ThisItem,
@@ -982,7 +987,6 @@ ModuloPersonaV2 As screen:
                     RGBA(0, 0, 0, 1)
                 );
                 Set(_var_PersonaSeleccionada,ThisItem);
-                Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se agrega a: "& TextInputCanvas1_1.Value)
             Tooltip: =
             Visible: =Label12_4.Text="Externo"
             Width: =35
@@ -1499,7 +1503,8 @@ ModuloPersonaV2 As screen:
                 Notify("Se elimino de manera correcta al usuario.",NotificationType.Success,10000);
                 /*Ocultar Spinner Cargando*/
                 Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se da de baja a: "& _var_PersonaSeleccionada.Nombre_Persona);
-                UpdateContext({var_ModalDardeBaja:false})
+                UpdateContext({var_ModalDardeBaja:false});
+                Set(_VarMostrarCargando,false);
             Text: ="Dar de baja"
             Width: =179
             X: =983
@@ -1621,6 +1626,11 @@ ModuloPersonaV2 As screen:
             X: =585
             Y: =350
             ZIndex: =5
+
+    Cargando_17 As Cargando:
+        Fill: =RGBA(255, 255, 255, 0.91)
+        Visible: =_VarMostrarCargando
+        ZIndex: =27
 
     Gp_Buscador_1 As group:
         Height: =5
