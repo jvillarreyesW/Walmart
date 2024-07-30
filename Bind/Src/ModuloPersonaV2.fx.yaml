@@ -961,6 +961,14 @@ ModuloPersonaV2 As screen:
             ZIndex: =26
 
         Label14_1 As button:
+            DisplayMode: |-
+                =If(
+                    (If(ThisItem.Tipo_Usuario="Manual",IsBlank(TextInputCanvas1_1),IsBlank(Cmb_BuscarPersona_6.Selected.Claims))||
+                IsBlank(Dpd_Empresa_5.Selected.ID)||
+                IsBlank(Dtp_FechaIngreso_4.SelectedDate)||
+                IsBlank(TextInputCanvas1_1.Value))||Label12_4.Text="Interno",
+                DisplayMode.Disabled,
+                DisplayMode.Edit)
             Height: =67
             OnSelect: |-
                 =Switch(
@@ -1041,16 +1049,16 @@ ModuloPersonaV2 As screen:
             RadiusBottomRight: =20
             RadiusTopLeft: =0
             RadiusTopRight: =20
+            Size: =13
             Text: |-
                 =If(IsBlank(ThisItem.ID),
                    
                 //Validar si ya esta asignado a otro jefe
                 If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)),
-                 "Agregar Usuario",
-                
+                "Agregar Usuario",
                 If(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),Jefe_Directo)=_VarUsuarioJefe,
                 "Ya asignado",
-                "Cambiar Jefatura")
+                If(Label12_4.Text="Interno","","Cambiar Jefatura"))
                 ),
                         If(
                             Txt_Rut_4.Text<>ThisItem.RUT||
@@ -1067,12 +1075,14 @@ ModuloPersonaV2 As screen:
             ZIndex: =27
 
         Icon11 As icon.Trash:
+            Color: =RGBA(255, 0, 0, 1)
             Height: =50
-            Icon: =Icon.Trash
+            Icon: =Icon.CancelBadge
             OnSelect: =Remove(Col_MiEquipoWalmart, ThisItem)
+            Visible: =IsBlank(ThisItem.Jefe_Directo)
             Width: =36
-            X: =1766
-            Y: =18
+            X: =1751
+            Y: =13
             ZIndex: =28
 
     Btn_AgregarExternos_3 As button:
