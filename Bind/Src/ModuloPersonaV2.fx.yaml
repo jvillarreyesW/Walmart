@@ -490,7 +490,7 @@ ModuloPersonaV2 As screen:
             Y: =16
             ZIndex: =15
 
-        "TextInputCanvas1 As 'Entrada de texto'":
+        "TextInputCanvas1 As 'Text input'":
             DisplayMode: =DisplayMode.Edit
             Height: =40
             Placeholder: ="Nombre de nueva Persona"
@@ -626,7 +626,7 @@ ModuloPersonaV2 As screen:
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =74
         Visible: =_Var_ExternosPersonas
-        Width: =1811
+        Width: =1852
         X: =61
         Y: =312
         ZIndex: =17
@@ -644,7 +644,7 @@ ModuloPersonaV2 As screen:
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
-            Width: =1785
+            Width: =1745
             Y: =7
             ZIndex: =1
 
@@ -658,7 +658,7 @@ ModuloPersonaV2 As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =20
             Text: =
-            Width: =257
+            Width: =218
             X: =1527
             Y: =7
             ZIndex: =2
@@ -863,7 +863,7 @@ ModuloPersonaV2 As screen:
             Y: =15
             ZIndex: =15
 
-        "TextInputCanvas1_1 As 'Entrada de texto'":
+        "TextInputCanvas1_1 As 'Text input'":
             DisplayMode: =DisplayMode.Edit
             FontSize: =18
             Height: =40
@@ -942,7 +942,7 @@ ModuloPersonaV2 As screen:
             DefaultSelectedItems: |-
                 =If(Label12_4.Text="Interno",Filter(Lst_Proveedores,ID=93),
                 If(
-                    !IsBlank(ThisItem.Jefe_Directo),
+                    IsBlank(ThisItem.Jefe_Directo)&&IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)),
                     Filter(Lst_Proveedores,ID=Value(ThisItem.ID_Proveedor)),
                     Filter(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)))
                 ))
@@ -1061,10 +1061,19 @@ ModuloPersonaV2 As screen:
                             "Dar de baja"
                         )
                 )
-            Width: =257
+            Width: =218
             X: =1527
             Y: =7
             ZIndex: =27
+
+        Icon11 As icon.Trash:
+            Height: =50
+            Icon: =Icon.Trash
+            OnSelect: =Remove(Col_MiEquipoWalmart, ThisItem)
+            Width: =36
+            X: =1766
+            Y: =18
+            ZIndex: =28
 
     Btn_AgregarExternos_3 As button:
         Fill: =RGBA(72, 163, 62, 1)
@@ -1090,7 +1099,7 @@ ModuloPersonaV2 As screen:
         RadiusTopLeft: =20
         RadiusTopRight: =20
         Size: =14
-        Text: ="Crear persona"
+        Text: ="Crear persona sin cuenta WM"
         Tooltip: |
             =If(
                 Rd_PersonasEquipos.Selected.Value = "Mis Equipos",
