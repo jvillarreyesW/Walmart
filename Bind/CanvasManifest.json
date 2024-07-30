@@ -2,8 +2,8 @@
   "FormatVersion": "0.24",
   "Header": {
     "AnalysisOptions": {
-      "DataflowAnalysisEnabled": false,
-      "DataflowAnalysisFlagStateToggledByUser": false
+      "DataflowAnalysisEnabled": true,
+      "DataflowAnalysisFlagStateToggledByUser": true
     },
     "DocVersion": "1.342",
     "MinVersionToLoad": "1.331",

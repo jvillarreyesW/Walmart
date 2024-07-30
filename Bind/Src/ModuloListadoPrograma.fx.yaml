@@ -120,11 +120,39 @@ ModuloListadoPrograma As screen:
         Lbl_NombreProducto_8 As label:
             FontWeight: =FontWeight.Semibold
             OnSelect: =Select(Parent)
-            Text: ="Riesgos Activos"
+            Text: ="Total de iniciativas"
             Width: =230
             X: =879
             Y: =10
             ZIndex: =100
+
+        Txt_NombreProyectoProducto_11 As text:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            BorderThickness: =3
+            Clear: =true
+            Default: =
+            DelayOutput: =true
+            DisplayMode: =DisplayMode.Disabled
+            Height: =50
+            PaddingLeft: =10
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Tooltip: =ThisItem.NombrePrograma
+            Width: =230
+            X: =1115
+            Y: =50
+            ZIndex: =101
+
+        Lbl_NombreProducto_9 As label:
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Text: ="Próxima fecha de rollout"
+            Width: =230
+            X: =1122
+            Y: =10
+            ZIndex: =102
 
     Gp_CabeceraPortafolio_23 As group:
         Height: =5
