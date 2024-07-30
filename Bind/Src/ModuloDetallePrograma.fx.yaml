@@ -1,0 +1,58 @@
+ModuloDetallePrograma As screen:
+
+    DT_ListaIniciativas As dataTable.datatable:
+        BorderColor: =RGBA(139, 154, 159, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =554
+        Items: ='Dominio - Proyecto/Producto'
+        Width: =1017
+        X: =874
+        Y: =367
+        ZIndex: =26
+
+        "'Nombre Producto/Proyecto_Columna4' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nombre Producto/Proyecto"
+            FieldName: ="Nombre_x0020_Producto_x002f_Proy"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.'Nombre Producto/Proyecto'
+            Width: =413
+            X: =0
+            Y: =0
+            ZIndex: =66
+
+        Estado_Iniciativa_Columna4 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Estado_Iniciativa"
+            FieldName: ="Estado_Iniciativa"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Estado_Iniciativa
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =67
+
+        FechaGolive_Columna4 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FechaGolive"
+            FieldName: ="FechaGolive"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.FechaGolive
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =68
+
