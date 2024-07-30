@@ -162,7 +162,7 @@ Component1 As CanvasComponent:
                     ThisItem.SubMenu = "Revisión Soportes Proveedores",
                     Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/81a5ba25-7259-43ba-96f4-6515fbc7f5d7?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=ee7d2627-f3f5-42a7-9a4a-7cd3ef0c4e55&sourcetime=1715082469080?Ventana=Soportes",Blank(),LaunchTarget.Replace),
                     ThisItem.SubMenu = "Ingreso necesidades WM Tech",
-                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/2215f5b6-dcb8-4aa2-9a43-298973dffd6c?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=88c60d84-a627-4ead-924d-84fcfffcce4b&sourcetime=1722369941336&source=portal",Blank(),LaunchTarget.Replace)
+                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/2215f5b6-dcb8-4aa2-9a43-298973dffd6c?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=88c60d84-a627-4ead-924d-84fcfffcce4b&sourcetime=1722369941336&source=portal")
                     ),
                     /* FIn de opciones administrar */
                 
