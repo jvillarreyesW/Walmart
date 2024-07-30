@@ -761,7 +761,7 @@ ModuloPersonaV2 As screen:
             Width: =125
             X: =768
             Y: =20
-            ZIndex: =6
+            ZIndex: =5
 
         Dtp_FechaIngreso_4 As datepicker:
             BorderColor: =
@@ -789,7 +789,7 @@ ModuloPersonaV2 As screen:
             Width: =140
             X: =904
             Y: =20
-            ZIndex: =7
+            ZIndex: =6
 
         Separator_6 As rectangle:
             Height: =50
@@ -797,7 +797,7 @@ ModuloPersonaV2 As screen:
             Width: =1
             X: =390
             Y: =15
-            ZIndex: =8
+            ZIndex: =7
 
         Separator_7 As rectangle:
             Height: =50
@@ -806,7 +806,7 @@ ModuloPersonaV2 As screen:
             X: =763
             Y: |
                 =5+10
-            ZIndex: =9
+            ZIndex: =8
 
         Separator_8 As rectangle:
             Height: =50
@@ -815,7 +815,7 @@ ModuloPersonaV2 As screen:
             X: =897
             Y: |
                 =5+10
-            ZIndex: =10
+            ZIndex: =9
 
         Separator_9 As rectangle:
             Height: =50
@@ -823,7 +823,7 @@ ModuloPersonaV2 As screen:
             Width: =1
             X: =1057
             Y: =10+5
-            ZIndex: =11
+            ZIndex: =10
 
         Separator_11 As rectangle:
             Height: =50
@@ -831,7 +831,7 @@ ModuloPersonaV2 As screen:
             Width: =1
             X: =1218
             Y: =15
-            ZIndex: =14
+            ZIndex: =11
 
         Cmb_Rol_4 As dropdown:
             BorderColor: =
@@ -861,7 +861,7 @@ ModuloPersonaV2 As screen:
             Width: =283
             X: =1233
             Y: =15
-            ZIndex: =15
+            ZIndex: =12
 
         "TextInputCanvas1_1 As 'Text input'":
             DisplayMode: =DisplayMode.Edit
@@ -873,7 +873,7 @@ ModuloPersonaV2 As screen:
             Width: =300
             X: =77
             Y: =20
-            ZIndex: =21
+            ZIndex: =13
 
         Cmb_Rol_5 As dropdown:
             BorderColor: =
@@ -903,33 +903,18 @@ ModuloPersonaV2 As screen:
             Width: =153
             X: =1064
             Y: =16
-            ZIndex: =22
-
-        Label12_4 As label:
-            Align: =Align.Center
-            Height: =18
-            OnSelect: =Select(Parent)
-            Text: |-
-                =    If(ThisItem.Editando,
-                    "Externo",
-                    If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')),
-                    "Externo",
-                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
-                    )
-                    )
-            Visible: =false
-            Width: =130
-            X: =1600
-            ZIndex: =23
+            ZIndex: =14
 
         Label6 As label:
+            Height: =34
             OnSelect: =Select(Parent)
             Text: |-
                 =Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result
             Visible: =false
-            X: =315
-            Y: =34
-            ZIndex: =24
+            Width: =128
+            X: =307
+            Y: =40
+            ZIndex: =15
 
         Dpd_Empresa_5 As combobox:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -942,10 +927,15 @@ ModuloPersonaV2 As screen:
             DefaultSelectedItems: |-
                 =If(Label12_4.Text="Interno",Filter(Lst_Proveedores,ID=93),
                 If(
-                    IsBlank(ThisItem.Jefe_Directo)&&IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)),
+                    !IsBlank(ThisItem.Jefe_Directo),
                     Filter(Lst_Proveedores,ID=Value(ThisItem.ID_Proveedor)),
-                    Filter(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)))
+                    
+                    If(
+                        !IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)),
+                        Filter(Lst_Proveedores,ID=Value(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor))),
+                        Blank())
                 ))
+                //Value(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),ID_Proveedor)))
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(255, 255, 255, 1)
             DisplayFields: =["Razon_Social"]
@@ -958,12 +948,13 @@ ModuloPersonaV2 As screen:
             Width: =350
             X: =398
             Y: =20
-            ZIndex: =26
+            ZIndex: =16
 
         Label14_1 As button:
             DisplayMode: |-
-                =If(
-                    (If(ThisItem.Tipo_Usuario="Manual",IsBlank(TextInputCanvas1_1),IsBlank(Cmb_BuscarPersona_6.Selected.Claims))||
+                =
+                If(
+                    (If(ThisItem.Tipo_Usuario="Manual",IsBlank(TextInputCanvas1_1.Value),IsBlank(Cmb_BuscarPersona_6.Selected.DisplayName))||
                 IsBlank(Dpd_Empresa_5.Selected.ID)||
                 IsBlank(Dtp_FechaIngreso_4.SelectedDate)||
                 IsBlank(TextInputCanvas1_1.Value))||Label12_4.Text="Interno",
@@ -973,20 +964,12 @@ ModuloPersonaV2 As screen:
             OnSelect: |-
                 =Switch(
                     Label14_1.Text,
-                    "Modificar",RGBA(54, 176, 75, 1),
-                    "Agregar Usuario",
-                    
-                    //-------------------------------------------------
-                
-                    /*Mostrar Spinner Cargando*/
+                    "Modificar",
+                     /*Mostrar Spinner Cargando*/
                 Set(_VarMostrarCargando,true);
                     Patch(
                         Lst_Persona,
-                            If( 
-                                IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
-                                    Defaults(Lst_Persona),
-                                    LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))
-                            ),
+                            ThisItem,
                             {
                                 GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
                                 GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
@@ -1003,7 +986,7 @@ ModuloPersonaV2 As screen:
                                 Rol: Cmb_Rol_4.Selected.Roles,
                                 Estado: "Activo",
                                 'Considera Head Count':{Value:"NO"},
-                                Usuario: If(ThisItem.Editando, ThisItem.Usuario,Upper(Label6.Text)),
+                                Usuario: If(ThisItem.Tipo_Usuario="Manual", ThisItem.Usuario,Upper(Label6.Text)),
                                 Categoria: ThisItem.Categoria
                             }
                     );
@@ -1031,7 +1014,73 @@ ModuloPersonaV2 As screen:
                                 Rol: Cmb_Rol_4.Selected.Roles,
                                 Estado: "Activo",
                                 'Considera Head Count':{Value:"NO"},
-                                Usuario: If(ThisItem.Editando, "aleatorio",Upper(Label6.Text)),
+                                Usuario: If(ThisItem.Tipo_Usuario="Manual", ThisItem.Usuario,Upper(Label6.Text)),
+                                Categoria: ThisItem.Categoria  
+                            }
+                    );
+                    Set(_VarMostrarCargando,false)
+                
+                    //--------------------------------------------------
+                    
+                    ,
+                    "Agregar Usuario",
+                    
+                    //-------------------------------------------------
+                
+                    /*Mostrar Spinner Cargando*/
+                Set(_VarMostrarCargando,true);
+                    Patch(
+                        Lst_Persona,
+                            If( 
+                                IsBlank(LookUp(Lst_Persona, Usuario = Upper(ThisItem.Usuario))),
+                                    Defaults(Lst_Persona),
+                                    LookUp(Lst_Persona, Usuario = Upper(ThisItem.Usuario))
+                            ),
+                            {
+                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
+                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
+                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
+                                Nombre_Persona: TextInputCanvas1_1.Value,
+                                RUT: Txt_Rut_4.Text,
+                                'Interno/Externo': "Externo",
+                                Jefe_Directo: _VarUsuarioJefe,
+                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
+                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
+                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
+                                'Ubicación Laboral': Cmb_Rol_5.Selected,
+                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
+                                Rol: Cmb_Rol_4.Selected.Roles,
+                                Estado: "Activo",
+                                'Considera Head Count':{Value:"NO"},
+                                Usuario: If(ThisItem.Tipo_Usuario="Manual", ThisItem.Usuario,Upper(Label6.Text)),
+                                Categoria: ThisItem.Categoria
+                            }
+                    );
+                    If( 
+                        IsBlank(LookUp(Lst_Persona, Usuario = Upper(_var_PersonaSeleccionada.Usuario))),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|Se agrega a: "& TextInputCanvas1_1.Value),
+                        Set(Var_BitacoraCambios,Var_BitacoraCambios&"|se modifica a: "& TextInputCanvas1_1.Value)
+                        );
+                    Patch(
+                        Col_MiEquipoWalmart,
+                            ThisItem,
+                            {
+                                GerenciaOrigen_0: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_0),
+                                GerenciaOrigen_1: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen_1),
+                                GerenciaOrigen: LookUp(Lst_Persona, Usuario = _VarUsuarioJefe, GerenciaOrigen), 
+                                Nombre_Persona: TextInputCanvas1_1.Value,
+                                RUT: Txt_Rut_4.Text,
+                                'Interno/Externo': "Externo",
+                                Jefe_Directo: _VarUsuarioJefe,
+                                ID_Proveedor: Dpd_Empresa_5.Selected.ID,
+                                Empresa:Dpd_Empresa_5.Selected.Razon_Social_Proveedor, 
+                                'Fecha de Ingreso': Dtp_FechaIngreso_4.SelectedDate,
+                                'Ubicación Laboral': Cmb_Rol_5.Selected,
+                                'Correo Electrónico': Cmb_BuscarPersona_6.Selected.Email,
+                                Rol: Cmb_Rol_4.Selected.Roles,
+                                Estado: "Activo",
+                                'Considera Head Count':{Value:"NO"},
+                                Usuario: If(ThisItem.Tipo_Usuario="Manual",ThisItem.Usuario,Upper(Label6.Text)),
                                 Categoria: ThisItem.Categoria  
                             }
                     );
@@ -1042,9 +1091,9 @@ ModuloPersonaV2 As screen:
                     ,
                     "Dar de baja",UpdateContext({var_ModalDardeBaja:true}),
                     "Cambiar Jefatura",UpdateContext({var_ModalCambioJefatura:true}),
-                    RGBA(0, 0, 0, 1)
+                    Set(_var_PersonaSeleccionada,ThisItem)
                 );
-                Set(_var_PersonaSeleccionada,ThisItem);
+                Set(_var_PersonaSeleccionada,ThisItem)
             RadiusBottomLeft: =0
             RadiusBottomRight: =20
             RadiusTopLeft: =0
@@ -1072,7 +1121,7 @@ ModuloPersonaV2 As screen:
             Width: =218
             X: =1527
             Y: =7
-            ZIndex: =27
+            ZIndex: =17
 
         Icon11 As icon.Trash:
             Color: =RGBA(255, 0, 0, 1)
@@ -1083,7 +1132,24 @@ ModuloPersonaV2 As screen:
             Width: =36
             X: =1751
             Y: =13
-            ZIndex: =28
+            ZIndex: =18
+
+        Label12_4 As label:
+            Align: =Align.Center
+            Height: =20
+            OnSelect: =Select(Parent)
+            Text: |-
+                =    If(ThisItem.Editando,
+                    "Externo",
+                    If(IsBlank(LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')),
+                    "Externo",
+                    LookUp(Col_BD_Persona, Usuario = Upper(Last(ForAll(Split(First(ForAll(Split(Cmb_BuscarPersona_6.Selected.Claims,"@"), {Result: ThisRecord.Value})).Result,"|"), {Result: ThisRecord.Value})).Result),'Interno/Externo')
+                    )
+                    )
+            Visible: =false
+            Width: =130
+            X: =1595
+            ZIndex: =19
 
     Btn_AgregarExternos_3 As button:
         Fill: =RGBA(72, 163, 62, 1)
