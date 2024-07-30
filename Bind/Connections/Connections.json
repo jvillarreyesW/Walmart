@@ -40,29 +40,11 @@
           "Lst_Dominio": {
             "tableName": "f59f15c5-e56c-4bb1-917d-7bdabd0fa9c4"
           },
-          "Lst_Fcst_Datos": {
-            "tableName": "eee65971-c2f6-4e1b-b898-15da0349bd24"
-          },
-          "Lst_Fcst_MantenedorCeco": {
-            "tableName": "7498c795-0e0b-4e47-9d9a-2710da33fdf3"
-          },
-          "Lst_Fcst_MantenedorCuenta": {
-            "tableName": "25fc616a-9e91-424d-9c42-7d9a240dd94d"
-          },
           "LST_Fcst_MantenedorSemanas": {
             "tableName": "2dc365d8-0cd0-4598-bdf6-b478f869dd3c"
           },
           "Lst_Fcst_Responsable": {
             "tableName": "79b858f2-affc-4141-961d-6d227ac690d9"
-          },
-          "Lst_Fcst_Servicios": {
-            "tableName": "3bc8a9d9-81e2-4cda-8bcb-21348f4b3b7c"
-          },
-          "Lst_Fcst_ServiciosAsignados": {
-            "tableName": "a31e5d67-42d1-4eea-b851-8068eb8a9527"
-          },
-          "Lst_Fcst_TipoCambioSemana": {
-            "tableName": "662effbc-a115-4c27-89ca-cd8a4957d932"
           },
           "Lst_FinanciamientoNegocio": {
             "tableName": "0220e25d-5fa8-4bf7-964c-40b351b85f4a"
@@ -127,6 +109,9 @@
           "Lst_Plan_Soluciones": {
             "tableName": "323b0450-72ba-415d-bc97-eed382f925a2"
           },
+          "Lst_Programas_deIniciativas": {
+            "tableName": "8bce074a-c508-4fc9-9ac2-c19f740fe279"
+          },
           "Lst_Proveedores": {
             "tableName": "2064f440-029a-461d-91a9-88c9dc09c77a"
           },
@@ -189,19 +174,13 @@
       "Lst_Riesgos_Proyectos",
       "Lst_Historico_Riesgos_Proyectos",
       "Lst_log_usage",
-      "Lst_Fcst_ServiciosAsignados",
       "Lst_Fcst_Responsable",
       "Lst_Plan_Prioridad",
       "Lst_Plan_Objetivos",
       "Lst_Plan_Oportunidad",
       "Lst_Plan_KPI",
       "Lst_Plan_AvancesKPI",
-      "Lst_Fcst_Datos",
-      "Lst_Fcst_Servicios",
       "LST_Fcst_MantenedorSemanas",
-      "Lst_Fcst_MantenedorCuenta",
-      "Lst_Fcst_MantenedorCeco",
-      "Lst_Fcst_TipoCambioSemana",
       "Lst_SolicitudOrdenes",
       "Soporte / Requerimientos Slack",
       "Lst_Plan_Perfilamiento",
@@ -215,7 +194,8 @@
       "Lst_OrdenesEquipos",
       "Lst_ServicioCuentaCeco",
       "Lst_Proveedores",
-      "Lst_ConfirmacionManagersF30"
+      "Lst_ConfirmacionManagersF30",
+      "Lst_Programas_deIniciativas"
     ],
     "dependencies": {},
     "dependents": [

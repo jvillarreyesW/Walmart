@@ -1300,6 +1300,19 @@ Screen1 As screen:
             Y: =74
             ZIndex: =65
 
+    DataTable2 As dataTable.datatable:
+        BorderColor: =RGBA(139, 154, 159, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =554
+        Items: ='Dominio - Proyecto/Producto'
+        Width: =1017
+        X: =874
+        Y: =367
+        ZIndex: =26
+
     Gp_CabeceraPortafolio_22 As group:
         Height: =5
         Width: =5
