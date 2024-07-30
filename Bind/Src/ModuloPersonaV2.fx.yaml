@@ -490,7 +490,7 @@ ModuloPersonaV2 As screen:
             Y: =16
             ZIndex: =15
 
-        "TextInputCanvas1 As 'Text input'":
+        "TextInputCanvas1 As 'Entrada de texto'":
             DisplayMode: =DisplayMode.Edit
             Height: =40
             Placeholder: ="Nombre de nueva Persona"
@@ -863,7 +863,7 @@ ModuloPersonaV2 As screen:
             Y: =15
             ZIndex: =15
 
-        "TextInputCanvas1_1 As 'Text input'":
+        "TextInputCanvas1_1 As 'Entrada de texto'":
             DisplayMode: =DisplayMode.Edit
             FontSize: =18
             Height: =40

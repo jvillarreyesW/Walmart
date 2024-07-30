@@ -160,7 +160,9 @@ Component1 As CanvasComponent:
                     ThisItem.SubMenu = "Plan Tech 2024",
                     Navigate(ListadoIniciativas,ScreenTransition.Fade),
                     ThisItem.SubMenu = "Revisión Soportes Proveedores",
-                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/81a5ba25-7259-43ba-96f4-6515fbc7f5d7?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=ee7d2627-f3f5-42a7-9a4a-7cd3ef0c4e55&sourcetime=1715082469080?Ventana=Soportes",Blank(),LaunchTarget.Replace)
+                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/81a5ba25-7259-43ba-96f4-6515fbc7f5d7?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=ee7d2627-f3f5-42a7-9a4a-7cd3ef0c4e55&sourcetime=1715082469080?Ventana=Soportes",Blank(),LaunchTarget.Replace),
+                    ThisItem.SubMenu = "Ingreso necesidades WM Tech",
+                    Launch("https://apps.powerapps.com/play/e/default-3cbcc3d3-094d-4006-9849-0d11d61f484d/a/2215f5b6-dcb8-4aa2-9a43-298973dffd6c?tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d&hint=88c60d84-a627-4ead-924d-84fcfffcce4b&sourcetime=1722369941336&source=portal",Blank(),LaunchTarget.Replace)
                     ),
                     /* FIn de opciones administrar */
                 
@@ -210,7 +212,9 @@ Component1 As CanvasComponent:
                             ThisItem.SubMenu = "Equipos virtuales",
                             Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/e837a961-32fa-4621-aeb6-c60e8318fe96/ReportSectionde126829460e0b57911b?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
                             ThisItem.SubMenu = "Programa Glass",
-                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/5622a90a-0df0-4038-996b-0356e9feb3cc/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
+                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/5622a90a-0df0-4038-996b-0356e9feb3cc/ReportSection69c462cf957b600a1340?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi"),
+                            ThisItem.SubMenu = "Nuevas necesidades WM Tech",
+                            Launch("https://app.powerbi.com/groups/me/apps/e1290d0b-33c6-4038-bb60-8293995f520d/reports/b7c3378c-c755-416d-9f78-2509d9e89d1b/ReportSection9609a0e0c42bca902740?ctid=3cbcc3d3-094d-4006-9849-0d11d61f484d&experience=power-bi")
                                 
                 
                         )

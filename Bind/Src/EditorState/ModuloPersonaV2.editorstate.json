@@ -195,7 +195,7 @@
       "MetaDataIDKey": "",
       "Name": "Btn_AgregarExternos_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2956,7 +2956,7 @@
       "MetaDataIDKey": "",
       "Name": "Button12_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5250,7 +5250,7 @@
       "MetaDataIDKey": "",
       "Name": "Cmb_BuscarPersona_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 17,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5768,7 +5768,7 @@
       "MetaDataIDKey": "",
       "Name": "Cmb_BuscarPersona_6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7876,7 +7876,7 @@
       "MetaDataIDKey": "",
       "Name": "Dpd_Empresa_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9181,7 +9181,7 @@
       "MetaDataIDKey": "",
       "Name": "Dtp_FechaIngreso_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 17,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10230,7 +10230,7 @@
       "MetaDataIDKey": "",
       "Name": "Icon11",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14702,7 +14702,7 @@
       "MetaDataIDKey": "",
       "Name": "Label12_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16184,7 +16184,7 @@
       "MetaDataIDKey": "",
       "Name": "Label14_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18595,7 +18595,7 @@
       "MetaDataIDKey": "",
       "Name": "Label6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 18,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -21323,7 +21323,7 @@
       "MetaDataIDKey": "",
       "Name": "TextInput14_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -21843,7 +21843,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_BuscadorPersona_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22177,7 +22177,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_BuscadorPersona_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23349,7 +23349,7 @@
       "MetaDataIDKey": "",
       "Name": "Txt_Rut_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

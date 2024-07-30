@@ -312,7 +312,7 @@ Mantenedores As screen:
             Y: =122
             ZIndex: =23
 
-            CheckboxCanvas1 As Checkbox:
+            CheckboxCanvas1 As Casilla:
                 BasePaletteColor: =
                 CheckboxSize: =16
                 Checked: |-
@@ -371,7 +371,7 @@ Mantenedores As screen:
             Y: =122
             ZIndex: =25
 
-            CheckboxCanvas1_1 As Checkbox:
+            CheckboxCanvas1_1 As Casilla:
                 BasePaletteColor: =
                 CheckboxSize: =16
                 Checked: |-
@@ -429,7 +429,7 @@ Mantenedores As screen:
             Y: =119
             ZIndex: =27
 
-            CheckboxCanvas1_2 As Checkbox:
+            CheckboxCanvas1_2 As Casilla:
                 BasePaletteColor: =
                 CheckboxSize: =16
                 Checked: |-
@@ -472,7 +472,7 @@ Mantenedores As screen:
             Y: =99
             ZIndex: =29
 
-        Chk_Administrar As Checkbox:
+        Chk_Administrar As Casilla:
             BasePaletteColor: =
             CheckboxSize: =16
             Checked: =false
@@ -494,7 +494,7 @@ Mantenedores As screen:
             Y: =90
             ZIndex: =30
 
-        Chk_Dashboard As Checkbox:
+        Chk_Dashboard As Casilla:
             BasePaletteColor: =
             CheckboxSize: =16
             DisplayMode: =DisplayMode.Edit
@@ -515,7 +515,7 @@ Mantenedores As screen:
             Y: =90
             ZIndex: =31
 
-        Chk_Ayuda As Checkbox:
+        Chk_Ayuda As Casilla:
             BasePaletteColor: =
             CheckboxSize: =16
             DisplayMode: =DisplayMode.Edit
@@ -590,14 +590,6 @@ Mantenedores As screen:
                     ClearCollect(Col_BD_OA,'Necesidades Walmart Tech'),
                     ClearCollect(Col_BD_KPIs,'Outcome - Galería Indice Producto/Métrica'),
                     ClearCollect(Col_BD_DetalleKPIs,OUTCOME),
-                    ClearCollect(Col_BD_Fcst_Responsable, Lst_Fcst_Responsable),
-                    ClearCollect(Col_BD_Fcst_Servicios, Lst_Fcst_Servicios),
-                    ClearCollect(Col_BD_Fcst_ServAsignados, Lst_Fcst_ServiciosAsignados),
-                    ClearCollect(Col_BD_Fcst_Datos, Lst_Fcst_Datos),
-                    ClearCollect(Col_BD_Fcst_Cuenta, Lst_Fcst_MantenedorCuenta),
-                    ClearCollect(Col_BD_Fcst_Ceco, Lst_Fcst_MantenedorCeco),
-                    ClearCollect(Col_BD_Fcst_Semanas, LST_Fcst_MantenedorSemanas),
-                    ClearCollect(Col_BD_Fcst_TCSemanas, Lst_Fcst_TipoCambioSemana),
                     ClearCollect(Col_BD_FCST_ServicioCuentaCeco, Lst_ServicioCuentaCeco),
                     ClearCollect(Col_MenuBind,Lst_MenuBind),
                     /* PERMISO MODULO EQUIPO VIRTUALES */
@@ -1918,7 +1910,7 @@ Mantenedores As screen:
                     Perfilamiento,
                     LookUp(Perfilamiento, ID = UsePer.ID),
                     {
-                        PermisosMenu:UsePer.PermisosMenu &",98"
+                        PermisosMenu:UsePer.PermisosMenu &",100,101"
                     }
                 )
             )
