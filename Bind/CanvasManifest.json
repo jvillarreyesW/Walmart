@@ -132,7 +132,7 @@
     "PublishDataLocally": false,
     "PublishResourcesLocally": false,
     "PublishTarget": "player",
-    "UserLocale": "en-US"
+    "UserLocale": "es-ES"
   },
   "ScreenOrder": [
     "Portada",
@@ -162,6 +162,7 @@
     "ModuloPersonaV1",
     "ModuloEquipoV1",
     "ModuloGestionEquipoV1",
-    "ModuloPersonaV2"
+    "ModuloPersonaV2",
+    "Screen1"
   ]
 }

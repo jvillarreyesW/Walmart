@@ -13,6 +13,21 @@
     "OverridableProperties": {},
     "Version": "2.2.1"
   },
+  "Alternancia": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Toggle",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Toggle",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Alternancia",
+    "Version": "1.1.0"
+  },
   "appinfo": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -69,6 +84,21 @@
     "OverridableProperties": {},
     "Version": "2.3.0"
   },
+  "Botón de información": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_InfoButtonCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_InfoButtonCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Botón de información",
+    "Version": "0.0.31"
+  },
   "button": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -83,6 +113,21 @@
     "OverridableProperties": {},
     "Version": "2.2.0"
   },
+  "Casilla": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_CheckboxCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_CheckboxCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Casilla",
+    "Version": "0.0.24"
+  },
   "checkbox": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -96,21 +141,6 @@
     "Name": "checkbox",
     "OverridableProperties": {},
     "Version": "2.1.0"
-  },
-  "Checkbox": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_CheckboxCanvas",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_CheckboxCanvas",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Checkbox",
-    "Version": "0.0.24"
   },
   "combobox": {
     "CustomGroupControlTemplateName": "",
@@ -182,6 +212,21 @@
     "OverridableProperties": {},
     "Version": "2.6.0"
   },
+  "Desplegable": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_DropdownCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_DropdownCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Desplegable",
+    "Version": "0.0.41"
+  },
   "dropdown": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -196,20 +241,20 @@
     "OverridableProperties": {},
     "Version": "2.3.1"
   },
-  "Dropdown": {
+  "Entrada de texto": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_DropdownCanvas",
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TextInputCanvas",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_DropdownCanvas",
+    "Name": "PowerApps_CoreControls_TextInputCanvas",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Dropdown",
-    "Version": "0.0.41"
+    "TemplateDisplayName": "Entrada de texto",
+    "Version": "0.0.39"
   },
   "fluidGrid": {
     "CustomGroupControlTemplateName": "",
@@ -352,20 +397,20 @@
     "OverridableProperties": {},
     "Version": "2.2.3"
   },
-  "Information button": {
+  "Indicador giratorio": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_InfoButtonCanvas",
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Spinner",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_InfoButtonCanvas",
+    "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Information button",
-    "Version": "0.0.31"
+    "TemplateDisplayName": "Indicador giratorio",
+    "Version": "1.4.1"
   },
   "label": {
     "CustomGroupControlTemplateName": "",
@@ -437,21 +482,6 @@
     "OverridableProperties": {},
     "Version": "1.0"
   },
-  "Spinner": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Spinner",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_Spinner",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Spinner",
-    "Version": "1.4.1"
-  },
   "TestCase": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -494,7 +524,7 @@
     "OverridableProperties": {},
     "Version": "2.3.2"
   },
-  "Text": {
+  "Texto": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
     "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TextCanvas",
@@ -506,22 +536,7 @@
     "LastModifiedTimestamp": "0",
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Text",
-    "Version": "0.0.39"
-  },
-  "Text input": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TextInputCanvas",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_TextInputCanvas",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Text input",
+    "TemplateDisplayName": "Texto",
     "Version": "0.0.39"
   },
   "timer": {
@@ -537,21 +552,6 @@
     "Name": "timer",
     "OverridableProperties": {},
     "Version": "2.1.0"
-  },
-  "Toggle": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Toggle",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_Toggle",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Toggle",
-    "Version": "1.1.0"
   },
   "toggleSwitch": {
     "CustomGroupControlTemplateName": "",

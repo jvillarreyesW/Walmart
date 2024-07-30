@@ -510,7 +510,7 @@ ModuloPersonaV2 As screen:
             Y: =Image1_2.Y
             ZIndex: =20
 
-        "TextInputCanvas1 As 'Text input'":
+        "TextInputCanvas1 As 'Entrada de texto'":
             DisplayMode: =DisplayMode.Edit
             Height: =40
             Placeholder: ="Nombre de nueva Persona"
@@ -611,7 +611,7 @@ ModuloPersonaV2 As screen:
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PressedFill: =RGBA(0, 121, 187, 1)
         SearchFields: =["Razon_Social"]
-        SearchItems: =Search(SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending),Cmb_BuscarPersona_5.SearchText,Razon_Social)
+        SearchItems: =Search(SortByColumns(Lst_Proveedores,"Razon_Social",SortOrder.Ascending),Cmb_BuscarPersona_5.SearchText,Razon_Social_Proveedor)
         SelectionFill: =RGBA(0, 121, 187, 1)
         SelectMultiple: =false
         Size: =15
@@ -1025,7 +1025,7 @@ ModuloPersonaV2 As screen:
             Y: =15
             ZIndex: =18
 
-        "TextInputCanvas1_1 As 'Text input'":
+        "TextInputCanvas1_1 As 'Entrada de texto'":
             DisplayMode: =DisplayMode.Edit
             FontSize: =18
             Height: =40

@@ -438,14 +438,14 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Checkbox",
+  "Name": "Casilla",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Label for screen readers.",
+      "Description": "Etiqueta para los lectores de pantalla.",
       "DescriptionResourceString": "CheckboxCanvas_AccessibleLabel_Desc",
-      "DisplayName": "Accessible label",
+      "DisplayName": "Etiqueta accesible",
       "DisplayNameResourceString": "CheckboxCanvas_AccessibleLabel",
       "EnumValues": [],
       "HelperUI": null,
@@ -471,9 +471,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Whether the checkbox is checked.",
+      "Description": "Indica si la casilla está activada.",
       "DescriptionResourceString": "CheckboxCanvas_Checked_Desc",
-      "DisplayName": "Checked",
+      "DisplayName": "Activado",
       "DisplayNameResourceString": "CheckboxCanvas_Checked",
       "EnumValues": [],
       "HelperUI": null,
@@ -498,10 +498,10 @@
     },
     {
       "Category": "data",
-      "DefaultValue": "Checkbox",
-      "Description": "Purpose of the checkbox.",
+      "DefaultValue": "Casilla",
+      "Description": "Finalidad de la casilla.",
       "DescriptionResourceString": "CheckboxCanvas_Label_Desc",
-      "DisplayName": "Label",
+      "DisplayName": "Etiqueta",
       "DisplayNameResourceString": "CheckboxCanvas_Label",
       "EnumValues": [],
       "HelperUI": null,
@@ -527,9 +527,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Choose a color palette that's different from the theme.",
+      "Description": "Elija una paleta de colores que sea diferente del tema.",
       "DescriptionResourceString": "Base_Palette_Color_description",
-      "DisplayName": "Color palette",
+      "DisplayName": "Paleta de colores",
       "DisplayNameResourceString": "Base_Palette_Color",
       "EnumValues": [],
       "HelperUI": null,
@@ -555,9 +555,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The name of the family of fonts in which text appears",
+      "Description": "El nombre de la familia de fuentes en la que aparece el texto",
       "DescriptionResourceString": "Font_description",
-      "DisplayName": "Font",
+      "DisplayName": "Fuente",
       "DisplayNameResourceString": "Font",
       "EnumValues": [],
       "HelperUI": null,
@@ -583,9 +583,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Set the font size for displayed text.",
+      "Description": "Establezca el tamaño de fuente para el texto mostrado.",
       "DescriptionResourceString": "Font_Size_description",
-      "DisplayName": "Font size",
+      "DisplayName": "Tamaño de fuente",
       "DisplayNameResourceString": "Font_Size",
       "EnumValues": [],
       "HelperUI": null,
@@ -611,9 +611,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The color of text in the control",
+      "Description": "El color del texto del control",
       "DescriptionResourceString": "Font_Color_description",
-      "DisplayName": "Font color",
+      "DisplayName": "Color de fuente",
       "DisplayNameResourceString": "Font_Color",
       "EnumValues": [],
       "HelperUI": "color",
@@ -639,9 +639,9 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "The weight of the text in a control",
+      "Description": "El grosor del texto de un control",
       "DescriptionResourceString": "Font_Weight_description",
-      "DisplayName": "Font weight",
+      "DisplayName": "Espesor de la fuente",
       "DisplayNameResourceString": "Font_Weight",
       "EnumValues": [],
       "HelperUI": null,
@@ -667,9 +667,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Italic",
+      "Description": "Cursiva",
       "DescriptionResourceString": "Italic",
-      "DisplayName": "Italic",
+      "DisplayName": "Cursiva",
       "DisplayNameResourceString": "Italic",
       "EnumValues": [],
       "HelperUI": null,
@@ -695,9 +695,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Underline",
+      "Description": "Subrayado",
       "DescriptionResourceString": "Underline",
-      "DisplayName": "Underline",
+      "DisplayName": "Subrayado",
       "DisplayNameResourceString": "Underline",
       "EnumValues": [],
       "HelperUI": null,
@@ -723,9 +723,9 @@
     {
       "Category": "data",
       "DefaultValue": "false",
-      "Description": "Strikethrough",
+      "Description": "Tachado",
       "DescriptionResourceString": "Strikethrough",
-      "DisplayName": "Strikethrough",
+      "DisplayName": "Tachado",
       "DisplayNameResourceString": "Strikethrough",
       "EnumValues": [],
       "HelperUI": null,
@@ -915,7 +915,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.CheckboxCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.CheckboxCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Checked\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"false\"},\"Label\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Checkbox\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"CheckboxSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"16\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":{\"OnCheck\":{\"EventName\":\"OnCheck\"},\"OnUncheck\":{\"EventName\":\"OnUncheck\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.CheckboxCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.CheckboxCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Checked\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"false\"},\"Label\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Casilla\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"CheckboxSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"16\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":{\"OnCheck\":{\"EventName\":\"OnCheck\"},\"OnUncheck\":{\"EventName\":\"OnUncheck\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
@@ -1265,7 +1265,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"CheckboxCanvas\":\"Checkbox\",\"CheckboxCanvas_AccessibleLabel\":\"Accessible label\",\"CheckboxCanvas_AccessibleLabel_Desc\":\"Label for screen readers.\",\"CheckboxCanvas_Checked\":\"Checked\",\"CheckboxCanvas_Checked_Desc\":\"Whether the checkbox is checked.\",\"CheckboxCanvas_Desc\":\"Switch between two mutually exclusive options.\",\"CheckboxCanvas_Label\":\"Label\",\"CheckboxCanvas_Label_Desc\":\"Purpose of the checkbox.\",\"CheckboxCanvas_OnCheck\":\"OnCheck\",\"CheckboxCanvas_OnUncheck\":\"OnUncheck\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\",\"CheckboxSize\":\"Checkbox size\",\"CheckboxSize_Description\":\"The size in pixels for the checkbox.\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"CheckboxCanvas\":\"Casilla\",\"CheckboxCanvas_AccessibleLabel\":\"Etiqueta accesible\",\"CheckboxCanvas_AccessibleLabel_Desc\":\"Etiqueta para los lectores de pantalla.\",\"CheckboxCanvas_Checked\":\"Activado\",\"CheckboxCanvas_Checked_Desc\":\"Indica si la casilla está activada.\",\"CheckboxCanvas_Desc\":\"Cambie entre dos opciones que se excluyen mutuamente.\",\"CheckboxCanvas_Label\":\"Etiqueta\",\"CheckboxCanvas_Label_Desc\":\"Finalidad de la casilla.\",\"CheckboxCanvas_OnCheck\":\"OnCheck\",\"CheckboxCanvas_OnUncheck\":\"OnUncheck\",\"Base_Palette_Color\":\"Paleta de colores\",\"Base_Palette_Color_description\":\"Elija una paleta de colores que sea diferente del tema.\",\"Font_Size\":\"Tamaño de fuente\",\"Font_Size_description\":\"Establezca el tamaño de fuente para el texto mostrado.\",\"Font\":\"Fuente\",\"Font_description\":\"El nombre de la familia de fuentes en la que aparece el texto\",\"Font_Color\":\"Color de fuente\",\"Font_Color_description\":\"El color del texto del control\",\"Font_Weight\":\"Espesor de la fuente\",\"Font_Weight_description\":\"El grosor del texto de un control\",\"Italic\":\"Cursiva\",\"Underline\":\"Subrayado\",\"Strikethrough\":\"Tachado\",\"CheckboxSize\":\"Checkbox size\",\"CheckboxSize_Description\":\"The size in pixels for the checkbox.\"}}}",
       "Type": 3
     },
     {
