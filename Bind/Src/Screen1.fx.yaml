@@ -1313,6 +1313,1000 @@ Screen1 As screen:
         Y: =367
         ZIndex: =26
 
+        Title_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Title"
+            FieldName: ="Title"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.Title
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =66
+
+        "'Categoría Iniciativa_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Categoría Iniciativa"
+            FieldName: ="Categor_x00ed_a_x0020_Iniciativa"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.'Categoría Iniciativa'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =67
+
+        Dominio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Dominio"
+            FieldName: ="Dominio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Dominio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =68
+
+        "'Nombre Producto/Proyecto_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nombre Producto/Proyecto"
+            FieldName: ="Nombre_x0020_Producto_x002f_Proy"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.'Nombre Producto/Proyecto'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =69
+
+        "'Proviene de OA_Column1' As dataTableColumn.booleanColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Proviene de OA"
+            FieldName: ="Proviene_x0020_de_x0020_OA"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.'Proviene de OA'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =70
+
+        "'Registrado en APM_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Registrado en APM"
+            FieldName: ="Registrado_x0020_en_x0020_APM"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.'Registrado en APM'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =71
+
+        "'Nombre APM_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nombre APM"
+            FieldName: ="Nombre_x0020_APM"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.'Nombre APM'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =72
+
+        "'Codigo APM_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Codigo APM"
+            FieldName: ="Codigo_x0020_APM"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.'Codigo APM'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =73
+
+        "'Nombre Necesidad_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nombre Necesidad"
+            FieldName: ="Nombre_x0020_Necesidad"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.'Nombre Necesidad'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =74
+
+        "'Leverage con WM Internacional (BTV)_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Leverage con WM Internacional (BTV)"
+            FieldName: ="Leverage_x0020_con_x0020_WM_x002"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.'Leverage con WM Internacional (BTV)'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =75
+
+        "'Codigo Jira_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Codigo Jira"
+            FieldName: ="Codigo_x0020_Jira"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.'Codigo Jira'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =76
+
+        Dominio_OA_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Dominio_OA"
+            FieldName: ="Dominio_OA"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.Dominio_OA
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =77
+
+        RequiereFinanciamiento_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="RequiereFinanciamiento"
+            FieldName: ="RequiereFinanciamiento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.RequiereFinanciamiento
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =78
+
+        Desc_Financiamiento_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Desc_Financiamiento"
+            FieldName: ="Desc_Financiamiento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.Desc_Financiamiento
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =79
+
+        IDProducto_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="IDProducto"
+            FieldName: ="IDProducto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.IDProducto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =80
+
+        IDDominio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="IDDominio"
+            FieldName: ="IDDominio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =16
+            Text: =ThisItem.IDDominio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =81
+
+        "'Responsable Tecnologia_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Responsable Tecnologia"
+            FieldName: ="ResponsableTecnologia"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =17
+            Text: =ThisItem.'Responsable Tecnologia'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =82
+
+        Estado_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Estado"
+            FieldName: ="Estado"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =18
+            Text: =ThisItem.Estado
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =83
+
+        "'Bring Buy Build_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Bring Buy Build"
+            FieldName: ="BringBuyBuild"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =19
+            Text: =ThisItem.'Bring Buy Build'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =84
+
+        IDEquipo_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="IDEquipo"
+            FieldName: ="IDEquipo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =20
+            Text: =ThisItem.IDEquipo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =85
+
+        Editando_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Editando"
+            FieldName: ="Editando"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =21
+            Text: =ThisItem.Editando
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =86
+
+        LabelJira_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="LabelJira"
+            FieldName: ="LabelJira"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =22
+            Text: =ThisItem.LabelJira
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =87
+
+        ID_Responsable_Tecnologia_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_Responsable_Tecnologia"
+            FieldName: ="ID_Responsable_Tecnologia"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =23
+            Text: =ThisItem.ID_Responsable_Tecnologia
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =88
+
+        ID_Jefe_Poyecto_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_Jefe_Poyecto"
+            FieldName: ="ID_Jefe_Poyecto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =24
+            Text: =ThisItem.ID_Jefe_Poyecto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =89
+
+        IDSubDominio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="IDSubDominio"
+            FieldName: ="IDSubDominio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =25
+            Text: =ThisItem.IDSubDominio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =90
+
+        BigRock_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="BigRock"
+            FieldName: ="BigRock"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =26
+            Text: =ThisItem.BigRock
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =91
+
+        DATA_tipoServicio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_tipoServicio"
+            FieldName: ="DATA_tipoServicio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =27
+            Text: =ThisItem.DATA_tipoServicio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =92
+
+        DATA_descripcion_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_descripcion"
+            FieldName: ="DATA_descripcion"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =28
+            Text: =ThisItem.DATA_descripcion
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =93
+
+        DATA_epicLink_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_epicLink"
+            FieldName: ="DATA_epicLink"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =29
+            Text: =ThisItem.DATA_epicLink
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =94
+
+        DATA_ImpactoTech_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_ImpactoTech"
+            FieldName: ="DATA_ImpactoTech"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =30
+            Text: =ThisItem.DATA_ImpactoTech
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =95
+
+        DATA_Dominio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_Dominio"
+            FieldName: ="DATA_Dominio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =31
+            Text: =ThisItem.DATA_Dominio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =96
+
+        MatrizStakeholders_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="MatrizStakeholders"
+            FieldName: ="MatrizStakeholders"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =32
+            Text: =ThisItem.MatrizStakeholders
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =97
+
+        LinkDocumentario_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="LinkDocumentario"
+            FieldName: ="LinkDocumentario"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =33
+            Text: =ThisItem.LinkDocumentario
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =98
+
+        FechaGolive_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FechaGolive"
+            FieldName: ="FechaGolive"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =34
+            Text: =ThisItem.FechaGolive
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =99
+
+        ComentariosGolive_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ComentariosGolive"
+            FieldName: ="ComentariosGolive"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =35
+            Text: =ThisItem.ComentariosGolive
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =100
+
+        ComoVamos_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ComoVamos"
+            FieldName: ="ComoVamos"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =36
+            Text: =ThisItem.ComoVamos
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =101
+
+        ID_ResponsableNegocio_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_ResponsableNegocio"
+            FieldName: ="ID_ResponsableNegocio"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =37
+            Text: =ThisItem.ID_ResponsableNegocio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =102
+
+        ID_Sponsor_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_Sponsor"
+            FieldName: ="ID_Sponsor"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =38
+            Text: =ThisItem.ID_Sponsor
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =103
+
+        ID_Ux_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_Ux"
+            FieldName: ="ID_Ux"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =39
+            Text: =ThisItem.ID_Ux
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =104
+
+        ID_Datos_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID_Datos"
+            FieldName: ="ID_Datos"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =40
+            Text: =ThisItem.ID_Datos
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =105
+
+        AreadeImpacto_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AreadeImpacto"
+            FieldName: ="AreadeImpacto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =41
+            Text: =ThisItem.AreadeImpacto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =106
+
+        DATA_Origen_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DATA_Origen"
+            FieldName: ="DATA_Origen"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =42
+            Text: =ThisItem.DATA_Origen
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =107
+
+        AplicaJefeProyecto_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AplicaJefeProyecto"
+            FieldName: ="AplicaJefeProyecto"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =43
+            Text: =ThisItem.AplicaJefeProyecto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =108
+
+        AplicaEM_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AplicaEM"
+            FieldName: ="AplicaEM"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =44
+            Text: =ThisItem.AplicaEM
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =109
+
+        AplicaNegocio_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AplicaNegocio"
+            FieldName: ="AplicaNegocio"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =45
+            Text: =ThisItem.AplicaNegocio
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =110
+
+        AplicaDatos_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AplicaDatos"
+            FieldName: ="AplicaDatos"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =46
+            Text: =ThisItem.AplicaDatos
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =111
+
+        AplicaUx_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="AplicaUx"
+            FieldName: ="AplicaUx"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =47
+            Text: =ThisItem.AplicaUx
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =112
+
+        TipoProyecto_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="TipoProyecto"
+            FieldName: ="TipoProyecto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =48
+            Text: =ThisItem.TipoProyecto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =113
+
+        Tamano_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tamano"
+            FieldName: ="Tamano"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =49
+            Text: =ThisItem.Tamano
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =114
+
+        Req_Multiples_Ordenes_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Req_Multiples_Ordenes"
+            FieldName: ="Req_Multiples_Ordenes"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =50
+            Text: =ThisItem.Req_Multiples_Ordenes
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =115
+
+        Categoria_ServTech_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Categoria_ServTech"
+            FieldName: ="Categoria_ServTech"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =51
+            Text: =ThisItem.Categoria_ServTech
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =116
+
+        FechaUltimoEstado_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FechaUltimoEstado"
+            FieldName: ="FechaUltimoEstado"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =52
+            Text: =ThisItem.FechaUltimoEstado
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =117
+
+        PlanRollOut_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="PlanRollOut"
+            FieldName: ="PlanRollOut"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =53
+            Text: =ThisItem.PlanRollOut
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =118
+
+        KpiRollOut_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="KpiRollOut"
+            FieldName: ="KpiRollOut"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =54
+            Text: =ThisItem.KpiRollOut
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =119
+
+        FechaInicioRollOut_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FechaInicioRollOut"
+            FieldName: ="FechaInicioRollOut"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =55
+            Text: =ThisItem.FechaInicioRollOut
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =120
+
+        FechaFinRollOut_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FechaFinRollOut"
+            FieldName: ="FechaFinRollOut"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =56
+            Text: =ThisItem.FechaFinRollOut
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =121
+
+        RegistrosRollOut_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="RegistrosRollOut"
+            FieldName: ="RegistrosRollOut"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =57
+            Text: =ThisItem.RegistrosRollOut
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =122
+
+        Iniciativa_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Iniciativa"
+            FieldName: ="Iniciativa"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =58
+            Text: =ThisItem.Iniciativa
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =123
+
+        Prioridad_Estrategica_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Prioridad_Estrategica"
+            FieldName: ="Prioridad_Estrategica"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =59
+            Text: =ThisItem.Prioridad_Estrategica
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =124
+
+        Objetivo_Estrategico_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Objetivo_Estrategico"
+            FieldName: ="Objetivo_Estrategico"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =60
+            Text: =ThisItem.Objetivo_Estrategico
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =125
+
+        Power_Opportunity_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Power_Opportunity"
+            FieldName: ="Power_Opportunity"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =61
+            Text: =ThisItem.Power_Opportunity.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =126
+
+        Descripcion_Proyecto_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Descripcion_Proyecto"
+            FieldName: ="Descripcion_Proyecto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =62
+            Text: =ThisItem.Descripcion_Proyecto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =127
+
+        Discovery_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Discovery"
+            FieldName: ="Discovery"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =63
+            Text: =ThisItem.Discovery
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =128
+
+        SGP_Column1 As dataTableColumn.booleanColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="SGP"
+            FieldName: ="SGP"
+            FieldVariantName: ="booleanColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =64
+            Text: =ThisItem.SGP
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =129
+
+        Tipo_Rollout_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo_Rollout"
+            FieldName: ="Tipo_Rollout"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =65
+            Text: =ThisItem.Tipo_Rollout.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =130
+
+        Estado_Iniciativa_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Estado_Iniciativa"
+            FieldName: ="Estado_Iniciativa"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =66
+            Text: =ThisItem.Estado_Iniciativa
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =131
+
+        IDViaje_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="IDViaje"
+            FieldName: ="IDViaje"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =67
+            Text: =ThisItem.IDViaje
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =132
+
+        Fecha_Finalizacion_Iniciativa_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fecha_Finalizacion_Iniciativa"
+            FieldName: ="Fecha_Finalizacion_Iniciativa"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =68
+            Text: =ThisItem.Fecha_Finalizacion_Iniciativa
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =133
+
+        GoliveRealizado_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="GoliveRealizado"
+            FieldName: ="GoliveRealizado"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =69
+            Text: =ThisItem.GoliveRealizado
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =134
+
+        ProgramaAsociado_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ProgramaAsociado"
+            FieldName: ="ProgramaAsociado"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =70
+            Text: =ThisItem.ProgramaAsociado
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =135
+
+        Attachments_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Attachments"
+            FieldName: ="{Attachments}"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =71
+            Text: =ThisItem.Attachments
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =136
+
     Gp_CabeceraPortafolio_22 As group:
         Height: =5
         Width: =5
