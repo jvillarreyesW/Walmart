@@ -121,7 +121,7 @@ App As appinfo:
                 Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
             ),
             Clear(Col_MenudelUsuario);
-            ClearCollect(Col_PermisoUsuarioMenu, Split("72,73,76,77,82,86,88,89,90,91,92,99",",")); // 62,63,64,67,94,72,73,76,77,82,86,88,89,90,91,92,66
+            ClearCollect(Col_PermisoUsuarioMenu, Split("72,73,76,77,82,86,88,89,90,91,92,99,100,101",",")); // 62,63,64,67,94,72,73,76,77,82,86,88,89,90,91,92,66
             ForAll(
                 Col_PermisoUsuarioMenu As ObtenerMenu,
                 Collect(Col_MenudelUsuario, Filter(Col_MenuBind, ID = Value(ObtenerMenu.Value)))
