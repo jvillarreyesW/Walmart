@@ -2,8 +2,8 @@
   "FormatVersion": "0.24",
   "Header": {
     "AnalysisOptions": {
-      "DataflowAnalysisEnabled": false,
-      "DataflowAnalysisFlagStateToggledByUser": false
+      "DataflowAnalysisEnabled": true,
+      "DataflowAnalysisFlagStateToggledByUser": true
     },
     "DocVersion": "1.342",
     "MinVersionToLoad": "1.331",
@@ -25,7 +25,7 @@
       "commentgeneratedformulasv2": false,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
-      "dataflowanalysisenabled": false,
+      "dataflowanalysisenabled": true,
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": true,
@@ -163,6 +163,7 @@
     "ModuloEquipoV1",
     "ModuloGestionEquipoV1",
     "ModuloPersonaV2",
-    "Screen1"
+    "ModuloListadoPrograma",
+    "ModuloDetallePrograma"
   ]
 }
