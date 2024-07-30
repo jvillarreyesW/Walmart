@@ -174,7 +174,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3367,
+        "PublishOrderIndex": 3384,
         "Rules": [
           {
             "Category": "Data",
@@ -504,7 +504,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3368,
+        "PublishOrderIndex": 3385,
         "Rules": [
           {
             "Category": "Data",
@@ -768,7 +768,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3369,
+        "PublishOrderIndex": 3386,
         "Rules": [
           {
             "Category": "Data",
@@ -968,7 +968,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3370,
+        "PublishOrderIndex": 3387,
         "Rules": [
           {
             "Category": "Data",
@@ -1188,7 +1188,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "AlertasBind",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3371,
+        "PublishOrderIndex": 3388,
         "Rules": [
           {
             "Category": "Data",
